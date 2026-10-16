@@ -1,0 +1,3283 @@
+{
+ "_meta": {
+  "descripcion": "Fuente única de datos de Jenny (sitio, conserje y portal). Generado a partir de jenny-arbol-faq.json (brief de rediseño, oct. 2026) con limpieza de textos del portafolio.",
+  "version": "2026-10-08",
+  "empresa": "Espontáneos Travel SAS",
+  "fuentes": [
+   "PCCC_Portafolio_2026 (Word): horarios, duración, incluye, observaciones",
+   "RECOMENDACIONES.docx (5 tours)",
+   "TARIFARIO MERCADO NACIONAL 2026 (planes, temporadas, niños)",
+   "Política de Sostenibilidad ET",
+   "Base de Conocimiento Chatbot - Espontáneos Travel (docx)"
+  ],
+  "regla_de_oro": "Campos null o POR_VALIDAR: Jenny NO inventa; responde 'te lo confirma un asesor' y pasa a WhatsApp.",
+  "precios": "El tarifario es NETO (agencias): nunca se muestra al público. La tarifa directa al viajero es mayor que la de agencia (se cuidan los canales de venta) y solo aparece dentro de la cotización con Jenny, siempre acompañada del beneficio por convenio que más le convenga (ver «convenios»). Fichas, tarjetas y páginas dicen «Cotiza con Jenny» en lugar del precio. PVP aprobado hoy: Tour Compartido Cocora + Salento. Las condiciones con tarifas o suplementos están fuera del repositorio (privado/) y se cargan al portal DMC.",
+  "horario": "fijo = hora(s) de recogida en el hotel; ventana = el viajero elige la hora de inicio dentro del rango; desde = a partir de esa hora; null = por confirmar con un asesor",
+  "recomendacion_fuente": "'documento ET' = texto oficial; 'propuesta (VALIDAR)' = redactada a partir del portafolio, pendiente de revisión de Carolina Toro",
+  "vigencia": 2026,
+  "vigencia_catalogo": 2027,
+  "nota_vigencia_catalogo": "Portafolio 2027. En el portal de agencias, las tarifas y condiciones 2026 aplican igual en 2027 (confirmado por gerencia, 16-oct-2026): el portal las muestra en 2027 mientras no se carguen tarifas 2027 propias. Las fichas nuevas aparecen como «tarifa en preparación» hasta cargar las suyas.",
+  "nota_vigencia": "Portafolio 2026, vigente hasta marzo de 2027 (VALIDAR fecha exacta), cuando entra el portafolio 2027. Para 2027: copiar este archivo como base, actualizar tours/planes/precios y cambiar vigencia y valida_hasta.",
+  "valida_hasta": "2027-03-31",
+  "portafolio_2027": "Catálogo 2027 cargado el 2026-10-16 desde FICHAS PORTAFOLIO 2027 (Excel). publico:false = solo agencias (bienestar, alto valor y bici, salvo Aguas termales y Cata de café). Los datos «solo agencias» (argumento completo, municipio del punto, menú, suplementos, impacto) no van en este archivo público."
+ },
+ "contacto": {
+  "whatsapp": "573187200023",
+  "whatsapp_display": "+57 318 720 0023",
+  "whatsapp_confirmado": "318 720 0023 confirmado el 8-oct-2026; la web anterior enlazaba a 318 730 0023",
+  "correo": "info@espontaneostravel.com",
+  "rnt": "91795",
+  "instagram": "https://www.instagram.com/espontaneostravel/",
+  "facebook": "https://www.facebook.com/espontaneostravel",
+  "web": "https://www.espontaneostravel.com",
+  "ubicacion": "Armenia, Quindío, Colombia",
+  "pagos": {
+   "titular": "Espontáneos Travel SAS (NIT 902.056.513)",
+   "bancolombia_ahorros": "756-000062-16",
+   "nequi_daviplata": "+57 317 645 6723",
+   "tarjeta_wompi": "https://checkout.wompi.co/l/VPOS_jV9h51",
+   "saldo_monedas": "COP, USD o EUR (el anticipo se paga por los medios de arriba)"
+  }
+ },
+ "aliados": {
+  "_como_llenar": "Logos de gremios y redes (franja 'Somos parte de' antes del pie). Solo se muestran los que tienen estado 'autorizado' y logo (archivo en assets/img/aliados/, PNG o SVG con fondo transparente). Confirmado por Mauricio (12-oct-2026): son asociados de ACOTUR, afiliados a la Cámara de Comercio de Armenia y del Quindío, autorizados por Rutas del PCC y afiliados al proyecto Paisaje Cordillerano. Logos tomados de los documentos oficiales (presentación ACOTUR, Manual de Buenas Prácticas); se muestran a todo color.",
+  "lista": [
+   {
+    "id": "acotur",
+    "nombre": "ACOTUR · Asociación Colombiana de Turismo Responsable",
+    "url": "https://www.acotur.co",
+    "logo": "assets/img/aliados/acotur.webp",
+    "estado": "autorizado"
+   },
+   {
+    "id": "camara",
+    "nombre": "Cámara de Comercio de Armenia y del Quindío",
+    "url": "https://www.camaraarmenia.org.co",
+    "logo": "assets/img/aliados/camara-comercio-armenia.webp",
+    "estado": "autorizado"
+   },
+   {
+    "id": "rutaspcc",
+    "nombre": "Rutas del Paisaje Cultural Cafetero",
+    "url": "https://www.rutasdelpaisajeculturalcafetero.com",
+    "logo": "assets/img/aliados/rutas-pcc.webp",
+    "estado": "autorizado"
+   },
+   {
+    "id": "cordillerano",
+    "nombre": "Paisaje Cordillerano",
+    "url": "",
+    "logo": "",
+    "estado": "autorizado",
+    "_falta": "archivo del logo"
+   }
+  ]
+ },
+ "resenas": {
+  "_como_llenar": "Datos del Perfil de Empresa de Google. calificacion: promedio (ej. 4.9; el sitio no muestra el número de reseñas); actualizado: AAAA-MM-DD; url_ver: enlace del perfil en Google Maps; url_escribir: enlace de 'Pedir reseñas' (https://g.page/r/…/review). destacadas: 3 a 6 reseñas públicas tal como están en Google, con el nombre como aparece allí (nombre + inicial). La sección del sitio se muestra sola cuando hay calificación.",
+  "fuente": "Google",
+  "calificacion": 5.0,
+  "actualizado": "2026-10-08",
+  "url_ver": "https://www.google.com/maps/search/?api=1&query=Espont%C3%A1neos%20Travel&query_place_id=ChIJceh06cj1OI4RQY5rYeJ7zrY",
+  "place_id": "ChIJceh06cj1OI4RQY5rYeJ7zrY",
+  "url_escribir": "https://search.google.com/local/writereview?placeid=ChIJceh06cj1OI4RQY5rYeJ7zrY",
+  "_nota_destacadas": "Textos tal como están en Google (8-oct-2026), sin fecha porque Google solo muestra 'hace un año'. La de Allen B. está cortada donde Google dice 'Más'.",
+  "destacadas": [
+   {
+    "nombre": "Virginia P.",
+    "estrellas": 5,
+    "idioma": "es",
+    "texto": "Carolina y Jairo fueron excelentes. Recomendamos mucho organizar un tour con Espontaneos Travel! Fueron muy amables, puntuales, profesionales y generosos en nuestra caminata por el Valle del Cocora."
+   },
+   {
+    "nombre": "Luis Eduardo M.",
+    "estrellas": 5,
+    "idioma": "es",
+    "texto": "Excelente servicio, la amabilidad del conductor guía es insuperable, muy atento y dispuesto para lo que necesitáramos o pidiéramos, carro muy confortable y amplio, a ojos cerrados los recomiendo….feliz y muy agradecido por el servicio prestado."
+   },
+   {
+    "nombre": "Allen B.",
+    "estrellas": 5,
+    "idioma": "en",
+    "texto": "My wife and I did several private tours with these folks and both were great. Planning and communication from the company were great and so were the interpreters and guides. …"
+   },
+   {
+    "nombre": "Josè Luis P.",
+    "estrellas": 5,
+    "idioma": "es",
+    "texto": "El eje cafetero es un lugar mágico, que te brinda la oportunidad de enriquecer tu espíritu, con paisajes, cultura y diversión. Gracias David por brindarnos una experiencia mágica con tus atenciones durante el recorrido"
+   },
+   {
+    "nombre": "Dora C.",
+    "estrellas": 5,
+    "idioma": "es",
+    "texto": "Excelente servicio!!! Restaurante, tours y guias"
+   },
+   {
+    "nombre": "Ingrid G.",
+    "estrellas": 5,
+    "idioma": "es",
+    "texto": "Amabilidad y cumplimiento en el servicio!"
+   }
+  ]
+ },
+ "convenios": {
+  "_como_llenar": "Beneficios por convenio que Jenny ofrece al VIAJERO DIRECTO cuando cotiza (las agencias tienen su tarifa neta en el portal; nunca se muestra aquí). Jenny aplica UNO solo, el que más le convenga al viajero (no son acumulables), y siempre dice que el valor lo confirma el equipo comercial: los porcentajes y el tope cambian mucho y se pactan directamente con gerencia comercial, por eso NO van en este archivo (es público). Jenny reconoce sola: combo (min_experiencias), grupo (min_personas) y entre semana (dias: 1 = lunes … 5 = viernes; los festivos de Colombia se excluyen solos). Hotel aliado y código de convenio: los confirma siempre el equipo comercial; Jenny solo los registra (hotel que escribió el viajero, enlace o QR por el que llegó ?src=, y el código) y los manda en el WhatsApp. vigencia_horas: el beneficio se mantiene si el viajero confirma su reserva dentro de ese plazo desde la cotización. activo: false apaga los beneficios y los mensajes de gancho.",
+  "activo": true,
+  "vigencia_horas": 24,
+  "lista": [
+   {
+    "id": "combo",
+    "min_experiencias": 2
+   },
+   {
+    "id": "grupo",
+    "min_personas": 6
+   },
+   {
+    "id": "entre_semana",
+    "dias": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "id": "aliado"
+   },
+   {
+    "id": "codigo"
+   }
+  ]
+ },
+ "general": {
+  "que_llevar": "Para disfrutar al máximo del Paisaje Cultural Cafetero lleva ropa muy cómoda, bloqueador solar, repelente, buena hidratación y tu documento de identidad a la mano. ☀️💧",
+  "no_incluye_siempre": "No incluye gastos no relacionados.",
+  "escnna": "Espontáneos Travel rechaza la explotación y el abuso sexual de niñas, niños y adolescentes (ESCNNA). Ley 679 de 2001 y Ley 1336 de 2009."
+ },
+ "arbol": [
+  {
+   "id": "saludo",
+   "jenny": "¡Hola! Soy Jenny, de Espontáneos Travel 🌿 ¿En qué te ayudo?",
+   "opciones": [
+    "empresa",
+    "horarios",
+    "duracion",
+    "que_incluye",
+    "que_llevar",
+    "precios",
+    "reservar",
+    "pagos",
+    "cancelacion",
+    "traslados",
+    "ninos_mayores",
+    "accesibilidad",
+    "idiomas",
+    "clima",
+    "temporadas",
+    "sostenibilidad",
+    "redes",
+    "asesor"
+   ]
+  },
+  {
+   "id": "horarios",
+   "pregunta_tipo": [
+    "¿a qué hora sale?",
+    "¿a qué hora es el tour?",
+    "horario"
+   ],
+   "paso1": "¿Qué experiencia? → lista de tours por categoría",
+   "respuesta": "Usa tours[].horario. fijo → 'Te recogemos en tu hotel a las {horas}'. ventana → 'Puedes iniciar entre {desde} y {hasta}; tú eliges la hora'. desde → 'Desde las {hora}'. null → asesor. Añade la nota clave si aplica.",
+   "salida": "reservar|asesor"
+  },
+  {
+   "id": "duracion",
+   "pregunta_tipo": [
+    "¿cuánto dura?",
+    "¿cuántas horas?"
+   ],
+   "paso1": "¿Qué experiencia?",
+   "respuesta": "{nombre} dura aprox. {duracion_horas} h desde la recogida en tu hotel.",
+   "salida": "horarios|reservar"
+  },
+  {
+   "id": "que_incluye",
+   "respuesta": "Lista tours[].incluye. Siempre: 'No incluye gastos no relacionados'.",
+   "salida": "precios|reservar"
+  },
+  {
+   "id": "que_llevar",
+   "respuesta": "Si el viajero eligió tour: muestra tours[].recomendacion. Si pregunta en general: general.que_llevar.",
+   "salida": "reservar"
+  },
+  {
+   "id": "precios",
+   "respuesta": "El valor depende del número de personas y de dónde te hospedas. Dime cuántas personas y la fecha y te cotizo.",
+   "accion": "recoger personas + fecha + hotel → WhatsApp",
+   "salida": "asesor"
+  },
+  {
+   "id": "reservar",
+   "pregunta_tipo": [
+    "¿cómo reservo?",
+    "¿qué necesito para reservar?"
+   ],
+   "pasos": [
+    "experiencia",
+    "n_personas",
+    "fecha",
+    "hotel_o_zona",
+    "idioma_guia"
+   ],
+   "respuesta": "¡Es muy sencillo! Para confirmar tu reserva necesitamos los nombres completos y documentos de identidad de los pasajeros, junto con el soporte de pago del anticipo. Al recibirlo te enviamos la confirmación formal de tu viaje. 🎒",
+   "anticipo": "50% para garantizar disponibilidad; saldo y fechas límite se informan en la cotización",
+   "accion": "Arma resumen y abre wa.me"
+  },
+  {
+   "id": "pagos",
+   "pregunta_tipo": [
+    "¿debo pagar todo por adelantado?",
+    "¿qué medios de pago aceptan?"
+   ],
+   "respuesta": "Para reservar pagas un anticipo del 50%. El saldo y las fechas límite van en tu cotización.\n\nMedios de pago, a nombre de Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia ahorros: 756-000062-16\n📱 Nequi o Daviplata: 317 645 6723\n💳 Tarjeta débito o crédito: botón de pago seguro Wompi\n\n💵 El saldo lo puedes pagar en pesos, dólares o euros.\n📩 Envíanos el comprobante por WhatsApp.\n⚠️ Solo usamos estos medios. Si alguien te pide pagar en otra cuenta, confírmalo antes con nosotros."
+  },
+  {
+   "id": "traslados",
+   "respuesta": "Hacemos traslados desde el aeropuerto El Edén (Armenia) y Matecaña (Pereira) a hoteles del Quindío y Risaralda, y entre Armenia, Pereira y Manizales. Trayecto aprox. 1 h.",
+   "salida": "precios"
+  },
+  {
+   "id": "accesibilidad",
+   "respuesta": "¡Sí! Contamos con opciones adaptadas y vehículos especiales para que todos disfruten de la región sin barreras. También tenemos guía para personas invidentes. Pregúntanos y te asesoramos de forma personalizada. ♿",
+   "salida": "asesor"
+  },
+  {
+   "id": "idiomas",
+   "respuesta": "Guías en español, inglés, francés, italiano y portugués (la guianza en otro idioma tiene costo adicional). En el Tour Compartido, el guía en inglés tiene suplemento según el tamaño del grupo.",
+   "salida": "reservar"
+  },
+  {
+   "id": "clima",
+   "respuesta": "Clima templado todo el año; puede llover en cualquier temporada. En Cocora, el páramo y la palma de cera hace frío.",
+   "salida": "que_llevar"
+  },
+  {
+   "id": "temporadas",
+   "respuesta": "Temporada alta 2026: Semana Santa (28 mar–5 abr), receso escolar (3–12 oct) y fin de año (19 dic 2026–11 ene 2027). Precios y disponibilidad varían.",
+   "salida": "reservar"
+  },
+  {
+   "id": "cancelacion",
+   "pregunta_tipo": [
+    "¿qué pasa si cancelo?",
+    "políticas de cancelación"
+   ],
+   "respuesta": "Entendemos que los planes cambian. Las cancelaciones dependen de la anticipación con que nos avises. Cuéntame qué tour reservaste y revisamos tu caso con un asesor.",
+   "salida": "asesor",
+   "pendiente": "Publicar política de cancelación con plazos y % (VALIDAR)"
+  },
+  {
+   "id": "sostenibilidad",
+   "pregunta_tipo": [
+    "¿son sostenibles?",
+    "¿cómo apoyan a la comunidad?"
+   ],
+   "respuesta": "Trabajamos con familias campesinas, artesanos y guías locales, con pago justo. Te damos agua en cada recorrido y capa reutilizable para la lluvia (cero plásticos de un solo uso), separamos residuos y sembramos árboles para compensar la huella de carbono. Rechazamos la explotación sexual de niñas, niños y adolescentes (ESCNNA).",
+   "salida": "Ver sección Sostenibilidad en la web"
+  },
+  {
+   "id": "empresa",
+   "pregunta_tipo": [
+    "¿quiénes son?",
+    "¿qué es Espontáneos Travel?",
+    "háblame de la empresa"
+   ],
+   "respuesta": "¡Hola! Somos Espontáneos Travel, un operador turístico del Paisaje Cultural Cafetero con más de 15 años de experiencia. Nos especializamos en experiencias rurales, naturales, comunitarias y de bienestar. Nuestro propósito es conectarte de forma auténtica y responsable con la naturaleza y la cultura de nuestra región. 🌿☕",
+   "salida": "experiencias|sostenibilidad"
+  },
+  {
+   "id": "redes",
+   "pregunta_tipo": [
+    "¿redes sociales?",
+    "¿página web?"
+   ],
+   "respuesta": "¡Nos encantaría que nos sigas! Estamos en Instagram y Facebook como @espontaneostravel, y en nuestra web oficial espontaneostravel.com."
+  },
+  {
+   "id": "ninos_mayores",
+   "pregunta_tipo": [
+    "¿es apto para niños?",
+    "¿y para adultos mayores?"
+   ],
+   "respuesta": "¡Claro que sí! Para los niños, algunas caminatas requieren acompañamiento y condición física básica. Para adultos mayores te recomendamos las opciones que mejor se adapten a su movilidad. 👨‍👩‍👧‍👦 Tarifa niño de 3 a 10 años; menores de 3 años pagan tarifa mínima sin alimentación. En el Parque del Café la tarifa niño aplica para estaturas entre 91 y 124 cm.",
+   "salida": "accesibilidad|reservar"
+  },
+  {
+   "id": "tour_compartido",
+   "pregunta_tipo": [
+    "¿tienen tour a Cocora y Salento?",
+    "¿cuánto cuesta?",
+    "¿dónde me recogen?",
+    "¿se puede reservar para mañana?",
+    "¿guía en inglés?"
+   ],
+   "codigo": "ETFD014",
+   "tour": "compartidocs",
+   "itinerario": "Sale de Armenia a las 8:15 a.m. En el Valle de Cocora hacemos interpretación del bosque de niebla y la palma de cera 🌴 (2 a 3 h). Luego vamos a Salento: recorrido histórico, tiempo libre para almorzar y caminar por la Calle Real 🛍️. Regreso a Armenia.",
+   "precio_publico": "$307.000 COP por persona (2026)",
+   "incluye": [
+    "Transporte",
+    "Guía en español",
+    "Entrada al Bosque de Palmas / mirador",
+    "Visita a Salento",
+    "Hidratación o café",
+    "Tarjeta de asistencia médica"
+   ],
+   "no_incluye": [
+    "Almuerzo",
+    "Gastos no especificados"
+   ],
+   "puntos_encuentro": [
+    {
+     "lugar": "Plaza de Bolívar, Armenia",
+     "hora": "08:00"
+    },
+    {
+     "lugar": "Parque de la Vida, Armenia",
+     "hora": "08:10"
+    }
+   ],
+   "traslado_a_punto_encuentro": {
+    "vehiculo": "Duster, valor por trayecto",
+    "Montenegro": "$115.000",
+    "Calarcá": "$125.000",
+    "Quimbaya": "$150.000",
+    "VALIDAR": "Montenegro: portafolio $100.000 vs base de conocimiento $115.000"
+   },
+   "operacion": "Todos los días desde 2 pasajeros. Confirmar a más tardar a las 8:00 p.m. del día anterior.",
+   "no_opera": [
+    "Puente festivo de la semana de receso de octubre",
+    "25 de diciembre",
+    "1 al 6 de enero"
+   ],
+   "guia_ingles_suplemento_pp": {
+    "2 pax": "$100.000",
+    "3 pax": "$66.000",
+    "4 pax": "$50.000"
+   },
+   "salida": "reservar"
+  },
+  {
+   "id": "asesor",
+   "respuesta": "Te paso con un asesor por WhatsApp 💬 (respuesta en menos de 24 h).",
+   "accion": "wa.me/573187200023 con resumen"
+  }
+ ],
+ "planes": [
+  {
+   "id": "basico2n",
+   "nombre": "Quindío Básico 2N",
+   "noches": 2,
+   "tours": [
+    "parquecafe"
+   ],
+   "incluye": "2 noches con desayuno y cena, Parque del Café pasaporte múltiple con transporte, traslados aeropuerto/terminal Armenia ida y regreso, asistencia médica"
+  },
+  {
+   "id": "tradicional3n",
+   "nombre": "Quindío Tradicional 3N",
+   "noches": 3,
+   "tours": [
+    "parquecafe",
+    "compartidocs"
+   ],
+   "incluye": "3 noches con desayuno y cena (según hotel), Parque del Café pasaporte múltiple con transporte, tour compartido Cocora y Salento (guía, transporte, entrada al mirador), traslados, asistencia médica"
+  },
+  {
+   "id": "encantador3n",
+   "nombre": "Quindío Encantador 3N",
+   "noches": 3,
+   "tours": [
+    "fulldayfcs",
+    "cordillera"
+   ],
+   "incluye": "3 noches con desayuno, Full Day Cocora-Salento-Filandia (guía, transporte, entradas, degustación de café, almuerzo), tour pueblos cordilleranos con finca cafetera y almuerzo montañero, traslados, asistencia médica"
+  }
+ ],
+ "planes_no_incluye": "Tiquetes aéreos, servicios y alimentación no especificados, impuestos de Parques Nacionales, propinas",
+ "sostenibilidad": {
+  "eyebrow": "Sostenibilidad",
+  "titulo": "Turismo que deja huella buena",
+  "intro": "Sabemos que el turismo transforma los destinos. Por eso trabajamos de la mano con las comunidades y el territorio: las familias campesinas, artesanos y guías locales son parte de nuestra oferta, y los acompañamos con asesoría para que sus experiencias conserven su autenticidad y su calidad.",
+  "pilares": [
+   {
+    "id": "ambiental",
+    "icono": "🌿",
+    "nombre": "Ambiental",
+    "titulo": "Cuidamos el entorno",
+    "acciones": [
+     "Agua para cada viajero en todos los recorridos, sin plásticos de un solo uso",
+     "Capas reutilizables para la lluvia",
+     "Separación de residuos y ahorro de energía",
+     "Siembra de árboles para compensar la huella de carbono, con certificado para agencias"
+    ]
+   },
+   {
+    "id": "sociocultural",
+    "icono": "🤝",
+    "nombre": "Sociocultural",
+    "titulo": "Protegemos lo que somos",
+    "acciones": [
+     "Compramos artesanía y alimentos locales",
+     "Asesoramos a pequeños productores en el diseño de sus experiencias",
+     "Capacitamos a guías y proveedores",
+     "Promovemos el cuidado del patrimonio cultural"
+    ]
+   },
+   {
+    "id": "economico",
+    "icono": "💚",
+    "nombre": "Económico",
+    "titulo": "El valor se queda en la región",
+    "acciones": [
+     "Contratamos personas, productos y servicios locales",
+     "Pago justo a colaboradores y proveedores",
+     "Catálogo de productos locales para comprar directo al productor"
+    ]
+   }
+  ],
+  "historias_validar": "VALIDAR permiso y foto de cada persona antes de publicar",
+  "historias": [
+   {
+    "nombre": "David",
+    "rol": "Caficultor de cafés especiales",
+    "texto": "Lo conectamos con ingenieros que donaron un sistema que automatizó el secado de su café."
+   },
+   {
+    "nombre": "Juan",
+    "rol": "Tienda de café 100 % local",
+    "texto": "Certificación Mayacert y precio justo al caficultor: allí hacemos catas con nuestros viajeros."
+   },
+   {
+    "nombre": "Doralba",
+    "rol": "Emprendedora del cacao",
+    "texto": "La acompañamos en el diseño de su ruta cacaotera."
+   },
+   {
+    "nombre": "Mauricio",
+    "rol": "Alojamiento rural",
+    "texto": "Con nuestra consultoría entró al portal de rutas del Paisaje Cultural Cafetero."
+   }
+  ]
+ },
+ "tours": [
+  {
+   "id_web": "cacao",
+   "codigo": "ETHD002",
+   "cat": "rurales",
+   "nombre": "Tour de Cacao",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "14:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Refrigerio",
+    "Anfitriones en la finca",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Ideal para personas de 4 a 80 años.",
+    "El recorrido es en fincas cercanas a tu hotel; el trayecto puede ser en vehículo de turismo o en Jeep Willys, según el estado de las vías."
+   ],
+   "recomendacion": {
+    "fuente": "documento ET",
+    "titulo": "🌱 ¡Prepárate para vivir una experiencia de cacao inolvidable!",
+    "items": [
+     "🎒 Mochila ligera y cómoda",
+     "🧢 Sombrero o gorra (protégete del sol)",
+     "🧴 Bloqueador solar y repelente",
+     "💧 Botella de agua reutilizable",
+     "👟 Zapatos cómodos para caminar",
+     "🌦️ Puede llover, ¡lleva un impermeable o paraguas plegable!",
+     "🚯 No dejes basura",
+     "🚫 Evita perfumes fuertes: pueden alterar el entorno natural del cultivo"
+    ]
+   },
+   "descripcion": "Colombia es reconocida en el mundo por su cacao fino de sabor y aroma. Participa en el proceso de la mazorca a la bebida, de la mano de las familias que lo cultivan: una cara del Eje Cafetero que pocos conocen.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Caldas"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "cordillera"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "frutas",
+   "codigo": "ETHD003",
+   "cat": "rurales",
+   "nombre": "Tour de las Frutas (piña, guayaba o cítricos)",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "14:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Degustación",
+    "Anfitriones en la finca",
+    "Taller de preparación",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Ideal para personas de 4 a 80 años.",
+    "Se recorre una hacienda productora de piña, guayaba o cítricos, según la temporada; el trayecto puede ser en vehículo de turismo o en Jeep Willys, según el estado de las vías."
+   ],
+   "recomendacion": {
+    "fuente": "documento ET",
+    "titulo": "🍈 ¡Dulce experiencia entre guayabos!",
+    "items": [
+     "👟 Zapatos cómodos y cerrados (puedes caminar entre tierra y plantas)",
+     "🧢 Sombrero o gorra para el sol",
+     "🧴 Bloqueador solar y repelente de insectos",
+     "🧤 Guantes de jardinería si tienes (opcional, pero útiles)",
+     "💧 Botella de agua",
+     "🌧️ Puede llover: lleva un impermeable ligero",
+     "👃 Deja que los aromas dulces te guíen... ¡es parte del viaje sensorial!",
+     "🚯 No dejes residuos en el cultivo",
+     "🚫 Evita perfumes fuertes: pueden alterar el entorno natural del cultivo"
+    ]
+   },
+   "descripcion": "El Quindío es una despensa de frutas: recorre la finca desde el semillero, cosecha la fruta con tus manos y transfórmala en un taller práctico. Ideal para familias y para ver el campo más allá del café.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "cana",
+   "codigo": "ETHD004",
+   "cat": "rurales",
+   "nombre": "Tour de Caña y trapiche",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "14:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Degustación",
+    "Anfitriones en la finca",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Ideal para personas de 4 a 80 años.",
+    "Los fines de semana se ve el proceso completo de producción; entre semana, una parte."
+   ],
+   "recomendacion": {
+    "fuente": "documento ET",
+    "titulo": "🌾 ¡Dulzura campesina en cada paso!",
+    "items": [
+     "👟 Zapatos cerrados y cómodos (posible barro y tierra)",
+     "🧢 Gorra o sombrero para el sol",
+     "🧴 Bloqueador solar y repelente",
+     "💧 Botella de agua reutilizable",
+     "👕 Ropa fresca y ligera, que se pueda ensuciar un poco",
+     "🌦️ Posibles lluvias breves: lleva impermeable por si acaso",
+     "🚯 No arrojes basura durante el recorrido",
+     "ℹ️ Fines de semana a las 9:00 a.m. ves el proceso completo de la panela; entre semana, el proceso es parcial"
+    ]
+   },
+   "descripcion": "La panela es un símbolo de la mesa colombiana. Mira en vivo el trapiche, del corte de la caña al bloque de panela, y comparte con los campesinos que mantienen este oficio.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "abejas",
+   "codigo": "ETHD013",
+   "cat": "rurales",
+   "nombre": "Tour de las Abejas",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00",
+     "14:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Degustaciones",
+    "Equipos de apicultura",
+    "Anfitriones apicultores locales",
+    "Souvenir",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda de manga larga y botas de trekking.",
+    "No uses perfumes ni cremas con olor.",
+    "Al reservar, envía la talla de overol de cada participante.",
+    "Ideal para personas de 10 a 60 años.",
+    "No apto para personas con alergia a las picaduras de insectos o de abejas."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🐝 ¡Entra al mundo dulce de las abejas!",
+    "items": [
+     "📏 Al reservar, dinos la talla de ropa de cada persona: te damos overol de apicultor",
+     "👖 Pantalón largo y 👟 zapatos cerrados (botas si tienes)",
+     "🚫 Sin perfumes, cremas aromáticas ni colores muy brillantes: atraen a las abejas",
+     "⚠️ Avísanos si tienes alergia a picaduras de abeja",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🚯 No dejes basura: deja el lugar como lo encontraste"
+    ]
+   },
+   "descripcion": "Con traje de apicultor, entra al apiario y aprende de una familia local cómo se extrae la miel artesanal y por qué las abejas son clave para el café y los cultivos de la región.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "aves",
+    "cacao"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "campesino",
+   "codigo": "ETFD001",
+   "cat": "rurales",
+   "nombre": "Tour experiencial Campesino por un día",
+   "duracion_horas": 8,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Refrigerio",
+    "Almuerzo",
+    "Anfitriones locales",
+    "Participación en los quehaceres de la finca",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva ropa de manga larga y botas de trekking.",
+    "No uses perfumes ni cremas con olor."
+   ],
+   "recomendacion": {
+    "fuente": "documento ET",
+    "titulo": "🐓🌱 ¡Conecta con la vida rural y la naturaleza!",
+    "items": [
+     "👟 Zapatos cerrados y cómodos (caminarás por terrenos naturales)",
+     "🧢 Sombrero o gorra para el sol",
+     "🧴 Bloqueador solar y repelente ecológico",
+     "💧 Botella de agua",
+     "👖 Ropa cómoda y que se pueda ensuciar",
+     "🌧️ Probabilidad de lluvia: lleva un impermeable ligero o capa",
+     "🚯 Cuida el espacio: deja todo como lo encontraste"
+    ]
+   },
+   "descripcion": "La forma más auténtica de vivir el Paisaje Cultural Cafetero, Patrimonio de la Humanidad: intégrate a la rutina de una familia campesina (recoger café, frutas y plátano, cuidar a los animales) y comparte su mesa.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "platano",
+   "codigo": "ETHD012",
+   "cat": "rurales",
+   "nombre": "Tour del Plátano · manjares locales (Pueblo Tapao)",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "14:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Degustaciones",
+    "Anfitriones locales",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Ideal para personas de 4 a 80 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🍌 ¡Sabores del mejor plátano de Colombia!",
+    "items": [
+     "👟 Zapatos cerrados y cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "😋 Ven con apetito: hay varias degustaciones",
+     "🥗 Avísanos si tienes alguna restricción alimentaria",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "🚯 No dejes basura: deja el lugar como lo encontraste"
+    ]
+   },
+   "descripcion": "El Quindío es uno de los principales productores de plátano del país. En Pueblo Tapao, la comunidad te muestra sus variedades, su cultivo y sus recetas, y pruebas preparaciones que no encuentras en un restaurante.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "artesanoswillys",
+   "codigo": "ETHD037",
+   "cat": "rurales",
+   "nombre": "Artesanos · Elaboración de jeeps Willys",
+   "duracion_horas": 2,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa cómoda.",
+    "Ideal para personas de 5 a 80 años.",
+    "Actividad móvil: se puede hacer en tu hotel o en el lugar donde estés."
+   ],
+   "descripcion": "El Jeep Willys, el «Yipao», es el símbolo del Quindío y patrimonio cultural de la región. En este taller armas tu propio Willys en miniatura y te llevas a casa un ícono del Paisaje Cultural Cafetero.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Caldas",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [],
+   "combina_todas": true,
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "artesanosaves",
+   "codigo": "ETHD038",
+   "cat": "rurales",
+   "nombre": "Artesanos · Elaboración de aves",
+   "duracion_horas": 1.5,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa cómoda.",
+    "Ideal para personas de 5 a 80 años.",
+    "Actividad móvil: se puede hacer en tu hotel o en el lugar donde estés."
+   ],
+   "descripcion": "Un taller con una asociación de mujeres cabeza de hogar de Armenia que crearon su propia pasta para modelar aves. Moldea y pinta un ave de la región mientras te cuentan cómo reconocerla en el campo, y llévate tu pieza de recuerdo.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Caldas",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [],
+   "combina_todas": true,
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "artesanosbalcones",
+   "codigo": "ETHD039",
+   "cat": "rurales",
+   "nombre": "Artesanos · Balcones",
+   "duracion_horas": 1.5,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa cómoda.",
+    "Ideal para personas de 5 a 80 años.",
+    "Actividad móvil: se puede hacer en tu hotel o en el lugar donde estés."
+   ],
+   "descripcion": "Los balcones de colores y la arquitectura de bahareque son parte de lo que la UNESCO reconoció en el Paisaje Cultural Cafetero. En este taller recreas en miniatura un balcón típico y te llevas un pedazo de esa arquitectura.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Caldas",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [],
+   "combina_todas": true,
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "artesanosarcilla",
+   "codigo": "ETHD040",
+   "cat": "rurales",
+   "nombre": "Artesanos · Arcilla",
+   "duracion_horas": 1.5,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa cómoda.",
+    "Ideal para personas de 5 a 80 años."
+   ],
+   "descripcion": "Artesanos locales te enseñan a trabajar la greda que sacan de los ríos de la cordillera. Moldea tu propia pieza mientras escuchas historias del oficio: reúnen cerca de mil piezas antes de encender el horno, donde se cuecen hasta 24 horas.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "cordillera",
+    "finca",
+    "filandia",
+    "cacao"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "artesanoscesteria",
+   "codigo": "ETHD041",
+   "cat": "rurales",
+   "nombre": "Artesanos · Taller de cestería",
+   "duracion_horas": 2,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa cómoda.",
+    "Ideal para personas de 5 a 80 años."
+   ],
+   "descripcion": "Filandia es reconocida por su tradición cestera, un oficio que pasa de generación en generación con bejucos y fibras de la región. Teje tu propia pieza con un maestro artesano y conoce de primera mano una tradición viva del Paisaje Cultural Cafetero.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "fulldayfcs",
+    "finca",
+    "filandia",
+    "cacao",
+    "barbasbremen"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "catacerveza",
+   "codigo": "ETHD045",
+   "cat": "rurales",
+   "nombre": "Cata de cerveza local",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva zapatos cómodos, repelente y bloqueador.",
+    "Avisa con anticipación si tienes restricciones alimentarias.",
+    "Solo para mayores de 18 años."
+   ],
+   "descripcion": "Una cata guiada por el maestro cervecero de una cervecería artesanal: visita a la planta, los estilos y procesos, maridaje y un recuerdo. Aprende a reconocer el aroma, el color y el sabor de cada cerveza.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "armenia"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "palmacera",
+   "codigo": "ETHD063",
+   "cat": "naturaleza",
+   "nombre": "Palma de cera en bosque altoandino (Pijao)",
+   "duracion_horas": 6,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "07:00",
+    "hasta": "09:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Trayecto en Jeep Willys",
+    "Hidratación",
+    "Guía",
+    "Contribución a la comunidad local",
+    "Almuerzo viajero campesino",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva ropa de trekking: cómoda, impermeable y de manga larga.",
+    "Dificultad media: se asciende entre 2.200 y 2.600 m s. n. m.",
+    "Ideal para personas de 12 a 70 años.",
+    "No apto para personas con antecedentes cardiorrespiratorios."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🌴 ¡Bosque de niebla y palma de cera!",
+    "items": [
+     "🥾 Zapatos de senderismo con buen agarre",
+     "🧥 Ropa en capas, manga larga y abrigo: subes de 2.200 a 2.600 msnm",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "🎒 Mochila pequeña con snack",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "📷 Cámara o binoculares: hay más de 100 especies de aves",
+     "⚠️ Dificultad media: caminata de subida de 1 h 30 min"
+    ]
+   },
+   "descripcion": "La palma de cera es el árbol nacional de Colombia y la palma más alta del mundo. Esta ruta, en Willys y a pie por el bosque de niebla de Pijao, te permite verla en su hábitat natural, lejos de las multitudes.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "aves",
+   "codigo": "ETHD015",
+   "cat": "naturaleza",
+   "nombre": "Avistamiento y fotografía de aves para aficionados",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "05:00",
+    "hasta": "06:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Desayuno",
+    "Guía de aves",
+    "Binoculares",
+    "Checklist de aves",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva repelente y ropa cómoda de manga larga en colores tierra.",
+    "Salida entre las 5:00 y las 6:00 a. m.",
+    "Ideal para personas de 12 a 70 años.",
+    "El recorrido es en una reserva natural cercana a tu hotel."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🐦 ¡Madruga con las aves!",
+    "items": [
+     "⏰ Salida muy temprano (5:00–6:00 a.m.): el desayuno está incluido",
+     "👕 Ropa de colores tierra (evita blanco y colores vivos) y manga larga",
+     "🧥 Abrigo: las mañanas son frías",
+     "🔇 Silencio y movimientos suaves durante la observación",
+     "📷 Trae tu cámara; te prestamos binoculares",
+     "🧴 Repelente",
+     "🌧️ Puede llover: te prestamos capa reutilizable"
+    ]
+   },
+   "descripcion": "Colombia es el país con más especies de aves del planeta y el Eje Cafetero es uno de sus mejores destinos. Con guía experto y binoculares, aunque nunca lo hayas hecho, logras ver y fotografiar especies como el barranquero, el tucán verde o las tángaras.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Caldas",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [],
+   "combina_todas": true,
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "avesconocedores",
+   "codigo": "ETHD042",
+   "cat": "naturaleza",
+   "nombre": "Aves para conocedores (birdwatching especializado)",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
+    "Si tienes binoculares o cámara, tráelos.",
+    "Lleva repelente e hidratación; en las rutas de alta montaña, ropa térmica.",
+    "Mínimo 2 personas; si el grupo es grande, se divide."
+   ],
+   "descripcion": "Para observadores con experiencia: jornadas en los mejores puntos de aves del Paisaje Cultural Cafetero, donde eBird registra entre 170 y 370 especies por localidad. El guía especializado arma la ruta según las especies que busca tu grupo.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Caldas",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "finca",
+    "filandia",
+    "cacao",
+    "armenia",
+    "pereira",
+    "manizales"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "barbasbremen",
+   "codigo": "ETHD014A",
+   "cat": "naturaleza",
+   "nombre": "Reservas naturales · Barbas-Bremen",
+   "duracion_horas": 3,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva repelente y ropa cómoda, impermeable y de manga larga.",
+    "Dificultad baja, media o media-alta, según la condición del grupo.",
+    "Ideal para personas de 12 a 70 años.",
+    "No apto para personas con antecedentes cardiorrespiratorios."
+   ],
+   "descripcion": "Entre Filandia y Pereira, Barbas-Bremen es uno de los últimos corredores de bosque andino de la región y hogar de monos aulladores: el lugar ideal para escucharlos y verlos en libertad, por senderos de bosque y guadua.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "filandia",
+    "finca",
+    "cacao"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "otunquimbaya",
+   "codigo": "ETHD014B",
+   "cat": "naturaleza",
+   "nombre": "Reservas naturales · Otún Quimbaya",
+   "duracion_horas": 6,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva repelente y ropa cómoda, impermeable y de manga larga.",
+    "Dificultad baja, media o media-alta, según la condición del grupo.",
+    "Ideal para personas de 12 a 70 años.",
+    "No apto para personas con antecedentes cardiorrespiratorios."
+   ],
+   "descripcion": "Santuario de Fauna y Flora de Parques Nacionales Naturales en la cuenca del río Otún: refugio de la pava caucana, ave endémica de Colombia, y de monos aulladores, a menos de una hora de Pereira.",
+   "departamentos": [
+    "Risaralda"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "filandia",
+    "finca"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "rioblanco",
+   "codigo": "ETHD014C",
+   "cat": "naturaleza",
+   "nombre": "Reservas naturales · Río Blanco",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva repelente y ropa cómoda, impermeable y de manga larga.",
+    "Dificultad baja, media o media-alta, según la condición del grupo.",
+    "Ideal para personas de 12 a 70 años.",
+    "No apto para personas con antecedentes cardiorrespiratorios."
+   ],
+   "descripcion": "A minutos de Manizales, la Reserva Río Blanco protege el agua de la ciudad y es uno de los destinos de aves más reconocidos de Colombia, famosa por sus comederos de grallarias, buscadas por observadores de todo el mundo.",
+   "departamentos": [
+    "Caldas"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "manizales",
+    "finca",
+    "cacao"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "ranas",
+   "codigo": "ETHD023",
+   "cat": "naturaleza",
+   "nombre": "Experiencia nocturna de ranas y anfibios",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "18:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Guía herpetólogo",
+    "Equipos",
+    "Souvenir",
+    "Cena ligera",
+    "Entrada a la reserva",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda, ropa de cambio, impermeable y manga larga.",
+    "Al reservar, envía la talla de zapato o bota de cada persona.",
+    "Dificultad media: se camina por montaña, quebradas o ríos.",
+    "Ideal para personas de 12 a 60 años.",
+    "No apto para personas con lesiones de rodilla o cadera."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🐸 ¡Una noche entre ranas y quebradas!",
+    "items": [
+     "🔦 Linterna o frontal (si tienes; preferible luz roja)",
+     "🥾 Botas o zapatos que se puedan mojar, con buen agarre",
+     "👕 Ropa de cambio y manga larga",
+     "🌧️ Impermeable",
+     "🧴 Repelente",
+     "🤫 Habla bajo y no toques los animales",
+     "⚠️ Dificultad media: caminas por montaña, quebradas o ríos"
+    ]
+   },
+   "descripcion": "De noche y con un biólogo herpetólogo, descubre ranas de cristal, de chocolate y venenosas en las quebradas del bosque.",
+   "departamentos": [
+    "Quindío",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "cordillera",
+    "finca"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "orquideas",
+   "codigo": "ETHD024",
+   "cat": "naturaleza",
+   "nombre": "Un mundo de orquídeas",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "14:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Orquideólogo",
+    "Actividad de siembra",
+    "Souvenir",
+    "Entrada a la reserva",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Ideal para personas de 5 a 80 años.",
+    "No apto para personas con alergia al polen o a las picaduras de insectos."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🌸 ¡Descubre el mundo de las orquídeas!",
+    "items": [
+     "👟 Zapatos cerrados y cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🌱 Vas a sembrar una orquídea: ropa que se pueda ensuciar",
+     "🚫 No arranques ni toques las flores sin indicación del orquideólogo"
+    ]
+   },
+   "descripcion": "Con un orquideólogo, recorre el vivero y la «guardería» de orquídeas bebé, participa en una siembra de conservación y aprende a cuidarlas en casa.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "cordillera",
+    "finca"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "cocoraacaime",
+   "codigo": "ETHD062",
+   "cat": "naturaleza",
+   "nombre": "Trek Valle de Cocora · Acaime, casa de los colibríes",
+   "duracion_horas": 6,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "08:00",
+    "hasta": "09:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Guía",
+    "Hidratación",
+    "Refrigerio",
+    "Souvenir",
+    "Entrada a la reserva",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva ropa de trekking: repelente, impermeable, manga larga y colores tierra.",
+    "Dificultad media.",
+    "Ideal para personas de 12 a 60 años.",
+    "No apto para personas con antecedentes cardiorrespiratorios."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🐦 ¡Cocora y la casa de los colibríes!",
+    "items": [
+     "🥾 Zapatos de senderismo o botas (barro y quebradas)",
+     "🧥 Manga larga, ropa en capas, colores tierra",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "🧴 Repelente y bloqueador",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "⚠️ Dificultad media: 5 km con puentes colgantes",
+     "🚯 No dejes basura: deja el lugar como lo encontraste"
+    ]
+   },
+   "descripcion": "El Valle de Cocora es el paisaje más icónico de Colombia, con la mayor concentración de palmas de cera del país. Este trek va más allá del mirador: cruza puentes colgantes y bosque de niebla hasta Acaime, donde decenas de colibríes llegan a centímetros de ti.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "cocoraacaime2",
+   "codigo": "ETFD009",
+   "cat": "naturaleza",
+   "nombre": "La Carbonera · santuario de palma de cera",
+   "duracion_horas": 8,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "06:00",
+    "hasta": "07:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Guía",
+    "Hidratación",
+    "Brunch",
+    "Seguro médico",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva ropa de trekking: zapato de buen agarre, ropa cómoda impermeable y abrigo.",
+    "Dificultad media-alta; altura máxima: 3.370 m s. n. m.",
+    "Ideal para personas de 12 a 60 años.",
+    "No apto para personas con antecedentes cardiorrespiratorios."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🌴 ¡Al santuario de la palma de cera!",
+    "items": [
+     "🥾 Zapatos de senderismo con buen agarre",
+     "🧥 Abrigo y ropa en capas: llegas a 3.370 msnm",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🎒 Mochila pequeña con snack",
+     "⏰ Salida muy temprano (6:00–7:00 a.m.)",
+     "⚠️ Dificultad media-alta: 2 h de subida y 1 h 30 min de bajada"
+    ]
+   },
+   "descripcion": "La Carbonera alberga una de las poblaciones de palma de cera más grandes y mejor conservadas del mundo, en el límite entre Quindío y Tolima y lejos de las multitudes de Cocora. Se llega por el antiguo Camino Nacional, a 3.370 m s. n. m.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "paramo",
+   "codigo": "ETHD065",
+   "cat": "naturaleza",
+   "nombre": "Senderismo en el páramo · ecosistema único (Pijao)",
+   "duracion_horas": 6,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "06:00",
+    "hasta": "08:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Guía",
+    "Hidratación",
+    "Almuerzo viajero",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva ropa térmica e impermeable, zapato de buen agarre, snacks energéticos y buena hidratación.",
+    "Dificultad media-alta; altura máxima: 3.800 m s. n. m.",
+    "Ideal para personas de 12 a 60 años.",
+    "No apto para personas con antecedentes cardiorrespiratorios."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🏔️ ¡El páramo, fábrica de agua!",
+    "items": [
+     "🥾 Botas impermeables con buen agarre (humedales)",
+     "🧥 Ropa térmica, abrigo, gorro y guantes: hace frío",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "🧴 Bloqueador solar (el sol de alta montaña quema)",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🌿 No pises ni arranques frailejones",
+     "⏰ Salida temprano (6:00–8:00 a.m.)"
+    ]
+   },
+   "descripcion": "Colombia tiene cerca de la mitad de los páramos del mundo, las «fábricas de agua» de los Andes. Camina entre frailejones en el Páramo del Chilí, hasta los 3.800 m s. n. m.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "aves"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "romelia",
+   "codigo": "ETHD043",
+   "cat": "naturaleza",
+   "nombre": "Visita a La Romelia · orquídeas y frutas exóticas",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa cómoda, zapato cerrado, gorra, bloqueador, repelente e impermeable ligero.",
+    "No apto para personas con alergia a las flores o al polen.",
+    "Mínimo 4 personas."
+   ],
+   "descripcion": "Una finca cerca de Manizales dedicada a las orquídeas, los bonsáis y los frutales: recorre los viveros con un guía, visita la casa principal y prueba frutas de la finca, con almuerzo campesino incluido.",
+   "departamentos": [
+    "Caldas"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [
+    "manizales",
+    "finca",
+    "cacao",
+    "termales"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "avesrancho",
+   "codigo": "ETHD054",
+   "cat": "naturaleza",
+   "nombre": "Aves · Rancho California (aves acuáticas)",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
+    "Si tienes binoculares o cámara, tráelos.",
+    "Lleva repelente, hidratación, gorra y bloqueador: al mediodía hace calor.",
+    "Mínimo 2 personas; si el grupo es grande, se divide."
+   ],
+   "descripcion": "Un humedal en el valle del río Barragán, refugio de aves acuáticas: un recorrido plano por potreros, lagos y ríos, muy cómodo para el primer día del viaje.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "cacao",
+    "cordillera"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "avescamino",
+   "codigo": "ETHD055",
+   "cat": "naturaleza",
+   "nombre": "Aves · Camino Nacional (ruta de Humboldt)",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
+    "Si tienes binoculares o cámara, tráelos.",
+    "Lleva repelente, hidratación, abrigo y ropa térmica: temprano hace frío.",
+    "Mínimo 2 personas; si el grupo es grande, se divide."
+   ],
+   "descripcion": "El antiguo camino que recorrieron Humboldt y Bonpland en 1801, en bosque de niebla a 3.370 m s. n. m. Es uno de los mejores lugares del país para ver el loro orejiamarillo, que anida en la palma de cera y estuvo al borde de la extinción.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "avesbremen",
+    "cocorasalento"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "avesbremen",
+   "codigo": "ETHD056",
+   "cat": "naturaleza",
+   "nombre": "Aves · Bremen–La Popa (AICA Barbas-Bremen)",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
+    "Si tienes binoculares o cámara, tráelos.",
+    "Lleva repelente e hidratación.",
+    "Mínimo 2 personas; si el grupo es grande, se divide."
+   ],
+   "descripcion": "Área protegida y Área de Importancia para la Conservación de las Aves (AICA) en el cañón del río Barbas, con caminata por trocha ancha y plana y paradas frecuentes de observación.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "avescamino",
+    "filandia"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "avescircasia",
+   "codigo": "ETHD057",
+   "cat": "naturaleza",
+   "nombre": "Aves · Jardín de aves en Circasia",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa cómoda en tonos neutros; si tienes cámara o binoculares, tráelos.",
+    "Apto para personas con movilidad reducida.",
+    "Mínimo 2 personas; si el grupo es grande, se divide."
+   ],
+   "descripcion": "Observa y fotografía aves desde la terraza techada de una casa con jardines que limitan con el bosque, con café especial: sin esfuerzo físico y protegido del sol y la lluvia. Ideal para personas con movilidad reducida y para fotógrafos.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "armenia",
+    "finca"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "avescaicedonia",
+   "codigo": "ETHD058",
+   "cat": "naturaleza",
+   "nombre": "Aves · Caicedonia y Sevilla (Valle del Cauca)",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
+    "Si tienes binoculares o cámara, tráelos.",
+    "Lleva repelente e hidratación.",
+    "Mínimo 2 personas; si el grupo es grande, se divide."
+   ],
+   "descripcion": "Caicedonia, la «Centinela del Valle», concentra más de 325 especies de aves entre cafetales, lagos y humedales. Rutas cortas con un guía local que está entre los mayores observadores de aves del Valle del Cauca.",
+   "departamentos": [
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "ranas",
+    "cana"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "avescolibri",
+   "codigo": "ETHD059",
+   "cat": "naturaleza",
+   "nombre": "Aves · Retorno del Colibrí (comederos y fotografía)",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Sale desde el Quindío.",
+    "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
+    "Si tienes binoculares o cámara, tráelos.",
+    "Lleva repelente e hidratación.",
+    "Mínimo 2 personas; si el grupo es grande, se divide."
+   ],
+   "descripcion": "Una reserva dedicada a la conservación, con jardines y comederos diseñados para fotografiar colibríes y aves endémicas a corta distancia. La actividad es casi toda estacionaria: el sueño del fotógrafo de naturaleza.",
+   "departamentos": [
+    "Tolima"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [
+    "paramo",
+    "palmacera"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "avescampanario",
+   "codigo": "ETHD060",
+   "cat": "naturaleza",
+   "nombre": "Aves · Alto del Campanario (páramo)",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
+    "Lleva ropa térmica, guantes y gorro, y buena hidratación.",
+    "Si tienes binoculares o cámara, tráelos.",
+    "No apto para personas con antecedentes cardiorrespiratorios.",
+    "Mínimo 2 personas; si el grupo es grande, se divide."
+   ],
+   "descripcion": "Aves de páramo y bosque altoandino entre 3.400 y 4.600 m s. n. m.: bandadas mixtas, tapaculos, grallarias y tángaras de altura en un paisaje de niebla y frailejones. Para observadores con buena condición física.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [
+    "paramo",
+    "avescolibri"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "termales",
+   "codigo": "ETHD017",
+   "cat": "bienestar",
+   "nombre": "Aguas termales: Santa Rosa, San Vicente o El Otoño",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "08:00",
+    "hasta": "17:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Hidratación",
+    "Entrada a la reserva termal seleccionada",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva vestido de baño, toalla, repelente y ropa cómoda.",
+    "Ideal para personas de 6 a 80 años.",
+    "No se recomienda para personas con antecedentes cardíacos.",
+    "Los fines de semana y en temporada alta, consulta los horarios."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "♨️ ¡Relájate en aguas termales!",
+    "items": [
+     "🩱 Vestido de baño, toalla y sandalias",
+     "👕 Ropa de cambio y abrigo (el clima es frío)",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🔒 Lleva lo justo: deja objetos de valor en el hotel",
+     "⚠️ No recomendado para embarazadas o personas con hipertensión sin consulta médica",
+     "🗓️ Fines de semana y temporada alta hay turnos: consulta horarios"
+    ]
+   },
+   "descripcion": "Las aguas termales del Eje Cafetero nacen de la actividad volcánica de la cordillera Central y brotan a cerca de 70 °C. Rodeadas de cascadas y bosque, son el plan perfecto para descansar después de las caminatas.",
+   "departamentos": [
+    "Risaralda",
+    "Caldas"
+   ],
+   "modalidad": "mixto",
+   "almuerzo": false,
+   "combina": [
+    "finca",
+    "filandia",
+    "cacao",
+    "pereira"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "finca",
+   "codigo": "ETHD001",
+   "cat": "tradicionales",
+   "nombre": "Visita a finca cafetera",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00",
+     "14:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Anfitriones en la finca",
+    "Catación y métodos de preparación",
+    "Degustación de café",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "No uses perfumes ni cremas con olor.",
+    "Ideal para personas de 4 a 80 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "☕ ¡Del grano a la taza!",
+    "items": [
+     "👟 Zapatos cerrados y cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "☕ Prueba el café sin azúcar en la cata: así se sienten mejor sus notas",
+     "🚯 No dejes basura: deja el lugar como lo encontraste"
+    ]
+   },
+   "descripcion": "El café colombiano tiene Denominación de Origen y el Paisaje Cultural Cafetero es Patrimonio de la Humanidad. En una finca tradicional recorres el proceso de la semilla a la taza y aprendes a catar: la experiencia esencial del Eje Cafetero.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Caldas",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "aves",
+    "armenia",
+    "pereira",
+    "manizales",
+    "filandia",
+    "canopy"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "filandia",
+   "codigo": "ETHD035",
+   "cat": "tradicionales",
+   "nombre": "Tour Filandia",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00",
+     "14:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Guía",
+    "Visita al centro de cestería",
+    "Degustación de café",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva ropa cómoda y abrigo para la lluvia.",
+    "Ideal para personas de 4 a 80 años.",
+    "Opcional: taller de cestería (costo adicional)."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🏘️ ¡Filandia, colores y cestería!",
+    "items": [
+     "👟 Zapatos cómodos para caminar",
+     "🧥 Abrigo para lluvia (Filandia es fresca)",
+     "💵 Efectivo para artesanías locales",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🧺 Puedes sumar el taller de cestería (1 h, costo adicional)",
+     "🛍️ Compra artesanía local: apoyas a las familias del pueblo"
+    ]
+   },
+   "descripcion": "Filandia es uno de los pueblos mejor conservados del Paisaje Cultural Cafetero: balcones de colores, arquitectura de bahareque y una tradición de cestería que sigue viva.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "pereira",
+    "termales",
+    "finca",
+    "cacao",
+    "barbasbremen",
+    "artesanoscesteria"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "cocorasalento",
+   "codigo": "ETFD013",
+   "cat": "tradicionales",
+   "nombre": "Tour Valle de Cocora y Salento",
+   "duracion_horas": 7,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Guía",
+    "Caminata",
+    "Degustación de café",
+    "Almuerzo",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva repelente, bloqueador solar, gorra, ropa y zapatos cómodos.",
+    "Mejor de lunes a viernes, por la capacidad de carga del destino.",
+    "Ideal para personas de 4 a 70 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🌴 ¡Cocora y Salento!",
+    "items": [
+     "👟 Zapatos cómodos con buen agarre (botas si hay lluvia)",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "🧥 Ropa en capas: en Cocora hace frío",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "💵 Efectivo para Salento",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🗓️ Mejor de lunes a viernes: hay menos gente"
+    ]
+   },
+   "descripcion": "El Valle de Cocora, con la palma de cera, árbol nacional, es la imagen más reconocida de Colombia, y Salento es el municipio más antiguo del Quindío. Juntos son el recorrido imprescindible de cualquier viaje al Eje Cafetero.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [
+    "finca"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "compartidocs",
+   "codigo": "ETFD014",
+   "cat": "tradicionales",
+   "nombre": "Tour compartido Valle de Cocora y Salento",
+   "duracion_horas": 7,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "08:00",
+     "08:10"
+    ],
+    "nota": "Puntos de encuentro: Plaza de Bolívar 8:00 a.m. / Parque de la Vida 8:10 a.m.; salida 8:15 a.m."
+   },
+   "incluye": [
+    "Transporte",
+    "Guía en español",
+    "Entrada al Bosque de Palmas / mirador",
+    "Visita a Salento",
+    "Hidratación o café",
+    "Tarjeta de asistencia médica"
+   ],
+   "no_incluye": [
+    "Almuerzo",
+    "Gastos no especificados"
+   ],
+   "notas": [
+    "Lleva repelente, bloqueador solar, gorra, ropa y zapatos cómodos.",
+    "Opera desde 2 personas; reservas hasta las 8:00 p. m. del día anterior.",
+    "No opera el puente festivo de la semana de receso de octubre, el 25 de diciembre ni del 1 al 6 de enero.",
+    "Ideal para personas de 4 a 70 años."
+   ],
+   "precio_publico": "$307.000 COP por persona (2026)",
+   "VALIDAR": "Duración: Carolina confirmó 8 h (regreso 4:00 p.m.); la base de conocimiento dice 7 h (regreso 3:30 p.m.). Traslado Montenegro: portafolio $100.000 vs base $115.000.",
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🚐 ¡Tour compartido a Cocora y Salento!",
+    "items": [
+     "⏰ Confirma tu cupo antes de las 8:00 p.m. del día anterior",
+     "👟 Zapatos cómodos con buen agarre",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "🧥 Ropa en capas",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "💵 Efectivo: el almuerzo y los miradores adicionales se pagan aparte",
+     "💧 Botella reutilizable (te damos agua en el recorrido)"
+    ]
+   },
+   "descripcion": "La forma más práctica y económica de conocer Cocora y Salento: salida diaria desde Armenia con guía, interpretación del bosque de niebla y de la palma de cera, y tiempo libre en la Calle Real.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "compartido",
+   "almuerzo": false,
+   "combina": [],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "cordillera",
+   "codigo": "ETFD004",
+   "cat": "tradicionales",
+   "nombre": "Full day Cordillera: Córdoba, Pijao y Buenavista",
+   "duracion_horas": 8,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Trayecto en Jeep Willys (según condiciones)",
+    "Guía",
+    "Degustación de café",
+    "Souvenir",
+    "Almuerzo",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Ideal para personas de 4 a 80 años.",
+    "Puedes agregar la visita a una finca cafetera (costo adicional)."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "⛰️ ¡Pueblos de cordillera!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "🧥 Abrigo ligero: la cordillera es fresca",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "💵 Efectivo para compras locales",
+     "🚙 Parte del trayecto puede ser en Jeep Willys por vías rurales",
+     "💊 Si te mareas en carretera, lleva tu medicamento"
+    ]
+   },
+   "descripcion": "El Quindío menos conocido: un día entre las montañas, recorriendo por vías rurales la autenticidad de tres pueblos de la cordillera.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [
+    "aves",
+    "catacafe"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "fulldayfcs",
+   "codigo": "ETFD005",
+   "cat": "tradicionales",
+   "nombre": "Full day Filandia, Valle de Cocora y Salento",
+   "duracion_horas": 8,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Guía",
+    "Cultura de la cestería",
+    "Ingreso a mirador en Cocora",
+    "Degustación de café",
+    "Souvenir",
+    "Almuerzo",
+    "Hidratación",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Mejor de lunes a viernes, por la capacidad de carga del destino.",
+    "Ideal para personas de 4 a 70 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🌴 ¡Filandia, Cocora y Salento en un día!",
+    "items": [
+     "👟 Zapatos cómodos con buen agarre",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "🧥 Ropa en capas y abrigo",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "💵 Efectivo para compras",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🗓️ Mejor de lunes a viernes: hay menos gente"
+    ]
+   },
+   "descripcion": "Los tres imperdibles del Quindío en un solo día: las palmas de cera de Cocora, la Calle Real de Salento y la cestería de Filandia, con almuerzo incluido. Ideal si tienes poco tiempo y quieres lo esencial.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [
+    "artesanoscesteria",
+    "catacafe",
+    "finca"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "pereira",
+   "codigo": "ETHD007",
+   "cat": "metropolitano",
+   "nombre": "City tour Pereira",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00",
+     "14:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Guía",
+    "Degustación de café especial",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Ideal para personas de 4 a 70 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🏙️ ¡City tour en Pereira!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "☕ Incluye degustación de café especial"
+    ]
+   },
+   "descripcion": "Pereira, la «Perla del Otún», es la ciudad más dinámica del Eje Cafetero: la catedral, la Plaza de Bolívar con el Bolívar Desnudo de Arenas Betancourt y el viaducto César Gaviria, con cierre de café especial.",
+   "departamentos": [
+    "Risaralda"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "otunquimbaya",
+    "cacao",
+    "termales",
+    "finca"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "manizales",
+   "codigo": "ETHD008",
+   "cat": "metropolitano",
+   "nombre": "City tour Manizales",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00",
+     "14:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Guía",
+    "Entrada al corredor polaco de la Catedral",
+    "Visita a mirador",
+    "Degustación de café especial",
+    "Tiquete de cable aéreo",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Ideal para personas de 4 a 70 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🚡 ¡Manizales desde las alturas!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧥 Abrigo: Manizales es fresca",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "🚡 Incluye cable aéreo y Catedral",
+     "☕ Degustación de café especial"
+    ]
+   },
+   "descripcion": "Manizales, construida sobre montañas y con vista al Nevado del Ruiz, tiene una de las catedrales más altas de Latinoamérica, que se puede subir por el corredor polaco. Incluye cable aéreo, centro histórico y café en un mirador.",
+   "departamentos": [
+    "Caldas"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "cacao",
+    "finca",
+    "termales",
+    "rioblanco"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "armenia",
+   "codigo": "ETHD009",
+   "cat": "metropolitano",
+   "nombre": "City tour tradicional Armenia",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00",
+     "14:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Guía",
+    "Entrada al Parque de la Vida",
+    "Visita al Museo del Oro Quimbaya",
+    "Degustación de café especial",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Ideal para personas de 4 a 70 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🏙️ ¡Armenia, ciudad milagro!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🏛️ Incluye Museo del Oro Quimbaya y Parque de la Vida",
+     "☕ Degustación de café especial"
+    ]
+   },
+   "descripcion": "Armenia, la «Ciudad Milagro», se reconstruyó tras el terremoto de 1999. El recorrido incluye el Museo del Oro Quimbaya, diseñado por el arquitecto Rogelio Salmona, con una de las colecciones de orfebrería precolombina más importantes del país.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "finca",
+    "aves",
+    "artesanosaves"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "cuyabro",
+   "codigo": "ETHD010",
+   "cat": "metropolitano",
+   "nombre": "City tour arte cuyabro y café de origen",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00",
+     "14:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Guía de interpretación",
+    "Cata de café de origen",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Ideal para personas de 4 a 70 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🎨 ¡Arte cuyabro y café de origen!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "☕ Prueba el café sin azúcar en la cata",
+     "💵 Efectivo para comprar arte o café local"
+    ]
+   },
+   "descripcion": "Armenia contada desde su arte urbano: murales, grafiti y barranquismo, una técnica escultórica nacida en la región, con obras del artista Henry Villada. Termina con una cata de cafés de origen.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "cartago",
+   "codigo": "ETHD064",
+   "cat": "metropolitano",
+   "nombre": "Tour comunitario en Cartago",
+   "duracion_horas": 6,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Refrigerio",
+    "Guía",
+    "Taller artesanal",
+    "Almuerzo",
+    "Artesanía elaborada",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva ropa cómoda.",
+    "Ideal para personas de 6 a 80 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🧵 ¡Los bordados de Cartago!",
+    "items": [
+     "👕 Ropa cómoda y fresca (Cartago es caliente)",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🧵 Vas a hacer tu propio bordado y te lo llevas",
+     "💵 Efectivo para comprar bordados a las artesanas"
+    ]
+   },
+   "descripcion": "Cartago es la capital del bordado en Colombia. Con jóvenes y mujeres de la Comuna 1 recorres la catedral y las iglesias, vives un Graffitour de bordados y aprendes las técnicas básicas en una casa taller, donde bordas tu propio diseño.",
+   "departamentos": [
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "cabalgatamaria",
+   "codigo": "ETHD016",
+   "cat": "aventura",
+   "nombre": "Cabalgata río y montaña",
+   "duracion_horas": 2.5,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "14:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Inducción en el manejo del caballo",
+    "Acompañamiento de vaqueros",
+    "Refrigerio fuerte",
+    "Elementos de protección (casco)",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda, sombrero y zapato de trekking (pueden mojarse).",
+    "Ideal para personas de 12 a 60 años.",
+    "No apto para mujeres en embarazo ni para personas con problemas de columna."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🐎 ¡Cabalgata entre río y montaña!",
+    "items": [
+     "👖 Pantalón largo (jean o similar)",
+     "👟 Zapatos cerrados o botas (no sandalias)",
+     "🤠 Sombrero o gorra y bloqueador",
+     "🧴 Repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "⚠️ Avísanos tu peso aproximado y experiencia con caballos",
+     "🪖 Te damos casco: úsalo todo el recorrido"
+    ]
+   },
+   "descripcion": "Una cabalgata con propósito: los caballos son rescatados y rehabilitados, y la antigua hacienda ganadera hoy es una reserva natural que recuperó su bosque. Cruzas guaduales, pastizales y ríos con vaqueros locales y terminas con almuerzo en la casa de la hacienda.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [
+    "finca"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "cabalgatadeluxe",
+   "codigo": "ETHD061",
+   "cat": "aventura",
+   "nombre": "Cabalgata deluxe en la cordillera",
+   "duracion_horas": 3,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Inducción en el manejo del caballo",
+    "Acompañamiento de vaqueros",
+    "Elementos de protección (casco)",
+    "Picnic de lujo y almuerzo campesino",
+    "Degustación de frutas e hidratación",
+    "Actividad de siembra",
+    "Experiencia en Jeep Willys",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda y sombrero o gorra.",
+    "Ideal para personas de 12 a 60 años.",
+    "No apto para mujeres en embarazo ni para personas con problemas de columna.",
+    "Producto certificado en la norma NTS AV 014 (cabalgatas en turismo de aventura) y en buenas prácticas equinas."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🐎 ¡Cabalgata deluxe en la cordillera!",
+    "items": [
+     "👖 Pantalón largo",
+     "👟 Botas o zapatos cerrados",
+     "🤠 Sombrero o gorra y bloqueador",
+     "🧴 Repelente",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "⚠️ Avísanos tu peso aproximado y experiencia con caballos",
+     "🪖 Te damos casco: úsalo todo el recorrido"
+    ]
+   },
+   "descripcion": "Una cabalgata premium en caballos árabes y españoles por la cordillera, con demostración de entrenamiento, siembra de un árbol nativo, picnic de lujo y regreso en Willys con almuerzo montañero.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": true,
+   "combina": [
+    "aves",
+    "artesanosbalcones",
+    "artesanosarcilla",
+    "finca"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "parapente",
+   "codigo": "ETHD025",
+   "cat": "aventura",
+   "nombre": "Parapente",
+   "duracion_horas": 1,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "07:00",
+     "10:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Actividad con pilotos certificados",
+    "Video de 3 min y 25 fotografías"
+   ],
+   "notas": [
+    "Lleva ropa cómoda, zapatos de amarrar, gafas de sol y abrigo.",
+    "El vuelo dura de 15 a 20 minutos, según el clima.",
+    "Ideal para personas de 4 a 65 años.",
+    "No apto para personas con cirugías recientes, mujeres en embarazo ni personas bajo efectos del alcohol u otras sustancias."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🪂 ¡Vuela sobre el Paisaje Cafetero!",
+    "items": [
+     "👟 Zapatos cerrados y ropa cómoda",
+     "🕶️ Gafas de sol y abrigo",
+     "📸 Incluye video de 3 min y 25 fotos",
+     "⛅ El vuelo depende del clima: puede reprogramarse",
+     "⚠️ No apto para embarazadas, cirugías recientes ni bajo efecto de alcohol o sustancias"
+    ]
+   },
+   "descripcion": "Mira el Paisaje Cultural Cafetero desde el aire: un vuelo con pilotos certificados sobre montañas, cafetales y valles, con video y fotos incluidos.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "cordillera",
+    "finca",
+    "cacao"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "paratrike",
+   "codigo": "ETHD029",
+   "cat": "aventura",
+   "nombre": "Paratrike",
+   "duracion_horas": 1,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "07:00",
+     "10:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Actividad con pilotos certificados",
+    "Video de 3 min y 25 fotografías"
+   ],
+   "notas": [
+    "Lleva ropa cómoda, zapatos de amarrar, gafas de sol y abrigo.",
+    "Apto para personas con movilidad reducida.",
+    "El vuelo dura de 15 a 20 minutos, según el clima.",
+    "Ideal para personas de 4 a 65 años.",
+    "No apto para personas con cirugías recientes, mujeres en embarazo ni personas bajo efectos del alcohol u otras sustancias."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🛺 ¡Vuela en paratrike!",
+    "items": [
+     "👟 Zapatos cerrados y ropa cómoda",
+     "🕶️ Gafas de sol y abrigo",
+     "📸 Incluye video de 3 min y 25 fotos",
+     "⛅ El vuelo depende del clima: puede reprogramarse",
+     "⚠️ No apto para embarazadas, cirugías recientes ni bajo efecto de alcohol o sustancias"
+    ]
+   },
+   "descripcion": "Parapente con motor, apto para personas con movilidad reducida: una vista de 360° sobre el Quindío y el Valle del Cauca. Una aventura incluyente, con video y fotos.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "cordillera",
+    "finca",
+    "cacao"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "canopy",
+   "codigo": "ETHD046",
+   "cat": "aventura",
+   "nombre": "Aventura natural en canopy",
+   "duracion_horas": 3,
+   "horario": null,
+   "incluye": [],
+   "notas": [
+    "Lleva zapato cerrado de amarrar y ropa cómoda (pantalón largo), sin objetos sueltos en los bolsillos.",
+    "Depende del clima: si llueve, no opera."
+   ],
+   "descripcion": "Líneas de tirolesa sobre las copas de los árboles, a unos 15 minutos de Armenia y con vista al paisaje cafetero. Apto para familias y para quienes lo hacen por primera vez, con equipos y protocolos de seguridad para cada nivel.",
+   "departamentos": [
+    "Quindío",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [
+    "cacao",
+    "termales",
+    "finca"
+   ],
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "parquecafe",
+   "codigo": "ETPT001",
+   "cat": "parques",
+   "nombre": "Parque del Café",
+   "duracion_horas": 7,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Pasaporte Múltiple"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda, sombrero o gorra y bloqueador solar.",
+    "Pasaporte Múltiple: estatura mayor de 124 cm; Junior: niños de 90 a 124 cm; Senior: mayores de 70 años.",
+    "Ideal para familias, de 4 a 70 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🎢 ¡Día de parque!",
+    "items": [
+     "👟 Zapatos cómodos (caminarás bastante)",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "🩱 Ropa de cambio si subes a atracciones de agua",
+     "💵 Efectivo o tarjeta para comida dentro del parque",
+     "📏 La tarifa niño depende de la estatura (91–124 cm)"
+    ]
+   },
+   "descripcion": "El parque temático más emblemático del Eje Cafetero: la cultura del café contada con shows, sendero del café, funicular, teleférico y atracciones mecánicas. Un plan ideal para familias y grupos.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "mixto",
+   "almuerzo": false,
+   "combina": [],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "panaca",
+   "codigo": "ETPT002",
+   "cat": "parques",
+   "nombre": "PANACA",
+   "duracion_horas": 7,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Pasaporte Terra"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda, sombrero o gorra y bloqueador solar.",
+    "Los niños de menos de 90 cm no pagan.",
+    "Show nocturno Travesía: martes, jueves y sábados a las 6:00 p. m. (costo adicional).",
+    "Ideal para familias, de 4 a 65 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🐄 ¡Día en PANACA!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💵 Efectivo o tarjeta para comida dentro del parque",
+     "⏰ Llega temprano para alcanzar todos los shows",
+     "💧 Botella reutilizable (te damos agua en el recorrido)"
+    ]
+   },
+   "descripcion": "El parque de la cultura agropecuaria, bajo la premisa «sin campo no hay ciudad»: más de 2,5 km de estaciones con animales de granja y espectáculos de caballos, perros y cerdos. Muy apreciado por familias y escolares.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "mixto",
+   "almuerzo": false,
+   "combina": [],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "recuca",
+   "codigo": "ETPT003",
+   "cat": "parques",
+   "nombre": "RECUCA · Recorrido de la Cultura Cafetera",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Entrada"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda, sombrero o gorra y bloqueador solar.",
+    "Recorridos y cataciones cada media hora, de 9:00 a. m. a 3:00 p. m.",
+    "Los niños de menos de 90 cm no pagan.",
+    "Ideal para familias, de 4 a 65 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "☕ ¡Cultura cafetera en RECUCA!",
+    "items": [
+     "👟 Zapatos cómodos (vas a caminar entre cafetales)",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "⏰ Los recorridos salen cada media hora; el primero a las 9:00 a.m. y el último a las 3:00 p.m.",
+     "👶 Niños de menos de 90 cm no pagan"
+    ]
+   },
+   "descripcion": "Vístete de recolector y vive el ciclo del café como un caficultor tradicional: recolecta, despulpa, seca, trilla, tuesta y muele. Una experiencia práctica de la semilla a la taza.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "mixto",
+   "almuerzo": false,
+   "combina": [
+    "cordillera"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "arrieros",
+   "codigo": "ETPT004",
+   "cat": "parques",
+   "nombre": "Parque Los Arrieros",
+   "duracion_horas": 6,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Entrada"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda, sombrero o gorra y bloqueador solar.",
+    "Llega antes de las 10:00 a. m. para no perderte ninguna presentación.",
+    "Los niños de menos de 90 cm no pagan.",
+    "Ideal para familias, de 4 a 65 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🐴 ¡Parque de los Arrieros!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "⏰ Llega antes de las 10:00 a.m. para no perderte las presentaciones",
+     "💵 Efectivo o tarjeta para comida",
+     "💧 Botella reutilizable (te damos agua en el recorrido)"
+    ]
+   },
+   "descripcion": "Un homenaje a la arriería, el oficio que colonizó y construyó la región: 8 presentaciones artísticas y 14 actividades interactivas para entender la historia del Eje Cafetero de forma divertida.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "mixto",
+   "almuerzo": false,
+   "combina": [],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "ukumari",
+   "codigo": "ETPT005",
+   "cat": "parques",
+   "nombre": "Bioparque Ukumarí",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Entrada"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda, sombrero o gorra y bloqueador solar.",
+    "Horario: lunes a viernes de 8:00 a. m. a 5:00 p. m.; sábados de 8:00 a. m. a 2:00 p. m.",
+    "Recorridos guiados: 10:00, 10:30 y 11:00 a. m. y 1:00 p. m.",
+    "Ideal para familias, de 4 a 65 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🐻 ¡Bioparque Ukumarí!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "⏰ Recorridos guiados de lunes a sábado (10:00, 10:30, 11:00 a.m. y 1:00 p.m.)",
+     "🗓️ Sábados cierra a las 2:00 p.m.",
+     "🚫 No alimentes a los animales"
+    ]
+   },
+   "descripcion": "Uno de los bioparques más grandes de Latinoamérica, dedicado a la conservación: oso de anteojos, pumas, aves andinas y una sabana africana con jirafas, leones y rinocerontes.",
+   "departamentos": [
+    "Risaralda"
+   ],
+   "modalidad": "mixto",
+   "almuerzo": false,
+   "combina": [
+    "pereira",
+    "finca",
+    "cacao",
+    "termales"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "botanico",
+   "codigo": "ETPT006",
+   "cat": "parques",
+   "nombre": "Jardín Botánico y Mariposario del Quindío",
+   "duracion_horas": 3,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "15:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Entrada"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda de manga larga en colores tierra, sombrero o gorra y bloqueador solar.",
+    "Último ingreso: 3:30 p. m.",
+    "Guía en inglés con costo adicional.",
+    "Ideal para familias, de 4 a 75 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🦋 ¡Mariposario y jardín botánico!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "⏰ Último ingreso 3:30 p.m.",
+     "🦋 No toques las mariposas"
+    ]
+   },
+   "descripcion": "Un centro de investigación y conservación de la flora y fauna nativas del Quindío, con la colección nacional de palmas más grande de Colombia y un mariposario donde caminas entre mariposas.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "mixto",
+   "almuerzo": false,
+   "combina": [
+    "cordillera",
+    "finca",
+    "cacao"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "laberinto",
+   "codigo": "ETPT007",
+   "cat": "parques",
+   "nombre": "Laberinto Mil Caminos",
+   "duracion_horas": 3,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "15:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Entrada"
+   ],
+   "notas": [
+    "Lleva repelente, ropa cómoda, sombrero o gorra y bloqueador solar.",
+    "Abre de martes a domingo y festivos, de 9:00 a. m. a 5:00 p. m. (último ingreso).",
+    "Ideal para familias, de 4 a 75 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🌀 ¡Piérdete en el laberinto!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🗓️ Abre de martes a domingo y festivos (cerrado los lunes)"
+    ]
+   },
+   "descripcion": "Uno de los laberintos más grandes de Latinoamérica: más de 3 km de senderos entre 24.000 arbustos, en un espacio para contemplar, jugar y desconectarse.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "mixto",
+   "almuerzo": false,
+   "combina": [
+    "filandia",
+    "finca"
+   ],
+   "ubicacion_publica": true
+  },
+  {
+   "id_web": "catacafe",
+   "codigo": "ETHD034",
+   "cat": "incentivos",
+   "nombre": "Cata de café especial",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "16:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Actividad de catación",
+    "Degustaciones de café",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se puede hacer en tu hotel o en el lugar donde estés.",
+    "Ideal para personas de 18 a 80 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "☕ ¡Cata de café especial!",
+    "items": [
+     "🚫 Evita perfumes fuertes: afectan los aromas",
+     "🦷 No te cepilles los dientes justo antes",
+     "☕ Prueba sin azúcar",
+     "🏨 Puede hacerse en tu hotel"
+    ]
+   },
+   "descripcion": "Del grano a la taza: aprende a identificar las notas cítricas, achocolatadas o especiadas del café de especialidad, el producto que hizo famosa a la región en el mundo.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Caldas",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "privado",
+   "almuerzo": false,
+   "combina": [],
+   "combina_todas": true,
+   "ubicacion_publica": false
+  },
+  {
+   "id_web": "conexion",
+   "codigo": "ETFD006",
+   "cat": "bienestar",
+   "nombre": "Conexión total: bienestar y energía renovada",
+   "duracion_horas": 8,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Chequeo de cuerpo físico, psíquico y energético",
+    "Sendero de la vida: 5 elementos",
+    "Almuerzo saludable",
+    "Hidratación",
+    "Souvenir",
+    "Masaje de liberación de bloqueos de energía",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente, ropa cómoda, abrigo, vestido de baño y sandalias."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "✨ ¡Un día para renovar cuerpo y mente!",
+    "items": [
+     "👕 Ropa cómoda y abrigo",
+     "🩱 Vestido de baño y sandalias",
+     "🧴 Repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🥗 Avísanos si tienes restricciones alimentarias (incluye almuerzo saludable)",
+     "📵 Te invitamos a desconectarte del celular"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "senderovida",
+   "codigo": "ETHD019",
+   "cat": "bienestar",
+   "nombre": "Sendero de la Vida · conexión interior",
+   "duracion_horas": 4,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00",
+     "14:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Sendero de la vida: 5 elementos",
+    "Guía coach de bienestar",
+    "Hidratación",
+    "Masaje de liberación, renovación o relajación",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Puedes elegir tu masaje: Liberación y armonía (muscular), Renovación marina (exfoliación corporal completa) o Especial lavanda (relajación profunda de cabeza, cara y cuello)."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🌀 ¡Conecta con los cinco elementos!",
+    "items": [
+     "👕 Ropa cómoda",
+     "🧴 Repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "💆 Elige tu masaje: liberación (muscular), renovación marina (exfoliación) o lavanda (relajación)",
+     "📵 Te invitamos a desconectarte del celular"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "equino",
+   "codigo": "ETHD020",
+   "cat": "bienestar",
+   "nombre": "Equinoterapia · coach asistido",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "15:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Sesión telefónica de diagnóstico",
+    "Sesión asistida con equino",
+    "Guía coach",
+    "Hidratación",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Los temas de la sesión se definen según el diagnóstico inicial: comunicación asertiva, empatía, coherencia, presencia, autoconocimiento, confianza, gestión emocional, gestión del estrés y resolución de conflictos.",
+    "Para menores de 13 años la actividad se realiza en familia."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🐴 ¡Los caballos como espejo!",
+    "items": [
+     "👖 Ropa cómoda y pantalón largo",
+     "👟 Zapatos cerrados",
+     "🧴 Repelente y bloqueador",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "📞 Antes de la sesión hacemos una llamada corta de diagnóstico",
+     "👨‍👩‍👧 Menores de 13 años participan en familia"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "yoga",
+   "codigo": "ETHD021",
+   "cat": "bienestar",
+   "nombre": "Sesión de yoga en reserva natural",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "16:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Yogui profesional",
+    "Hidratación",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Se realiza en la reserva natural más cercana al hotel o en el mismo hotel si sus instalaciones lo permiten. Sesión de 60 a 90 minutos aprox."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🧘 ¡Respira y equilibra en la naturaleza!",
+    "items": [
+     "👕 Ropa cómoda y elástica",
+     "🧥 Abrigo ligero",
+     "🧴 Repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🍽️ Mejor llegar con el estómago liviano",
+     "🧘 Si tienes tapete propio, tráelo (opcional)"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "rituales",
+   "codigo": "ETHD026",
+   "cat": "bienestar",
+   "nombre": "Rituales de bienestar holístico",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "16:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Coach espiritual",
+    "Souvenir",
+    "Hidratación",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda repelente y ropa cómoda.",
+    "Se realiza en la reserva natural más cercana al hotel o en el mismo hotel si sus instalaciones lo permiten."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🌿 ¡Rituales para renovar tu energía!",
+    "items": [
+     "👕 Ropa cómoda (ojalá clara)",
+     "🧴 Repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "💭 Cuéntanos el motivo del ritual al reservar (pareja, cumpleaños, nuevos comienzos…)",
+     "📵 Te invitamos a desconectarte del celular"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "respiracion",
+   "codigo": "ETHD030",
+   "cat": "bienestar",
+   "nombre": "Respiración consciente e inmersión en hielo",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "15:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Asistencia profesional",
+    "Bebida caliente",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda traje de baño y toalla para la inmersión.",
+    "Se realiza en la reserva natural más cercana al hotel o en el mismo hotel si sus instalaciones lo permiten. Duración de 60 a 90 minutos aprox."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🧊 ¡Respira, siente el frío y renueva tu energía!",
+    "items": [
+     "🩱 Traje de baño y toalla",
+     "👕 Ropa de cambio y abrigo",
+     "🍽️ Llega con el estómago liviano",
+     "⚠️ Avísanos si tienes problemas cardiacos, hipertensión o estás en embarazo",
+     "💧 Te damos bebida caliente al final"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "siembra",
+   "codigo": "ETHD027",
+   "cat": "incentivos",
+   "nombre": "Dejando huella: siembra de árboles",
+   "duracion_horas": 3,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "09:00",
+     "14:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Refrigerio",
+    "Guía",
+    "Especie de árbol endémica",
+    "Certificado de siembra",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se recomienda ropa cómoda, impermeable, abrigo y zapatos de buen agarre.",
+    "Se realiza en una reserva natural privada en las inmediaciones de Barbas Bremen, la Reserva Otún y la Reserva La Patasola (Salento).",
+    "El árbol sembrado tiene garantía de cuidado por 5 años."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🌳 ¡Siembra un árbol y deja huella!",
+    "items": [
+     "🥾 Zapatos con buen agarre",
+     "🧥 Abrigo e impermeable",
+     "👕 Ropa que se pueda ensuciar",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "📜 Recibes certificado de siembra; el árbol tiene cuidado garantizado por 5 años"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "cajaviajera",
+   "codigo": "ETHD031",
+   "cat": "incentivos",
+   "nombre": "La caja viajera del café",
+   "duracion_horas": 1.5,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "16:00"
+   },
+   "incluye": [
+    "Puesta en escena",
+    "Degustación de café",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Actividad móvil: se realiza en el hotel o locación donde estés alojado.",
+    "Opera únicamente en español o con traductor."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "📦 ¡La Caja Viajera del Café!",
+    "items": [
+     "🏨 Se hace en tu hotel o alojamiento",
+     "🗣️ Se presenta en español (o con traductor)",
+     "☕ Incluye degustación de café"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "tallerrespiracion",
+   "codigo": "ETHD032",
+   "cat": "incentivos",
+   "nombre": "Taller de respiración consciente",
+   "duracion_horas": 1,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "16:00"
+   },
+   "incluye": [
+    "Actividad dirigida",
+    "Asistencia profesional",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Actividad móvil: se realiza en el hotel o locación donde estés alojado."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🌬️ ¡Taller de respiración consciente!",
+    "items": [
+     "👕 Ropa cómoda",
+     "🍽️ Llega con el estómago liviano",
+     "🏨 Se hace en tu hotel o alojamiento",
+     "⚠️ Avísanos si tienes alguna condición respiratoria o cardiaca"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "cataquesos",
+   "codigo": "ETHD022",
+   "cat": "incentivos",
+   "nombre": "Cata de quesos madurados de origen",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "ventana",
+    "desde": "09:00",
+    "hasta": "16:00"
+   },
+   "incluye": [
+    "Maestro quesero",
+    "Degustación de quesos y maridaje",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "La cata puede incluir quesos gouda, con achiote, azul, camembert, madurados y semimadurados.",
+    "No recomendada para personas con alergias alimentarias.",
+    "Actividad móvil: se realiza en el hotel o locación donde estés alojado."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🧀 ¡Cata de quesos madurados!",
+    "items": [
+     "⚠️ No recomendada si tienes alergia a lácteos u otros alimentos",
+     "🏨 Puede hacerse en tu hotel",
+     "😋 Ven con apetito"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "catacocteles",
+   "codigo": "ETHD033",
+   "cat": "incentivos",
+   "nombre": "Cata de cócteles de autor",
+   "duracion_horas": 1.5,
+   "horario": {
+    "tipo": "desde",
+    "hora": "16:00"
+   },
+   "incluye": [
+    "Transporte",
+    "Bartender",
+    "Degustación de cócteles de autor",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Se realiza en la zona urbana de la ciudad.",
+    "Grupos de mínimo 5 y máximo 14 personas."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🍸 ¡Cata de cócteles de autor!",
+    "items": [
+     "🔞 Solo mayores de edad",
+     "🚗 No conduzcas después de la cata",
+     "👥 Grupos de 5 a 14 personas",
+     "🥗 Avísanos alergias al reservar"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "gastronomica",
+   "codigo": "ETHD028",
+   "cat": "incentivos",
+   "nombre": "Experiencia gastronómica: Colombia en un plato",
+   "duracion_horas": 2,
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "19:00"
+    ]
+   },
+   "incluye": [
+    "Transporte",
+    "Chef",
+    "Menú de 7 tiempos",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Informa tus restricciones o alergias alimentarias."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "🍽️ ¡Colombia en un plato!",
+    "items": [
+     "🥗 Avísanos alergias o restricciones al reservar",
+     "😋 Ven con apetito: es un menú de 7 tiempos",
+     "👥 Mínimo 6 personas"
+    ]
+   },
+   "publico": false
+  },
+  {
+   "id_web": "cookingclass",
+   "codigo": "ETHD044",
+   "cat": "incentivos",
+   "nombre": "Cooking class en Salento",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [],
+   "publico": false
+  },
+  {
+   "id_web": "cerveceria",
+   "codigo": "ETFD012",
+   "cat": "incentivos",
+   "nombre": "Visita una fábrica local y elabora tu propia cerveza",
+   "duracion_horas": 7,
+   "horario": null,
+   "incluye": [],
+   "notas": [],
+   "publico": false
+  },
+  {
+   "id_web": "bicicafe",
+   "codigo": "ETHD047",
+   "cat": "aventura",
+   "nombre": "Bici · Coffee Bike Tour",
+   "duracion_horas": 3,
+   "horario": null,
+   "incluye": [],
+   "notas": [],
+   "duracion_texto": "3–4 h",
+   "publico": false
+  },
+  {
+   "id_web": "bicicordillera",
+   "codigo": "ETHD048",
+   "cat": "aventura",
+   "nombre": "Bici · Ruta de la Cordillera",
+   "duracion_horas": 3,
+   "horario": null,
+   "incluye": [],
+   "notas": [],
+   "duracion_texto": "3–6 h",
+   "publico": false
+  },
+  {
+   "id_web": "bicirios",
+   "codigo": "ETHD049",
+   "cat": "aventura",
+   "nombre": "Bici · Ríos y Cascadas",
+   "duracion_horas": 3,
+   "horario": null,
+   "incluye": [],
+   "notas": [],
+   "duracion_texto": "3–4 h",
+   "publico": false
+  },
+  {
+   "id_web": "bicifilandia",
+   "codigo": "ETHD050",
+   "cat": "aventura",
+   "nombre": "Bici · Filandia y Quimbaya",
+   "duracion_horas": 4,
+   "horario": null,
+   "incluye": [],
+   "notas": [],
+   "publico": false
+  },
+  {
+   "id_web": "bicipalma",
+   "codigo": "ETHD051",
+   "cat": "aventura",
+   "nombre": "Bici · Desafío Palma de Cera",
+   "duracion_horas": 6,
+   "horario": null,
+   "incluye": [],
+   "notas": [],
+   "duracion_texto": "6 h o más",
+   "publico": false
+  },
+  {
+   "id_web": "biciconexion",
+   "codigo": "ETHD052",
+   "cat": "aventura",
+   "nombre": "Bici · Conexión Cordillera",
+   "duracion_horas": 5,
+   "horario": null,
+   "incluye": [],
+   "notas": [],
+   "duracion_texto": "5–6 h",
+   "publico": false
+  },
+  {
+   "id_web": "bicimonos",
+   "codigo": "ETHD053",
+   "cat": "aventura",
+   "nombre": "Bici · Santuario de Monos",
+   "duracion_horas": 5,
+   "horario": null,
+   "incluye": [],
+   "notas": [],
+   "duracion_texto": "5–6 h",
+   "publico": false
+  }
+ ]
+}

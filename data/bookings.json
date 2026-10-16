@@ -1,0 +1,183 @@
+{
+  "_info": "SOLO DATOS DE DEMOSTRACIÓN (ficticios). Con \"demo\": true las fechas se corren para que el viaje empiece siempre mañana. Este archivo es PÚBLICO: nunca pongas reservas reales aquí. Las reservas reales se crean en el portal (portal.html) y se guardan en Firebase.",
+  "updated": "2026-10-06",
+  "bookings": {
+    "ESP-7Q2X9": {
+      "code": "ESP-7Q2X9",
+      "demo": true,
+      "lang": "es",
+      "name": "Laura Gómez",
+      "party": 2,
+      "status": "confirmada",
+      "region": "Eje Cafetero · Quindío & Risaralda",
+      "host": {
+        "name": "Carlos — Anfitrión Espontáneos",
+        "phone": "573187200023"
+      },
+      "driver": {
+        "name": "Andrés (conductor de recogida)",
+        "phone": "573187200023"
+      },
+      "guide": {
+        "name": "María",
+        "langs": [
+          "es",
+          "en"
+        ]
+      },
+      "hotel": {
+        "name": "Hotel Sazagua",
+        "area": "Pereira",
+        "maps": "https://www.google.com/maps/search/Hotel+Sazagua+Pereira"
+      },
+      "prefs": {
+        "accessible": false,
+        "babySeat": false,
+        "diet": ""
+      },
+      "itinerary": [
+        {
+          "date": "2026-10-10",
+          "time": "08:00",
+          "tourId": "",
+          "maps": "https://www.google.com/maps/search/Hotel+Sazagua+Pereira",
+          "title": {
+            "es": "Recogida en el hotel",
+            "en": "Hotel pickup",
+            "fr": "Prise en charge à l'hôtel",
+            "de": "Abholung am Hotel",
+            "pt": "Retirada no hotel"
+          }
+        },
+        {
+          "date": "2026-10-10",
+          "time": "09:30",
+          "tourId": "finca",
+          "maps": "https://www.google.com/maps/search/finca+cafetera+Quind%C3%ADo",
+          "title": {
+            "es": "Finca Cafetera · Tour del Café",
+            "en": "Coffee Farm · Coffee Tour",
+            "fr": "Ferme de café · Tour du café",
+            "de": "Kaffeefinca · Kaffee-Tour",
+            "pt": "Fazenda de Café · Tour do Café"
+          }
+        },
+        {
+          "date": "2026-10-10",
+          "time": "13:00",
+          "tourId": "",
+          "maps": "",
+          "title": {
+            "es": "Almuerzo típico montañero",
+            "en": "Typical farm lunch",
+            "fr": "Déjeuner typique",
+            "de": "Typisches Mittagessen",
+            "pt": "Almoço típico"
+          }
+        },
+        {
+          "date": "2026-10-11",
+          "time": "08:30",
+          "tourId": "cocorasalento",
+          "maps": "https://www.google.com/maps/search/Valle+de+Cocora+Salento",
+          "title": {
+            "es": "Valle de Cocora y Salento",
+            "en": "Cocora Valley & Salento",
+            "fr": "Vallée de Cocora & Salento",
+            "de": "Cocora-Tal & Salento",
+            "pt": "Vale de Cocora & Salento"
+          }
+        },
+        {
+          "date": "2026-10-11",
+          "time": "16:00",
+          "tourId": "termales",
+          "maps": "https://www.google.com/maps/search/Termales+Santa+Rosa+de+Cabal",
+          "title": {
+            "es": "Aguas Termales (Santa Rosa)",
+            "en": "Hot Springs (Santa Rosa)",
+            "fr": "Sources thermales (Santa Rosa)",
+            "de": "Thermalquellen (Santa Rosa)",
+            "pt": "Águas Termais (Santa Rosa)"
+          }
+        }
+      ]
+    },
+    "ESP-K4M8T": {
+      "code": "ESP-K4M8T",
+      "demo": true,
+      "lang": "en",
+      "name": "James Parker",
+      "party": 3,
+      "status": "confirmed",
+      "region": "Coffee Region · Quindío",
+      "host": {
+        "name": "Carlos — Espontáneos Host",
+        "phone": "573187200023"
+      },
+      "driver": {
+        "name": "Andrés (pickup driver)",
+        "phone": "573187200023"
+      },
+      "guide": {
+        "name": "Daniel",
+        "langs": [
+          "es",
+          "en",
+          "fr"
+        ]
+      },
+      "hotel": {
+        "name": "Hotel Mocawa Plaza",
+        "area": "Armenia",
+        "maps": "https://www.google.com/maps/search/Hotel+Mocawa+Armenia"
+      },
+      "prefs": {
+        "accessible": true,
+        "babySeat": false,
+        "diet": "vegetarian"
+      },
+      "itinerary": [
+        {
+          "date": "2026-10-12",
+          "time": "09:00",
+          "tourId": "",
+          "maps": "https://www.google.com/maps/search/Hotel+Mocawa+Armenia",
+          "title": {
+            "es": "Recogida accesible en el hotel",
+            "en": "Accessible hotel pickup",
+            "fr": "Prise en charge accessible",
+            "de": "Barrierefreie Abholung",
+            "pt": "Retirada acessível"
+          }
+        },
+        {
+          "date": "2026-10-12",
+          "time": "10:00",
+          "tourId": "",
+          "maps": "https://www.google.com/maps/search/Paisaje+Cultural+Cafetero",
+          "title": {
+            "es": "Paisaje Cafetero Sin Barreras",
+            "en": "Barrier-Free Coffee Cultural Landscape",
+            "fr": "Paysage du café sans barrières",
+            "de": "Barrierefreie Kaffeelandschaft",
+            "pt": "Paisagem Cafeeira Sem Barreiras"
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "time": "09:30",
+          "tourId": "parquecafe",
+          "maps": "https://www.google.com/maps/search/Parque+del+Caf%C3%A9+Montenegro",
+          "title": {
+            "es": "Parque del Café (accesible)",
+            "en": "Coffee Park (accessible)",
+            "fr": "Parc du Café (accessible)",
+            "de": "Kaffeepark (barrierefrei)",
+            "pt": "Parque do Café (acessível)"
+          }
+        }
+      ]
+    }
+  }
+}

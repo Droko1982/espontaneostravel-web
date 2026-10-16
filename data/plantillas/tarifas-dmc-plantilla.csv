@@ -1,0 +1,3 @@
+vigencia,codigo,tour_id,nombre,temporada,pax_desde,pax_hasta,moneda,tarifa_neta,dmc_id,notas
+2026,ETHD001,finca,Visita finca cafetera,baja,1,1,COP,0,,EJEMPLO – borrar
+2026,ETHD018,cocorasalento,Tour Valle del Cocora y Salento,alta,2,3,COP,0,agencia-ejemplo,EJEMPLO – borrar (tarifa especial de una agencia)

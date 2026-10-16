@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /portal.html
+Disallow: /anfitrion.html
+Disallow: /tools/
+
+Sitemap: https://www.espontaneostravel.com/sitemap.xml
