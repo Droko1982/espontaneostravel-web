@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página no encontrada · Espontáneos Travel</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Esta página no existe, pero Espontáneos Travel sí: escríbenos por WhatsApp (+57 318 720 0023) o a info@espontaneostravel.com.">
+<meta name="theme-color" content="#272E19">
+<link rel="icon" href="/assets/img/icon-32.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Página autosuficiente: estilos, dibujo y textos van aquí mismo (con rutas absolutas), así funciona en
+     cualquier dirección que no exista (/algo/otra-cosa) aunque fallen otros archivos del sitio. -->
+<style>
+  :root { --forest: #272E19; --olive: #4A5C3A; --leaf: #6B7F4E; --orange: #FF8F2F; --sun: #FFB067; --cream: #F7F5EE; --ink: #1f2614; --soft: #5b6650; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; min-height: 100vh; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.5; }
+  a { color: inherit; }
+  .scene { position: relative; height: clamp(250px, 46vw, 470px); overflow: hidden; background: linear-gradient(180deg, #2f3b22 0%, #66784a 42%, #f2b878 78%, #ffd39c 100%); }
+  .scene svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .brand { position: absolute; top: 16px; left: 16px; z-index: 3; display: flex; align-items: center; gap: .6rem; text-decoration: none; color: #fff; font-family: Fraunces, Georgia, serif; font-size: 1.05rem; font-weight: 600; text-shadow: 0 1px 6px rgba(0,0,0,.35); }
+  .brand img { height: 48px; width: auto; }
+  @media (max-width: 560px) { .brand__name { display: none; } }
+  .langs { position: absolute; top: 16px; right: 16px; z-index: 3; display: flex; gap: .3rem; }
+  .langs button { font: inherit; font-size: .78rem; font-weight: 700; letter-spacing: .04em; color: #fff; background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: .3rem .6rem; cursor: pointer; }
+  .langs button[aria-pressed="true"] { background: var(--orange); border-color: var(--orange); color: var(--forest); }
+  /* animaciones del paisaje */
+  .fog { animation: drift 38s linear infinite; }
+  .fog--2 { animation-duration: 55s; animation-direction: reverse; opacity: .8; }
+  @keyframes drift { from { transform: translateX(-12%); } to { transform: translateX(12%); } }
+  .crown { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 5s ease-in-out infinite alternate; }
+  .crown--b { animation-duration: 6.5s; animation-delay: -2s; }
+  .crown--c { animation-duration: 4.2s; animation-delay: -1s; }
+  @keyframes sway { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+  .jeep { animation: drive 16s linear infinite; }
+  .jeep__body { animation: bump .45s ease-in-out infinite alternate; }
+  @keyframes drive { from { transform: translateX(-220px); } to { transform: translateX(1420px); } }
+  @keyframes bump { from { transform: translateY(0); } to { transform: translateY(-2px); } }
+  .sunrise { animation: glow 6s ease-in-out infinite alternate; }
+  @keyframes glow { from { opacity: .85; } to { opacity: 1; } }
+  .bird { animation: fly 22s linear infinite; }
+  @keyframes fly { from { transform: translate(-80px, 40px); } to { transform: translate(1300px, -30px); } }
+  @media (prefers-reduced-motion: reduce) { .fog, .crown, .jeep, .jeep__body, .sunrise, .bird { animation: none !important; } }
+
+  main { position: relative; z-index: 2; max-width: 1080px; margin: -64px auto 0; padding: 0 16px 40px; }
+  .card { background: #fff; border-radius: 22px; box-shadow: 0 18px 50px rgba(39,46,25,.16); padding: clamp(1.3rem, 4vw, 2.4rem); }
+  .tag { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #a8521a; background: #fff1e3; border-radius: 999px; padding: .3rem .75rem; }
+  h1 { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: clamp(1.8rem, 1.2rem + 3vw, 3rem); line-height: 1.1; margin: .7rem 0 .5rem; color: var(--forest); }
+  .lead { font-size: clamp(1rem, .95rem + .3vw, 1.15rem); color: var(--soft); max-width: 62ch; margin: 0 0 1.2rem; }
+  .paths { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 .4rem; padding: 0; list-style: none; }
+  .paths a { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; padding: .55rem 1rem; border-radius: 999px; border: 1.5px solid #dfe4d6; text-decoration: none; font-weight: 600; color: var(--forest); background: #fbfaf6; }
+  .paths a:hover, .paths a:focus-visible { border-color: var(--olive); background: #f1f4ea; }
+  .paths a.primary { background: var(--orange); border-color: var(--orange); color: var(--forest); }
+  .grid { display: grid; gap: 1rem; margin-top: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 820px) { .grid { grid-template-columns: 1.35fr 1fr; } }
+  .contact { background: var(--forest); color: #fff; border-radius: 22px; padding: clamp(1.2rem, 3.5vw, 2rem); }
+  .contact h2, .fact h2 { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 1.35rem; margin: 0 0 .3rem; }
+  .contact p { margin: 0 0 1rem; color: #d7e0c9; }
+  .btns { display: grid; gap: .55rem; grid-template-columns: 1fr; }
+  @media (min-width: 520px) { .btns { grid-template-columns: 1fr 1fr; } }
+  .btn { display: flex; align-items: center; gap: .65rem; min-height: 52px; padding: .65rem .95rem; border-radius: 14px; text-decoration: none; font-weight: 600; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); color: #fff; }
+  .btn:hover, .btn:focus-visible { background: rgba(255,255,255,.16); }
+  .btn small { display: block; font-weight: 400; font-size: .8rem; color: #c9d3ba; }
+  .btn svg { flex: 0 0 26px; width: 26px; height: 26px; }
+  .btn--wa { background: #25D366; border-color: #25D366; color: #0b2e17; grid-column: 1 / -1; font-size: 1.05rem; }
+  .btn--wa small { color: #0f4424; }
+  .btn--wa:hover, .btn--wa:focus-visible { background: #2fe072; }
+  .clock { display: flex; align-items: center; gap: .55rem; margin-top: 1rem; padding-top: .9rem; border-top: 1px solid rgba(255,255,255,.14); color: #d7e0c9; font-size: .92rem; }
+  .clock b { color: var(--sun); }
+  .fact { background: #fff7ec; border: 1px solid #ffe0bf; border-radius: 22px; padding: clamp(1.2rem, 3.5vw, 1.8rem); display: flex; flex-direction: column; }
+  .fact__icon { font-size: 2rem; line-height: 1; }
+  .fact__img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 14px; margin: 0 0 .9rem; }
+  .fact p { margin: .3rem 0 1rem; color: #4b3a28; font-size: 1.02rem; }
+  .fact button { margin-top: auto; align-self: flex-start; font: inherit; font-weight: 600; color: #a8521a; background: none; border: 0; padding: .4rem 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .legal { text-align: center; color: var(--soft); font-size: .85rem; margin: 1.4rem 0 0; }
+  .legal a { color: var(--soft); }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header class="scene">
+  <a class="brand" href="/"><img src="/assets/img/logo-light-h160.webp" alt="" width="50" height="48" onerror="this.remove()"><span class="brand__name">Espontáneos Travel</span></a>
+  <div class="langs" role="group" aria-label="Idioma / Language">
+    <button type="button" data-lang="es" aria-pressed="true">ES</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+    <button type="button" data-lang="de" aria-pressed="false">DE</button>
+    <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+  </div>
+  <!-- Paisaje Cultural Cafetero: montañas, cafetales, palmas de cera, niebla, un Willys y el letrero del sendero -->
+  <svg viewBox="0 0 1200 470" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <radialGradient id="sun" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFE3B3"/><stop offset=".45" stop-color="#FFB067"/><stop offset="1" stop-color="#FFB067" stop-opacity="0"/></radialGradient>
+      <pattern id="rows" width="22" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)"><circle cx="5" cy="7" r="3.4" fill="#2c3a1f"/><circle cx="16" cy="7" r="3.4" fill="#33441f"/></pattern>
+    </defs>
+    <circle class="sunrise" cx="820" cy="300" r="190" fill="url(#sun)"/>
+    <path class="bird" d="M100 120 q8 -8 16 0 q8 -8 16 0" fill="none" stroke="#2f3b22" stroke-width="2.4" stroke-linecap="round"/>
+    <!-- montañas lejanas -->
+    <path d="M0 300 L120 210 L230 260 L360 170 L470 245 L600 160 L720 240 L850 175 L980 250 L1100 190 L1200 230 L1200 470 L0 470Z" fill="#7d8f5c" opacity=".75"/>
+    <g class="fog"><ellipse cx="300" cy="255" rx="260" ry="26" fill="#fff" opacity=".35"/><ellipse cx="900" cy="245" rx="300" ry="24" fill="#fff" opacity=".3"/></g>
+    <path d="M0 330 L150 260 L300 310 L430 240 L560 300 L700 250 L860 310 L1000 255 L1200 300 L1200 470 L0 470Z" fill="#5c7140"/>
+    <!-- palmas de cera (fondo) -->
+    <g fill="#e8e1d2">
+      <rect x="196" y="150" width="5" height="170" rx="2"/><rect x="1006" y="168" width="5" height="150" rx="2"/><rect x="606" y="120" width="6" height="190" rx="2"/>
+    </g>
+    <g fill="#3e5a2a">
+      <path class="crown crown--b" d="M198 152 c-30 -6 -48 6 -56 18 c20 -12 38 -10 56 -18 c-22 -18 -40 -16 -50 -10 c22 0 34 4 50 10 c4 -24 22 -34 34 -34 c-16 10 -24 20 -34 34 c22 -8 44 -2 54 10 c-20 -6 -36 -6 -54 -10 c18 14 26 30 26 42 c-8 -16 -18 -28 -26 -42z"/>
+      <path class="crown crown--c" d="M1008 170 c-28 -6 -44 6 -52 16 c18 -10 34 -9 52 -16 c-20 -16 -36 -15 -46 -9 c20 0 31 4 46 9 c4 -22 20 -31 31 -31 c-15 9 -22 18 -31 31 c20 -7 40 -2 49 9 c-18 -5 -33 -5 -49 -9 c16 13 24 27 24 38 c-7 -14 -16 -25 -24 -38z"/>
+      <path class="crown" d="M609 122 c-34 -7 -54 7 -63 20 c23 -13 43 -11 63 -20 c-25 -20 -45 -18 -56 -11 c25 0 38 4 56 11 c5 -27 25 -38 38 -38 c-18 11 -27 22 -38 38 c25 -9 49 -2 61 11 c-22 -7 -40 -7 -61 -11 c20 16 29 34 29 47 c-9 -18 -20 -31 -29 -47z"/>
+    </g>
+    <g class="fog fog--2"><ellipse cx="600" cy="318" rx="420" ry="30" fill="#fff" opacity=".28"/></g>
+    <!-- colina de cafetales -->
+    <path d="M0 380 C200 330 380 345 560 365 C760 388 960 340 1200 360 L1200 470 L0 470Z" fill="#43592e"/>
+    <path d="M0 380 C200 330 380 345 560 365 C760 388 960 340 1200 360 L1200 470 L0 470Z" fill="url(#rows)" opacity=".55"/>
+    <!-- palma de cera al frente -->
+    <rect x="128" y="190" width="8" height="215" rx="3" fill="#efe8da"/>
+    <path class="crown" fill="#35501f" d="M132 192 c-40 -8 -64 8 -75 24 c27 -16 51 -13 75 -24 c-30 -24 -54 -22 -67 -13 c30 0 46 5 67 13 c6 -32 30 -46 46 -46 c-22 13 -33 27 -46 46 c30 -11 59 -3 73 13 c-26 -8 -48 -8 -73 -13 c24 19 35 41 35 57 c-11 -22 -24 -38 -35 -57z"/>
+    <!-- camino -->
+    <path d="M0 428 C300 410 600 420 900 414 C1020 412 1120 416 1200 418 L1200 446 C1100 444 1000 442 900 444 C600 450 300 440 0 456Z" fill="#c9a27a"/>
+    <path d="M0 442 C300 426 600 434 900 429 C1020 427 1120 431 1200 432" fill="none" stroke="#fff3df" stroke-width="2" stroke-dasharray="14 12" opacity=".7"/>
+    <!-- Willys con carga -->
+    <g class="jeep" transform="translate(-220 0)">
+      <g class="jeep__body">
+        <rect x="18" y="380" width="92" height="30" rx="6" fill="#d9632b"/>
+        <rect x="40" y="362" width="44" height="22" rx="3" fill="#d9632b"/>
+        <rect x="46" y="366" width="32" height="13" rx="2" fill="#bfe0ea"/>
+        <rect x="28" y="352" width="70" height="8" rx="2" fill="#6b4a2b"/>
+        <rect x="32" y="340" width="20" height="13" rx="3" fill="#8a6a3e"/><rect x="54" y="336" width="22" height="17" rx="3" fill="#a3814f"/><rect x="78" y="342" width="16" height="11" rx="3" fill="#8a6a3e"/>
+        <rect x="104" y="388" width="10" height="7" rx="2" fill="#ffe08a"/>
+      </g>
+      <circle cx="40" cy="412" r="11" fill="#1f2614"/><circle cx="40" cy="412" r="4" fill="#9aa38c"/>
+      <circle cx="94" cy="412" r="11" fill="#1f2614"/><circle cx="94" cy="412" r="4" fill="#9aa38c"/>
+    </g>
+    <!-- letrero del sendero -->
+    <g transform="translate(760 228)">
+      <rect x="44" y="20" width="12" height="122" rx="3" fill="#6b4a2b"/>
+      <path d="M0 18 H120 L146 44 L120 70 H0Z" fill="#8a5a32"/>
+      <path d="M0 18 H120 L146 44 L120 70 H0Z" fill="none" stroke="#5a3a1e" stroke-width="3"/>
+      <text x="60" y="56" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="700" fill="#FFE3B3">404</text>
+      <path d="M8 84 H112 L88 106 H8Z" fill="#7a4f2b" transform="rotate(6 60 95)"/>
+      <text x="58" y="101" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#FFE3B3" transform="rotate(6 60 95)">¿ ?</text>
+    </g>
+  </svg>
+</header>
+
+<main>
+  <section class="card" aria-labelledby="t-title">
+    <span class="tag" data-t="tag">Error 404 · página no encontrada</span>
+    <h1 id="t-title" data-t="title">¡Uy! Este sendero no existe</h1>
+    <p class="lead" data-t="lead">Hasta los mejores guías se pierden entre cafetales. La página que buscas se movió o nunca existió, pero nosotros seguimos aquí. Te ayudamos a volver al camino.</p>
+    <ul class="paths">
+      <li><a class="primary" data-href="/" href="/" data-t="home">← Volver al inicio</a></li>
+      <li><a data-href="/#experiencias" href="/#experiencias" data-t="tours">🌿 Experiencias</a></li>
+      <li><a data-href="/#planes" href="/#planes" data-t="plans">🗺️ Planes</a></li>
+      <li><a href="/viaje.html" data-t="trip">🎟️ Mi viaje</a></li>
+      <li><a href="/portal.html" data-t="dmc">🤝 Agencias / DMCs</a></li>
+      <li><a data-href="/#faq" href="/#faq" data-t="faq">❓ Preguntas</a></li>
+    </ul>
+
+    <div class="grid">
+      <section class="contact" aria-labelledby="t-contact">
+        <h2 id="t-contact" data-t="contactH">Escríbenos directo</h2>
+        <p data-t="contactP">Atendemos viajeros y agencias de todo el mundo. Cuéntanos qué buscabas y te respondemos.</p>
+        <div class="btns">
+          <a class="btn btn--wa" id="wa" href="https://wa.me/573187200023?text=Hola%20Espont%C3%A1neos%20Travel%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span><span data-t="wa">Escribir por WhatsApp</span><small>+57 318 720 0023</small></span>
+          </a>
+          <a class="btn" id="mail" href="mailto:info@espontaneostravel.com?subject=Consulta%20desde%20la%20web">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <span><span data-t="mail">Enviar un correo</span><small>info@espontaneostravel.com</small></span>
+          </a>
+          <a class="btn" href="tel:+573187200023">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            <span><span data-t="call">Llamar</span><small>+57 318 720 0023</small></span>
+          </a>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Espont%C3%A1neos%20Travel&amp;query_place_id=ChIJceh06cj1OI4RQY5rYeJ7zrY" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+            <span><span data-t="reviews">Reseñas en Google</span><small>★★★★★ 5,0</small></span>
+          </a>
+          <a class="btn" href="https://www.instagram.com/espontaneostravel/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            <span>Instagram<small>@espontaneostravel</small></span>
+          </a>
+        </div>
+        <div class="btns" style="margin-top:.55rem">
+          <a class="btn" href="https://www.facebook.com/espontaneostravel" target="_blank" rel="noopener" style="grid-column:1/-1">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg>
+            <span>Facebook<small>/espontaneostravel</small></span>
+          </a>
+        </div>
+        <p class="clock" aria-live="off"><span aria-hidden="true">🕒</span><span id="clock" data-t="clockStatic">Estamos en Armenia, Quindío (Colombia, UTC−5).</span></p>
+      </section>
+
+      <aside class="fact" aria-labelledby="t-fact">
+        <img class="fact__img" src="/assets/img/d/1_2OrOZv2OwRm1r1F0G8nr7Bz25LC6Efx-640.webp" alt="Valle de Cocora, Quindío" width="640" height="400" loading="lazy" onerror="this.remove()">
+        <span class="fact__icon" aria-hidden="true">☕</span>
+        <h2 id="t-fact" data-t="factH">¿Sabías que…?</h2>
+        <p id="fact">La palma de cera del Quindío es el árbol nacional de Colombia y puede pasar de los 60 metros de altura.</p>
+        <button type="button" id="fact-next" data-t="factNext" hidden>Otro dato →</button>
+      </aside>
+    </div>
+  </section>
+
+  <p class="legal">Espontáneos Travel SAS · NIT 902.056.513 · RNT 91795 · Armenia, Quindío, Colombia<br>
+    <a href="/terminos.html" data-t="terms">Términos y condiciones</a> · <a href="/privacidad.html" data-t="privacy">Privacidad</a> · <a href="/sostenibilidad.html" data-t="sust">Sostenibilidad</a></p>
+</main>
+
+<script>
+(function () {
+  var T = {
+    es: { tag: "Error 404 · página no encontrada", title: "¡Uy! Este sendero no existe",
+      lead: "Hasta los mejores guías se pierden entre cafetales. La página que buscas se movió o nunca existió, pero nosotros seguimos aquí. Te ayudamos a volver al camino.",
+      home: "← Volver al inicio", tours: "🌿 Experiencias", plans: "🗺️ Planes", trip: "🎟️ Mi viaje", dmc: "🤝 Agencias / DMCs", faq: "❓ Preguntas",
+      contactH: "Escríbenos directo", contactP: "Atendemos viajeros y agencias de todo el mundo. Cuéntanos qué buscabas y te respondemos.",
+      wa: "Escribir por WhatsApp", mail: "Enviar un correo", call: "Llamar", reviews: "Reseñas en Google",
+      clock: "En Armenia, Colombia, son las {t} (UTC−5).", factH: "¿Sabías que…?", factNext: "Otro dato →",
+      terms: "Términos y condiciones", privacy: "Privacidad", sust: "Sostenibilidad",
+      waMsg: "Hola Espontáneos Travel, llegué a una página de su web que no existe y quiero información.", mailSub: "Consulta desde la web",
+      facts: ["La palma de cera del Quindío es el árbol nacional de Colombia y puede pasar de los 60 metros de altura.",
+        "El Paisaje Cultural Cafetero es Patrimonio de la Humanidad de la UNESCO desde 2011.",
+        "Los Willys, los yipes de la región, todavía suben el café por las montañas. En Armenia hasta tienen su desfile: el Yipao.",
+        "Colombia es el país con más especies de aves del mundo: más de 1.900.",
+        "El café de la región se recoge a mano, grano por grano, porque en una misma rama maduran a ritmos distintos."] },
+    en: { tag: "Error 404 · page not found", title: "Oops! This trail doesn't exist",
+      lead: "Even the best guides get lost among the coffee farms. The page you're looking for has moved or never existed, but we're still right here. Let us help you back on the trail.",
+      home: "← Back to home", tours: "🌿 Experiences", plans: "🗺️ Packages", trip: "🎟️ My trip", dmc: "🤝 Agencies / DMCs", faq: "❓ FAQ",
+      contactH: "Contact us directly", contactP: "We work with travellers and agencies from all over the world. Tell us what you were looking for and we'll get back to you.",
+      wa: "Message us on WhatsApp", mail: "Send an email", call: "Call us", reviews: "Google reviews",
+      clock: "In Armenia, Colombia, it's {t} (UTC−5).", factH: "Did you know?", factNext: "Another fact →",
+      terms: "Terms & conditions", privacy: "Privacy", sust: "Sustainability",
+      waMsg: "Hello Espontáneos Travel, I landed on a page of your website that doesn't exist and I'd like some information.", mailSub: "Enquiry from the website",
+      facts: ["The Quindío wax palm is Colombia's national tree and can grow taller than 60 metres.",
+        "The Coffee Cultural Landscape of Colombia has been a UNESCO World Heritage Site since 2011.",
+        "Willys jeeps still carry coffee up and down these mountains. Armenia even holds a parade for them: the Yipao.",
+        "Colombia has more bird species than any other country in the world: over 1,900.",
+        "Coffee here is picked by hand, cherry by cherry, because the beans on a single branch ripen at different times."] },
+    fr: { tag: "Erreur 404 · page introuvable", title: "Oups ! Ce sentier n'existe pas",
+      lead: "Même les meilleurs guides se perdent parmi les caféiers. La page que vous cherchez a été déplacée ou n'a jamais existé, mais nous sommes toujours là. Nous vous aidons à retrouver le chemin.",
+      home: "← Retour à l'accueil", tours: "🌿 Expériences", plans: "🗺️ Forfaits", trip: "🎟️ Mon voyage", dmc: "🤝 Agences / DMC", faq: "❓ FAQ",
+      contactH: "Écrivez-nous directement", contactP: "Nous accueillons des voyageurs et des agences du monde entier. Dites-nous ce que vous cherchiez et nous vous répondrons.",
+      wa: "Écrire sur WhatsApp", mail: "Envoyer un e-mail", call: "Appeler", reviews: "Avis Google",
+      clock: "À Armenia, en Colombie, il est {t} (UTC−5).", factH: "Le saviez-vous ?", factNext: "Une autre anecdote →",
+      terms: "Conditions générales", privacy: "Confidentialité", sust: "Durabilité",
+      waMsg: "Bonjour Espontáneos Travel, je suis arrivé sur une page de votre site qui n'existe pas et j'aimerais des informations.", mailSub: "Demande depuis le site web",
+      facts: ["Le palmier à cire du Quindío est l'arbre national de la Colombie et peut dépasser 60 mètres de haut.",
+        "Le Paysage culturel du café de Colombie est inscrit au patrimoine mondial de l'UNESCO depuis 2011.",
+        "Les Jeeps Willys transportent encore le café dans ces montagnes. Armenia leur consacre même un défilé : le Yipao.",
+        "La Colombie est le pays qui compte le plus d'espèces d'oiseaux au monde : plus de 1 900.",
+        "Ici, le café se cueille à la main, cerise par cerise, car sur une même branche les grains ne mûrissent pas en même temps."] },
+    de: { tag: "Fehler 404 · Seite nicht gefunden", title: "Hoppla! Diesen Pfad gibt es nicht",
+      lead: "Selbst die besten Guides verirren sich zwischen den Kaffeefeldern. Die gesuchte Seite wurde verschoben oder hat nie existiert – aber wir sind weiterhin für Sie da und helfen Ihnen zurück auf den Weg.",
+      home: "← Zur Startseite", tours: "🌿 Erlebnisse", plans: "🗺️ Pakete", trip: "🎟️ Meine Reise", dmc: "🤝 Agenturen / DMCs", faq: "❓ FAQ",
+      contactH: "Schreiben Sie uns direkt", contactP: "Wir betreuen Reisende und Agenturen aus aller Welt. Sagen Sie uns, was Sie gesucht haben, und wir melden uns.",
+      wa: "Per WhatsApp schreiben", mail: "E-Mail senden", call: "Anrufen", reviews: "Google-Bewertungen",
+      clock: "In Armenia, Kolumbien, ist es {t} Uhr (UTC−5).", factH: "Schon gewusst?", factNext: "Noch ein Fakt →",
+      terms: "AGB", privacy: "Datenschutz", sust: "Nachhaltigkeit",
+      waMsg: "Hallo Espontáneos Travel, ich bin auf einer Seite Ihrer Website gelandet, die es nicht gibt, und hätte gern Informationen.", mailSub: "Anfrage über die Website",
+      facts: ["Die Wachspalme des Quindío ist Kolumbiens Nationalbaum und kann über 60 Meter hoch werden.",
+        "Die Kaffeekulturlandschaft Kolumbiens ist seit 2011 UNESCO-Welterbe.",
+        "Willys-Jeeps bringen hier noch heute den Kaffee durch die Berge. In Armenia gibt es für sie sogar eine Parade: den Yipao.",
+        "Kolumbien hat mehr Vogelarten als jedes andere Land der Welt: über 1.900.",
+        "Der Kaffee wird hier von Hand gepflückt, Kirsche für Kirsche, weil die Früchte an einem Zweig unterschiedlich schnell reifen."] },
+    pt: { tag: "Erro 404 · página não encontrada", title: "Ops! Esta trilha não existe",
+      lead: "Até os melhores guias se perdem entre os cafezais. A página que você procura mudou de lugar ou nunca existiu, mas nós continuamos aqui. Vamos te ajudar a voltar ao caminho.",
+      home: "← Voltar ao início", tours: "🌿 Experiências", plans: "🗺️ Pacotes", trip: "🎟️ Minha viagem", dmc: "🤝 Agências / DMCs", faq: "❓ Perguntas",
+      contactH: "Fale direto com a gente", contactP: "Atendemos viajantes e agências do mundo todo. Conte o que você procurava e responderemos.",
+      wa: "Escrever no WhatsApp", mail: "Enviar um e-mail", call: "Ligar", reviews: "Avaliações no Google",
+      clock: "Em Armenia, Colômbia, são {t} (UTC−5).", factH: "Você sabia?", factNext: "Outra curiosidade →",
+      terms: "Termos e condições", privacy: "Privacidade", sust: "Sustentabilidade",
+      waMsg: "Olá Espontáneos Travel, cheguei a uma página do site de vocês que não existe e gostaria de informações.", mailSub: "Consulta pelo site",
+      facts: ["A palmeira-de-cera do Quindío é a árvore nacional da Colômbia e pode passar dos 60 metros de altura.",
+        "A Paisagem Cultural do Café da Colômbia é Patrimônio Mundial da UNESCO desde 2011.",
+        "Os jipes Willys ainda levam o café pelas montanhas. Armenia tem até um desfile para eles: o Yipao.",
+        "A Colômbia é o país com mais espécies de aves do mundo: mais de 1.900.",
+        "O café daqui é colhido à mão, grão por grão, porque no mesmo galho os frutos amadurecem em ritmos diferentes."] }
+  };
+  var LOC = { es: "es-CO", en: "en-GB", fr: "fr-FR", de: "de-DE", pt: "pt-BR" };
+  var lang = "es", factIx = 0;
+  try { var s = localStorage.getItem("esp_lang"); if (T[s]) lang = s; } catch (e) {}
+  if (lang === "es") { var n = (navigator.language || "es").slice(0, 2).toLowerCase(); if (T[n]) lang = n; }
+  factIx = Math.floor(Math.random() * T.es.facts.length);
+
+  function clock() {
+    var el = document.getElementById("clock"); if (!el) return;
+    try {
+      var t = new Intl.DateTimeFormat(LOC[lang], { timeZone: "America/Bogota", hour: "numeric", minute: "2-digit" }).format(new Date());
+      el.textContent = T[lang].clock.replace("{t}", t);
+    } catch (e) {}
+  }
+  function apply(l) {
+    lang = l; var d = T[l];
+    document.documentElement.lang = l;
+    document.title = d.title.replace(/[¡!]/g, "").trim() + " · Espontáneos Travel";
+    [].forEach.call(document.querySelectorAll("[data-t]"), function (el) { var k = el.getAttribute("data-t"); if (d[k]) el.textContent = d[k]; });
+    [].forEach.call(document.querySelectorAll("[data-href]"), function (a) { var h = a.getAttribute("data-href"), i = h.indexOf("#"); a.href = l === "es" ? h : (h === "/" || h.indexOf("/#") === 0 ? "/" + l + "/" + (i < 0 ? "" : h.slice(i)) : (i < 0 ? h + "?lang=" + l : h.slice(0, i) + "?lang=" + l + h.slice(i))); });
+    [].forEach.call(document.querySelectorAll(".langs button"), function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === l)); });
+    var where = location.href;
+    document.getElementById("wa").href = "https://wa.me/573187200023?text=" + encodeURIComponent(d.waMsg + "\n" + where);
+    document.getElementById("mail").href = "mailto:info@espontaneostravel.com?subject=" + encodeURIComponent(d.mailSub) + "&body=" + encodeURIComponent(d.waMsg + "\n" + where + "\n\n");
+    document.getElementById("fact").textContent = d.facts[factIx % d.facts.length];
+    clock();
+  }
+  [].forEach.call(document.querySelectorAll(".langs button"), function (b) {
+    b.addEventListener("click", function () { apply(b.getAttribute("data-lang")); try { localStorage.setItem("esp_lang", lang); } catch (e) {} });
+  });
+  var next = document.getElementById("fact-next");
+  next.hidden = false;
+  next.addEventListener("click", function () { factIx = (factIx + 1) % T[lang].facts.length; document.getElementById("fact").textContent = T[lang].facts[factIx]; });
+  apply(lang);
+  setInterval(clock, 30000);
+})();
+</script>
+</body>
+</html>

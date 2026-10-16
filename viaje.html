@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conserje · Espontáneos Travel</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3f5a2b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f140c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/img/icon-32.png" type="image/png" sizes="32x32">
+<link rel="manifest" href="viaje.webmanifest">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=533f303">
+<link rel="stylesheet" href="css/maps.css?v=533f303">
+<script>(function(){try{var t=localStorage.getItem("esp_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+</head>
+<body class="c-body">
+
+<header class="c-top">
+  <a class="brand" href="/">
+    <img src="assets/img/logo.png" alt="Espontáneos Travel" width="40" height="40">
+    <span class="brand__text"><span class="brand__name">Espontáneos Travel</span><span class="brand__tag" id="c-brand-sub">Conserje de viaje</span></span>
+  </a>
+  <div class="c-top__actions">
+    <a class="btn btn--ghost btn--sm c-back" id="c-back" href="/" aria-label="Volver a la web"><span aria-hidden="true">←</span><span class="c-back__txt" id="c-back-txt">Volver a la web</span></a>
+    <div class="c-langs" id="c-langs"></div>
+    <button class="icon-btn" id="c-theme" aria-label="Tema"></button>
+  </div>
+</header>
+
+<!-- Gate: cuando no hay código o no se encuentra -->
+<section class="c-gate" id="c-gate" style="display:none"></section>
+
+<!-- App -->
+<main class="c-app" id="c-app" style="display:none">
+  <section class="c-welcome" id="c-welcome"></section>
+  <section class="c-next" id="c-next"></section>
+  <section class="c-card c-review" id="c-review" style="display:none"></section>
+
+  <section class="c-card">
+    <div class="c-itin-head">
+      <h2 class="c-card__title" id="c-itin-title">Tu itinerario</h2>
+      <button class="c-cal-btn" id="c-cal" type="button">📅 <span id="c-cal-label">Añadir a mi calendario</span></button>
+    </div>
+    <ul class="c-itin" id="c-itin"></ul>
+  </section>
+
+  <section class="c-card c-pack" id="c-pack" style="display:none"></section>
+
+  <section class="c-card c-route" id="c-route" style="display:none"><h2 class="c-card__title" id="c-route-title">Tu ruta y distancias</h2><div class="c-route__map" id="c-route-map"></div></section>
+
+  <section class="c-card c-assistant">
+    <div class="c-assistant__head">
+      <span class="c-assistant__ava">J</span>
+      <div><b>Jenny</b><span class="c-assistant__status">· online</span></div>
+    </div>
+    <div class="c-chat" id="c-chat"></div>
+    <div class="c-chips" id="c-chips"></div>
+    <form class="c-ask" id="c-ask" autocomplete="off">
+      <input type="text" id="c-ask-in" placeholder="Escríbeme tu pregunta…" aria-label="Pregunta">
+      <button type="submit" id="c-ask-send" aria-label="Enviar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+    <div class="c-foot" id="c-foot">Respuestas guiadas · tu anfitrión confirma los detalles</div>
+  </section>
+</main>
+
+<div class="c-actions" id="c-actions"></div>
+
+<script src="js/kb.js?v=533f303"></script>
+<script src="js/jenny-data.js?v=533f303"></script>
+<script src="js/plans.js?v=533f303"></script>
+<script src="js/qrscan.js?v=533f303"></script>
+<script src="js/concierge.js?v=533f303"></script>
+<script src="js/maps.js?v=533f303" defer></script>
+<script type="module" src="js/backend.js?v=533f303"></script>
+<script>
+  // Sin señal en Cocora o el páramo: el conserje sigue funcionando con la última copia guardada.
+  if ("serviceWorker" in navigator) addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
+</script>
+</body>
+</html>

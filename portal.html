@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portal de agencias · Espontáneos Travel</title>
+<meta name="description" content="Portal privado para agencias aliadas (DMC) y el equipo de Espontáneos Travel.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Política de seguridad (CSP): solo se ejecuta código de este sitio y del SDK oficial de Firebase (www.gstatic.com).
+     Si cambias el script en línea del tema, recalcula su hash sha256. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://www.google.com https://www.recaptcha.net 'sha256-L4OhRwT04MSGfxIA4vJtMPxbFtXUBqZyBO4Adg/TxfE='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://formsubmit.co https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.gstatic.com https://content-firebaseappcheck.googleapis.com https://www.google.com https://www.recaptcha.net; frame-src https://*.firebaseapp.com https://www.google.com https://www.recaptcha.net; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="theme-color" content="#272E19">
+<link rel="icon" href="assets/img/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600&family=Inter:wght@400;500;550;650;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=533f303">
+<link rel="stylesheet" href="css/portal.css?v=533f303">
+<script>(function(){try{var t=localStorage.getItem("esp_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+</head>
+<body class="p-body">
+<a class="p-skip" href="#p-main" id="p-skip">Saltar al contenido</a>
+
+<header class="p-header">
+  <a class="brand" href="/">
+    <img src="assets/img/logo.png" alt="" width="40" height="40">
+    <span class="brand__text"><span class="brand__name">Espontáneos Travel</span><span class="brand__tag" id="p-brand-tag">Portal de agencias</span></span>
+  </a>
+  <div class="p-header__actions" id="p-header-actions"><a class="btn btn--ghost btn--sm p-back" href="/"><span aria-hidden="true">← </span>Volver a la web</a></div>
+</header>
+
+<main class="p-main" id="p-main" tabindex="-1">
+  <p class="p-loading" role="status">Cargando…</p>
+  <noscript><p class="p-card">Este portal necesita JavaScript activado. · This portal requires JavaScript.</p></noscript>
+</main>
+
+<footer class="p-footer">
+  <p>Espontáneos Travel SAS · NIT 902.056.513 · RNT 91795 · Armenia, Quindío, Colombia</p>
+  <p>Información confidencial para agencias aliadas y equipo interno. No compartas tarifas netas con viajeros.</p>
+</footer>
+
+<!-- Avisos: uno cortés (estado) y uno urgente (errores). Siempre presentes para lectores de pantalla. -->
+<div class="p-toasts">
+  <div class="p-toast" id="p-status" role="status" aria-live="polite"></div>
+  <div class="p-toast p-toast--error" id="p-alert" role="alert" aria-live="assertive"></div>
+</div>
+
+<script src="js/vendor/qrcode.min.js?v=533f303"></script>
+<script type="module" src="js/portal.js?v=533f303"></script>
+</body>
+</html>

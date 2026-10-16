@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel del anfitrión · Espontáneos Travel</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/img/icon-32.png" type="image/png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=533f303">
+<script>(function(){try{var t=localStorage.getItem("esp_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<style>
+  .a-wrap{max-width:720px;margin:0 auto;padding:2rem clamp(1rem,4vw,1.5rem);}
+  .a-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem;}
+  .a-head img{width:48px;height:48px}
+  .a-card{background:var(--card);border:1px solid var(--border-soft);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow-sm);margin-bottom:1.2rem}
+  .a-row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+  .a-row input{flex:1;min-width:200px;padding:.8rem 1rem;border:1.5px solid var(--border);border-radius:var(--r-sm);background:var(--bg);color:var(--text);font:inherit;text-transform:uppercase}
+  .a-qr{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;margin-top:1.2rem}
+  .a-qr img{width:200px;height:200px;border-radius:14px;background:#fff;padding:8px;border:1px solid var(--border)}
+  .a-link{word-break:break-all;font-size:.9rem;color:var(--brand);font-weight:600}
+  .a-samples{display:grid;gap:.5rem}
+  .a-sample{display:flex;justify-content:space-between;align-items:center;gap:.8rem;padding:.7rem 1rem;background:var(--bg-soft);border-radius:var(--r-sm)}
+  .a-muted{color:var(--text-muted);font-size:.9rem}
+  h1{font-size:1.5rem} h2{font-size:1.1rem;margin-bottom:.8rem}
+  .a-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.6rem}
+  .a-grid input,.a-grid select{padding:.7rem .8rem;border:1.5px solid var(--border);border-radius:var(--r-sm);background:var(--bg);color:var(--text);font:inherit}
+  .a-card textarea{width:100%;padding:.8rem;border:1.5px solid var(--border);border-radius:var(--r-sm);background:var(--bg);color:var(--text);font:inherit;resize:vertical;line-height:1.5}
+  .a-tablewrap{overflow-x:auto;margin-bottom:1rem}
+  .a-table{width:100%;border-collapse:collapse;font-size:.85rem}
+  .a-table th,.a-table td{padding:.45rem .55rem;border-bottom:1px solid var(--border-soft);text-align:left;white-space:nowrap}
+  .a-table th{color:var(--text-muted);font-weight:600}
+  @media(max-width:520px){.a-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="a-wrap">
+  <div class="a-head">
+    <img src="assets/img/logo.png" alt="">
+    <div><h1>Panel del anfitrión</h1><span class="a-muted">Genera el QR del viajero · Espontáneos Travel · <a href="portal.html">Portal de asesores y DMC →</a></span></div>
+  </div>
+
+  <div class="a-card">
+    <h2>Generar código / QR</h2>
+    <div class="a-row">
+      <input type="text" id="code" placeholder="Código de reserva (ej. ESP-7Q2X9)">
+      <button class="btn btn--primary" id="gen">Generar QR</button>
+    </div>
+    <div id="out" class="a-qr" style="display:none">
+      <img id="qr" alt="QR">
+      <div>
+        <p class="a-muted" style="margin-bottom:.3rem">Enlace del viajero (imprímelo o compártelo):</p>
+        <a id="link" class="a-link" href="#" target="_blank" rel="noopener"></a>
+        <div class="a-row" style="margin-top:.8rem">
+          <button class="btn btn--ghost btn--sm" id="copy">Copiar enlace</button>
+          <a class="btn btn--ghost btn--sm" id="open" href="#" target="_blank" rel="noopener">Abrir vista del viajero</a>
+          <a class="btn btn--ghost btn--sm" id="dl" href="#" download="qr.png">Descargar QR</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="a-card">
+    <h2>QR de itinerario (para que el cliente elija y reserve)</h2>
+    <p class="a-muted" style="margin-bottom:1rem">Imprímelo en hoteles, aliados, flyers o redes. Al escanearlo se abre el sitio y <b>Jenny</b> muestra el itinerario, recoge los datos del cliente y te los envía en resumen por WhatsApp, junto con la lista de qué llevar según el clima.</p>
+    <div class="a-grid">
+      <select id="p-plan"></select>
+      <input id="p-src" placeholder="Origen / aliado (ej. HOTEL-SAZAGUA)" maxlength="40">
+    </div>
+    <button class="btn btn--primary" id="p-gen">Generar QR del itinerario</button>
+  </div>
+
+  <div class="a-card">
+    <h2>Crear viaje personalizado (sin editar archivos)</h2>
+    <p class="a-muted" style="margin-bottom:1rem">Llena los datos y genera un enlace/QR con toda la info dentro. No requiere subir nada ni desplegar: perfecto para reservas nuevas al instante.</p>
+    <div class="a-grid">
+      <input id="f-name" placeholder="Nombre del viajero">
+      <select id="f-lang"><option value="es">Español</option><option value="en">English</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option></select>
+      <input id="f-party" type="number" min="1" value="2" placeholder="N.º personas">
+      <input id="f-region" placeholder="Región" value="Eje Cafetero · Quindío">
+      <input id="f-host" placeholder="WhatsApp anfitrión (número oficial)" value="573187200023">
+      <input id="f-guide" placeholder="Guía (nombre)">
+      <input id="f-glangs" placeholder="Idiomas del guía (ej. es, en)" value="es, en">
+      <input id="f-hotel" placeholder="Hotel">
+      <input id="f-area" placeholder="Zona / ciudad" value="Pereira">
+      <input id="f-phone" placeholder="WhatsApp del viajero (opcional, solo números)">
+    </div>
+    <div class="a-row" style="margin-bottom:.6rem">
+      <select id="f-plan" style="flex:1;min-width:180px;padding:.7rem .8rem;border:1.5px solid var(--border);border-radius:var(--r-sm);background:var(--bg);color:var(--text);font:inherit"><option value="">Partir de un itinerario armado…</option></select>
+      <input id="f-start" type="date" style="padding:.7rem .8rem;border:1.5px solid var(--border);border-radius:var(--r-sm);background:var(--bg);color:var(--text);font:inherit">
+      <button class="btn btn--ghost btn--sm" id="f-load" type="button">Cargar</button>
+    </div>
+    <textarea id="f-itin" rows="6" placeholder="Itinerario — una línea por parada:  fecha | hora | título | id del tour (opcional)&#10;2026-10-10 | 08:00 | Recogida en el hotel&#10;2026-10-10 | 09:30 | Finca Cafetera · Tour del Café&#10;2026-10-11 | 08:30 | Valle de Cocora y Salento&#10;2026-10-11 | 16:00 | Aguas Termales (Santa Rosa)"></textarea>
+    <button class="btn btn--primary" id="f-build" style="margin-top:.6rem">Generar enlace + QR personalizado</button>
+  </div>
+
+  <div class="a-card">
+    <h2>Recordatorio de víspera (WhatsApp al viajero)</h2>
+    <p class="a-muted" style="margin-bottom:1rem">Pega el enlace del viajero o su código de reserva. Se arma el mensaje del día, en el idioma del viajero, con los horarios, qué llevar y el pronóstico. Puedes editarlo antes de enviarlo.</p>
+    <div class="a-grid">
+      <input id="r-trip" placeholder="Enlace del viajero o código (ESP-…)">
+      <input id="r-phone" placeholder="WhatsApp del viajero (con indicativo, solo números)">
+      <input id="r-day" type="date" aria-label="Día del plan">
+      <button class="btn btn--primary" id="r-build" type="button">Preparar recordatorio</button>
+    </div>
+    <textarea id="r-msg" rows="9" placeholder="Aquí aparece el mensaje"></textarea>
+    <button class="btn btn--wa btn--sm" id="r-send" type="button" style="margin-top:.6rem">Enviar por WhatsApp</button>
+  </div>
+
+  <div class="a-card">
+    <h2>Clientes de Jenny (Google Sheets)</h2>
+    <p class="a-muted" id="l-info" style="margin-bottom:1rem"></p>
+    <div class="a-row">
+      <input type="password" id="l-key" placeholder="Clave del panel (la de tu Apps Script)" style="text-transform:none" autocomplete="off">
+      <button class="btn btn--primary" id="l-load" type="button">Ver clientes</button>
+    </div>
+    <div id="l-out" style="margin-top:1rem"></div>
+  </div>
+
+  <div class="a-card">
+    <h2>Reservas de ejemplo</h2>
+    <div class="a-samples" id="samples"><p class="a-muted">Cargando…</p></div>
+  </div>
+
+  <p class="a-muted">Flujo de venta: el cliente <b>escanea el QR de un itinerario</b> → Jenny se lo muestra, puede elegir otro, deja sus datos y te llega el resumen por WhatsApp (con enlace a su itinerario provisional). <br>Flujo de viaje: el viajero <b>escanea el QR</b> al llegar → se abre su itinerario y Jenny responde sus preguntas 24/7 (web) y lo conecta contigo por WhatsApp. Las reservas se editan en <code>data/bookings.json</code> (o luego desde Google Sheets).</p>
+</div>
+
+<script src="js/vendor/qrcode.min.js?v=533f303"></script>
+<script src="js/data.js?v=533f303"></script>
+<script src="js/jenny-data.js?v=533f303"></script>
+<script src="js/plans.js?v=533f303"></script>
+<script>
+  var base = location.href.replace(/[\?#].*$/, "").replace(/[^/]*$/, ""); // carpeta actual
+  function showQR(url){
+    // QR generado en el navegador: el enlace del viajero no se envía a ningún servicio externo
+    var q = qrcode(0, url.length > 300 ? "L" : "M"); q.addData(url); q.make();
+    var qr = q.createDataURL(Math.max(2, Math.floor(600 / (q.getModuleCount() + 8))), 4);
+    document.getElementById("qr").src = qr;
+    var link = document.getElementById("link"); link.textContent = url; link.href = url;
+    document.getElementById("open").href = url;
+    document.getElementById("dl").href = qr;
+    document.getElementById("out").style.display = "flex";
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  function build(code){ code=(code||"").trim().toUpperCase(); if(!code) return; showQR(base + "viaje.html?code=" + encodeURIComponent(code)); }
+  function encB(obj){ return btoa(unescape(encodeURIComponent(JSON.stringify(obj)))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,""); }
+  function rnd(){ var c="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",s=""; for(var i=0;i<5;i++)s+=c[Math.floor(Math.random()*c.length)]; return "ESP-"+s; }
+  function v(id){ var e=document.getElementById(id); return e?e.value.trim():""; }
+  document.getElementById("f-build").addEventListener("click", function(){
+    var area = v("f-area")||"Quindío";
+    var itin=[];
+    (document.getElementById("f-itin").value||"").split("\n").forEach(function(line){
+      var p=line.split("|").map(function(x){return x.trim();});
+      if(p[0] && p.length>=3){
+        var dm = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(p[0]); var tm = /^(\d{1,2}):(\d{2})/.exec(p[1]||"");
+        if(!dm){ alert("Fecha inválida en: " + line + "\nUsa el formato AAAA-MM-DD"); return; }
+        var date = dm[1]+"-"+("0"+dm[2]).slice(-2)+"-"+("0"+dm[3]).slice(-2);
+        var time = tm ? ("0"+tm[1]).slice(-2)+":"+tm[2] : "";
+        itin.push({date:date, time:time, title:p[2], tourId:p[3]||"", maps:"https://www.google.com/maps/search/"+encodeURIComponent(p[2]+" "+area)});
+      }
+    });
+    var phone=(v("f-host")||"573187200023").replace(/\D/g,"");
+    var booking={ code:rnd(), lang:v("f-lang")||"es", name:v("f-name")||"Viajero", party:parseInt(v("f-party")||"1",10)||1,
+      region:v("f-region")||"Eje Cafetero", status:"confirmada",
+      host:{name:"Anfitrión Espontáneos", phone:phone}, driver:{name:"Conductor de recogida", phone:phone},
+      guide:{name:v("f-guide")||"Por asignar", langs:(v("f-glangs")||"es").split(",").map(function(x){return x.trim();}).filter(Boolean)},
+      hotel:{name:v("f-hotel"), area:area, maps:"https://www.google.com/maps/search/"+encodeURIComponent(v("f-hotel")+" "+area)},
+      itinerary:itin };
+    var tphone = v("f-phone").replace(/\D/g,""); if (tphone) booking.phone = tphone;
+    var url = base + "viaje.html?d=" + encB(booking);
+    showQR(url);
+    // Deja listo el recordatorio de víspera para este viajero
+    document.getElementById("r-trip").value = url; if (tphone) document.getElementById("r-phone").value = tphone;
+  });
+  document.getElementById("gen").addEventListener("click", function(){ build(document.getElementById("code").value); });
+  /* ---------- Recordatorio de víspera ---------- */
+  function decB(s){ s=String(s).replace(/-/g,"+").replace(/_/g,"/"); while(s.length%4) s+="="; try { return JSON.parse(decodeURIComponent(escape(atob(s)))); } catch(e){ return null; } }
+  function loadTrip(input){
+    input = (input||"").trim(); if (!input) return Promise.resolve(null);
+    var q; try { q = new URL(input, base).searchParams; } catch(e){ q = new URLSearchParams(); }
+    if (q.get("d")) return Promise.resolve({ booking: decB(q.get("d")), link: input });
+    var code = (q.get("code") || input).toUpperCase();
+    if (!/^[A-Z0-9-]{4,}$/.test(code)) return Promise.resolve(null);
+    return fetch("data/bookings.json",{cache:"no-store"}).then(function(r){ return r.json(); }).then(function(db){
+      var b = db.bookings && db.bookings[code];
+      return b ? { booking: (window.EspoPlans && EspoPlans.demoShift) ? EspoPlans.demoShift(b) : b, link: base + "viaje.html?code=" + encodeURIComponent(code) } : null;
+    }).catch(function(){ return null; });
+  }
+  (function(){
+    if (!window.EspoPlans) return;
+    var tm = new Date(); tm.setDate(tm.getDate() + 1);
+    document.getElementById("r-day").value = EspoPlans.localISO(tm);
+    var out = document.getElementById("r-msg");
+    document.getElementById("r-build").addEventListener("click", function(){
+      out.value = "Preparando…";
+      loadTrip(v("r-trip")).then(function(t){
+        if (!t || !t.booking) { out.value = "No encontré esa reserva. Revisa el enlace o el código."; return; }
+        var b = t.booking, lang = b.lang || "es", U = EspoPlans.ui(lang), all = b.itinerary || [];
+        var day = v("r-day");
+        var items = all.filter(function(it){ return it.date === day; });
+        if (!items.length) { var nx = all.filter(function(it){ return it.date >= day; }); if (nx.length) { day = nx[0].date; items = all.filter(function(it){ return it.date === day; }); } }
+        if (!items.length) { out.value = "Esa reserva no tiene paradas desde esa fecha."; return; }
+        if (!v("r-phone") && b.phone) document.getElementById("r-phone").value = b.phone;
+        function title(it){ return typeof it.title === "string" ? it.title : (it.title && (it.title[lang] || it.title.es)) || ""; }
+        // Recomendaciones oficiales de cada experiencia (data/jenny.json) + pronóstico
+        return (window.EspoData ? EspoData.load().catch(function(){}) : Promise.resolve()).then(function(){ return EspoPlans.packFor(items, lang); }).then(function(pack){
+          var dayTxt; try { dayTxt = new Date(day + "T12:00:00").toLocaleDateString(lang === "en" ? "en-GB" : lang, { weekday: "long", day: "numeric", month: "long" }); } catch(e){ dayTxt = day; }
+          var L = [U.rem_hi.replace("{name}", String(b.name || "").split(" ")[0]).replace("{day}", dayTxt), ""];
+          items.forEach(function(it){ L.push("• " + (it.time || "") + " — " + title(it)); });
+          var fc = pack.days.filter(function(d){ return d.fc; });
+          if (fc.length) { L.push("", "*" + U.fc_title + "*"); fc.forEach(function(d){ L.push("• " + d.title + ": " + EspoPlans.fcText(d.fc)); }); }
+          if (pack.items.length) { L.push("", "*" + U.pack_title + "*"); pack.items.forEach(function(x){ L.push((x.i ? x.i + " " : "") + x.label); }); }
+          if (pack.tips.length) { L.push("", "*" + U.pack_tips + "*"); pack.tips.slice(0, 2).forEach(function(x){ L.push("• " + x); }); }
+          L.push("", U.rem_link, t.link, "", U.rem_bye);
+          out.value = L.join("\n");
+        });
+      });
+    });
+    document.getElementById("r-send").addEventListener("click", function(){
+      var phone = v("r-phone").replace(/\D/g, "");
+      if (!phone) { alert("Escribe el WhatsApp del viajero (con indicativo, ej. 57…)"); return; }
+      if (!out.value || out.value === "Preparando…") { alert("Primero prepara el recordatorio."); return; }
+      window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(out.value), "_blank", "noopener");
+    });
+  })();
+
+  /* ---------- Clientes desde Google Sheets (solo lectura, con clave) ---------- */
+  function cellRow(cells, head){ var tr=document.createElement("tr"); cells.forEach(function(c){ var td=document.createElement(head?"th":"td"); if (c && c.nodeType) td.appendChild(c); else td.textContent = c==null ? "" : String(c); tr.appendChild(td); }); return tr; }
+  function tableOf(header, rows){ var w=document.createElement("div"); w.className="a-tablewrap"; var t=document.createElement("table"); t.className="a-table"; t.appendChild(cellRow(header,true)); rows.forEach(function(r){ t.appendChild(cellRow(r)); }); w.appendChild(t); return w; }
+  function renderLeads(out, rows){
+    out.innerHTML = "";
+    var by = {};
+    rows.forEach(function(r){ var k = String(r.origen || "web"); by[k] = by[k] || { qr_visita:0, resumen:0, whatsapp:0 }; if (by[k][r.etapa] != null) by[k][r.etapa]++; });
+    var h = document.createElement("p"); h.className = "a-muted"; h.textContent = "Por origen o aliado (últimos " + rows.length + " registros):"; out.appendChild(h);
+    out.appendChild(tableOf(["Origen", "Escaneos QR", "Resúmenes", "A WhatsApp"], Object.keys(by).map(function(k){ return [k, by[k].qr_visita, by[k].resumen, by[k].whatsapp]; })));
+    var res = rows.filter(function(r){ return r.etapa === "resumen"; }).slice(0, 30).map(function(r){
+      var a = ""; if (String(r.enlace || "").indexOf(base + "viaje.html?") === 0) { a = document.createElement("a"); a.href = r.enlace; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Abrir"; }
+      var f = r.fecha ? new Date(r.fecha) : null;
+      return [f && !isNaN(f) ? f.toLocaleString("es-CO", { day:"numeric", month:"short", hour:"2-digit", minute:"2-digit" }) : "", r.nombre, r.itinerario || r.experiencia, r.inicio, r.personas, r.origen, a];
+    });
+    var h2 = document.createElement("p"); h2.className = "a-muted"; h2.textContent = "Últimos clientes que dejaron sus datos:"; out.appendChild(h2);
+    out.appendChild(tableOf(["Fecha", "Nombre", "Itinerario", "Inicio", "Pers.", "Origen", ""], res));
+  }
+  (function(){
+    var ep = window.EspoPlans && EspoPlans.cfg.leadsEndpoint;
+    var info = document.getElementById("l-info");
+    if (!ep) {
+      info.innerHTML = "Aún no está conectado. Sigue los pasos de <code>tools/leads-apps-script.gs</code> y pega la URL en <code>leadsEndpoint</code> de <code>js/plans.js</code>.";
+      document.getElementById("l-load").disabled = true; return;
+    }
+    info.textContent = "Cada cliente que deja sus datos con Jenny, y cada escaneo de un QR de itinerario, queda guardado en tu hoja de Google.";
+    var keyIn = document.getElementById("l-key"); try { keyIn.value = localStorage.getItem("esp_leads_key") || ""; } catch(e){}
+    document.getElementById("l-load").addEventListener("click", function(){
+      var out = document.getElementById("l-out"); out.textContent = "Cargando…";
+      try { localStorage.setItem("esp_leads_key", keyIn.value); } catch(e){}
+      fetch(ep + "?key=" + encodeURIComponent(keyIn.value)).then(function(r){ return r.json(); }).then(function(d){
+        if (!d || d.error) { out.textContent = "Clave incorrecta."; return; }
+        renderLeads(out, d.rows || []);
+      }).catch(function(){ out.textContent = "No se pudo conectar con Google Sheets."; });
+    });
+  })();
+
+
+  // Itinerarios armados: QR para que el cliente elija + carga rápida en el formulario
+  (function(){
+    if (!window.EspoPlans) return;
+    var sel = document.getElementById("p-plan"), fsel = document.getElementById("f-plan");
+    EspoPlans.plans().forEach(function(p){
+      var label = EspoPlans.name(p, "es") + " · " + p.days + " día(s)";
+      sel.add(new Option(label, p.id)); fsel.add(new Option(label, p.id));
+    });
+    document.getElementById("p-gen").addEventListener("click", function(){
+      var src = v("p-src").toUpperCase().replace(/[^A-Z0-9_-]/g, "-");
+      showQR(base + "?plan=" + encodeURIComponent(sel.value) + (src ? "&src=" + encodeURIComponent(src) : ""));
+    });
+    var st = document.getElementById("f-start"); st.value = EspoPlans.localISO();
+    document.getElementById("f-load").addEventListener("click", function(){
+      var plan = EspoPlans.planById(fsel.value); if (!plan || !st.value) return;
+      document.getElementById("f-itin").value = EspoPlans.planToItinerary(plan, st.value).map(function(it){
+        return it.date + " | " + it.time + " | " + it.title.es + (it.tourId ? " | " + it.tourId : "");
+      }).join("\n");
+    });
+  })();
+  document.getElementById("code").addEventListener("keydown", function(e){ if(e.key==="Enter") build(this.value); });
+  document.getElementById("copy").addEventListener("click", function(){ navigator.clipboard && navigator.clipboard.writeText(document.getElementById("link").textContent); this.textContent="¡Copiado!"; var b=this; setTimeout(function(){b.textContent="Copiar enlace";},1500); });
+
+  fetch("data/bookings.json",{cache:"no-store"}).then(function(r){return r.json();}).then(function(db){
+    var box = document.getElementById("samples"); box.innerHTML="";
+    Object.keys(db.bookings||{}).forEach(function(code){
+      var b=db.bookings[code];
+      var row=document.createElement("div"); row.className="a-sample";
+      row.innerHTML='<span><b>'+code+'</b> · '+(b.name||"")+' <span class="a-muted">('+(b.party||1)+' pax)</span></span>';
+      var btn=document.createElement("button"); btn.className="btn btn--brand btn--sm"; btn.textContent="QR";
+      btn.addEventListener("click",function(){ document.getElementById("code").value=code; build(code); window.scrollTo({top:0,behavior:"smooth"}); });
+      row.appendChild(btn); box.appendChild(row);
+    });
+  }).catch(function(){ document.getElementById("samples").innerHTML='<p class="a-muted">No se pudo cargar bookings.json</p>'; });
+</script>
+</body>
+</html>
