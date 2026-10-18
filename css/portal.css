@@ -310,3 +310,14 @@
   #p-print details > summary { list-style: none; }
   .p-print__head { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 2px solid #333; margin: 0 0 .8rem; padding-bottom: .4rem; font-size: .85rem; }
 }
+
+/* Prototipo 2027: tabla B2B/B2C, geolocalización y equipo */
+.p-params table th:first-child, .p-params table td:first-child { width: 11rem; }
+.p-tour__cat { margin: .3rem 0 0; font-size: .85rem; }
+.p-geo { margin: .35rem 0 .2rem; font-size: .9rem; font-weight: 600; color: var(--brand); }
+.p-geo__bar { margin: .8rem 0 1rem; }
+.p-geo__msg { margin: .3rem 0 0; font-size: .85rem; }
+.p-team { display: flex; flex-wrap: wrap; gap: .8rem 1.6rem; margin: .4rem 0 1rem; }
+.p-team__person { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: .7rem; align-items: center; }
+.p-team__avatar { grid-row: span 2; width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; background: var(--bg-soft); font-weight: 700; color: var(--brand); }
+@media print { .p-geo__bar { display: none !important; } }

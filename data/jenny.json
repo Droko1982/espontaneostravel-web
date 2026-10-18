@@ -17,8 +17,8 @@
   "vigencia": 2026,
   "vigencia_catalogo": 2027,
   "nota_vigencia_catalogo": "Portafolio 2027. En el portal de agencias, las tarifas y condiciones 2026 aplican igual en 2027 (confirmado por gerencia, 16-oct-2026): el portal las muestra en 2027 mientras no se carguen tarifas 2027 propias. Las fichas nuevas aparecen como «tarifa en preparación» hasta cargar las suyas.",
-  "nota_vigencia": "Portafolio 2026, vigente hasta marzo de 2027 (VALIDAR fecha exacta), cuando entra el portafolio 2027. Para 2027: copiar este archivo como base, actualizar tours/planes/precios y cambiar vigencia y valida_hasta.",
-  "valida_hasta": "2027-03-31",
+  "nota_vigencia": "Portafolio 2027 publicado en el sitio el 16-oct-2026 (FICHAS PORTAFOLIO 2027). El portafolio 2026 iba hasta el 31-mar-2027; las fechas de vigencia del 2027 están por confirmar con gerencia. «vigencia» (2026) es el año de las tarifas y condiciones de agencia cargadas, que aplican igual en 2027.",
+  "valida_hasta": null,
   "portafolio_2027": "Catálogo 2027 cargado el 2026-10-16 desde FICHAS PORTAFOLIO 2027 (Excel). publico:false = solo agencias (bienestar, alto valor y bici, salvo Aguas termales y Cata de café). Los datos «solo agencias» (argumento completo, municipio del punto, menú, suplementos, impacto) no van en este archivo público."
  },
  "contacto": {

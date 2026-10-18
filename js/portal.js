@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Espontáneos Travel — Portal B2B (agencias DMC, asesores y administración)
+   Espontáneos Travel — Portal B2B (agencias / DMC, asesores y administración)
    Firebase Auth + Cloud Firestore (plan gratuito Spark). Sin build: ES module.
 
    - Seguridad: TODO dato de usuario se pinta con textContent (helper h()).
@@ -29,8 +29,8 @@ const OWN_HOSTS = ["droko1982.github.io", "www.espontaneostravel.com", "espontan
 const MAX_ITIN = 25;  // actividades por reserva (igual que firestore.rules)
 const MAX_TOURS = 10; // tours por solicitud (igual que firestore.rules)
 const TRAVEL_LANGS = [["es", "Español"], ["en", "English"], ["fr", "Français"], ["de", "Deutsch"], ["pt", "Português"]];
-const ORIGENES = [["web", "Sitio web"], ["qr", "QR"], ["dmc", "Agencia DMC"], ["referido", "Referido"], ["whatsapp", "WhatsApp"]];
-const MEDIOS = [["whatsapp", "WhatsApp"], ["web", "Formulario web"], ["correo", "Correo electrónico"], ["telefono", "Llamada"], ["presencial", "Presencial"], ["agencia", "Agencia DMC"]];
+const ORIGENES = [["web", "Sitio web"], ["qr", "QR"], ["dmc", "Agencia / DMC"], ["referido", "Referido"], ["whatsapp", "WhatsApp"]];
+const MEDIOS = [["whatsapp", "WhatsApp"], ["web", "Formulario web"], ["correo", "Correo electrónico"], ["telefono", "Llamada"], ["presencial", "Presencial"], ["agencia", "Agencia / DMC"]];
 const ESTADOS_RESERVA = ["borrador", "pendiente", "confirmada", "en_curso", "finalizada", "cancelada"];
 const ESTADOS_SOLICITUD = ["nueva", "en_proceso", "confirmada", "rechazada", "cancelada"];
 const STAGES = [["qr_visita", "Visita por QR"], ["resumen", "Dejó sus datos"], ["whatsapp", "Pasó a WhatsApp"]];
@@ -49,8 +49,8 @@ const I18N = {
     skip: "Saltar al contenido", lang_label: "Idioma", logout: "Cerrar sesión", loading: "Cargando…", retry: "Reintentar",
     close: "Cerrar", save: "Guardar", cancel: "Cancelar", edit: "Editar", remove: "Quitar", saved: "Cambios guardados.",
     none: "— Ninguno —", required_note: "Los campos con * son obligatorios.", err_generic: "Algo salió mal. Inténtalo de nuevo.",
-    portal_tag: "Portal de agencias", role_admin: "Administración", role_asesor: "Asesor", role_dmc: "Agencia DMC",
-    login_title: "Ingresa al portal", login_sub: "Para agencias aliadas (DMC) y el equipo de Espontáneos Travel.",
+    portal_tag: "Portal de agencias", role_admin: "Administración", role_asesor: "Asesor", role_dmc: "Agencia / DMC",
+    login_title: "Ingresa al portal", login_sub: "Para agencias y DMC aliadas y el equipo de Espontáneos Travel.",
     email: "Correo electrónico", password: "Contraseña", login_btn: "Ingresar", forgot: "¿Olvidaste tu contraseña?",
     no_account: "¿Tu agencia aún no tiene acceso?", request_access: "Solicitar acceso", back_login: "Volver a ingresar",
     staff_note: "¿Eres del equipo de Espontáneos? El administrador crea tu cuenta.",
@@ -76,6 +76,10 @@ const I18N = {
     tab_rates: "Tarifas netas", tab_request: "Solicitar reserva", tab_mine: "Solicitudes y reservas", tab_clients: "Mis clientes", tab_account: "Mi cuenta",
     tab_company: "Nosotros", ficha_t: "Ficha técnica", pdf_btn: "Descargar ficha (PDF)", cat_label: "Categoría", all_cats: "Todas", pending_badge: "Tarifa en preparación",
     print_title: "Ficha técnica para agencias", imp_label: "Impacto", excludes: "No incluye", operation: "Operación",
+    p_param: "Parámetro operativo", p_b2b: "Detalle técnico B2B", p_b2c: "Especificación comercial (B2C)",
+    geo_ph: "Hotel o dirección del pasajero (ej.: Mocawa Resort, La Tebaida)", geo_btn: "Calcular distancias", geo_sort: "Ordenar por cercanía",
+    geo_none: "No encontré ese lugar. Prueba con el nombre del hotel y el municipio.", geo_from: "≈ {0} km en línea recta desde {1}", geo_zone: "zona sugerida: {0}",
+    geo_note: "Distancias aproximadas con OpenStreetMap. Operaciones confirma la finca o el punto final según el hotel.", geo_t: "Geolocalización desde el hotel del pasajero",
     year: "Vigencia", season: "Temporada", all_seasons: "Todas", search: "Buscar tour o código", export_csv: "Exportar CSV",
     sep: "Formato del CSV", sep_comma: "Coma (,)", sep_semicolon: "Punto y coma (;) — Excel en español",
     rates_count: "{0} tarifas en {1} tours", no_rates: "Aún no hay tarifas cargadas para {0}. Escríbenos y te cotizamos.",
@@ -116,8 +120,8 @@ const I18N = {
     skip: "Skip to content", lang_label: "Language", logout: "Sign out", loading: "Loading…", retry: "Try again",
     close: "Close", save: "Save", cancel: "Cancel", edit: "Edit", remove: "Remove", saved: "Changes saved.",
     none: "— None —", required_note: "Fields marked * are required.", err_generic: "Something went wrong. Please try again.",
-    portal_tag: "Agency portal", role_admin: "Admin", role_asesor: "Advisor", role_dmc: "DMC agency",
-    login_title: "Sign in to the portal", login_sub: "For partner agencies (DMC) and the Espontáneos Travel team.",
+    portal_tag: "Agency portal", role_admin: "Admin", role_asesor: "Advisor", role_dmc: "Agency / DMC",
+    login_title: "Sign in to the portal", login_sub: "For partner agencies / DMCs and the Espontáneos Travel team.",
     email: "Email", password: "Password", login_btn: "Sign in", forgot: "Forgot your password?",
     no_account: "Your agency doesn't have access yet?", request_access: "Request access", back_login: "Back to sign in",
     staff_note: "Espontáneos team member? Your account is created by the administrator.",
@@ -143,6 +147,10 @@ const I18N = {
     tab_rates: "Net rates", tab_request: "Request a booking", tab_mine: "Requests & bookings", tab_clients: "My clients", tab_account: "My account",
     tab_company: "About us", ficha_t: "Technical sheet", pdf_btn: "Download sheet (PDF)", cat_label: "Category", all_cats: "All", pending_badge: "Rate coming soon",
     print_title: "Technical sheet for agencies", imp_label: "Impact", excludes: "Not included", operation: "Operations",
+    p_param: "Operational parameter", p_b2b: "B2B technical detail", p_b2c: "B2C commercial specification",
+    geo_ph: "Traveller's hotel or address (e.g. Mocawa Resort, La Tebaida)", geo_btn: "Calculate distances", geo_sort: "Sort by distance",
+    geo_none: "I couldn't find that place. Try the hotel name and the town.", geo_from: "≈ {0} km as the crow flies from {1}", geo_zone: "suggested area: {0}",
+    geo_note: "Approximate distances with OpenStreetMap. Operations confirms the final farm or meeting point according to the hotel.", geo_t: "Geolocation from the traveller's hotel",
     year: "Validity year", season: "Season", all_seasons: "All", search: "Search tour or code", export_csv: "Export CSV",
     sep: "CSV format", sep_comma: "Comma (,)", sep_semicolon: "Semicolon (;) — Excel in Spanish",
     rates_count: "{0} rates across {1} tours", no_rates: "No rates loaded for {0} yet. Message us for a quote.",
@@ -1099,7 +1107,7 @@ function emailAccessRequest(userId, email, v, s) {
     "Agencia": s.agencia || "", "NIT / Tax ID": s.nit || "", "País y ciudad": [s.pais, s.ciudad].filter(Boolean).join(" · "),
     "Persona": v.nombre || "", "Correo": email, "WhatsApp": v.whatsapp || "", "Teléfono": s.telefono || "", "Web": s.web || "",
     "Mensaje": s.mensaje || "", "Idioma": s.idioma || "",
-    "✅ Aprobar como agencia (DMC)": go("aprobar-dmc"),
+    "✅ Aprobar como agencia / DMC": go("aprobar-dmc"),
     "✅ Aprobar como asesor del equipo": go("aprobar-asesor"),
     "⛔ Rechazar": go("rechazar"),
     "Todas las solicitudes": PORTAL_URL + "#usuarios",
@@ -1242,7 +1250,7 @@ function mountTabs(host, defs, handlers, ariaLabel) {
 }
 
 /* ==========================================================================
-   VISTA AGENCIA (DMC)
+   VISTA AGENCIA / DMC
    ========================================================================== */
 function renderDmcApp() {
   if (S.approval) { S.approval = null; clearHash(); }
@@ -1314,14 +1322,28 @@ async function dmcTarifas(view) {
   const exportBtn = btn(t("export_csv"), null);
   const count = h("p", { class: "p-count", role: "status" });
   const out = h("div", { class: "p-tours" });
+  const gIn = h("input", { type: "search", id: uid("geo"), autocomplete: "off", placeholder: t("geo_ph"), value: (S.hotelGeo && S.hotelGeo.name) || "" });
+  const gSort = h("input", { type: "checkbox", id: uid("gs"), checked: !!S.geoSort });
+  const gMsg = h("p", { class: "p-muted p-geo__msg", role: "status" }, t("geo_note"));
+  const gBtn = btn(t("geo_btn"), () => busy(gBtn, async () => {
+    const q = gIn.value.trim(); if (!q) { S.hotelGeo = null; draw(); return; }
+    const g = await geocodeHotel(q);
+    if (!g) { gMsg.textContent = t("geo_none"); return; }
+    S.hotelGeo = g; gMsg.textContent = t("geo_note"); draw();
+  }), "btn--brand");
+  gSort.addEventListener("change", () => { S.geoSort = gSort.checked; draw(); });
   add(view, 
     h("p", { class: "p-note" }, t("rates_note")),
     L() !== "es" && S.i18n ? h("p", { class: "p-muted" }, t("tr_note")) : null,
     h("div", { class: "p-toolbar" }, labeled(t("year"), ySel), labeled(t("season"), tSel), labeled(t("cat_label"), cSel), labeled(t("search"), q, "p-grow"), labeled(t("sep"), sep), h("div", { class: "p-toolbar__end" }, exportBtn)),
+    h("div", { class: "p-card p-geo__bar" }, h("h3", { class: "p-h3" }, t("geo_t")),
+      h("div", { class: "p-toolbar" }, labeled(t("geo_ph").split(" (")[0], gIn, "p-grow"), h("div", { class: "p-toolbar__end" }, gBtn)),
+      checkField(t("geo_sort"), gSort), gMsg),
     count, out);
   let data = { rates: [], cond: new Map(), pending: [] }, shown = [];
   async function load() {
     clear(out); add(out, loadingBox()); count.textContent = "";
+    await loadGeo();
     try { data = await loadDmcRates(Number(ySel.value)); }
     catch (e) { clear(out); add(out, errorBox(e, load)); return; }
     const seasons = [...new Set(data.rates.map(r => r.temporada).filter(Boolean))].sort(collate);
@@ -1338,7 +1360,7 @@ async function dmcTarifas(view) {
     const pend = season ? [] : data.pending.filter(x => (!cat || x.cat === cat) && (!term || norm([x.nombre, x.codigo, x.id_web, tourText(x, "nombre")].join(" ")).includes(term)));
     const pendBox = pend.length ? h("section", { class: "p-pending" },
       h("h3", { class: "p-h3" }, t("pending_t", ySel.value, pend.length)), h("p", { class: "p-muted" }, t("pending_note", ySel.value)),
-      h("div", { class: "p-tours" }, pend.map(x => pendingCard(x, data.cond)))) : null;
+      h("div", { class: "p-tours" }, (S.geoSort && S.hotelGeo ? pend.slice().sort((a, b) => ((geoNearest(a, splitNotes((data.cond.get(a.id_web) || {}).notas_agencia)) || { km: 1e9 }).km) - ((geoNearest(b, splitNotes((data.cond.get(b.id_web) || {}).notas_agencia)) || { km: 1e9 }).km)) : pend).map(x => pendingCard(x, data.cond)))) : null;
     if (!data.rates.length) { count.textContent = ""; add(out, data.pending.length ? null : emptyBox(t("no_rates", ySel.value)), pendBox); return; }
     if (!shown.length) { count.textContent = ""; add(out, pendBox || emptyBox(t("no_match"))); return; }
     const groups = new Map();
@@ -1347,7 +1369,8 @@ async function dmcTarifas(view) {
     const nameOf = rows => tourText(tourOf(rows[0]), "nombre") || rows[0].nombre;
     // Experiencias por nombre y, al final, traslados y servicios por código
     const kind = r => (isHotel(r) ? 2 : isService(r) ? 1 : 0);   // experiencias, luego traslados y servicios, luego hoteles
-    [...groups.values()].sort((a, b) => (kind(a[0]) - kind(b[0])) || (kind(a[0]) === 1 ? collate(a[0].codigo, b[0].codigo) : collate(nameOf(a), nameOf(b))))
+    const near = rows => { if (!S.geoSort || !S.hotelGeo) return 0; const tr = tourOf(rows[0]); const g = tr && geoNearest(tr, splitNotes((data.cond.get(tr.id_web) || {}).notas_agencia)); return g ? g.km : 1e9; };
+    [...groups.values()].sort((a, b) => (kind(a[0]) - kind(b[0])) || (near(a) - near(b)) || (kind(a[0]) === 1 ? collate(a[0].codigo, b[0].codigo) : collate(nameOf(a), nameOf(b))))
       .forEach(rows => add(out, tourCard(rows, data.cond)));
     if (pendBox) add(out, pendBox);
   }
@@ -1397,7 +1420,8 @@ const EMPRESA = {
     "Comercio justo con retribución directa a las comunidades anfitrionas, sin intermediación innecesaria, y un catálogo de productos locales que incentiva la compra de los visitantes."
    ]
   ],
-  "cases_t": "Casos de éxito e impacto comunitario",
+  "cases_t": "Casos de éxito e impacto socio comunitario",
+  "cases_sub": "Reflejando el compromiso social corporativo de Espontáneos Travel.",
   "cases": [
    [
     "Red de artesanas de Armenia (más de 20 familias)",
@@ -1426,7 +1450,8 @@ const EMPRESA = {
     ]
    ]
   ],
-  "team_t": "Equipo y protocolos de operación",
+  "team_t": "Equipo de trabajo y protocolos de operación",
+  "drivers_t": "Conductores", "drivers": ["Javier Bedoya", "Giovanni Camacho"], "drivers_note": "Foto y frase: próximamente.",
   "protocols": [
    [
     "Flota vehicular",
@@ -1556,7 +1581,8 @@ const EMPRESA = {
     "Fair trade with direct returns to host communities, without unnecessary intermediaries, and a catalogue of local products that encourages visitors to buy local."
    ]
   ],
-  "cases_t": "Success stories and community impact",
+  "cases_t": "Success stories and socio-community impact",
+  "cases_sub": "Reflecting Espontáneos Travel's corporate social commitment.",
   "cases": [
    [
     "Armenia women artisans' network (20+ families)",
@@ -1585,7 +1611,8 @@ const EMPRESA = {
     ]
    ]
   ],
-  "team_t": "Team and operating protocols",
+  "team_t": "Our team and operating protocols",
+  "drivers_t": "Drivers", "drivers": ["Javier Bedoya", "Giovanni Camacho"], "drivers_note": "Photo and quote: coming soon.",
   "protocols": [
    [
     "Vehicle fleet",
@@ -1688,9 +1715,12 @@ async function dmcEmpresa(view) {
       h("div", { class: "p-company__grid" }, E.pillars.map(([tt, tx]) => h("section", null, h("h3", { class: "p-h3" }, tt), h("p", null, tx))))),
     h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, E.impact_t), h("p", { class: "p-muted" }, E.impact_note),
       h("div", { class: "p-company__grid" }, E.impacts.map(([ic, tt, tx]) => h("section", { class: "p-impact" }, h("h3", { class: "p-h3" }, h("span", { "aria-hidden": "true" }, ic + " "), tt), h("p", null, tx))))),
-    h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, E.cases_t),
+    h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, E.cases_t), h("p", { class: "p-muted" }, E.cases_sub),
       E.cases.map(([tt, items], n) => h("section", { class: "p-case" }, h("h3", { class: "p-h3" }, `${n + 1}. ${tt}`), h("ul", { class: "p-list" }, items.map(x => h("li", null, x)))))),
-    h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, E.team_t), h("ul", { class: "p-list" }, E.protocols.map(([tt, tx]) => h("li", null, h("strong", null, tt + ": "), tx)))),
+    h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, E.team_t),
+      h("h3", { class: "p-h3" }, E.drivers_t), h("div", { class: "p-team" }, E.drivers.map(n => h("div", { class: "p-team__person" },
+        h("span", { class: "p-team__avatar", "aria-hidden": "true" }, n.split(" ").map(x => x[0]).join("")), h("strong", null, n), h("span", { class: "p-muted" }, E.drivers_note)))),
+      h("ul", { class: "p-list" }, E.protocols.map(([tt, tx]) => h("li", null, h("strong", null, tt + ": "), tx)))),
     h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, E.fleet_t), h("p", { class: "p-muted" }, E.fleet_sub),
       h("div", { class: "p-table-wrap" }, table(E.fleet_cols.map((c, i) => ({ label: c, get: r => r[i] })), E.fleet, { stack: true, caption: E.fleet_t })),
       h("ul", { class: "p-list" }, E.fleet_cond.map(x => h("li", null, x)))));
@@ -1700,10 +1730,14 @@ async function dmcEmpresa(view) {
    Las condiciones que vienen de tools/convertir-fichas-portal.py traen etiqueta («Por qué venderla: …»): se muestran como
    ficha técnica; «Impacto: …» es el ícono; las demás notas son condiciones para agencias. */
 const FICHA_LABELS = { "Por qué venderla": "Why sell it", "Te interesa": "Good to know", "Punto de operación": "Operating area", "Combínalo con": "Pair it with",
-  "Menú": "Menu", "Suplementos": "Supplements", "Recomendaciones": "Recommendations", "Modalidad": "Format" };
+  "Menú": "Menu", "Suplementos": "Supplements", "Recomendaciones": "Recommendations", "Modalidad": "Format",
+  "Dificultad": "Difficulty", "Capacidad máxima": "Maximum capacity" };
+const fichaVal = (sp, k) => (sp.ficha.find(([x]) => x === k) || [])[1] || "";
 const IMPACTOS = { "Ambiental": ["🌿", "Ambiental", "Environmental"], "Sociocultural": ["🤝", "Sociocultural", "Socio-cultural"], "Económico": ["💰", "Económico", "Economic"] };
-const CATS = { rurales: ["Rurales", "Rural"], naturaleza: ["Naturaleza", "Nature"], bienestar: ["Bienestar", "Wellness"], tradicionales: ["Tradicionales", "Classic tours"],
-  metropolitano: ["Metropolitano", "Cities"], aventura: ["Aventura", "Adventure"], incentivos: ["Incentivos y alto valor", "Incentives & premium"], parques: ["Parques temáticos", "Theme parks"],
+// Índice filtrable con los nombres del documento del portafolio 2027 (sin la palabra «Turismo»)
+const CATS = { rurales: ["Rurales", "Rural"], naturaleza: ["Naturaleza", "Nature"], bienestar: ["Bienestar", "Wellness"], tradicionales: ["Tours tradicionales", "Traditional tours"],
+  metropolitano: ["Metropolitano", "Metropolitan"], aventura: ["Actividades de aventura", "Adventure activities"], incentivos: ["Incentivos y propuestas de alto valor", "Incentives & high-value proposals"],
+  parques: ["Parques temáticos", "Theme parks"],
   servicios: ["Traslados y servicios", "Transfers & services"], hoteles: ["Hoteles (noche por persona)", "Hotels (per person per night)"] };
 const rateCat = r => (tourOf(r) || {}).cat || (isHotel(r) ? "hoteles" : isService(r) ? "servicios" : "");
 const catName = c => (CATS[c] ? CATS[c][L() === "en" ? 1 : 0] : "");
@@ -1718,14 +1752,66 @@ function splitNotes(notas) {
   return { ficha, cond, imp };
 }
 function impactBadge(imp) { const x = IMPACTOS[imp]; return x ? h("span", { class: "p-badge p-badge--imp", title: t("imp_label") }, x[0] + " " + x[L() === "en" ? 2 : 1]) : null; }
-function tourInfo(tour, sp, openCond) {
+/* Prototipo de ficha técnica (documento 2027): Parámetro operativo | Detalle técnico B2B | Especificación comercial (B2C).
+   Todo sale de datos reales (duración, horario, incluye, tarifas, ficha); lo que no está en los datos dice «Consultar». */
+const PV = {
+  es: { dur: "Duración", sched: "Horario recomendado", diff: "Nivel de dificultad", cap: "Capacidad máxima", meet: "Punto de encuentro", lang: "Idioma de guianza",
+    full: "Día completo", half: "Medio día", short: "Unas horas", am: "Mañana", pm: "Tarde", ampm: "Mañana o tarde", choose: "a elección", agree: "A convenir",
+    ask: "Consultar", low: "Baja", mid: "Media", high: "Alta", capB2B: "Tarifa publicada hasta {0} pax por grupo; grupos mayores: consultar", capB2C: "Hasta {0} personas", capB2C1: "1 persona",
+    pick: "Pick-up en el alojamiento (zona de cobertura según condiciones)", pickC: "Su hotel", onsite: "En el lugar de la experiencia", langB2B: "Español / inglés (otros idiomas con suplemento de guianza)",
+    langC: "Español / inglés", langShared: "Español (inglés con suplemento)", langSharedC: "Español" },
+  en: { dur: "Duration", sched: "Recommended schedule", diff: "Difficulty level", cap: "Maximum capacity", meet: "Meeting point", lang: "Guiding language",
+    full: "Full day", half: "Half day", short: "A few hours", am: "Morning", pm: "Afternoon", ampm: "Morning or afternoon", choose: "your choice", agree: "To be agreed",
+    ask: "Ask us", low: "Low", mid: "Medium", high: "High", capB2B: "Rate published up to {0} pax per group; larger groups: ask us", capB2C: "Up to {0} people", capB2C1: "1 person",
+    pick: "Pick-up at the accommodation (coverage area as per conditions)", pickC: "Your hotel", onsite: "At the experience site", langB2B: "Spanish / English (other languages with guiding supplement)",
+    langC: "Spanish / English", langShared: "Spanish (English with supplement)", langSharedC: "Spanish" } };
+const pv = (k, ...a) => { let x = (PV[L()] || PV.es)[k] || k; a.forEach((v, i) => { x = x.split("{" + i + "}").join(String(v)); }); return x; };
+function franja(hr) {
+  if (!hr || !hr.tipo) return pv("agree");
+  const hh = s => parseInt(String(s || "").slice(0, 2), 10);
+  if (hr.tipo === "fijo") { const hs = (hr.horas || []).map(hh).filter(n => !isNaN(n)); if (!hs.length) return pv("agree"); return hs.every(n => n < 12) ? pv("am") : hs.every(n => n >= 12) ? pv("pm") : pv("ampm"); }
+  if (hr.tipo === "ventana") { const a = hh(hr.desde), b = hh(hr.hasta); return (a < 12 && b >= 12 ? pv("ampm") : a >= 12 ? pv("pm") : pv("am")) + " (" + pv("choose") + ")"; }
+  return horarioText(hr);
+}
+function dificultad(sp) {
+  const d = fichaVal(sp, "Dificultad").toLowerCase();       // dato de la plantilla de pendientes (Baja / Media / Alta)
+  if (d) return /baja/.test(d) ? pv("low") : /media/.test(d) ? pv("mid") : /alta/.test(d) ? pv("high") : pv("ask");
+  const txt = sp.ficha.map(([, v]) => v).join(" ");
+  const m = /dificultad\s*:?\s*(?:muy\s+)?(f[aá]cil|baja|media|moderada|alta|exigente|dif[ií]cil)/i.exec(txt);
+  if (!m) return pv("ask");
+  const v = m[1].toLowerCase();
+  return /f[aá]cil|baja/.test(v) ? pv("low") : /media|moderada/.test(v) ? pv("mid") : pv("high");
+}
+function paramTable(tour, sp, rows) {
+  if (!tour) return null;
+  const hrs = Number(tour.duracion_horas) || 0;
+  const durB2B = tour.duracion_texto || (hrs ? t("hours", hrs) + (hrs >= 6 ? " (Full Day)" : hrs >= 3 ? " (Half Day)" : "") : pv("ask"));
+  const durB2C = hrs >= 6 ? pv("full") : hrs >= 3 ? pv("half") : hrs ? pv("short") : pv("ask");
+  const capFicha = parseInt(fichaVal(sp, "Capacidad máxima"), 10);    // dato de operación (plantilla); si no, la tarifa máxima publicada
+  const maxPax = capFicha > 0 ? capFicha : (rows || []).reduce((m, r) => Math.max(m, Number(r.pax_hasta) || 0), 0);
+  const incl = (tourText(tour, "incluye") || []).join(" ").toLowerCase();
+  const shared = tour.id_web === "compartidocs";
+  const meet = shared ? [String((tour.horario && tour.horario.nota) || "").replace(/;?\s*salida.*$/i, ""), "Armenia"]
+    : /transporte/.test(incl) ? [pv("pick"), pv("pickC")] : [pv("onsite"), pv("onsite")];
+  const diff = dificultad(sp);
+  const filas = [
+    [pv("dur"), durB2B, durB2C],
+    [pv("sched"), horarioText(tour.horario), franja(tour.horario)],
+    [pv("diff"), diff, diff],
+    [pv("cap"), maxPax ? pv("capB2B", maxPax) : pv("ask"), maxPax ? (maxPax === 1 ? pv("capB2C1") : pv("capB2C", maxPax)) : pv("ask")],
+    [pv("meet"), meet[0], meet[1]],
+    [pv("lang"), shared ? pv("langShared") : pv("langB2B"), shared ? pv("langSharedC") : pv("langC")]
+  ];
+  return h("div", { class: "p-table-wrap p-params" }, table([
+    { label: t("p_param"), get: r => h("strong", null, r[0]) }, { label: t("p_b2b"), get: r => r[1] }, { label: t("p_b2c"), get: r => r[2] }
+  ], filas, { stack: true, caption: t("ficha_t") }));
+}
+function tourInfo(tour, sp, openCond, rows) {
   const list = (k) => tourText(tour, k) || [];
   const incl = list("incluye"), excl = list("no_incluye"), ops = list("notas");
   return [
-    tour ? h("dl", { class: "p-facts" },
-      h("div", null, h("dt", null, t("duration")), h("dd", null, tour.duracion_texto || (tour.duracion_horas ? t("hours", tour.duracion_horas) : t("sched_tbc")))),
-      h("div", null, h("dt", null, t("schedule")), h("dd", null, horarioText(tour.horario))),
-      tour.cat ? h("div", null, h("dt", null, t("cat_label")), h("dd", null, catName(tour.cat))) : null) : null,
+    paramTable(tour, sp, rows),
+    tour && tour.cat ? h("p", { class: "p-muted p-tour__cat" }, t("cat_label") + ": " + catName(tour.cat)) : null,
     sp.ficha.length ? h("details", { class: "p-details p-ficha", open: true }, h("summary", null, t("ficha_t")),
       h("dl", { class: "p-ficha__dl" }, sp.ficha.map(([k, v]) => [h("dt", null, L() === "en" ? FICHA_LABELS[k] : k), h("dd", null, v)]))) : null,
     incl.length || excl.length ? h("details", { class: "p-details" }, h("summary", null, t("includes") + (excl.length ? " / " + t("excludes") : "")),
@@ -1746,6 +1832,59 @@ function printFicha(card) {
   document.body.classList.add("p-printing");
   try { window.print(); } finally { document.body.classList.remove("p-printing"); }
 }
+/* Geolocalización dinámica (documento 2027): el asesor escribe el hotel del pasajero; con OpenStreetMap (gratis) se
+   ubica y se calcula la distancia a cada experiencia. Si la experiencia opera en varios municipios («Punto de operación»),
+   se sugiere el más cercano (p. ej. hotel en Manizales → finca de la zona de Manizales). */
+const geoKey = s => String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/z/g, "s").replace(/[^a-z0-9]/g, "");
+async function loadGeo() {
+  if (S.geoData) return S.geoData;
+  try { const r = await fetch("/data/geo.json", { cache: "no-cache" }); S.geoData = r.ok ? await r.json() : { pueblos: {}, lugares: {} }; }
+  catch (e) { S.geoData = { pueblos: {}, lugares: {} }; }
+  return S.geoData;
+}
+async function geocodeHotel(q) {
+  const G = await loadGeo();
+  try {
+    const u = "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=co&accept-language=es&viewbox=-76.3,5.6,-74.9,3.9&bounded=1&q=" + encodeURIComponent(q);
+    const r = await fetch(u, { headers: { Accept: "application/json" } });
+    const j = r.ok ? await r.json() : [];
+    if (j && j[0]) return { lat: +j[0].lat, lon: +j[0].lon, name: q };
+  } catch (e) { /* sin red: se intenta con el municipio */ }
+  const k = geoKey(q);
+  const p = Object.values(G.pueblos || {}).find(x => k.includes(geoKey(x.nombre)));
+  return p ? { lat: p.lat, lon: p.lon, name: q } : null;
+}
+const kmBetween = (a, b) => { const R = 6371, rad = x => x * Math.PI / 180, dl = rad(b.lat - a.lat), dn = rad(b.lon - a.lon);
+  const h1 = Math.sin(dl / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dn / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h1)); };
+function geoNearest(tour, sp) {
+  const G = S.geoData, H = S.hotelGeo; if (!G || !H || !tour) return null;
+  const L0 = G.lugares && G.lugares[tour.id_web];
+  let cands = L0 && L0.lat != null ? [{ name: L0.nombre_lugar || L0.municipio, lat: L0.lat, lon: L0.lon }] : [];
+  if (!cands.length) {
+    const punto = ((sp.ficha.find(([k]) => k === "Punto de operación") || [])[1] || "") + " " + (tourText(tour, "nombre") || "");
+    const k = geoKey(punto);
+    cands = Object.values(G.pueblos || {}).filter(p => k.includes(geoKey(p.nombre))).map(p => ({ name: p.nombre, lat: p.lat, lon: p.lon, zona: true }));
+  }
+  if (!cands.length) return null;
+  const best = cands.map(c => Object.assign({ km: kmBetween(H, c) }, c)).sort((a, b) => a.km - b.km)[0];
+  return Object.assign(best, { varias: cands.length > 1 });
+}
+function geoLine(tour, sp) {
+  const g = geoNearest(tour, sp); if (!g) return null;
+  return h("p", { class: "p-geo" }, "📍 " + t("geo_from", Math.round(g.km), S.hotelGeo.name) + (g.zona || g.varias ? " · " + t("geo_zone", g.name) : " · " + g.name));
+}
+// El equipo ve el portafolio igual que las agencias (fichas, tarifas y Nosotros), sin el botón de solicitud
+async function staffPortafolio(view) {
+  const host = h("div");
+  const bFichas = btn("Fichas y tarifas", () => show("fichas"), "btn--brand"), bNos = btn("Nosotros", () => show("nosotros"));
+  async function show(k) {
+    bFichas.className = "btn btn--sm " + (k === "fichas" ? "btn--brand" : "btn--ghost"); bNos.className = "btn btn--sm " + (k === "nosotros" ? "btn--brand" : "btn--ghost");
+    clear(host); await (k === "fichas" ? dmcTarifas(host) : dmcEmpresa(host));
+  }
+  add(view, h("p", { class: "p-note" }, "Así ven el portal las agencias / DMC. Las fichas técnicas y tarifas salen de lo que importes en Condiciones y Tarifas."),
+    h("div", { class: "p-actions" }, bFichas, bNos), host);
+  await show("fichas");
+}
 function requestTour(tourId, codigo, nombre) { S.preset = { tour: { tour_id: tourId, codigo: codigo || "", nombre } }; S.tabsApi.select("solicitar", true); }
 // Ficha de una experiencia sin tarifa todavía (fichas nuevas del portafolio)
 function pendingCard(x, cond) {
@@ -1753,8 +1892,9 @@ function pendingCard(x, cond) {
   const name = tourText(x, "nombre") || x.nombre;
   const card = h("article", { class: "p-tour p-tour--pending" },
     h("header", { class: "p-tour__head" }, h("h3", { class: "p-h3" }, name), h("span", { class: "p-code" }, x.codigo || ""), badge(t("pending_badge"), "warn"), impactBadge(sp.imp)),
-    tourInfo(x, sp, false),
-    h("div", { class: "p-actions" }, btn(t("request_this"), () => requestTour(x.id_web, x.codigo, x.nombre), "btn--brand"), btn(t("pdf_btn"), () => printFicha(card))));
+    geoLine(x, sp),
+    tourInfo(x, sp, false, []),
+    h("div", { class: "p-actions" }, S.view === "staff" ? null : btn(t("request_this"), () => requestTour(x.id_web, x.codigo, x.nombre), "btn--brand"), btn(t("pdf_btn"), () => printFicha(card))));
   return card;
 }
 
@@ -1774,9 +1914,10 @@ function tourCard(rows, cond) {
   const card = h("article", { class: "p-tour" },
     h("header", { class: "p-tour__head" }, h("h3", { class: "p-h3" }, name), h("span", { class: "p-code" }, (tour && tour.codigo) || r0.codigo || ""),
       r0._de ? badge(t("carry", r0._de, catalogYear()), "") : null, impactBadge(sp.imp), isService(r0) ? badge(catName(rateCat(r0)), "") : null),
-    tourInfo(tour, sp, true),
+    geoLine(tour, sp),
+    tourInfo(tour, sp, true, rows),
     h("div", { class: "p-table-wrap" }, table(cols, rows, { stack: true, caption: name })),
-    h("div", { class: "p-actions" }, btn(t("request_this"), () => requestTour(r0.tour_id || (tour && tour.id_web) || "", (tour && tour.codigo) || r0.codigo, (tour && tour.nombre) || r0.nombre), "btn--brand"),
+    h("div", { class: "p-actions" }, S.view === "staff" ? null : btn(t("request_this"), () => requestTour(r0.tour_id || (tour && tour.id_web) || "", (tour && tour.codigo) || r0.codigo, (tour && tour.nombre) || r0.nombre), "btn--brand"),
       btn(t("pdf_btn"), () => printFicha(card))));
   return card;
 }
@@ -1973,7 +2114,7 @@ function clientForm(host, existing, prefill, onDone) {
   ];
   if (staff) defs.push(
     { name: "origen", label: "Origen", type: "select", options: ORIGENES },
-    { name: "dmcId", label: "Agencia DMC", type: "select", options: [["", "— Cliente directo —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
+    { name: "dmcId", label: "Agencia / DMC", type: "select", options: [["", "— Cliente directo —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
     { name: "asesorId", label: "Asesor asignado (solo equipo)", type: "select", options: [["", "— Sin asignar —"]].concat(advisors().map(u => [u.id, u.nombre || u.email])) },
     { name: "etiquetas", label: "Etiquetas (solo equipo)", max: 300, hint: "Hasta 10, separadas por coma. Ej.: luna de miel, VIP, aves" });
   defs.push({
@@ -2077,11 +2218,12 @@ function renderStaffApp() {
   else if (S.approval) { S.tab = "usuarios"; approvalCard(apHost); }
   const defs = [
     { id: "leads", label: "Leads" }, { id: "clientes", label: "Clientes" },
-    { id: "reservas", label: "Reservas" }, { id: "solicitudes", label: "Solicitudes DMC" }
+    { id: "reservas", label: "Reservas" }, { id: "solicitudes", label: "Solicitudes de reserva" },
+    { id: "portafolio", label: "Portafolio (vista agencias)" }
   ];
-  const handlers = { leads: staffLeads, clientes: staffClientes, reservas: staffReservas, solicitudes: staffSolicitudes, cuenta: myAccount };
+  const handlers = { leads: staffLeads, clientes: staffClientes, reservas: staffReservas, solicitudes: staffSolicitudes, portafolio: staffPortafolio, cuenta: myAccount };
   if (admin) {
-    defs.push({ id: "usuarios", label: "Usuarios", count: pending }, { id: "agencias", label: "Agencias" }, { id: "tarifas", label: "Tarifas" },
+    defs.push({ id: "agencias", label: "Agencias / DMC", count: pending }, { id: "usuarios", label: "Usuarios" }, { id: "tarifas", label: "Tarifas" },
       { id: "condiciones", label: "Condiciones" }, { id: "asesores", label: "Asesores" }, { id: "ajustes", label: "Pagos" }, { id: "respaldo", label: "Respaldo" });
     Object.assign(handlers, { usuarios: adminUsuarios, agencias: adminAgencias, tarifas: adminTarifas, condiciones: adminCondiciones, asesores: adminAsesores, ajustes: adminPagos, respaldo: adminRespaldo });
   }
@@ -2459,7 +2601,7 @@ async function reservaForm(host, existing, prefill, onDone) {
   fV.inputs.name.addEventListener("input", () => { if (!pubTouched) fV.inputs.nombrePublico.value = first(fV.inputs.name.value).slice(0, 60); });
   const fO = formFields([
     { name: "estado", label: "Estado", type: "select", options: ESTADOS_RESERVA.map(e => [e, I18N.es["st_" + e]]) },
-    { name: "dmcId", label: "Agencia DMC", type: "select", options: [["", "— Venta directa —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
+    { name: "dmcId", label: "Agencia / DMC", type: "select", options: [["", "— Venta directa —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
     { name: "asesorId", label: "Asesor", type: "select", options: [["", "— Sin asignar —"]].concat(advisors().map(u => [u.id, u.nombre || u.email])) },
     { name: "region", label: "Región (pública)", max: 120 }
   ], v0);
@@ -2740,7 +2882,7 @@ function approvalCard(host) {
     h("div", { class: "p-actions" },
       btn("Sí, rechazar", e => busy(e.currentTarget, async () => { await setUser(u, { estado: "bloqueado" }); finish("no"); }), "btn--primary"),
       btn("Cancelar", close)));
-  const rolSel = selectEl([["dmc", "Agencia DMC"], ["asesor", "Asesor del equipo"], ["admin", "Administrador"]], a.rol, { id: uid("ar") });
+  const rolSel = selectEl([["dmc", "Agencia / DMC"], ["asesor", "Asesor del equipo"], ["admin", "Administrador"]], a.rol, { id: uid("ar") });
   // Agencia que ya existe con el mismo NIT o nombre (p. ej. un segundo usuario de la misma agencia)
   const same = S.dmcs.find(d => (digits(s.nit) && digits(d.nit) === digits(s.nit)) || (s.agencia && norm(d.nombre) === norm(s.agencia)));
   const note = h("p", { class: "p-hint" });
@@ -2789,7 +2931,7 @@ async function adminUsuarios(view) {
   clear(view);
   const pend = S.users.filter(u => u.estado === "pendiente").length;
   const est = selectEl([["", "Todos"], ["pendiente", "Pendientes"], ["activo", "Activos"], ["bloqueado", "Bloqueados"]], pend ? "pendiente" : "", { id: uid("e") });
-  const rol = selectEl([["", "Todos"], ["dmc", "Agencias DMC"], ["asesor", "Asesores"], ["admin", "Administradores"]], "", { id: uid("r") });
+  const rol = selectEl([["", "Todos"], ["dmc", "Agencias / DMC"], ["asesor", "Asesores"], ["admin", "Administradores"]], "", { id: uid("r") });
   const q = h("input", { type: "search", id: uid("q"), autocomplete: "off" });
   const formHost = h("div", { class: "p-formhost" });
   const count = h("p", { class: "p-count", role: "status" });
@@ -2816,7 +2958,7 @@ async function adminUsuarios(view) {
 function userCard(u, redraw) {
   const self = u.id === S.user.uid;
   const s = u.solicitud;
-  const rolSel = selectEl([["dmc", "Agencia DMC"], ["asesor", "Asesor"], ["admin", "Administrador"]], u.rol, { id: uid("rol"), disabled: self });
+  const rolSel = selectEl([["dmc", "Agencia / DMC"], ["asesor", "Asesor"], ["admin", "Administrador"]], u.rol, { id: uid("rol"), disabled: self });
   const estSel = selectEl([["pendiente", "Pendiente"], ["activo", "Activo"], ["bloqueado", "Bloqueado"]], u.estado, { id: uid("est"), disabled: self });
   const dmcOpts = () => [["", "— Sin agencia —"]].concat(S.dmcs.map(d => [d.id, d.nombre + (d.activo === false ? " (inactiva)" : "")]));
   const dmcSel = selectEl(dmcOpts(), u.dmcId || "", { id: uid("dmc") });
@@ -2862,44 +3004,76 @@ function userCard(u, redraw) {
     h("div", { class: "p-actions" }, acts));
 }
 
-// Crea una cuenta para otra persona sin cerrar tu sesión (instancia secundaria de Firebase en memoria).
-function accountForm(host, presetRol, onDone) {
+// Clave temporal legible (sin 0/O ni 1/l) para dictarla o enviarla por WhatsApp
+const tempPass = () => { const a = "ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789"; let x = ""; const r = crypto.getRandomValues(new Uint32Array(10)); for (const n of r) x += a[n % a.length]; return x + "7!"; };
+/* Crea la cuenta de otra persona sin cerrar tu sesión (instancia secundaria de Firebase en memoria).
+   modo «temporal»: con la clave que se le asigna (se le envía el enlace para confirmar su correo);
+   modo «correo»: le llega un correo de Firebase para crear su propia clave. */
+async function createAccount(v) {
+  const { appM, authM } = S.fb;
+  const app2 = appM.initializeApp(firebaseConfig, "alta-" + Date.now());
+  let uidNew = null;
+  const clave = v.modo === "temporal" ? v.clave : randomCode(20) + "a7!";
+  try {
+    const auth2 = authM.initializeAuth(app2, { persistence: authM.inMemoryPersistence });
+    const cred = await authM.createUserWithEmailAndPassword(auth2, v.email, clave);
+    uidNew = cred.user.uid;
+    await fs.setDoc(dref("users", uidNew), {
+      email: cred.user.email, nombre: v.nombre, rol: v.rol, estado: "activo", dmcId: v.rol === "dmc" ? v.dmcId : null,
+      whatsapp: v.whatsapp || "", idiomas: splitList(v.idiomas || "es").slice(0, 10), creado: ts(), actualizado: ts()
+    });
+    if (v.modo === "temporal") await authM.sendEmailVerification(cred.user).catch(() => {});
+    await authM.signOut(auth2).catch(() => {});
+  } catch (e) {
+    if (uidNew) throw userErr(`La cuenta se creó (UID ${uidNew}) pero no se pudo guardar su perfil: ${errMsg(e)} Créalo en la consola (ver docs/BACKEND.md).`);
+    if (/email-already-in-use/.test(String(e && (e.code || e.message)))) throw userErr("Ese correo ya tiene una cuenta. Búscalo en Usuarios y asígnale la agencia.");
+    throw e;
+  } finally {
+    await appM.deleteApp(app2).catch(() => {});
+  }
+  if (v.modo !== "temporal") await au.sendPasswordResetEmail(S.fb.auth, v.email);
+  return { uid: uidNew, clave: v.modo === "temporal" ? clave : "" };
+}
+// Tarjeta con el acceso listo para enviar (WhatsApp o correo)
+function accessCard(host, v, res) {
+  const msg = `Hola ${v.nombre.split(" ")[0]}, ya tienes acceso al portal de agencias de Espontáneos Travel 🌿\n\nEntra en: https://www.espontaneostravel.com/portal.html\nUsuario: ${v.email}\n` +
+    (res.clave ? `Clave temporal: ${res.clave}\n\nAl entrar por primera vez, confirma tu correo con el enlace que te enviamos (revisa también spam). Puedes cambiar la clave con «¿Olvidaste tu contraseña?».`
+      : `Te enviamos un correo para que crees tu clave (revisa también spam).`);
+  const wa = waDigits(v.whatsapp);
+  add(host, h("div", { class: "p-card p-approve" },
+    h("h2", { class: "p-h2" }, "✅ Acceso creado"),
+    kvList(kv("Nombre", v.nombre), kv("Usuario (correo)", v.email), res.clave ? kv("Clave temporal", h("strong", { class: "p-mono" }, res.clave)) : null, v.dmcId ? kv("Agencia", dmcName(v.dmcId) || v.dmcId) : null),
+    h("p", { class: "p-muted" }, "Envíale el acceso (el mensaje ya va escrito). Por seguridad, la clave no se guarda en ningún lado: cópiala ahora."),
+    h("div", { class: "p-actions" },
+      wa ? h("a", { class: "btn btn--brand btn--sm", href: "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg), target: "_blank", rel: "noopener" }, "Enviar por WhatsApp") : null,
+      h("a", { class: "btn btn--ghost btn--sm", href: "mailto:" + encodeURIComponent(v.email) + "?subject=" + encodeURIComponent("Tu acceso al portal de agencias · Espontáneos Travel") + "&body=" + encodeURIComponent(msg) }, "Enviar por correo"),
+      btn("Copiar mensaje", () => { try { navigator.clipboard.writeText(msg); notify("Mensaje copiado."); } catch (e) { window.prompt("Copia el mensaje:", msg); } }),
+      btn("Cerrar", () => clear(host)))));
+  focusHeading(host);
+}
+function accountForm(host, presetRol, onDone, preset) {
   clear(host);
   const f = formFields([
     { name: "nombre", label: "Nombre completo", required: true, max: 120 },
     { name: "email", label: "Correo", type: "email", required: true, max: 200 },
     { name: "whatsapp", label: "WhatsApp", type: "tel", max: 30 },
     { name: "idiomas", label: "Idiomas (separados por coma)", max: 60 },
-    { name: "rol", label: "Rol", type: "select", options: [["asesor", "Asesor"], ["admin", "Administrador"], ["dmc", "Agencia DMC"]] },
-    { name: "dmcId", label: "Agencia (solo para rol Agencia DMC)", type: "select", options: [["", "— Ninguna —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) }
-  ], { rol: presetRol || "asesor", idiomas: "es" });
+    { name: "rol", label: "Rol", type: "select", options: [["asesor", "Asesor"], ["admin", "Administrador"], ["dmc", "Agencia / DMC"]] },
+    { name: "dmcId", label: "Agencia (solo para el rol Agencia / DMC)", type: "select", options: [["", "— Ninguna —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
+    { name: "modo", label: "Clave de acceso", type: "select", options: [["temporal", "Asignar una clave temporal ahora (te la muestro para enviarla)"], ["correo", "Enviarle un correo para que cree su clave"]] },
+    { name: "clave", label: "Clave temporal (puedes cambiarla)", max: 40 }
+  ], Object.assign({ rol: presetRol || "asesor", idiomas: "es", modo: "temporal", clave: tempPass() }, preset || {}));
   const form = mkForm(async () => {
     const v = f.get();
-    if (v.rol === "dmc" && !v.dmcId) throw userErr("Elige la agencia para una cuenta de rol Agencia DMC.");
-    const { appM, authM } = S.fb;
-    const app2 = appM.initializeApp(firebaseConfig, "alta-" + Date.now());
-    let uidNew = null;
-    try {
-      const auth2 = authM.initializeAuth(app2, { persistence: authM.inMemoryPersistence });
-      const cred = await authM.createUserWithEmailAndPassword(auth2, v.email, randomCode(20) + "a7!");
-      uidNew = cred.user.uid;
-      await fs.setDoc(dref("users", uidNew), {
-        email: cred.user.email, nombre: v.nombre, rol: v.rol, estado: "activo", dmcId: v.rol === "dmc" ? v.dmcId : null,
-        whatsapp: v.whatsapp, idiomas: splitList(v.idiomas).slice(0, 10), creado: ts(), actualizado: ts()
-      });
-      await authM.signOut(auth2).catch(() => {});
-    } catch (e) {
-      if (uidNew) throw userErr(`La cuenta se creó (UID ${uidNew}) pero no se pudo guardar su perfil: ${errMsg(e)} Créalo en la consola (ver docs/BACKEND.md).`);
-      throw e;
-    } finally {
-      await appM.deleteApp(app2).catch(() => {});
-    }
-    await au.sendPasswordResetEmail(S.fb.auth, v.email);
-    notify(`Cuenta creada para ${v.email}. Le enviamos un correo para que cree su contraseña.`);
+    if (v.rol === "dmc" && !v.dmcId) throw userErr("Elige la agencia para una cuenta de rol Agencia / DMC.");
+    if (v.modo === "temporal" && String(v.clave || "").length < 8) throw userErr("La clave temporal debe tener al menos 8 caracteres.");
+    const res = await createAccount(v);
+    notify(res.clave ? `Acceso creado para ${v.email}.` : `Cuenta creada para ${v.email}. Le enviamos un correo para que cree su contraseña.`);
     clear(host);
+    accessCard(host, v, res);
     if (onDone) await onDone();
   },
-  h("p", { class: "p-muted" }, "La persona recibirá un correo de Firebase para crear su propia contraseña (revisa que no llegue a spam)."),
+  h("p", { class: "p-muted" }, "Con clave temporal: te muestro el acceso para enviarlo por WhatsApp o correo, y la persona confirma su correo al entrar. Con correo: Firebase le envía un enlace para crear su clave (revisa que no llegue a spam)."),
   f.el,
   h("div", { class: "p-form-actions" }, h("button", { type: "submit", class: "btn btn--primary" }, "Crear cuenta"), btn("Cancelar", () => clear(host))));
   add(host, h("div", { class: "p-card p-card--form" }, h("h2", { class: "p-h2" }, "Crear cuenta"), form));
@@ -2916,8 +3090,16 @@ async function adminAgencias(view) {
   const formHost = h("div", { class: "p-formhost" });
   const q = h("input", { type: "search", id: uid("q"), autocomplete: "off" });
   const out = h("div", { class: "p-cards" });
+  const pendHost = h("div");
   const reload = async () => { [, privNotas] = await Promise.all([loadRefs(true), loadPriv()]); draw(); };
   function draw() {
+    // Solicitudes de acceso de agencias / DMC que esperan aprobación (las mismas de Usuarios)
+    clear(pendHost);
+    const pend = S.users.filter(u => u.estado === "pendiente");
+    if (pend.length) add(pendHost, h("section", { class: "p-card p-pending" },
+      h("h2", { class: "p-h2" }, `Solicitudes de acceso por aprobar (${pend.length})`),
+      h("p", { class: "p-muted" }, "«Aprobar agencia» crea la agencia con los datos de la solicitud (o la vincula si ya existe) y activa el acceso."),
+      h("div", { class: "p-cards" }, pend.map(u => userCard(u, reload)))));
     const term = norm(q.value);
     const shown = S.dmcs.filter(d => !term || norm([d.id, d.nombre, d.pais, d.ciudad, d.nit, d.contacto].join(" ")).includes(term));
     clear(out);
@@ -2930,6 +3112,7 @@ async function adminAgencias(view) {
           kv("Correo", d.email), kv("Teléfono", d.telefono), kv("Usuarios", users.map(u => u.email).join(", ") || "Ninguno"), kv("Notas internas (la agencia no las ve)", privNotas.get(d.id))),
         h("div", { class: "p-actions" },
           btn("Editar", () => dmcForm(formHost, Object.assign({}, d, { _notas: privNotas.get(d.id) || "" }), reload), "btn--brand"),
+          btn("Crear acceso", () => accountForm(formHost, "dmc", reload, { dmcId: d.id, nombre: d.contacto || "", email: d.email || "", whatsapp: d.telefono || "" })),
           btn(d.activo === false ? "Activar" : "Desactivar", e => {
             if (d.activo !== false && !window.confirm(`¿Desactivar ${d.nombre}? Sus ${users.length} usuario(s) pierden el acceso de inmediato.`)) return;
             busy(e.currentTarget, async () => { await fs.updateDoc(dref("dmcs", d.id), { activo: d.activo === false, actualizado: ts() }); await reload(); });
@@ -2948,7 +3131,7 @@ async function adminAgencias(view) {
     });
   }
   q.addEventListener("input", debounce(draw, 150));
-  add(view, h("div", { class: "p-toolbar" }, labeled("Buscar", q, "p-grow"), h("div", { class: "p-toolbar__end" }, btn("Nueva agencia", () => dmcForm(formHost, null, reload), "btn--primary"))), formHost, out);
+  add(view, h("div", { class: "p-toolbar" }, labeled("Buscar", q, "p-grow"), h("div", { class: "p-toolbar__end" }, btn("Nueva agencia con acceso", () => agencyAccessForm(formHost, reload), "btn--primary"), btn("Solo registrar la empresa", () => dmcForm(formHost, null, reload)))), pendHost, formHost, out);
   draw();
 }
 
@@ -2988,6 +3171,41 @@ function dmcForm(host, existing, onDone) {
   f.el,
   h("div", { class: "p-form-actions" }, h("button", { type: "submit", class: "btn btn--primary" }, "Guardar agencia"), btn("Cancelar", () => clear(host))));
   add(host, h("div", { class: "p-card p-card--form" }, h("h2", { class: "p-h2" }, existing ? `Editar ${existing.nombre}` : "Nueva agencia"), form));
+  focusHeading(host);
+}
+
+// Agencia / DMC nueva y su primer acceso en un solo paso (empresa + persona + clave temporal)
+function agencyAccessForm(host, onDone) {
+  clear(host);
+  const f = formFields([
+    { name: "nombre", label: "Nombre de la agencia / DMC", required: true, max: 160 },
+    { name: "nit", label: "NIT / Tax ID", max: 40 }, { name: "pais", label: "País", max: 60 }, { name: "ciudad", label: "Ciudad", max: 80 },
+    { name: "contacto", label: "Persona que va a entrar (nombre completo)", required: true, max: 120 },
+    { name: "email", label: "Su correo (será el usuario)", type: "email", required: true, max: 200 },
+    { name: "telefono", label: "WhatsApp", type: "tel", max: 40 },
+    { name: "clave", label: "Clave temporal (puedes cambiarla)", required: true, max: 40 },
+    { name: "notas", label: "Notas internas (solo el equipo)", type: "textarea", max: 2000, full: true }
+  ], { clave: tempPass(), pais: "Colombia" });
+  const form = mkForm(async () => {
+    const v = f.get();
+    if (String(v.clave).length < 8) throw userErr("La clave temporal debe tener al menos 8 caracteres.");
+    let id = slugify(v.nombre).slice(0, 60);
+    if (!/^[a-z0-9-]{2,60}$/.test(id)) throw userErr("Escribe un nombre de agencia válido.");
+    const ya = S.dmcs.find(d => d.id === id || (v.nit && digits(d.nit) && digits(d.nit) === digits(v.nit)));
+    if (ya) id = ya.id;
+    else await commit([bt => bt.set(dref("dmcs", id), { nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: true, creado: ts(), actualizado: ts() }),
+      bt => bt.set(dref("dmcs_privado", id), { notas: v.notas, actualizado: ts() })]);
+    const acc = { nombre: v.contacto, email: v.email, whatsapp: v.telefono, rol: "dmc", dmcId: id, modo: "temporal", clave: v.clave, idiomas: "es" };
+    const res = await createAccount(acc);
+    await loadRefs(true);
+    clear(host);
+    accessCard(host, acc, res);
+    if (onDone) await onDone();
+  },
+  h("p", { class: "p-muted" }, "Crea la agencia / DMC y el acceso de su primera persona con una clave temporal. Si la agencia ya existe (mismo nombre o NIT), solo se le agrega el acceso."),
+  f.el,
+  h("div", { class: "p-form-actions" }, h("button", { type: "submit", class: "btn btn--primary" }, "Crear agencia y acceso"), btn("Cancelar", () => clear(host))));
+  add(host, h("div", { class: "p-card p-card--form" }, h("h2", { class: "p-h2" }, "Nueva agencia / DMC con acceso"), form));
   focusHeading(host);
 }
 

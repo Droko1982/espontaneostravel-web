@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="assets/img/icon-32.png" type="image/png" sizes="32x32">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=533f303">
+<link rel="stylesheet" href="css/styles.css">
 <script>(function(){try{var t=localStorage.getItem("esp_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <style>
   .a-wrap{max-width:720px;margin:0 auto;padding:2rem clamp(1rem,4vw,1.5rem);}
@@ -125,10 +125,10 @@
   <p class="a-muted">Flujo de venta: el cliente <b>escanea el QR de un itinerario</b> → Jenny se lo muestra, puede elegir otro, deja sus datos y te llega el resumen por WhatsApp (con enlace a su itinerario provisional). <br>Flujo de viaje: el viajero <b>escanea el QR</b> al llegar → se abre su itinerario y Jenny responde sus preguntas 24/7 (web) y lo conecta contigo por WhatsApp. Las reservas se editan en <code>data/bookings.json</code> (o luego desde Google Sheets).</p>
 </div>
 
-<script src="js/vendor/qrcode.min.js?v=533f303"></script>
-<script src="js/data.js?v=533f303"></script>
-<script src="js/jenny-data.js?v=533f303"></script>
-<script src="js/plans.js?v=533f303"></script>
+<script src="js/vendor/qrcode.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/jenny-data.js"></script>
+<script src="js/plans.js"></script>
 <script>
   var base = location.href.replace(/[\?#].*$/, "").replace(/[^/]*$/, ""); // carpeta actual
   function showQR(url){
