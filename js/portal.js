@@ -1463,6 +1463,13 @@ async function loadPortafolioPriv(year) {
   S.cache[key] = v;
   return v;
 }
+// Medios de pago oficiales (los mismos de la web y de Jenny: data/jenny.json → contacto.pagos)
+function pagosOficiales() {
+  const p = S.jenny && S.jenny.contacto && S.jenny.contacto.pagos; if (!p) return [];
+  const en = L() === "en";
+  return [p.titular && (en ? "Account holder: " : "Titular: ") + p.titular, p.bancolombia_ahorros && (en ? "Bancolombia savings account " : "Cuenta de ahorros Bancolombia ") + p.bancolombia_ahorros,
+    p.nequi_daviplata && "Nequi / Daviplata: " + p.nequi_daviplata, p.tarjeta_wompi && (en ? "Credit or debit card (payment link): " : "Tarjeta de crédito o débito (enlace de pago): ") + p.tarjeta_wompi].filter(Boolean);
+}
 async function dmcPortafolio(view) {
   add(view, loadingBox());
   await S.jennyP;
@@ -1481,7 +1488,7 @@ async function dmcPortafolio(view) {
   await mountPortafolio(host, {
     lang: L(), tier: tierOf(), staff,
     agency: staff ? "Vista previa del equipo" : ((S.dmc && S.dmc.nombre) || ""),
-    rates: data.rates, cond: data.cond, priv, splitNotes, empresa: EMPRESA, loadVideo,
+    rates: data.rates, cond: data.cond, priv, splitNotes, empresa: EMPRESA, loadVideo, pagos: pagosOficiales(),
     // Ruta o ficha → formulario «Reservar» con los tours (y pasajeros, hotel e itinerario) ya puestos
     onRequest: staff ? null : pre => { S.preset = pre; S.tabsApi.select("solicitar", true); }
   });

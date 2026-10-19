@@ -1089,7 +1089,7 @@ function renderCond() {
   const pane = ROOT.querySelector('[data-pane="cond"]');
   const C = (L() === "en" && I18.en && I18.en.condiciones) || D.condiciones, E = (CTX.empresa && (CTX.empresa[L()] || CTX.empresa.es)) || null;
   const ul = a => `<ul>${(a || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
-  const pagos = (CTX.priv && CTX.priv.pagos) || [];
+  const pagos = (CTX.pagos && CTX.pagos.length ? CTX.pagos : (CTX.priv && CTX.priv.pagos)) || [];
   const secs = [["about", tx("c_about"), "info"], ["book", tx("c_book"), "shield"], ["kids", tx("c_kids"), "child"], ["sost", tx("c_sost"), "leaf"], ["team", tx("c_team"), "users"], ["read", tx("c_read"), "file"]];
   const pol = (k) => `<div class="pol"><h4>${k === "fit" ? tx("c_fit") : tx("c_grp")}</h4><dl>
       <div><dt>${tx("c_conf")}</dt><dd>${ul(C[k].conf)}</dd></div><div><dt>${tx("c_pay")}</dt><dd>${ul(C[k].pago)}</dd></div>
@@ -1216,7 +1216,7 @@ async function makePDF() {
     const { jsPDF } = await loadJsPDF().catch(() => { throw Object.assign(new Error("lib"), { code: "lib" }); });
     const doc = new jsPDF({ unit: "mm", format: "a4" }), W = 210, Mg = 16, CW = W - 2 * Mg; const OL = [74, 92, 58], CH = [163, 40, 58];
     const agency = pdfTxt(K.agency.trim());
-    const foot = () => { doc.setFontSize(8); doc.setTextColor(120); doc.setFont("helvetica", "normal"); doc.text(pdfTxt(logo ? "Espontáneos Travel SAS · RNT 91795 · info@espontaneostravel.com · +57 318 730 0023" : (agency || "Paisaje Cultural Cafetero") + " · 2027"), Mg, 289); doc.text(String(doc.getNumberOfPages()), W - Mg, 289, { align: "right" }); };
+    const foot = () => { doc.setFontSize(8); doc.setTextColor(120); doc.setFont("helvetica", "normal"); doc.text(pdfTxt(logo ? "Espontáneos Travel SAS · RNT 91795 · info@espontaneostravel.com · WhatsApp +57 318 720 0023" : (agency || "Paisaje Cultural Cafetero") + " · 2027"), Mg, 289); doc.text(String(doc.getNumberOfPages()), W - Mg, 289, { align: "right" }); };
     // portada
     doc.setFillColor(...OL); doc.rect(0, 0, W, 72, "F"); doc.setTextColor(255);
     if (logo) { const lgo = await logoData(); if (lgo) { try { doc.addImage(lgo.d, "PNG", Mg, 12, 22, 22 * lgo.r); } catch (e) { /* sin logo */ } }
