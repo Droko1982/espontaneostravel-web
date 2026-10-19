@@ -74,7 +74,7 @@ const I18N = {
     noagency_title: "Tu cuenta aún no tiene una agencia activa", noagency_body: "Tu usuario está aprobado, pero no está vinculado a una agencia activa. Escríbenos para revisarlo.",
     hello: "Hola, {0}", agency: "Agencia",
     tab_rates: "Tarifas", tab_request: "Reservar", tab_mine: "Mis reservas", tab_clients: "Clientes", tab_account: "Cuenta",
-    tab_company: "Nosotros", ficha_t: "Ficha técnica", pdf_btn: "Descargar ficha (PDF)", cat_label: "Categoría", all_cats: "Todas", pending_badge: "Tarifa en preparación",
+    tab_company: "Nosotros", tab_portfolio: "Portafolio", ficha_t: "Ficha técnica", pdf_btn: "Descargar ficha (PDF)", cat_label: "Categoría", all_cats: "Todas", pending_badge: "Tarifa en preparación",
     print_title: "Ficha técnica para agencias", imp_label: "Impacto", excludes: "No incluye", operation: "Operación",
     p_param: "Parámetro operativo", p_b2b: "Detalle técnico B2B", p_b2c: "Especificación comercial (B2C)",
     geo_ph: "Hotel o dirección del pasajero (ej.: Mocawa Resort, La Tebaida)", geo_btn: "Calcular distancias", geo_sort: "Ordenar por cercanía",
@@ -145,7 +145,7 @@ const I18N = {
     noagency_title: "Your account has no active agency yet", noagency_body: "Your user is approved but not linked to an active agency. Please contact us.",
     hello: "Hi, {0}", agency: "Agency",
     tab_rates: "Rates", tab_request: "Book", tab_mine: "My bookings", tab_clients: "Clients", tab_account: "Account",
-    tab_company: "About us", ficha_t: "Technical sheet", pdf_btn: "Download sheet (PDF)", cat_label: "Category", all_cats: "All", pending_badge: "Rate coming soon",
+    tab_company: "About us", tab_portfolio: "Portfolio", ficha_t: "Technical sheet", pdf_btn: "Download sheet (PDF)", cat_label: "Category", all_cats: "All", pending_badge: "Rate coming soon",
     print_title: "Technical sheet for agencies", imp_label: "Impact", excludes: "Not included", operation: "Operations",
     p_param: "Operational parameter", p_b2b: "B2B technical detail", p_b2c: "B2C commercial specification",
     geo_ph: "Traveller's hotel or address (e.g. Mocawa Resort, La Tebaida)", geo_btn: "Calculate distances", geo_sort: "Sort by distance",
@@ -479,7 +479,7 @@ export function validateTarifas(rows, ctx) {
     else if (tarifa_neta === 0) warnings.push("Tarifa en 0.");
     const dmcRaw = get("dmc_id");
     const dmcId = dmcRaw ? dmcRaw.toLowerCase() : null;
-    if (dmcId && !ctx.dmcIds.has(dmcId)) errors.push(`La agencia "${dmcRaw}" no existe. Créala en Agencias o deja dmc_id vacío para tarifa general.`);
+    if (dmcId && dmcId !== "_nac" && !ctx.dmcIds.has(dmcId)) errors.push(`La agencia "${dmcRaw}" no existe. Créala en Agencias o deja dmc_id vacío para tarifa general.`);
     const notas = get("notas");
     if (notas.length > 500) errors.push("Las notas tienen más de 500 caracteres.");
     if (/ejemplo/i.test(notas) || /ejemplo/i.test(temporada)) errors.push("Fila de EJEMPLO de la plantilla: bórrala antes de importar.");
@@ -889,7 +889,10 @@ async function loadRefs(force) {
   S.users = users.sort((a, b) => collate(a.nombre, b.nombre));
   S.refsLoaded = true;
 }
-const dmcName = id => (id ? ((S.dmcs.find(d => d.id === id) || {}).nombre || id) : "Venta directa");
+const dmcName = id => (id === "_nac" ? "Mercado Nacional" : id ? ((S.dmcs.find(d => d.id === id) || {}).nombre || id) : "Venta directa");
+const TIPOS_DMC = [["dmc", "DMC · tarifario DMC"], ["nac", "Mercado Nacional y Mayoristas · tarifario nacional"]];
+const tipoLabel = x => (x === "nac" ? "Mercado Nacional y Mayoristas" : "DMC");
+const scopeLabel = id => (id === "_nac" ? "Mercado Nacional (todas sus cuentas)" : id ? "Especial: " + dmcName(id) : "General DMC");
 const userName = id => { const u = S.users.find(x => x.id === id); return u ? (u.nombre || u.email) : (id || "—"); };
 const advisors = () => S.users.filter(u => (u.rol === "asesor" || u.rol === "admin") && u.estado === "activo");
 const roleLabel = r => t("role_" + r);
@@ -1239,6 +1242,7 @@ function mountTabs(host, defs, handlers, ariaLabel) {
     S.tab = id;
     btns.forEach((b, k) => { const on = defs[k].id === id; b.setAttribute("aria-selected", String(on)); b.tabIndex = on ? 0 : -1; });
     panel.setAttribute("aria-labelledby", "tab-" + id);
+    const pm = $("#p-main"); if (pm) pm.classList.remove("p-main--wide");
     clear(panel);
     const view = h("div", { class: "p-view" });
     add(panel, view);
@@ -1259,27 +1263,32 @@ function renderDmcApp() {
     h("h1", { class: "p-title" }, t("hello", first(S.profile.nombre))),
     h("p", { class: "p-sub" }, t("agency") + ": " + (S.dmc.nombre || S.profile.dmcId))));
   S.tabsApi = mountTabs(main, [
-    { id: "tarifas", label: t("tab_rates") }, { id: "solicitar", label: t("tab_request") },
-    { id: "mis", label: t("tab_mine") }, { id: "clientes", label: t("tab_clients") }, { id: "empresa", label: t("tab_company") }, { id: "cuenta", label: t("tab_account") }
-  ], { tarifas: dmcTarifas, solicitar: dmcSolicitar, mis: dmcMine, clientes: dmcClientes, empresa: dmcEmpresa, cuenta: myAccount });
+    { id: "portafolio", label: t("tab_portfolio") }, { id: "tarifas", label: t("tab_rates") }, { id: "solicitar", label: t("tab_request") },
+    { id: "mis", label: t("tab_mine") }, { id: "clientes", label: t("tab_clients") }, { id: "cuenta", label: t("tab_account") }
+  ], { portafolio: dmcPortafolio, tarifas: dmcTarifas, solicitar: dmcSolicitar, mis: dmcMine, clientes: dmcClientes, cuenta: myAccount });
 }
 
 // Traslados, suplementos y guianza (ET-/SU-) y hoteles (HT-): filas sin tour del catálogo
 const isService = r => !r.tour_id && /^(ET|SU|HT)-/.test(r.codigo || "");
 const isHotel = r => /^HT-/.test(r.codigo || "");
 const ROOMS = { es: ["", "Sencilla", "Doble", "Triple", "Cuádruple"], en: ["", "Single", "Double", "Triple", "Quad"] };
+// Tipo de cliente: «dmc» (tarifario DMC) o «nac» (Mercado Nacional y Mayoristas). Lo define el equipo en el DMC.
+// El equipo, en la vista previa, elige cuál ver (S.pfTier). Las reglas de Firestore impiden leer el tarifario del otro tipo.
+const NAC = "_nac";
+const tierOf = () => (S.view === "staff" ? (S.pfTier === "nac" ? "nac" : "dmc") : (S.dmc && S.dmc.tipo === "nac" ? "nac" : "dmc"));
 async function loadDmcRates(year) {
   // Una sola lectura por año y sesión (plan gratis de Firebase: cada consulta completa lee ~1.500 documentos)
-  const key = "rates_" + year + "_" + (S.profile && S.profile.dmcId);
+  const key = "rates_" + year + "_" + (S.profile && S.profile.dmcId) + "_" + tierOf();
   if (S.cache[key]) return S.cache[key];
   const res = await loadDmcRatesFresh(year);
   S.cache[key] = res;
   return res;
 }
 async function loadDmcRatesFresh(year) {
+  const mine = S.profile && S.profile.dmcId;      // el equipo no tiene DMC: sin tarifas especiales
   const one = y => Promise.all([
-    list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", null))),
-    list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", S.profile.dmcId))),
+    list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", tierOf() === "nac" ? NAC : null))),
+    mine ? list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", mine))) : Promise.resolve([]),
     list(fs.query(col("condiciones"), fs.where("vigencia", "==", y)))
   ]).then(([gen, spe, cond]) => ({ rates: mergeTarifas(gen, spe), cond }));
   const cur = await one(year);
@@ -1382,7 +1391,42 @@ async function dmcTarifas(view) {
   await load();
 }
 
-/* ---------- Nosotros (pestaña de agencias): institucional, impacto, casos, equipo y flota ----------
+/* ---------- Portafolio B2B 2027 (kit de ET): mapa, experiencias, arma tu ruta, transporte, kit de venta, condiciones ----------
+   Los textos públicos vienen de data/portafolio.json; aquí se le pasan las tarifas del tipo de cliente, las fichas
+   técnicas «solo agencias» (condiciones) y los datos privados del portafolio (portafolio/{año}: fincas, hoteles aliados…). */
+async function loadPortafolioPriv(year) {
+  const key = "pf_" + year;
+  if (key in S.cache) return S.cache[key];
+  let v = null;
+  try { const snap = await fs.getDoc(dref("portafolio", String(year))); if (snap.exists()) v = JSON.parse(snap.data().datos || "null"); }
+  catch (e) { v = null; }   // sin importar o reglas sin publicar: el portafolio funciona sin fincas ni hoteles aliados
+  S.cache[key] = v;
+  return v;
+}
+async function dmcPortafolio(view) {
+  add(view, loadingBox());
+  await S.jennyP;
+  if (!S.vigencias.length) await loadVigencias();
+  const year = catalogYear() || S.vigencias[0] || new Date().getFullYear();
+  let data, priv;
+  try { [data, priv] = await Promise.all([loadDmcRates(year), loadPortafolioPriv(year)]); }
+  catch (e) { clear(view); add(view, errorBox(e, () => { clear(view); dmcPortafolio(view); })); return; }
+  const pm = $("#p-main"); if (pm) pm.classList.add("p-main--wide");
+  clear(view);
+  const host = h("div", { class: "p-pf" });
+  add(view, host);
+  const { mountPortafolio } = await import("./portafolio.js");
+  const staff = S.view === "staff";
+  await mountPortafolio(host, {
+    lang: L(), tier: tierOf(), staff,
+    agency: staff ? "Vista previa del equipo" : ((S.dmc && S.dmc.nombre) || ""),
+    rates: data.rates, cond: data.cond, priv, splitNotes, empresa: EMPRESA,
+    // Ruta o ficha → formulario «Reservar» con los tours (y pasajeros, hotel e itinerario) ya puestos
+    onRequest: staff ? null : pre => { S.preset = pre; S.tabsApi.select("solicitar", true); }
+  });
+}
+
+/* ---------- Nosotros: institucional, impacto, casos, equipo y flota (se muestra en Portafolio → Condiciones y Transporte) ----------
    Solo información comercial para agencias (sin datos internos: propiedad de cada vehículo, modelos ni municipios de los puntos). */
 const EMPRESA = {
  "es": {
@@ -1708,24 +1752,6 @@ const EMPRESA = {
   ]
  }
 };
-async function dmcEmpresa(view) {
-  const E = EMPRESA[L()] || EMPRESA.es;
-  add(view,
-    h("div", { class: "p-card p-company" }, h("h2", { class: "p-h2" }, E.title),
-      h("div", { class: "p-company__grid" }, E.pillars.map(([tt, tx]) => h("section", null, h("h3", { class: "p-h3" }, tt), h("p", null, tx))))),
-    h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, E.impact_t), h("p", { class: "p-muted" }, E.impact_note),
-      h("div", { class: "p-company__grid" }, E.impacts.map(([ic, tt, tx]) => h("section", { class: "p-impact" }, h("h3", { class: "p-h3" }, h("span", { "aria-hidden": "true" }, ic + " "), tt), h("p", null, tx))))),
-    h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, E.cases_t), h("p", { class: "p-muted" }, E.cases_sub),
-      E.cases.map(([tt, items], n) => h("section", { class: "p-case" }, h("h3", { class: "p-h3" }, `${n + 1}. ${tt}`), h("ul", { class: "p-list" }, items.map(x => h("li", null, x)))))),
-    h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, E.team_t),
-      h("h3", { class: "p-h3" }, E.drivers_t), h("div", { class: "p-team" }, E.drivers.map(n => h("div", { class: "p-team__person" },
-        h("span", { class: "p-team__avatar", "aria-hidden": "true" }, n.split(" ").map(x => x[0]).join("")), h("strong", null, n), h("span", { class: "p-muted" }, E.drivers_note)))),
-      h("ul", { class: "p-list" }, E.protocols.map(([tt, tx]) => h("li", null, h("strong", null, tt + ": "), tx)))),
-    h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, E.fleet_t), h("p", { class: "p-muted" }, E.fleet_sub),
-      h("div", { class: "p-table-wrap" }, table(E.fleet_cols.map((c, i) => ({ label: c, get: r => r[i] })), E.fleet, { stack: true, caption: E.fleet_t })),
-      h("ul", { class: "p-list" }, E.fleet_cond.map(x => h("li", null, x)))));
-}
-
 /* ---------- Ficha técnica DMC ----------
    Las condiciones que vienen de tools/convertir-fichas-portal.py traen etiqueta («Por qué venderla: …»): se muestran como
    ficha técnica; «Impacto: …» es el ícono; las demás notas son condiciones para agencias. */
@@ -1876,17 +1902,21 @@ function geoLine(tour, sp) {
   const g = geoNearest(tour, sp); if (!g) return null;
   return h("p", { class: "p-geo" }, "📍 " + t("geo_from", Math.round(g.km), S.hotelGeo.name) + (g.zona || g.varias ? " · " + t("geo_zone", g.name) : " · " + g.name));
 }
-// El equipo ve el portafolio igual que las agencias (fichas, tarifas y Nosotros), sin el botón de solicitud
+// El equipo ve el portafolio igual que los DMC (y que las cuentas de Mercado Nacional), sin el botón de solicitud
 async function staffPortafolio(view) {
   const host = h("div");
-  const bFichas = btn("Fichas y tarifas", () => show("fichas"), "btn--brand"), bNos = btn("Nosotros", () => show("nosotros"));
+  const opts = [["dmc", "Portafolio · vista DMC"], ["nac", "Portafolio · vista Mercado Nacional"], ["lista", "Fichas y tarifas (lista)"]];
+  const bs = opts.map(([k, l]) => btn(l, () => show(k)));
   async function show(k) {
-    bFichas.className = "btn btn--sm " + (k === "fichas" ? "btn--brand" : "btn--ghost"); bNos.className = "btn btn--sm " + (k === "nosotros" ? "btn--brand" : "btn--ghost");
-    clear(host); await (k === "fichas" ? dmcTarifas(host) : dmcEmpresa(host));
+    bs.forEach((b, i) => { b.className = "btn btn--sm " + (opts[i][0] === k ? "btn--brand" : "btn--ghost"); b.setAttribute("aria-pressed", String(opts[i][0] === k)); });
+    const pm = $("#p-main"); if (pm) pm.classList.remove("p-main--wide");
+    clear(host);
+    S.pfTier = k === "nac" ? "nac" : "dmc";
+    await (k === "lista" ? dmcTarifas(host) : dmcPortafolio(host));
   }
-  add(view, h("p", { class: "p-note" }, "Así ven el portal las agencias / DMC. Las fichas técnicas y tarifas salen de lo que importes en Condiciones y Tarifas."),
-    h("div", { class: "p-actions" }, bFichas, bNos), host);
-  await show("fichas");
+  add(view, h("p", { class: "p-note" }, "Así ven el portal los DMC y las cuentas de Mercado Nacional. Las fichas técnicas, las tarifas y los datos privados (fincas, hoteles aliados, formas de pago) salen de lo que importes en Condiciones y Tarifas."),
+    h("div", { class: "p-actions" }, bs), host);
+  await show("dmc");
 }
 function requestTour(tourId, codigo, nombre) { S.preset = { tour: { tour_id: tourId, codigo: codigo || "", nombre } }; S.tabsApi.select("solicitar", true); }
 // Ficha de una experiencia sin tarifa todavía (fichas nuevas del portafolio)
@@ -1950,7 +1980,10 @@ async function dmcSolicitar(view) {
   const myClients = (await loadMyClients().catch(() => [])).sort((a, b) => collate(a.nombre, b.nombre));
   clear(view);
   const chosen = [];
-  if (S.preset && S.preset.tour) { chosen.push(S.preset.tour); S.preset = null; }
+  const pre = S.preset && (S.preset.tour || S.preset.tours) ? S.preset : null;
+  if (pre) S.preset = null;
+  if (pre && pre.tour) chosen.push(pre.tour);
+  if (pre && pre.tours) pre.tours.slice(0, MAX_TOURS).forEach(x => chosen.push({ tour_id: String(x.tour_id || "").slice(0, 40), codigo: String(x.codigo || "").slice(0, 20), nombre: String(x.nombre || "").slice(0, 200) }));
   const tourSel = selectEl([["", t("choose_tour")]].concat(S.tours.list.map(x => [x.id_web, `${tourText(x, "nombre") || x.nombre} · ${x.codigo}`])), "", { id: uid("tour") });
   const chips = h("ul", { class: "p-chips", "aria-live": "polite" });
   function drawChips() {
@@ -1978,6 +2011,9 @@ async function dmcSolicitar(view) {
     { name: "necesidades", label: t("needs"), type: "textarea", max: 1000, full: true, hint: t("needs_hint") },
     { name: "notas", label: t("notes"), type: "textarea", max: 2000, full: true }
   ], { idioma: S.lang });
+  if (pre && pre.pax >= 1) f.inputs.pax.value = String(Math.min(500, pre.pax));
+  if (pre && pre.hotel) f.inputs.hotel.value = String(pre.hotel).slice(0, 120);
+  if (pre && pre.notas) f.inputs.notas.value = String(pre.notas).slice(0, 2000);
   clientSel.addEventListener("change", () => {
     const c = myClients.find(x => x.id === clientSel.value);
     if (c && !f.inputs.viajero.value.trim()) f.inputs.viajero.value = c.nombre;
@@ -3115,8 +3151,8 @@ async function adminAgencias(view) {
     shown.forEach(d => {
       const users = S.users.filter(u => u.dmcId === d.id);
       add(out, h("article", { class: "p-item" + (d.activo === false ? " is-done" : "") },
-        h("header", { class: "p-item__head" }, h("h3", { class: "p-h3" }, d.nombre), badge(d.activo === false ? "Inactiva" : "Activa", d.activo === false ? "bad" : "ok"), h("span", { class: "p-mono p-muted" }, d.id)),
-        kvList(kv("NIT / Tax ID", d.nit), kv("Ubicación", [d.ciudad, d.pais].filter(Boolean).join(", ")), kv("Contacto", d.contacto),
+        h("header", { class: "p-item__head" }, h("h3", { class: "p-h3" }, d.nombre), badge(d.activo === false ? "Inactiva" : "Activa", d.activo === false ? "bad" : "ok"), badge(tipoLabel(d.tipo), d.tipo === "nac" ? "warn" : ""), h("span", { class: "p-mono p-muted" }, d.id)),
+        kvList(kv("Tipo de cliente (tarifario que ve)", tipoLabel(d.tipo)), kv("NIT / Tax ID", d.nit), kv("Ubicación", [d.ciudad, d.pais].filter(Boolean).join(", ")), kv("Contacto", d.contacto),
           kv("Correo", d.email), kv("Teléfono", d.telefono), kv("Usuarios", users.map(u => u.email).join(", ") || "Ninguno"), kv("Notas internas (la agencia no las ve)", privNotas.get(d.id))),
         h("div", { class: "p-actions" },
           btn("Editar", () => dmcForm(formHost, Object.assign({}, d, { _notas: privNotas.get(d.id) || "" }), reload), "btn--brand"),
@@ -3155,13 +3191,15 @@ function dmcForm(host, existing, onDone) {
     { name: "nit", label: "NIT / Tax ID", max: 40 }, { name: "pais", label: "País", max: 60 }, { name: "ciudad", label: "Ciudad", max: 80 },
     { name: "contacto", label: "Persona de contacto", max: 120 }, { name: "email", label: "Correo", type: "email", max: 200 },
     { name: "telefono", label: "Teléfono", type: "tel", max: 40 },
+    { name: "tipo", label: "Tipo de cliente (define el tarifario que ve)", type: "select", options: TIPOS_DMC },
     { name: "notas", label: "Notas internas (solo el equipo; la agencia NO las ve)", type: "textarea", max: 2000, full: true },
     { name: "activo", label: "Agencia activa (sus usuarios pueden entrar)", type: "checkbox" }
-  ], Object.assign({}, d, { notas: d._notas || "" }));
+  ], Object.assign({}, d, { notas: d._notas || "", tipo: d.tipo === "nac" ? "nac" : "dmc" }));
   if (!existing) f.inputs.nombre.addEventListener("input", () => { if (!idTouched) idIn.value = slugify(f.inputs.nombre.value); });
   const form = mkForm(async () => {
     const v = f.get();
     const data = { nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: v.activo, actualizado: ts() };
+    if (v.tipo === "nac" || (existing && existing.tipo)) data.tipo = v.tipo === "nac" ? "nac" : "dmc";
     const priv = { notas: v.notas, actualizado: ts() };
     if (existing) {
       await commit([bt => bt.update(dref("dmcs", existing.id), data), bt => bt.set(dref("dmcs_privado", existing.id), priv)]);
@@ -3193,8 +3231,9 @@ function agencyAccessForm(host, onDone) {
     { name: "email", label: "Su correo (será el usuario)", type: "email", required: true, max: 200 },
     { name: "telefono", label: "WhatsApp", type: "tel", max: 40 },
     { name: "clave", label: "Clave temporal (puedes cambiarla)", required: true, max: 40 },
+    { name: "tipo", label: "Tipo de cliente (define el tarifario que ve)", type: "select", options: TIPOS_DMC },
     { name: "notas", label: "Notas internas (solo el equipo)", type: "textarea", max: 2000, full: true }
-  ], { clave: tempPass(), pais: "Colombia" });
+  ], { clave: tempPass(), pais: "Colombia", tipo: "dmc" });
   const form = mkForm(async () => {
     const v = f.get();
     if (String(v.clave).length < 8) throw userErr("La clave temporal debe tener al menos 8 caracteres.");
@@ -3202,7 +3241,7 @@ function agencyAccessForm(host, onDone) {
     if (!/^[a-z0-9-]{2,60}$/.test(id)) throw userErr("Escribe un nombre de agencia válido.");
     const ya = S.dmcs.find(d => d.id === id || (v.nit && digits(d.nit) && digits(d.nit) === digits(v.nit)));
     if (ya) id = ya.id;
-    else await commit([bt => bt.set(dref("dmcs", id), { nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: true, creado: ts(), actualizado: ts() }),
+    else await commit([bt => bt.set(dref("dmcs", id), Object.assign({ nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: true, creado: ts(), actualizado: ts() }, v.tipo === "nac" ? { tipo: "nac" } : {})),
       bt => bt.set(dref("dmcs_privado", id), { notas: v.notas, actualizado: ts() })]);
     const acc = { nombre: v.contacto, email: v.email, whatsapp: v.telefono, rol: "dmc", dmcId: id, modo: "temporal", clave: v.clave, idiomas: "es" };
     const res = await createAccount(acc);
@@ -3262,7 +3301,7 @@ async function adminTarifas(view) {
       { label: "Línea", get: x => String(x.line) }, { label: "Código", get: x => x.data.codigo }, { label: "Tour", get: x => x.data.nombre },
       { label: "Temporada", get: x => x.data.temporada || "—" }, { label: "Pax", get: x => `${x.data.pax_desde}–${x.data.pax_hasta}` },
       { label: "Tarifa", cls: "num", get: x => (Number.isFinite(x.data.tarifa_neta) ? money(x.data.tarifa_neta, /^[A-Z]{3}$/.test(x.data.moneda) ? x.data.moneda : "COP") : "—") },
-      { label: "Moneda", get: x => x.data.moneda }, { label: "Alcance", get: x => (x.data.dmcId ? "Especial: " + dmcName(x.data.dmcId) : "General") },
+      { label: "Moneda", get: x => x.data.moneda }, { label: "Alcance", get: x => scopeLabel(x.data.dmcId) },
       { label: "Notas (las ven las agencias)", get: x => x.data.notas }, { label: "Estado", get: x => (x.errors.length ? badge("Error", "bad") : x.warnings.length ? badge("Aviso", "warn") : badge("OK", "ok")) }
     ];
     add(preview, h("p", { class: "p-muted" }, `Vista previa (primeras ${Math.min(150, result.items.length)} filas). Revisa que las tarifas se lean bien (miles y decimales).`),
@@ -3284,7 +3323,7 @@ async function adminTarifas(view) {
   importBtn.addEventListener("click", () => {
     if (!result || result.errorCount) return;
     const y = Number(ySel.value);
-    const scope = [...new Set(result.items.map(x => (x.data.dmcId ? dmcName(x.data.dmcId) : "general")))].join(", ");
+    const scope = [...new Set(result.items.map(x => scopeLabel(x.data.dmcId)))].join(", ");
     if (!window.confirm(`¿Importar ${result.items.length} tarifas a la vigencia ${y}?${replace.checked ? `\n\nSe BORRARÁN las tarifas ${y} existentes de: ${scope} que no estén en el archivo.` : ""}`)) return;
     busy(importBtn, async () => {
       const keep = new Set(result.items.map(x => x.id));
@@ -3320,13 +3359,13 @@ async function adminTarifas(view) {
     clear(exBox);
     const term = norm(q.value);
     const shown = existing.filter(r => !term || norm([r.nombre, r.codigo, r.tour_id, r.temporada, dmcName(r.dmcId)].join(" ")).includes(term));
-    const gen = existing.filter(r => !r.dmcId).length;
-    add(exBox, h("p", { class: "p-count", role: "status" }, `${existing.length} tarifas en ${vSel.value} (${gen} generales, ${existing.length - gen} especiales).${shown.length > 300 ? " Mostrando 300: usa el buscador." : ""}`));
+    const gen = existing.filter(r => !r.dmcId).length, nac = existing.filter(r => r.dmcId === "_nac").length;
+    add(exBox, h("p", { class: "p-count", role: "status" }, `${existing.length} tarifas en ${vSel.value} (${gen} generales DMC, ${nac} Mercado Nacional, ${existing.length - gen - nac} especiales).${shown.length > 300 ? " Mostrando 300: usa el buscador." : ""}`));
     if (!existing.length) { add(exBox, emptyBox("No hay tarifas cargadas para esta vigencia.")); return; }
     add(exBox, tableWrap([
       { label: "Código", get: r => r.codigo }, { label: "Tour", get: r => r.nombre }, { label: "Temporada", get: r => r.temporada || "—" },
       { label: "Pax", get: r => `${r.pax_desde}–${r.pax_hasta}` }, { label: "Tarifa neta", cls: "num", get: r => money(r.tarifa_neta, r.moneda) },
-      { label: "Alcance", get: r => (r.dmcId ? "Especial: " + dmcName(r.dmcId) : "General") }, { label: "Notas (las ven las agencias)", get: r => r.notas || "" }
+      { label: "Alcance", get: r => scopeLabel(r.dmcId) }, { label: "Notas (las ven las agencias)", get: r => r.notas || "" }
     ], shown.slice(0, 300), { caption: "Tarifas cargadas" }));
   }
   vSel.addEventListener("change", loadExisting);
@@ -3338,7 +3377,7 @@ async function adminTarifas(view) {
       h("h2", { class: "p-h2" }, "Importar tarifas netas"),
       h("ol", { class: "p-steps" },
         h("li", null, "Descarga la ", h("a", { href: "data/plantillas/tarifas-dmc-plantilla.csv", download: "tarifas-dmc-plantilla.csv" }, "plantilla CSV"), " y llénala en Excel o Google Sheets (una fila por tarifa). Borra las filas de EJEMPLO."),
-        h("li", null, "dmc_id vacío = tarifa general para todas las agencias. Con el identificador de una agencia = tarifa especial solo para ella."),
+        h("li", null, "dmc_id vacío = tarifa general DMC. dmc_id «_nac» = tarifario Mercado Nacional y Mayoristas (solo lo ven las cuentas de ese tipo). Con el identificador de una agencia = tarifa especial solo para ella."),
         h("li", null, h("strong", null, "La columna notas la VEN las agencias"), ": úsala solo para condiciones de la tarifa (ej. «incluye almuerzo»). No pongas notas internas."),
         h("li", null, "Elige la vigencia, carga el archivo (CSV o JSON) y revisa la vista previa. Solo se importa si no hay errores."),
         h("li", null, "Importar de nuevo actualiza las tarifas iguales (mismo tour, temporada, pasajeros, moneda y agencia); no las duplica.")),
@@ -3368,8 +3407,17 @@ async function adminCondiciones(view) {
   let json = null, result = null;
   function validate() {
     if (!json) return;
-    result = validateCondiciones(json, Number(ySel.value));
+    const pfData = json.portafolio || (json.tipo === "portafolio" ? json.datos : null);
+    const soloPf = json.tipo === "portafolio";
+    result = soloPf ? { vigencia: Number(json.vigencia) || Number(ySel.value), items: [], errors: [] } : validateCondiciones(json, Number(ySel.value));
+    result.portafolio = pfData && typeof pfData === "object" ? pfData : null;
     clear(preview);
+    if (result.portafolio) {
+      const P = result.portafolio, size = JSON.stringify(P).length;
+      if (size > 450000) result.errors.push("Los datos del portafolio pesan más de 450 KB.");
+      add(preview, h("p", { class: "p-note", role: "status" }, `Datos privados del portafolio ${result.vigencia}: ${(P.fincas || []).length} fincas, ${(P.hoteles || []).length} hoteles aliados, ${Object.keys(P.coords || {}).length} ubicaciones exactas, ${(P.pagos || []).length} formas de pago. Solo los ven las cuentas con sesión.`));
+    }
+    if (soloPf) { importBtn.disabled = !result.portafolio || !!result.errors.length; if (result.errors.length) add(preview, h("ul", { class: "p-list p-list--tight" }, result.errors.map(e => h("li", null, e)))); return; }
     if (Number.isInteger(json.vigencia)) ySel.value = String(json.vigencia);
     add(preview, h("p", { class: result.errors.length ? "p-error" : "p-note", role: "status" },
       `${result.items.length} tours con condiciones · vigencia ${result.vigencia}${Number.isInteger(json.vigencia) ? " (tomada del archivo)" : " (elegida arriba)"} · ${result.errors.length} error(es).`));
@@ -3394,15 +3442,20 @@ async function adminCondiciones(view) {
   importBtn.addEventListener("click", () => {
     if (!result || result.errors.length) return;
     const y = result.vigencia;
-    if (!window.confirm(`¿Importar condiciones de ${result.items.length} tours para ${y}?`)) return;
+    if (!window.confirm(result.items.length ? `¿Importar condiciones de ${result.items.length} tours para ${y}?${result.portafolio ? " (y los datos privados del portafolio)" : ""}` : `¿Importar los datos privados del portafolio ${y}?`)) return;
     busy(importBtn, async () => {
+      if (result.portafolio) {
+        await fs.setDoc(dref("portafolio", String(y)), { vigencia: y, datos: JSON.stringify(result.portafolio), actualizado: ts() });
+        delete S.cache["pf_" + y];
+        if (!result.items.length) { progress.textContent = `Listo: datos privados del portafolio ${y} guardados.`; notify(progress.textContent); json = null; result = null; file.value = ""; importBtn.disabled = true; return; }
+      }
       if (prune.checked) {
         const keep = new Set(result.items.map(x => x.id));
         const old = await list(fs.query(col("condiciones"), fs.where("vigencia", "==", y)));
         await batchRun(old.filter(d => !keep.has(d.id)).map(d => bt => bt.delete(dref("condiciones", d.id))), m => { progress.textContent = m; }, "Borrando");
       }
       await batchRun(result.items.map(x => bt => bt.set(dref("condiciones", x.id), Object.assign({}, x.data, { actualizado: ts() }))), m => { progress.textContent = m; }, "Guardando");
-      progress.textContent = `Listo: condiciones de ${result.items.length} tours guardadas en ${y}.`;
+      progress.textContent = `Listo: condiciones de ${result.items.length} tours guardadas en ${y}${result.portafolio ? " y datos privados del portafolio" : ""}.`;
       notify(progress.textContent);
       json = null; result = null; file.value = ""; importBtn.disabled = true;
       vSel.value = String(y); loadExisting();
@@ -3425,7 +3478,7 @@ async function adminCondiciones(view) {
   add(view, 
     h("div", { class: "p-card" },
       h("h2", { class: "p-h2" }, "Importar condiciones de agencia y fichas técnicas"),
-      h("p", null, "Carga el archivo privado de condiciones (por ejemplo privado/condiciones-agencia-2026.json). Formato: { \"vigencia\": 2026, \"condiciones\": { \"tour_id\": { \"codigo\", \"nombre\", \"notas_agencia\": [ … ] } } }."),
+      h("p", null, "Carga el archivo privado de condiciones (por ejemplo privado/condiciones-agencia-2026.json). Formato: { \"vigencia\": 2026, \"condiciones\": { \"tour_id\": { \"codigo\", \"nombre\", \"notas_agencia\": [ … ] } } }. Si el archivo trae «portafolio» (fincas, hoteles aliados, ubicaciones exactas y formas de pago del Portafolio 2027), también se guarda."),
       h("p", { class: "p-note" }, "Este archivo es privado: no lo subas al repositorio. Importar de nuevo reemplaza las notas de cada tour."),
       h("div", { class: "p-toolbar" }, labeled("Vigencia (si el archivo no la trae)", ySel), labeled("Archivo JSON", file, "p-grow")),
       checkField("Borrar las condiciones de esa vigencia que no estén en el archivo", prune),
