@@ -1286,7 +1286,15 @@ async function loadDmcRates(year) {
 }
 async function loadDmcRatesFresh(year) {
   const mine = S.profile && S.profile.dmcId;      // el equipo no tiene DMC: sin tarifas especiales
-  const one = y => Promise.all([
+  const one = async y => {
+    const pk = await loadPack(y);
+    if (pk) {
+      const spe = mine ? await list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", mine))) : [];
+      return { rates: mergeTarifas(pk.rates, spe), cond: pk.cond };
+    }
+    return oneQuery(y);
+  };
+  const oneQuery = y => Promise.all([
     list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", tierOf() === "nac" ? NAC : null))),
     mine ? list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", mine))) : Promise.resolve([]),
     list(fs.query(col("condiciones"), fs.where("vigencia", "==", y)))
@@ -1391,6 +1399,58 @@ async function dmcTarifas(view) {
   await load();
 }
 
+/* ---------- Carga rápida: paquete de tarifas y condiciones por año y tipo de cliente ----------
+   Una cuenta lee UN documento (tarifas_pack/{año}_{dmc|nac}) en vez de ~1.900 (plan gratis de Firebase: 50.000 lecturas al día).
+   Lo arma administración al importar tarifas o condiciones (o con «Actualizar carga rápida» en Tarifas). */
+const packId = (y, tipo) => `${y}_${tipo}`;
+async function loadPack(y) {
+  try {
+    const snap = await fs.getDoc(dref("tarifas_pack", packId(y, tierOf())));
+    if (!snap.exists()) return null;
+    const P = JSON.parse(snap.data().datos || "null");
+    if (!P || P.v !== 1) return null;
+    const dmcId = tierOf() === "nac" ? NAC : null, rates = [];
+    for (const [codigo, tour_id, nombre, filas] of P.g) for (const [temporada, pax_desde, pax_hasta, moneda, tarifa_neta, notas] of filas)
+      rates.push({ vigencia: y, codigo, tour_id, nombre, temporada, pax_desde, pax_hasta, moneda, tarifa_neta, dmcId, notas: notas || "" });
+    const cond = P.c.map(([tour_id, codigo, nombre, notas_agencia]) => ({ vigencia: y, tour_id, codigo, nombre, notas_agencia }));
+    return { rates, cond };
+  } catch (e) { return null; }       // sin paquete o reglas sin publicar: consultas normales
+}
+async function rebuildPacks(years, onProgress) {
+  let n = 0;
+  for (const y of years) {
+    if (onProgress) onProgress(`Armando la carga rápida ${y}…`);
+    const [tar, cond] = await Promise.all([list(fs.query(col("tarifas"), fs.where("vigencia", "==", y))), list(fs.query(col("condiciones"), fs.where("vigencia", "==", y)))]);
+    const c = cond.map(x => [x.tour_id, x.codigo || "", x.nombre || "", x.notas_agencia || []]);
+    for (const tipo of ["dmc", "nac"]) {
+      const rows = tar.filter(r => (tipo === "nac" ? r.dmcId === NAC : r.dmcId == null));
+      const g = new Map();
+      rows.forEach(r => { const k = (r.tour_id || "") + "|" + r.codigo; if (!g.has(k)) g.set(k, [r.codigo, r.tour_id || "", r.nombre, []]); g.get(k)[3].push([r.temporada || "", r.pax_desde, r.pax_hasta, r.moneda, r.tarifa_neta, r.notas || ""]); });
+      const datos = JSON.stringify({ v: 1, g: [...g.values()], c });
+      if (datos.length > 1000000) throw userErr(`Las tarifas ${y} (${tipo}) no caben en un paquete; la carga rápida no se actualizó.`);
+      await fs.setDoc(dref("tarifas_pack", packId(y, tipo)), { vigencia: y, tipo, filas: rows.length, datos, actualizado: ts() });
+      n++;
+    }
+  }
+  Object.keys(S.cache).forEach(k => { if (/^rates_/.test(k)) delete S.cache[k]; });
+  return n;
+}
+// Importar no falla si la carga rápida no se pudo armar (p. ej. reglas sin publicar): queda el método de siempre
+async function rebuildPacksSafe(years, progress) {
+  try { await rebuildPacks(years, m => { if (progress) progress.textContent = m; }); return ""; }
+  catch (e) { return " (La carga rápida no se actualizó: " + errMsg(e) + ")"; }
+}
+
+/* ---------- Videos privados del portafolio (solo DMC): colección medios, en partes de ≤ 900.000 caracteres ---------- */
+async function loadVideo(id, partes) {
+  const docs = await Promise.all([...Array(partes)].map((_, i) => fs.getDoc(dref("medios", `${id}-${i}`))));
+  if (docs.some(d => !d.exists())) throw new Error("video incompleto");
+  const b64 = docs.map(d => d.data().datos || "").join("");
+  const bin = atob(b64), bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new Blob([bytes], { type: (docs[0].data().tipo) || "video/mp4" });
+}
+
 /* ---------- Portafolio B2B 2027 (kit de ET): mapa, experiencias, arma tu ruta, transporte, kit de venta, condiciones ----------
    Los textos públicos vienen de data/portafolio.json; aquí se le pasan las tarifas del tipo de cliente, las fichas
    técnicas «solo agencias» (condiciones) y los datos privados del portafolio (portafolio/{año}: fincas, hoteles aliados…). */
@@ -1408,19 +1468,20 @@ async function dmcPortafolio(view) {
   await S.jennyP;
   if (!S.vigencias.length) await loadVigencias();
   const year = catalogYear() || S.vigencias[0] || new Date().getFullYear();
-  let data, priv;
-  try { [data, priv] = await Promise.all([loadDmcRates(year), loadPortafolioPriv(year)]); }
+  let data, priv, mod;
+  const modP = import("./portafolio.js").then(m => m.preload(L()).then(() => m));
+  try { [data, priv, mod] = await Promise.all([loadDmcRates(year), loadPortafolioPriv(year), modP]); }
   catch (e) { clear(view); add(view, errorBox(e, () => { clear(view); dmcPortafolio(view); })); return; }
   const pm = $("#p-main"); if (pm) pm.classList.add("p-main--wide");
   clear(view);
   const host = h("div", { class: "p-pf" });
   add(view, host);
-  const { mountPortafolio } = await import("./portafolio.js");
+  const { mountPortafolio } = mod;
   const staff = S.view === "staff";
   await mountPortafolio(host, {
     lang: L(), tier: tierOf(), staff,
     agency: staff ? "Vista previa del equipo" : ((S.dmc && S.dmc.nombre) || ""),
-    rates: data.rates, cond: data.cond, priv, splitNotes, empresa: EMPRESA,
+    rates: data.rates, cond: data.cond, priv, splitNotes, empresa: EMPRESA, loadVideo,
     // Ruta o ficha → formulario «Reservar» con los tours (y pasajeros, hotel e itinerario) ya puestos
     onRequest: staff ? null : pre => { S.preset = pre; S.tabsApi.select("solicitar", true); }
   });
@@ -3336,7 +3397,8 @@ async function adminTarifas(view) {
       await batchRun(result.items.map(x => bt => bt.set(dref("tarifas", x.id), Object.assign({}, x.data, { actualizado: ts() }))), m => { progress.textContent = m; }, "Guardando");
       await fs.setDoc(dref("config", "vigencias"), { lista: fs.arrayUnion(y), actualizado: ts() }, { merge: true });
       await loadVigencias();
-      progress.textContent = `Listo: ${result.items.length} tarifas guardadas en la vigencia ${y}.`;
+      const aviso = await rebuildPacksSafe([y], progress);
+      progress.textContent = `Listo: ${result.items.length} tarifas guardadas en la vigencia ${y}.${aviso}`;
       notify(progress.textContent);
       rows = null; result = null; file.value = ""; importBtn.disabled = true;
       vSel.value = String(y); loadExisting();
@@ -3370,6 +3432,11 @@ async function adminTarifas(view) {
   }
   vSel.addEventListener("change", loadExisting);
   q.addEventListener("input", debounce(drawExisting, 150));
+  const packBtn = btn("Actualizar carga rápida", e => busy(e.currentTarget, async () => {
+    await rebuildPacks(S.vigencias.length ? S.vigencias : [Number(vSel.value)], m => { packMsg.textContent = m; });
+    packMsg.textContent = "Listo: las agencias cargan sus tarifas en un solo paso (" + (S.vigencias.join(", ") || vSel.value) + ")."; notify(packMsg.textContent);
+  }));
+  const packMsg = h("p", { class: "p-muted", role: "status" }, "La carga rápida se actualiza sola al importar. Úsalo si cambiaste tarifas de otra forma.");
   const exportBtn = btn("Exportar CSV (formato de importación)", () => download(`tarifas-${vSel.value}.csv`,
     toCSV(existing.map(r => Object.assign({}, r, { dmc_id: r.dmcId || "" })), TARIFA_COLS, sep.value), "text/csv;charset=utf-8"));
   add(view, 
@@ -3387,8 +3454,8 @@ async function adminTarifas(view) {
       preview, h("div", { class: "p-form-actions" }, importBtn), progress),
     h("div", { class: "p-card" },
       h("h2", { class: "p-h2" }, "Tarifas cargadas"),
-      h("div", { class: "p-toolbar" }, labeled("Vigencia", vSel), labeled("Buscar", q, "p-grow"), labeled("Formato CSV", sep), h("div", { class: "p-toolbar__end" }, exportBtn)),
-      exBox));
+      h("div", { class: "p-toolbar" }, labeled("Vigencia", vSel), labeled("Buscar", q, "p-grow"), labeled("Formato CSV", sep), h("div", { class: "p-toolbar__end" }, exportBtn, packBtn)),
+      packMsg, exBox));
   await loadExisting();
 }
 
@@ -3411,7 +3478,13 @@ async function adminCondiciones(view) {
     const soloPf = json.tipo === "portafolio";
     result = soloPf ? { vigencia: Number(json.vigencia) || Number(ySel.value), items: [], errors: [] } : validateCondiciones(json, Number(ySel.value));
     result.portafolio = pfData && typeof pfData === "object" ? pfData : null;
+    result.medios = json.medios && typeof json.medios === "object" ? json.medios : null;
     clear(preview);
+    if (result.medios) {
+      const ids = Object.keys(result.medios), bad = ids.filter(k => !/^[a-z0-9-]{1,60}$/.test(k) || typeof result.medios[k].b64 !== "string");
+      if (bad.length) result.errors.push("Videos con datos no válidos: " + bad.join(", "));
+      add(preview, h("p", { class: "p-note", role: "status" }, `Videos privados (solo los ven los DMC con sesión): ${ids.length} · ${(ids.reduce((n, k) => n + (result.medios[k].b64 || "").length, 0) * 0.75 / 1048576).toFixed(1)} MB.`));
+    }
     if (result.portafolio) {
       const P = result.portafolio, size = JSON.stringify(P).length;
       if (size > 450000) result.errors.push("Los datos del portafolio pesan más de 450 KB.");
@@ -3433,7 +3506,7 @@ async function adminCondiciones(view) {
     json = null; result = null; importBtn.disabled = true; clear(preview); progress.textContent = "";
     const fl = file.files && file.files[0];
     if (!fl) return;
-    if (fl.size > 2 * 1024 * 1024) throw userErr("El archivo pesa más de 2 MB.");
+    if (fl.size > 40 * 1024 * 1024) throw userErr("El archivo pesa más de 40 MB.");
     try { json = JSON.parse((await readFileText(fl)).replace(/^﻿/, "")); }
     catch (e) { throw userErr("El archivo no es un JSON válido."); }
     validate();
@@ -3444,10 +3517,19 @@ async function adminCondiciones(view) {
     const y = result.vigencia;
     if (!window.confirm(result.items.length ? `¿Importar condiciones de ${result.items.length} tours para ${y}?${result.portafolio ? " (y los datos privados del portafolio)" : ""}` : `¿Importar los datos privados del portafolio ${y}?`)) return;
     busy(importBtn, async () => {
+      if (result.medios) {
+        const PARTE = 900000, ops = [];
+        for (const [id, m] of Object.entries(result.medios)) {
+          const partes = Math.ceil(m.b64.length / PARTE);
+          for (let i = 0; i < partes; i++) ops.push({ id: `${id}-${i}`, d: { tipo: m.tipo || "video/mp4", parte: i, partes, datos: m.b64.slice(i * PARTE, (i + 1) * PARTE), actualizado: ts() } });
+        }
+        // De a uno (cada parte pesa casi 1 MB; un lote de Firestore admite máx. 10 MB)
+        for (let k = 0; k < ops.length; k++) { progress.textContent = `Subiendo videos privados ${k + 1}/${ops.length}…`; await fs.setDoc(dref("medios", ops[k].id), ops[k].d); }
+      }
       if (result.portafolio) {
         await fs.setDoc(dref("portafolio", String(y)), { vigencia: y, datos: JSON.stringify(result.portafolio), actualizado: ts() });
         delete S.cache["pf_" + y];
-        if (!result.items.length) { progress.textContent = `Listo: datos privados del portafolio ${y} guardados.`; notify(progress.textContent); json = null; result = null; file.value = ""; importBtn.disabled = true; return; }
+        if (!result.items.length) { progress.textContent = `Listo: datos privados del portafolio ${y} guardados${result.medios ? " con sus videos" : ""}.`; notify(progress.textContent); json = null; result = null; file.value = ""; importBtn.disabled = true; return; }
       }
       if (prune.checked) {
         const keep = new Set(result.items.map(x => x.id));
@@ -3455,7 +3537,9 @@ async function adminCondiciones(view) {
         await batchRun(old.filter(d => !keep.has(d.id)).map(d => bt => bt.delete(dref("condiciones", d.id))), m => { progress.textContent = m; }, "Borrando");
       }
       await batchRun(result.items.map(x => bt => bt.set(dref("condiciones", x.id), Object.assign({}, x.data, { actualizado: ts() }))), m => { progress.textContent = m; }, "Guardando");
-      progress.textContent = `Listo: condiciones de ${result.items.length} tours guardadas en ${y}${result.portafolio ? " y datos privados del portafolio" : ""}.`;
+      if (!S.vigencias.length) await loadVigencias();
+      const aviso = await rebuildPacksSafe([...new Set(S.vigencias.concat([y]))], progress);
+      progress.textContent = `Listo: condiciones de ${result.items.length} tours guardadas en ${y}${result.portafolio ? ", datos privados del portafolio" : ""}${result.medios ? " y videos" : ""}. Carga rápida actualizada.${aviso}`;
       notify(progress.textContent);
       json = null; result = null; file.value = ""; importBtn.disabled = true;
       vSel.value = String(y); loadExisting();

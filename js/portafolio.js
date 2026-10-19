@@ -35,7 +35,7 @@ const UI = {
   es: {
     banner_dmc: "Portafolio PCCC Espontáneos Travel 2027 · DMCs", banner_nac: "Portafolio PCCC Espontáneos Travel 2027 · Mayoristas y Mercado Nacional",
     tar_dmc: "Tarifario DMC", tar_nac: "Tarifario Mercado Nacional y Mayoristas", tar_prev: "tarifas {0} vigentes en {1} mientras ET publica las nuevas", tar_none: "aún sin tarifas cargadas",
-    mode: "Vista", m_agency: "Vista agencia", m_wl: "Marca blanca", wl_on: "Marca blanca: sin logo, precios, códigos ni datos solo agencias. Puedes mostrar esta pantalla a tu cliente.",
+    two_fingers: "Usa dos dedos para mover el mapa", mode: "Vista", m_agency: "Vista agencia", m_wl: "Marca blanca", wl_on: "Marca blanca: sin logo, precios, códigos ni datos solo agencias. Puedes mostrar esta pantalla a tu cliente.",
     map_t: "El Eje Cafetero, punto por punto", map_s: "Arrastra para moverte. Toca un punto para ver la experiencia.", map_aria: "Mapa del Eje Cafetero: departamentos, capitales, aeropuertos y experiencias",
     v_region: "Región", v_eje: "Eje Cafetero", v_quindio: "Quindío", z_in: "Acercar", z_out: "Alejar", k_apt: "Aeropuerto", k_cap: "Capital", k_hot: "Hoteles aliados", k_fin: "Fincas cafeteras",
     t_mapa: "Mapa", t_exp: "Experiencias", t_ruta: "Arma tu ruta", t_trans: "Transporte", t_kit: "Kit de venta", t_cond: "Condiciones",
@@ -91,7 +91,7 @@ const UI = {
   en: {
     banner_dmc: "Espontáneos Travel PCCC Portfolio 2027 · DMCs", banner_nac: "Espontáneos Travel PCCC Portfolio 2027 · Wholesalers & Domestic Market",
     tar_dmc: "DMC rate sheet", tar_nac: "Domestic Market & Wholesalers rate sheet", tar_prev: "{0} rates valid in {1} until ET publishes the new ones", tar_none: "no rates loaded yet",
-    mode: "View", m_agency: "Agency view", m_wl: "White label", wl_on: "White label: no logo, prices, codes or agency-only data. You can show this screen to your client.",
+    two_fingers: "Use two fingers to move the map", mode: "View", m_agency: "Agency view", m_wl: "White label", wl_on: "White label: no logo, prices, codes or agency-only data. You can show this screen to your client.",
     map_t: "The Coffee Region, point by point", map_s: "Drag to move. Tap a point to see the experience.", map_aria: "Map of the Coffee Region: departments, capitals, airports and experiences",
     v_region: "Region", v_eje: "Coffee Region", v_quindio: "Quindío", z_in: "Zoom in", z_out: "Zoom out", k_apt: "Airport", k_cap: "Capital", k_hot: "Partner hotels", k_fin: "Coffee farms",
     t_mapa: "Map", t_exp: "Experiences", t_ruta: "Build a route", t_trans: "Transport", t_kit: "Sales kit", t_cond: "Conditions",
@@ -223,6 +223,7 @@ function buildModel() {
     return e;
   });
   byId = Object.fromEntries(EXP.map(e => [e.id, e]));
+  EXP.forEach(e => { e._hay = norm([e.name, tr(e, "name"), e.code, e.deptos, e.tagline, tr(e, "tagline"), e.sub, (e.desc || []).join(" ")].join(" ")); });
   FINCAS = (P.fincas || []).filter(f => isFinite(f.lat) && isFinite(f.lon));
   finById = Object.fromEntries(FINCAS.map(f => [f.id, f]));
   PR = buildPrices(CTX.rates || []);
@@ -296,13 +297,17 @@ function rememberHotel(h) {
 }
 
 /* ---------- montaje ---------- */
+// Descarga los datos públicos (y el idioma) mientras el portal lee las tarifas: así el portafolio abre más rápido
+export async function preload(lang) {
+  if (!D) [D, M] = await Promise.all([json("/data/portafolio.json"), json("/data/mapa-eje.json")]);
+  if (lang === "en") await loadLang("en");
+}
 export async function mountPortafolio(host, ctx) {
   if (ac) ac.abort();
   ac = new AbortController();
   CTX = ctx;
   loadFonts();
-  if (!D) [D, M] = await Promise.all([json("/data/portafolio.json"), json("/data/mapa-eje.json")]);
-  if (L() === "en") await loadLang("en");
+  await preload(L());
   buildModel();
   const saved = ls.get("pf27-ruta", null);
   S = { cats: new Set(Object.keys(D.cats)), q: "", ideal: "", dur: "", lang: "", sugg: "", active: null, popLL: null, wl: false, hotels: false, fincas: true,
@@ -317,7 +322,7 @@ export async function mountPortafolio(host, ctx) {
   svg = $r("svg"); base = $r("base"); ov = $r("ov");
   const head = document.querySelector(".p-header"); if (head) ROOT.style.setProperty("--pf-top", head.offsetHeight + "px");
   bindStatic();
-  drawBase(); renderLegend(); renderList(); renderMapPane(); renderTrans();
+  drawBase(); renderLegend(); renderMapPane(); S.listDirty = true;
   requestAnimationFrame(() => {
     VB = boxToVB(...VIEWS.eje); applyVB(); setTab(S.tab, true);
     const m = /#ficha=([a-z0-9_-]+)/i.exec(location.hash); if (m && byId[m[1]]) openFicha(m[1]);
@@ -413,24 +418,43 @@ function bindStatic() {
   S.refilter = refilter;
   // mapa
   $$("[data-view]").forEach(b => b.addEventListener("click", () => { animateTo(boxToVB(...VIEWS[b.dataset.view])); $$("[data-view]").forEach(x => x.setAttribute("aria-pressed", String(x === b))); }));
-  $$("[data-z]").forEach(b => b.addEventListener("click", () => { const r = svg.getBoundingClientRect(); zoomAt(b.dataset.z === "in" ? 1 / 1.45 : 1.45, r.left + r.width / 2, r.top + r.height / 2); }));
+  $$("[data-z]").forEach(b => b.addEventListener("click", () => { const r = wrapRect(); zoomAt(b.dataset.z === "in" ? 1 / 1.45 : 1.45, r.left + r.width / 2, r.top + r.height / 2); }));
   $$("[data-layer]").forEach(b => b.addEventListener("click", () => toggleLayer(b.dataset.layer)));
   svg.addEventListener("click", onMapClick);
   svg.addEventListener("keydown", ev => { const g = ev.target.closest && ev.target.closest("[data-id],[data-cl]"); if (g && (ev.key === "Enter" || ev.key === " ")) { ev.preventDefault(); g.dataset.id ? openPop(g.dataset.id) : zoomCluster(g.dataset.cl); } });
   let drag = false, last = null; S.dragMoved = false;
   const pts = new Map(); let pinch = null;
-  svg.addEventListener("pointerdown", ev => { pts.set(ev.pointerId, [ev.clientX, ev.clientY]); drag = true; S.dragMoved = false; last = [ev.clientX, ev.clientY]; if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = Math.hypot(a[0] - b[0], a[1] - b[1]); } });
+  const mid = () => { const [a, b] = [...pts.values()]; return [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2]; };
+  let hintT = 0, touch1 = null;
+  svg.addEventListener("pointerdown", ev => {
+    pts.set(ev.pointerId, [ev.clientX, ev.clientY]); S.dragMoved = false;
+    if (ev.pointerType === "touch") {
+      if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = Math.hypot(a[0] - b[0], a[1] - b[1]); last = mid(); drag = true; }
+      else { drag = false; touch1 = [ev.clientX, ev.clientY]; }
+      return;
+    }
+    drag = true; last = [ev.clientX, ev.clientY];
+  });
   addEventListener("pointermove", ev => {
     if (!ROOT.isConnected) { ac.abort(); return; }
-    if (!drag) return;
     if (pts.has(ev.pointerId)) pts.set(ev.pointerId, [ev.clientX, ev.clientY]);
-    if (pts.size === 2 && pinch) { const [a, b] = [...pts.values()]; const d = Math.hypot(a[0] - b[0], a[1] - b[1]); if (d > 0) { zoomAt(pinch / d, (a[0] + b[0]) / 2, (a[1] + b[1]) / 2); pinch = d; S.dragMoved = true; } return; }
+    if (!drag) {
+      // Un solo dedo sobre el mapa: la página sigue desplazándose; si el gesto es de lado, se recuerda usar dos dedos
+      if (ev.pointerType === "touch" && touch1 && pts.size === 1 && Math.abs(ev.clientX - touch1[0]) > 24 && !hintT) { const b = $r("banner"); if (b && !b.firstChild) { b.innerHTML = `<div class="mapbanner hint">${ic("users", "sm")}${esc(tx("two_fingers"))}</div>`; hintT = setTimeout(() => { hintT = 0; if (b.querySelector(".hint")) b.innerHTML = ""; }, 1800); } }
+      return;
+    }
+    if (pts.size === 2 && pinch) {
+      const [a, b] = [...pts.values()]; const d = Math.hypot(a[0] - b[0], a[1] - b[1]), m = mid();
+      const u = px(); VB.x -= (m[0] - last[0]) * u; VB.y -= (m[1] - last[1]) * u; last = m;
+      if (d > 0) { zoomAt(pinch / d, m[0], m[1]); pinch = d; } else applyVB("pan");
+      S.dragMoved = true; return;
+    }
     const dx = ev.clientX - last[0], dy = ev.clientY - last[1];
     if (!S.dragMoved && Math.hypot(dx, dy) < 4) return;
     if (!S.dragMoved) { S.dragMoved = true; svg.classList.add("drag"); }
-    const u = px(); VB.x -= dx * u; VB.y -= dy * u; last = [ev.clientX, ev.clientY]; applyVB();
+    const u = px(); VB.x -= dx * u; VB.y -= dy * u; last = [ev.clientX, ev.clientY]; applyVB("pan");
   }, sig);
-  const up = ev => { pts.delete(ev.pointerId); if (pts.size < 2) pinch = null; if (!pts.size) { drag = false; svg.classList.remove("drag"); setTimeout(() => { S.dragMoved = false; }, 0); } };
+  const up = ev => { if (svg.classList.contains("moving") && pts.size <= 1) commitVB(); pts.delete(ev.pointerId); if (pts.size < 2) { pinch = null; if (ev.pointerType === "touch") drag = false; } if (!pts.size) { drag = false; touch1 = null; svg.classList.remove("drag"); setTimeout(() => { S.dragMoved = false; }, 0); } };
   addEventListener("pointerup", up, sig); addEventListener("pointercancel", up, sig);
   svg.addEventListener("wheel", ev => { ev.preventDefault(); zoomAt(ev.deltaY > 0 ? 1.15 : 1 / 1.15, ev.clientX, ev.clientY); }, { passive: false });
   let rz = 0; addEventListener("resize", () => { if (!ROOT.isConnected) { ac.abort(); return; } clearTimeout(rz); rz = setTimeout(() => { VB = fitAspect(VB); applyVB(); }, 120); }, sig);
@@ -458,6 +482,7 @@ function setTab(t, first) {
   S.tab = t; ls.set("pf27-tab", t);
   $$("[data-tab]").forEach(b => { const on = b.dataset.tab === t; b.setAttribute("aria-selected", String(on)); b.tabIndex = on ? 0 : -1; });
   $$("[data-pane]").forEach(p => { p.hidden = p.dataset.pane !== t; });
+  if (t === "exp" && S.listDirty) renderList();
   if (t === "ruta") { renderRoute(); if (!first) fitRoute(); } else drawOverlay();
   if (t === "kit") renderKit();
   if (t === "cond") renderCond();
@@ -490,15 +515,38 @@ function boxToVB(lat0, lat1, lon0, lon1) {
 function fitAspect(b) { const r = svg.clientWidth / Math.max(1, svg.clientHeight); let { x, y, w, h } = b; if (w / h < r) { const nw = h * r; x -= (nw - w) / 2; w = nw; } else { const nh = w / r; y -= (nh - h) / 2; h = nh; } return { x, y, w, h }; }
 function animateTo(t) {
   cancelAnimationFrame(anim); const s = Object.assign({}, VB), t0 = performance.now(), Dd = reduced() ? 0 : 450;
-  const step = now => { const k = Dd ? Math.min(1, (now - t0) / Dd) : 1, e = 1 - Math.pow(1 - k, 3); VB = { x: s.x + (t.x - s.x) * e, y: s.y + (t.y - s.y) * e, w: s.w + (t.w - s.w) * e, h: s.h + (t.h - s.h) * e }; applyVB(); if (k < 1) anim = requestAnimationFrame(step); };
+  const step = now => { const k = Dd ? Math.min(1, (now - t0) / Dd) : 1, e = 1 - Math.pow(1 - k, 3); VB = { x: s.x + (t.x - s.x) * e, y: s.y + (t.y - s.y) * e, w: s.w + (t.w - s.w) * e, h: s.h + (t.h - s.h) * e }; if (k < 1) { applyVB("zoom"); anim = requestAnimationFrame(step); } else applyVB(); };
   anim = requestAnimationFrame(step);
 }
-function applyVB() { if (!svg) return; svg.setAttribute("viewBox", `${VB.x} ${VB.y} ${VB.w} ${VB.h}`); drawOverlay(); placePop(); }
+// Durante un gesto («pan» / «zoom») el mapa ya dibujado solo se traslada y escala con CSS (fluido también en
+// celulares); 160 ms después del último movimiento —o al soltar— se fija el viewBox y se redibujan los puntos.
+let vbRaf = 0, vbT = 0, VBc = null;
+const wrapRect = () => ($r("mapwrap") || svg).getBoundingClientRect();
+function commitVB() {
+  clearTimeout(vbT); vbT = 0;
+  if (!svg) return;
+  svg.setAttribute("viewBox", `${VB.x} ${VB.y} ${VB.w} ${VB.h}`);
+  svg.style.transform = ""; svg.classList.remove("moving");
+  VBc = Object.assign({}, VB);
+  drawOverlay(); placePop();
+}
+function applyVB(mode) {
+  if (!svg) return;
+  if ((mode === "pan" || mode === "zoom") && VBc) {
+    const W = Math.max(1, svg.clientWidth), k = VBc.w / VB.w, f = W / VB.w;
+    svg.classList.add("moving");
+    svg.style.transform = `translate(${(VBc.x - VB.x) * f}px, ${(VBc.y - VB.y) * f}px) scale(${k})`;
+    placePop();
+    clearTimeout(vbT); vbT = setTimeout(commitVB, 160);
+    return;
+  }
+  if (!vbRaf) vbRaf = requestAnimationFrame(() => { vbRaf = 0; commitVB(); });
+}
 const px = () => VB.w / Math.max(1, svg.clientWidth);
 function zoomAt(f, cx, cy) {
-  const r = svg.getBoundingClientRect(); const mx = VB.x + (cx - r.left) * px(), my = VB.y + (cy - r.top) * px();
+  const r = wrapRect(); const mx = VB.x + (cx - r.left) * px(), my = VB.y + (cy - r.top) * px();
   const nw = Math.min(3000, Math.max(40, VB.w * f)), k = nw / VB.w; VB = { x: mx - (mx - VB.x) * k, y: my - (my - VB.y) * k, w: nw, h: VB.h * k };
-  $$("[data-view]").forEach(b => b.setAttribute("aria-pressed", "false")); applyVB();
+  $$("[data-view]").forEach(b => b.setAttribute("aria-pressed", "false")); applyVB("zoom");
 }
 function drawBase() {
   let s = "";
@@ -514,7 +562,7 @@ function visible() {
   const q = norm(S.q);
   return new Set(EXP.filter(e => S.cats.has(e.cat) && (!S.ideal || (e.ideal || []).includes(S.ideal)) && (!S.dur || e.durB === S.dur) && (!S.lang || (e.langs || []).includes(S.lang))
     && (!S.sugg || (D.sugg[S.sugg] || []).includes(e.id))
-    && (!q || norm([e.name, tr(e, "name"), e.code, e.deptos, e.tagline, tr(e, "tagline"), e.sub, (e.desc || []).join(" ")].join(" ")).includes(q))).map(e => e.id));
+    && (!q || e._hay.includes(q))).map(e => e.id));
 }
 function drawOverlay() {
   if (!ov || !M) return;
@@ -583,7 +631,7 @@ function zoomCluster(key) {
 }
 function onMapClick(ev) {
   if (S.dragMoved) return;
-  if (S.placing) { const r = svg.getBoundingClientRect(), x = VB.x + (ev.clientX - r.left) * px(), y = VB.y + (ev.clientY - r.top) * px(); finishNewHotel(M.lat1 - y / M.k, x / M.k + M.lon0); return; }
+  if (S.placing) { const r = wrapRect(), x = VB.x + (ev.clientX - r.left) * px(), y = VB.y + (ev.clientY - r.top) * px(); finishNewHotel(M.lat1 - y / M.k, x / M.k + M.lon0); return; }
   if (S.editing) { const m = ev.target.closest(".muni"); if (m) toggleZone(m.dataset.m); return; }
   const pin = ev.target.closest(".pin"), cl = ev.target.closest(".clu"), hot = ev.target.closest(".hot"), fin = ev.target.closest(".fin");
   if (fin) { openFinPop(fin.dataset.f); return; }
@@ -606,18 +654,50 @@ function renderLegend() {
 }
 
 /* ---------- media ---------- */
-function videosOf(id) { const v = CTX.priv && CTX.priv.videos && CTX.priv.videos[id]; return Array.isArray(v) ? v.filter(x => x && /^(\/|https:\/\/)/.test(x.src || "")) : []; }
-function mediaBlock(e, { video = true, label = true, big = false } = {}) {
+function videosOf(id) {
+  const v = CTX.priv && CTX.priv.videos && CTX.priv.videos[id];
+  return CTX.loadVideo && Array.isArray(v) ? v.filter(x => x && /^[a-z0-9-]{1,60}$/.test(x.id || "") && x.partes > 0 && x.partes <= 20) : [];
+}
+const VURL = new Map();
+function videoUrl(v) {
+  if (!VURL.has(v.id)) VURL.set(v.id, CTX.loadVideo(v.id, v.partes).then(b => URL.createObjectURL(b)).catch(err => { VURL.delete(v.id); throw err; }));
+  return VURL.get(v.id);
+}
+// Pone el video en cada <video data-vid> de root y lo reproduce (mudo, en bucle); si falla, queda el póster
+function hydrate(root) {
+  root.querySelectorAll("video[data-vid]").forEach(el => {
+    if (el.dataset.ok) return; el.dataset.ok = "1";
+    videoUrl({ id: el.dataset.vid, partes: +el.dataset.partes }).then(u => {
+      if (!el.isConnected) return;
+      el.src = u;
+      if (el.dataset.auto) { el.muted = true; const pr = el.play(); if (pr && pr.catch) pr.catch(() => { el.controls = true; }); }
+    }).catch(() => { el.controls = false; el.removeAttribute("data-auto"); });
+  });
+}
+const posterOf = (v, e, big) => (v.poster ? (big ? ph1600(v.poster) : ph640(v.poster)) : (e.fotos[0] ? ph640(e.fotos[0]) : ""));
+function videoTag(v, e, big, extra) {
+  const po = posterOf(v, e, big);
+  return `<video data-vid="${esc(v.id)}" data-partes="${+v.partes}" ${po ? `poster="${po}"` : ""} ${reduced() ? "controls" : 'data-auto="1"'} ${extra || ""} muted loop playsinline preload="none"></video>`;
+}
+function mediaBlock(e, { video = true, label = true, big = false, one = false } = {}) {
   const vids = videosOf(e.id);
-  if (video && vids[0]) return `<video src="${esc(vids[0].src)}" ${vids[0].poster ? `poster="${esc(vids[0].poster)}"` : ""} autoplay muted loop playsinline preload="metadata"></video>${label ? `<span class="vid-tag">▶ Video</span>` : ""}`;
-  if (e.fotos && e.fotos.length) return e.fotos.slice(0, 5).map((p, i) => `<img class="slide${i ? "" : " on"}" src="${big ? ph1600(p) : ph640(p)}" alt="${esc(tr(e, "name"))}" loading="lazy" decoding="async">`).join("");
+  if (video && vids[0]) return videoTag(vids[0], e, big) + (label ? `<span class="vid-tag">▶ Video</span>` : "");
+  const fotos = (e.fotos && e.fotos.length) ? e.fotos : (vids[0] && vids[0].poster ? [vids[0].poster] : []);
+  if (fotos.length) {
+    // Solo la primera foto se descarga de entrada; las demás, justo antes de mostrarse
+    const later = p => (big && innerWidth > 700 ? ph1600(p) : ph640(p));
+    return fotos.slice(0, one ? 1 : 5).map((p, i) => i ? `<img class="slide" data-src="${later(p)}" alt="" decoding="async">`
+      : `<img class="slide on" src="${ph640(p)}"${big ? ` srcset="${ph640(p)} 640w, ${ph1600(p)} 1600w" sizes="(max-width: 700px) 100vw, 1100px" fetchpriority="high"` : ` loading="lazy"`} alt="${esc(tr(e, "name"))}" decoding="async">`).join("");
+  }
   return `<div class="ph"><span>${ic("leaf")}</span>${esc(tx("photo_soon"))}<br><b>${esc(tr(e, "name"))}</b></div>`;
 }
 function startSlides(root) {
   slideTimers.forEach(clearInterval); slideTimers = [];
   if (reduced()) return;
   root.querySelectorAll(".media").forEach(md => { const s = [...md.querySelectorAll(".slide")]; if (s.length < 2) return; let i = 0;
-    slideTimers.push(setInterval(() => { if (!md.isConnected) return; s[i].classList.remove("on"); i = (i + 1) % s.length; s[i].classList.add("on"); }, 3800)); });
+    const load = k => { const im = s[k]; if (im && im.dataset.src && !im.getAttribute("src")) im.src = im.dataset.src; };
+    load(1);
+    slideTimers.push(setInterval(() => { if (!md.isConnected) return; s[i].classList.remove("on"); i = (i + 1) % s.length; s[i].classList.add("on"); load((i + 1) % s.length); }, 3800)); });
 }
 function badges(e) {
   const b = [];
@@ -632,6 +712,8 @@ const priceLine = e => { const f = fromPrice(e.id); return f ? `${tx("from_net")
 
 /* ---------- lista de experiencias ---------- */
 function renderList() {
+  if (S.tab !== "exp") { S.listDirty = true; return; }      // se pinta al abrir «Experiencias»
+  S.listDirty = false;
   const vis = visible(); let html = "", n = 0;
   const nw = $r("nearw"); if (nw) { const has = !!S.R.hotel; $r("near").disabled = !has; nw.classList.toggle("is-off", !has); $r("neart").textContent = has ? tx("near_sort") + " · " + S.R.hotel.name : tx("near_hint"); }
   for (const [k, c] of Object.entries(D.cats)) {
@@ -639,7 +721,7 @@ function renderList() {
     if (S.near && S.R.hotel) items.sort((a, b) => distKm(a) - distKm(b));
     html += `<div class="group"><h3><i style="background:${c.color}"></i>${esc(catName(k))} <span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span></h3><div class="cards">` +
       items.map(e => `<button type="button" class="card${S.active === e.id ? " on" : ""}" data-card="${e.id}">
-        <div class="media">${mediaBlock(e, { video: false })}${badges(e)}${videosOf(e.id).length ? '<span class="vid-tag">▶ Video</span>' : ""}</div>
+        <div class="media">${mediaBlock(e, { video: false, one: true })}${badges(e)}${videosOf(e.id).length ? '<span class="vid-tag">▶ Video</span>' : ""}</div>
         <div class="body"><h4>${esc(tr(e, "name"))}</h4><div class="meta"><span class="code">${e.code}</span>${e.code ? " · " : ""}${esc(e.deptos)} · ${ic("clock", "sm")}${esc(tr(e, "dur"))}</div>
         <div class="lchips">${(e.langs || []).map(l => `<span title="${esc(langName(l))}">${l}</span>`).join("")}</div>${nearLine(e)}<div class="meta tl">${esc(tr(e, "tagline"))}</div>
         <div class="price">${priceLine(e)}</div></div></button>`).join("") + `</div></div>`;
@@ -654,7 +736,7 @@ const inRoute = id => S.R.tours.some(t => t.id === id);
 function openPop(id, fromList) {
   S.active = id; S.popLL = null; const e = byId[id]; setZones(e.zones);
   if (fromList) { const [x, y] = P(e.lat, e.lon); if (x < VB.x || x > VB.x + VB.w || y < VB.y || y > VB.y + VB.h) animateTo(boxToVB(...VIEWS.eje)); if (innerWidth <= 920) $r("mapwrap").scrollIntoView({ behavior: "smooth" }); }
-  drawOverlay(); renderList();
+  drawOverlay(); markActive();
   $r("pop").innerHTML = `<div class="pop" role="dialog" aria-label="${esc(tr(e, "name"))}">
     <button type="button" class="x" data-r="popx" aria-label="${esc(tx("close"))}">×</button><div class="media">${mediaBlock(e)}${badges(e)}</div>
     <div class="body"><span class="eyebrow">${esc(catName(e.cat))} · ${esc(e.sub)}</span><h3>${esc(tr(e, "name"))}</h3>
@@ -664,21 +746,22 @@ function openPop(id, fromList) {
       <div class="price money">${priceLine(e)}</div>
       <div class="btnrow"><button type="button" class="btn" data-r="popopen">${tx("see_ficha")}</button>
         <button type="button" class="btn ghost add" data-add="${id}" aria-pressed="${inRoute(id)}">${inRoute(id) ? tx("in_route") : tx("add_route")}</button></div></div></div>`;
-  const pop = $r("pop").firstChild; startSlides(pop); placePop();
+  const pop = $r("pop").firstChild; startSlides(pop); hydrate(pop); placePop();
   $r("popx").addEventListener("click", closePop); $r("popopen").addEventListener("click", () => openFicha(id));
   bindAdd(pop);
 }
 function placePop() {
   const p = $r("pop") && $r("pop").firstChild; if (!p || !(S.active || S.popLL)) return;
   const e = byId[S.active]; const ll = S.popLL || (e ? [e.lat, e.lon] : null); if (!ll) return;
-  const [x, y] = P(ll[0], ll[1]), wr = svg.getBoundingClientRect();
+  const [x, y] = P(ll[0], ll[1]), wr = wrapRect();
   const sx = wr.left + (x - VB.x) / px(), sy = wr.top + (y - VB.y) / px(), pw = p.offsetWidth, ph = p.offsetHeight;
   let left = sx - pw / 2, top = sy - ph - 16; if (top < wr.top + 8) top = sy + 16;
   left = Math.max(wr.left + 10, Math.min(left, wr.right - pw - 10)); top = Math.max(Math.max(8, wr.top + 8), Math.min(top, wr.bottom - ph - 8));
   p.style.left = left + "px"; p.style.top = top + "px";
   p.style.visibility = (sx < wr.left || sx > wr.right || sy < wr.top || sy > wr.bottom) ? "hidden" : "visible";
 }
-function closePop() { S.active = null; S.popLL = null; setZones(null); $r("pop").innerHTML = ""; drawOverlay(); renderList(); }
+function closePop() { S.active = null; S.popLL = null; setZones(null); $r("pop").innerHTML = ""; drawOverlay(); markActive(); }
+function markActive() { if (S.listDirty) return; $r("groups").querySelectorAll("[data-card]").forEach(c => c.classList.toggle("on", c.dataset.card === S.active)); }
 function openFinPop(id) {
   const f = finById[id]; S.active = "fin:" + id; S.popLL = [f.lat, f.lon]; drawOverlay();
   $r("pop").innerHTML = `<div class="pop" role="dialog" aria-label="${esc(f.name)}"><button type="button" class="x" data-r="popx" aria-label="${esc(tx("close"))}">×</button>
@@ -695,7 +778,7 @@ function openFicha(id) {
   const e = byId[id]; if (!e) return;
   S.active = null; $r("pop").innerHTML = "";
   const p = e.p, wl = S.wl;
-  const gal = [...videosOf(id).map(v => ({ v: v.src, p: v.poster })), ...(e.fotos || []).map(b => ({ i: b }))];
+  const gal = [...videosOf(id).map(v => ({ v, p: posterOf(v, e, false) })), ...(e.fotos || []).map(b => ({ i: b }))];
   const L1 = (title, arr, cls) => arr && arr.length ? `<ul class="ul${cls ? " " + cls : ""}">${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
   const fact = (icon, k, v) => v ? `<div><dt>${ic(icon, "sm")}${k}</dt><dd>${esc(v)}</dd></div>` : "";
   const grp = e.minPax ? tx("min_pax", e.minPax) + (e.maxPax ? " · " + tx("max_pax", e.maxPax) : "") : (e.maxPax ? tx("upto", e.maxPax) : "");
@@ -713,7 +796,7 @@ function openFicha(id) {
     <div class="f-body"><div class="f-main">
       <section id="pf-f-exp"><h3>${tx("s_exp")}</h3>${(tr(e, "desc") || []).map(x => `<p>${esc(x)}</p>`).join("")}</section>
       <section id="pf-f-tech"><h3>${tx("s_tech")}</h3>${techTable(e)}</section>
-      ${gal.length > 1 ? `<section><h3>${tx("s_photos")}</h3><div class="gallery">${gal.map((g, i) => `<button type="button" data-g="${i}" aria-label="${esc(tx("s_photos"))} ${i + 1}">${g.v ? `<video src="${esc(g.v)}" ${g.p ? `poster="${esc(g.p)}"` : ""} muted playsinline preload="metadata"></video><span class="play">▶ Video</span>` : `<img src="${ph640(g.i)}" alt="${esc(tr(e, "name"))} ${i + 1}" loading="lazy">`}</button>`).join("")}</div></section>` : ""}
+      ${gal.length > 1 ? `<section><h3>${tx("s_photos")}</h3><div class="gallery">${gal.map((g, i) => `<button type="button" data-g="${i}" aria-label="${esc(tx("s_photos"))} ${i + 1}">${g.v ? `${g.p ? `<img src="${g.p}" alt="" loading="lazy">` : ""}<span class="play">▶ Video</span>` : `<img src="${ph640(g.i)}" alt="${esc(tr(e, "name"))} ${i + 1}" loading="lazy">`}</button>`).join("")}</div></section>` : ""}
       <section id="pf-f-incl" class="lists"><div><h3>${ic("check")}${tx("s_incl")}</h3>${L1("", tr(e, "incl"), "yes")}</div><div><h3>${ic("x")}${tx("s_noincl")}</h3>${L1("", tr(e, "noIncl"), "no")}</div></section>
       <section id="pf-f-oper"><h3>${tx("s_oper")}</h3>${L1("", tr(e, "oper")) || `<p>${tx("ask")}</p>`}</section>
       ${(tr(e, "reco") || []).length || (tr(e, "noApto") || []).length ? `<section><h3>${tx("s_reco")}</h3>${L1("", tr(e, "reco"))}${(tr(e, "noApto") || []).length ? `<p class="fnote">${ic("info", "sm")}${esc(tx("s_noapto"))}: ${tr(e, "noApto").map(esc).join(" ")}</p>` : ""}</section>` : ""}
@@ -737,7 +820,7 @@ function openFicha(id) {
         <small class="sub">${tx("kit_note")}</small></div>
     </aside></div></article></div>`;
   document.body.style.overflow = "hidden";
-  const f = $r("ficha").firstChild; startSlides(f);
+  const f = $r("ficha").firstChild; startSlides(f); hydrate(f);
   $r("fx").addEventListener("click", closeFicha); f.addEventListener("click", ev => { if (ev.target === f) closeFicha(); });
   const pax = $r("paxr"); if (pax) pax.addEventListener("input", () => { $r("paxn").textContent = pax.value; const v = priceAt(id, +pax.value); $r("net").textContent = v != null ? cop(v) : tx("ask"); });
   f.querySelectorAll("[data-g]").forEach(b => b.addEventListener("click", () => lightbox(gal[+b.dataset.g])));
@@ -758,8 +841,8 @@ function closeFicha() {
   if (/#ficha=/.test(location.hash)) { try { history.replaceState(null, "", location.pathname + location.search); } catch (err) { /* sin historial */ } }
 }
 function lightbox(g) {
-  $r("lb").innerHTML = `<div class="lb" role="dialog" aria-modal="true"><button type="button" class="close">${ic("x", "sm")}${tx("close")}</button>${g.v ? `<video src="${esc(g.v)}" controls autoplay playsinline></video>` : `<img src="${ph1600(g.i)}" alt="">`}</div>`;
-  const lb = $r("lb").firstChild; lb.addEventListener("click", ev => { if (ev.target === lb || ev.target.closest(".close")) $r("lb").innerHTML = ""; });
+  $r("lb").innerHTML = `<div class="lb" role="dialog" aria-modal="true"><button type="button" class="close">${ic("x", "sm")}${tx("close")}</button>${g.v ? `<video data-vid="${esc(g.v.id)}" data-partes="${+g.v.partes}" ${g.p ? `poster="${g.p}"` : ""} data-auto="1" controls muted loop playsinline></video>` : `<img src="${ph1600(g.i)}" alt="">`}</div>`;
+  const lb = $r("lb").firstChild; hydrate(lb); lb.addEventListener("click", ev => { if (ev.target === lb || ev.target.closest(".close")) $r("lb").innerHTML = ""; });
 }
 // Menú del Excel («Opción 1. * Trucha … * Cerdo …»): una línea por plato, agrupado por opción
 function menuHtml(m) {

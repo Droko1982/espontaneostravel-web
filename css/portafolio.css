@@ -55,7 +55,10 @@
 
 /* ---------- mapa + panel ---------- */
 .pf .app { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
-.pf .map-wrap { position: sticky; top: var(--pf-top); height: calc(100vh - var(--pf-top)); min-height: 520px; border-right: 1px solid var(--line); overflow: hidden; background: var(--sea); touch-action: none; }
+.pf .map-wrap { position: sticky; top: var(--pf-top); height: calc(100vh - var(--pf-top)); min-height: 520px; border-right: 1px solid var(--line); overflow: hidden; background: var(--sea); touch-action: none; contain: layout paint; }
+/* Pantallas táctiles: un dedo desplaza la página; dos dedos mueven y acercan el mapa */
+@media (pointer: coarse) { .pf .map-wrap, .pf .mapsvg { touch-action: pan-y; } }
+.pf .mapbanner.hint { top: auto; bottom: 64px; pointer-events: none; }
 .pf .panel { min-width: 0; display: flex; flex-direction: column; background: var(--bg); }
 @media (max-width: 920px) {
   .pf .app { grid-template-columns: 1fr; }
@@ -63,6 +66,9 @@
 }
 .pf .mapsvg { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; user-select: none; -webkit-user-select: none; }
 .pf .mapsvg.drag { cursor: grabbing; }
+.pf .mapsvg { transform-origin: 0 0; }
+.pf .mapsvg.moving { will-change: transform; }
+.pf .mapsvg.moving .pin .halo { animation: none; }
 .pf .mapsvg.placing { cursor: crosshair; }
 .pf .map-title { position: absolute; left: clamp(14px, 2.5vw, 22px); top: 14px; z-index: 3; max-width: min(360px, 58%); pointer-events: none; }
 .pf .map-title h2 { font-size: clamp(1.25rem, 2.4vw, 1.9rem); font-weight: 800; color: var(--map-ink); letter-spacing: -.02em; }
@@ -206,6 +212,7 @@
 .pf .card:hover { border-color: var(--olive); transform: translateY(-1px); }
 .pf .card.on { outline: 2px solid var(--cherry); outline-offset: 1px; }
 .pf .card .media { aspect-ratio: 4/3; position: relative; overflow: hidden; background: var(--surface-2); }
+.pf .card { content-visibility: auto; contain-intrinsic-size: 320px 360px; }
 .pf .card .body { padding: 12px 14px 14px; display: grid; gap: 5px; flex: 1; align-content: start; }
 .pf .card h4 { font-size: 1.02rem; line-height: 1.2; }
 .pf .card .meta { font-size: .8rem; color: var(--muted); }
@@ -357,6 +364,7 @@
 .pf .gallery button { border: 0; padding: 0; aspect-ratio: 1; overflow: hidden; border-radius: 6px; background: var(--surface-2); position: relative; }
 .pf .gallery img, .pf .gallery video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
 .pf .gallery button:hover img { transform: scale(1.05); }
+.pf .gallery button .play { z-index: 1; }
 .pf .gallery .play { position: absolute; inset: auto 6px 6px auto; background: rgba(0,0,0,.6); color: #fff; font-size: .7rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; }
 .pf .tech { border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); padding: 10px 14px; }
 .pf .tech summary { display: flex; gap: 8px; align-items: center; font-size: .92rem; }
