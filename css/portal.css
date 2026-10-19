@@ -329,3 +329,7 @@
 .p-tab { min-height: 38px; padding: .4rem .7rem; font-size: .9rem; gap: .3rem; }
 .p-tab__count { min-width: 1.15rem; height: 1.15rem; font-size: .68rem; padding: 0 .25rem; }
 @media (min-width: 900px) { .p-tabs { flex-wrap: wrap; overflow-x: visible; } }
+
+/* Eliminar (cuentas, solicitudes, DMC) */
+.btn--danger { color: var(--p-danger); border: 1px solid var(--p-danger); background: transparent; }
+.btn--danger:hover { background: var(--p-danger); color: #fff; }

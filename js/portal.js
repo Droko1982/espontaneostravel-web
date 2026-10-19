@@ -2209,7 +2209,7 @@ function renderStaffApp() {
   const hello = h("div", { class: "p-hello" },
     h("h1", { class: "p-title" }, `Hola, ${first(S.profile.nombre)}`),
     h("p", { class: "p-sub" }, (admin ? "Administración" : "Asesor") + " · Espontáneos Travel"),
-    pending ? h("p", { class: "p-note" }, `Tienes ${pending} solicitud${pending === 1 ? "" : "es"} de acceso pendiente${pending === 1 ? "" : "s"}. `, linkBtn("Revisar", () => S.tabsApi.select("usuarios", true))) : null);
+    pending ? h("p", { class: "p-note" }, `Tienes ${pending} solicitud${pending === 1 ? "" : "es"} de acceso pendiente${pending === 1 ? "" : "s"}. `, linkBtn("Revisar", () => S.tabsApi.select("agencias", true))) : null);
   const main = screen(hello);
   dueFollowUps(hello);
   // Enlaces del correo de aviso (solo administración)
@@ -2227,7 +2227,7 @@ function renderStaffApp() {
   const handlers = { leads: staffLeads, clientes: staffClientes, reservas: staffReservas, solicitudes: staffSolicitudes, portafolio: staffPortafolio, cuenta: myAccount };
   if (admin) {
     defs.push({ id: "agencias", label: "DMC", count: pending }, { id: "usuarios", label: "Usuarios" }, { id: "tarifas", label: "Tarifas" },
-      { id: "condiciones", label: "Fichas" }, { id: "asesores", label: "Asesores" }, { id: "ajustes", label: "Pagos" }, { id: "respaldo", label: "Respaldo" });
+      { id: "condiciones", label: "Condiciones" }, { id: "asesores", label: "Asesores" }, { id: "ajustes", label: "Pagos" }, { id: "respaldo", label: "Respaldo" });
     Object.assign(handlers, { usuarios: adminUsuarios, agencias: adminAgencias, tarifas: adminTarifas, condiciones: adminCondiciones, asesores: adminAsesores, ajustes: adminPagos, respaldo: adminRespaldo });
   }
   defs.push({ id: "cuenta", label: "Cuenta" });
@@ -2963,7 +2963,7 @@ function userCard(u, redraw) {
   const s = u.solicitud;
   const rolSel = selectEl([["dmc", "DMC"], ["asesor", "Asesor"], ["admin", "Administrador"]], u.rol, { id: uid("rol"), disabled: self });
   const estSel = selectEl([["pendiente", "Pendiente"], ["activo", "Activo"], ["bloqueado", "Bloqueado"]], u.estado, { id: uid("est"), disabled: self });
-  const dmcOpts = () => [["", "— Sin agencia —"]].concat(S.dmcs.map(d => [d.id, d.nombre + (d.activo === false ? " (inactiva)" : "")]));
+  const dmcOpts = () => [["", "— Sin DMC —"]].concat(S.dmcs.map(d => [d.id, d.nombre + (d.activo === false ? " (inactiva)" : "")]));
   const dmcSel = selectEl(dmcOpts(), u.dmcId || "", { id: uid("dmc") });
   async function save(over) {
     const o = over || {};
@@ -2981,28 +2981,33 @@ function userCard(u, redraw) {
   if (!self && u.rol === "dmc" && u.estado !== "activo") acts.push(btn("Aprobar DMC", e => busy(e.currentTarget, async () => {
     let d = dmcSel.value;
     if (!d && s) d = await createDmcFromSolicitud(u);
-    if (!d) throw userErr("Elige la agencia a la que pertenece este usuario.");
+    if (!d) throw userErr("Elige el DMC al que pertenece este usuario.");
     await save({ rol: "dmc", estado: "activo", dmcId: d });
   }), "btn--brand"));
-  if (s && !u.dmcId && u.rol === "dmc") acts.push(btn("Solo crear la agencia", e => busy(e.currentTarget, async () => {
+  if (s && !u.dmcId && u.rol === "dmc") acts.push(btn("Solo crear el DMC", e => busy(e.currentTarget, async () => {
     const id = await createDmcFromSolicitud(u);
     clear(dmcSel); dmcOpts().forEach(([v, l]) => add(dmcSel, h("option", { value: v }, l)));
     dmcSel.value = id;
-    notify(`Agencia creada (${id}). Revisa y pulsa «Guardar cambios».`);
+    notify(`DMC creado (${id}). Revisa y pulsa «Guardar cambios».`);
   })));
   if (!self && u.estado !== "bloqueado") acts.push(btn("Bloquear", e => {
     if (!window.confirm(`¿Bloquear el acceso de ${u.email}?`)) return;
     busy(e.currentTarget, () => save({ estado: "bloqueado" }));
   }));
+  // Eliminar la cuenta o la solicitud: pierde el acceso de inmediato (si vuelve a entrar, tendría que pedir acceso de nuevo)
+  if (!self) acts.push(btn(u.estado === "pendiente" ? "Eliminar solicitud" : "Eliminar", e => {
+    if (!window.confirm(`¿Eliminar ${u.estado === "pendiente" ? "la solicitud" : "la cuenta"} de ${u.nombre || u.email} (${u.email})? Pierde el acceso al portal de inmediato. No se puede deshacer.`)) return;
+    busy(e.currentTarget, async () => { await fs.deleteDoc(dref("users", u.id)); await loadRefs(true); notify(`${u.email} eliminado.`); redraw(); });
+  }, "btn--danger"));
   return h("article", { class: "p-item" },
     h("header", { class: "p-item__head" }, h("h3", { class: "p-h3" }, u.nombre || u.email), badge(roleLabel(u.rol)),
       badge(u.estado, u.estado === "activo" ? "ok" : u.estado === "pendiente" ? "warn" : "bad")),
-    kvList(kv("Correo", u.email), kv("WhatsApp", u.whatsapp), kv("Agencia", u.dmcId ? dmcName(u.dmcId) : ""), kv("Creado", fmtDateTime(u.creado))),
+    kvList(kv("Correo", u.email), kv("WhatsApp", u.whatsapp), kv("DMC", u.dmcId ? dmcName(u.dmcId) : ""), kv("Creado", fmtDateTime(u.creado))),
     s ? h("details", { class: "p-details", open: u.estado === "pendiente" }, h("summary", null, "Datos de la solicitud de acceso"),
-      kvList(kv("Agencia", s.agencia), kv("NIT / Tax ID", s.nit), kv("País", s.pais), kv("Ciudad", s.ciudad), kv("Contacto", s.contacto),
+      kvList(kv("Empresa (DMC)", s.agencia), kv("NIT / Tax ID", s.nit), kv("País", s.pais), kv("Ciudad", s.ciudad), kv("Contacto", s.contacto),
         kv("Teléfono", s.telefono), kv("Web", s.web && safeUrl(s.web) ? h("a", { href: s.web, target: "_blank", rel: "noopener noreferrer" }, s.web) : s.web),
         kv("Mensaje", s.mensaje), kv("Autorizó datos", s.aceptaDatos ? `Sí (versión ${s.versionPolitica || "—"})` : "No"), kv("Idioma", s.idioma))) : null,
-    h("div", { class: "p-grid" }, labeled("Rol", rolSel), labeled("Estado", estSel), labeled("Agencia", dmcSel)),
+    h("div", { class: "p-grid" }, labeled("Rol", rolSel), labeled("Estado", estSel), labeled("DMC", dmcSel)),
     self ? h("p", { class: "p-hint" }, "Es tu cuenta: no puedes cambiar tu propio rol ni estado (evita quedarte sin acceso).") : null,
     h("div", { class: "p-actions" }, acts));
 }
@@ -3106,7 +3111,7 @@ async function adminAgencias(view) {
     const term = norm(q.value);
     const shown = S.dmcs.filter(d => !term || norm([d.id, d.nombre, d.pais, d.ciudad, d.nit, d.contacto].join(" ")).includes(term));
     clear(out);
-    if (!shown.length) add(out, emptyBox(S.dmcs.length ? "Ninguna agencia con esa búsqueda." : "Aún no hay agencias. Se crean al aprobar solicitudes o con «Nueva agencia»."));
+    if (!shown.length) add(out, emptyBox(S.dmcs.length ? "Ningún DMC con esa búsqueda." : "Aún no hay DMC. Se crean al aprobar solicitudes o con «Nuevo DMC con acceso»."));
     shown.forEach(d => {
       const users = S.users.filter(u => u.dmcId === d.id);
       add(out, h("article", { class: "p-item" + (d.activo === false ? " is-done" : "") },
@@ -3121,14 +3126,15 @@ async function adminAgencias(view) {
             busy(e.currentTarget, async () => { await fs.updateDoc(dref("dmcs", d.id), { activo: d.activo === false, actualizado: ts() }); await reload(); });
           }),
           btn("Eliminar", e => busy(e.currentTarget, async () => {
-            if (users.length) throw userErr(`Primero reasigna o bloquea a sus ${users.length} usuario(s) en Usuarios.`);
-            if (!window.confirm(`¿Eliminar la agencia ${d.nombre}? No se puede deshacer.`)) return;
+            const quien = users.length ? ` y sus ${users.length} usuario(s) (${users.map(u => u.email).join(", ")}), que pierden el acceso de inmediato` : "";
+            if (!window.confirm(`¿Eliminar el DMC ${d.nombre}${quien}? No se puede deshacer.`)) return;
+            if (users.length) await batchRun(users.filter(u => u.id !== S.user.uid).map(u => bt => bt.delete(dref("users", u.id))), null, "Eliminando usuarios");
             const special = await list(fs.query(col("tarifas"), fs.where("dmcId", "==", d.id)));
             if (special.length && window.confirm(`Tiene ${special.length} tarifa(s) especial(es). ¿Borrarlas también?`)) {
               await batchRun(special.map(x => bt => bt.delete(dref("tarifas", x.id))), null, "Borrando");
             }
             await commit([bt => bt.delete(dref("dmcs_privado", d.id)), bt => bt.delete(dref("dmcs", d.id))]);
-            notify("Agencia eliminada.");
+            notify(`DMC ${d.nombre} eliminado.`);
             await reload();
           })))));
     });
@@ -3418,7 +3424,7 @@ async function adminCondiciones(view) {
   vSel.addEventListener("change", loadExisting);
   add(view, 
     h("div", { class: "p-card" },
-      h("h2", { class: "p-h2" }, "Importar condiciones para agencias"),
+      h("h2", { class: "p-h2" }, "Importar condiciones de agencia y fichas técnicas"),
       h("p", null, "Carga el archivo privado de condiciones (por ejemplo privado/condiciones-agencia-2026.json). Formato: { \"vigencia\": 2026, \"condiciones\": { \"tour_id\": { \"codigo\", \"nombre\", \"notas_agencia\": [ … ] } } }."),
       h("p", { class: "p-note" }, "Este archivo es privado: no lo subas al repositorio. Importar de nuevo reemplaza las notas de cada tour."),
       h("div", { class: "p-toolbar" }, labeled("Vigencia (si el archivo no la trae)", ySel), labeled("Archivo JSON", file, "p-grow")),
