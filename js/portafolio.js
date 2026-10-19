@@ -190,7 +190,7 @@ const GLYPH = {
 async function loadLang(lg) {
   lg = String(lg || "").toLowerCase();
   if (lg === "es" || I18[lg]) return I18[lg];
-  try { I18[lg] = await json(`/data/portafolio.${lg}.json`); } catch (e) { I18[lg] = { tours: {} }; }   // sin traducción: sale en español
+  try { I18[lg] = await json(`/data/portafolio.${lg}.json`); } catch (e) { return null; }   // sin traducción: sale en español y se reintenta
   return I18[lg];
 }
 function loadFonts() {
@@ -201,6 +201,7 @@ function loadFonts() {
 }
 const MCN = () => M.mc, MDEP = () => M.mdep;
 function nearestMuni(lat, lon) { let best = null; for (const [k, c] of Object.entries(M.mc)) { const d = (c[0] - lat) ** 2 + (c[1] - lon) ** 2; if (!best || d < best.d) best = { k, d }; } return best ? best.k : ""; }
+const llOf = e => (S && S.wl ? [e.plat, e.plon] : [e.lat, e.lon]);
 const MUNI_LABEL = m => String(m || "").toLowerCase().split(" ").map(w => (w.length > 2 ? w[0].toUpperCase() + w.slice(1) : w)).join(" ")
   .replace("Calarca", "Calarcá").replace("Cordoba", "Córdoba").replace("Genova", "Génova").replace("Alcala", "Alcalá").replace("Quindio", "Quindío").replace("Chinchina", "Chinchiná").replace("Ibague", "Ibagué");
 
@@ -217,6 +218,7 @@ function buildModel() {
   const P = CTX.priv || {};
   EXP = D.tours.map(t => {
     const e = Object.assign({}, t);
+    e.plat = e.lat; e.plon = e.lon;          // ubicación pública (municipio): la que se usa en Marca blanca
     if (P.coords && P.coords[e.id]) { e.lat = P.coords[e.id][0]; e.lon = P.coords[e.id][1]; }
     if (e.id === "finca" && P.fincaZonas && P.fincaZonas.length) e.zones = P.fincaZonas.slice();
     const sp = privFicha(e.id);
@@ -237,7 +239,7 @@ function buildPrices(rates) {
   const codeToId = Object.fromEntries(D.tours.map(t => [t.code, t.id]));
   const tours = new Map(), svc = new Map(); let carried = null, years = new Set();
   for (const r of rates) {
-    if (!(r.tarifa_neta >= 0)) continue;
+    if (!(r.tarifa_neta >= 0) || (r.moneda && r.moneda !== "COP")) continue;
     const id = (r.tour_id && byId[r.tour_id]) ? r.tour_id : codeToId[r.codigo];
     const m = id ? tours : (/^(ET|SU|HT)-/.test(r.codigo || "") ? svc : null);
     if (!m) continue;
@@ -288,14 +290,29 @@ function buildHotels(list) {
     const c = muniCenter(m[2]); if (!c) continue;
     push({ id: code, name: m[1], muni: norm(m[2]), concept: m[3] || "", lat: c[0] + 0.004, lon: c[1] + 0.004, et: true });
   }
-  ls.get("pf27-hoteles", []).forEach(h => push(Object.assign({}, h, { et: false, recent: true })));
+  const rec = ls.get("pf27-hoteles", []);
+  (Array.isArray(rec) ? rec : []).filter(okHotel).forEach(h => push(Object.assign({}, h, { muni: norm(h.muni || ""), et: false, recent: true })));
   return out;
 }
 function rememberHotel(h) {
   if (h.et) return;
-  const list = ls.get("pf27-hoteles", []).filter(x => norm(x.name) !== norm(h.name));
+  const prev = ls.get("pf27-hoteles", []);
+  const list = (Array.isArray(prev) ? prev : []).filter(x => okHotel(x) && norm(x.name) !== norm(h.name));
   list.unshift({ id: h.id, name: h.name, muni: h.muni, concept: h.concept || "", lat: h.lat, lon: h.lon });
   ls.set("pf27-hoteles", list.slice(0, 12));
+}
+
+/* ---------- ruta guardada en el navegador: se valida al leerla (puede venir dañada o de otra versión) ---------- */
+const okHotel = h => h && typeof h.name === "string" && isFinite(h.lat) && isFinite(h.lon) && typeof (h.muni || "") === "string";
+function sanitizeR(R) {
+  R.pax = Math.min(30, Math.max(1, Math.round(+R.pax) || 2));
+  R.start = +R.start === 1 ? 1 : 2;
+  const apOk = a => a === "" || D.airports.some(x => x.id === a);
+  if (!apOk(R.arr)) R.arr = "AXM"; if (!apOk(R.dep)) R.dep = "AXM";
+  R.tours = (Array.isArray(R.tours) ? R.tours : []).filter(t => t && byId[t.id]).map(t => ({ id: t.id, day: Math.min(12, Math.max(1, Math.round(+t.day) || 2)) }));
+  R.hotel = okHotel(R.hotel) ? Object.assign({}, R.hotel, { muni: String(R.hotel.muni || ""), name: String(R.hotel.name) }) : null;
+  if (typeof R.finca !== "string" || (R.finca && !finById[R.finca])) R.finca = "";
+  return R;
 }
 
 /* ---------- montaje ---------- */
@@ -315,8 +332,7 @@ export async function mountPortafolio(host, ctx) {
   S = { cats: new Set(Object.keys(D.cats)), q: "", ideal: "", dur: "", lang: "", sugg: "", active: null, popLL: null, wl: false, hotels: false, fincas: true,
     tab: ls.get("pf27-tab", "mapa"), placing: false, editing: false, newName: "",
     R: Object.assign({ pax: 2, start: 2, arr: "AXM", dep: "AXM", hotel: null, finca: "", tours: [] }, saved || {}) };
-  S.R.tours = (S.R.tours || []).filter(t => byId[t.id]);
-  if (S.R.finca && !finById[S.R.finca]) S.R.finca = "";
+  sanitizeR(S.R);
   if (!["mapa", "exp", "ruta", "trans", "kit", "cond"].includes(S.tab)) S.tab = "mapa";
   K.sel = null;
   host.innerHTML = skeleton();
@@ -335,7 +351,7 @@ function skeleton() {
   const tierB = CTX.tier === "nac" ? tx("banner_nac") : tx("banner_dmc");
   const tab = (k, icon, extra) => `<button role="tab" type="button" data-tab="${k}" id="pf-tab-${k}" aria-controls="pf-pane-${k}" aria-selected="false">${ic(icon)}<span>${tx("t_" + k)}</span>${extra || ""}</button>`;
   return `<div class="pf" data-tier="${esc(CTX.tier)}">
-  <div class="pf-bar"><div class="pf-bar__t"><b>${esc(tierB)}</b><span class="sub">${esc(CTX.agency || "")}${CTX.agency ? " · " : ""}<span class="money">${esc(tarLabel())}</span></span></div>
+  <div class="pf-bar"><div class="pf-bar__t"><b data-r="bart">${esc(tierB)}</b><span class="sub money">${esc(CTX.agency || "")}${CTX.agency ? " · " : ""}<span class="money">${esc(tarLabel())}</span></span></div>
     <div class="modes" role="group" aria-label="${esc(tx("mode"))}"><button type="button" data-mode="0" aria-pressed="true">${ic("users")}${tx("m_agency")}</button><button type="button" data-mode="1" aria-pressed="false">${ic("eye")}${tx("m_wl")}</button></div></div>
   <p class="pf-wl-note" data-r="wlnote" hidden>${ic("eye")}${esc(tx("wl_on"))}</p>
   <div class="app">
@@ -440,6 +456,7 @@ function bindStatic() {
   addEventListener("pointermove", ev => {
     if (!ROOT.isConnected) { ac.abort(); return; }
     if (pts.has(ev.pointerId)) pts.set(ev.pointerId, [ev.clientX, ev.clientY]);
+    if (drag && ev.pointerType === "mouse" && ev.buttons === 0) { up(ev); return; }
     if (!drag) {
       // Un solo dedo sobre el mapa: la página sigue desplazándose; si el gesto es de lado, se recuerda usar dos dedos
       if (ev.pointerType === "touch" && touch1 && pts.size === 1 && Math.abs(ev.clientX - touch1[0]) > 24 && !hintT) { const b = $r("banner"); if (b && !b.firstChild) { b.innerHTML = `<div class="mapbanner hint">${ic("users", "sm")}${esc(tx("two_fingers"))}</div>`; hintT = setTimeout(() => { hintT = 0; if (b.querySelector(".hint")) b.innerHTML = ""; }, 1800); } }
@@ -456,8 +473,12 @@ function bindStatic() {
     if (!S.dragMoved) { S.dragMoved = true; svg.classList.add("drag"); }
     const u = px(); VB.x -= dx * u; VB.y -= dy * u; last = [ev.clientX, ev.clientY]; applyVB("pan");
   }, sig);
-  const up = ev => { if (svg.classList.contains("moving") && pts.size <= 1) commitVB(); pts.delete(ev.pointerId); if (pts.size < 2) { pinch = null; if (ev.pointerType === "touch") drag = false; } if (!pts.size) { drag = false; touch1 = null; svg.classList.remove("drag"); setTimeout(() => { S.dragMoved = false; }, 0); } };
+  function up(ev) { if (svg.classList.contains("moving") && pts.size <= 1) commitVB(); pts.delete(ev.pointerId); if (pts.size === 1) touch1 = null; if (pts.size < 2) { pinch = null; if (ev.pointerType === "touch") drag = false; } if (!pts.size) { drag = false; touch1 = null; svg.classList.remove("drag"); setTimeout(() => { S.dragMoved = false; }, 0); } }
   addEventListener("pointerup", up, sig); addEventListener("pointercancel", up, sig);
+  const mw = $r("mapwrap");
+  const twoFingers = ev => { if (ev.touches && ev.touches.length > 1) ev.preventDefault(); };
+  mw.addEventListener("touchstart", twoFingers, { passive: false, signal: ac.signal });
+  mw.addEventListener("touchmove", twoFingers, { passive: false, signal: ac.signal });
   svg.addEventListener("wheel", ev => { ev.preventDefault(); zoomAt(ev.deltaY > 0 ? 1.15 : 1 / 1.15, ev.clientX, ev.clientY); }, { passive: false });
   let rz = 0; addEventListener("resize", () => { if (!ROOT.isConnected) { ac.abort(); return; } clearTimeout(rz); rz = setTimeout(() => { VB = fitAspect(VB); applyVB(); }, 120); }, sig);
   addEventListener("scroll", () => { if (S.active) placePop(); }, { passive: true, signal: ac.signal });
@@ -469,7 +490,7 @@ function bindStatic() {
   $r("rdep").addEventListener("change", e => { S.R.dep = e.target.value; saveR(); renderRoute(); fitRoute(); });
   $r("radd").addEventListener("change", e => { if (e.target.value) { toggleTour(e.target.value); fitRoute(); } });
   $r("rfit").addEventListener("click", fitRoute);
-  $r("rclear").addEventListener("click", () => { S.newName = ""; S.R = { pax: 2, start: 2, arr: "AXM", dep: "AXM", hotel: null, finca: "", tours: [] }; saveR(); renderRoute(); animateTo(boxToVB(...VIEWS.eje)); });
+  $r("rclear").addEventListener("click", () => { S.newName = ""; stopPlacing(); S.R = { pax: 2, start: 2, arr: "AXM", dep: "AXM", hotel: null, finca: "", tours: [] }; saveR(); renderRoute(); animateTo(boxToVB(...VIEWS.eje)); });
   $r("rcopy").addEventListener("click", () => copy(itineraryText(), tx("it_copied")));
   $r("rkit").addEventListener("click", () => { K.sel = new Set(S.R.tours.map(t => t.id)); setTab("kit"); });
   if ($r("rreq")) $r("rreq").addEventListener("click", () => {
@@ -485,6 +506,7 @@ function setTab(t, first) {
   $$("[data-tab]").forEach(b => { const on = b.dataset.tab === t; b.setAttribute("aria-selected", String(on)); b.tabIndex = on ? 0 : -1; });
   $$("[data-pane]").forEach(p => { p.hidden = p.dataset.pane !== t; });
   if (t === "exp" && S.listDirty) renderList();
+  if (t !== "exp") S.listDirty = true;
   if (t === "ruta") { renderRoute(); if (!first) fitRoute(); } else drawOverlay();
   if (t === "kit") renderKit();
   if (t === "cond") renderCond();
@@ -495,6 +517,12 @@ function setMode(wl) {
   S.wl = wl; ROOT.classList.toggle("wl", wl);
   $$("[data-mode]").forEach(b => b.setAttribute("aria-pressed", String((b.dataset.mode === "1") === wl)));
   $r("wlnote").hidden = !wl;
+  $r("bart").textContent = wl ? (L() === "en" ? "Coffee Cultural Landscape · 2027 Experiences" : "Paisaje Cultural Cafetero · Experiencias 2027") : (CTX.tier === "nac" ? tx("banner_nac") : tx("banner_dmc"));
+  if (S.active && /^fin:/.test(S.active)) closePop();
+  S.listDirty = true;
+  const t = S.tab;
+  if (t === "exp") renderList(); else if (t === "ruta") renderRoute(); else if (t === "kit") renderKit(); else if (t === "cond") renderCond(); else if (t === "trans") renderTrans();
+  if (S.active) { const id = S.active; openPop(id); } else drawOverlay();
   if ($r("ficha").firstChild) { const id = $r("ficha").querySelector("[data-fid]").dataset.fid; openFicha(id); }
 }
 function toggleLayer(k) {
@@ -573,7 +601,7 @@ function drawOverlay() {
   const far = u > 1.6;
   D.dlabels.forEach(([n, la, lo, f]) => { if (!!f !== far) return; const [x, y] = P(la, lo); s += `<text class="dlabel" x="${x}" y="${y}" font-size="${13 * u}">${n}</text>`; });
   if (zoomedIn) D.towns.forEach(([n, la, lo]) => { const [x, y] = P(la, lo); s += `<g class="town"><circle cx="${x}" cy="${y}" r="${2.4 * u}" fill="var(--map-ink)" opacity=".6"/><text x="${x + 5 * u}" y="${y + 11 * u}" font-size="${10.5 * u}" stroke-width="${3 * u}">${esc(n)}</text></g>`; });
-  D.capitals.forEach(c => { const [n, , la, lo] = Array.isArray(c) ? c : [c.nombre, c.depto, c.lat, c.lon]; const [x, y] = P(la, lo), r = 7 * u;
+  D.capitals.forEach(c => { const [n, , la, lo] = Array.isArray(c) ? c : [c.ciudad || c.nombre, c.departamento || c.depto, c.lat, c.lon]; const [x, y] = P(la, lo), r = 7 * u;
     const star = [...Array(10)].map((_, i) => { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; return (x + Math.cos(a) * rr) + "," + (y + Math.sin(a) * rr); }).join(" ");
     s += `<g class="cap"><polygon points="${star}" fill="var(--fg)" stroke="var(--land)" stroke-width="${1.5 * u}"/><text x="${n === "Cali" ? x - 10 * u : x + 10 * u}" y="${y + 4 * u}" font-size="${13 * u}" stroke-width="${4 * u}" text-anchor="${n === "Cali" ? "end" : "start"}">${esc(n)}</text></g>`; });
   const selH = S.R.hotel;
@@ -585,12 +613,13 @@ function drawOverlay() {
     s += `<g class="apt"><rect x="${x - w / 2}" y="${y - hh / 2}" width="${w}" height="${hh}" rx="${3 * u}"/><text class="iata" x="${x}" y="${y + 4 * u}" font-size="${10.5 * u}" text-anchor="middle">${a.id}</text>
       <text class="nm" x="${x}" y="${y + hh / 2 + 12 * u}" font-size="${10.5 * u}" stroke-width="${3.5 * u}" text-anchor="middle">✈ ${esc(a.name)}</text></g>`; });
   // Puntos: al alejar, los que se tocan (< 18 px) se agrupan en un círculo con el número; tocarlo acerca el mapa
-  const vis = visible(), R = 18 * u, items = EXP.filter(e => vis.has(e.id)).map(e => { const [x, y] = P(e.lat, e.lon); return { e, x, y }; });
+  const vis = visible(), R = 18 * u, items = EXP.filter(e => vis.has(e.id)).map(e => { const [x, y] = P(...llOf(e)); return { e, x, y }; });
   const clusters = []; S.clusters = {};
   if (!veryIn) {
     items.forEach(it => { if (it.e.id === S.active) return; const c = clusters.find(c => Math.hypot(c.x - it.x, c.y - it.y) < R); if (c) { c.items.push(it); c.x = (c.x * (c.items.length - 1) + it.x) / c.items.length; c.y = (c.y * (c.items.length - 1) + it.y) / c.items.length; } else clusters.push({ x: it.x, y: it.y, items: [it] }); });
+    const act = items.find(it => it.e.id === S.active); if (act) clusters.push({ x: act.x, y: act.y, items: [act] });
   } else items.forEach(it => clusters.push({ x: it.x, y: it.y, items: [it] }));
-  EXP.forEach(e => { if (!vis.has(e.id)) { const [x, y] = P(e.lat, e.lon); s += `<circle class="pin-dim" cx="${x}" cy="${y}" r="${3 * u}"/>`; } });
+  EXP.forEach(e => { if (!vis.has(e.id)) { const [x, y] = P(...llOf(e)); s += `<circle class="pin-dim" cx="${x}" cy="${y}" r="${3 * u}"/>`; } });
   clusters.forEach((c, i) => {
     if (c.items.length === 1) { s += pinSvg(c.items[0], u, veryIn); return; }
     const n = c.items.length, cnt = {}; c.items.forEach(it => { cnt[it.e.cat] = (cnt[it.e.cat] || 0) + 1; });
@@ -620,7 +649,7 @@ function hotelSvg(h, sel, u, label) {
     ${label ? `<text x="${x + w * .8}" y="${y + 4 * u}" font-size="${(sel ? 12 : 10) * u}" stroke-width="${3.5 * u}" style="font-weight:${sel ? 800 : 500}">${esc(h.name)}</text>` : ""}</g>`;
 }
 function fincasSvg(u) {
-  if (!S.fincas || !FINCAS.length) return ""; let s = "";
+  if (!S.fincas || !FINCAS.length || S.wl) return ""; let s = "";
   FINCAS.forEach(f => { const [x, y] = P(f.lat, f.lon), sel = S.R.finca === f.id, r = (sel ? 7 : 5) * u;
     s += `<g class="fin${sel ? " sel" : ""}" data-f="${esc(f.id)}" tabindex="0" role="button" aria-label="${esc(f.name)}"><ellipse cx="${x}" cy="${y}" rx="${r}" ry="${r * 1.3}" transform="rotate(-30 ${x} ${y})"/><path d="M${x},${y - r * 1.1} Q${x - r * .4},${y} ${x},${y + r * 1.1}" stroke="var(--land)" stroke-width="${1.2 * u}" fill="none"/>
       ${(sel || px() < 0.9) ? `<text x="${x + r + 4 * u}" y="${y + 4 * u}" font-size="${10.5 * u}" stroke-width="${3.5 * u}">${esc(f.name)}</text>` : ""}</g>`; });
@@ -628,7 +657,7 @@ function fincasSvg(u) {
 }
 function zoomCluster(key) {
   const ids = (S.clusters || {})[key]; if (!ids) return;
-  const la = ids.map(i => byId[i].lat), lo = ids.map(i => byId[i].lon), pad = 0.025;
+  const la = ids.map(i => llOf(byId[i])[0]), lo = ids.map(i => llOf(byId[i])[1]), pad = 0.025;
   animateTo(boxToVB(Math.min(...la) - pad, Math.max(...la) + pad, Math.min(...lo) - pad, Math.max(...lo) + pad));
 }
 function onMapClick(ev) {
@@ -679,7 +708,7 @@ function hydrate(root) {
 const posterOf = (v, e, big) => (v.poster ? (big ? ph1600(v.poster) : ph640(v.poster)) : (e.fotos[0] ? ph640(e.fotos[0]) : ""));
 function videoTag(v, e, big, extra) {
   const po = posterOf(v, e, big);
-  return `<video data-vid="${esc(v.id)}" data-partes="${+v.partes}" ${po ? `poster="${po}"` : ""} ${reduced() ? "controls" : 'data-auto="1"'} ${extra || ""} muted loop playsinline preload="none"></video>`;
+  return `<video data-vid="${esc(v.id)}" data-partes="${+v.partes}" ${po ? `poster="${esc(po)}"` : ""} ${reduced() ? "controls" : 'data-auto="1"'} ${extra || ""} muted loop playsinline preload="none"></video>`;
 }
 function mediaBlock(e, { video = true, label = true, big = false, one = false } = {}) {
   const vids = videosOf(e.id);
@@ -699,7 +728,7 @@ function startSlides(root) {
   root.querySelectorAll(".media").forEach(md => { const s = [...md.querySelectorAll(".slide")]; if (s.length < 2) return; let i = 0;
     const load = k => { const im = s[k]; if (im && im.dataset.src && !im.getAttribute("src")) im.src = im.dataset.src; };
     load(1);
-    slideTimers.push(setInterval(() => { if (!md.isConnected) return; s[i].classList.remove("on"); i = (i + 1) % s.length; s[i].classList.add("on"); load((i + 1) % s.length); }, 3800)); });
+    const tid = setInterval(() => { if (!md.isConnected) { clearInterval(tid); return; } s[i].classList.remove("on"); i = (i + 1) % s.length; s[i].classList.add("on"); load((i + 1) % s.length); }, 3800); slideTimers.push(tid); });
 }
 function badges(e) {
   const b = [];
@@ -736,13 +765,13 @@ function renderList() {
 /* ---------- tarjeta flotante en el mapa ---------- */
 const inRoute = id => S.R.tours.some(t => t.id === id);
 function openPop(id, fromList) {
-  S.active = id; S.popLL = null; const e = byId[id]; setZones(e.zones);
-  if (fromList) { const [x, y] = P(e.lat, e.lon); if (x < VB.x || x > VB.x + VB.w || y < VB.y || y > VB.y + VB.h) animateTo(boxToVB(...VIEWS.eje)); if (innerWidth <= 920) $r("mapwrap").scrollIntoView({ behavior: "smooth" }); }
+  S.active = id; S.popLL = null; const e = byId[id]; setZones(S.wl ? null : e.zones);
+  if (fromList) { const [x, y] = P(...llOf(e)); if (x < VB.x || x > VB.x + VB.w || y < VB.y || y > VB.y + VB.h) animateTo(boxToVB(...VIEWS.eje)); if (innerWidth <= 920) $r("mapwrap").scrollIntoView({ behavior: "smooth" }); }
   drawOverlay(); markActive();
   $r("pop").innerHTML = `<div class="pop" role="dialog" aria-label="${esc(tr(e, "name"))}">
     <button type="button" class="x" data-r="popx" aria-label="${esc(tx("close"))}">×</button><div class="media">${mediaBlock(e)}${badges(e)}</div>
     <div class="body"><span class="eyebrow">${esc(catName(e.cat))} · ${esc(e.sub)}</span><h3>${esc(tr(e, "name"))}</h3>
-      <div class="row"><span><span class="code">${e.code}</span> · ${esc(e.deptos)}</span><span>${ic("clock", "sm")}${esc(tr(e, "dur"))}</span></div>
+      <div class="row"><span><span class="code">${esc(e.code)}</span> · ${esc(e.deptos)}</span><span>${ic("clock", "sm")}${esc(tr(e, "dur"))}</span></div>
       <p class="tl">${esc(tr(e, "tagline"))}</p>${nearLine(e)}
       ${e.zones ? `<p class="note">${esc(tx("zones_note"))}</p>` : ""}
       <div class="price money">${priceLine(e)}</div>
@@ -754,7 +783,7 @@ function openPop(id, fromList) {
 }
 function placePop() {
   const p = $r("pop") && $r("pop").firstChild; if (!p || !(S.active || S.popLL)) return;
-  const e = byId[S.active]; const ll = S.popLL || (e ? [e.lat, e.lon] : null); if (!ll) return;
+  const e = byId[S.active]; const ll = S.popLL || (e ? llOf(e) : null); if (!ll) return;
   const [x, y] = P(ll[0], ll[1]), wr = wrapRect();
   const sx = wr.left + (x - VB.x) / px(), sy = wr.top + (y - VB.y) / px(), pw = p.offsetWidth, ph = p.offsetHeight;
   let left = sx - pw / 2, top = sy - ph - 16; if (top < wr.top + 8) top = sy + 16;
@@ -778,27 +807,28 @@ function openFinPop(id) {
 /* ---------- ficha completa (orden lógico: qué es → qué incluye → cómo opera → para vender → tarifa) ---------- */
 function openFicha(id) {
   const e = byId[id]; if (!e) return;
-  S.active = null; $r("pop").innerHTML = "";
+  if (S.active || S.popLL) closePop(); else $r("pop").innerHTML = "";
   const p = e.p, wl = S.wl;
   const gal = [...videosOf(id).map(v => ({ v, p: posterOf(v, e, false) })), ...(e.fotos || []).map(b => ({ i: b }))];
   const L1 = (title, arr, cls) => arr && arr.length ? `<ul class="ul${cls ? " " + cls : ""}">${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
   const fact = (icon, k, v) => v ? `<div><dt>${ic(icon, "sm")}${k}</dt><dd>${esc(v)}</dd></div>` : "";
   const grp = e.minPax ? tx("min_pax", e.minPax) + (e.maxPax ? " · " + tx("max_pax", e.maxPax) : "") : (e.maxPax ? tx("upto", e.maxPax) : "");
-  const comb = (e.combina || []).map(c => c.id && byId[c.id] ? `<button type="button" data-go="${c.id}"><span class="th">${byId[c.id].fotos[0] ? `<img src="${ph640(byId[c.id].fotos[0])}" alt="" loading="lazy">` : `<span class="ph sm"></span>`}</span><span><b>${esc(tr(byId[c.id], "name"))}</b><br><span class="sub">${byId[c.id].code} · ${esc(tr(byId[c.id], "dur"))}</span></span></button>` : `<span class="ct">${esc(c.t)}</span>`).join("");
+  const comb = (e.combina || []).map(c => c.id && byId[c.id] ? `<button type="button" data-go="${c.id}"><span class="th">${byId[c.id].fotos[0] ? `<img src="${ph640(byId[c.id].fotos[0])}" alt="" loading="lazy">` : `<span class="ph sm"></span>`}</span><span><b>${esc(tr(byId[c.id], "name"))}</b><br><span class="sub"><span class="code">${esc(byId[c.id].code)} · </span>${esc(tr(byId[c.id], "dur"))}</span></span></button>` : `<span class="ct">${esc(c.t)}</span>`).join("");
   const sell = !wl && (p.why || p.interesa || p.where || p.menu || p.impacto || p.team);
   const notes = !wl && p.notes && p.notes.length;
-  const rate = rateRow(id, 2);
+  const paxRows = seasonRows(PR.tours.get(id)), pax0 = rateRow(id, 2) ? 2 : (paxRows.length ? Math.min(...paxRows.map(r => r.pax_desde)) : 2);
+  const rate = rateRow(id, pax0);
   const nav = [["exp", tx("s_exp")], ["tech", tx("s_tech")], ["incl", tx("s_incl")], ["oper", tx("s_oper")], ...(sell ? [["sell", tx("s_sell")]] : []), ...(!wl ? [["rate", tx("s_rate").split(" ")[0] === "Tarifa" ? "Tarifa" : "Rate"]] : [])];
   $r("ficha").innerHTML = `<div class="ficha" role="dialog" aria-modal="true" aria-label="${esc(tr(e, "name"))}" data-fid="${id}"><article class="sheet">
     <div class="hero"><div class="media">${mediaBlock(e, { label: false, big: true })}</div>${badges(e)}<button type="button" class="close" data-r="fx">${ic("x", "sm")}${tx("close")}</button>
       <div class="hero-txt"><span class="eyebrow">${esc(catName(e.cat))} · ${esc(e.sub)} · ${esc(e.deptos)}</span><h2>${esc(tr(e, "name"))}</h2><p>${esc(tr(e, "tagline"))}</p></div></div>
     <dl class="facts">${fact("clock", tx("f_dur_l"), tr(e, "dur"))}${fact("users", tx("f_mod"), tr(e, "modalidad"))}${fact("food", tx("f_lunch"), tr(e, "almuerzo"))}${fact("child", tx("f_age"), tr(e, "edad") || tx("ask"))}${fact("users", tx("f_group"), grp)}
-      <div><dt>${ic("globe", "sm")}${tx("f_langs")}</dt><dd>${(e.langs || []).map(langName).map(esc).join(", ")}</dd></div><div class="code-wrap"><dt>${ic("tag", "sm")}${tx("f_code")}</dt><dd class="code">${e.code}</dd></div></dl>
+      <div><dt>${ic("globe", "sm")}${tx("f_langs")}</dt><dd>${(e.langs || []).map(langName).map(esc).join(", ")}</dd></div><div class="code-wrap"><dt>${ic("tag", "sm")}${tx("f_code")}</dt><dd class="code">${esc(e.code)}</dd></div></dl>
     <nav class="fnav" aria-label="${esc(tr(e, "name"))}">${nav.map(([k, l]) => `<a href="#pf-f-${k}" data-jump="${k}">${esc(l)}</a>`).join("")}</nav>
     <div class="f-body"><div class="f-main">
       <section id="pf-f-exp"><h3>${tx("s_exp")}</h3>${(tr(e, "desc") || []).map(x => `<p>${esc(x)}</p>`).join("")}</section>
       <section id="pf-f-tech"><h3>${tx("s_tech")}</h3>${techTable(e)}</section>
-      ${gal.length > 1 ? `<section><h3>${tx("s_photos")}</h3><div class="gallery">${gal.map((g, i) => `<button type="button" data-g="${i}" aria-label="${esc(tx("s_photos"))} ${i + 1}">${g.v ? `${g.p ? `<img src="${g.p}" alt="" loading="lazy">` : ""}<span class="play">▶ Video</span>` : `<img src="${ph640(g.i)}" alt="${esc(tr(e, "name"))} ${i + 1}" loading="lazy">`}</button>`).join("")}</div></section>` : ""}
+      ${gal.length > 1 ? `<section><h3>${tx("s_photos")}</h3><div class="gallery">${gal.map((g, i) => `<button type="button" data-g="${i}" aria-label="${esc(tx("s_photos"))} ${i + 1}">${g.v ? `${g.p ? `<img src="${esc(g.p)}" alt="" loading="lazy">` : ""}<span class="play">▶ Video</span>` : `<img src="${ph640(g.i)}" alt="${esc(tr(e, "name"))} ${i + 1}" loading="lazy">`}</button>`).join("")}</div></section>` : ""}
       <section id="pf-f-incl" class="lists"><div><h3>${ic("check")}${tx("s_incl")}</h3>${L1("", tr(e, "incl"), "yes")}</div><div><h3>${ic("x")}${tx("s_noincl")}</h3>${L1("", tr(e, "noIncl"), "no")}</div></section>
       <section id="pf-f-oper"><h3>${tx("s_oper")}</h3>${L1("", tr(e, "oper")) || `<p>${tx("ask")}</p>`}</section>
       ${(tr(e, "reco") || []).length || (tr(e, "noApto") || []).length ? `<section><h3>${tx("s_reco")}</h3>${L1("", tr(e, "reco"))}${(tr(e, "noApto") || []).length ? `<p class="fnote">${ic("info", "sm")}${esc(tx("s_noapto"))}: ${tr(e, "noApto").map(esc).join(" ")}</p>` : ""}</section>` : ""}
@@ -811,7 +841,7 @@ function openFicha(id) {
       <section class="f-foot"><p class="note">${ic("child", "sm")}${esc(tx("kids"))}</p><div class="btnrow"><button type="button" class="btn ghost sm" data-cond="book">${ic("shield", "sm")}${tx("see_cond")}</button><button type="button" class="btn ghost sm" data-cond="about">${ic("info", "sm")}${tx("see_about")}</button></div></section>
     </div><aside class="aside">
       ${!wl ? `<div class="box netbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><div class="big" data-r="net">${rate ? cop(rate.tarifa_neta) : tx("ask")}</div>
-        <label>${tx("pax")} <input type="range" data-r="paxr" min="1" max="30" value="2"> <b data-r="paxn">2</b></label>
+        <label>${tx("pax")} <input type="range" data-r="paxr" min="1" max="30" value="${pax0}"> <b data-r="paxn">${pax0}</b></label>
         <small>${esc(tarLabel())}. ${tx("per_pax")}.${rate && rate.temporada ? " " + esc(rate.temporada) + "." : ""}</small>${rate && rate._de ? `<span class="pill">${esc(tx("carry", rate._de, VIG))}</span>` : ""}
         ${p.supl.length ? `<div class="supl"><span class="eyebrow">${tx("s_supl")}</span><ul>${p.supl.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}</div>` : ""}
       <div class="btnrow col"><button type="button" class="btn add" data-add="${id}" aria-pressed="${inRoute(id)}">${inRoute(id) ? tx("in_route") : tx("add_route_l")}</button>
@@ -848,7 +878,7 @@ function closeFicha() {
   if (/#ficha=/.test(location.hash)) { try { history.replaceState(null, "", location.pathname + location.search); } catch (err) { /* sin historial */ } }
 }
 function lightbox(g) {
-  $r("lb").innerHTML = `<div class="lb" role="dialog" aria-modal="true"><button type="button" class="close">${ic("x", "sm")}${tx("close")}</button>${g.v ? `<video data-vid="${esc(g.v.id)}" data-partes="${+g.v.partes}" ${g.p ? `poster="${g.p}"` : ""} data-auto="1" controls muted loop playsinline></video>` : `<img src="${ph1600(g.i)}" alt="">`}</div>`;
+  $r("lb").innerHTML = `<div class="lb" role="dialog" aria-modal="true"><button type="button" class="close">${ic("x", "sm")}${tx("close")}</button>${g.v ? `<video data-vid="${esc(g.v.id)}" data-partes="${+g.v.partes}" ${g.p ? `poster="${esc(g.p)}"` : ""} data-auto="1" controls muted loop playsinline></video>` : `<img src="${ph1600(g.i)}" alt="">`}</div>`;
   const lb = $r("lb").firstChild; hydrate(lb); lb.addEventListener("click", ev => { if (ev.target === lb || ev.target.closest(".close")) $r("lb").innerHTML = ""; });
 }
 // Menú del Excel («Opción 1. * Trucha … * Cerdo …»): una línea por plato, agrupado por opción
@@ -894,7 +924,7 @@ function bindAdd(root) {
 }
 
 /* ---------- arma tu ruta ---------- */
-const saveR = () => ls.set("pf27-ruta", S.R);
+const saveR = () => { ls.set("pf27-ruta", S.R); S.listDirty = true; };
 function toggleTour(id) {
   if (inRoute(id)) S.R.tours = S.R.tours.filter(t => t.id !== id);
   else { const used = new Set(S.R.tours.map(t => t.day)); let d = +S.R.start; while (used.has(d) && d < 12) d++; S.R.tours.push({ id, day: d }); toast(tx("added_day", d)); }
@@ -911,14 +941,14 @@ function tourPoint(e, h) {
   if (e.athotel && h) return { lat: h.lat, lon: h.lon, label: tx("in_hotel") };
   if (e.zones && h) { let best = null; e.zones.forEach(z => { const c = M.mc[norm(z)]; if (!c) return; const d = hav([h.lat, h.lon], c); if (!best || d < best.d) best = { d, z, c }; });
     if (best) return { lat: best.c[0], lon: best.c[1], label: tx("finca_in", MUNI_LABEL(best.z)) }; }
-  return { lat: e.lat, lon: e.lon, label: e.deptos };
+  const [la, lo] = llOf(e); return { lat: la, lon: lo, label: e.deptos };
 }
 const apById = id => D.airports.find(a => a.id === id);
 function buildRoute() {
   const R = S.R, h = R.hotel, legs = []; let n = 0;
   if (h && apById(R.arr)) { const a = apById(R.arr), i = legInfo([a.lat, a.lon], [h.lat, h.lon]); legs.push({ type: "t", day: 1, n: ++n, from: [a.lat, a.lon], to: [h.lat, h.lon], title: tx("arr_leg", a.id, h.name), sub: tx("arr_sub"), ...i }); }
   const tours = R.tours.slice().sort((x, y) => x.day - y.day);
-  tours.forEach(t => { const e = byId[t.id]; if (!h) { legs.push({ type: "x", day: t.day, n: ++n, title: tr(e, "name"), sub: e.deptos + " · " + tx("choose_hotel"), nohotel: true, to: [e.lat, e.lon] }); return; }
+  tours.forEach(t => { const e = byId[t.id]; if (!h) { legs.push({ type: "x", day: t.day, n: ++n, title: tr(e, "name"), sub: e.deptos + " · " + tx("choose_hotel"), nohotel: true, to: llOf(e) }); return; }
     const tp = tourPoint(e, h); const pts = [[h.lat, h.lon], ...(e.stops || []).map(s => [s[0], s[1]]), [tp.lat, tp.lon]];
     let km = 0, min = 0; for (let i = 1; i < pts.length; i++) { const li = legInfo(pts[i - 1], pts[i]); km += li.km; min += li.min; }
     legs.push({ type: "x", day: t.day, n: ++n, pts, to: [tp.lat, tp.lon], title: tr(e, "name"), sub: `${tp.label} · ${String(tr(e, "dur")).toLowerCase()} · ${tx("go_back")}`, km, min, id: e.id }); });
@@ -949,10 +979,10 @@ function transferCode(h, ap) {
 function routeTotals() {
   const R = S.R, h = R.hotel, p = R.pax, rows = []; let total = 0, quote = false;
   [[tx("tot_arr"), R.arr], [tx("tot_dep"), R.dep]].forEach(([lbl, a]) => { if (!h || !a) return; const c = transferCode(h, a); const v = c ? svcAt(c, p) : null;
-    if (v != null) { total += v; rows.push([`${lbl} <span class="code">${c}</span>`, cop(v)]); } else { quote = true; rows.push([`${lbl} (${a})`, tx("quote")]); } });
+    if (v != null) { total += v; rows.push({ t: lbl, c, v: cop(v) }); } else { quote = true; rows.push({ t: `${lbl} (${a})`, v: tx("quote") }); } });
   R.tours.slice().sort((a, b) => a.day - b.day).forEach(t => { const e = byId[t.id]; const v = priceAt(e.id, p);
-    if (v == null) { quote = true; rows.push([esc(tr(e, "name")), tx("ask")]); } else { total += v; rows.push([esc(tr(e, "name")), cop(v)]); }
-    if (e.id === "finca" && R.finca && finById[R.finca] && finById[R.finca].sup) { const f = finById[R.finca]; total += f.sup; rows.push([tx("sup_of", esc(f.name)), cop(f.sup)]); } });
+    if (v == null) { quote = true; rows.push({ t: tr(e, "name"), v: tx("ask") }); } else { total += v; rows.push({ t: tr(e, "name"), v: cop(v) }); }
+    if (e.id === "finca" && R.finca && finById[R.finca] && finById[R.finca].sup) { const f = finById[R.finca]; total += f.sup; rows.push({ t: tx("sup_of", f.name), v: cop(f.sup) }); } });
   return { rows, total, quote };
 }
 function renderRoute() {
@@ -970,7 +1000,7 @@ function renderRoute() {
     <div class="ti-t"><b>${esc(tr(e, "name"))}</b><br><span class="sub">${esc(tr(e, "dur"))} · <span class="money">${v == null ? tx("ask_rate") : cop(v) + " pp"}</span></span></div>
     <div class="ti-a"><select data-day="${e.id}" aria-label="${esc(tx("day", ""))}">${[...Array(12)].map((_, i) => `<option ${i + 1 === t.day ? "selected" : ""} value="${i + 1}">${tx("day", i + 1)}</option>`).join("")}</select>
     <button type="button" class="iconbtn" data-rm="${e.id}" aria-label="${esc(tx("remove"))}: ${esc(tr(e, "name"))}">${ic("x", "sm")}</button></div></div>
-    ${e.id === "finca" && FINCAS.length ? `<div class="fsel"><label class="field">${tx("which_finca")}<select data-r="rfinca"><option value="">${tx("finca_auto")}</option>${FINCAS.map(x => `<option value="${esc(x.id)}" ${x.id === R.finca ? "selected" : ""}>${esc(x.name)} · ${esc(x.muni)}${x.sup ? ` · +${cop(x.sup)} pp` : ""}</option>`).join("")}</select></label>${R.finca && finById[R.finca] && finById[R.finca].aviso ? `<p class="fnote money">${esc(finById[R.finca].aviso)}</p>` : ""}</div>` : ""}`; }).join("")
+    ${e.id === "finca" && FINCAS.length ? `<div class="fsel"><label class="field">${tx("which_finca")}<select data-r="rfinca"><option value="">${tx("finca_auto")}</option>${FINCAS.map(x => `<option value="${esc(x.id)}" ${x.id === R.finca ? "selected" : ""}>${esc(x.name)} · ${esc(x.muni)}${x.sup && !S.wl ? ` · +${cop(x.sup)} pp` : ""}</option>`).join("")}</select></label>${R.finca && finById[R.finca] && finById[R.finca].aviso ? `<p class="fnote money">${esc(finById[R.finca].aviso)}</p>` : ""}</div>` : ""}`; }).join("")
     : `<p class="empty">${tx("r_empty")}</p>`;
   $r("radd").innerHTML = `<option value="">${tx("r_choose")}</option>` + Object.keys(D.cats).map(k => `<optgroup label="${esc(catName(k))}">${EXP.filter(e => e.cat === k && !inRoute(e.id)).map(e => `<option value="${e.id}">${esc(tr(e, "name"))}</option>`).join("")}</optgroup>`).join("");
   $r("rtours").querySelectorAll("[data-day]").forEach(s => s.addEventListener("change", () => { S.R.tours.find(t => t.id === s.dataset.day).day = +s.value; saveR(); renderRoute(); }));
@@ -981,14 +1011,14 @@ function renderRoute() {
     html += `<div class="leg"><span class="k">${l.n}</span><div><b>${esc(l.title)}</b><br><span class="sub">${esc(l.sub)}</span></div><span class="t">${l.km ? `≈ ${l.km} km<br>${fmtMin(l.min)}${l.type === "x" ? " " + tx("per_leg") : ""}` : ""}</span></div>`; });
   $r("rlegs").innerHTML = html || `<p class="empty">${tx("r_none")}</p>`;
   const T = routeTotals();
-  $r("rtot").innerHTML = T.rows.length ? T.rows.map(r => `<div><span>${r[0]}</span><span>${r[1]}</span></div>`).join("") + `<div class="g"><span>${tx("tot")}${T.quote ? tx("tot_q") : ""}</span><span>${cop(T.total)}</span></div><span class="note">${esc(tx("tot_note", R.pax, vehName(vehFor(R.pax)).toLowerCase(), tarLabel()))}</span>` : "";
+  $r("rtot").innerHTML = T.rows.length ? T.rows.map(r => `<div><span>${esc(r.t)}${r.c ? ` <span class="code">${esc(r.c)}</span>` : ""}</span><span>${esc(r.v)}</span></div>`).join("") + `<div class="g"><span>${tx("tot")}${T.quote ? tx("tot_q") : ""}</span><span>${cop(T.total)}</span></div><span class="note">${esc(tx("tot_note", R.pax, vehName(vehFor(R.pax)).toLowerCase(), tarLabel()))}</span>` : "";
   drawOverlay();
 }
 function itineraryText(forRequest) {
   const R = S.R, legs = buildRoute(), h = R.hotel;
   let t = tx("program", R.pax) + "\n" + (h ? `${tx("r3")}: ${h.name} (${MUNI_LABEL(h.muni)})\n` : "") + `${tx("vehicle")}: ${vehName(vehFor(R.pax))}\n`; let d = 0;
   legs.forEach(l => { if (l.day !== d) { t += `\n${tx("day", l.day)}\n`; d = l.day; } t += `• ${l.title} — ${l.sub}${l.km ? ` (≈ ${l.km} km, ${fmtMin(l.min)})` : ""}\n`; });
-  if (!S.wl && !forRequest) { const T = routeTotals(); t += `\n${T.rows.map(r => r[0].replace(/<[^>]+>/g, "") + ": " + r[1]).join("\n")}\n${tx("tot")}: ${cop(T.total)}\nEspontáneos Travel · RNT 91795`; }
+  if (!S.wl && !forRequest) { const T = routeTotals(); t += `\n${T.rows.map(r => r.t + (r.c ? " " + r.c : "") + ": " + r.v).join("\n")}\n${tx("tot")}: ${cop(T.total)}\nEspontáneos Travel · RNT 91795`; }
   return t.slice(0, forRequest ? 1900 : 20000);
 }
 function fitRoute() {
@@ -1083,11 +1113,11 @@ function renderTrans(hl) {
     <div class="ccard"><h4>${ic("shield", "sm")}${tx("tr_cond")}</h4><ul>${cond.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>
     <div class="section money"><h3>${tx("tr_tab")}</h3>
       <div class="filters"><label class="field inline">${tx("pax")} <input data-r="tpax" type="number" min="1" max="30" value="${p}" inputmode="numeric"></label></div>
-      ${trs.length ? `<div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("tr_route")}</th><th class="r">${tx("tr_pp", p)}</th></tr></thead><tbody>${trs.map(c => { const v = svcAt(c, p); return `<tr><td class="code">${c}</td><td>${esc(nm(c))}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div>` : `<p class="empty">${tx("none_rates")}</p>`}
+      ${trs.length ? `<div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("tr_route")}</th><th class="r">${tx("tr_pp", p)}</th></tr></thead><tbody>${trs.map(c => { const v = svcAt(c, p); return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c))}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div>` : `<p class="empty">${tx("none_rates")}</p>`}
       <p class="note">${tx("tr_note")}</p></div>
-    ${sups.length ? `<div class="section money"><h3>${tx("sup_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th><th class="r">${tx("value")}</th></tr></thead><tbody>${sups.map(c => { const v = svcAt(c, p) ?? svcAt(c, 1); return `<tr><td class="code">${c}</td><td>${esc(nm(c))}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div></div>` : ""}
+    ${sups.length ? `<div class="section money"><h3>${tx("sup_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th><th class="r">${tx("value")}</th></tr></thead><tbody>${sups.map(c => { const v = svcAt(c, p) ?? svcAt(c, 1); return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c))}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div></div>` : ""}
     ${guides.length ? `<div class="section money"><h3>${tx("guide_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th>${[...new Set(guides.flatMap(c => PR.svc.get(c).map(r => r.temporada)))].map(s => `<th class="r">${esc(s)}</th>`).join("")}</tr></thead><tbody>
-      ${guides.map(c => { const rows = PR.svc.get(c), cols = [...new Set(guides.flatMap(g => PR.svc.get(g).map(r => r.temporada)))]; return `<tr><td class="code">${c}</td><td>${esc(nm(c).split("·").pop().trim())}</td>${cols.map(s => { const r = rows.find(x => x.temporada === s); return `<td class="r">${r ? cop(r.tarifa_neta) : "—"}</td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div></div>` : ""}`;
+      ${guides.map(c => { const rows = PR.svc.get(c), cols = [...new Set(guides.flatMap(g => PR.svc.get(g).map(r => r.temporada)))]; return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c).split("·").pop().trim())}</td>${cols.map(s => { const r = rows.find(x => x.temporada === s); return `<td class="r">${r ? cop(r.tarifa_neta) : "—"}</td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div></div>` : ""}`;
   const tp = pane.querySelector("[data-r=tpax]"); tp.addEventListener("change", () => { S.tpax = Math.min(30, Math.max(1, Math.round(+tp.value) || 1)); renderTrans(); });
 }
 
@@ -1168,8 +1198,7 @@ const LNAME = { ES: "Español", EN: "English", FR: "Français", IT: "Italiano", 
 const K = { sel: null, lang: "ES", logo: true, price: "none", markup: 15, agency: "" };
 function renderKit() {
   if (!K.sel) K.sel = new Set(S.R.tours.map(t => t.id));
-  K.logo = K.logo && !S.wl;
-  if (S.wl && K.price !== "none") K.price = "none";
+  const logoV = K.logo && !S.wl, priceV = S.wl ? "none" : K.price;
   const pane = ROOT.querySelector('[data-pane="kit"]');
   pane.innerHTML = `<h2>${tx("k_h")}</h2><p class="lead">${tx("k_l")}</p>
    <div class="steps">
@@ -1177,7 +1206,7 @@ function renderKit() {
       <div class="btnrow"><button type="button" class="btn ghost sm" data-r="kroute">${ic("route", "sm")}${tx("k_route")}</button><button type="button" class="btn ghost sm" data-r="kall">${tx("k_all")}</button><button type="button" class="btn ghost sm" data-r="knone">${tx("k_none")}</button></div></div>
     <div class="step"><h3><span class="k">2</span>${tx("k2")}</h3><div class="row2">
       <label class="field">${tx("k_lang")}<select data-r="klang">${Object.entries(LNAME).map(([k, v]) => `<option value="${k}" ${k === K.lang ? "selected" : ""}>${v}</option>`).join("")}</select></label>
-      <label class="field">${tx("k_logo")}<select data-r="klogo"><option value="1" ${K.logo ? "selected" : ""}>${tx("k_with")}</option><option value="0" ${K.logo ? "" : "selected"}>${tx("k_without")}</option></select></label></div>
+      <label class="field">${tx("k_logo")}<select data-r="klogo" ${S.wl ? "disabled" : ""}><option value="1" ${logoV ? "selected" : ""}>${tx("k_with")}</option><option value="0" ${logoV ? "" : "selected"}>${tx("k_without")}</option></select></label></div>
       <label class="field" data-r="kagw">${tx("k_agency")}<input data-r="kag" maxlength="80" value="${esc(K.agency)}"></label>
       <p class="note" data-r="ktr" ${K.lang === "ES" ? "hidden" : ""}>${ic("info", "sm")}${tx("k_trnote")}</p></div>
     <div class="step${S.wl ? " is-off" : ""}"><h3><span class="k">3</span>${tx("k3")}</h3>
@@ -1192,7 +1221,7 @@ function renderKit() {
   $r("kroute").addEventListener("click", () => { K.sel = new Set(S.R.tours.map(t => t.id)); renderKit(); });
   $r("kall").addEventListener("click", () => { K.sel = new Set(EXP.map(e => e.id)); renderKit(); });
   $r("knone").addEventListener("click", () => { K.sel = new Set(); renderKit(); });
-  const pr = $r("kprice"); pr.value = K.price; $r("kmkw").hidden = K.price !== "sell";
+  const pr = $r("kprice"); pr.value = priceV; $r("kmkw").hidden = priceV !== "sell";
   pr.addEventListener("change", () => { K.price = pr.value; $r("kmkw").hidden = pr.value !== "sell"; });
   $r("kmk").addEventListener("input", e => { K.markup = Math.max(0, Math.min(100, +e.target.value || 0)); });
   $r("klang").addEventListener("change", e => { K.lang = e.target.value; $r("ktr").hidden = K.lang === "ES"; });
@@ -1212,7 +1241,7 @@ async function imgData(url, w = 1400, h = 680) {
 }
 async function logoData() { try { const b = await (await fetch("/assets/img/logo.png")).blob(); const bm = await createImageBitmap(b); const c = document.createElement("canvas"); c.width = 240; c.height = Math.round(240 * bm.height / bm.width); c.getContext("2d").drawImage(bm, 0, 0, c.width, c.height); return { d: c.toDataURL("image/png"), r: c.height / c.width }; } catch (e) { return null; } }
 // Suplementos con su valor: en precio de venta, el valor sube con el markup del asesor (redondeado a miles)
-const markupMoney = (s, mk) => String(s).replace(/\$\s?([\d.]{4,})/g, (m, n) => "$" + (Math.round(+n.replace(/\./g, "") * (1 + mk / 100) / 1000) * 1000).toLocaleString("es-CO"));
+const markupMoney = (s, mk) => (!mk ? String(s) : String(s).replace(/\$\s?([\d.]{4,})/g, (m, n) => "$" + (Math.round(+n.replace(/\./g, "") * (1 + mk / 100) / 1000) * 1000).toLocaleString("es-CO")));
 // Descarga el archivo; en celulares o navegadores internos (WhatsApp, Instagram) que no descargan, queda el enlace para abrirlo
 function savePdf(blob, fname, st) {
   const url = URL.createObjectURL(blob);
@@ -1272,7 +1301,7 @@ async function buildPdf(ids, o) {
     const ph = e.fotos[0]; if (ph) { try { doc.addImage(await imgData(ph1600(ph), 1400, fh), "JPEG", Mg, y, CW, CW * fh / 1400); y += CW * fh / 1400 + 7; } catch (err) { /* sin foto */ } }
     doc.setTextColor(...OL); doc.setFont("helvetica", "bold"); doc.setFontSize(19); doc.splitTextToSize(pdfTxt(tr(e, "name", lg)), CW).forEach(l => { doc.text(l, Mg, y + 4); y += 8; });
     doc.setTextColor(90); doc.setFont("helvetica", "normal"); doc.setFontSize(9.5);
-    const meta = `${logo ? e.code + " · " : ""}${e.deptos} · ${LB.dur}: ${tr(e, "dur", lg)} · ${LB.mod}: ${tr(e, "modalidad", lg)}${tr(e, "edad", lg) ? " · " + LB.age + ": " + tr(e, "edad", lg) : ""} · ${LB.langs}: ${(e.langs || []).join(" · ")}`;
+    const meta = `${logo && price !== "none" ? e.code + " · " : ""}${e.deptos} · ${LB.dur}: ${tr(e, "dur", lg)} · ${LB.mod}: ${tr(e, "modalidad", lg)}${tr(e, "edad", lg) ? " · " + LB.age + ": " + tr(e, "edad", lg) : ""} · ${LB.langs}: ${(e.langs || []).join(" · ")}`;
     doc.splitTextToSize(pdfTxt(meta), CW).forEach(l => { doc.text(l, Mg, y + 2); y += 4.6; }); y += 3;
     doc.setTextColor(30); doc.setFont("helvetica", "italic"); doc.setFontSize(11); doc.splitTextToSize(pdfTxt(tr(e, "tagline", lg)), CW).forEach(l => { doc.text(l, Mg, y); y += 5.5; }); y += 2;
     doc.setFont("helvetica", "normal"); doc.setFontSize(10);
@@ -1281,7 +1310,13 @@ async function buildPdf(ids, o) {
     const list = (title, arr, x, w) => { let yy = y; doc.setFont("helvetica", "bold"); doc.setTextColor(...OL); doc.text(pdfTxt(title), x, yy); yy += 5.5; doc.setFont("helvetica", "normal"); doc.setTextColor(30);
       (arr || []).forEach(a => doc.splitTextToSize(pdfTxt("- " + a), w).forEach(l => { if (yy > 280) { foot(); doc.addPage(); yy = Mg; } doc.text(l, x, yy); yy += 4.8; })); return yy; };
     const incl = tr(e, "incl", lg) || [], noi = tr(e, "noIncl", lg) || [];
-    if (incl.length || noi.length) { if (y > 235) { foot(); doc.addPage(); y = Mg; } const y1 = list(LB.incl, incl, Mg, CW / 2 - 4), y2 = list(LB.noIncl, noi, Mg + CW / 2 + 4, CW / 2 - 4); y = Math.max(y1, y2) + 3; }
+    if (incl.length || noi.length) {
+      const nl = (arr, w) => (arr || []).reduce((n, a) => n + doc.splitTextToSize(pdfTxt("- " + a), w).length, 0);
+      const need = 6 + Math.max(nl(incl, CW / 2 - 4), nl(noi, CW / 2 - 4)) * 4.8;
+      if (y + need > 280 && need <= 280 - Mg) { foot(); doc.addPage(); y = Mg; }
+      if (y + need <= 280) { const y1 = list(LB.incl, incl, Mg, CW / 2 - 4), y2 = list(LB.noIncl, noi, Mg + CW / 2 + 4, CW / 2 - 4); y = Math.max(y1, y2) + 3; }
+      else { y = list(LB.incl, incl, Mg, CW) + 3; if (y > 270) { foot(); doc.addPage(); y = Mg; } y = list(LB.noIncl, noi, Mg, CW) + 3; }
+    }
     if ((tr(e, "oper", lg) || []).length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.oper, tr(e, "oper", lg), Mg, CW) + 3; }
     const reco = [...(tr(e, "reco", lg) || []), ...(tr(e, "noApto", lg) || [])];
     if (reco.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.reco, reco, Mg, CW) + 3; }
@@ -1289,14 +1324,14 @@ async function buildPdf(ids, o) {
     if (price !== "none" && lang === "ES" && e.p.supl.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.supl, e.p.supl.map(x => markupMoney(x, mk)), Mg, CW) + 3; }
     if (price !== "none") {
       if (y > 258) { foot(); doc.addPage(); y = Mg; }       // el cuadro de precios (≈ 27 mm) cabe hasta antes del pie
-      const cells = [2, 4, 6, 10].map(p => { const v = priceAt(e.id, p); return v != null ? "$ " + (Math.round(v * (1 + mk / 100) / 1000) * 1000).toLocaleString("es-CO") : LB.consult; });
+      const cells = [2, 4, 6, 10].map(p => { const v = priceAt(e.id, p); return v != null ? "$ " + (mk ? Math.round(v * (1 + mk / 100) / 1000) * 1000 : v).toLocaleString("es-CO") : LB.consult; });
       doc.setFillColor(238, 242, 236); doc.rect(Mg, y, CW, 20, "F"); doc.setFont("helvetica", "bold"); doc.setTextColor(...OL); doc.setFontSize(10); doc.text(pdfTxt(LB.price), Mg + 4, y + 6);
       doc.setFont("helvetica", "normal"); [2, 4, 6, 10].forEach((p, i) => { const x = Mg + 4 + i * (CW - 8) / 4; doc.setFontSize(8.5); doc.setTextColor(90); doc.text(`${p} ${LB.pax}`, x, y + 11); doc.setFontSize(11); doc.setTextColor(30); doc.text(pdfTxt(cells[i]), x, y + 17); });
       y += 24; doc.setFontSize(8); doc.setTextColor(110); doc.text(pdfTxt(LB.note), Mg, y); doc.setFontSize(10);
     }
     foot();
   }
-  const base = ids.length === 1 ? `Ficha_${byId[ids[0]].code || ids[0]}_2027` : "Portafolio_PCCC_2027";
+  const base = ids.length === 1 ? `Ficha_${price === "none" ? ids[0] : (byId[ids[0]].code || ids[0])}_2027` : "Portafolio_PCCC_2027";
   const fname = `${base}_${lang}${logo ? "" : "_marca-blanca"}${price === "none" ? "" : price === "net" ? "_neto" : "_venta"}.pdf`;
   return { blob: doc.output("blob"), fname };
 }
