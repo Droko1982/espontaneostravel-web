@@ -29,8 +29,8 @@ const OWN_HOSTS = ["droko1982.github.io", "www.espontaneostravel.com", "espontan
 const MAX_ITIN = 25;  // actividades por reserva (igual que firestore.rules)
 const MAX_TOURS = 10; // tours por solicitud (igual que firestore.rules)
 const TRAVEL_LANGS = [["es", "Español"], ["en", "English"], ["fr", "Français"], ["de", "Deutsch"], ["pt", "Português"]];
-const ORIGENES = [["web", "Sitio web"], ["qr", "QR"], ["dmc", "Agencia / DMC"], ["referido", "Referido"], ["whatsapp", "WhatsApp"]];
-const MEDIOS = [["whatsapp", "WhatsApp"], ["web", "Formulario web"], ["correo", "Correo electrónico"], ["telefono", "Llamada"], ["presencial", "Presencial"], ["agencia", "Agencia / DMC"]];
+const ORIGENES = [["web", "Sitio web"], ["qr", "QR"], ["dmc", "DMC"], ["referido", "Referido"], ["whatsapp", "WhatsApp"]];
+const MEDIOS = [["whatsapp", "WhatsApp"], ["web", "Formulario web"], ["correo", "Correo electrónico"], ["telefono", "Llamada"], ["presencial", "Presencial"], ["agencia", "DMC"]];
 const ESTADOS_RESERVA = ["borrador", "pendiente", "confirmada", "en_curso", "finalizada", "cancelada"];
 const ESTADOS_SOLICITUD = ["nueva", "en_proceso", "confirmada", "rechazada", "cancelada"];
 const STAGES = [["qr_visita", "Visita por QR"], ["resumen", "Dejó sus datos"], ["whatsapp", "Pasó a WhatsApp"]];
@@ -49,7 +49,7 @@ const I18N = {
     skip: "Saltar al contenido", lang_label: "Idioma", logout: "Cerrar sesión", loading: "Cargando…", retry: "Reintentar",
     close: "Cerrar", save: "Guardar", cancel: "Cancelar", edit: "Editar", remove: "Quitar", saved: "Cambios guardados.",
     none: "— Ninguno —", required_note: "Los campos con * son obligatorios.", err_generic: "Algo salió mal. Inténtalo de nuevo.",
-    portal_tag: "Portal de agencias", role_admin: "Administración", role_asesor: "Asesor", role_dmc: "Agencia / DMC",
+    portal_tag: "Portal de agencias", role_admin: "Administración", role_asesor: "Asesor", role_dmc: "DMC",
     login_title: "Ingresa al portal", login_sub: "Para agencias y DMC aliadas y el equipo de Espontáneos Travel.",
     email: "Correo electrónico", password: "Contraseña", login_btn: "Ingresar", forgot: "¿Olvidaste tu contraseña?",
     no_account: "¿Tu agencia aún no tiene acceso?", request_access: "Solicitar acceso", back_login: "Volver a ingresar",
@@ -73,7 +73,7 @@ const I18N = {
     blocked_title: "Tu acceso está bloqueado", blocked_body: "Si crees que es un error, escríbenos y lo revisamos.",
     noagency_title: "Tu cuenta aún no tiene una agencia activa", noagency_body: "Tu usuario está aprobado, pero no está vinculado a una agencia activa. Escríbenos para revisarlo.",
     hello: "Hola, {0}", agency: "Agencia",
-    tab_rates: "Tarifas netas", tab_request: "Solicitar reserva", tab_mine: "Solicitudes y reservas", tab_clients: "Mis clientes", tab_account: "Mi cuenta",
+    tab_rates: "Tarifas", tab_request: "Reservar", tab_mine: "Mis reservas", tab_clients: "Clientes", tab_account: "Cuenta",
     tab_company: "Nosotros", ficha_t: "Ficha técnica", pdf_btn: "Descargar ficha (PDF)", cat_label: "Categoría", all_cats: "Todas", pending_badge: "Tarifa en preparación",
     print_title: "Ficha técnica para agencias", imp_label: "Impacto", excludes: "No incluye", operation: "Operación",
     p_param: "Parámetro operativo", p_b2b: "Detalle técnico B2B", p_b2c: "Especificación comercial (B2C)",
@@ -120,7 +120,7 @@ const I18N = {
     skip: "Skip to content", lang_label: "Language", logout: "Sign out", loading: "Loading…", retry: "Try again",
     close: "Close", save: "Save", cancel: "Cancel", edit: "Edit", remove: "Remove", saved: "Changes saved.",
     none: "— None —", required_note: "Fields marked * are required.", err_generic: "Something went wrong. Please try again.",
-    portal_tag: "Agency portal", role_admin: "Admin", role_asesor: "Advisor", role_dmc: "Agency / DMC",
+    portal_tag: "Agency portal", role_admin: "Admin", role_asesor: "Advisor", role_dmc: "DMC",
     login_title: "Sign in to the portal", login_sub: "For partner agencies / DMCs and the Espontáneos Travel team.",
     email: "Email", password: "Password", login_btn: "Sign in", forgot: "Forgot your password?",
     no_account: "Your agency doesn't have access yet?", request_access: "Request access", back_login: "Back to sign in",
@@ -144,7 +144,7 @@ const I18N = {
     blocked_title: "Your access is blocked", blocked_body: "If you think this is a mistake, message us and we'll look into it.",
     noagency_title: "Your account has no active agency yet", noagency_body: "Your user is approved but not linked to an active agency. Please contact us.",
     hello: "Hi, {0}", agency: "Agency",
-    tab_rates: "Net rates", tab_request: "Request a booking", tab_mine: "Requests & bookings", tab_clients: "My clients", tab_account: "My account",
+    tab_rates: "Rates", tab_request: "Book", tab_mine: "My bookings", tab_clients: "Clients", tab_account: "Account",
     tab_company: "About us", ficha_t: "Technical sheet", pdf_btn: "Download sheet (PDF)", cat_label: "Category", all_cats: "All", pending_badge: "Rate coming soon",
     print_title: "Technical sheet for agencies", imp_label: "Impact", excludes: "Not included", operation: "Operations",
     p_param: "Operational parameter", p_b2b: "B2B technical detail", p_b2c: "B2C commercial specification",
@@ -1107,7 +1107,7 @@ function emailAccessRequest(userId, email, v, s) {
     "Agencia": s.agencia || "", "NIT / Tax ID": s.nit || "", "País y ciudad": [s.pais, s.ciudad].filter(Boolean).join(" · "),
     "Persona": v.nombre || "", "Correo": email, "WhatsApp": v.whatsapp || "", "Teléfono": s.telefono || "", "Web": s.web || "",
     "Mensaje": s.mensaje || "", "Idioma": s.idioma || "",
-    "✅ Aprobar como agencia / DMC": go("aprobar-dmc"),
+    "✅ Aprobar como DMC": go("aprobar-dmc"),
     "✅ Aprobar como asesor del equipo": go("aprobar-asesor"),
     "⛔ Rechazar": go("rechazar"),
     "Todas las solicitudes": PORTAL_URL + "#usuarios",
@@ -2117,7 +2117,7 @@ function clientForm(host, existing, prefill, onDone) {
   ];
   if (staff) defs.push(
     { name: "origen", label: "Origen", type: "select", options: ORIGENES },
-    { name: "dmcId", label: "Agencia / DMC", type: "select", options: [["", "— Cliente directo —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
+    { name: "dmcId", label: "DMC", type: "select", options: [["", "— Cliente directo —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
     { name: "asesorId", label: "Asesor asignado (solo equipo)", type: "select", options: [["", "— Sin asignar —"]].concat(advisors().map(u => [u.id, u.nombre || u.email])) },
     { name: "etiquetas", label: "Etiquetas (solo equipo)", max: 300, hint: "Hasta 10, separadas por coma. Ej.: luna de miel, VIP, aves" });
   defs.push({
@@ -2221,16 +2221,16 @@ function renderStaffApp() {
   else if (S.approval) { S.tab = "usuarios"; approvalCard(apHost); }
   const defs = [
     { id: "leads", label: "Leads" }, { id: "clientes", label: "Clientes" },
-    { id: "reservas", label: "Reservas" }, { id: "solicitudes", label: "Solicitudes de reserva" },
-    { id: "portafolio", label: "Portafolio (vista agencias)" }
+    { id: "reservas", label: "Reservas" }, { id: "solicitudes", label: "Pedidos DMC" },
+    { id: "portafolio", label: "Portafolio" }
   ];
   const handlers = { leads: staffLeads, clientes: staffClientes, reservas: staffReservas, solicitudes: staffSolicitudes, portafolio: staffPortafolio, cuenta: myAccount };
   if (admin) {
-    defs.push({ id: "agencias", label: "Agencias / DMC", count: pending }, { id: "usuarios", label: "Usuarios" }, { id: "tarifas", label: "Tarifas" },
-      { id: "condiciones", label: "Condiciones" }, { id: "asesores", label: "Asesores" }, { id: "ajustes", label: "Pagos" }, { id: "respaldo", label: "Respaldo" });
+    defs.push({ id: "agencias", label: "DMC", count: pending }, { id: "usuarios", label: "Usuarios" }, { id: "tarifas", label: "Tarifas" },
+      { id: "condiciones", label: "Fichas" }, { id: "asesores", label: "Asesores" }, { id: "ajustes", label: "Pagos" }, { id: "respaldo", label: "Respaldo" });
     Object.assign(handlers, { usuarios: adminUsuarios, agencias: adminAgencias, tarifas: adminTarifas, condiciones: adminCondiciones, asesores: adminAsesores, ajustes: adminPagos, respaldo: adminRespaldo });
   }
-  defs.push({ id: "cuenta", label: "Mi cuenta" });
+  defs.push({ id: "cuenta", label: "Cuenta" });
   S.tabsApi = mountTabs(main, defs, handlers, "Secciones del portal");
   if (apHost.firstChild) focusHeading(apHost);
 }
@@ -2604,7 +2604,7 @@ async function reservaForm(host, existing, prefill, onDone) {
   fV.inputs.name.addEventListener("input", () => { if (!pubTouched) fV.inputs.nombrePublico.value = first(fV.inputs.name.value).slice(0, 60); });
   const fO = formFields([
     { name: "estado", label: "Estado", type: "select", options: ESTADOS_RESERVA.map(e => [e, I18N.es["st_" + e]]) },
-    { name: "dmcId", label: "Agencia / DMC", type: "select", options: [["", "— Venta directa —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
+    { name: "dmcId", label: "DMC", type: "select", options: [["", "— Venta directa —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
     { name: "asesorId", label: "Asesor", type: "select", options: [["", "— Sin asignar —"]].concat(advisors().map(u => [u.id, u.nombre || u.email])) },
     { name: "region", label: "Región (pública)", max: 120 }
   ], v0);
@@ -2885,7 +2885,7 @@ function approvalCard(host) {
     h("div", { class: "p-actions" },
       btn("Sí, rechazar", e => busy(e.currentTarget, async () => { await setUser(u, { estado: "bloqueado" }); finish("no"); }), "btn--primary"),
       btn("Cancelar", close)));
-  const rolSel = selectEl([["dmc", "Agencia / DMC"], ["asesor", "Asesor del equipo"], ["admin", "Administrador"]], a.rol, { id: uid("ar") });
+  const rolSel = selectEl([["dmc", "DMC"], ["asesor", "Asesor del equipo"], ["admin", "Administrador"]], a.rol, { id: uid("ar") });
   // Agencia que ya existe con el mismo NIT o nombre (p. ej. un segundo usuario de la misma agencia)
   const same = S.dmcs.find(d => (digits(s.nit) && digits(d.nit) === digits(s.nit)) || (s.agencia && norm(d.nombre) === norm(s.agencia)));
   const note = h("p", { class: "p-hint" });
@@ -2934,7 +2934,7 @@ async function adminUsuarios(view) {
   clear(view);
   const pend = S.users.filter(u => u.estado === "pendiente").length;
   const est = selectEl([["", "Todos"], ["pendiente", "Pendientes"], ["activo", "Activos"], ["bloqueado", "Bloqueados"]], pend ? "pendiente" : "", { id: uid("e") });
-  const rol = selectEl([["", "Todos"], ["dmc", "Agencias / DMC"], ["asesor", "Asesores"], ["admin", "Administradores"]], "", { id: uid("r") });
+  const rol = selectEl([["", "Todos"], ["dmc", "DMC"], ["asesor", "Asesores"], ["admin", "Administradores"]], "", { id: uid("r") });
   const q = h("input", { type: "search", id: uid("q"), autocomplete: "off" });
   const formHost = h("div", { class: "p-formhost" });
   const count = h("p", { class: "p-count", role: "status" });
@@ -2953,7 +2953,7 @@ async function adminUsuarios(view) {
   add(view, 
     h("div", { class: "p-toolbar" }, labeled("Estado", est), labeled("Rol", rol), labeled("Buscar", q, "p-grow"),
       h("div", { class: "p-toolbar__end" }, btn("Crear cuenta", () => accountForm(formHost, "asesor", async () => { await loadRefs(true); draw(); }), "btn--primary"))),
-    h("p", { class: "p-muted" }, "Para aprobar una agencia: pulsa «Aprobar agencia» (crea la agencia con los datos de la solicitud si aún no existe, la vincula y activa el acceso)."),
+    h("p", { class: "p-muted" }, "Para aprobar un DMC: pulsa «Aprobar DMC» (crea la agencia con los datos de la solicitud si aún no existe, la vincula y activa el acceso)."),
     formHost, count, out);
   draw();
 }
@@ -2961,7 +2961,7 @@ async function adminUsuarios(view) {
 function userCard(u, redraw) {
   const self = u.id === S.user.uid;
   const s = u.solicitud;
-  const rolSel = selectEl([["dmc", "Agencia / DMC"], ["asesor", "Asesor"], ["admin", "Administrador"]], u.rol, { id: uid("rol"), disabled: self });
+  const rolSel = selectEl([["dmc", "DMC"], ["asesor", "Asesor"], ["admin", "Administrador"]], u.rol, { id: uid("rol"), disabled: self });
   const estSel = selectEl([["pendiente", "Pendiente"], ["activo", "Activo"], ["bloqueado", "Bloqueado"]], u.estado, { id: uid("est"), disabled: self });
   const dmcOpts = () => [["", "— Sin agencia —"]].concat(S.dmcs.map(d => [d.id, d.nombre + (d.activo === false ? " (inactiva)" : "")]));
   const dmcSel = selectEl(dmcOpts(), u.dmcId || "", { id: uid("dmc") });
@@ -2978,7 +2978,7 @@ function userCard(u, redraw) {
     redraw();
   }
   const acts = [btn("Guardar cambios", e => busy(e.currentTarget, () => save()), "btn--primary")];
-  if (!self && u.rol === "dmc" && u.estado !== "activo") acts.push(btn("Aprobar agencia", e => busy(e.currentTarget, async () => {
+  if (!self && u.rol === "dmc" && u.estado !== "activo") acts.push(btn("Aprobar DMC", e => busy(e.currentTarget, async () => {
     let d = dmcSel.value;
     if (!d && s) d = await createDmcFromSolicitud(u);
     if (!d) throw userErr("Elige la agencia a la que pertenece este usuario.");
@@ -3061,14 +3061,14 @@ function accountForm(host, presetRol, onDone, preset) {
     { name: "email", label: "Correo", type: "email", required: true, max: 200 },
     { name: "whatsapp", label: "WhatsApp", type: "tel", max: 30 },
     { name: "idiomas", label: "Idiomas (separados por coma)", max: 60 },
-    { name: "rol", label: "Rol", type: "select", options: [["asesor", "Asesor"], ["admin", "Administrador"], ["dmc", "Agencia / DMC"]] },
-    { name: "dmcId", label: "Agencia (solo para el rol Agencia / DMC)", type: "select", options: [["", "— Ninguna —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
+    { name: "rol", label: "Rol", type: "select", options: [["asesor", "Asesor"], ["admin", "Administrador"], ["dmc", "DMC"]] },
+    { name: "dmcId", label: "DMC (solo para el rol DMC)", type: "select", options: [["", "— Ninguna —"]].concat(S.dmcs.map(d => [d.id, d.nombre])) },
     { name: "modo", label: "Clave de acceso", type: "select", options: [["temporal", "Asignar una clave temporal ahora (te la muestro para enviarla)"], ["correo", "Enviarle un correo para que cree su clave"]] },
     { name: "clave", label: "Clave temporal (puedes cambiarla)", max: 40 }
   ], Object.assign({ rol: presetRol || "asesor", idiomas: "es", modo: "temporal", clave: tempPass() }, preset || {}));
   const form = mkForm(async () => {
     const v = f.get();
-    if (v.rol === "dmc" && !v.dmcId) throw userErr("Elige la agencia para una cuenta de rol Agencia / DMC.");
+    if (v.rol === "dmc" && !v.dmcId) throw userErr("Elige el DMC para una cuenta de rol DMC.");
     if (v.modo === "temporal" && String(v.clave || "").length < 8) throw userErr("La clave temporal debe tener al menos 8 caracteres.");
     const res = await createAccount(v);
     notify(res.clave ? `Acceso creado para ${v.email}.` : `Cuenta creada para ${v.email}. Le enviamos un correo para que cree su contraseña.`);
@@ -3101,7 +3101,7 @@ async function adminAgencias(view) {
     const pend = S.users.filter(u => u.estado === "pendiente");
     if (pend.length) add(pendHost, h("section", { class: "p-card p-pending" },
       h("h2", { class: "p-h2" }, `Solicitudes de acceso por aprobar (${pend.length})`),
-      h("p", { class: "p-muted" }, "«Aprobar agencia» crea la agencia con los datos de la solicitud (o la vincula si ya existe) y activa el acceso."),
+      h("p", { class: "p-muted" }, "«Aprobar DMC» crea el DMC con los datos de la solicitud (o lo vincula si ya existe) y activa el acceso."),
       h("div", { class: "p-cards" }, pend.map(u => userCard(u, reload)))));
     const term = norm(q.value);
     const shown = S.dmcs.filter(d => !term || norm([d.id, d.nombre, d.pais, d.ciudad, d.nit, d.contacto].join(" ")).includes(term));
@@ -3134,7 +3134,7 @@ async function adminAgencias(view) {
     });
   }
   q.addEventListener("input", debounce(draw, 150));
-  add(view, h("div", { class: "p-toolbar" }, labeled("Buscar", q, "p-grow"), h("div", { class: "p-toolbar__end" }, btn("Nueva agencia con acceso", () => agencyAccessForm(formHost, reload), "btn--primary"), btn("Solo registrar la empresa", () => dmcForm(formHost, null, reload)))), pendHost, formHost, out);
+  add(view, h("div", { class: "p-toolbar" }, labeled("Buscar", q, "p-grow"), h("div", { class: "p-toolbar__end" }, btn("Nuevo DMC con acceso", () => agencyAccessForm(formHost, reload), "btn--primary"), btn("Solo la empresa", () => dmcForm(formHost, null, reload)))), pendHost, formHost, out);
   draw();
 }
 
@@ -3181,7 +3181,7 @@ function dmcForm(host, existing, onDone) {
 function agencyAccessForm(host, onDone) {
   clear(host);
   const f = formFields([
-    { name: "nombre", label: "Nombre de la agencia / DMC", required: true, max: 160 },
+    { name: "nombre", label: "Nombre del DMC", required: true, max: 160 },
     { name: "nit", label: "NIT / Tax ID", max: 40 }, { name: "pais", label: "País", max: 60 }, { name: "ciudad", label: "Ciudad", max: 80 },
     { name: "contacto", label: "Persona que va a entrar (nombre completo)", required: true, max: 120 },
     { name: "email", label: "Su correo (será el usuario)", type: "email", required: true, max: 200 },
@@ -3205,10 +3205,10 @@ function agencyAccessForm(host, onDone) {
     accessCard(host, acc, res);
     if (onDone) await onDone();
   },
-  h("p", { class: "p-muted" }, "Crea la agencia / DMC y el acceso de su primera persona con una clave temporal. Si la agencia ya existe (mismo nombre o NIT), solo se le agrega el acceso."),
+  h("p", { class: "p-muted" }, "Crea el DMC y el acceso de su primera persona con una clave temporal. Si el DMC ya existe (mismo nombre o NIT), solo se le agrega el acceso."),
   f.el,
-  h("div", { class: "p-form-actions" }, h("button", { type: "submit", class: "btn btn--primary" }, "Crear agencia y acceso"), btn("Cancelar", () => clear(host))));
-  add(host, h("div", { class: "p-card p-card--form" }, h("h2", { class: "p-h2" }, "Nueva agencia / DMC con acceso"), form));
+  h("div", { class: "p-form-actions" }, h("button", { type: "submit", class: "btn btn--primary" }, "Crear DMC y acceso"), btn("Cancelar", () => clear(host))));
+  add(host, h("div", { class: "p-card p-card--form" }, h("h2", { class: "p-h2" }, "Nuevo DMC con acceso"), form));
   focusHeading(host);
 }
 
