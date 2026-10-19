@@ -82,6 +82,7 @@ const UI = {
     k1: "Experiencias", k_route: "Solo los tours de mi ruta", k_all: "Todo el portafolio", k_none: "Quitar todos", k_sel: "{0} seleccionadas", k2: "Idioma y marca", k_lang: "Idioma del PDF", k_logo: "Marca", k_with: "Con logo Espontáneos Travel", k_without: "Sin logo (marca blanca)",
     k_agency: "Nombre de tu agencia en la portada (opcional)", k3: "Precios", k_price: "¿Qué precio mostrar?", k_pn: "Sin precios", k_pnet: "Con tarifa neta", k_psell: "Con precio de venta (neta + mi markup)", k_mk: "Mi markup (%)",
     k_pnote: "El PDF muestra el precio por persona para 2, 4, 6 y 10 pasajeros, según tu tarifario.", k_go: "Descargar PDF", k_need: "Elige al menos una experiencia.", k_making: "Armando el PDF…", k_done: "Listo: {0}", k_err: "No se pudo crear el PDF. Intenta de nuevo.",
+    k_open: "Si no se descargó, ábrelo aquí", pdf_client: "PDF para tu cliente", pdf_net: "PDF con tarifa neta", pdf_more: "Más opciones (idioma, marca, markup)", pdf_note: "El PDF para el cliente no lleva tarifas ni datos internos. El de tarifa neta es solo para tu agencia.",
     k_trnote: "Traducción por validar por el equipo de Espontáneos Travel.", k_nolib: "No se pudo cargar el generador de PDF. Revisa tu conexión y vuelve a intentar.",
     c_h: "Condiciones 2027", c_l: "Quiénes somos, políticas de reserva y pago y cómo trabajamos. Información para agencias, DMCs y mayoristas.", c_about: "Quiénes somos", c_book: "Reservas y pagos", c_kids: "Niños y menores", c_sost: "Sostenibilidad e impacto", c_team: "Equipo y contacto", c_read: "Cómo leer las fichas",
     c_fit: "Servicios individuales (FIT)", c_grp: "Grupos (más de 20 pasajeros, incentivos, corporativos, estudiantiles o series)", c_conf: "Confirmación", c_pay: "Pagos", c_mod: "Modificaciones", c_canc: "Cancelaciones", c_gen: "Consideraciones generales", c_paym: "Formas de pago",
@@ -138,6 +139,7 @@ const UI = {
     k1: "Experiences", k_route: "Only the tours in my route", k_all: "Whole portfolio", k_none: "Clear all", k_sel: "{0} selected", k2: "Language and brand", k_lang: "PDF language", k_logo: "Brand", k_with: "With Espontáneos Travel logo", k_without: "No logo (white label)",
     k_agency: "Your agency name on the cover (optional)", k3: "Prices", k_price: "Which price to show?", k_pn: "No prices", k_pnet: "With net rate", k_psell: "With selling price (net + my markup)", k_mk: "My markup (%)",
     k_pnote: "The PDF shows the price per person for 2, 4, 6 and 10 passengers, from your rate sheet.", k_go: "Download PDF", k_need: "Choose at least one experience.", k_making: "Building the PDF…", k_done: "Done: {0}", k_err: "The PDF could not be created. Please try again.",
+    k_open: "If it didn't download, open it here", pdf_client: "PDF for your client", pdf_net: "PDF with net rate", pdf_more: "More options (language, brand, markup)", pdf_note: "The client PDF has no rates or internal data. The net-rate PDF is for your agency only.",
     k_trnote: "Translation pending validation by the Espontáneos Travel team.", k_nolib: "The PDF generator could not be loaded. Check your connection and try again.",
     c_h: "Conditions 2027", c_l: "About us, booking and payment policies and how we work. Information for agencies, DMCs and wholesalers.", c_about: "About us", c_book: "Bookings and payments", c_kids: "Children and minors", c_sost: "Sustainability and impact", c_team: "Team and contact", c_read: "How to read the sheets",
     c_fit: "Individual services (FIT)", c_grp: "Groups (more than 20 passengers, incentives, corporate, student or series)", c_conf: "Confirmation", c_pay: "Payments", c_mod: "Changes", c_canc: "Cancellations", c_gen: "General considerations", c_paym: "Payment methods",
@@ -816,8 +818,12 @@ function openFicha(id) {
         ${CTX.onRequest && !wl ? `<button type="button" class="btn ghost" data-r="freq">${ic("send", "sm")}${tx("request")}</button>` : ""}</div>
       ${(!wl && p.impacto) || e.com || e.cord ? `<div class="box impact"><span class="eyebrow">${tx("impact")}${p.impacto && !wl ? ` <span class="b2b">${tx("only_ag")}</span>` : ""}</span><p>${!wl && p.impacto ? `<b>${esc(impName(p.impacto))}</b>` : ""}${e.com ? `<span>${esc(tx("com_txt"))}</span>` : ""}${e.cord ? `<span>${esc(tx("cord_txt"))}</span>` : ""}</p></div>` : ""}
       ${comb ? `<div class="box"><span class="eyebrow">${tx("s_combo")}</span><div class="combo">${comb}</div></div>` : ""}
-      <div class="box"><span class="eyebrow">${tx("s_kit")}</span><div class="kit"><button type="button" class="btn" data-r="kpdf">${ic("download", "sm")}${tx("pdf")}</button><button type="button" class="btn ghost" data-r="ktxt">${ic("copy", "sm")}${tx("copy_txt")}</button><button type="button" class="btn ghost" data-r="klink">${ic("link", "sm")}${tx("copy_link")}</button></div>
-        <small class="sub">${tx("kit_note")}</small></div>
+      <div class="box"><span class="eyebrow">${tx("s_kit")}</span><div class="kit">
+        <button type="button" class="btn" data-pdf="none">${ic("download", "sm")}${tx("pdf_client")}</button>
+        ${wl ? "" : `<button type="button" class="btn ghost" data-pdf="net">${ic("download", "sm")}${tx("pdf_net")}</button>`}
+        <button type="button" class="btn ghost" data-r="ktxt">${ic("copy", "sm")}${tx("copy_txt")}</button><button type="button" class="btn ghost" data-r="klink">${ic("link", "sm")}${tx("copy_link")}</button></div>
+        <p class="note" data-r="fst" aria-live="polite"></p>
+        <small class="sub">${tx("pdf_note")} <a href="#" data-r="kpdf">${tx("pdf_more")}</a></small></div>
     </aside></div></article></div>`;
   document.body.style.overflow = "hidden";
   const f = $r("ficha").firstChild; startSlides(f); hydrate(f);
@@ -830,7 +836,8 @@ function openFicha(id) {
   const sz = $r("seez"); if (sz) sz.addEventListener("click", () => { closeFicha(); animateTo(boxToVB(...VIEWS.eje)); openPop(id); $r("mapwrap").scrollIntoView({ behavior: "smooth" }); });
   if ($r("freq")) $r("freq").addEventListener("click", () => { closeFicha(); CTX.onRequest({ tours: [{ tour_id: e.id, codigo: e.code, nombre: e.name }] }); });
   bindAdd(f);
-  $r("kpdf").addEventListener("click", () => { closeFicha(); K.sel = new Set([id]); setTab("kit"); });
+  $r("kpdf").addEventListener("click", ev => { ev.preventDefault(); closeFicha(); K.sel = new Set([id]); setTab("kit"); });
+  f.querySelectorAll("[data-pdf]").forEach(b => b.addEventListener("click", () => pdfRun([id], { lang: L() === "en" ? "EN" : "ES", logo: !S.wl, price: S.wl ? "none" : b.dataset.pdf, markup: 0, agency: "" }, $r("fst"), b)));
   $r("ktxt").addEventListener("click", () => copy(fichaText(e), tx("txt_copied")));
   $r("klink").addEventListener("click", () => copy(location.origin + location.pathname + "#ficha=" + id, tx("link_copied")));
   try { history.replaceState(null, "", location.pathname + location.search + "#ficha=" + id); } catch (err) { /* sin historial */ }
@@ -1206,64 +1213,98 @@ async function imgData(url, w = 1400, h = 680) {
 async function logoData() { try { const b = await (await fetch("/assets/img/logo.png")).blob(); const bm = await createImageBitmap(b); const c = document.createElement("canvas"); c.width = 240; c.height = Math.round(240 * bm.height / bm.width); c.getContext("2d").drawImage(bm, 0, 0, c.width, c.height); return { d: c.toDataURL("image/png"), r: c.height / c.width }; } catch (e) { return null; } }
 // Suplementos con su valor: en precio de venta, el valor sube con el markup del asesor (redondeado a miles)
 const markupMoney = (s, mk) => String(s).replace(/\$\s?([\d.]{4,})/g, (m, n) => "$" + (Math.round(+n.replace(/\./g, "") * (1 + mk / 100) / 1000) * 1000).toLocaleString("es-CO"));
-async function makePDF() {
-  const st = $r("kst"), btn = $r("kgo"); const ids = [...K.sel].filter(id => byId[id]);
-  if (!ids.length) { st.textContent = tx("k_need"); return; }
-  btn.disabled = true; st.textContent = tx("k_making");
-  if (K.lang !== "ES") await loadLang(K.lang);
-  const lang = K.lang, LB = KL[lang], lg = lang.toLowerCase(), logo = K.logo && !S.wl, price = S.wl ? "none" : K.price, mk = price === "sell" ? K.markup : 0;
-  try {
-    const { jsPDF } = await loadJsPDF().catch(() => { throw Object.assign(new Error("lib"), { code: "lib" }); });
-    const doc = new jsPDF({ unit: "mm", format: "a4" }), W = 210, Mg = 16, CW = W - 2 * Mg; const OL = [74, 92, 58], CH = [163, 40, 58];
-    const agency = pdfTxt(K.agency.trim());
-    const foot = () => { doc.setFontSize(8); doc.setTextColor(120); doc.setFont("helvetica", "normal"); doc.text(pdfTxt(logo ? "Espontáneos Travel SAS · RNT 91795 · info@espontaneostravel.com · WhatsApp +57 318 720 0023" : (agency || "Paisaje Cultural Cafetero") + " · 2027"), Mg, 289); doc.text(String(doc.getNumberOfPages()), W - Mg, 289, { align: "right" }); };
+// Descarga el archivo; en celulares o navegadores internos (WhatsApp, Instagram) que no descargan, queda el enlace para abrirlo
+function savePdf(blob, fname, st) {
+  const url = URL.createObjectURL(blob);
+  try { const a = document.createElement("a"); a.href = url; a.download = fname; a.rel = "noopener"; a.style.display = "none"; document.body.appendChild(a); a.click(); a.remove(); } catch (e) { /* queda el enlace */ }
+  if (st) st.innerHTML = `${esc(tx("k_done", fname))} · <a href="${url}" target="_blank" rel="noopener" download="${esc(fname)}">${esc(tx("k_open"))}</a>`;
+  setTimeout(() => URL.revokeObjectURL(url), 10 * 60 * 1000);
+}
+async function pdfRun(ids, o, st, btn) {
+  ids = ids.filter(id => byId[id]);
+  if (!ids.length) { if (st) st.textContent = tx("k_need"); return false; }
+  if (btn) btn.disabled = true; if (st) st.textContent = tx("k_making");
+  try { const r = await buildPdf(ids, o); savePdf(r.blob, r.fname, st); return true; }
+  catch (e) { if (st) st.textContent = e && e.code === "lib" ? tx("k_nolib") : tx("k_err"); if (window.console) console.error(e); return false; }
+  finally { if (btn) btn.disabled = false; }
+}
+function makePDF() {
+  const wl = !!(S && S.wl);
+  return pdfRun([...K.sel], { lang: K.lang, logo: K.logo && !wl, price: wl ? "none" : K.price, markup: K.markup, agency: K.agency }, $r("kst"), $r("kgo"));
+}
+// o = { lang: ES|EN|FR|IT|PT, logo, price: none|net|sell, markup, agency }. Una sola ficha: sin portada.
+async function buildPdf(ids, o) {
+  const lang = o.lang || "ES", LB = KL[lang] || KL.ES, lg = lang.toLowerCase(), logo = !!o.logo, price = o.price || "none", mk = price === "sell" ? (+o.markup || 0) : 0;
+  if (lang !== "ES") await loadLang(lang);
+  const { jsPDF } = await loadJsPDF().catch(() => { throw Object.assign(new Error("lib"), { code: "lib" }); });
+  const doc = new jsPDF({ unit: "mm", format: "a4" }), W = 210, Mg = 16, CW = W - 2 * Mg; const OL = [74, 92, 58];
+  const agency = pdfTxt(String(o.agency || "").trim());
+  const foot = () => { doc.setFontSize(8); doc.setTextColor(120); doc.setFont("helvetica", "normal"); doc.text(pdfTxt(logo ? "Espontáneos Travel SAS · RNT 91795 · info@espontaneostravel.com · WhatsApp +57 318 720 0023" : (agency || "Paisaje Cultural Cafetero") + " · 2027"), Mg, 289); doc.text(String(doc.getNumberOfPages()), W - Mg, 289, { align: "right" }); };
+  const lgo = logo ? await logoData() : null;
+  let y = Mg, first = true;
+  if (ids.length > 1) {
     // portada
     doc.setFillColor(...OL); doc.rect(0, 0, W, 72, "F"); doc.setTextColor(255);
-    if (logo) { const lgo = await logoData(); if (lgo) { try { doc.addImage(lgo.d, "PNG", Mg, 12, 22, 22 * lgo.r); } catch (e) { /* sin logo */ } }
+    if (logo) { if (lgo) { try { doc.addImage(lgo.d, "PNG", Mg, 12, 22, 22 * lgo.r); } catch (e) { /* sin logo */ } }
       doc.setFont("helvetica", "bold"); doc.setFontSize(24); doc.text(pdfTxt("Espontáneos Travel"), Mg + 27, 24); doc.setFont("helvetica", "normal"); doc.setFontSize(10.5); doc.text(pdfTxt("Armenia, Quindío · Colombia · RNT 91795"), Mg + 27, 31); }
     else if (agency) { doc.setFont("helvetica", "bold"); doc.setFontSize(22); doc.text(agency, Mg, 28); }
     doc.setFont("helvetica", "bold"); doc.setFontSize(17); doc.text(pdfTxt(LB.title), Mg, 60);
     const cover = ids.map(id => byId[id].fotos[0]).find(Boolean);
-    let y = 80;
+    y = 80;
     if (cover) { try { doc.addImage(await imgData(ph1600(cover), 1400, 900), "JPEG", Mg, y, CW, CW * 900 / 1400); y += CW * 900 / 1400 + 10; } catch (e) { /* sin foto */ } }
     doc.setTextColor(30); doc.setFontSize(13); doc.setFont("helvetica", "bold"); doc.text(pdfTxt(LB.exp), Mg, y); y += 7; doc.setFont("helvetica", "normal"); doc.setFontSize(10.5);
     ids.forEach((id, i) => { const e = byId[id]; if (y > 275) { foot(); doc.addPage(); y = 20; } doc.text(pdfTxt(`${i + 1}. ${tr(e, "name", lg)} · ${e.deptos} · ${tr(e, "dur", lg)}`), Mg, y); y += 6; });
-    if (agency && logo) { y += 4; doc.setTextColor(90); doc.setFontSize(9.5); doc.text(pdfTxt(LB.prepared + ": " + K.agency.trim()), Mg, Math.min(y, 280)); }
-    foot();
-    for (const id of ids) {
-      const e = byId[id]; doc.addPage(); y = Mg;
-      const ph = e.fotos[0]; if (ph) { try { doc.addImage(await imgData(ph1600(ph)), "JPEG", Mg, y, CW, CW * 680 / 1400); y += CW * 680 / 1400 + 8; } catch (err) { /* sin foto */ } }
-      doc.setTextColor(...OL); doc.setFont("helvetica", "bold"); doc.setFontSize(19); doc.splitTextToSize(pdfTxt(tr(e, "name", lg)), CW).forEach(l => { doc.text(l, Mg, y + 4); y += 8; });
-      doc.setTextColor(90); doc.setFont("helvetica", "normal"); doc.setFontSize(9.5);
-      const meta = `${logo ? e.code + " · " : ""}${e.deptos} · ${LB.dur}: ${tr(e, "dur", lg)} · ${LB.mod}: ${tr(e, "modalidad", lg)}${tr(e, "edad", lg) ? " · " + LB.age + ": " + tr(e, "edad", lg) : ""} · ${LB.langs}: ${(e.langs || []).join(" · ")}`;
-      doc.splitTextToSize(pdfTxt(meta), CW).forEach(l => { doc.text(l, Mg, y + 2); y += 4.6; }); y += 3;
-      doc.setTextColor(30); doc.setFont("helvetica", "italic"); doc.setFontSize(11); doc.splitTextToSize(pdfTxt(tr(e, "tagline", lg)), CW).forEach(l => { doc.text(l, Mg, y); y += 5.5; }); y += 2;
-      doc.setFont("helvetica", "normal"); doc.setFontSize(10);
-      const para = t => { doc.splitTextToSize(pdfTxt(t), CW).forEach(l => { if (y > 272) { foot(); doc.addPage(); y = Mg; } doc.text(l, Mg, y); y += 5; }); y += 2; };
-      (tr(e, "desc", lg) || []).forEach(para);
-      const list = (title, arr, x, w) => { let yy = y; doc.setFont("helvetica", "bold"); doc.setTextColor(...OL); doc.text(pdfTxt(title), x, yy); yy += 5.5; doc.setFont("helvetica", "normal"); doc.setTextColor(30);
-        (arr || []).forEach(a => doc.splitTextToSize(pdfTxt("- " + a), w).forEach(l => { if (yy > 280) { foot(); doc.addPage(); yy = Mg; } doc.text(l, x, yy); yy += 4.8; })); return yy; };
-      const incl = tr(e, "incl", lg) || [], noi = tr(e, "noIncl", lg) || [];
-      if (incl.length || noi.length) { if (y > 235) { foot(); doc.addPage(); y = Mg; } const y1 = list(LB.incl, incl, Mg, CW / 2 - 4), y2 = list(LB.noIncl, noi, Mg + CW / 2 + 4, CW / 2 - 4); y = Math.max(y1, y2) + 3; }
-      if ((tr(e, "oper", lg) || []).length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.oper, tr(e, "oper", lg), Mg, CW) + 3; }
-      const reco = [...(tr(e, "reco", lg) || []), ...(tr(e, "noApto", lg) || [])];
-      if (reco.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.reco, reco, Mg, CW) + 3; }
-      // Suplementos (dato de tarifa): solo con precios y en español (son notas del tarifario)
-      if (price !== "none" && lang === "ES" && e.p.supl.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.supl, e.p.supl.map(s => markupMoney(s, mk)), Mg, CW) + 3; }
-      if (price !== "none") {
-        if (y > 250) { foot(); doc.addPage(); y = Mg; }
-        const cells = [2, 4, 6, 10].map(p => { const v = priceAt(e.id, p); return v != null ? "$ " + (Math.round(v * (1 + mk / 100) / 1000) * 1000).toLocaleString("es-CO") : LB.consult; });
-        doc.setFillColor(238, 242, 236); doc.rect(Mg, y, CW, 20, "F"); doc.setFont("helvetica", "bold"); doc.setTextColor(...OL); doc.setFontSize(10); doc.text(pdfTxt(LB.price), Mg + 4, y + 6);
-        doc.setFont("helvetica", "normal"); [2, 4, 6, 10].forEach((p, i) => { const x = Mg + 4 + i * (CW - 8) / 4; doc.setFontSize(8.5); doc.setTextColor(90); doc.text(`${p} ${LB.pax}`, x, y + 11); doc.setFontSize(11); doc.setTextColor(30); doc.text(pdfTxt(cells[i]), x, y + 17); });
-        y += 24; doc.setFontSize(8); doc.setTextColor(110); doc.text(pdfTxt(LB.note), Mg, y); doc.setFontSize(10);
-      }
-      foot();
+    if (agency && logo) { y += 4; doc.setTextColor(90); doc.setFontSize(9.5); doc.text(pdfTxt(LB.prepared + ": " + String(o.agency).trim()), Mg, Math.min(y, 280)); }
+    foot(); first = false;
+  }
+  for (const id of ids) {
+    const e = byId[id];
+    if (!first) doc.addPage();
+    y = Mg;
+    if (first) {
+      // ficha individual: franja con la marca (o la agencia) en vez de portada
+      doc.setFillColor(...OL); doc.rect(0, 0, W, 16, "F"); doc.setTextColor(255); doc.setFont("helvetica", "bold"); doc.setFontSize(11);
+      if (logo && lgo) { try { doc.addImage(lgo.d, "PNG", Mg, 2.5, 11, 11 * lgo.r); } catch (err) { /* sin logo */ } }
+      doc.text(pdfTxt(logo ? "Espontáneos Travel · " + LB.title : (agency ? agency + " · " : "") + LB.title), logo ? Mg + 14 : Mg, 10);
+      y = 22; first = false;
     }
-    const fname = `Portafolio_PCCC_2027_${lang}${logo ? "" : "_marca-blanca"}${price === "none" ? "" : price === "net" ? "_neto" : "_venta"}.pdf`;
-    doc.save(fname);
-    st.textContent = tx("k_done", fname);
-  } catch (e) { st.textContent = e && e.code === "lib" ? tx("k_nolib") : tx("k_err"); if (window.console) console.error(e); }
-  finally { btn.disabled = false; }
+    const fh = ids.length === 1 ? 560 : 680;     // ficha individual: foto un poco más baja para que todo quepa en una página
+    const ph = e.fotos[0]; if (ph) { try { doc.addImage(await imgData(ph1600(ph), 1400, fh), "JPEG", Mg, y, CW, CW * fh / 1400); y += CW * fh / 1400 + 7; } catch (err) { /* sin foto */ } }
+    doc.setTextColor(...OL); doc.setFont("helvetica", "bold"); doc.setFontSize(19); doc.splitTextToSize(pdfTxt(tr(e, "name", lg)), CW).forEach(l => { doc.text(l, Mg, y + 4); y += 8; });
+    doc.setTextColor(90); doc.setFont("helvetica", "normal"); doc.setFontSize(9.5);
+    const meta = `${logo ? e.code + " · " : ""}${e.deptos} · ${LB.dur}: ${tr(e, "dur", lg)} · ${LB.mod}: ${tr(e, "modalidad", lg)}${tr(e, "edad", lg) ? " · " + LB.age + ": " + tr(e, "edad", lg) : ""} · ${LB.langs}: ${(e.langs || []).join(" · ")}`;
+    doc.splitTextToSize(pdfTxt(meta), CW).forEach(l => { doc.text(l, Mg, y + 2); y += 4.6; }); y += 3;
+    doc.setTextColor(30); doc.setFont("helvetica", "italic"); doc.setFontSize(11); doc.splitTextToSize(pdfTxt(tr(e, "tagline", lg)), CW).forEach(l => { doc.text(l, Mg, y); y += 5.5; }); y += 2;
+    doc.setFont("helvetica", "normal"); doc.setFontSize(10);
+    const para = t => { doc.splitTextToSize(pdfTxt(t), CW).forEach(l => { if (y > 272) { foot(); doc.addPage(); y = Mg; } doc.text(l, Mg, y); y += 5; }); y += 2; };
+    (tr(e, "desc", lg) || []).forEach(para);
+    const list = (title, arr, x, w) => { let yy = y; doc.setFont("helvetica", "bold"); doc.setTextColor(...OL); doc.text(pdfTxt(title), x, yy); yy += 5.5; doc.setFont("helvetica", "normal"); doc.setTextColor(30);
+      (arr || []).forEach(a => doc.splitTextToSize(pdfTxt("- " + a), w).forEach(l => { if (yy > 280) { foot(); doc.addPage(); yy = Mg; } doc.text(l, x, yy); yy += 4.8; })); return yy; };
+    const incl = tr(e, "incl", lg) || [], noi = tr(e, "noIncl", lg) || [];
+    if (incl.length || noi.length) { if (y > 235) { foot(); doc.addPage(); y = Mg; } const y1 = list(LB.incl, incl, Mg, CW / 2 - 4), y2 = list(LB.noIncl, noi, Mg + CW / 2 + 4, CW / 2 - 4); y = Math.max(y1, y2) + 3; }
+    if ((tr(e, "oper", lg) || []).length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.oper, tr(e, "oper", lg), Mg, CW) + 3; }
+    const reco = [...(tr(e, "reco", lg) || []), ...(tr(e, "noApto", lg) || [])];
+    if (reco.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.reco, reco, Mg, CW) + 3; }
+    // Suplementos (dato de tarifa): solo con precios y en español (son notas del tarifario)
+    if (price !== "none" && lang === "ES" && e.p.supl.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.supl, e.p.supl.map(x => markupMoney(x, mk)), Mg, CW) + 3; }
+    if (price !== "none") {
+      if (y > 258) { foot(); doc.addPage(); y = Mg; }       // el cuadro de precios (≈ 27 mm) cabe hasta antes del pie
+      const cells = [2, 4, 6, 10].map(p => { const v = priceAt(e.id, p); return v != null ? "$ " + (Math.round(v * (1 + mk / 100) / 1000) * 1000).toLocaleString("es-CO") : LB.consult; });
+      doc.setFillColor(238, 242, 236); doc.rect(Mg, y, CW, 20, "F"); doc.setFont("helvetica", "bold"); doc.setTextColor(...OL); doc.setFontSize(10); doc.text(pdfTxt(LB.price), Mg + 4, y + 6);
+      doc.setFont("helvetica", "normal"); [2, 4, 6, 10].forEach((p, i) => { const x = Mg + 4 + i * (CW - 8) / 4; doc.setFontSize(8.5); doc.setTextColor(90); doc.text(`${p} ${LB.pax}`, x, y + 11); doc.setFontSize(11); doc.setTextColor(30); doc.text(pdfTxt(cells[i]), x, y + 17); });
+      y += 24; doc.setFontSize(8); doc.setTextColor(110); doc.text(pdfTxt(LB.note), Mg, y); doc.setFontSize(10);
+    }
+    foot();
+  }
+  const base = ids.length === 1 ? `Ficha_${byId[ids[0]].code || ids[0]}_2027` : "Portafolio_PCCC_2027";
+  const fname = `${base}_${lang}${logo ? "" : "_marca-blanca"}${price === "none" ? "" : price === "net" ? "_neto" : "_venta"}.pdf`;
+  return { blob: doc.output("blob"), fname };
+}
+// Para la pestaña Tarifas del portal: descarga la ficha (con tarifa neta) aunque el portafolio no esté abierto
+export async function downloadFichaPdf(id, ctx, o, st) {
+  if (!(ROOT && ROOT.isConnected)) { CTX = ctx; await preload(ctx.lang); buildModel(); }
+  if (!byId[id]) return false;
+  return pdfRun([id], Object.assign({ lang: (ctx.lang === "en" ? "EN" : "ES"), logo: true, price: "net", markup: 0, agency: "" }, o || {}), st, null);
 }
 
 /* ---------- copiar y avisos ---------- */

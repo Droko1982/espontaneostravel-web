@@ -1918,6 +1918,19 @@ function tourInfo(tour, sp, openCond, rows) {
   ];
 }
 // Descargar la ficha: se imprime solo esa tarjeta (en el diálogo, «Guardar como PDF»)
+// Ficha en PDF descargable (mismo generador del portafolio); si la experiencia no está en el portafolio, se imprime
+async function pdfFicha(tourId, card, btnEl) {
+  const st = card.querySelector(".p-pdf-st") || card.appendChild(h("p", { class: "p-muted p-pdf-st", role: "status" }));
+  st.textContent = L() === "en" ? "Building the PDF…" : "Armando el PDF…";
+  if (btnEl) btnEl.disabled = true;
+  try {
+    const year = catalogYear() || S.vigencias[0] || new Date().getFullYear();
+    const [m, data, priv] = await Promise.all([import("./portafolio.js"), loadDmcRates(year), loadPortafolioPriv(year)]);
+    const ok = tourId && await m.downloadFichaPdf(tourId, { lang: L(), tier: tierOf(), rates: data.rates, cond: data.cond, priv, splitNotes, empresa: EMPRESA, pagos: pagosOficiales() }, { price: "net" }, st);
+    if (!ok) { st.textContent = ""; printFicha(card); }
+  } catch (e) { st.textContent = ""; printFicha(card); }
+  finally { if (btnEl) btnEl.disabled = false; }
+}
 function printFicha(card) {
   let box = $("#p-print"); if (!box) { box = h("div", { id: "p-print" }); document.body.appendChild(box); }
   clear(box);
@@ -1995,7 +2008,7 @@ function pendingCard(x, cond) {
     h("header", { class: "p-tour__head" }, h("h3", { class: "p-h3" }, name), h("span", { class: "p-code" }, x.codigo || ""), badge(t("pending_badge"), "warn"), impactBadge(sp.imp)),
     geoLine(x, sp),
     tourInfo(x, sp, false, []),
-    h("div", { class: "p-actions" }, S.view === "staff" ? null : btn(t("request_this"), () => requestTour(x.id_web, x.codigo, x.nombre), "btn--brand"), btn(t("pdf_btn"), () => printFicha(card))));
+    h("div", { class: "p-actions" }, S.view === "staff" ? null : btn(t("request_this"), () => requestTour(x.id_web, x.codigo, x.nombre), "btn--brand"), btn(t("pdf_btn"), ev => pdfFicha(x.id_web, card, ev.currentTarget))));
   return card;
 }
 
@@ -2019,7 +2032,7 @@ function tourCard(rows, cond) {
     tourInfo(tour, sp, true, rows),
     h("div", { class: "p-table-wrap" }, table(cols, rows, { stack: true, caption: name })),
     h("div", { class: "p-actions" }, S.view === "staff" ? null : btn(t("request_this"), () => requestTour(r0.tour_id || (tour && tour.id_web) || "", (tour && tour.codigo) || r0.codigo, (tour && tour.nombre) || r0.nombre), "btn--brand"),
-      btn(t("pdf_btn"), () => printFicha(card))));
+      btn(t("pdf_btn"), ev => pdfFicha(tour && tour.id_web, card, ev.currentTarget))));
   return card;
 }
 
