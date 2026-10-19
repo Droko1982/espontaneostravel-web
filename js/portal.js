@@ -1743,7 +1743,10 @@ const rateCat = r => (tourOf(r) || {}).cat || (isHotel(r) ? "hoteles" : isServic
 const catName = c => (CATS[c] ? CATS[c][L() === "en" ? 1 : 0] : "");
 function splitNotes(notas) {
   const ficha = [], cond = []; let imp = "";
-  for (const n of notas || []) {
+  // Cada nota puede traer varias líneas (el conversor las agrupa en bloques: las reglas de Firebase
+  // tienen un límite de evaluación y con muchas notas sueltas rechazan la escritura)
+  const lineas = (notas || []).flatMap(x => String(x).split("\n")).map(x => x.trim()).filter(Boolean);
+  for (const n of lineas) {
     const m = /^([^:]{2,30}):\s*([\s\S]+)$/.exec(n);
     if (m && m[1] === "Impacto") imp = m[2].trim();
     else if (m && FICHA_LABELS[m[1]]) ficha.push([m[1], m[2].trim()]);
