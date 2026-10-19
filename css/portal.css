@@ -321,3 +321,11 @@
 .p-team__person { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: .7rem; align-items: center; }
 .p-team__avatar { grid-row: span 2; width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; background: var(--bg-soft); font-weight: 700; color: var(--brand); }
 @media print { .p-geo__bar { display: none !important; } }
+
+/* Más compacto: encabezado y pestañas */
+.p-title { font-size: clamp(1.2rem, 1rem + .9vw, 1.6rem); margin: 0 0 .15rem; }
+.p-hello .p-sub { margin-bottom: .2rem; font-size: .92rem; }
+.p-tabs { gap: .1rem; margin: .55rem 0 .9rem; }
+.p-tab { min-height: 38px; padding: .4rem .7rem; font-size: .9rem; gap: .3rem; }
+.p-tab__count { min-width: 1.15rem; height: 1.15rem; font-size: .68rem; padding: 0 .25rem; }
+@media (min-width: 900px) { .p-tabs { flex-wrap: wrap; overflow-x: visible; } }
