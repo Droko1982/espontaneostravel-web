@@ -21,6 +21,7 @@
       if (window.__revealScan) window.__revealScan();
     }
     function injectJsonLd() {
+      if (document.getElementById("jsonld-static")) return;   // ya viene en el HTML (tools/build-static.js), en el idioma de la página
       const old = document.getElementById("jsonld-faq"); if (old) old.remove();
       const data = { "@context": "https://schema.org", "@type": "FAQPage",
         "mainEntity": items("es").map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
