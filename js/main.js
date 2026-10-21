@@ -276,7 +276,7 @@
     const list = D().aliados();
     sec.hidden = !list.length;
     row.innerHTML = list.map(a => {
-      const img = `<img src="${esc(a.logo)}" alt="${esc(a.nombre)}" loading="lazy" decoding="async" height="64">`;
+      const img = `<img src="/${esc(a.logo).replace(/^\/+/, "")}" alt="${esc(a.nombre)}" loading="lazy" decoding="async" height="64">`;
       return a.url ? `<a class="allies__item" href="${esc(a.url)}" target="_blank" rel="noopener" title="${esc(a.nombre)}">${img}</a>` : `<span class="allies__item" title="${esc(a.nombre)}">${img}</span>`;
     }).join("");
   }

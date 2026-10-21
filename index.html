@@ -56,35 +56,292 @@
 <!-- Evita el destello de tema -->
 <script>document.documentElement.classList.add("js");(function(){try{var t=localStorage.getItem("esp_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 
-<!-- Datos estructurados: agencia -->
-<script type="application/ld+json">
+<!-- BUILD:jsonld:start -->
+<!-- Datos estructurados: empresa, sitio, página y preguntas frecuentes (tools/build-static.js) -->
+<script type="application/ld+json" id="jsonld-static">
 {
-  "@context": "https://schema.org",
-  "@type": "TravelAgency",
-  "name": "Espontáneos Travel",
-  "legalName": "Espontáneos Travel SAS",
-  "taxID": "902056513",
-  "description": "Operador turístico del Paisaje Cultural Cafetero con más de 15 años de experiencia en experiencias rurales, naturales, comunitarias y de bienestar. Turismo responsable, sostenible y sin barreras.",
-  "url": "https://www.espontaneostravel.com/",
-  "logo": "https://www.espontaneostravel.com/assets/img/logo.png",
-  "image": "https://www.espontaneostravel.com/assets/img/og-cover.jpg?v=2",
-  "telephone": "+57 318 7200023",
-  "email": "info@espontaneostravel.com",
-  "areaServed": [
-    { "@type": "Place", "name": "Eje Cafetero (Paisaje Cultural Cafetero)" },
-    { "@type": "City", "name": "Armenia" }, { "@type": "City", "name": "Salento" },
-    { "@type": "City", "name": "Filandia" }, { "@type": "City", "name": "Pereira" },
-    { "@type": "City", "name": "Manizales" }, { "@type": "AdministrativeArea", "name": "Quindío" }
-  ],
-  "knowsAbout": ["Tour de café", "Valle de Cocora", "Parque del Café", "Panaca", "Recuca", "Avistamiento de aves", "Turismo rural comunitario", "Turismo accesible / sin barreras", "Cabalgatas", "Parapente", "Aguas termales", "Cata de café especial", "Turismo de bienestar"],
-  "address": { "@type": "PostalAddress", "addressLocality": "Armenia", "addressRegion": "Quindío", "addressCountry": "CO" },
-  "geo": { "@type": "GeoCoordinates", "latitude": 4.5339, "longitude": -75.6811 },
-  "identifier": { "@type": "PropertyValue", "name": "RNT", "value": "91795" },
-  "knowsLanguage": ["es", "en", "fr", "de", "pt"],
-  "hasMap": "https://www.google.com/maps/search/?api=1&query=Espont%C3%A1neos%20Travel&query_place_id=ChIJceh06cj1OI4RQY5rYeJ7zrY",
-  "sameAs": ["https://www.instagram.com/espontaneostravel/", "https://www.facebook.com/espontaneostravel", "https://www.google.com/maps/search/?api=1&query=Espont%C3%A1neos%20Travel&query_place_id=ChIJceh06cj1OI4RQY5rYeJ7zrY"]
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "TravelAgency",
+   "name": "Espontáneos Travel",
+   "legalName": "Espontáneos Travel SAS",
+   "taxID": "902056513",
+   "description": "56 experiencias en el Paisaje Cultural Cafetero: Valle de Cocora, Salento, fincas cafeteras, aves y más, con guías y familias locales. RNT 91795.",
+   "url": "https://www.espontaneostravel.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.espontaneostravel.com/assets/img/logo.png"
+   },
+   "image": "https://www.espontaneostravel.com/assets/img/og-cover.jpg?v=2",
+   "telephone": "+57 318 720 0023",
+   "email": "info@espontaneostravel.com",
+   "areaServed": [
+    {
+     "@type": "Place",
+     "name": "Eje Cafetero (Paisaje Cultural Cafetero)"
+    },
+    {
+     "@type": "City",
+     "name": "Armenia"
+    },
+    {
+     "@type": "City",
+     "name": "Salento"
+    },
+    {
+     "@type": "City",
+     "name": "Filandia"
+    },
+    {
+     "@type": "City",
+     "name": "Pereira"
+    },
+    {
+     "@type": "City",
+     "name": "Manizales"
+    },
+    {
+     "@type": "AdministrativeArea",
+     "name": "Quindío"
+    }
+   ],
+   "knowsAbout": [
+    "Tour de café",
+    "Valle de Cocora",
+    "Parque del Café",
+    "Panaca",
+    "Recuca",
+    "Avistamiento de aves",
+    "Turismo rural comunitario",
+    "Turismo accesible / sin barreras",
+    "Cabalgatas",
+    "Parapente",
+    "Aguas termales",
+    "Cata de café especial",
+    "Turismo de bienestar"
+   ],
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Armenia",
+    "addressRegion": "Quindío",
+    "addressCountry": "CO"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 4.5339,
+    "longitude": -75.6811
+   },
+   "identifier": {
+    "@type": "PropertyValue",
+    "name": "RNT",
+    "value": "91795"
+   },
+   "knowsLanguage": [
+    "es",
+    "en",
+    "fr",
+    "de",
+    "pt"
+   ],
+   "hasMap": "https://www.google.com/maps/search/?api=1&query=Espont%C3%A1neos%20Travel&query_place_id=ChIJceh06cj1OI4RQY5rYeJ7zrY",
+   "sameAs": [
+    "https://www.instagram.com/espontaneostravel/",
+    "https://www.facebook.com/espontaneostravel",
+    "https://www.google.com/maps/search/?api=1&query=Espont%C3%A1neos%20Travel&query_place_id=ChIJceh06cj1OI4RQY5rYeJ7zrY"
+   ],
+   "@id": "https://www.espontaneostravel.com/#org",
+   "alternateName": [
+    "Espontaneos Travel",
+    "Espontáneos Travel SAS"
+   ],
+   "memberOf": [
+    {
+     "@type": "Organization",
+     "name": "ACOTUR · Asociación Colombiana de Turismo Responsable",
+     "url": "https://www.acotur.co"
+    },
+    {
+     "@type": "Organization",
+     "name": "Cámara de Comercio de Armenia y del Quindío",
+     "url": "https://www.camaraarmenia.org.co"
+    },
+    {
+     "@type": "Organization",
+     "name": "Rutas del Paisaje Cultural Cafetero",
+     "url": "https://www.rutasdelpaisajeculturalcafetero.com"
+    },
+    {
+     "@type": "Organization",
+     "name": "Paisaje Cordillerano"
+    }
+   ],
+   "contactPoint": [
+    {
+     "@type": "ContactPoint",
+     "contactType": "reservations",
+     "telephone": "+57 318 720 0023",
+     "email": "info@espontaneostravel.com",
+     "url": "https://wa.me/573187200023",
+     "availableLanguage": [
+      "Spanish",
+      "English",
+      "French",
+      "German",
+      "Portuguese"
+     ],
+     "areaServed": "CO"
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.espontaneostravel.com/#website",
+   "url": "https://www.espontaneostravel.com/",
+   "name": "Espontáneos Travel",
+   "inLanguage": [
+    "es",
+    "en",
+    "fr",
+    "de",
+    "pt"
+   ],
+   "publisher": {
+    "@id": "https://www.espontaneostravel.com/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://www.espontaneostravel.com/#webpage",
+   "url": "https://www.espontaneostravel.com/",
+   "name": "Espontáneos Travel · Experiencias en el Eje Cafetero, Colombia",
+   "inLanguage": "es",
+   "isPartOf": {
+    "@id": "https://www.espontaneostravel.com/#website"
+   },
+   "about": {
+    "@id": "https://www.espontaneostravel.com/#org"
+   },
+   "primaryImageOfPage": "https://www.espontaneostravel.com/assets/img/og-cover.jpg"
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://www.espontaneostravel.com/#faq",
+   "inLanguage": "es",
+   "isPartOf": {
+    "@id": "https://www.espontaneostravel.com/#webpage"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "¿Quiénes son Espontáneos Travel?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "¡Hola! Somos Espontáneos Travel, un operador turístico del Paisaje Cultural Cafetero con más de 15 años de experiencia. Nos especializamos en experiencias rurales, naturales, comunitarias y de bienestar. Nuestro propósito es conectarte de forma auténtica y responsable con la naturaleza y la cultura de nuestra región. 🌿☕"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cómo reservo y qué necesito?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "¡Es muy sencillo! Para confirmar tu reserva necesitamos los nombres completos y documentos de identidad de los pasajeros, junto con el soporte de pago del anticipo. Al recibirlo te enviamos la confirmación formal de tu viaje. 🎒"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cuánto cuestan las experiencias?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "El valor depende del número de personas y de dónde te hospedas. Dime cuántas personas y la fecha y te cotizo."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Debo pagar todo por adelantado? ¿Qué medios de pago aceptan?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Para reservar pagas un anticipo del 50%. El saldo y las fechas límite van en tu cotización.\nMedios de pago, a nombre de Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia ahorros: 756-000062-16\n📱 Nequi o Daviplata: 317 645 6723\n💳 Tarjeta débito o crédito: botón de pago seguro Wompi\n💵 El saldo lo puedes pagar en pesos, dólares o euros.\n📩 Envíanos el comprobante por WhatsApp.\n⚠ Solo usamos estos medios. Si alguien te pide pagar en otra cuenta, confírmalo antes con nosotros."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Hacen traslados desde el aeropuerto?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hacemos traslados desde el aeropuerto El Edén (Armenia) y Matecaña (Pereira) a hoteles del Quindío y Risaralda, y entre Armenia, Pereira y Manizales. Trayecto aprox. 1 h."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué debo llevar?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Para disfrutar al máximo del Paisaje Cultural Cafetero lleva ropa muy cómoda, bloqueador solar, repelente, buena hidratación y tu documento de identidad a la mano. ☀💧"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cómo es el clima?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Clima templado todo el año; puede llover en cualquier temporada. En Cocora, el páramo y la palma de cera hace frío."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cuándo es temporada alta?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Temporada alta 2026: Semana Santa (28 mar–5 abr), receso escolar (3–12 oct) y fin de año (19 dic 2026–11 ene 2027). Precios y disponibilidad varían."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Es apto para niños y adultos mayores?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "¡Claro que sí! Para los niños, algunas caminatas requieren acompañamiento y condición física básica. Para adultos mayores te recomendamos las opciones que mejor se adapten a su movilidad. 👨‍👩‍👧‍👦 Tarifa niño de 3 a 10 años; menores de 3 años pagan tarifa mínima sin alimentación. En el Parque del Café la tarifa niño aplica para estaturas entre 91 y 124 cm."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Tienen opciones accesibles o sin barreras?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "¡Sí! Contamos con opciones adaptadas y vehículos especiales para que todos disfruten de la región sin barreras. También tenemos guía para personas invidentes. Pregúntanos y te asesoramos de forma personalizada. ♿"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿En qué idiomas son los guías?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Guías en español, inglés, francés, italiano y portugués (la guianza en otro idioma tiene costo adicional). En el Tour Compartido, el guía en inglés tiene suplemento según el tamaño del grupo."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué pasa si cancelo?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Entendemos que los planes cambian. Las cancelaciones dependen de la anticipación con que nos avises. Cuéntame qué tour reservaste y revisamos tu caso con un asesor."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Son una empresa sostenible?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Trabajamos con familias campesinas, artesanos y guías locales, con pago justo. Te damos agua en cada recorrido y capa reutilizable para la lluvia (cero plásticos de un solo uso), separamos residuos y sembramos árboles para compensar la huella de carbono. Rechazamos la explotación sexual de niñas, niños y adolescentes (ESCNNA)."
+     }
+    }
+   ]
+  }
+ ]
 }
 </script>
+<!-- BUILD:jsonld:end -->
 </head>
 <body>
 <a class="skip" href="#experiencias" data-i18n="skip">Saltar al contenido</a>
@@ -820,10 +1077,12 @@ Medios de pago, a nombre de Espontáneos Travel SAS (NIT 902.056.513):
 </section>
 
 <!-- ============ Somos parte de (gremios y redes; se muestra solo con logos autorizados) ============ -->
-<section class="allies" id="aliados" hidden aria-labelledby="aliados-t">
+<section class="allies" id="aliados" aria-labelledby="aliados-t">
   <div class="container">
     <h2 class="allies__t" id="aliados-t" data-i18n="allies_title">Somos parte de</h2>
-    <div class="allies__row" id="aliados-row"></div>
+    <div class="allies__row" id="aliados-row"><!-- BUILD:aliados:start -->
+<a class="allies__item" href="https://www.acotur.co" target="_blank" rel="noopener" title="ACOTUR · Asociación Colombiana de Turismo Responsable"><img src="/assets/img/aliados/acotur.webp" alt="ACOTUR · Asociación Colombiana de Turismo Responsable" loading="lazy" decoding="async" height="64"></a><a class="allies__item" href="https://www.camaraarmenia.org.co" target="_blank" rel="noopener" title="Cámara de Comercio de Armenia y del Quindío"><img src="/assets/img/aliados/camara-comercio-armenia.webp" alt="Cámara de Comercio de Armenia y del Quindío" loading="lazy" decoding="async" height="64"></a><a class="allies__item" href="https://www.rutasdelpaisajeculturalcafetero.com" target="_blank" rel="noopener" title="Rutas del Paisaje Cultural Cafetero"><img src="/assets/img/aliados/rutas-pcc.webp" alt="Rutas del Paisaje Cultural Cafetero" loading="lazy" decoding="async" height="64"></a>
+<!-- BUILD:aliados:end --></div>
   </div>
 </section>
 </main>
@@ -937,12 +1196,12 @@ Medios de pago, a nombre de Espontáneos Travel SAS (NIT 902.056.513):
 <script src="/js/jenny-data.js?v=bcf723b0"></script>
 <script src="/js/render.js?v=d35c5cb6"></script>
 <script src="/js/pages-map.js?v=d048e379"></script>
-<script src="/js/main.js?v=7a9716fc"></script>
+<script src="/js/main.js?v=02fabab9"></script>
 <script src="/js/plans.js?v=e8751819"></script>
 <script src="/js/qrscan.js?v=9dbbd032"></script>
 <script src="/js/maps.js?v=4b587ec2" defer></script>
 <script src="/js/bot.js?v=ab953cf7"></script>
-<script src="/js/faq.js?v=b0792dd0"></script>
+<script src="/js/faq.js?v=87e0ce3c"></script>
 <script type="module" src="/js/backend.js?v=049a1b27"></script>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
