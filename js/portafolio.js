@@ -14,7 +14,7 @@
    ========================================================================== */
 
 const VIG = 2027;
-let D = null, M = null; const I18 = {};         // datos públicos (se cargan una vez; cada idioma cuando se necesita)
+let D = null, M = null, V = null; const I18 = {}; // datos públicos (se cargan una vez; cada idioma cuando se necesita); V: vías
 let ROOT = null, CTX = null, ac = null;         // instancia montada
 let EXP = [], byId = {}, S = null, PR = null, HOTELS = [], FINCAS = [], finById = {};
 let VB = { x: 0, y: 0, w: 100, h: 100 }, svg = null, base = null, ov = null, anim = 0, slideTimers = [], toastT = 0;
@@ -62,7 +62,7 @@ const UI = {
     near: "≈ {0} km de tu hotel", near_sort: "Cercanas a mi hotel primero", near_hint: "Elige el hotel en «Arma tu ruta» y verás la distancia a cada experiencia.", p_diff: "Nivel de dificultad", p_cap: "Capacidad máxima", p_meet: "Punto de encuentro", p_guide: "Idioma de guianza",
     low: "Baja", mid: "Media", high: "Alta", pick: "Recogida en el alojamiento (zona de cobertura según condiciones)", pickC: "Su hotel", onsite: "En el lugar de la experiencia", atHotel: "En el hotel del grupo",
     capB2B: "Tarifa publicada hasta {0} pax; grupos mayores: consultar", capB2C: "Hasta {0} personas", langB2B: "Español / inglés (otros idiomas con suplemento de guianza)", langC: "Español / inglés",
-    r_h: "Arma tu ruta", r_l: "Elige aeropuerto, hotel y tours. La ruta se dibuja en el mapa con tiempos aproximados y el vehículo según el número de pasajeros.",
+    r_h: "Arma tu ruta", r_l: "Elige aeropuerto, hotel y tours. La ruta se dibuja en el mapa con distancias por carretera, tiempos estimados y el vehículo según el número de pasajeros.",
     r1: "Grupo", r_pax: "Pasajeros", r_start: "Primer día de tours", r_d1: "Día 1 (el de llegada)", day: "Día {0}", veh_sug: "Vehículo sugerido", see_fleet: "ver flota",
     r2: "Llegada y salida", r_arr: "Aeropuerto de llegada", r_dep: "Aeropuerto de salida", no_tr: "Sin traslado",
     r3: "Hotel", h_ph: "Escribe el nombre del hotel…", h_note: "Primero salen los hoteles aliados de ET. Si no está, búscalo en el mapa abierto (OpenStreetMap), pega su enlace de Google Maps o tócalo en el mapa.",
@@ -119,7 +119,7 @@ const UI = {
     near: "≈ {0} km from your hotel", near_sort: "Closest to my hotel first", near_hint: "Choose the hotel in «Build a route» to see the distance to each experience.", p_diff: "Difficulty level", p_cap: "Maximum capacity", p_meet: "Meeting point", p_guide: "Guiding language",
     low: "Low", mid: "Medium", high: "High", pick: "Pick-up at the accommodation (coverage area as per conditions)", pickC: "Your hotel", onsite: "At the experience site", atHotel: "At the group's hotel",
     capB2B: "Rate published up to {0} pax; larger groups: ask us", capB2C: "Up to {0} people", langB2B: "Spanish / English (other languages with guiding supplement)", langC: "Spanish / English",
-    r_h: "Build a route", r_l: "Choose airport, hotel and tours. The route is drawn on the map with approximate times and the vehicle for your group size.",
+    r_h: "Build a route", r_l: "Choose airport, hotel and tours. The route is drawn on the map with road distances, estimated times and the vehicle for your group size.",
     r1: "Group", r_pax: "Passengers", r_start: "First tour day", r_d1: "Day 1 (arrival day)", day: "Day {0}", veh_sug: "Suggested vehicle", see_fleet: "see fleet",
     r2: "Arrival and departure", r_arr: "Arrival airport", r_dep: "Departure airport", no_tr: "No transfer",
     r3: "Hotel", h_ph: "Type the hotel name…", h_note: "ET partner hotels come first. If it isn't there, search the open map (OpenStreetMap), paste its Google Maps link or tap it on the map.",
@@ -318,7 +318,7 @@ function sanitizeR(R) {
 /* ---------- montaje ---------- */
 // Descarga los datos públicos (y el idioma) mientras el portal lee las tarifas: así el portafolio abre más rápido
 export async function preload(lang) {
-  if (!D) [D, M] = await Promise.all([json("/data/portafolio.json"), json("/data/mapa-eje.json")]);
+  if (!D) [D, M, V] = await Promise.all([json("/data/portafolio.json"), json("/data/mapa-eje.json"), json("/data/vias-eje.json").catch(() => null)]);
   if (lang === "en") await loadLang("en");
 }
 export async function mountPortafolio(host, ctx) {
@@ -736,8 +736,8 @@ function badges(e) {
   if (e.com) b.push(`<span class="com">${tx("b_com")}</span>`); if (e.cord) b.push(`<span class="cord">${tx("b_cord")}</span>`);
   return b.length ? `<div class="badge">${b.join("")}</div>` : "";
 }
-// Distancia aproximada por carretera desde el hotel de «Arma tu ruta» (la finca, al municipio con finca más cercano)
-function distKm(e) { const h = S.R && S.R.hotel; if (!h) return null; const tp = tourPoint(e, h); return Math.round(Math.max(1, hav([h.lat, h.lon], [tp.lat, tp.lon]) * 1.4)); }
+// Distancia por carretera desde el hotel de «Arma tu ruta» (la finca, al municipio con finca más cercano)
+function distKm(e) { const h = S.R && S.R.hotel; if (!h) return null; const tp = tourPoint(e, h); return Math.max(1, legInfo([h.lat, h.lon], [tp.lat, tp.lon], 1).km); }
 const nearLine = e => { const k = distKm(e); return k == null ? "" : `<div class="near">${ic("pin", "sm")}${tx("near", k)}</div>`; };
 const priceLine = e => { const f = fromPrice(e.id); return f ? `${tx("from_net")} <b>${cop(f.v)}</b> <span class="code">· ${f.pax} pax</span>` : tx("ask_rate"); };
 
@@ -932,7 +932,18 @@ function toggleTour(id) {
   saveR(); renderRoute();
 }
 const hav = (a, b) => { const R = 6371, t = x => x * Math.PI / 180, dl = t(b[0] - a[0]), dn = t(b[1] - a[1]); const h = Math.sin(dl / 2) ** 2 + Math.cos(t(a[0])) * Math.cos(t(b[0])) * Math.sin(dn / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
-function legInfo(a, b) { const km = Math.max(3, hav(a, b) * 1.4); const min = Math.round((km / 36 * 60 + 5) / 5) * 5; return { km: Math.round(km), min }; }
+// Tramo por carretera: vías reales entre cabeceras y aeropuertos (data/vias-eje.json, tools/build-vias.js) más el
+// trecho de cada punto a su cabecera; si están cerca, o sin datos de vías, línea recta × 1,4. Tiempos con margen de van.
+const nearV = p => { let b = null; V.pts.forEach((c, i) => { const d = hav(p, c); if (!b || d < b.d) b = { i, d }; }); return b; };
+function legInfo(a, b, lo = 3) {
+  const local = () => { const km = Math.max(lo, hav(a, b) * 1.4); return { km: Math.round(km), min: Math.round((km / 36 * 60 + 5) / 5) * 5 }; };
+  if (!V) return local();
+  const va = nearV(a), vb = nearV(b); if (va.i === vb.i || hav(a, b) <= va.d + vb.d) return local();
+  const [i, j] = va.i < vb.i ? [va.i, vb.i] : [vb.i, va.i], k = i * V.n.length - i * (i + 1) / 2 + (j - i - 1);
+  if (!(V.km[k] >= 0)) return local();
+  const acc = (va.d + vb.d) * 1.4, km = Math.max(lo, V.km[k] + acc);
+  return { km: Math.round(km), min: Math.round((V.min[k] * 1.2 + acc / 30 * 60 + 5) / 5) * 5 };
+}
 const fmtMin = m => (m >= 60 ? `${Math.floor(m / 60)} h ${m % 60 ? String(m % 60).padStart(2, "0") : ""}`.trim() : `${m} min`);
 const vehFor = p => D.vehicles.filter(v => !v.vip && !v.suplemento).find(v => p >= v.min && p <= v.max) || D.vehicles.filter(v => !v.vip && !v.suplemento).slice(-1)[0];
 const vehName = v => { const x = L() === "en" && I18.en && I18.en.vehicles && I18.en.vehicles.find(y => y.id === v.id); return (x && x.name) || v.name; };
