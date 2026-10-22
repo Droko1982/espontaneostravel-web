@@ -1264,8 +1264,8 @@ function renderDmcApp() {
     h("p", { class: "p-sub" }, t("agency") + ": " + (S.dmc.nombre || S.profile.dmcId))));
   S.tabsApi = mountTabs(main, [
     { id: "portafolio", label: t("tab_portfolio") }, { id: "tarifas", label: t("tab_rates") }, { id: "solicitar", label: t("tab_request") },
-    { id: "mis", label: t("tab_mine") }, { id: "clientes", label: t("tab_clients") }, { id: "cuenta", label: t("tab_account") }
-  ], { portafolio: dmcPortafolio, tarifas: dmcTarifas, solicitar: dmcSolicitar, mis: dmcMine, clientes: dmcClientes, cuenta: myAccount });
+    { id: "mis", label: t("tab_mine") }, { id: "cuenta", label: t("tab_account") }
+  ], { portafolio: dmcPortafolio, tarifas: dmcTarifas, solicitar: dmcSolicitar, mis: dmcMine, cuenta: myAccount });   // «Clientes» se quitó del menú de agencias (22-oct-2026); dmcClientes queda por si se vuelve a activar
 }
 
 // Traslados, suplementos y guianza (ET-/SU-) y hoteles (HT-): filas sin tour del catálogo
@@ -1498,11 +1498,11 @@ async function dmcPortafolio(view) {
    Solo información comercial para agencias (sin datos internos: propiedad de cada vehículo, modelos ni municipios de los puntos). */
 const EMPRESA = {
  "es": {
-  "title": "Espontáneos Travel · Operador turístico del Eje Cafetero",
+  "title": "Espontáneos Travel · Operador del Paisaje Cultural Cafetero Colombiano",
   "pillars": [
    [
     "Quiénes somos",
-    "Somos un operador turístico especializado en el Eje Cafetero colombiano. Diseñamos y operamos experiencias que convierten la riqueza natural y cultural de la región en itinerarios de alto valor para nuestros socios comerciales en Colombia y el mundo."
+    "Somos un operador del Paisaje Cultural Cafetero Colombiano (PCCC): diseñamos y operamos experiencias que convierten la riqueza natural y cultural de la región en itinerarios de alto valor para nuestros socios comerciales en Colombia y el mundo."
    ],
    [
     "Cómo trabajamos",
@@ -1510,7 +1510,7 @@ const EMPRESA = {
    ],
    [
     "Qué hacemos",
-    "Creamos rutas exclusivas, desde el turismo de naturaleza de alta montaña hasta vivencias comunitarias de inmersión profunda. Co-creamos cada experiencia con actores locales para que el destino sea un motor de desarrollo sostenible."
+    "Creamos rutas exclusivas, desde el turismo de naturaleza hasta vivencias comunitarias de inmersión profunda. Co-creamos cada experiencia con actores locales para que el destino sea un motor de desarrollo sostenible."
    ]
   ],
   "impact_t": "Convenciones de impacto",
@@ -1563,7 +1563,7 @@ const EMPRESA = {
    ]
   ],
   "team_t": "Equipo de trabajo y protocolos de operación",
-  "drivers_t": "Conductores", "drivers": ["Javier Bedoya", "Giovanni Camacho"], "drivers_note": "Foto y frase: próximamente.",
+  "drivers_t": "Conductores", "drivers": ["Javier Bedoya", "Giovanni Camacho"], "drivers_note": "",
   "protocols": [
    [
     "Flota vehicular",
@@ -1659,11 +1659,11 @@ const EMPRESA = {
   ]
  },
  "en": {
-  "title": "Espontáneos Travel · Coffee Region tour operator",
+  "title": "Espontáneos Travel · Colombian Coffee Cultural Landscape operator",
   "pillars": [
    [
     "Who we are",
-    "We are a tour operator specialised in Colombia's Coffee Region. We design and operate experiences that turn the region's natural and cultural wealth into high-value itineraries for our trade partners in Colombia and worldwide."
+    "We are an operator in the Colombian Coffee Cultural Landscape (PCCC): we design and operate experiences that turn the region's natural and cultural wealth into high-value itineraries for our trade partners in Colombia and worldwide."
    ],
    [
     "How we work",
@@ -1671,7 +1671,7 @@ const EMPRESA = {
    ],
    [
     "What we do",
-    "We create exclusive routes, from high-mountain nature tourism to deeply immersive community experiences. We co-create every experience with local stakeholders so that the destination becomes an engine of sustainable development."
+    "We create exclusive routes, from nature tourism to deeply immersive community experiences. We co-create every experience with local stakeholders so that the destination becomes an engine of sustainable development."
    ]
   ],
   "impact_t": "Impact icons",
@@ -1724,7 +1724,7 @@ const EMPRESA = {
    ]
   ],
   "team_t": "Our team and operating protocols",
-  "drivers_t": "Drivers", "drivers": ["Javier Bedoya", "Giovanni Camacho"], "drivers_note": "Photo and quote: coming soon.",
+  "drivers_t": "Drivers", "drivers": ["Javier Bedoya", "Giovanni Camacho"], "drivers_note": "",
   "protocols": [
    [
     "Vehicle fleet",
