@@ -289,6 +289,10 @@
 .pf .vcard .media { aspect-ratio: 16/10; position: relative; background: var(--surface-2); }
 .pf .vcard .media:has(.ph) { aspect-ratio: 3/1; }
 .pf .vcard .ph { font-size: .74rem; }
+.pf .vcard .media[data-vf] { cursor: zoom-in; overflow: hidden; }
+.pf .vcard .media .slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pf .fleet { display: block; width: 100%; padding: 0; border: 0; margin: 14px 0 4px; border-radius: var(--r); overflow: hidden; background: var(--surface-2); cursor: zoom-in; aspect-ratio: 21/8; }
+.pf .fleet img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .pf .vcard .body { padding: 10px 12px 12px; display: grid; gap: 3px; }
 .pf .vcard h4 { font-size: 1rem; }
 .pf .pax { font-family: var(--f-mono); font-size: .78rem; font-weight: 700; color: var(--cherry); }
