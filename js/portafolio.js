@@ -36,9 +36,17 @@ const UI = {
     banner_dmc: "Portafolio PCCC Espontáneos Travel 2027 · DMCs", banner_nac: "Portafolio PCCC Espontáneos Travel 2027 · Mayoristas y Mercado Nacional",
     tar_dmc: "Tarifario DMC", tar_nac: "Tarifario Mercado Nacional y Mayoristas", tar_prev: "tarifas {0} vigentes en {1} mientras ET publica las nuevas", tar_none: "aún sin tarifas cargadas",
     two_fingers: "Usa dos dedos para mover el mapa", mode: "Vista", m_agency: "Vista agencia", m_wl: "Marca blanca", wl_on: "Marca blanca: sin logo, precios, códigos ni datos solo agencias. Puedes mostrar esta pantalla a tu cliente.",
+    t_mapa: "Inicio", map_open: "Ver el mapa del Eje Cafetero", map_close: "Ocultar el mapa", map_tg_s: "{0} experiencias, aeropuertos, capitales y fincas · clic para abrir",
+    inst_sost: "Nuestro impacto sostenible", ico_t: "Iconografía", ico_l: "En este portafolio encontrarás información con las siguientes características:",
+    ico_acc: "Recorridos accesibles para personas en silla de ruedas, con movilidad reducida o personas ciegas. Consultar tarifas y ajustes.",
+    ico_acc2: "Contamos con certificación en Turismo Accesible (CIDCA – ProColombia 2025) y llevamos este enfoque a la práctica mediante el diseño y operación de productos turísticos accesibles. Fuimos pioneros al operar el primer fam trip de turismo accesible en el Eje Cafetero, reafirmando nuestro compromiso con la inclusión regional.",
+    ico_com: "Experiencia dirigida con la comunidad local (campesinos, artesanos, productores locales).",
+    ico_cord: "Tours o experiencias que hacen parte del proyecto Paisaje Cordillerano. Municipios: Calarcá, Córdoba, Pijao, Buenavista y Génova en Quindío; Caicedonia y Sevilla en Valle del Cauca.",
+    ico_lang: "Indica que el recorrido se puede hacer en ese idioma, independiente del guía bilingüe (consultar fincas en las que aplica).",
+    ico_shared: "Tour compartido.", ico_acc_s: "Accesible (consultar tarifas y ajustes)", b_shared: "Tour compartido",
     map_t: "El Eje Cafetero, punto por punto", map_s: "Arrastra para moverte. Toca un punto para ver la experiencia.", map_aria: "Mapa del Eje Cafetero: departamentos, capitales, aeropuertos y experiencias",
     v_region: "Región", v_eje: "Eje Cafetero", v_quindio: "Quindío", z_in: "Acercar", z_out: "Alejar", k_apt: "Aeropuerto", k_cap: "Capital", k_hot: "Hoteles aliados", k_fin: "Fincas cafeteras",
-    t_mapa: "Mapa", t_exp: "Experiencias", t_ruta: "Arma tu ruta", t_trans: "Transporte", t_kit: "Kit de venta", t_cond: "Condiciones",
+    t_exp: "Experiencias", t_ruta: "Arma tu ruta", t_trans: "Transporte", t_kit: "Kit de venta", t_cond: "Condiciones",
     welcome: "Bienvenido al portafolio", welcome_l: "Todo el Paisaje Cultural Cafetero en un mapa: {0} experiencias 2027 en ocho líneas de producto, fincas cafeteras, aeropuertos y capitales de Quindío, Risaralda, Caldas y Valle del Cauca.",
     how1: "Explora el mapa.", how1b: "Toca un punto para ver la experiencia en fotos.", how2: "Abre la ficha.", how2b: "Qué incluye, operación, idiomas y tarifa neta según tu tarifario.",
     how3: "Arma tu ruta.", how3b: "Aeropuerto, hotel y tours por día: la ruta se dibuja sola y suma traslados y tours.", how4: "Descarga el kit de venta.", how4b: "PDF en el idioma de tu cliente, con o sin logo y con tu markup.",
@@ -93,9 +101,17 @@ const UI = {
     banner_dmc: "Espontáneos Travel PCCC Portfolio 2027 · DMCs", banner_nac: "Espontáneos Travel PCCC Portfolio 2027 · Wholesalers & Domestic Market",
     tar_dmc: "DMC rate sheet", tar_nac: "Domestic Market & Wholesalers rate sheet", tar_prev: "{0} rates valid in {1} until ET publishes the new ones", tar_none: "no rates loaded yet",
     two_fingers: "Use two fingers to move the map", mode: "View", m_agency: "Agency view", m_wl: "White label", wl_on: "White label: no logo, prices, codes or agency-only data. You can show this screen to your client.",
+    t_mapa: "Home", map_open: "Show the Coffee Region map", map_close: "Hide the map", map_tg_s: "{0} experiences, airports, capitals and farms · click to open",
+    inst_sost: "Our sustainable impact", ico_t: "Icons", ico_l: "In this portfolio you will find information with the following features:",
+    ico_acc: "Tours accessible for wheelchair users, people with reduced mobility or blind people. Ask about rates and adjustments.",
+    ico_acc2: "We are certified in Accessible Tourism (CIDCA – ProColombia 2025) and put this approach into practice by designing and operating accessible tourism products. We were pioneers in running the first accessible-tourism fam trip in the Coffee Region, reaffirming our commitment to regional inclusion.",
+    ico_com: "Experience led together with the local community (farmers, artisans, local producers).",
+    ico_cord: "Tours or experiences that are part of the Paisaje Cordillerano project. Towns: Calarcá, Córdoba, Pijao, Buenavista and Génova in Quindío; Caicedonia and Sevilla in Valle del Cauca.",
+    ico_lang: "Shows that the tour can be done in that language, regardless of the bilingual guide (ask which farms this applies to).",
+    ico_shared: "Shared tour.", ico_acc_s: "Accessible (ask about rates and adjustments)", b_shared: "Shared tour",
     map_t: "The Coffee Region, point by point", map_s: "Drag to move. Tap a point to see the experience.", map_aria: "Map of the Coffee Region: departments, capitals, airports and experiences",
     v_region: "Region", v_eje: "Coffee Region", v_quindio: "Quindío", z_in: "Zoom in", z_out: "Zoom out", k_apt: "Airport", k_cap: "Capital", k_hot: "Partner hotels", k_fin: "Coffee farms",
-    t_mapa: "Map", t_exp: "Experiences", t_ruta: "Build a route", t_trans: "Transport", t_kit: "Sales kit", t_cond: "Conditions",
+    t_exp: "Experiences", t_ruta: "Build a route", t_trans: "Transport", t_kit: "Sales kit", t_cond: "Conditions",
     welcome: "Welcome to the portfolio", welcome_l: "The whole Coffee Cultural Landscape on one map: {0} 2027 experiences in eight product lines, coffee farms, airports and capitals of Quindío, Risaralda, Caldas and Valle del Cauca.",
     how1: "Explore the map.", how1b: "Tap a point to see the experience in photos.", how2: "Open the sheet.", how2b: "What's included, operation, languages and net rate for your rate sheet.",
     how3: "Build a route.", how3b: "Airport, hotel and tours per day: the route draws itself and adds transfers and tours.", how4: "Download the sales kit.", how4b: "PDF in your client's language, with or without logo and with your markup.",
@@ -161,6 +177,7 @@ const catName = k => (L() === "en" && I18.en && I18.en.cats && I18.en.cats[k]) |
 
 /* ---------- íconos (trazo, 24×24) ---------- */
 const ICONS = {
+  home: '<path d="M4 11 12 4l8 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/>', chev: '<path d="m6 9 6 6 6-6"/>',
   map: '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/>', grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
   route: '<circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="5" r="2.2"/><path d="M8.2 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.8"/>', bus: '<rect x="3" y="4" width="18" height="13" rx="2.5"/><path d="M3 11h18M7 17v2.5M17 17v2.5"/><circle cx="7.5" cy="14" r=".9"/><circle cx="16.5" cy="14" r=".9"/>',
   file: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>', info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>',
@@ -185,6 +202,45 @@ const GLYPH = {
   parq: '<path d="m0-5 1.5 3.1 3.4.5-2.5 2.4.6 3.4L0 2.8-3 4.4l.6-3.4-2.5-2.4 3.4-.5z" fill="#fff"/>',
   inc: '<path d="M0-5 5 0 0 5-5 0z" fill="#fff"/>'
 };
+
+// Iconografía del portafolio (la del PDF 2027): turismo accesible, comunitario, Paisaje Cordillerano, tour compartido e idiomas
+const ICO = {
+  acc: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="#E8762D"><circle cx="12" cy="4" r="2"/><path d="M19 13v-2c-1.54.02-3.09-.75-4.07-1.83l-1.29-1.43c-.17-.19-.38-.34-.61-.45-.01 0-.01-.01-.02-.01H13c-.35-.2-.75-.3-1.19-.26C10.76 7.11 10 8.04 10 9.09V15c0 1.1.9 2 2 2h5v5h2v-5.5c0-1.1-.9-2-2-2h-3v-3.45c1.29 1.07 3.25 1.94 5 1.95zm-6.17 5c-.41 1.16-1.52 2-2.83 2-1.66 0-3-1.34-3-3 0-1.31.84-2.41 2-2.83V12.1c-2.28.46-4 2.48-4 4.9 0 2.76 2.24 5 5 5 2.42 0 4.44-1.72 4.9-4h-2.07z"/></g></svg>',
+  com: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="11.4" fill="#2F3B22"/><circle cx="12" cy="12" r="9.4" fill="none" stroke="#fff" stroke-width=".7" stroke-dasharray="1.2 1"/><g fill="#8DBF4A"><circle cx="7.7" cy="10.2" r="1.45"/><path d="M5.5 16.3c0-1.7 1-3.1 2.2-3.1s2.2 1.4 2.2 3.1z"/><circle cx="16.3" cy="10.2" r="1.45"/><path d="M14.1 16.3c0-1.7 1-3.1 2.2-3.1s2.2 1.4 2.2 3.1z"/></g><g fill="#F2A33A"><circle cx="12" cy="8.6" r="1.75"/><path d="M9.4 16.3c0-2.1 1.2-3.8 2.6-3.8s2.6 1.7 2.6 3.8z"/></g></svg>',
+  cord: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.6 3.4 13.1A5.2 5.2 0 0 1 12 6.4a5.2 5.2 0 0 1 8.6 6.7z" fill="#fff" stroke="#E8762D" stroke-width="1.7" stroke-linejoin="round"/><path d="M4.9 13.9 8.8 9.8l3.2 3.3 3.3-3.4 3.8 4.1L12 20.3z" fill="#3E8E4A"/><path d="m8.8 9.8 3.2 3.3-2.1 2.2-3.1-3.1z" fill="#8DBF4A"/><path d="m12 20.3-3.6-3.6h7.2z" fill="#D9338E"/></svg>',
+  shared: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10.6" fill="#fff" stroke="#6BAA3A" stroke-width="1.8"/><g fill="none" stroke="#2F3B22" stroke-width="1.5" stroke-linecap="round"><circle cx="9.4" cy="9.8" r="2"/><path d="M6 16.6c.4-2.1 1.7-3.4 3.4-3.4s3 1.3 3.4 3.4"/><circle cx="15.4" cy="10.4" r="1.6"/><path d="M14.2 13.5c1.6-.2 3.1.9 3.5 3.1"/></g></svg>'
+};
+const FLAGS = {
+  ES: '<rect width="24" height="24" fill="#AA151B"/><rect y="6" width="24" height="12" fill="#F1BF00"/>',
+  EN: '<rect width="24" height="24" fill="#fff"/><g fill="#B22234"><rect width="24" height="1.85"/><rect y="3.69" width="24" height="1.85"/><rect y="7.38" width="24" height="1.85"/><rect y="11.08" width="24" height="1.85"/><rect y="14.77" width="24" height="1.85"/><rect y="18.46" width="24" height="1.85"/><rect y="22.15" width="24" height="1.85"/></g><rect width="11" height="12.9" fill="#3C3B6E"/>',
+  FR: '<rect width="8" height="24" fill="#0055A4"/><rect x="8" width="8" height="24" fill="#fff"/><rect x="16" width="8" height="24" fill="#EF4135"/>',
+  IT: '<rect width="8" height="24" fill="#009246"/><rect x="8" width="8" height="24" fill="#fff"/><rect x="16" width="8" height="24" fill="#CE2B37"/>',
+  PT: '<rect width="24" height="24" fill="#009C3B"/><path d="M12 3.5 22.5 12 12 20.5 1.5 12z" fill="#FFDF00"/><circle cx="12" cy="12" r="4.6" fill="#002776"/>'
+};
+const flag = l => FLAGS[l] ? `<span class="flag" title="${esc(langName(l))}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${FLAGS[l]}</svg></span>` : "";
+// Íconos de una ficha, junto al código: accesible, comunitario, Paisaje Cordillerano, compartido e idiomas
+function icoRow(e, cls) {
+  const it = [];
+  if (e.acc) it.push(`<span class="ic2" title="${esc(tx("ico_acc_s"))}">${ICO.acc}</span>`);
+  if (e.com) it.push(`<span class="ic2" title="${esc(tx("b_com"))}">${ICO.com}</span>`);
+  if (e.cord) it.push(`<span class="ic2" title="${esc(tx("b_cord"))}">${ICO.cord}</span>`);
+  if (e.shared) it.push(`<span class="ic2" title="${esc(tx("b_shared"))}">${ICO.shared}</span>`);
+  (e.langs || []).forEach(l => it.push(flag(l)));
+  return it.length ? `<span class="icorow${cls ? " " + cls : ""}" role="img" aria-label="${esc([e.acc && tx("ico_acc_s"), e.com && tx("b_com"), e.cord && tx("b_cord"), e.shared && tx("b_shared"), (e.langs || []).map(langName).join(", ")].filter(Boolean).join(" · "))}">${it.join("")}</span>` : "";
+}
+// Medidas del mapa; cerrado (display: none) se usan las que tendrá al abrirse, así la vista queda lista
+const mapW = () => (svg && svg.clientWidth) || (ROOT && ROOT.clientWidth) || 800;
+const mapH = () => (svg && svg.clientHeight) || Math.round(Math.min(680, Math.max(400, (window.innerHeight || 800) * .68)));
+// Mapa plegable: cerrado al entrar; se abre con clic o cuando una acción lo necesita (ver zonas, ruta, ubicar un hotel)
+function mapShow(on, scroll) {
+  const b = $r("mapblk"); if (!b) return;
+  if (on === b.classList.contains("closed")) {
+    b.classList.toggle("closed", !on); S.mapOpen = on;
+    $r("maptg").setAttribute("aria-expanded", String(on)); $r("maptgl").textContent = tx(on ? "map_close" : "map_open");
+    if (on) { VB = fitAspect(VB); commitVB(); } else if (S.active || S.popLL) closePop();
+  }
+  if (on && scroll) $r("mapwrap").scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" });
+}
 
 /* ---------- carga y modelo ---------- */
 async function loadLang(lg) {
@@ -221,6 +277,8 @@ function buildModel() {
     e.plat = e.lat; e.plon = e.lon;          // ubicación pública (municipio): la que se usa en Marca blanca
     if (P.coords && P.coords[e.id]) { e.lat = P.coords[e.id][0]; e.lon = P.coords[e.id][1]; }
     if (e.id === "finca" && P.fincaZonas && P.fincaZonas.length) e.zones = P.fincaZonas.slice();
+    e.acc = /\bapto\b[^.]{0,40}(movilidad reducida|silla de ruedas)/i.test((e.reco || []).join(" "));   // accesible según su ficha
+    e.shared = e.modalidad === "Compartido";
     const sp = privFicha(e.id);
     e.p = { why: fv(sp, "Por qué venderla"), interesa: fv(sp, "Te interesa"), where: fv(sp, "Punto de operación"), menu: fv(sp, "Menú"),
       supl: bullets(fv(sp, "Suplementos")), notes: sp.cond, impacto: sp.imp, team: fv(sp, "Nota del equipo"), diff: fv(sp, "Dificultad"), cap: fv(sp, "Capacidad máxima") };
@@ -355,7 +413,9 @@ function skeleton() {
     <div class="modes" role="group" aria-label="${esc(tx("mode"))}"><button type="button" data-mode="0" aria-pressed="true">${ic("users")}${tx("m_agency")}</button><button type="button" data-mode="1" aria-pressed="false">${ic("eye")}${tx("m_wl")}</button></div></div>
   <p class="pf-wl-note" data-r="wlnote" hidden>${ic("eye")}${esc(tx("wl_on"))}</p>
   <div class="app">
-    <div class="map-wrap" data-r="mapwrap">
+   <div class="mapblk closed" data-r="mapblk">
+    <button type="button" class="maptg" data-r="maptg" aria-expanded="false" aria-controls="pf-mapwrap">${ic("map")}<span class="mt"><b data-r="maptgl">${tx("map_open")}</b><span class="sub">${esc(tx("map_tg_s", EXP.length))}</span></span>${ic("chev", "chev")}</button>
+    <div class="map-wrap" id="pf-mapwrap" data-r="mapwrap">
       <svg class="mapsvg" data-r="svg" role="img" aria-label="${esc(tx("map_aria"))}"><g data-r="base"></g><g data-r="ov"></g></svg>
       <div class="map-title"><h2>${esc(tx("map_t"))}</h2><p>${esc(tx("map_s"))}</p></div>
       <div class="ctrl"><div class="seg" role="group" aria-label="Zoom"><button type="button" data-view="region">${tx("v_region")}</button><button type="button" data-view="eje" aria-pressed="true">${tx("v_eje")}</button><button type="button" data-view="quindio">${tx("v_quindio")}</button></div>
@@ -365,12 +425,12 @@ function skeleton() {
       <div class="keyrow">
         <span class="chip key"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect width="14" height="14" rx="3" fill="var(--sky)"/></svg>${tx("k_apt")}</span>
         <span class="chip key"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1l1.8 3.9 4.2.4-3.2 2.8 1 4.1L7 10 3.2 12.2l1-4.1L1 5.3l4.2-.4z" fill="var(--fg)"/></svg>${tx("k_cap")}</span>
-        ${FINCAS.length ? `<button type="button" class="chip" data-layer="fincas" aria-pressed="true"><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><ellipse cx="6" cy="7" rx="5" ry="6" fill="var(--bean)"/></svg>${tx("k_fin")}</button>` : ""}
-        ${HOTELS.length ? `<button type="button" class="chip" data-layer="hotels" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect width="14" height="14" rx="3" fill="var(--bean)"/></svg>${tx("k_hot")}</button>` : ""}
       </div>
     </div>
+    <div class="mapfoot">${mapFoot()}</div>
+   </div>
     <div class="panel">
-      <div class="tabs" role="tablist">${tab("mapa", "map")}${tab("exp", "grid")}${tab("ruta", "route", `<span class="n" data-r="rn">0</span>`)}${tab("trans", "bus")}${tab("kit", "file")}${tab("cond", "info")}</div>
+      <div class="tabs" role="tablist">${tab("mapa", "home")}${tab("exp", "grid")}${tab("ruta", "route", `<span class="n" data-r="rn">0</span>`)}${tab("trans", "bus")}${tab("kit", "file")}${tab("cond", "info")}</div>
       <section class="pane" id="pf-pane-mapa" data-pane="mapa" role="tabpanel" aria-labelledby="pf-tab-mapa" hidden></section>
       <section class="pane" id="pf-pane-exp" data-pane="exp" role="tabpanel" aria-labelledby="pf-tab-exp" hidden>
         <h2>${tx("exp_h")}</h2>
@@ -438,6 +498,8 @@ function bindStatic() {
   $$("[data-view]").forEach(b => b.addEventListener("click", () => { animateTo(boxToVB(...VIEWS[b.dataset.view])); $$("[data-view]").forEach(x => x.setAttribute("aria-pressed", String(x === b))); }));
   $$("[data-z]").forEach(b => b.addEventListener("click", () => { const r = wrapRect(); zoomAt(b.dataset.z === "in" ? 1 / 1.45 : 1.45, r.left + r.width / 2, r.top + r.height / 2); }));
   $$("[data-layer]").forEach(b => b.addEventListener("click", () => toggleLayer(b.dataset.layer)));
+  $r("maptg").addEventListener("click", () => mapShow($r("mapblk").classList.contains("closed")));
+  $$("[data-zone]").forEach(b => b.addEventListener("click", () => { animateTo(boxToVB(...(ZONEVIEW[b.dataset.zone] || VIEWS.region))); $$("[data-view]").forEach(x => x.setAttribute("aria-pressed", "false")); }));
   svg.addEventListener("click", onMapClick);
   svg.addEventListener("keydown", ev => { const g = ev.target.closest && ev.target.closest("[data-id],[data-cl]"); if (g && (ev.key === "Enter" || ev.key === " ")) { ev.preventDefault(); g.dataset.id ? openPop(g.dataset.id) : zoomCluster(g.dataset.cl); } });
   let drag = false, last = null; S.dragMoved = false;
@@ -489,7 +551,7 @@ function bindStatic() {
   $r("rarr").addEventListener("change", e => { S.R.arr = e.target.value; saveR(); renderRoute(); fitRoute(); });
   $r("rdep").addEventListener("change", e => { S.R.dep = e.target.value; saveR(); renderRoute(); fitRoute(); });
   $r("radd").addEventListener("change", e => { if (e.target.value) { toggleTour(e.target.value); fitRoute(); } });
-  $r("rfit").addEventListener("click", fitRoute);
+  $r("rfit").addEventListener("click", () => fitRoute(true));
   $r("rclear").addEventListener("click", () => { S.newName = ""; stopPlacing(); S.R = { pax: 2, start: 2, arr: "AXM", dep: "AXM", hotel: null, finca: "", tours: [] }; saveR(); renderRoute(); animateTo(boxToVB(...VIEWS.eje)); });
   $r("rcopy").addEventListener("click", () => copy(itineraryText(), tx("it_copied")));
   $r("rkit").addEventListener("click", () => { K.sel = new Set(S.R.tours.map(t => t.id)); setTab("kit"); });
@@ -511,7 +573,6 @@ function setTab(t, first) {
   if (t === "kit") renderKit();
   if (t === "cond") renderCond();
   if (t === "trans") renderTrans();
-  if (!first && innerWidth <= 920 && t === "mapa") $r("mapwrap").scrollIntoView({ behavior: reduced() ? "auto" : "smooth" });
 }
 function setMode(wl) {
   S.wl = wl; ROOT.classList.toggle("wl", wl);
@@ -538,11 +599,11 @@ const ZONEVIEW = { "Quindío": VIEWS.quindio, "Risaralda": [4.7, 5.35, -76.1, -7
 const DEPNAME = { "63": "Quindío", "66": "Risaralda", "17": "Caldas", "76": "Valle del Cauca" };
 function boxToVB(lat0, lat1, lon0, lon1) {
   const [x0, y0] = P(lat1, lon0), [x1, y1] = P(lat0, lon1), w = x1 - x0, h = y1 - y0;
-  const W = Math.max(1, svg.clientWidth), H = Math.max(1, svg.clientHeight), mob = W < 640, top = mob ? 64 : 96, bot = mob ? 110 : 96, side = 24;
+  const W = Math.max(1, mapW()), H = Math.max(1, mapH()), mob = W < 640, top = mob ? 64 : 96, bot = mob ? 110 : 96, side = 24;
   const s = Math.max(w / Math.max(50, W - 2 * side), h / Math.max(50, H - top - bot));
   return { x: x0 - (W * s - w) / 2, y: y0 - top * s - ((H - top - bot) * s - h) / 2, w: W * s, h: H * s };
 }
-function fitAspect(b) { const r = svg.clientWidth / Math.max(1, svg.clientHeight); let { x, y, w, h } = b; if (w / h < r) { const nw = h * r; x -= (nw - w) / 2; w = nw; } else { const nh = w / r; y -= (nh - h) / 2; h = nh; } return { x, y, w, h }; }
+function fitAspect(b) { const r = mapW() / Math.max(1, mapH()); let { x, y, w, h } = b; if (w / h < r) { const nw = h * r; x -= (nw - w) / 2; w = nw; } else { const nh = w / r; y -= (nh - h) / 2; h = nh; } return { x, y, w, h }; }
 function animateTo(t) {
   cancelAnimationFrame(anim); const s = Object.assign({}, VB), t0 = performance.now(), Dd = reduced() ? 0 : 450;
   const step = now => { const k = Dd ? Math.min(1, (now - t0) / Dd) : 1, e = 1 - Math.pow(1 - k, 3); VB = { x: s.x + (t.x - s.x) * e, y: s.y + (t.y - s.y) * e, w: s.w + (t.w - s.w) * e, h: s.h + (t.h - s.h) * e }; if (k < 1) { applyVB("zoom"); anim = requestAnimationFrame(step); } else applyVB(); };
@@ -563,7 +624,7 @@ function commitVB() {
 function applyVB(mode) {
   if (!svg) return;
   if ((mode === "pan" || mode === "zoom") && VBc) {
-    const W = Math.max(1, svg.clientWidth), k = VBc.w / VB.w, f = W / VB.w;
+    const W = Math.max(1, mapW()), k = VBc.w / VB.w, f = W / VB.w;
     svg.classList.add("moving");
     svg.style.transform = `translate(${(VBc.x - VB.x) * f}px, ${(VBc.y - VB.y) * f}px) scale(${k})`;
     placePop();
@@ -572,7 +633,7 @@ function applyVB(mode) {
   }
   if (!vbRaf) vbRaf = requestAnimationFrame(() => { vbRaf = 0; commitVB(); });
 }
-const px = () => VB.w / Math.max(1, svg.clientWidth);
+const px = () => VB.w / Math.max(1, mapW());
 function zoomAt(f, cx, cy) {
   const r = wrapRect(); const mx = VB.x + (cx - r.left) * px(), my = VB.y + (cy - r.top) * px();
   const nw = Math.min(3000, Math.max(40, VB.w * f)), k = nw / VB.w; VB = { x: mx - (mx - VB.x) * k, y: my - (my - VB.y) * k, w: nw, h: VB.h * k };
@@ -754,7 +815,7 @@ function renderList() {
       items.map(e => `<button type="button" class="card${S.active === e.id ? " on" : ""}" data-card="${e.id}">
         <div class="media">${mediaBlock(e, { video: false, one: true })}${badges(e)}${videosOf(e.id).length ? '<span class="vid-tag">▶ Video</span>' : ""}</div>
         <div class="body"><h4>${esc(tr(e, "name"))}</h4><div class="meta"><span class="code">${e.code}</span>${e.code ? " · " : ""}${esc(e.deptos)} · ${ic("clock", "sm")}${esc(tr(e, "dur"))}</div>
-        <div class="lchips">${(e.langs || []).map(l => `<span title="${esc(langName(l))}">${l}</span>`).join("")}</div>${nearLine(e)}<div class="meta tl">${esc(tr(e, "tagline"))}</div>
+        ${icoRow(e, "sm")}${nearLine(e)}<div class="meta tl">${esc(tr(e, "tagline"))}</div>
         <div class="price">${priceLine(e)}</div></div></button>`).join("") + `</div></div>`;
   }
   $r("groups").innerHTML = html || `<p class="empty">${tx("none_match")}</p>`;
@@ -766,12 +827,12 @@ function renderList() {
 const inRoute = id => S.R.tours.some(t => t.id === id);
 function openPop(id, fromList) {
   S.active = id; S.popLL = null; const e = byId[id]; setZones(S.wl ? null : e.zones);
-  if (fromList) { const [x, y] = P(...llOf(e)); if (x < VB.x || x > VB.x + VB.w || y < VB.y || y > VB.y + VB.h) animateTo(boxToVB(...VIEWS.eje)); if (innerWidth <= 920) $r("mapwrap").scrollIntoView({ behavior: "smooth" }); }
+  if (fromList) { const [x, y] = P(...llOf(e)); if (x < VB.x || x > VB.x + VB.w || y < VB.y || y > VB.y + VB.h) animateTo(boxToVB(...VIEWS.eje)); mapShow(true, true); }
   drawOverlay(); markActive();
   $r("pop").innerHTML = `<div class="pop" role="dialog" aria-label="${esc(tr(e, "name"))}">
     <button type="button" class="x" data-r="popx" aria-label="${esc(tx("close"))}">×</button><div class="media">${mediaBlock(e)}${badges(e)}</div>
     <div class="body"><span class="eyebrow">${esc(catName(e.cat))} · ${esc(e.sub)}</span><h3>${esc(tr(e, "name"))}</h3>
-      <div class="row"><span><span class="code">${esc(e.code)}</span> · ${esc(e.deptos)}</span><span>${ic("clock", "sm")}${esc(tr(e, "dur"))}</span></div>
+      <div class="row"><span><span class="code">${esc(e.code)}</span> ${icoRow(e, "sm")} · ${esc(e.deptos)}</span><span>${ic("clock", "sm")}${esc(tr(e, "dur"))}</span></div>
       <p class="tl">${esc(tr(e, "tagline"))}</p>${nearLine(e)}
       ${e.zones ? `<p class="note">${esc(tx("zones_note"))}</p>` : ""}
       <div class="price money">${priceLine(e)}</div>
@@ -823,7 +884,7 @@ function openFicha(id) {
     <div class="hero"><div class="media">${mediaBlock(e, { label: false, big: true })}</div>${badges(e)}<button type="button" class="close" data-r="fx">${ic("x", "sm")}${tx("close")}</button>
       <div class="hero-txt"><span class="eyebrow">${esc(catName(e.cat))} · ${esc(e.sub)} · ${esc(e.deptos)}</span><h2>${esc(tr(e, "name"))}</h2><p>${esc(tr(e, "tagline"))}</p></div></div>
     <dl class="facts">${fact("clock", tx("f_dur_l"), tr(e, "dur"))}${fact("users", tx("f_mod"), tr(e, "modalidad"))}${fact("food", tx("f_lunch"), tr(e, "almuerzo"))}${fact("child", tx("f_age"), tr(e, "edad") || tx("ask"))}${fact("users", tx("f_group"), grp)}
-      <div><dt>${ic("globe", "sm")}${tx("f_langs")}</dt><dd>${(e.langs || []).map(langName).map(esc).join(", ")}</dd></div><div class="code-wrap"><dt>${ic("tag", "sm")}${tx("f_code")}</dt><dd class="code">${esc(e.code)}</dd></div></dl>
+      <div><dt>${ic("globe", "sm")}${tx("f_langs")}</dt><dd>${(e.langs || []).map(langName).map(esc).join(", ")}</dd></div><div class="code-wrap"><dt>${ic("tag", "sm")}${tx("f_code")}</dt><dd><span class="code">${esc(e.code)}</span> ${icoRow(e)}</dd></div></dl>
     <nav class="fnav" aria-label="${esc(tr(e, "name"))}">${nav.map(([k, l]) => `<a href="#pf-f-${k}" data-jump="${k}">${esc(l)}</a>`).join("")}</nav>
     <div class="f-body"><div class="f-main">
       <section id="pf-f-exp"><h3>${tx("s_exp")}</h3>${(tr(e, "desc") || []).map(x => `<p>${esc(x)}</p>`).join("")}</section>
@@ -863,7 +924,7 @@ function openFicha(id) {
   f.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => openFicha(b.dataset.go)));
   f.querySelectorAll("[data-jump]").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); const t = f.querySelector("#pf-f-" + a.dataset.jump); if (t) t.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" }); }));
   f.querySelectorAll("[data-cond]").forEach(b => b.addEventListener("click", () => { closeFicha(); setTab("cond"); jumpCond(b.dataset.cond); }));
-  const sz = $r("seez"); if (sz) sz.addEventListener("click", () => { closeFicha(); animateTo(boxToVB(...VIEWS.eje)); openPop(id); $r("mapwrap").scrollIntoView({ behavior: "smooth" }); });
+  const sz = $r("seez"); if (sz) sz.addEventListener("click", () => { closeFicha(); mapShow(true, true); animateTo(boxToVB(...VIEWS.eje)); openPop(id); });
   if ($r("freq")) $r("freq").addEventListener("click", () => { closeFicha(); CTX.onRequest({ tours: [{ tour_id: e.id, codigo: e.code, nombre: e.name }] }); });
   bindAdd(f);
   $r("kpdf").addEventListener("click", ev => { ev.preventDefault(); closeFicha(); K.sel = new Set([id]); setTab("kit"); });
@@ -1032,12 +1093,12 @@ function itineraryText(forRequest) {
   if (!S.wl && !forRequest) { const T = routeTotals(); t += `\n${T.rows.map(r => r.t + (r.c ? " " + r.c : "") + ": " + r.v).join("\n")}\n${tx("tot")}: ${cop(T.total)}\nEspontáneos Travel · RNT 91795`; }
   return t.slice(0, forRequest ? 1900 : 20000);
 }
-function fitRoute() {
+function fitRoute(show) {
   const legs = buildRoute(); const pts = []; legs.forEach(l => { if (l.from) pts.push(l.from); if (l.to) pts.push(l.to); (l.pts || []).forEach(p => pts.push(p)); });
   if (S.R.hotel) pts.push([S.R.hotel.lat, S.R.hotel.lon]);
   if (pts.length < 2) return; const la = pts.map(p => p[0]), lo = pts.map(p => p[1]);
   const pad = .05; animateTo(boxToVB(Math.min(...la) - pad, Math.max(...la) + pad * 1.6, Math.min(...lo) - pad, Math.max(...lo) + pad));
-  if (innerWidth <= 920) $r("mapwrap").scrollIntoView({ behavior: reduced() ? "auto" : "smooth" });
+  if (show) mapShow(true, true);
 }
 
 /* ---------- hotel: aliados → usados antes → mapa abierto (OpenStreetMap) → enlace de Google Maps o tocar el mapa ---------- */
@@ -1096,7 +1157,7 @@ function parseMaps(s) {
   for (const p of pats) { const m = s.match(p); if (m) { const la = +m[1], lo = +m[2]; if (la > 2 && la < 7 && lo > -78 && lo < -74) return [la, lo]; } }
   return null;
 }
-function startPlacing() { S.placing = true; svg.classList.add("placing"); if (innerWidth <= 920) $r("mapwrap").scrollIntoView({ behavior: "smooth" });
+function startPlacing() { S.placing = true; svg.classList.add("placing"); mapShow(true, true);
   $r("banner").innerHTML = `<div class="mapbanner">${ic("pin", "sm")}${esc(tx("h_tap_b", S.newName))} <button type="button" data-r="bx">${tx("cancel")}</button></div>`; $r("bx").addEventListener("click", stopPlacing); }
 function stopPlacing() { S.placing = false; svg.classList.remove("placing"); $r("banner").innerHTML = ""; }
 function finishNewHotel(lat, lon) {
@@ -1167,31 +1228,36 @@ function renderCond() {
 }
 function jumpCond(k) { const t = ROOT.querySelector("#pf-c-" + k); if (t) setTimeout(() => t.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" }), 30); }
 
-/* ---------- pestaña Mapa (bienvenida) ---------- */
+/* ---------- pestaña Inicio: bienvenida → presentación institucional → cómo usar → índice → atajos ---------- */
+// Debajo del mapa: ir a una zona y capas
+function mapFoot() {
+  const cnt = {}; EXP.forEach(e => { const d = depOf(e); cnt[d] = (cnt[d] || 0) + 1; });
+  return `<div class="mf"><span class="mfl">${tx("go_zone")}</span><div class="zbtns">${Object.keys(ZONEVIEW).map(z => `<button type="button" class="chip" data-zone="${esc(z)}">${ic("pin", "sm")}${esc(z)}${cnt[z] ? ` <span class="sub">${cnt[z]}</span>` : ""}</button>`).join("")}<button type="button" class="chip" data-zone="">${ic("map", "sm")}${tx("all_eje")} <span class="sub">${EXP.length}</span></button></div></div>
+    ${FINCAS.length || HOTELS.length ? `<div class="mf"><span class="mfl">${tx("layers")}</span><div class="zbtns">
+      ${FINCAS.length ? `<button type="button" class="chip" data-layer="fincas" aria-pressed="true"><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><ellipse cx="6" cy="7" rx="5" ry="6" fill="var(--bean)"/></svg>${tx("k_fin")}</button>` : ""}
+      ${HOTELS.length ? `<button type="button" class="chip" data-layer="hotels" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect width="14" height="14" rx="3" fill="var(--bean)"/></svg>${tx("k_hot")}</button>` : ""}</div></div>` : ""}`;
+}
 function depOf(e) { return DEPNAME[M.mdep[nearestMuni(e.lat, e.lon)]] || ""; }
 function renderMapPane() {
-  const cnt = {}; EXP.forEach(e => { const d = depOf(e); cnt[d] = (cnt[d] || 0) + 1; });
   const pane = ROOT.querySelector('[data-pane="mapa"]');
   const E = (CTX.empresa && (CTX.empresa[L()] || CTX.empresa.es)) || null;
   const ccount = {}; EXP.forEach(e => { ccount[e.cat] = (ccount[e.cat] || 0) + 1; });
+  const sost = E && E.impacts ? `<div class="ccard sostc"><h4>${ic("leaf", "sm")}${esc(tx("inst_sost"))}</h4><ul class="impl">${E.impacts.map(([i, t, x]) => `<li><span class="ii" aria-hidden="true">${i}</span><span><b>${esc(t)}.</b> ${esc(x)}</span></li>`).join("")}</ul></div>` : "";
   pane.innerHTML = `<h2>${tx("welcome")}</h2><p class="lead">${esc(tx("welcome_l", EXP.length))}</p>
-    <div class="section"><h3>${ic("star")}${tx("conv_t")}</h3>
-      ${E && E.impacts ? `<div class="conv">${E.impacts.map(([i, t, x]) => `<div class="ccard"><h4><span aria-hidden="true">${i}</span> ${esc(t)}</h4><p>${esc(x)}</p></div>`).join("")}</div>` : ""}
+    ${E && E.pillars ? `<div class="section"><h3>${ic("info")}${tx("inst_t")}</h3><div class="cgrid inst">${E.pillars.slice(0, 3).map(([t, x]) => `<div class="ccard"><h4>${esc(t)}</h4><p>${esc(x)}</p></div>`).join("")}${sost}</div>
+      <div class="ccard icog"><h4>${tx("ico_t")}</h4><p class="note">${tx("ico_l")}</p><ul class="icolist">
+        <li>${ICO.acc}<div><p>${esc(tx("ico_acc"))}</p><p class="sub">${esc(tx("ico_acc2"))}</p></div></li>
+        <li>${ICO.com}<p>${esc(tx("ico_com"))}</p></li><li>${ICO.cord}<p>${esc(tx("ico_cord"))}</p></li>
+        <li><span class="flags">${["ES", "EN", "PT", "FR"].map(flag).join("")}</span><p>${esc(tx("ico_lang"))}</p></li><li>${ICO.shared}<p>${esc(tx("ico_shared"))}</p></li></ul></div>
+      <div class="btnrow mt"><button type="button" class="btn ghost sm" data-cond-go="about">${ic("info", "sm")}${tx("see_more")}</button></div></div>` : ""}
+    <div class="section"><h3>${ic("route")}${tx("how_t")}</h3><ol class="howto">${[["map", "how1"], ["file", "how2"], ["route", "how3"], ["download", "how4"]].map(([i, k], n) => `<li><span class="hn">${ic(i)}</span><span><b>${tx(k)}</b> ${tx(k + "b")}</span></li>`).join("")}</ol>
+      <h4 class="mt">${tx("conv_t")}</h4>
       <ul class="iconguide">
         <li>${ic("clock", "sm")}<span>${esc(tx("ic_dur"))}</span></li><li>${ic("pin", "sm")}<span>${esc(tx("ic_geo"))}</span></li>
         <li><span class="mini com">${tx("b_com")}</span><span>${esc(tx("ic_com"))}</span></li><li><span class="mini cord">${tx("b_cord")}</span><span>${esc(tx("ic_cord"))}</span></li>
         <li><span class="b2b">${tx("only_ag")}</span><span>${esc(tx("ic_b2b"))}</span></li><li>${ic("tag", "sm")}<span>${esc(tx("ic_code"))}</span></li></ul></div>
-    ${E && E.pillars ? `<div class="section"><h3>${ic("info")}${tx("inst_t")}</h3><div class="cgrid">${E.pillars.slice(0, 3).map(([t, x]) => `<div class="ccard"><h4>${esc(t)}</h4><p>${esc(x)}</p></div>`).join("")}</div>
-      <div class="btnrow mt"><button type="button" class="btn ghost sm" data-cond-go="about">${ic("info", "sm")}${tx("see_more")}</button></div></div>` : ""}
     <div class="section"><h3>${ic("grid")}${tx("idx_t")}</h3><p class="note">${tx("idx_l")}</p><div class="zbtns">${Object.entries(D.cats).map(([k, c]) => `<button type="button" class="chip" data-idx="${k}"><i style="background:${c.color}"></i>${esc(catName(k))} <span class="sub">${ccount[k] || 0}</span></button>`).join("")}</div></div>
-    <div class="section"><h3>${ic("route")}${tx("how_t")}</h3><ol class="howto">${[["map", "how1"], ["file", "how2"], ["route", "how3"], ["download", "how4"]].map(([i, k], n) => `<li><span class="hn">${ic(i)}</span><span><b>${tx(k)}</b> ${tx(k + "b")}</span></li>`).join("")}</ol>
-    </div><div class="section"><h3>${tx("go_zone")}</h3><div class="zbtns">${Object.keys(ZONEVIEW).map(z => `<button type="button" class="chip" data-zone="${esc(z)}">${ic("pin", "sm")}${esc(z)}${cnt[z] ? ` <span class="sub">${cnt[z]}</span>` : ""}</button>`).join("")}<button type="button" class="chip" data-zone="">${ic("map", "sm")}${tx("all_eje")} <span class="sub">${EXP.length}</span></button></div></div>
-    ${FINCAS.length || HOTELS.length ? `<div class="section"><h3>${tx("layers")}</h3><div class="zbtns">
-      ${FINCAS.length ? `<button type="button" class="chip" data-layer="fincas" aria-pressed="${S.fincas}"><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><ellipse cx="6" cy="7" rx="5" ry="6" fill="var(--bean)"/></svg>${tx("k_fin")}</button>` : ""}
-      ${HOTELS.length ? `<button type="button" class="chip" data-layer="hotels" aria-pressed="${S.hotels}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect width="14" height="14" rx="3" fill="var(--bean)"/></svg>${tx("k_hot")}</button>` : ""}</div></div>` : ""}
-    <div class="section"><h3>${tx("shortcuts")}</h3><div class="zbtns"><button type="button" class="btn ghost" data-go-tab="exp">${ic("grid", "sm")}${tx("sc_exp")}</button><button type="button" class="btn ghost" data-go-tab="ruta">${ic("route", "sm")}${tx("sc_ruta")}</button><button type="button" class="btn ghost" data-go-tab="kit">${ic("file", "sm")}${tx("sc_kit")}</button><button type="button" class="btn ghost" data-go-tab="cond">${ic("info", "sm")}${tx("sc_cond")}</button></div></div>`;
-  pane.querySelectorAll("[data-zone]").forEach(b => b.addEventListener("click", () => { animateTo(boxToVB(...(ZONEVIEW[b.dataset.zone] || VIEWS.region))); if (innerWidth <= 920) $r("mapwrap").scrollIntoView({ behavior: "smooth" }); }));
-  pane.querySelectorAll("[data-layer]").forEach(b => b.addEventListener("click", () => toggleLayer(b.dataset.layer)));
+    <div class="section"><h3>${ic("star")}${tx("shortcuts")}</h3><div class="zbtns"><button type="button" class="btn ghost" data-go-tab="exp">${ic("grid", "sm")}${tx("sc_exp")}</button><button type="button" class="btn ghost" data-go-tab="ruta">${ic("route", "sm")}${tx("sc_ruta")}</button><button type="button" class="btn ghost" data-go-tab="kit">${ic("file", "sm")}${tx("sc_kit")}</button><button type="button" class="btn ghost" data-go-tab="cond">${ic("info", "sm")}${tx("sc_cond")}</button></div></div>`;
   pane.querySelectorAll("[data-go-tab]").forEach(b => b.addEventListener("click", () => setTab(b.dataset.goTab)));
   pane.querySelectorAll("[data-cond-go]").forEach(b => b.addEventListener("click", () => { setTab("cond"); jumpCond(b.dataset.condGo); }));
   pane.querySelectorAll("[data-idx]").forEach(b => b.addEventListener("click", () => { S.cats = new Set([b.dataset.idx]); renderLegend(); S.refilter(); setTab("exp"); }));
