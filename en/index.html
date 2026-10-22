@@ -192,7 +192,55 @@
      ],
      "areaServed": "CO"
     }
-   ]
+   ],
+   "audience": [
+    {
+     "@type": "PeopleAudience",
+     "audienceType": "Independent travellers, families and groups"
+    },
+    {
+     "@type": "BusinessAudience",
+     "audienceType": "Travel agencies, tour operators and wholesalers"
+    }
+   ],
+   "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Espontáneos Travel services",
+    "itemListElement": [
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Tours and experiences in Colombia's Coffee Region",
+       "url": "https://www.espontaneostravel.com/en/experiences/"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "White-label operation and net rates for agencies",
+       "url": "https://www.espontaneostravel.com/en/travel-agencies/"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Coffee Region travel guides",
+       "url": "https://www.espontaneostravel.com/en/guides/"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Packages and private transfers",
+       "url": "https://www.espontaneostravel.com/en/"
+      }
+     }
+    ]
+   }
   },
   {
    "@type": "WebSite",
@@ -360,7 +408,7 @@
       <a class="nav__link" href="#nosotros" data-i18n="nav_about">About</a>
       <a class="nav__link" href="#sostenibilidad" data-i18n="nav_sustain">Sustainability</a>
       <a class="nav__link" href="#contacto" data-i18n="nav_contact">Contact</a>
-      <a class="nav__link nav__link--dmc" href="/portal.html" data-i18n="nav_dmc">Agencies / DMCs</a>
+      <a class="nav__link nav__link--dmc" href="/en/travel-agencies/" data-b2b data-i18n="nav_dmc">Agencies / DMCs</a>
     </nav>
 
     <div class="header__actions">
@@ -398,7 +446,7 @@
   <a href="#faq" data-i18n="nav_faq">FAQ</a>
   <a href="#contacto" data-i18n="nav_contact">Contact</a>
   <a href="/viaje.html" data-i18n="nav_trip">My trip</a>
-  <a href="/portal.html" data-i18n="nav_dmc">Agencies / DMCs</a>
+  <a href="/en/travel-agencies/" data-b2b data-i18n="nav_dmc">Agencies / DMCs</a>
   <a class="btn btn--primary" href="#contacto" data-i18n="nav_book">Book</a>
   <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.5rem;">
     <button class="filter mm-lang" data-lang="es"><span class="flag-i flag-i--es" aria-hidden="true"></span> ES</button>
@@ -1045,7 +1093,7 @@ Payment methods, in the name of Espontáneos Travel SAS (NIT 902.056.513):
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></span>
           <div><b data-i18n="c_follow">Follow us</b><span class="soc-row"><a class="soc soc--ig" href="https://www.instagram.com/espontaneostravel/" target="_blank" rel="noopener" aria-label="Instagram @espontaneostravel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a><a class="soc soc--fb" href="https://www.facebook.com/espontaneostravel" target="_blank" rel="noopener" aria-label="Facebook @espontaneostravel"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg><span>Facebook</span></a></span></div>
         </div>
-        <a class="contact__card" href="/portal.html">
+        <a class="contact__card" href="/en/travel-agencies/" data-b2b>
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           <div><b data-i18n="fl_dmc">Agencies &amp; DMCs</b><span data-i18n="fl_dmc_sub">Net rates and bookings portal for partner agencies</span></div>
         </a>
@@ -1107,7 +1155,8 @@ Payment methods, in the name of Espontáneos Travel SAS (NIT 902.056.513):
         <h2 class="footer__h" data-i18n="footer_explore">Explore</h2>
         <div class="footer__links">
           <a href="#experiencias" data-i18n="fl_tours">Experiences</a>
-          <a href="/experiencias/" data-hub data-i18n="fl_hub">All experiences</a>
+          <a href="/en/experiences/" data-hub data-i18n="fl_hub">All experiences</a>
+          <a href="/en/guides/" data-guides data-i18n="fl_guides">Travel guides</a>
           <a href="#planes" data-i18n="fl_plans">Packages</a>
           <a href="#sin-barreras" data-i18n="fl_access">Barrier-free tourism</a>
           <a href="/viaje.html" data-i18n="nav_trip">My trip</a>
@@ -1119,7 +1168,7 @@ Payment methods, in the name of Espontáneos Travel SAS (NIT 902.056.513):
           <a href="#nosotros" data-i18n="fl_about">About us</a>
           <a href="#sostenibilidad" data-i18n="fl_sustain">Sustainability</a>
           <a href="#faq" data-i18n="fl_faq">FAQ</a>
-          <a href="/portal.html" data-i18n="fl_dmc">Agencies &amp; DMCs</a>
+          <a href="/en/travel-agencies/" data-b2b data-i18n="fl_dmc">Agencies &amp; DMCs</a>
         </div>
       </div>
       <div>
@@ -1191,12 +1240,12 @@ Payment methods, in the name of Espontáneos Travel SAS (NIT 902.056.513):
 
 <script src="/js/data.js?v=877ef7aa"></script>
 <script src="/js/i18n.js?v=f87674a6"></script>
-<script src="/js/i18n-2026.js?v=78879c35"></script>
+<script src="/js/i18n-2026.js?v=be23e73c"></script>
 <script src="/js/img-local.js?v=43bb4b8d"></script>
 <script src="/js/jenny-data.js?v=bcf723b0"></script>
 <script src="/js/render.js?v=d35c5cb6"></script>
-<script src="/js/pages-map.js?v=d048e379"></script>
-<script src="/js/main.js?v=02fabab9"></script>
+<script src="/js/pages-map.js?v=de7265c2"></script>
+<script src="/js/main.js?v=30f59a35"></script>
 <script src="/js/plans.js?v=e8751819"></script>
 <script src="/js/qrscan.js?v=9dbbd032"></script>
 <script src="/js/maps.js?v=4b587ec2" defer></script>

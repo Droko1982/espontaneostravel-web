@@ -437,6 +437,8 @@
     const lb = $("#lang-current"); if (lb) { const L = LANGS.find(x => x.code === currentLang); lb.textContent = L.name; }
     const lf = $("#lang-flag"); if (lf) lf.className = "flag-i flag-i--" + currentLang;
     $$("[data-hub]").forEach(a => { const P = window.ESPO_PAGES; if (P && P.dir[currentLang]) a.href = "/" + P.dir[currentLang] + "/"; });
+    $$("[data-b2b]").forEach(a => { const P = window.ESPO_PAGES; if (P && P.b2b && P.b2b[currentLang]) a.href = "/" + P.b2b[currentLang] + "/"; });
+    $$("[data-guides]").forEach(a => { const P = window.ESPO_PAGES; if (P && P.guides && P.guides[currentLang]) a.href = "/" + P.guides[currentLang] + "/"; });
     $$(".lang__item").forEach(it => it.classList.toggle("active", it.getAttribute("data-lang") === currentLang));
     renderAllData();
     document.dispatchEvent(new CustomEvent("espo:lang", { detail: currentLang }));
@@ -566,7 +568,7 @@
     addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
     const links = $$(".nav__link");
-    // Solo los enlaces a secciones de esta página (#…); «Agencias / DMCs» va a /portal.html
+    // Solo los enlaces a secciones de esta página (#…); «Agencias / DMCs» va a la página para agencias
     const sections = links.map(l => l.getAttribute("href") || "").filter(h => /^#[\w-]+$/.test(h)).map(h => $(h)).filter(Boolean);
     if ("IntersectionObserver" in window && sections.length) {
       const navIo = new IntersectionObserver((entries) => {

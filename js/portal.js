@@ -210,7 +210,7 @@ const ERRORS = {
 
 /* ---------- Estado ---------- */
 const S = {
-  lang: "es", view: "boot", authMode: "login", tab: null, tabsApi: null,
+  lang: "es", view: "boot", authMode: location.hash === "#solicitar" ? "signup" : "login", tab: null, tabsApi: null,
   fb: null, user: null, profile: null, dmc: null, signingUp: false,
   jenny: null, jennyP: null, i18n: null, tours: { list: [], byId: new Map(), byCode: new Map() },
   dmcs: [], users: [], refsLoaded: false, vigencias: [], cache: {}, preset: null, pagos: null,
@@ -944,7 +944,7 @@ async function boot() {
     S.user = user;
     if (!user) {
       Object.assign(S, { profile: null, dmc: null, refsLoaded: false, dmcs: [], users: [], cache: {}, tab: null, vigencias: [], preset: null, pagos: null });
-      return renderAuth("login");
+      return renderAuth(location.hash === "#solicitar" ? "signup" : "login");   // portal.html#solicitar (página para agencias) abre la solicitud de acceso
     }
     if (S.signingUp) return; // el registro termina y luego enruta
     await enter();

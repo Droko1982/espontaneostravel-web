@@ -49,7 +49,7 @@ const I18N_2026 = {
     f_consent_a: "Autorizo el tratamiento de mis datos personales según la", f_consent_link: "política de privacidad", f_consent_b: "(Ley 1581 de 2012).",
     f_consent_req: "Para enviar, acepta la política de datos.",
     footer_tag: "Turismo rural, cultural, de naturaleza y sin barreras en el Paisaje Cultural Cafetero de Colombia.",
-    fl_plans: "Planes", fl_faq: "Preguntas frecuentes", fl_dmc: "Agencias y DMC", fl_dmc_sub: "Portal de tarifas netas y reservas para agencias aliadas", fl_privacy: "Política de privacidad", fl_terms: "Términos y condiciones", fl_sustain: "Sostenibilidad",
+    fl_plans: "Planes", fl_faq: "Preguntas frecuentes", fl_guides: "Guías de viaje", fl_dmc: "Agencias y DMC", fl_dmc_sub: "Portal de tarifas netas y reservas para agencias aliadas", fl_privacy: "Política de privacidad", fl_terms: "Términos y condiciones", fl_sustain: "Sostenibilidad",
     rnt: "RNT 91795"
   },
   en: {
@@ -97,7 +97,7 @@ const I18N_2026 = {
     f_consent_a: "I authorise the processing of my personal data under the", f_consent_link: "privacy policy", f_consent_b: "(Colombian Law 1581 of 2012).",
     f_consent_req: "Please accept the data policy before sending.",
     footer_tag: "Rural, cultural, nature and barrier-free tourism in Colombia's Coffee Cultural Landscape.",
-    fl_plans: "Packages", fl_faq: "FAQ", fl_dmc: "Agencies & DMCs", fl_dmc_sub: "Net rates and bookings portal for partner agencies", fl_privacy: "Privacy policy", fl_terms: "Terms & conditions", fl_sustain: "Sustainability",
+    fl_plans: "Packages", fl_faq: "FAQ", fl_guides: "Travel guides", fl_dmc: "Agencies & DMCs", fl_dmc_sub: "Net rates and bookings portal for partner agencies", fl_privacy: "Privacy policy", fl_terms: "Terms & conditions", fl_sustain: "Sustainability",
     rnt: "RNT 91795"
   },
   fr: {
@@ -145,7 +145,7 @@ const I18N_2026 = {
     f_consent_a: "J'autorise le traitement de mes données personnelles selon la", f_consent_link: "politique de confidentialité", f_consent_b: "(loi colombienne 1581 de 2012).",
     f_consent_req: "Pour envoyer le formulaire, veuillez accepter la politique de confidentialité.",
     footer_tag: "Tourisme rural, culturel, nature et sans barrières dans le Paysage culturel du café de Colombie.",
-    fl_plans: "Forfaits", fl_faq: "FAQ", fl_dmc: "Agences et DMC", fl_dmc_sub: "Portail de tarifs nets et de réservations pour les agences partenaires", fl_privacy: "Confidentialité", fl_terms: "Conditions générales", fl_sustain: "Durabilité",
+    fl_plans: "Forfaits", fl_faq: "FAQ", fl_guides: "Guides de voyage", fl_dmc: "Agences et DMC", fl_dmc_sub: "Portail de tarifs nets et de réservations pour les agences partenaires", fl_privacy: "Confidentialité", fl_terms: "Conditions générales", fl_sustain: "Durabilité",
     rnt: "RNT 91795"
   },
   de: {
@@ -193,7 +193,7 @@ const I18N_2026 = {
     f_consent_a: "Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der", f_consent_link: "Datenschutzerklärung", f_consent_b: "zu (kolumbianisches Gesetz 1581 von 2012).",
     f_consent_req: "Bitte akzeptieren Sie die Datenschutzerklärung, um zu senden.",
     footer_tag: "Ländlicher, kultureller, Natur- und barrierefreier Tourismus in Kolumbiens Kaffeekulturlandschaft.",
-    fl_plans: "Pakete", fl_faq: "FAQ", fl_dmc: "Agenturen & DMCs", fl_dmc_sub: "Portal mit Nettopreisen und Buchungen für Partneragenturen", fl_privacy: "Datenschutz", fl_terms: "AGB", fl_sustain: "Nachhaltigkeit",
+    fl_plans: "Pakete", fl_faq: "FAQ", fl_guides: "Reiseführer", fl_dmc: "Agenturen & DMCs", fl_dmc_sub: "Portal mit Nettopreisen und Buchungen für Partneragenturen", fl_privacy: "Datenschutz", fl_terms: "AGB", fl_sustain: "Nachhaltigkeit",
     rnt: "RNT 91795"
   },
   pt: {
@@ -241,7 +241,7 @@ const I18N_2026 = {
     f_consent_a: "Autorizo o tratamento dos meus dados pessoais conforme a", f_consent_link: "política de privacidade", f_consent_b: "(Lei colombiana 1581 de 2012).",
     f_consent_req: "Para enviar, aceite a política de dados.",
     footer_tag: "Turismo rural, cultural, de natureza e sem barreiras na Paisagem Cultural Cafeeira da Colômbia.",
-    fl_plans: "Pacotes", fl_faq: "Perguntas frequentes", fl_dmc: "Agências e DMCs", fl_dmc_sub: "Portal de tarifas líquidas e reservas para agências parceiras", fl_privacy: "Política de privacidade", fl_terms: "Termos e condições", fl_sustain: "Sustentabilidade",
+    fl_plans: "Pacotes", fl_faq: "Perguntas frequentes", fl_guides: "Guias de viagem", fl_dmc: "Agências e DMCs", fl_dmc_sub: "Portal de tarifas líquidas e reservas para agências parceiras", fl_privacy: "Política de privacidade", fl_terms: "Termos e condições", fl_sustain: "Sustentabilidade",
     rnt: "RNT 91795"
   }
 };
