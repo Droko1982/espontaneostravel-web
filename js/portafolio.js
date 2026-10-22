@@ -55,7 +55,7 @@ const UI = {
     kids: "Niños de 0 a 2 años no pagan, pero ocupan silla de bebé en el vehículo; desde los 3 años pagan tarifa.", see_cond: "Políticas de reserva y pago", see_about: "Quiénes somos",
     com_txt: "Experiencia con la comunidad local (campesinos, artesanos, productores).", cord_txt: "Hace parte del proyecto Paisaje Cordillerano.", carry: "Tarifa {0} · aplica en {1}", copied: "Copiado", link_copied: "Enlace copiado", txt_copied: "Texto copiado",
     p_param: "Parámetro operativo", p_b2b: "Detalle técnico B2B", p_b2c: "Especificación comercial (B2C)", p_sched: "Horario recomendado", am: "Mañana", pm: "Tarde", ampm: "Mañana o tarde", guide_sup: "otros idiomas con suplemento de guianza",
-    conv_t: "Convenciones e iconografía", inst_t: "Presentación institucional", idx_t: "Índice de experiencias", idx_l: "Toca una línea para ver sus experiencias.", see_more: "Ver todo en Condiciones", how_t: "Cómo usar el portafolio",
+    conv_t: "Convenciones e iconografía", inst_t: "Presentación institucional", idx_t: "Índice de experiencias", idx_l: "Toca una línea para ver sus experiencias.", see_more: "Más sobre nosotros", how_t: "Cómo usar el portafolio",
     ic_dur: "Duración y dificultad: tiempo estimado y exigencia física (baja, media, alta).", ic_geo: "Geolocalización: con el hotel de «Arma tu ruta», cada experiencia muestra su distancia y la finca se asigna en el municipio más cercano.",
     ic_com: "Comunitario: experiencia con la comunidad local (campesinos, artesanos, productores).", ic_cord: "Paisaje Cordillerano: tours del proyecto en Calarcá, Córdoba, Pijao, Buenavista y Génova (Quindío) y Caicedonia y Sevilla (Valle).",
     ic_b2b: "Solo agencias: datos de venta y operación que no salen en Marca blanca ni en el PDF para el cliente.", ic_code: "Códigos: HD medio día (menos de 7 h) · FD día completo (7 h o más) · PT parques temáticos.",
@@ -84,7 +84,7 @@ const UI = {
     k_pnote: "El PDF muestra el precio por persona para 2, 4, 6 y 10 pasajeros, según tu tarifario.", k_go: "Descargar PDF", k_need: "Elige al menos una experiencia.", k_making: "Armando el PDF…", k_done: "Listo: {0}", k_err: "No se pudo crear el PDF. Intenta de nuevo.",
     k_open: "Si no se descargó, ábrelo aquí", pdf_client: "PDF para tu cliente", pdf_net: "PDF con tarifa neta", pdf_more: "Más opciones (idioma, marca, markup)", pdf_note: "El PDF para el cliente no lleva tarifas ni datos internos. El de tarifa neta es solo para tu agencia.",
     k_trnote: "Traducción por validar por el equipo de Espontáneos Travel.", k_nolib: "No se pudo cargar el generador de PDF. Revisa tu conexión y vuelve a intentar.",
-    c_h: "Condiciones 2027", c_l: "Quiénes somos, políticas de reserva y pago y cómo trabajamos. Información para agencias, DMCs y mayoristas.", c_about: "Quiénes somos", c_book: "Reservas y pagos", c_kids: "Niños y menores", c_sost: "Sostenibilidad e impacto", c_team: "Equipo y contacto", c_read: "Cómo leer las fichas",
+    c_h: "Condiciones 2027", c_l: "Más sobre nosotros, políticas de reserva y pago, niños y menores, sostenibilidad, casos de impacto comunitario y equipo. Información para agencias, DMCs y mayoristas.", c_about: "Más sobre nosotros", c_cases: "Casos de impacto comunitario", c_book: "Reservas y pagos", c_kids: "Niños y menores", c_sost: "Sostenibilidad", c_team: "Equipo y contacto", c_read: "Cómo leer las fichas",
     c_fit: "Servicios individuales (FIT)", c_grp: "Grupos (más de 20 pasajeros, incentivos, corporativos, estudiantiles o series)", c_conf: "Confirmación", c_pay: "Pagos", c_mod: "Modificaciones", c_canc: "Cancelaciones", c_gen: "Consideraciones generales", c_paym: "Formas de pago",
     c_paym_ask: "Tu asesor te envía las cuentas y el enlace de pago con cada confirmación.", c_2026: "Políticas del portafolio 2026: el equipo de ET confirma las de 2027.", c_access: "Turismo accesible", c_more: "Más sobre nosotros", c_actions: "Nuestras acciones", c_stories: "Historias de comunidad",
     c_drivers: "Conductores", c_contact: "Contacto", c_imp_conv: "Convenciones de impacto"
@@ -112,7 +112,7 @@ const UI = {
     kids: "Children aged 0–2 travel free but occupy a baby seat in the vehicle; from age 3 they pay the rate.", see_cond: "Booking and payment policies", see_about: "About us",
     com_txt: "Experience with the local community (farmers, artisans, producers).", cord_txt: "Part of the Paisaje Cordillerano project.", carry: "{0} rate · valid in {1}", copied: "Copied", link_copied: "Link copied", txt_copied: "Text copied",
     p_param: "Operating parameter", p_b2b: "B2B technical detail", p_b2c: "Commercial specification (B2C)", p_sched: "Recommended schedule", am: "Morning", pm: "Afternoon", ampm: "Morning or afternoon", guide_sup: "other languages with guiding supplement",
-    conv_t: "Conventions and icons", inst_t: "Who we are", idx_t: "Experience index", idx_l: "Tap a line to see its experiences.", see_more: "See everything in Conditions", how_t: "How to use the portfolio",
+    conv_t: "Conventions and icons", inst_t: "Who we are", idx_t: "Experience index", idx_l: "Tap a line to see its experiences.", see_more: "More about us", how_t: "How to use the portfolio",
     ic_dur: "Duration and difficulty: estimated time and physical effort (low, medium, high).", ic_geo: "Geolocation: with the hotel from «Build a route», each experience shows its distance and the farm is assigned in the closest municipality.",
     ic_com: "Community: experience with the local community (farmers, artisans, producers).", ic_cord: "Paisaje Cordillerano: tours of the project in Calarcá, Córdoba, Pijao, Buenavista and Génova (Quindío) and Caicedonia and Sevilla (Valle).",
     ic_b2b: "Agencies only: sales and operation data never shown in White label or in the client PDF.", ic_code: "Codes: HD half day (under 7 h) · FD full day (7 h or more) · PT theme parks.",
@@ -141,7 +141,7 @@ const UI = {
     k_pnote: "The PDF shows the price per person for 2, 4, 6 and 10 passengers, from your rate sheet.", k_go: "Download PDF", k_need: "Choose at least one experience.", k_making: "Building the PDF…", k_done: "Done: {0}", k_err: "The PDF could not be created. Please try again.",
     k_open: "If it didn't download, open it here", pdf_client: "PDF for your client", pdf_net: "PDF with net rate", pdf_more: "More options (language, brand, markup)", pdf_note: "The client PDF has no rates or internal data. The net-rate PDF is for your agency only.",
     k_trnote: "Translation pending validation by the Espontáneos Travel team.", k_nolib: "The PDF generator could not be loaded. Check your connection and try again.",
-    c_h: "Conditions 2027", c_l: "About us, booking and payment policies and how we work. Information for agencies, DMCs and wholesalers.", c_about: "About us", c_book: "Bookings and payments", c_kids: "Children and minors", c_sost: "Sustainability and impact", c_team: "Team and contact", c_read: "How to read the sheets",
+    c_h: "Conditions 2027", c_l: "More about us, booking and payment policies, children and minors, sustainability, community impact stories and team. Information for agencies, DMCs and wholesalers.", c_about: "More about us", c_cases: "Community impact stories", c_book: "Bookings and payments", c_kids: "Children and minors", c_sost: "Sustainability", c_team: "Team and contact", c_read: "How to read the sheets",
     c_fit: "Individual services (FIT)", c_grp: "Groups (more than 20 passengers, incentives, corporate, student or series)", c_conf: "Confirmation", c_pay: "Payments", c_mod: "Changes", c_canc: "Cancellations", c_gen: "General considerations", c_paym: "Payment methods",
     c_paym_ask: "Your advisor sends you the accounts and the payment link with each confirmation.", c_2026: "Policies from the 2026 portfolio: the ET team confirms the 2027 ones.", c_access: "Accessible tourism", c_more: "More about us", c_actions: "Our actions", c_stories: "Community stories",
     c_drivers: "Drivers", c_contact: "Contact", c_imp_conv: "Impact conventions"
@@ -1132,34 +1132,34 @@ function renderTrans(hl) {
   const tp = pane.querySelector("[data-r=tpax]"); tp.addEventListener("change", () => { S.tpax = Math.min(30, Math.max(1, Math.round(+tp.value) || 1)); renderTrans(); });
 }
 
-/* ---------- condiciones: quiénes somos primero, luego reservas y pagos, menores, sostenibilidad, equipo ---------- */
+/* ---------- condiciones: más sobre nosotros, reservas y pagos, menores, sostenibilidad, casos de impacto, equipo ----------
+   Quiénes somos / cómo trabajamos / qué hacemos van solo en la presentación institucional (pestaña Mapa). */
 function renderCond() {
   const pane = ROOT.querySelector('[data-pane="cond"]');
   const C = (L() === "en" && I18.en && I18.en.condiciones) || D.condiciones, E = (CTX.empresa && (CTX.empresa[L()] || CTX.empresa.es)) || null;
   const ul = a => `<ul>${(a || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
   const pagos = (CTX.pagos && CTX.pagos.length ? CTX.pagos : (CTX.priv && CTX.priv.pagos)) || [];
-  const secs = [["about", tx("c_about"), "info"], ["book", tx("c_book"), "shield"], ["kids", tx("c_kids"), "child"], ["sost", tx("c_sost"), "leaf"], ["team", tx("c_team"), "users"], ["read", tx("c_read"), "file"]];
+  const secs = [["about", tx("c_about"), "info"], ["book", tx("c_book"), "shield"], ["kids", tx("c_kids"), "child"], ["sost", tx("c_sost"), "leaf"], ["cases", tx("c_cases"), "heart"], ["team", tx("c_team"), "users"], ["read", tx("c_read"), "file"]];
   const pol = (k) => `<div class="pol"><h4>${k === "fit" ? tx("c_fit") : tx("c_grp")}</h4><dl>
       <div><dt>${tx("c_conf")}</dt><dd>${ul(C[k].conf)}</dd></div><div><dt>${tx("c_pay")}</dt><dd>${ul(C[k].pago)}</dd></div>
       <div><dt>${tx("c_mod")}</dt><dd>${ul(C[k].mod)}</dd></div><div><dt>${tx("c_canc")}</dt><dd>${ul(C[k].canc)}</dd></div></dl></div>`;
   pane.innerHTML = `<h2>${tx("c_h")}</h2><p class="lead">${tx("c_l")}</p>
     <nav class="cnav" aria-label="${esc(tx("c_h"))}">${secs.map(([k, l, i]) => `<a href="#pf-c-${k}" data-cj="${k}">${ic(i, "sm")}${esc(l)}</a>`).join("")}</nav>
     <section class="section" id="pf-c-about"><h3>${ic("info")}${tx("c_about")}</h3>
-      ${E ? `<div class="cgrid">${E.pillars.map(([t, x]) => `<div class="ccard"><h4>${esc(t)}</h4><p>${esc(x)}</p></div>`).join("")}</div>` : ""}
-      <div class="ccard hl"><h4>${ic("heart", "sm")}${tx("c_access")}</h4><p>${esc(C.accesible)}</p></div>
-      ${C.about && C.about.length ? `<details class="ccard"><summary>${tx("c_more")}</summary>${C.about.map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}</section>
+      ${C.about && C.about.length ? `<div class="ccard">${C.about.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : ""}
+      <div class="ccard hl"><h4>${ic("heart", "sm")}${tx("c_access")}</h4><p>${esc(C.accesible)}</p></div></section>
     <section class="section" id="pf-c-book"><h3>${ic("shield")}${tx("c_book")}</h3><p class="note">${tx("c_2026")}</p>
       <div class="cgrid two">${pol("fit")}${pol("grp")}</div>
       <div class="ccard"><h4>${tx("c_gen")}</h4>${ul(C.gen)}</div>
       <div class="ccard"><h4>${tx("c_paym")}</h4>${pagos.length && !S.wl ? ul(pagos) : `<p>${tx("c_paym_ask")}</p>`}</div></section>
     <section class="section" id="pf-c-kids"><h3>${ic("child")}${tx("c_kids")}</h3><div class="ccard">${ul(C.menores)}</div></section>
-    <section class="section" id="pf-c-sost"><h3>${ic("leaf")}${tx("c_sost")}</h3><div class="ccard"><p>${esc(C.sost)}</p><h4>${tx("c_actions")}</h4>${ul(C.acciones)}</div>
-      ${E ? `<div class="ccard"><h4>${esc(E.impact_t || tx("c_imp_conv"))}</h4><p class="note">${esc(E.impact_note || "")}</p><div class="cgrid">${E.impacts.map(([i, t, x]) => `<div><h4>${i} ${esc(t)}</h4><p>${esc(x)}</p></div>`).join("")}</div></div>
-        <div class="ccard"><h4>${esc(E.cases_t)}</h4><p class="note">${esc(E.cases_sub)}</p>${E.cases.map(([t, items], n) => `<details${n ? "" : " open"}><summary>${n + 1}. ${esc(t)}</summary>${ul(items)}</details>`).join("")}</div>` : ""}
+    <section class="section" id="pf-c-sost"><h3>${ic("leaf")}${tx("c_sost")}</h3><div class="ccard"><p>${esc(C.sost)}</p><h4>${tx("c_actions")}</h4>${ul(C.acciones)}</div></section>
+    <section class="section" id="pf-c-cases"><h3>${ic("heart")}${tx("c_cases")}</h3>
+      ${E ? `<div class="ccard"><p class="note">${esc(E.cases_sub)}</p>${E.cases.map(([t, items], n) => `<details${n ? "" : " open"}><summary>${n + 1}. ${esc(t)}</summary>${ul(items)}</details>`).join("")}</div>` : ""}
       <div class="ccard"><h4>${tx("c_stories")}</h4><div class="cgrid">${(C.comunidad || []).map(c => `<div><h4>${esc(c.t)}</h4><p>${esc(c.p)}</p></div>`).join("")}</div></div></section>
     <section class="section" id="pf-c-team"><h3>${ic("users")}${tx("c_team")}</h3>
-      <div class="team">${(C.equipo || []).map(p => `<div class="ccard person"><span class="av" aria-hidden="true">${esc(p.n.split(" ").map(x => x[0]).join("").slice(0, 2))}</span><div><h4>${esc(p.n)}</h4><p class="sub">${esc(p.r)}</p><p><a href="mailto:${esc(p.m)}">${ic("mail", "sm")}${esc(p.m)}</a></p></div></div>`).join("")}</div>
-      ${E ? `<div class="ccard"><h4>${esc(E.drivers_t || tx("c_drivers"))}</h4><div class="team">${E.drivers.map(n => `<div class="person"><span class="av" aria-hidden="true">${esc(n.split(" ").map(x => x[0]).join(""))}</span><div><b>${esc(n)}</b><p class="sub">${esc(E.drivers_note)}</p></div></div>`).join("")}</div>
+      <div class="team">${(C.equipo || []).map(p => `<div class="ccard person"><span class="av" aria-hidden="true">${esc(p.n.replace(/^(Dr|Dra)\.\s+/, "").split(" ").map(x => x[0]).join("").slice(0, 2))}</span><div><h4>${esc(p.n)}</h4><p class="sub">${esc(p.r)}</p>${p.m ? `<p><a href="mailto:${esc(p.m)}">${ic("mail", "sm")}${esc(p.m)}</a></p>` : ""}</div></div>`).join("")}</div>
+      ${E ? `<div class="ccard"><h4>${esc(E.drivers_t || tx("c_drivers"))}</h4><div class="team">${E.drivers.map(n => `<div class="person"><span class="av" aria-hidden="true">${esc(n.split(" ").map(x => x[0]).join(""))}</span><div><b>${esc(n)}</b>${E.drivers_note ? `<p class="sub">${esc(E.drivers_note)}</p>` : ""}</div></div>`).join("")}</div>
         <h4>${esc(E.team_t)}</h4><ul>${E.protocols.map(([t, x]) => `<li><b>${esc(t)}:</b> ${esc(x)}</li>`).join("")}</ul></div>` : ""}
       <div class="ccard"><h4>${ic("phone", "sm")}${tx("c_contact")}</h4>${ul(C.contacto)}</div></section>
     <section class="section" id="pf-c-read"><h3>${ic("file")}${tx("c_read")}</h3><div class="ccard">${ul(C.iconos)}</div></section>`;
