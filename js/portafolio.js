@@ -91,7 +91,7 @@ const UI = {
     k_agency: "Nombre de tu agencia en la portada (opcional)", k3: "Precios", k_price: "¿Qué precio mostrar?", k_pn: "Sin precios", k_pnet: "Con tarifa neta", k_psell: "Con precio de venta (neta + mi markup)", k_mk: "Mi markup (%)",
     k_pnote: "El PDF muestra el precio por persona para 2, 4, 6 y 10 pasajeros, según tu tarifario.", k_go: "Descargar PDF", k_need: "Elige al menos una experiencia.", k_making: "Armando el PDF…", k_done: "Listo: {0}", k_err: "No se pudo crear el PDF. Intenta de nuevo.",
     k_open: "Si no se descargó, ábrelo aquí", pdf_client: "PDF para tu cliente", pdf_net: "PDF con tarifa neta", pdf_more: "Más opciones (idioma, marca, markup)", pdf_note: "El PDF para el cliente no lleva tarifas ni datos internos. El de tarifa neta es solo para tu agencia.",
-    k_trnote: "Traducción por validar por el equipo de Espontáneos Travel.", k_nolib: "No se pudo cargar el generador de PDF. Revisa tu conexión y vuelve a intentar.",
+    k_trnote: "Traducción por validar por el equipo de Espontáneos Travel.", k_pax: "Pasajeros de la cotización", k_nolib: "No se pudo cargar el generador de PDF. Revisa tu conexión y vuelve a intentar.",
     c_h: "Condiciones 2027", c_l: "Más sobre nosotros, políticas de reserva y pago, niños y menores, sostenibilidad, casos de impacto comunitario y equipo. Información para agencias, DMCs y mayoristas.", c_about: "Más sobre nosotros", c_cases: "Casos de impacto comunitario", c_book: "Reservas y pagos", c_kids: "Niños y menores", c_sost: "Sostenibilidad", c_team: "Equipo y contacto", c_read: "Cómo leer las fichas",
     c_fit: "Servicios individuales (FIT)", c_grp: "Grupos (más de 20 pasajeros, incentivos, corporativos, estudiantiles o series)", c_conf: "Confirmación", c_pay: "Pagos", c_mod: "Modificaciones", c_canc: "Cancelaciones", c_gen: "Consideraciones generales", c_paym: "Formas de pago",
     c_paym_ask: "Tu asesor te envía las cuentas y el enlace de pago con cada confirmación.", c_2026: "Políticas del portafolio 2026: el equipo de ET confirma las de 2027.", c_access: "Turismo accesible", c_more: "Más sobre nosotros", c_actions: "Nuestras acciones", c_stories: "Historias de comunidad",
@@ -156,7 +156,7 @@ const UI = {
     k_agency: "Your agency name on the cover (optional)", k3: "Prices", k_price: "Which price to show?", k_pn: "No prices", k_pnet: "With net rate", k_psell: "With selling price (net + my markup)", k_mk: "My markup (%)",
     k_pnote: "The PDF shows the price per person for 2, 4, 6 and 10 passengers, from your rate sheet.", k_go: "Download PDF", k_need: "Choose at least one experience.", k_making: "Building the PDF…", k_done: "Done: {0}", k_err: "The PDF could not be created. Please try again.",
     k_open: "If it didn't download, open it here", pdf_client: "PDF for your client", pdf_net: "PDF with net rate", pdf_more: "More options (language, brand, markup)", pdf_note: "The client PDF has no rates or internal data. The net-rate PDF is for your agency only.",
-    k_trnote: "Translation pending validation by the Espontáneos Travel team.", k_nolib: "The PDF generator could not be loaded. Check your connection and try again.",
+    k_trnote: "Translation pending validation by the Espontáneos Travel team.", k_pax: "Passengers in the quote", k_nolib: "The PDF generator could not be loaded. Check your connection and try again.",
     c_h: "Conditions 2027", c_l: "More about us, booking and payment policies, children and minors, sustainability, community impact stories and team. Information for agencies, DMCs and wholesalers.", c_about: "More about us", c_cases: "Community impact stories", c_book: "Bookings and payments", c_kids: "Children and minors", c_sost: "Sustainability", c_team: "Team and contact", c_read: "How to read the sheets",
     c_fit: "Individual services (FIT)", c_grp: "Groups (more than 20 passengers, incentives, corporate, student or series)", c_conf: "Confirmation", c_pay: "Payments", c_mod: "Changes", c_canc: "Cancellations", c_gen: "General considerations", c_paym: "Payment methods",
     c_paym_ask: "Your advisor sends you the accounts and the payment link with each confirmation.", c_2026: "Policies from the 2026 portfolio: the ET team confirms the 2027 ones.", c_access: "Accessible tourism", c_more: "More about us", c_actions: "Our actions", c_stories: "Community stories",
@@ -928,7 +928,7 @@ function openFicha(id) {
   if ($r("freq")) $r("freq").addEventListener("click", () => { closeFicha(); CTX.onRequest({ tours: [{ tour_id: e.id, codigo: e.code, nombre: e.name }] }); });
   bindAdd(f);
   $r("kpdf").addEventListener("click", ev => { ev.preventDefault(); closeFicha(); K.sel = new Set([id]); setTab("kit"); });
-  f.querySelectorAll("[data-pdf]").forEach(b => b.addEventListener("click", () => pdfRun([id], { lang: L() === "en" ? "EN" : "ES", logo: !S.wl, price: S.wl ? "none" : b.dataset.pdf, markup: 0, agency: "" }, $r("fst"), b)));
+  f.querySelectorAll("[data-pdf]").forEach(b => b.addEventListener("click", () => pdfRun([id], { lang: L() === "en" ? "EN" : "ES", logo: !S.wl, price: S.wl ? "none" : b.dataset.pdf, markup: 0, agency: "", pax: $r("paxr") ? +$r("paxr").value : S.R.pax }, $r("fst"), b)));
   $r("ktxt").addEventListener("click", () => copy(fichaText(e), tx("txt_copied")));
   $r("klink").addEventListener("click", () => copy(location.origin + location.pathname + "#ficha=" + id, tx("link_copied")));
   try { history.replaceState(null, "", location.pathname + location.search + "#ficha=" + id); } catch (err) { /* sin historial */ }
@@ -1272,7 +1272,7 @@ const KL = {
   PT: { oper: "Operação", supl: "Suplementos", title: "Paisagem Cultural do Café · Experiências 2027", incl: "Inclui", noIncl: "Não inclui", reco: "Recomendações", dur: "Duração", langs: "Idiomas", price: "Preço por pessoa", pax: "pax", note: "Valores em pesos colombianos (COP) por pessoa. Sujeitos a disponibilidade.", consult: "Sob consulta", exp: "Experiências incluídas", mod: "Modalidade", age: "Idade", prepared: "Preparado por" }
 };
 const LNAME = { ES: "Español", EN: "English", FR: "Français", IT: "Italiano", PT: "Português" };
-const K = { sel: null, lang: "ES", logo: true, price: "none", markup: 15, agency: "" };
+const K = { sel: null, lang: "ES", logo: true, price: "none", markup: 15, agency: "", pax: 0 };
 function renderKit() {
   if (!K.sel) K.sel = new Set(S.R.tours.map(t => t.id));
   const logoV = K.logo && !S.wl, priceV = S.wl ? "none" : K.price;
@@ -1288,6 +1288,7 @@ function renderKit() {
       <p class="note" data-r="ktr" ${K.lang === "ES" ? "hidden" : ""}>${ic("info", "sm")}${tx("k_trnote")}</p></div>
     <div class="step${S.wl ? " is-off" : ""}"><h3><span class="k">3</span>${tx("k3")}</h3>
       <label class="field">${tx("k_price")}<select data-r="kprice" ${S.wl ? "disabled" : ""}><option value="none">${tx("k_pn")}</option><option value="net">${tx("k_pnet")}</option><option value="sell">${tx("k_psell")}</option></select></label>
+      <label class="field" data-r="kpaxw">${tx("k_pax")}<input data-r="kpax" type="number" min="1" max="30" step="1" value="${K.pax || S.R.pax || 2}" inputmode="numeric"></label>
       <label class="field" data-r="kmkw">${tx("k_mk")}<input data-r="kmk" type="number" min="0" max="100" step="1" value="${K.markup}" inputmode="numeric"></label>
       <span class="note">${tx("k_pnote")} (${esc(tarLabel())})</span></div>
     <div class="step"><button type="button" class="btn big" data-r="kgo">${ic("download")}${tx("k_go")}</button><p class="note" data-r="kst" aria-live="polite"></p></div>
@@ -1298,8 +1299,9 @@ function renderKit() {
   $r("kroute").addEventListener("click", () => { K.sel = new Set(S.R.tours.map(t => t.id)); renderKit(); });
   $r("kall").addEventListener("click", () => { K.sel = new Set(EXP.map(e => e.id)); renderKit(); });
   $r("knone").addEventListener("click", () => { K.sel = new Set(); renderKit(); });
-  const pr = $r("kprice"); pr.value = priceV; $r("kmkw").hidden = priceV !== "sell";
-  pr.addEventListener("change", () => { K.price = pr.value; $r("kmkw").hidden = pr.value !== "sell"; });
+  const pr = $r("kprice"); pr.value = priceV; $r("kmkw").hidden = priceV !== "sell"; $r("kpaxw").hidden = priceV === "none";
+  pr.addEventListener("change", () => { K.price = pr.value; $r("kmkw").hidden = pr.value !== "sell"; $r("kpaxw").hidden = pr.value === "none"; });
+  $r("kpax").addEventListener("input", e => { K.pax = Math.min(30, Math.max(1, Math.round(+e.target.value) || 1)); });
   $r("kmk").addEventListener("input", e => { K.markup = Math.max(0, Math.min(100, +e.target.value || 0)); });
   $r("klang").addEventListener("change", e => { K.lang = e.target.value; $r("ktr").hidden = K.lang === "ES"; });
   $r("klogo").addEventListener("change", e => { K.logo = e.target.value === "1"; });
@@ -1336,11 +1338,13 @@ async function pdfRun(ids, o, st, btn) {
 }
 function makePDF() {
   const wl = !!(S && S.wl);
-  return pdfRun([...K.sel], { lang: K.lang, logo: K.logo && !wl, price: wl ? "none" : K.price, markup: K.markup, agency: K.agency }, $r("kst"), $r("kgo"));
+  return pdfRun([...K.sel], { lang: K.lang, logo: K.logo && !wl, price: wl ? "none" : K.price, markup: K.markup, agency: K.agency, pax: K.pax || S.R.pax }, $r("kst"), $r("kgo"));
 }
-// o = { lang: ES|EN|FR|IT|PT, logo, price: none|net|sell, markup, agency }. Una sola ficha: sin portada.
+// o = { lang: ES|EN|FR|IT|PT, logo, price: none|net|sell, markup, agency, pax }. Una sola ficha: sin portada.
+// Con precio, cada ficha muestra solo la tarifa por persona de los pasajeros cotizados (o.pax).
 async function buildPdf(ids, o) {
   const lang = o.lang || "ES", LB = KL[lang] || KL.ES, lg = lang.toLowerCase(), logo = !!o.logo, price = o.price || "none", mk = price === "sell" ? (+o.markup || 0) : 0;
+  const qp = Math.min(30, Math.max(1, Math.round(+o.pax) || 2));
   if (lang !== "ES") await loadLang(lang);
   const { jsPDF } = await loadJsPDF().catch(() => { throw Object.assign(new Error("lib"), { code: "lib" }); });
   const doc = new jsPDF({ unit: "mm", format: "a4" }), W = 210, Mg = 16, CW = W - 2 * Mg; const OL = [74, 92, 58];
@@ -1400,11 +1404,11 @@ async function buildPdf(ids, o) {
     // Suplementos (dato de tarifa): solo con precios y en español (son notas del tarifario)
     if (price !== "none" && lang === "ES" && e.p.supl.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.supl, e.p.supl.map(x => markupMoney(x, mk)), Mg, CW) + 3; }
     if (price !== "none") {
-      if (y > 258) { foot(); doc.addPage(); y = Mg; }       // el cuadro de precios (≈ 27 mm) cabe hasta antes del pie
-      const cells = [2, 4, 6, 10].map(p => { const v = priceAt(e.id, p); return v != null ? "$ " + (mk ? Math.round(v * (1 + mk / 100) / 1000) * 1000 : v).toLocaleString("es-CO") : LB.consult; });
-      doc.setFillColor(238, 242, 236); doc.rect(Mg, y, CW, 20, "F"); doc.setFont("helvetica", "bold"); doc.setTextColor(...OL); doc.setFontSize(10); doc.text(pdfTxt(LB.price), Mg + 4, y + 6);
-      doc.setFont("helvetica", "normal"); [2, 4, 6, 10].forEach((p, i) => { const x = Mg + 4 + i * (CW - 8) / 4; doc.setFontSize(8.5); doc.setTextColor(90); doc.text(`${p} ${LB.pax}`, x, y + 11); doc.setFontSize(11); doc.setTextColor(30); doc.text(pdfTxt(cells[i]), x, y + 17); });
-      y += 24; doc.setFontSize(8); doc.setTextColor(110); doc.text(pdfTxt(LB.note), Mg, y); doc.setFontSize(10);
+      if (y > 262) { foot(); doc.addPage(); y = Mg; }       // el cuadro de precio (≈ 22 mm) cabe hasta antes del pie
+      const v = priceAt(e.id, qp), cell = v != null ? "$ " + (mk ? Math.round(v * (1 + mk / 100) / 1000) * 1000 : v).toLocaleString("es-CO") : LB.consult;
+      doc.setFillColor(238, 242, 236); doc.rect(Mg, y, CW, 15, "F"); doc.setFont("helvetica", "bold"); doc.setTextColor(...OL); doc.setFontSize(10.5); doc.text(pdfTxt(`${LB.price} · ${qp} ${LB.pax}`), Mg + 4, y + 9.5);
+      doc.setFontSize(14); doc.setTextColor(30); doc.text(pdfTxt(cell), W - Mg - 4, y + 10, { align: "right" });
+      y += 19; doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(110); doc.text(pdfTxt(LB.note), Mg, y); doc.setFontSize(10);
     }
     foot();
   }
@@ -1416,7 +1420,8 @@ async function buildPdf(ids, o) {
 export async function downloadFichaPdf(id, ctx, o, st) {
   if (!(ROOT && ROOT.isConnected)) { CTX = ctx; await preload(ctx.lang); buildModel(); }
   if (!byId[id]) return false;
-  return pdfRun([id], Object.assign({ lang: (ctx.lang === "en" ? "EN" : "ES"), logo: true, price: "net", markup: 0, agency: "" }, o || {}), st, null);
+  const rp = (S && S.R && S.R.pax) || (ls.get("pf27-ruta", null) || {}).pax || 2;
+  return pdfRun([id], Object.assign({ lang: (ctx.lang === "en" ? "EN" : "ES"), logo: true, price: "net", markup: 0, agency: "", pax: rp }, o || {}), st, null);
 }
 
 /* ---------- copiar y avisos ---------- */
