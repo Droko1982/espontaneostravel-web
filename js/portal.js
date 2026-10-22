@@ -1498,11 +1498,11 @@ async function dmcPortafolio(view) {
    Solo información comercial para agencias (sin datos internos: propiedad de cada vehículo, modelos ni municipios de los puntos). */
 const EMPRESA = {
  "es": {
-  "title": "Espontáneos Travel · DMC del Eje Cafetero",
+  "title": "Espontáneos Travel · Operador turístico del Eje Cafetero",
   "pillars": [
    [
     "Quiénes somos",
-    "Somos un Operador de Turismo Receptor (DMC) especializado en el Eje Cafetero colombiano. Diseñamos y operamos experiencias que convierten la riqueza natural y cultural de la región en itinerarios de alto valor para nuestros socios comerciales en Colombia y el mundo."
+    "Somos un operador turístico especializado en el Eje Cafetero colombiano. Diseñamos y operamos experiencias que convierten la riqueza natural y cultural de la región en itinerarios de alto valor para nuestros socios comerciales en Colombia y el mundo."
    ],
    [
     "Cómo trabajamos",
@@ -1659,11 +1659,11 @@ const EMPRESA = {
   ]
  },
  "en": {
-  "title": "Espontáneos Travel · Coffee Region DMC",
+  "title": "Espontáneos Travel · Coffee Region tour operator",
   "pillars": [
    [
     "Who we are",
-    "We are an inbound tour operator (DMC) specialised in Colombia's Coffee Region. We design and operate experiences that turn the region's natural and cultural wealth into high-value itineraries for our trade partners in Colombia and worldwide."
+    "We are a tour operator specialised in Colombia's Coffee Region. We design and operate experiences that turn the region's natural and cultural wealth into high-value itineraries for our trade partners in Colombia and worldwide."
    ],
    [
     "How we work",
