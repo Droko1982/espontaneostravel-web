@@ -1173,7 +1173,9 @@ function renderTrans(hl) {
   const p = Math.min(30, Math.max(1, S.tpax || S.R.pax || 4)); const cur = hl || vehFor(p).id;
   const en = L() === "en" && I18.en && I18.en.vehicles ? Object.fromEntries(I18.en.vehicles.map(v => [v.id, v])) : {};
   const vf = (v, k) => (en[v.id] && en[v.id][k]) || v[k];
-  const vc = v => `<div class="vcard${v.id === cur ? " on" : ""}${v.vip ? " vip" : ""}"><div class="media"><div class="ph">${ic("bus")}${tx("vid_soon")}</div></div>
+  // Fotos del vehículo (data/portafolio.json → vehicles[].fotos): pasan solas; clic = foto grande
+  const vm = v => (v.fotos || []).length ? `<div class="media" data-vf="${esc(v.id)}" role="button" tabindex="0" aria-label="${esc(vf(v, "name"))}">${mediaBlock({ id: "veh-" + v.id, fotos: v.fotos, name: vf(v, "name") }, { video: false })}</div>` : `<div class="media"><div class="ph">${ic("bus")}${tx("vid_soon")}</div></div>`;
+  const vc = v => `<div class="vcard${v.id === cur ? " on" : ""}${v.vip ? " vip" : ""}">${vm(v)}
     <div class="body"><span class="pax">${v.capacidad_max ? tx("tr_pax", v.min, v.max, v.capacidad_max) : tx("tr_upto", v.max)}</span><h4>${esc(vf(v, "name"))}</h4>${v.equipaje ? `<span class="sub">${esc(vf(v, "equipaje"))}</span>` : ""}<span class="sub">${esc(vf(v, "uso"))}</span>
     ${v.vip ? `<span class="sub"><b>${tx("vip")}</b></span>` : ""}${v.suplemento ? `<span class="sub code money">${esc(v.suplemento)}</span>` : ""}</div></div>`;
   const svcRows = pre => [...PR.svc.keys()].filter(c => c.startsWith(pre)).sort();
@@ -1181,6 +1183,7 @@ function renderTrans(hl) {
   const nm = c => (D.trayectos && D.trayectos[c]) || String((PR.svc.get(c)[0] || {}).nombre || c);
   const cond = (L() === "en" && CTX.empresa && CTX.empresa.en && CTX.empresa.en.fleet_cond) || (CTX.empresa && CTX.empresa.es && CTX.empresa.es.fleet_cond) || [];
   pane.innerHTML = `<h2>${tx("tr_h")}</h2><p class="lead">${tx("tr_l")}</p>
+    ${(D.flota || []).length ? `<button type="button" class="fleet" data-fleet="0" aria-label="${esc(tx("tr_h"))}"><img src="${ph640(D.flota[0])}" srcset="${ph640(D.flota[0])} 640w, ${ph1600(D.flota[0])} 1600w" sizes="(max-width: 1180px) 100vw, 1180px" alt="${esc(tx("tr_h"))}" loading="lazy" decoding="async"></button>` : ""}
     <div class="vgrid">${D.vehicles.map(vc).join("")}</div>
     <div class="ccard"><h4>${ic("shield", "sm")}${tx("tr_cond")}</h4><ul>${cond.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>
     <div class="section money"><h3>${tx("tr_tab")}</h3>
@@ -1191,6 +1194,10 @@ function renderTrans(hl) {
     ${guides.length ? `<div class="section money"><h3>${tx("guide_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th>${[...new Set(guides.flatMap(c => PR.svc.get(c).map(r => r.temporada)))].map(s => `<th class="r">${esc(s)}</th>`).join("")}</tr></thead><tbody>
       ${guides.map(c => { const rows = PR.svc.get(c), cols = [...new Set(guides.flatMap(g => PR.svc.get(g).map(r => r.temporada)))]; return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c).split("·").pop().trim())}</td>${cols.map(s => { const r = rows.find(x => x.temporada === s); return `<td class="r">${r ? cop(r.tarifa_neta) : "—"}</td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div></div>` : ""}`;
   const tp = pane.querySelector("[data-r=tpax]"); tp.addEventListener("change", () => { S.tpax = Math.min(30, Math.max(1, Math.round(+tp.value) || 1)); renderTrans(); });
+  startSlides(pane);
+  const big = md => { const v = D.vehicles.find(x => x.id === md.dataset.vf), on = md.querySelector(".slide.on"), k = on ? [...md.querySelectorAll(".slide")].indexOf(on) : 0; if (v) lightbox({ i: v.fotos[Math.max(0, k)] }); };
+  pane.querySelectorAll("[data-vf]").forEach(md => { md.addEventListener("click", () => big(md)); md.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); big(md); } }); });
+  const fl = pane.querySelector("[data-fleet]"); if (fl) fl.addEventListener("click", () => lightbox({ i: D.flota[0] }));
 }
 
 /* ---------- condiciones: más sobre nosotros, reservas y pagos, menores, sostenibilidad, casos de impacto, equipo ----------
