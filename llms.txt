@@ -25,6 +25,11 @@ Sitio oficial: https://www.espontaneostravel.com/ · Actualizado / Updated: 2026
 ## Páginas / Pages
 - [Inicio](https://www.espontaneostravel.com/)
 - [Todas las experiencias](https://www.espontaneostravel.com/experiencias/)
+- [Para agencias y operadores](https://www.espontaneostravel.com/agencias/): Operador del Paisaje Cultural Cafetero (RNT 91795) para agencias y mayoristas: 77 experiencias, traslados, guías bilingües, marca blanca y tarifas netas.
+- [Guías de viaje](https://www.espontaneostravel.com/guias/)
+  - [Cómo llegar al Eje Cafetero](https://www.espontaneostravel.com/guias/como-llegar-al-eje-cafetero.html): Aeropuertos de Armenia, Pereira y Manizales, distancias y tiempos por carretera a Salento, Filandia y el Valle de Cocora, y traslados privados en el Eje Cafetero.
+  - [La mejor época para visitar el Eje Cafetero](https://www.espontaneostravel.com/guias/mejor-epoca-para-visitar-el-eje-cafetero.html): Clima, temporadas de lluvia, cosecha de café y temporadas altas en el Eje Cafetero: cuándo ir a Salento, al Valle de Cocora y a las fincas cafeteras.
+  - [Qué hacer en el Eje Cafetero](https://www.espontaneostravel.com/guias/que-hacer-en-el-eje-cafetero.html): Valle de Cocora y Salento, Filandia, fincas cafeteras, aves, termales, parques temáticos y pueblos de la cordillera: qué hacer en el Eje Cafetero de Colombia.
 - [Política de sostenibilidad](https://www.espontaneostravel.com/sostenibilidad.html)
 - [Términos y condiciones](https://www.espontaneostravel.com/terminos.html)
 - [Privacidad](https://www.espontaneostravel.com/privacidad.html)
