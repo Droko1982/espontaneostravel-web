@@ -1235,7 +1235,7 @@ a.soc { display: inline-flex; align-items: center; gap: .45rem; padding: .42rem 
 a.soc svg { width: 20px; height: 20px; flex: 0 0 20px; }
 a.soc:hover, a.soc:focus-visible { color: #fff; filter: brightness(1.08); transform: translateY(-1px); }
 .soc--ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
-.soc--fb { background: #1877f2; }
+.soc--fb { background: #166fe5; }   /* azul de Facebook con contraste AA para el texto blanco */
 .contact__card--social:hover { transform: none; }
 .mm-social { margin-top: 1rem; }
 .xp-foot .soc-row { justify-content: center; margin-top: .5rem; }

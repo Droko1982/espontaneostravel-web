@@ -22,7 +22,7 @@
 @media (max-width: 700px) { .xp-hide-sm { display: none; } .xp-brand span { display: none; } .xp-nav { margin-left: 0; } .xp-top__in { justify-content: space-between; } }
 
 .xp-crumbs { font-size: .85rem; color: var(--text-muted, var(--text-soft)); margin: 1rem 0 .8rem; }
-.xp-crumbs a { color: var(--text-soft); }
+.xp-crumbs a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 2px; }
 
 /* cabecera de la experiencia */
 .xp-hero { display: grid; gap: clamp(1rem, 3vw, 2.2rem); align-items: start; }
