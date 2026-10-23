@@ -461,6 +461,10 @@
     if (persist !== false) { try { localStorage.setItem("esp_lang", lang); } catch (e) {} }
     syncLangUrl();
     applyI18n();
+    // Traducciones de los textos de las experiencias: se cargan la primera vez que se elige otro idioma
+    if (lang !== "es" && D() && D().ensureLang) D().ensureLang(lang).then(() => {
+      if (currentLang === lang && D().ready()) { renderAllData(); document.dispatchEvent(new CustomEvent("espo:data")); }
+    }, () => {});
   }
 
   /* ---------- Tema ---------- */
@@ -506,6 +510,9 @@
   function initHero() {
     const slides = $$(".hero__slide");
     if (slides.length < 2 || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Las fotos 2 y 3 (data-bg) se piden cuando la página ya cargó: no compiten con la primera ni con el texto
+    const lazy = () => slides.forEach(s => { if (s.dataset.bg) { s.style.backgroundImage = "url('" + s.dataset.bg + "')"; s.removeAttribute("data-bg"); } });
+    if (document.readyState === "complete") setTimeout(lazy, 1200); else addEventListener("load", () => setTimeout(lazy, 1200), { once: true });
     let idx = 0;
     setInterval(() => { slides[idx].classList.remove("active"); idx = (idx + 1) % slides.length; slides[idx].classList.add("active"); }, 6500);
   }
@@ -665,7 +672,7 @@
     langHint();
     observeReveals();
     requestAnimationFrame(() => $$(".hero .reveal").forEach(el => el.classList.add("in")));
-    if (D()) D().load().then(() => {
+    if (D()) D().load(undefined, currentLang).then(() => {
       renderAllData();
       document.dispatchEvent(new CustomEvent("espo:data"));
       const m = /^#tour-([a-z0-9]+)$/.exec(location.hash); if (m) openModal(m[1]);
