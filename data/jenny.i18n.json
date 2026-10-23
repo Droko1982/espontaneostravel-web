@@ -7,14 +7,16 @@
    "en",
    "fr",
    "de",
-   "pt"
+   "pt",
+   "it"
   ],
   "status": "translated from data/jenny.json and reviewed line by line against the Spanish (AI review, 22-oct-2026); review again if the Spanish changes",
   "address_form": {
    "en": "you",
    "fr": "vous",
    "de": "Sie",
-   "pt": "você"
+   "pt": "você",
+   "it": "tu"
   }
  },
  "en": {
@@ -6837,6 +6839,1712 @@
     "Mauricio": {
      "rol": "Hospedagem rural",
      "texto": "Com a nossa consultoria, ele entrou no portal de rotas da Paisagem Cultural Cafeeira."
+    }
+   }
+  }
+ },
+ "it": {
+  "tours": {
+   "finca": {
+    "nombre": "Visita a una fattoria del caffè",
+    "incluye": [
+     "Trasporto",
+     "Padroni di casa in fattoria",
+     "Cupping e metodi di preparazione",
+     "Degustazione di caffè",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Non usare profumi né creme profumate.",
+     "Ideale per persone tra 4 e 80 anni."
+    ],
+    "recomendacion": {
+     "titulo": "☕ Dal chicco alla tazza!",
+     "items": [
+      "👟 Scarpe chiuse e comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "☕ Assaggia il caffè senza zucchero durante la degustazione: ne coglierai meglio le note",
+      "🚯 Non lasciare rifiuti: lascia il posto come l'hai trovato"
+     ]
+    },
+    "descripcion": "Il caffè colombiano ha la Denominazione di Origine e il Paesaggio Culturale del Caffè è Patrimonio dell'Umanità UNESCO. In una fattoria tradizionale segui il processo dal seme alla tazza e impari a degustare il caffè: l'esperienza essenziale dell'Eje Cafetero."
+   },
+   "cocorasalento": {
+    "nombre": "Tour Valle de Cocora e Salento",
+    "incluye": [
+     "Trasporto",
+     "Guida",
+     "Camminata",
+     "Degustazione di caffè",
+     "Pranzo",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta repellente, crema solare, cappellino, abbigliamento e scarpe comode.",
+     "Meglio dal lunedì al venerdì: la destinazione ha una capacità di accoglienza limitata.",
+     "Ideale per persone tra 4 e 70 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🌴 Cocora e Salento!",
+     "items": [
+      "👟 Scarpe comode con buona aderenza (scarponcini se piove)",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "🧥 Vestiti a strati: a Cocora fa freddo",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "💵 Contanti per Salento",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🗓️ Meglio dal lunedì al venerdì: c'è meno gente"
+     ]
+    },
+    "descripcion": "La Valle de Cocora, con la palma da cera, albero nazionale, è l'immagine più famosa della Colombia, e Salento è il comune più antico del Quindío. Insieme sono il tour imperdibile di qualsiasi viaggio nell'Eje Cafetero."
+   },
+   "fulldayfcs": {
+    "nombre": "Full day Filandia, Valle de Cocora e Salento",
+    "incluye": [
+     "Trasporto",
+     "Guida",
+     "Cultura della cesteria",
+     "Ingresso al belvedere a Cocora",
+     "Degustazione di caffè",
+     "Souvenir",
+     "Pranzo",
+     "Idratazione",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Meglio dal lunedì al venerdì: la destinazione ha una capacità di accoglienza limitata.",
+     "Ideale per persone tra 4 e 70 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🌴 Filandia, Cocora e Salento in un giorno!",
+     "items": [
+      "👟 Scarpe comode con buona aderenza",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "🧥 Vestiti a strati e un capo caldo",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "💵 Contanti per gli acquisti",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🗓️ Meglio dal lunedì al venerdì: c'è meno gente"
+     ]
+    },
+    "descripcion": "I tre imperdibili del Quindío in un solo giorno: le palme da cera di Cocora, la Calle Real di Salento e la cesteria di Filandia, con pranzo incluso. Ideale se hai poco tempo e vuoi l'essenziale."
+   },
+   "filandia": {
+    "nombre": "Tour Filandia",
+    "incluye": [
+     "Trasporto",
+     "Guida",
+     "Visita al centro della cesteria",
+     "Degustazione di caffè",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta abbigliamento comodo e una giacca per la pioggia.",
+     "Ideale per persone tra 4 e 80 anni.",
+     "Facoltativo: laboratorio di cesteria (costo aggiuntivo)."
+    ],
+    "recomendacion": {
+     "titulo": "🏘️ Filandia, colori e cesteria!",
+     "items": [
+      "👟 Scarpe comode per camminare",
+      "🧥 Giacca per la pioggia (a Filandia fa fresco)",
+      "💵 Contanti per l'artigianato locale",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🧺 Puoi aggiungere il laboratorio di cesteria (1 h, costo aggiuntivo)",
+      "🛍️ Compra artigianato locale: sostieni le famiglie del paese"
+     ]
+    },
+    "descripcion": "Filandia è uno dei paesi meglio conservati del Paesaggio Culturale del Caffè: balconi colorati, architettura in bahareque (graticcio di canna e terra cruda) e una tradizione di cesteria ancora viva."
+   },
+   "cordillera": {
+    "nombre": "Full day Cordillera: Córdoba, Pijao e Buenavista",
+    "incluye": [
+     "Trasporto",
+     "Tragitto in Jeep Willys (se le condizioni lo permettono)",
+     "Guida",
+     "Degustazione di caffè",
+     "Souvenir",
+     "Pranzo",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Ideale per persone tra 4 e 80 anni.",
+     "Puoi aggiungere la visita a una fattoria del caffè (costo aggiuntivo)."
+    ],
+    "recomendacion": {
+     "titulo": "⛰️ Paesi della cordigliera!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "🧥 Un capo caldo leggero: in cordigliera fa fresco",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "💵 Contanti per acquisti locali",
+      "🚙 Parte del tragitto può essere in Jeep Willys su strade rurali",
+      "💊 Se soffri il mal d'auto, porta il tuo medicinale"
+     ]
+    },
+    "descripcion": "Il Quindío meno conosciuto: una giornata tra le montagne, lungo strade rurali, alla scoperta dell'autenticità di tre paesi della cordigliera."
+   },
+   "compartidocs": {
+    "nombre": "Tour condiviso Valle de Cocora e Salento",
+    "horario": {
+     "nota": "Punti d'incontro: Plaza de Bolívar alle 8:00 / Parque de la Vida alle 8:10; partenza alle 8:15."
+    },
+    "incluye": [
+     "Trasporto",
+     "Guida in spagnolo",
+     "Ingresso al Bosque de Palmas / belvedere",
+     "Visita a Salento",
+     "Idratazione o caffè",
+     "Tessera di assistenza medica"
+    ],
+    "no_incluye": [
+     "Pranzo",
+     "Spese non specificate"
+    ],
+    "notas": [
+     "Porta repellente, crema solare, cappellino, abbigliamento e scarpe comode.",
+     "Si effettua con un minimo di 2 persone; prenotazioni entro le 20:00 del giorno precedente.",
+     "Non si effettua nel weekend lungo festivo della settimana di vacanze scolastiche di ottobre, il 25 dicembre e dall'1 al 6 gennaio.",
+     "Ideale per persone tra 4 e 70 anni."
+    ],
+    "precio_publico": "$307.000 COP a persona (2026)",
+    "recomendacion": {
+     "titulo": "🚐 Tour condiviso a Cocora e Salento!",
+     "items": [
+      "⏰ Conferma il tuo posto entro le 20:00 del giorno prima",
+      "👟 Scarpe comode con buona aderenza",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "🧥 Vestiti a strati",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "💵 Contanti: il pranzo e i belvedere aggiuntivi si pagano a parte",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)"
+     ]
+    },
+    "descripcion": "Il modo più pratico ed economico per conoscere Cocora e Salento: partenza ogni giorno da Armenia con guida, interpretazione della foresta nebulosa e della palma da cera, e tempo libero sulla Calle Real."
+   },
+   "cocoraacaime": {
+    "nombre": "Trek Valle de Cocora · Acaime, casa dei colibrì",
+    "incluye": [
+     "Trasporto",
+     "Guida",
+     "Idratazione",
+     "Spuntino",
+     "Souvenir",
+     "Ingresso alla riserva",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta abbigliamento da trekking: repellente, impermeabile, maniche lunghe e colori terrosi.",
+     "Difficoltà media.",
+     "Ideale per persone tra 12 e 60 anni.",
+     "Non adatto a persone con patologie cardiorespiratorie pregresse."
+    ],
+    "recomendacion": {
+     "titulo": "🐦 Cocora e la casa dei colibrì!",
+     "items": [
+      "🥾 Scarpe da escursionismo o scarponi (fango e torrenti)",
+      "🧥 Maniche lunghe, vestiti a strati, colori terrosi",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "🧴 Repellente e crema solare",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "⚠️ Difficoltà media: 5 km con ponti sospesi",
+      "🚯 Non lasciare rifiuti: lascia il posto come l'hai trovato"
+     ]
+    },
+    "descripcion": "La Valle de Cocora è il paesaggio più iconico della Colombia, con la maggiore concentrazione di palme da cera del paese. Questo trek va oltre il belvedere: attraversa ponti sospesi e foresta nebulosa fino ad Acaime, dove decine di colibrì arrivano a pochi centimetri da te."
+   },
+   "aves": {
+    "nombre": "Avvistamento e fotografia di uccelli per appassionati",
+    "incluye": [
+     "Trasporto",
+     "Colazione",
+     "Guida ornitologica",
+     "Binocoli",
+     "Checklist degli uccelli",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta repellente e abbigliamento comodo a maniche lunghe in colori terrosi.",
+     "Partenza tra le 5:00 e le 6:00.",
+     "Ideale per persone tra 12 e 70 anni.",
+     "Il percorso si svolge in una riserva naturale vicina al tuo hotel."
+    ],
+    "recomendacion": {
+     "titulo": "🐦 Sveglia presto con gli uccelli!",
+     "items": [
+      "⏰ Partenza molto presto (5:00–6:00): la colazione è inclusa",
+      "👕 Abbigliamento in colori terrosi (evita il bianco e i colori vivaci) e maniche lunghe",
+      "🧥 Un capo caldo: le mattine sono fredde",
+      "🔇 Silenzio e movimenti lenti durante l'osservazione",
+      "📷 Porta la tua fotocamera; i binocoli te li prestiamo noi",
+      "🧴 Repellente",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile"
+     ]
+    },
+    "descripcion": "La Colombia è il paese con più specie di uccelli del pianeta e l'Eje Cafetero è una delle sue destinazioni migliori. Con una guida esperta e i binocoli, anche se non l'hai mai fatto, riesci a vedere e fotografare specie come il motmot andino, il tucanetto smeraldo o le tangara."
+   },
+   "palmacera": {
+    "nombre": "Palma da cera nel bosco altoandino (Pijao)",
+    "incluye": [
+     "Trasporto",
+     "Tragitto in Jeep Willys",
+     "Idratazione",
+     "Guida",
+     "Contributo alla comunità locale",
+     "Pranzo al sacco contadino",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta abbigliamento da trekking: comodo, impermeabile e a maniche lunghe.",
+     "Difficoltà media: si sale tra 2.200 e 2.600 m s.l.m.",
+     "Ideale per persone tra 12 e 70 anni.",
+     "Non adatto a persone con patologie cardiorespiratorie pregresse."
+    ],
+    "recomendacion": {
+     "titulo": "🌴 Foresta nebulosa e palma da cera!",
+     "items": [
+      "🥾 Scarpe da escursionismo con buona aderenza",
+      "🧥 Vestiti a strati, maniche lunghe e un capo caldo: sali da 2.200 a 2.600 m s.l.m.",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "🎒 Zainetto con uno snack",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "📷 Fotocamera o binocoli: ci sono più di 100 specie di uccelli",
+      "⚠️ Difficoltà media: camminata in salita di 1 h 30 min"
+     ]
+    },
+    "descripcion": "La palma da cera è l'albero nazionale della Colombia e la palma più alta del mondo. Questo percorso, in Willys e a piedi nella foresta nebulosa di Pijao, ti permette di vederla nel suo habitat naturale, lontano dalla folla."
+   },
+   "orquideas": {
+    "nombre": "Un mondo di orchidee",
+    "incluye": [
+     "Trasporto",
+     "Orchidologo",
+     "Attività di piantumazione",
+     "Souvenir",
+     "Ingresso alla riserva",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Ideale per persone tra 5 e 80 anni.",
+     "Non adatto a persone allergiche al polline o alle punture di insetti."
+    ],
+    "recomendacion": {
+     "titulo": "🌸 Scopri il mondo delle orchidee!",
+     "items": [
+      "👟 Scarpe chiuse e comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🌱 Pianterai un'orchidea: indossa vestiti che si possono sporcare",
+      "🚫 Non strappare né toccare i fiori senza l'indicazione dell'orchidologo"
+     ]
+    },
+    "descripcion": "Con un orchidologo, visita il vivaio e l'«asilo nido» delle orchidee appena nate, partecipa a una piantumazione di conservazione e impara a prendertene cura a casa."
+   },
+   "ranas": {
+    "nombre": "Esperienza notturna di rane e anfibi",
+    "incluye": [
+     "Trasporto",
+     "Guida erpetologo",
+     "Attrezzatura",
+     "Souvenir",
+     "Cena leggera",
+     "Ingresso alla riserva",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo, un cambio di vestiti, un impermeabile e maniche lunghe.",
+     "Al momento della prenotazione, indica il numero di scarpa o di stivale di ogni persona.",
+     "Difficoltà media: si cammina in montagna, tra torrenti o fiumi.",
+     "Ideale per persone tra 12 e 60 anni.",
+     "Non adatto a persone con lesioni al ginocchio o all'anca."
+    ],
+    "recomendacion": {
+     "titulo": "🐸 Una notte tra rane e torrenti!",
+     "items": [
+      "🔦 Torcia o lampada frontale (se ce l'hai; meglio a luce rossa)",
+      "🥾 Stivali o scarpe che si possono bagnare, con buona aderenza",
+      "👕 Un cambio di vestiti e maniche lunghe",
+      "🌧️ Impermeabile",
+      "🧴 Repellente",
+      "🤫 Parla a bassa voce e non toccare gli animali",
+      "⚠️ Difficoltà media: cammini in montagna, tra torrenti o fiumi"
+     ]
+    },
+    "descripcion": "Di notte, con un biologo erpetologo, scopri rane di vetro, rane color cioccolato e rane velenose nei torrenti della foresta."
+   },
+   "cocoraacaime2": {
+    "nombre": "La Carbonera · santuario della palma da cera",
+    "incluye": [
+     "Trasporto",
+     "Guida",
+     "Idratazione",
+     "Brunch",
+     "Assicurazione medica",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta abbigliamento da trekking: scarpe con buona aderenza, abbigliamento comodo e impermeabile e un capo caldo.",
+     "Difficoltà medio-alta; altitudine massima: 3.370 m s.l.m.",
+     "Ideale per persone tra 12 e 60 anni.",
+     "Non adatto a persone con patologie cardiorespiratorie pregresse."
+    ],
+    "recomendacion": {
+     "titulo": "🌴 Al santuario della palma da cera!",
+     "items": [
+      "🥾 Scarpe da escursionismo con buona aderenza",
+      "🧥 Un capo caldo e vestiti a strati: arrivi a 3.370 m s.l.m.",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🎒 Zainetto con uno snack",
+      "⏰ Partenza molto presto (6:00–7:00)",
+      "⚠️ Difficoltà medio-alta: 2 h di salita e 1 h 30 min di discesa"
+     ]
+    },
+    "descripcion": "La Carbonera ospita una delle popolazioni di palma da cera più grandi e meglio conservate del mondo, al confine tra Quindío e Tolima e lontano dalla folla di Cocora. Ci si arriva lungo l'antico Camino Nacional, a 3.370 m s.l.m."
+   },
+   "paramo": {
+    "nombre": "Escursionismo nel páramo · ecosistema unico (Pijao)",
+    "incluye": [
+     "Trasporto",
+     "Guida",
+     "Idratazione",
+     "Pranzo al sacco",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta abbigliamento termico e impermeabile, scarpe con buona aderenza, snack energetici e acqua a sufficienza.",
+     "Difficoltà medio-alta; altitudine massima: 3.800 m s.l.m.",
+     "Ideale per persone tra 12 e 60 anni.",
+     "Non adatto a persone con patologie cardiorespiratorie pregresse."
+    ],
+    "recomendacion": {
+     "titulo": "🏔️ Il páramo, fabbrica d'acqua!",
+     "items": [
+      "🥾 Scarponi impermeabili con buona aderenza (zone umide)",
+      "🧥 Abbigliamento termico, un capo caldo, berretto e guanti: fa freddo",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "🧴 Crema solare (il sole d'alta quota brucia)",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🌿 Non calpestare né strappare i frailejones (le piante simbolo del páramo)",
+      "⏰ Partenza presto (6:00–8:00)"
+     ]
+    },
+    "descripcion": "La Colombia ospita circa la metà dei páramos del mondo, gli ecosistemi d'alta quota che sono le «fabbriche d'acqua» delle Ande. Cammina tra i frailejones, le piante simbolo del páramo, nel Páramo del Chilí, fino a 3.800 m s.l.m."
+   },
+   "campesino": {
+    "nombre": "Tour esperienziale: Contadino per un giorno",
+    "incluye": [
+     "Trasporto",
+     "Spuntino",
+     "Pranzo",
+     "Padroni di casa locali",
+     "Partecipazione ai lavori della fattoria",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta abbigliamento a maniche lunghe e scarponi da trekking.",
+     "Non usare profumi né creme profumate."
+    ],
+    "recomendacion": {
+     "titulo": "🐓🌱 Connettiti con la vita rurale e la natura!",
+     "items": [
+      "👟 Scarpe chiuse e comode (camminerai su terreni naturali)",
+      "🧢 Cappello o cappellino per il sole",
+      "🧴 Crema solare e repellente ecologico",
+      "💧 Bottiglia d'acqua",
+      "👖 Abbigliamento comodo che si possa sporcare",
+      "🌧️ Possibilità di pioggia: porta un impermeabile leggero o una mantella",
+      "🚯 Rispetta il luogo: lascia tutto come l'hai trovato"
+     ]
+    },
+    "descripcion": "Il modo più autentico di vivere il Paesaggio Culturale del Caffè, Patrimonio dell'Umanità UNESCO: entra nella routine di una famiglia contadina (raccogliere caffè, frutta e banane platano, accudire gli animali) e siediti alla sua tavola."
+   },
+   "cacao": {
+    "nombre": "Tour del Cacao",
+    "incluye": [
+     "Trasporto",
+     "Spuntino",
+     "Padroni di casa in fattoria",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Ideale per persone tra 4 e 80 anni.",
+     "Il percorso si svolge in fattorie vicine al tuo hotel; il tragitto può essere in veicolo turistico o in Jeep Willys, a seconda dello stato delle strade."
+    ],
+    "recomendacion": {
+     "titulo": "🌱 Preparati a vivere un'esperienza indimenticabile con il cacao!",
+     "items": [
+      "🎒 Zaino leggero e comodo",
+      "🧢 Cappello o cappellino (proteggiti dal sole)",
+      "🧴 Crema solare e repellente",
+      "💧 Borraccia riutilizzabile",
+      "👟 Scarpe comode per camminare",
+      "🌦️ Può piovere: porta un impermeabile o un ombrello pieghevole!",
+      "🚯 Non lasciare rifiuti",
+      "🚫 Evita profumi forti: possono alterare l'ambiente naturale della coltivazione"
+     ]
+    },
+    "descripcion": "La Colombia è riconosciuta nel mondo per il suo cacao fine di sapore e aroma. Partecipa al processo, dalla cabossa alla bevanda, insieme alle famiglie che lo coltivano: un volto dell'Eje Cafetero che pochi conoscono."
+   },
+   "cana": {
+    "nombre": "Tour della canna da zucchero e del trapiche",
+    "incluye": [
+     "Trasporto",
+     "Degustazione",
+     "Padroni di casa in fattoria",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Ideale per persone tra 4 e 80 anni.",
+     "Nel fine settimana si vede il processo di produzione completo; nei giorni feriali, solo una parte."
+    ],
+    "recomendacion": {
+     "titulo": "🌾 Dolcezza contadina a ogni passo!",
+     "items": [
+      "👟 Scarpe chiuse e comode (possibili fango e terra)",
+      "🧢 Cappellino o cappello per il sole",
+      "🧴 Crema solare e repellente",
+      "💧 Borraccia riutilizzabile",
+      "👕 Vestiti freschi e leggeri, che si possano sporcare un po'",
+      "🌦️ Possibili brevi piogge: porta un impermeabile per sicurezza",
+      "🚯 Non gettare rifiuti durante il percorso",
+      "ℹ️ Nel fine settimana alle 9:00 vedi tutto il processo della panela (zucchero di canna integrale); nei giorni feriali il processo è parziale"
+     ]
+    },
+    "descripcion": "La panela (zucchero di canna integrale) è un simbolo della tavola colombiana. Guarda dal vivo il trapiche, il mulino della canna, dal taglio della canna al blocco di panela, e condividi del tempo con i contadini che portano avanti questo mestiere."
+   },
+   "abejas": {
+    "nombre": "Tour delle Api",
+    "incluye": [
+     "Trasporto",
+     "Degustazioni",
+     "Attrezzatura da apicoltura",
+     "Apicoltori locali come padroni di casa",
+     "Souvenir",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo a maniche lunghe e scarponi da trekking.",
+     "Non usare profumi né creme profumate.",
+     "Al momento della prenotazione, indica la taglia della tuta di ogni partecipante.",
+     "Ideale per persone tra 10 e 60 anni.",
+     "Non adatto a persone allergiche alle punture di insetti o di api."
+    ],
+    "recomendacion": {
+     "titulo": "🐝 Entra nel dolce mondo delle api!",
+     "items": [
+      "📏 Quando prenoti, indicaci la taglia di ogni persona: ti diamo la tuta da apicoltore",
+      "👖 Pantaloni lunghi e 👟 scarpe chiuse (stivali, se li hai)",
+      "🚫 Niente profumi, creme profumate o colori troppo accesi: attirano le api",
+      "⚠️ Avvisaci se sei allergico alle punture d'ape",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🚯 Non lasciare rifiuti: lascia il posto come l'hai trovato"
+     ]
+    },
+    "descripcion": "Con la tuta da apicoltore, entra nell'apiario e impara da una famiglia locale come si estrae il miele artigianale e perché le api sono fondamentali per il caffè e le coltivazioni della regione."
+   },
+   "frutas": {
+    "nombre": "Tour della Frutta (ananas, guava o agrumi)",
+    "incluye": [
+     "Trasporto",
+     "Degustazione",
+     "Padroni di casa in fattoria",
+     "Laboratorio di preparazione",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Ideale per persone tra 4 e 80 anni.",
+     "Si visita una tenuta produttrice di ananas, guava o agrumi, a seconda della stagione; il tragitto può essere in veicolo turistico o in Jeep Willys, a seconda dello stato delle strade."
+    ],
+    "recomendacion": {
+     "titulo": "🍈 Una dolce esperienza tra gli alberi di guava!",
+     "items": [
+      "👟 Scarpe comode e chiuse (potresti camminare tra terra e piante)",
+      "🧢 Cappello o cappellino per il sole",
+      "🧴 Crema solare e repellente per insetti",
+      "🧤 Guanti da giardinaggio, se li hai (facoltativi, ma utili)",
+      "💧 Bottiglia d'acqua",
+      "🌧️ Può piovere: porta un impermeabile leggero",
+      "👃 Lasciati guidare dai profumi dolci... fa parte del viaggio sensoriale!",
+      "🚯 Non lasciare rifiuti nella coltivazione",
+      "🚫 Evita profumi forti: possono alterare l'ambiente naturale della coltivazione"
+     ]
+    },
+    "descripcion": "Il Quindío è una dispensa di frutta: visita la fattoria partendo dal semenzaio, raccogli la frutta con le tue mani e trasformala in un laboratorio pratico. Ideale per le famiglie e per scoprire la campagna oltre il caffè."
+   },
+   "platano": {
+    "nombre": "Tour del Platano · delizie locali (Pueblo Tapao)",
+    "incluye": [
+     "Trasporto",
+     "Degustazioni",
+     "Padroni di casa locali",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Ideale per persone tra 4 e 80 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🍌 I sapori del miglior platano della Colombia!",
+     "items": [
+      "👟 Scarpe chiuse e comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "😋 Vieni con appetito: ci sono diverse degustazioni",
+      "🥗 Avvisaci se hai restrizioni alimentari",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "🚯 Non lasciare rifiuti: lascia il posto come l'hai trovato"
+     ]
+    },
+    "descripcion": "Il Quindío è uno dei principali produttori di platano (banana da cuocere) del paese. A Pueblo Tapao la comunità ti mostra le sue varietà, la coltivazione e le ricette, e assaggi preparazioni che non trovi al ristorante."
+   },
+   "termales": {
+    "nombre": "Acque termali: Santa Rosa, San Vicente o El Otoño",
+    "incluye": [
+     "Trasporto",
+     "Idratazione",
+     "Ingresso alla riserva termale scelta",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta costume da bagno, asciugamano, repellente e abbigliamento comodo.",
+     "Ideale per persone tra 6 e 80 anni.",
+     "Sconsigliato a persone con patologie cardiache pregresse.",
+     "Nel fine settimana e in alta stagione, verifica gli orari."
+    ],
+    "recomendacion": {
+     "titulo": "♨️ Rilassati nelle acque termali!",
+     "items": [
+      "🩱 Costume da bagno, asciugamano e sandali",
+      "👕 Un cambio di vestiti e un capo caldo (il clima è freddo)",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🔒 Porta solo lo stretto necessario: lascia gli oggetti di valore in hotel",
+      "⚠️ Sconsigliato a donne in gravidanza o a persone con ipertensione senza parere medico",
+      "🗓️ Nel fine settimana e in alta stagione ci sono turni: verifica gli orari"
+     ]
+    },
+    "descripcion": "Le acque termali dell'Eje Cafetero nascono dall'attività vulcanica della Cordigliera Centrale e sgorgano a circa 70 °C. Circondate da cascate e foresta, sono il programma perfetto per riposarti dopo le camminate."
+   },
+   "conexion": {
+    "nombre": "Connessione totale: benessere ed energia rinnovata",
+    "incluye": [
+     "Trasporto",
+     "Check-up del corpo fisico, psichico ed energetico",
+     "Sendero de la Vida: 5 elementi",
+     "Pranzo salutare",
+     "Idratazione",
+     "Souvenir",
+     "Massaggio per sciogliere i blocchi energetici",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente, abbigliamento comodo, un capo caldo, costume da bagno e sandali."
+    ],
+    "recomendacion": {
+     "titulo": "✨ Una giornata per rinnovare corpo e mente!",
+     "items": [
+      "👕 Abbigliamento comodo e un capo caldo",
+      "🩱 Costume da bagno e sandali",
+      "🧴 Repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🥗 Avvisaci se hai restrizioni alimentari (il pranzo salutare è incluso)",
+      "📵 Ti invitiamo a staccare dal cellulare"
+     ]
+    }
+   },
+   "yoga": {
+    "nombre": "Sessione di yoga in una riserva naturale",
+    "incluye": [
+     "Trasporto",
+     "Insegnante di yoga professionista",
+     "Idratazione",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Si svolge nella riserva naturale più vicina all'hotel o nell'hotel stesso, se le strutture lo consentono. Sessione da 60 a 90 minuti circa."
+    ],
+    "recomendacion": {
+     "titulo": "🧘 Respira e ritrova l'equilibrio nella natura!",
+     "items": [
+      "👕 Abbigliamento comodo ed elastico",
+      "🧥 Un capo caldo leggero",
+      "🧴 Repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🍽️ Meglio arrivare a stomaco leggero",
+      "🧘 Se hai un tappetino tuo, portalo (facoltativo)"
+     ]
+    }
+   },
+   "senderovida": {
+    "nombre": "Sendero de la Vida · connessione interiore",
+    "incluye": [
+     "Trasporto",
+     "Sendero de la Vida: 5 elementi",
+     "Guida coach del benessere",
+     "Idratazione",
+     "Massaggio liberatorio, rigenerante o rilassante",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Puoi scegliere il tuo massaggio: Liberazione e armonia (muscolare), Rinnovamento marino (esfoliazione completa del corpo) o Speciale lavanda (rilassamento profondo di testa, viso e collo)."
+    ],
+    "recomendacion": {
+     "titulo": "🌀 Connettiti con i cinque elementi!",
+     "items": [
+      "👕 Abbigliamento comodo",
+      "🧴 Repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "💆 Scegli il tuo massaggio: liberazione (muscolare), rinnovamento marino (esfoliazione) o lavanda (rilassamento)",
+      "📵 Ti invitiamo a staccare dal cellulare"
+     ]
+    }
+   },
+   "equino": {
+    "nombre": "Ippoterapia · coaching assistito",
+    "incluye": [
+     "Trasporto",
+     "Sessione telefonica di diagnosi",
+     "Sessione assistita con il cavallo",
+     "Guida coach",
+     "Idratazione",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "I temi della sessione si definiscono in base alla diagnosi iniziale: comunicazione assertiva, empatia, coerenza, presenza, conoscenza di sé, fiducia, gestione delle emozioni, gestione dello stress e risoluzione dei conflitti.",
+     "Per i minori di 13 anni l'attività si svolge in famiglia."
+    ],
+    "recomendacion": {
+     "titulo": "🐴 I cavalli come specchio!",
+     "items": [
+      "👖 Abbigliamento comodo e pantaloni lunghi",
+      "👟 Scarpe chiuse",
+      "🧴 Repellente e crema solare",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "📞 Prima della sessione facciamo una breve chiamata di diagnosi",
+      "👨‍👩‍👧 I minori di 13 anni partecipano in famiglia"
+     ]
+    }
+   },
+   "rituales": {
+    "nombre": "Rituali di benessere olistico",
+    "incluye": [
+     "Trasporto",
+     "Coach spirituale",
+     "Souvenir",
+     "Idratazione",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Si svolge nella riserva naturale più vicina all'hotel o nell'hotel stesso, se le strutture lo consentono."
+    ],
+    "recomendacion": {
+     "titulo": "🌿 Rituali per rinnovare la tua energia!",
+     "items": [
+      "👕 Abbigliamento comodo (meglio se chiaro)",
+      "🧴 Repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "💭 Quando prenoti, raccontaci il motivo del rituale (coppia, compleanno, nuovi inizi…)",
+      "📵 Ti invitiamo a staccare dal cellulare"
+     ]
+    }
+   },
+   "respiracion": {
+    "nombre": "Respirazione consapevole e immersione nel ghiaccio",
+    "incluye": [
+     "Trasporto",
+     "Assistenza professionale",
+     "Bevanda calda",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano costume da bagno e asciugamano per l'immersione.",
+     "Si svolge nella riserva naturale più vicina all'hotel o nell'hotel stesso, se le strutture lo consentono. Durata da 60 a 90 minuti circa."
+    ],
+    "recomendacion": {
+     "titulo": "🧊 Respira, senti il freddo e rinnova la tua energia!",
+     "items": [
+      "🩱 Costume da bagno e asciugamano",
+      "👕 Un cambio di vestiti e un capo caldo",
+      "🍽️ Arriva a stomaco leggero",
+      "⚠️ Avvisaci se hai problemi cardiaci o ipertensione, o se sei incinta",
+      "💧 Alla fine ti diamo una bevanda calda"
+     ]
+    }
+   },
+   "parapente": {
+    "nombre": "Parapendio",
+    "incluye": [
+     "Trasporto",
+     "Attività con piloti certificati",
+     "Video di 3 min e 25 fotografie"
+    ],
+    "notas": [
+     "Porta abbigliamento comodo, scarpe con lacci, occhiali da sole e un capo caldo.",
+     "Il volo dura da 15 a 20 minuti, a seconda del meteo.",
+     "Ideale per persone tra 4 e 65 anni.",
+     "Non adatto a persone con interventi chirurgici recenti, donne in gravidanza né persone sotto l'effetto di alcol o altre sostanze."
+    ],
+    "recomendacion": {
+     "titulo": "🪂 Vola sul Paesaggio del Caffè!",
+     "items": [
+      "👟 Scarpe chiuse e abbigliamento comodo",
+      "🕶️ Occhiali da sole e un capo caldo",
+      "📸 Include un video di 3 min e 25 foto",
+      "⛅ Il volo dipende dal meteo: può essere riprogrammato",
+      "⚠️ Non adatto a donne in gravidanza, a chi ha subito interventi chirurgici recenti né a chi è sotto l'effetto di alcol o sostanze"
+     ]
+    },
+    "descripcion": "Guarda il Paesaggio Culturale del Caffè dall'alto: un volo con piloti certificati sopra montagne, piantagioni di caffè e valli, con video e foto inclusi."
+   },
+   "cabalgatamaria": {
+    "nombre": "Passeggiata a cavallo tra fiume e montagna",
+    "incluye": [
+     "Trasporto",
+     "Introduzione alla conduzione del cavallo",
+     "Accompagnamento di mandriani",
+     "Spuntino sostanzioso",
+     "Dispositivi di protezione (casco)",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo, cappello e scarpe da trekking (possono bagnarsi).",
+     "Ideale per persone tra 12 e 60 anni.",
+     "Non adatto a donne in gravidanza né a persone con problemi alla colonna vertebrale."
+    ],
+    "recomendacion": {
+     "titulo": "🐎 A cavallo tra fiume e montagna!",
+     "items": [
+      "👖 Pantaloni lunghi (jeans o simili)",
+      "👟 Scarpe chiuse o stivali (niente sandali)",
+      "🤠 Cappello o cappellino e crema solare",
+      "🧴 Repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "⚠️ Comunicaci il tuo peso approssimativo e la tua esperienza con i cavalli",
+      "🪖 Ti diamo il casco: indossalo per tutto il percorso"
+     ]
+    },
+    "descripcion": "Una passeggiata a cavallo con uno scopo: i cavalli sono salvati e riabilitati, e l'antica tenuta di allevamento oggi è una riserva naturale che ha recuperato il suo bosco. Attraversi boschi di guadua (bambù andino), pascoli e fiumi con mandriani locali e concludi con il pranzo nella casa della tenuta."
+   },
+   "cabalgatadeluxe": {
+    "nombre": "Passeggiata a cavallo deluxe nella cordigliera",
+    "incluye": [
+     "Trasporto",
+     "Introduzione alla conduzione del cavallo",
+     "Accompagnamento di mandriani",
+     "Dispositivi di protezione (casco)",
+     "Picnic di lusso e pranzo contadino",
+     "Degustazione di frutta e idratazione",
+     "Attività di piantumazione",
+     "Esperienza in Jeep Willys",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo e cappello o cappellino.",
+     "Ideale per persone tra 12 e 60 anni.",
+     "Non adatto a donne in gravidanza né a persone con problemi alla colonna vertebrale.",
+     "Prodotto certificato secondo la norma NTS AV 014 (passeggiate a cavallo nel turismo d'avventura) e le buone pratiche equestri."
+    ],
+    "recomendacion": {
+     "titulo": "🐎 Passeggiata a cavallo deluxe in cordigliera!",
+     "items": [
+      "👖 Pantaloni lunghi",
+      "👟 Stivali o scarpe chiuse",
+      "🤠 Cappello o cappellino e crema solare",
+      "🧴 Repellente",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "⚠️ Comunicaci il tuo peso approssimativo e la tua esperienza con i cavalli",
+      "🪖 Ti diamo il casco: indossalo per tutto il percorso"
+     ]
+    },
+    "descripcion": "Una passeggiata a cavallo premium su cavalli arabi e spagnoli attraverso la cordigliera, con dimostrazione di addestramento, piantumazione di un albero autoctono, picnic di lusso e ritorno in Willys con pranzo di montagna."
+   },
+   "paratrike": {
+    "nombre": "Paratrike",
+    "incluye": [
+     "Trasporto",
+     "Attività con piloti certificati",
+     "Video di 3 min e 25 fotografie"
+    ],
+    "notas": [
+     "Porta abbigliamento comodo, scarpe con lacci, occhiali da sole e un capo caldo.",
+     "Adatto a persone con mobilità ridotta.",
+     "Il volo dura da 15 a 20 minuti, a seconda del meteo.",
+     "Ideale per persone tra 4 e 65 anni.",
+     "Non adatto a persone con interventi chirurgici recenti, donne in gravidanza né persone sotto l'effetto di alcol o altre sostanze."
+    ],
+    "recomendacion": {
+     "titulo": "🛺 Vola in paratrike!",
+     "items": [
+      "👟 Scarpe chiuse e abbigliamento comodo",
+      "🕶️ Occhiali da sole e un capo caldo",
+      "📸 Include un video di 3 min e 25 foto",
+      "⛅ Il volo dipende dal meteo: può essere riprogrammato",
+      "⚠️ Non adatto a donne in gravidanza, a chi ha subito interventi chirurgici recenti né a chi è sotto l'effetto di alcol o sostanze"
+     ]
+    },
+    "descripcion": "Parapendio a motore, adatto a persone con mobilità ridotta: una vista a 360° sul Quindío e sulla Valle del Cauca. Un'avventura inclusiva, con video e foto."
+   },
+   "parquecafe": {
+    "nombre": "Parque del Café",
+    "incluye": [
+     "Trasporto",
+     "Pasaporte Múltiple (biglietto)"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo, cappello o cappellino e crema solare.",
+     "Pasaporte Múltiple: altezza superiore a 124 cm; Junior: bambini tra 90 e 124 cm; Senior: over 70.",
+     "Ideale per famiglie, per persone tra 4 e 70 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🎢 Giornata al parco!",
+     "items": [
+      "👟 Scarpe comode (camminerai parecchio)",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "🩱 Un cambio di vestiti se sali sulle attrazioni d'acqua",
+      "💵 Contanti o carta per mangiare dentro il parco",
+      "📏 La tariffa bambini dipende dall'altezza (91–124 cm)"
+     ]
+    },
+    "descripcion": "Il parco tematico più emblematico dell'Eje Cafetero: la cultura del caffè raccontata con spettacoli, sentiero del caffè, funicolare, funivia e attrazioni meccaniche. Un programma ideale per famiglie e gruppi."
+   },
+   "panaca": {
+    "nombre": "PANACA",
+    "incluye": [
+     "Trasporto",
+     "Pasaporte Terra (biglietto)"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo, cappello o cappellino e crema solare.",
+     "I bambini sotto i 90 cm non pagano.",
+     "Spettacolo notturno Travesía: martedì, giovedì e sabato alle 18:00 (costo aggiuntivo).",
+     "Ideale per famiglie, per persone tra 4 e 65 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🐄 Una giornata a PANACA!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💵 Contanti o carta per mangiare dentro il parco",
+      "⏰ Arriva presto per vedere tutti gli spettacoli",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)"
+     ]
+    },
+    "descripcion": "Il parco della cultura agricola e zootecnica, nato dall'idea che «senza campagna non c'è città»: oltre 2,5 km di stazioni con animali da fattoria e spettacoli di cavalli, cani e maiali. Molto amato da famiglie e scolaresche."
+   },
+   "recuca": {
+    "nombre": "RECUCA · Recorrido de la Cultura Cafetera",
+    "incluye": [
+     "Trasporto",
+     "Ingresso"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo, cappello o cappellino e crema solare.",
+     "Visite e degustazioni ogni mezz'ora, dalle 9:00 alle 15:00.",
+     "I bambini sotto i 90 cm non pagano.",
+     "Ideale per famiglie, per persone tra 4 e 65 anni."
+    ],
+    "recomendacion": {
+     "titulo": "☕ Cultura del caffè a RECUCA!",
+     "items": [
+      "👟 Scarpe comode (camminerai tra le piantagioni di caffè)",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "⏰ Le visite partono ogni mezz'ora; la prima alle 9:00 e l'ultima alle 15:00",
+      "👶 I bambini sotto i 90 cm non pagano"
+     ]
+    },
+    "descripcion": "Vestiti da raccoglitore e vivi il ciclo del caffè come un coltivatore tradizionale: raccogli, spolpi, essicchi, decortichi, tosti e macini. Un'esperienza pratica dal seme alla tazza."
+   },
+   "ukumari": {
+    "nombre": "Bioparque Ukumarí",
+    "incluye": [
+     "Trasporto",
+     "Ingresso"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo, cappello o cappellino e crema solare.",
+     "Orari: dal lunedì al venerdì dalle 8:00 alle 17:00; il sabato dalle 8:00 alle 14:00.",
+     "Visite guidate: 10:00, 10:30, 11:00 e 13:00.",
+     "Ideale per famiglie, per persone tra 4 e 65 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🐻 Bioparque Ukumarí!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "⏰ Visite guidate dal lunedì al sabato (10:00, 10:30, 11:00 e 13:00)",
+      "🗓️ Il sabato chiude alle 14:00",
+      "🚫 Non dare da mangiare agli animali"
+     ]
+    },
+    "descripcion": "Uno dei bioparchi più grandi dell'America Latina, dedicato alla conservazione: orso dagli occhiali, puma, uccelli andini e una savana africana con giraffe, leoni e rinoceronti."
+   },
+   "arrieros": {
+    "nombre": "Parque Los Arrieros",
+    "incluye": [
+     "Trasporto",
+     "Ingresso"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo, cappello o cappellino e crema solare.",
+     "Arriva prima delle 10:00 per non perdere nessuno spettacolo.",
+     "I bambini sotto i 90 cm non pagano.",
+     "Ideale per famiglie, per persone tra 4 e 65 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🐴 Parque Los Arrieros!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "⏰ Arriva prima delle 10:00 per non perdere gli spettacoli",
+      "💵 Contanti o carta per mangiare",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)"
+     ]
+    },
+    "descripcion": "Un omaggio all'arriería, il mestiere dei mulattieri che colonizzò e costruì la regione: 8 spettacoli artistici e 14 attività interattive per capire in modo divertente la storia dell'Eje Cafetero."
+   },
+   "botanico": {
+    "nombre": "Jardín Botánico y Mariposario del Quindío",
+    "incluye": [
+     "Trasporto",
+     "Ingresso"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo a maniche lunghe in colori terrosi, cappello o cappellino e crema solare.",
+     "Ultimo ingresso: 15:30.",
+     "Guida in inglese con costo aggiuntivo.",
+     "Ideale per famiglie, per persone tra 4 e 75 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🦋 Farfallario e giardino botanico!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "⏰ Ultimo ingresso alle 15:30",
+      "🦋 Non toccare le farfalle"
+     ]
+    },
+    "descripcion": "Un centro di ricerca e conservazione della flora e della fauna native del Quindío, con la collezione nazionale di palme più grande della Colombia e un farfallario dove cammini tra le farfalle."
+   },
+   "laberinto": {
+    "nombre": "Laberinto Mil Caminos",
+    "incluye": [
+     "Trasporto",
+     "Ingresso"
+    ],
+    "notas": [
+     "Porta repellente, abbigliamento comodo, cappello o cappellino e crema solare.",
+     "Aperto da martedì a domenica e nei giorni festivi, dalle 9:00 alle 17:00 (ultimo ingresso).",
+     "Ideale per famiglie, per persone tra 4 e 75 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🌀 Perditi nel labirinto!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🗓️ Aperto da martedì a domenica e nei giorni festivi (chiuso il lunedì)"
+     ]
+    },
+    "descripcion": "Uno dei labirinti più grandi dell'America Latina: oltre 3 km di sentieri tra 24.000 arbusti, in uno spazio per contemplare, giocare e staccare la spina."
+   },
+   "armenia": {
+    "nombre": "City tour tradizionale di Armenia",
+    "incluye": [
+     "Trasporto",
+     "Guida",
+     "Ingresso al Parque de la Vida",
+     "Visita al Museo del Oro Quimbaya",
+     "Degustazione di caffè specialty",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Ideale per persone tra 4 e 70 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🏙️ Armenia, città miracolo!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🏛️ Include il Museo del Oro Quimbaya e il Parque de la Vida",
+      "☕ Degustazione di caffè specialty"
+     ]
+    },
+    "descripcion": "Armenia, la «Città Miracolo», è stata ricostruita dopo il terremoto del 1999. Il tour include il Museo del Oro Quimbaya, progettato dall'architetto Rogelio Salmona, con una delle collezioni di oreficeria precolombiana più importanti del paese."
+   },
+   "cuyabro": {
+    "nombre": "City tour arte cuyabra e caffè d'origine",
+    "incluye": [
+     "Trasporto",
+     "Guida interpretativa",
+     "Degustazione di caffè d'origine",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Ideale per persone tra 4 e 70 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🎨 Arte cuyabra e caffè d'origine!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "☕ Assaggia il caffè senza zucchero durante la degustazione",
+      "💵 Contanti per comprare arte o caffè locale"
+     ]
+    },
+    "descripcion": "Armenia raccontata attraverso la sua arte urbana: murales, graffiti e barranquismo, una tecnica scultorea nata nella regione, con opere dell'artista Henry Villada. Si conclude con una degustazione di caffè d'origine."
+   },
+   "cartago": {
+    "nombre": "Tour comunitario a Cartago",
+    "incluye": [
+     "Trasporto",
+     "Spuntino",
+     "Guida",
+     "Laboratorio artigianale",
+     "Pranzo",
+     "Manufatto realizzato",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Indossa abbigliamento comodo.",
+     "Ideale per persone tra 6 e 80 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🧵 I ricami di Cartago!",
+     "items": [
+      "👕 Abbigliamento comodo e fresco (a Cartago fa caldo)",
+      "🧢 Cappello o berretto, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (l'acqua te la diamo noi durante il percorso)",
+      "🧵 Realizzerai il tuo ricamo e lo porterai a casa",
+      "💵 Contanti per comprare i ricami delle artigiane"
+     ]
+    },
+    "descripcion": "Cartago è la capitale del ricamo in Colombia. Con giovani e donne della Comuna 1 visiti la cattedrale e le chiese, vivi un Graffitour del ricamo e impari le tecniche di base in una casa laboratorio, dove ricami il tuo disegno."
+   },
+   "pereira": {
+    "nombre": "City tour Pereira",
+    "incluye": [
+     "Trasporto",
+     "Guida",
+     "Degustazione di caffè specialty",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Ideale per persone tra 4 e 70 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🏙️ City tour a Pereira!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧢 Cappello o berretto, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (l'acqua te la diamo noi durante il percorso)",
+      "☕ Include una degustazione di caffè specialty"
+     ]
+    },
+    "descripcion": "Pereira, la «Perla dell'Otún», è la città più dinamica dell'Eje Cafetero: la cattedrale, la Plaza de Bolívar con il Bolívar Desnudo («Bolívar nudo») di Arenas Betancourt e il viadotto César Gaviria, con un finale a base di caffè specialty."
+   },
+   "manizales": {
+    "nombre": "City tour Manizales",
+    "incluye": [
+     "Trasporto",
+     "Guida",
+     "Ingresso al corridoio polacco della cattedrale",
+     "Visita a un belvedere",
+     "Degustazione di caffè specialty",
+     "Biglietto della funivia",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano repellente e abbigliamento comodo.",
+     "Ideale per persone tra 4 e 70 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🚡 Manizales dall'alto!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧥 Un capo caldo: a Manizales fa fresco",
+      "🌧️ Può piovere: ti prestiamo una mantella riutilizzabile",
+      "🚡 Include la funivia e la cattedrale",
+      "☕ Degustazione di caffè specialty"
+     ]
+    },
+    "descripcion": "Manizales, costruita sulle montagne e con vista sul Nevado del Ruiz, ha una delle cattedrali più alte dell'America Latina, su cui si può salire attraverso il corridoio polacco. Include la funivia, il centro storico e un caffè in un belvedere."
+   },
+   "catacafe": {
+    "nombre": "Degustazione di caffè specialty",
+    "incluye": [
+     "Trasporto",
+     "Attività di cupping",
+     "Degustazioni di caffè",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si può fare nel tuo hotel o ovunque ti trovi.",
+     "Ideale per persone tra 18 e 80 anni."
+    ],
+    "recomendacion": {
+     "titulo": "☕ Degustazione di caffè specialty!",
+     "items": [
+      "🚫 Evita profumi forti: alterano gli aromi",
+      "🦷 Non lavarti i denti subito prima",
+      "☕ Assaggia senza zucchero",
+      "🏨 Si può fare nel tuo hotel"
+     ]
+    },
+    "descripcion": "Dal chicco alla tazza: impara a riconoscere le note agrumate, di cioccolato o speziate del caffè specialty, il prodotto che ha reso famosa la regione nel mondo."
+   },
+   "gastronomica": {
+    "nombre": "Esperienza gastronomica: la Colombia in un piatto",
+    "incluye": [
+     "Trasporto",
+     "Chef",
+     "Menù di 7 portate",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Comunicaci eventuali restrizioni o allergie alimentari."
+    ],
+    "recomendacion": {
+     "titulo": "🍽️ La Colombia in un piatto!",
+     "items": [
+      "🥗 Segnalaci allergie o restrizioni al momento della prenotazione",
+      "😋 Vieni con appetito: è un menù di 7 portate",
+      "👥 Minimo 6 persone"
+     ]
+    }
+   },
+   "cajaviajera": {
+    "nombre": "La scatola viaggiatrice del caffè",
+    "incluye": [
+     "Messa in scena",
+     "Degustazione di caffè",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Attività itinerante: si svolge nell'hotel o nella struttura in cui alloggi.",
+     "Disponibile solo in spagnolo o con traduttore."
+    ],
+    "recomendacion": {
+     "titulo": "📦 La scatola viaggiatrice del caffè!",
+     "items": [
+      "🏨 Si svolge nel tuo hotel o alloggio",
+      "🗣️ Viene presentata in spagnolo (o con traduttore)",
+      "☕ Include una degustazione di caffè"
+     ]
+    }
+   },
+   "cataquesos": {
+    "nombre": "Degustazione di formaggi stagionati d'origine",
+    "incluye": [
+     "Maestro casaro",
+     "Degustazione di formaggi e abbinamenti",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "La degustazione può includere formaggi gouda, all'achiote (annatto), erborinati, camembert, stagionati e semistagionati.",
+     "Sconsigliato a persone con allergie alimentari.",
+     "Attività itinerante: si svolge nell'hotel o nella struttura in cui alloggi."
+    ],
+    "recomendacion": {
+     "titulo": "🧀 Degustazione di formaggi stagionati!",
+     "items": [
+      "⚠️ Sconsigliato se hai allergie ai latticini o ad altri alimenti",
+      "🏨 Si può fare nel tuo hotel",
+      "😋 Vieni con appetito"
+     ]
+    }
+   },
+   "catacocteles": {
+    "nombre": "Degustazione di cocktail d'autore",
+    "incluye": [
+     "Trasporto",
+     "Bartender",
+     "Degustazione di cocktail d'autore",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si svolge nella zona urbana della città.",
+     "Gruppi da un minimo di 5 a un massimo di 14 persone."
+    ],
+    "recomendacion": {
+     "titulo": "🍸 Degustazione di cocktail d'autore!",
+     "items": [
+      "🔞 Solo per maggiorenni",
+      "🚗 Non metterti alla guida dopo la degustazione",
+      "👥 Gruppi da 5 a 14 persone",
+      "🥗 Segnalaci eventuali allergie al momento della prenotazione"
+     ]
+    }
+   },
+   "siembra": {
+    "nombre": "Lasciare il segno: piantumazione di alberi",
+    "incluye": [
+     "Trasporto",
+     "Spuntino",
+     "Guida",
+     "Albero di specie endemica",
+     "Certificato di piantumazione",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Si consigliano abbigliamento comodo, un impermeabile, un capo caldo e scarpe con buona aderenza.",
+     "Si svolge in una riserva naturale privata nei dintorni di Barbas-Bremen, della Riserva Otún e della Riserva La Patasola (Salento).",
+     "La cura dell'albero piantato è garantita per 5 anni."
+    ],
+    "recomendacion": {
+     "titulo": "🌳 Pianta un albero e lascia il segno!",
+     "items": [
+      "🥾 Scarpe con buona aderenza",
+      "🧥 Un capo caldo e un impermeabile",
+      "👕 Vestiti che si possono sporcare",
+      "💧 Borraccia riutilizzabile (l'acqua te la diamo noi durante il percorso)",
+      "📜 Ricevi il certificato di piantumazione; la cura dell'albero è garantita per 5 anni"
+     ]
+    }
+   },
+   "tallerrespiracion": {
+    "nombre": "Laboratorio di respirazione consapevole",
+    "incluye": [
+     "Attività guidata",
+     "Assistenza professionale",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Attività itinerante: si svolge nell'hotel o nella struttura in cui alloggi."
+    ],
+    "recomendacion": {
+     "titulo": "🌬️ Laboratorio di respirazione consapevole!",
+     "items": [
+      "👕 Abbigliamento comodo",
+      "🍽️ Arriva a stomaco leggero",
+      "🏨 Si svolge nel tuo hotel o alloggio",
+      "⚠️ Avvisaci se hai problemi respiratori o cardiaci"
+     ]
+    }
+   },
+   "artesanoswillys": {
+    "nombre": "Artigiani · Realizzazione di jeep Willys",
+    "descripcion": "La Jeep Willys, detta «Yipao», è il simbolo del Quindío e patrimonio culturale della regione. In questo laboratorio monti la tua Willys in miniatura e porti a casa un'icona del Paesaggio Culturale del Caffè.",
+    "notas": [
+     "Indossa abbigliamento comodo.",
+     "Ideale per persone tra 5 e 80 anni.",
+     "Attività itinerante: si può fare nel tuo hotel o ovunque ti trovi."
+    ]
+   },
+   "artesanosaves": {
+    "nombre": "Artigiani · Modellazione di uccelli",
+    "descripcion": "Un laboratorio con un'associazione di donne capofamiglia di Armenia che hanno creato una propria pasta per modellare uccelli. Modella e dipingi un uccello della regione mentre ti spiegano come riconoscerlo in natura, e porta a casa il tuo pezzo come ricordo.",
+    "notas": [
+     "Indossa abbigliamento comodo.",
+     "Ideale per persone tra 5 e 80 anni.",
+     "Attività itinerante: si può fare nel tuo hotel o ovunque ti trovi."
+    ]
+   },
+   "artesanosbalcones": {
+    "nombre": "Artigiani · Balconi",
+    "descripcion": "I balconi colorati e l'architettura in bahareque (graticcio di canna e terra cruda) fanno parte di ciò che l'UNESCO ha riconosciuto nel Paesaggio Culturale del Caffè. In questo laboratorio ricrei in miniatura un balcone tipico e porti a casa un pezzo di quell'architettura.",
+    "notas": [
+     "Indossa abbigliamento comodo.",
+     "Ideale per persone tra 5 e 80 anni.",
+     "Attività itinerante: si può fare nel tuo hotel o ovunque ti trovi."
+    ]
+   },
+   "artesanosarcilla": {
+    "nombre": "Artigiani · Argilla",
+    "descripcion": "Artigiani locali ti insegnano a lavorare l'argilla che estraggono dai fiumi della cordigliera. Modella il tuo pezzo mentre ascolti storie del mestiere: raccolgono circa mille pezzi prima di accendere il forno, dove cuociono fino a 24 ore.",
+    "notas": [
+     "Indossa abbigliamento comodo.",
+     "Ideale per persone tra 5 e 80 anni."
+    ]
+   },
+   "artesanoscesteria": {
+    "nombre": "Artigiani · Laboratorio di cesteria",
+    "descripcion": "Filandia è nota per la sua tradizione nella cesteria, un mestiere che si tramanda di generazione in generazione con liane e fibre della regione. Intreccia il tuo pezzo con un maestro artigiano e conosci di persona una tradizione ancora viva del Paesaggio Culturale del Caffè.",
+    "notas": [
+     "Indossa abbigliamento comodo.",
+     "Ideale per persone tra 5 e 80 anni."
+    ]
+   },
+   "catacerveza": {
+    "nombre": "Degustazione di birra locale",
+    "descripcion": "Una degustazione guidata dal mastro birraio di un birrificio artigianale: visita all'impianto, stili e processi, abbinamenti e un souvenir. Impara a riconoscere l'aroma, il colore e il sapore di ogni birra.",
+    "notas": [
+     "Porta scarpe comode, repellente e crema solare.",
+     "Comunicaci in anticipo eventuali restrizioni alimentari.",
+     "Riservato ai maggiori di 18 anni."
+    ]
+   },
+   "avesconocedores": {
+    "nombre": "Uccelli per esperti (birdwatching specializzato)",
+    "descripcion": "Per birdwatcher esperti: uscite nei migliori punti di osservazione del Paesaggio Culturale del Caffè, dove eBird registra tra 170 e 370 specie per località. La guida specializzata costruisce il percorso in base alle specie che cerca il tuo gruppo.",
+    "notas": [
+     "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
+     "Se hai un binocolo o una fotocamera, portali con te.",
+     "Porta repellente e acqua; sui percorsi d'alta quota, abbigliamento termico.",
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+    ]
+   },
+   "barbasbremen": {
+    "nombre": "Riserve naturali · Barbas-Bremen",
+    "descripcion": "Tra Filandia e Pereira, Barbas-Bremen è uno degli ultimi corridoi di foresta andina della regione e la casa delle scimmie urlatrici: il luogo ideale per ascoltarle e vederle in libertà, lungo sentieri di bosco e guadua (bambù gigante andino).",
+    "notas": [
+     "Porta repellente e abbigliamento comodo, impermeabile e a maniche lunghe.",
+     "Difficoltà bassa, media o medio-alta, a seconda della condizione fisica del gruppo.",
+     "Ideale per persone tra 12 e 70 anni.",
+     "Non adatto a persone con patologie cardiorespiratorie pregresse."
+    ]
+   },
+   "otunquimbaya": {
+    "nombre": "Riserve naturali · Otún Quimbaya",
+    "descripcion": "Santuario di Fauna e Flora dei Parchi Nazionali Naturali nel bacino del fiume Otún: rifugio del guan del Cauca, uccello endemico della Colombia, e delle scimmie urlatrici, a meno di un'ora da Pereira.",
+    "notas": [
+     "Porta repellente e abbigliamento comodo, impermeabile e a maniche lunghe.",
+     "Difficoltà bassa, media o medio-alta, a seconda della condizione fisica del gruppo.",
+     "Ideale per persone tra 12 e 70 anni.",
+     "Non adatto a persone con patologie cardiorespiratorie pregresse."
+    ]
+   },
+   "rioblanco": {
+    "nombre": "Riserve naturali · Río Blanco",
+    "descripcion": "A pochi minuti da Manizales, la Riserva Río Blanco protegge l'acqua della città ed è una delle mete di birdwatching più rinomate della Colombia, famosa per le sue mangiatoie per grallarie, ricercate da birdwatcher di tutto il mondo.",
+    "notas": [
+     "Porta repellente e abbigliamento comodo, impermeabile e a maniche lunghe.",
+     "Difficoltà bassa, media o medio-alta, a seconda della condizione fisica del gruppo.",
+     "Ideale per persone tra 12 e 70 anni.",
+     "Non adatto a persone con patologie cardiorespiratorie pregresse."
+    ]
+   },
+   "romelia": {
+    "nombre": "Visita a La Romelia · orchidee e frutti esotici",
+    "descripcion": "Una tenuta vicino a Manizales dedicata a orchidee, bonsai e alberi da frutto: visiti i vivai con una guida, scopri la casa padronale e assaggi la frutta della tenuta, con pranzo contadino incluso.",
+    "notas": [
+     "Porta abbigliamento comodo, scarpe chiuse, cappellino, crema solare, repellente e un impermeabile leggero.",
+     "Non adatto a persone allergiche ai fiori o al polline.",
+     "Minimo 4 persone."
+    ]
+   },
+   "avesrancho": {
+    "nombre": "Uccelli · Rancho California (uccelli acquatici)",
+    "descripcion": "Una zona umida nella valle del fiume Barragán, rifugio di uccelli acquatici: un percorso pianeggiante tra pascoli, laghi e fiumi, molto comodo per il primo giorno di viaggio.",
+    "notas": [
+     "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
+     "Se hai un binocolo o una fotocamera, portali con te.",
+     "Porta repellente, acqua, cappellino e crema solare: a mezzogiorno fa caldo.",
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+    ]
+   },
+   "avescamino": {
+    "nombre": "Uccelli · Camino Nacional (via di Humboldt)",
+    "descripcion": "L'antico cammino percorso da Humboldt e Bonpland nel 1801, nella foresta nebulosa a 3.370 m s.l.m. È uno dei posti migliori del Paese per vedere il pappagallo dalle orecchie gialle, che nidifica nella palma da cera ed è stato sull'orlo dell'estinzione.",
+    "notas": [
+     "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
+     "Se hai un binocolo o una fotocamera, portali con te.",
+     "Porta repellente, acqua, un capo caldo e abbigliamento termico: al mattino presto fa freddo.",
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+    ]
+   },
+   "avesbremen": {
+    "nombre": "Uccelli · Bremen–La Popa (IBA Barbas-Bremen)",
+    "descripcion": "Area protetta e IBA (Important Bird Area) nel canyon del fiume Barbas, con una camminata su un sentiero ampio e pianeggiante e frequenti soste di osservazione.",
+    "notas": [
+     "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
+     "Se hai un binocolo o una fotocamera, portali con te.",
+     "Porta repellente e acqua.",
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+    ]
+   },
+   "avescircasia": {
+    "nombre": "Uccelli · Giardino degli uccelli a Circasia",
+    "descripcion": "Osserva e fotografa gli uccelli dalla terrazza coperta di una casa con giardini che confinano con il bosco, gustando un caffè specialty: senza sforzo fisico e al riparo dal sole e dalla pioggia. Ideale per persone con mobilità ridotta e per fotografi.",
+    "notas": [
+     "Indossa abiti comodi in tonalità neutre; se hai una fotocamera o un binocolo, portali con te.",
+     "Adatto a persone con mobilità ridotta.",
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+    ]
+   },
+   "avescaicedonia": {
+    "nombre": "Uccelli · Caicedonia e Sevilla (Valle del Cauca)",
+    "descripcion": "Caicedonia, la «Sentinella della Valle», concentra oltre 325 specie di uccelli tra piantagioni di caffè, laghi e zone umide. Percorsi brevi con una guida locale che è tra i più grandi birdwatcher della Valle del Cauca.",
+    "notas": [
+     "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
+     "Se hai un binocolo o una fotocamera, portali con te.",
+     "Porta repellente e acqua.",
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+    ]
+   },
+   "avescolibri": {
+    "nombre": "Uccelli · Retorno del Colibrí (mangiatoie e fotografia)",
+    "descripcion": "Una riserva dedicata alla conservazione, con giardini e mangiatoie pensati per fotografare da vicino colibrì e uccelli endemici. L'attività si svolge quasi tutta da postazione fissa: il sogno di ogni fotografo naturalista.",
+    "notas": [
+     "Parte dal Quindío.",
+     "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
+     "Se hai un binocolo o una fotocamera, portali con te.",
+     "Porta repellente e acqua.",
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+    ]
+   },
+   "avescampanario": {
+    "nombre": "Uccelli · Alto del Campanario (páramo)",
+    "descripcion": "Uccelli del páramo (brughiera andina d'alta quota) e del bosco altoandino tra 3.400 e 4.600 m s.l.m.: stormi misti, tapaculo, grallarie e tangara d'alta quota in un paesaggio di nebbia e frailejones (piante simbolo del páramo). Per birdwatcher in buona condizione fisica.",
+    "notas": [
+     "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
+     "Porta abbigliamento termico, guanti, berretto e acqua in abbondanza.",
+     "Se hai un binocolo o una fotocamera, portali con te.",
+     "Non adatto a persone con patologie cardiorespiratorie pregresse.",
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+    ]
+   },
+   "canopy": {
+    "nombre": "Avventura nella natura in canopy",
+    "descripcion": "Linee di zipline sopra le chiome degli alberi, a circa 15 minuti da Armenia e con vista sul paesaggio del caffè. Adatto a famiglie e a chi lo prova per la prima volta, con attrezzatura e protocolli di sicurezza per ogni livello.",
+    "notas": [
+     "Indossa scarpe chiuse con i lacci e abbigliamento comodo (pantaloni lunghi), senza oggetti nelle tasche.",
+     "Dipende dal meteo: in caso di pioggia non si effettua."
+    ]
+   },
+   "cookingclass": {
+    "nombre": "Cooking class a Salento"
+   },
+   "cerveceria": {
+    "nombre": "Visita un birrificio locale e prepara la tua birra"
+   },
+   "bicicafe": {
+    "nombre": "Bici · Coffee Bike Tour",
+    "duracion_texto": "3–4 h"
+   },
+   "bicicordillera": {
+    "nombre": "Bici · Percorso della Cordigliera",
+    "duracion_texto": "3–6 h"
+   },
+   "bicirios": {
+    "nombre": "Bici · Fiumi e Cascate",
+    "duracion_texto": "3–4 h"
+   },
+   "bicifilandia": {
+    "nombre": "Bici · Filandia e Quimbaya"
+   },
+   "bicipalma": {
+    "nombre": "Bici · Sfida Palma da Cera",
+    "duracion_texto": "6 h o più"
+   },
+   "biciconexion": {
+    "nombre": "Bici · Connessione Cordigliera",
+    "duracion_texto": "5–6 h"
+   },
+   "bicimonos": {
+    "nombre": "Bici · Santuario delle Scimmie",
+    "duracion_texto": "5–6 h"
+   }
+  },
+  "arbol": {
+   "saludo": {
+    "jenny": "Ciao! Sono Jenny di Espontáneos Travel 🌿 Come posso aiutarti?"
+   },
+   "horarios": {
+    "pregunta_tipo": [
+     "a che ora si parte?",
+     "a che ora è il tour?",
+     "orari"
+    ]
+   },
+   "duracion": {
+    "pregunta_tipo": [
+     "quanto dura?",
+     "quante ore?"
+    ]
+   },
+   "precios": {
+    "respuesta": "Il prezzo dipende dal numero di persone e da dove alloggi. Dimmi quante persone siete e la data, e ti preparo un preventivo."
+   },
+   "reservar": {
+    "pregunta_tipo": [
+     "come prenoto?",
+     "cosa mi serve per prenotare?"
+    ],
+    "respuesta": "È semplicissimo! Per confermare la tua prenotazione ci servono i nomi completi e i documenti d'identità dei passeggeri, insieme alla ricevuta di pagamento dell'acconto. Appena la riceviamo, ti inviamo la conferma ufficiale del tuo viaggio. 🎒"
+   },
+   "pagos": {
+    "pregunta_tipo": [
+     "devo pagare tutto in anticipo?",
+     "quali metodi di pagamento accettate?"
+    ],
+    "respuesta": "Per prenotare versi un acconto del 50%. Il saldo e le scadenze sono indicati nel tuo preventivo.\n\nMetodi di pagamento, intestati a Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia, conto di risparmio: 756-000062-16\n📱 Nequi o Daviplata: +57 317 645 6723\n💳 Carta di debito o di credito: pulsante di pagamento sicuro Wompi\n\n💵 Il saldo puoi pagarlo in pesos colombiani, dollari o euro.\n📩 Inviaci la ricevuta su WhatsApp.\n⚠️ Usiamo solo questi metodi. Se qualcuno ti chiede di pagare su un altro conto, verifica prima con noi."
+   },
+   "traslados": {
+    "respuesta": "Facciamo transfer dagli aeroporti El Edén (Armenia) e Matecaña (Pereira) agli hotel del Quindío e del Risaralda, e tra Armenia, Pereira e Manizales. Tragitto di circa 1 h."
+   },
+   "accesibilidad": {
+    "respuesta": "Sì! Abbiamo opzioni adattate e veicoli speciali perché tutti possano godersi la regione senza barriere. Abbiamo anche una guida per persone non vedenti. Chiedici e ti consigliamo in modo personalizzato. ♿"
+   },
+   "idiomas": {
+    "respuesta": "Guide in spagnolo, inglese, francese, italiano e portoghese (la guida in una lingua diversa dallo spagnolo ha un costo aggiuntivo). Nel Tour condiviso, la guida in inglese ha un supplemento in base al numero di persone del gruppo."
+   },
+   "clima": {
+    "respuesta": "Clima temperato tutto l'anno; può piovere in qualsiasi stagione. A Cocora, nel páramo e tra le palme da cera fa freddo."
+   },
+   "temporadas": {
+    "respuesta": "Alta stagione 2026: Settimana Santa (28 mar–5 apr), vacanze scolastiche (3–12 ott) e fine anno (19 dic 2026–11 gen 2027). Prezzi e disponibilità variano."
+   },
+   "cancelacion": {
+    "pregunta_tipo": [
+     "cosa succede se cancello?",
+     "politica di cancellazione"
+    ],
+    "respuesta": "Capiamo che i programmi possono cambiare. Le condizioni di cancellazione dipendono da quanto preavviso ci dai. Dimmi quale tour hai prenotato e valutiamo il tuo caso con un consulente."
+   },
+   "sostenibilidad": {
+    "pregunta_tipo": [
+     "siete sostenibili?",
+     "come sostenete la comunità?"
+    ],
+    "respuesta": "Lavoriamo con famiglie contadine, artigiani e guide locali, con un compenso equo. In ogni tour ti diamo l'acqua e una mantella antipioggia riutilizzabile (zero plastica monouso), facciamo la raccolta differenziata e piantiamo alberi per compensare l'impronta di carbonio. Rifiutiamo lo sfruttamento sessuale di bambine, bambini e adolescenti (ESCNNA)."
+   },
+   "empresa": {
+    "pregunta_tipo": [
+     "chi siete?",
+     "cos'è Espontáneos Travel?",
+     "parlami dell'azienda"
+    ],
+    "respuesta": "Ciao! Siamo Espontáneos Travel, un tour operator del Paesaggio Culturale del Caffè con oltre 15 anni di esperienza. Siamo specializzati in esperienze rurali, naturalistiche, comunitarie e di benessere. Il nostro obiettivo è farti entrare in contatto in modo autentico e responsabile con la natura e la cultura della nostra regione. 🌿☕"
+   },
+   "redes": {
+    "pregunta_tipo": [
+     "social network?",
+     "sito web?"
+    ],
+    "respuesta": "Ci farebbe piacere se ci seguissi! Siamo su Instagram e Facebook come @espontaneostravel e sul nostro sito ufficiale espontaneostravel.com."
+   },
+   "ninos_mayores": {
+    "pregunta_tipo": [
+     "è adatto ai bambini?",
+     "e per le persone anziane?"
+    ],
+    "respuesta": "Certo! Per i bambini, alcune camminate richiedono l'accompagnamento di un adulto e una condizione fisica di base. Per le persone anziane ti consigliamo le opzioni più adatte alla loro mobilità. 👨‍👩‍👧‍👦 Tariffa bambini dai 3 ai 10 anni; i minori di 3 anni pagano una tariffa minima senza pasti. Al Parque del Café la tariffa bambini si applica per altezze tra 91 e 124 cm."
+   },
+   "tour_compartido": {
+    "pregunta_tipo": [
+     "avete un tour a Cocora e Salento?",
+     "quanto costa?",
+     "dove mi venite a prendere?",
+     "si può prenotare per domani?",
+     "guida in inglese?"
+    ],
+    "itinerario": "Partenza da Armenia alle 8:15. Nella Valle de Cocora facciamo un'interpretazione della foresta nebulosa e della palma da cera 🌴 (da 2 a 3 h). Poi andiamo a Salento: visita storica, tempo libero per pranzare e passeggiare lungo la Calle Real 🛍️. Rientro ad Armenia.",
+    "precio_publico": "$307.000 COP a persona (2026)",
+    "incluye": [
+     "Trasporto",
+     "Guida in spagnolo",
+     "Ingresso al Bosque de Palmas / belvedere",
+     "Visita a Salento",
+     "Idratazione o caffè",
+     "Tessera di assistenza medica"
+    ],
+    "no_incluye": [
+     "Pranzo",
+     "Spese non specificate"
+    ],
+    "operacion": "Tutti i giorni, con un minimo di 2 passeggeri. Conferma entro le 20:00 del giorno precedente.",
+    "no_opera": [
+     "Il weekend lungo festivo della settimana di vacanze scolastiche di ottobre",
+     "25 dicembre",
+     "Dall'1 al 6 gennaio"
+    ]
+   },
+   "asesor": {
+    "respuesta": "Ti metto in contatto con un consulente su WhatsApp 💬 (risposta in meno di 24 h)."
+   }
+  },
+  "planes": {
+   "basico2n": {
+    "nombre": "Quindío Base 2N",
+    "incluye": "2 notti con colazione e cena, Pasaporte Múltiple del Parque del Café con trasporto, transfer di andata e ritorno da/per aeroporto o terminal degli autobus di Armenia, assistenza medica"
+   },
+   "tradicional3n": {
+    "nombre": "Quindío Tradizionale 3N",
+    "incluye": "3 notti con colazione e cena (a seconda dell'hotel), Pasaporte Múltiple del Parque del Café con trasporto, tour condiviso a Cocora e Salento (guida, trasporto, ingresso al belvedere), transfer, assistenza medica"
+   },
+   "encantador3n": {
+    "nombre": "Quindío Incantevole 3N",
+    "incluye": "3 notti con colazione, Full day Cocora-Salento-Filandia (guida, trasporto, ingressi, degustazione di caffè, pranzo), tour dei paesi della cordigliera con fattoria del caffè e pranzo di montagna, transfer, assistenza medica"
+   }
+  },
+  "planes_no_incluye": "Biglietti aerei, servizi e pasti non specificati, tasse dei Parchi Nazionali, mance",
+  "general": {
+   "que_llevar": "Per goderti al massimo il Paesaggio Culturale del Caffè porta vestiti molto comodi, crema solare, repellente e acqua a sufficienza, e tieni a portata di mano il tuo documento d'identità. ☀️💧",
+   "no_incluye_siempre": "Non include spese non correlate.",
+   "escnna": "Espontáneos Travel rifiuta lo sfruttamento e l'abuso sessuale di bambine, bambini e adolescenti (ESCNNA). Legge 679 del 2001 e Legge 1336 del 2009."
+  },
+  "sostenibilidad": {
+   "eyebrow": "Sostenibilità",
+   "titulo": "Un turismo che lascia un'impronta positiva",
+   "intro": "Sappiamo che il turismo trasforma le destinazioni. Per questo lavoriamo fianco a fianco con le comunità e il territorio: famiglie contadine, artigiani e guide locali fanno parte della nostra offerta, e le accompagniamo con una consulenza perché le loro esperienze conservino autenticità e qualità.",
+   "pilares": {
+    "ambiental": {
+     "nombre": "Ambientale",
+     "titulo": "Ci prendiamo cura dell'ambiente",
+     "acciones": [
+      "Acqua per ogni viaggiatore in tutti i tour, senza plastica monouso",
+      "Mantelle antipioggia riutilizzabili",
+      "Raccolta differenziata e risparmio energetico",
+      "Piantumazione di alberi per compensare l'impronta di carbonio, con certificato per le agenzie"
+     ]
+    },
+    "sociocultural": {
+     "nombre": "Socioculturale",
+     "titulo": "Proteggiamo ciò che siamo",
+     "acciones": [
+      "Acquistiamo artigianato e alimenti locali",
+      "Offriamo consulenza ai piccoli produttori nella progettazione delle loro esperienze",
+      "Formiamo guide e fornitori",
+      "Promuoviamo la tutela del patrimonio culturale"
+     ]
+    },
+    "economico": {
+     "nombre": "Economico",
+     "titulo": "Il valore resta nella regione",
+     "acciones": [
+      "Assumiamo persone del posto e scegliamo prodotti e servizi locali",
+      "Compenso equo a collaboratori e fornitori",
+      "Catalogo di prodotti locali da acquistare direttamente dal produttore"
+     ]
+    }
+   },
+   "historias": {
+    "David": {
+     "rol": "Coltivatore di caffè specialty",
+     "texto": "Lo abbiamo messo in contatto con ingegneri che gli hanno donato un sistema per automatizzare l'essiccazione del suo caffè."
+    },
+    "Juan": {
+     "rol": "Negozio di caffè 100% locale",
+     "texto": "Certificazione Mayacert e prezzo equo al coltivatore: qui facciamo le degustazioni con i nostri viaggiatori."
+    },
+    "Doralba": {
+     "rol": "Imprenditrice del cacao",
+     "texto": "L'abbiamo accompagnata nella progettazione del suo percorso del cacao."
+    },
+    "Mauricio": {
+     "rol": "Alloggio rurale",
+     "texto": "Grazie alla nostra consulenza è entrato nel portale delle rotte del Paesaggio Culturale del Caffè."
     }
    }
   }

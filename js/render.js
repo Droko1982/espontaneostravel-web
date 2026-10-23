@@ -102,7 +102,9 @@
   /* Reseñas de Google: r = EspoData.resenas() · ctx: { t, lang }
      Las reseñas se muestran en su idioma original (lang del bloque). Van en una fila que se desplaza sola:
      la lista se repite una vez (copia oculta para lectores de pantalla) para que el movimiento no tenga cortes. */
-  const LOCALE = { es: "es-CO", en: "en-GB", fr: "fr-FR", de: "de-DE", pt: "pt-BR" };
+  // "{n} día|{n} días": la primera forma para 1, la segunda para el resto
+  const nForm = (s, n) => { const f = String(s).split("|"); return (f.length > 1 && +n !== 1 ? f[1] : f[0]).replace("{n}", n); };
+  const LOCALE = { es: "es-CO", en: "en-GB", fr: "fr-FR", de: "de-DE", pt: "pt-BR", it: "it-IT" };
   function score(n, lang) { return new Intl.NumberFormat(LOCALE[lang] || "es-CO", { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(n); }
   function month(ym, lang) {
     if (!ym) return "";
@@ -147,7 +149,7 @@ ${r.destacadas.length ? `<div class="reviews__marquee">
     const short = n => { const i = String(n).indexOf(": "); return i >= 12 ? n.slice(0, i) : n; };
     const days = p => { const g = []; p.stops.forEach(s => { const last = g[g.length - 1]; if (last && last.d === s.d) last.items.push(s.name); else g.push({ d: s.d, items: [s.name] }); }); return g; };
     const sug = sugeridos.map(p => `<article class="plan-card plan-card--soft reveal">
-    <span class="plan-card__tag">${esc(t("plan_days").replace("{n}", p.days))}</span>
+    <span class="plan-card__tag">${esc(nForm(t("plan_days"), p.days))}</span>
     <h4>${esc(p.nombre)}</h4>
     <div class="plan-card__days">${days(p).map(g => `<div class="plan-day">${p.days > 1 ? `<span class="plan-day__n">${esc(p.dayLabel)} ${g.d}</span>` : ""}<ul>${g.items.map(n => `<li>${esc(short(n))}</li>`).join("")}</ul></div>`).join("")}</div>
     <button class="btn btn--ghost btn--sm" type="button" data-plan-jenny="${esc(p.id)}">${esc(t("plan_see"))}</button>

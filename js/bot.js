@@ -3,7 +3,7 @@
    Espontáneos Travel — Jenny, asistente de pre-venta del sitio
    Lee la MISMA fuente que el sitio y el conserje: data/jenny.json (+ i18n).
    Reglas: no inventa datos (null/POR_VALIDAR → asesor), nunca muestra tarifas
-   netas, la tarifa directa solo sale al cotizar y con un beneficio por convenio, cada respuesta termina con una siguiente acción, 5 idiomas, y el
+   netas, la tarifa directa solo sale al cotizar y con un beneficio por convenio, cada respuesta termina con una siguiente acción, 6 idiomas, y el
    mensaje a WhatsApp lleva tour + código, personas, fecha, hotel e idioma.
    ========================================================================== */
 (function () {
@@ -15,19 +15,24 @@
     en: { chip: "🌿 Experiences", msg: "We have *{n} experiences*. Pick a category 👇 or see them all with photos on the page.", web: "🖼️ See them all with photos" },
     fr: { chip: "🌿 Expériences", msg: "Nous avons *{n} expériences*. Choisissez une catégorie 👇 ou voyez-les toutes en photos sur la page.", web: "🖼️ Les voir toutes en photos" },
     de: { chip: "🌿 Erlebnisse", msg: "Wir haben *{n} Erlebnisse*. Wählen Sie eine Kategorie 👇 oder sehen Sie alle mit Fotos auf der Seite.", web: "🖼️ Alle mit Fotos ansehen" },
-    pt: { chip: "🌿 Experiências", msg: "Temos *{n} experiências*. Escolha uma categoria 👇 ou veja todas com fotos na página.", web: "🖼️ Ver todas com fotos" }
+    pt: { chip: "🌿 Experiências", msg: "Temos *{n} experiências*. Escolha uma categoria 👇 ou veja todas com fotos na página.", web: "🖼️ Ver todas com fotos" },
+    it: { chip: "🌿 Esperienze", msg: "Abbiamo *{n} esperienze*. Scegli una categoria 👇 o guardale tutte con le foto sulla pagina.", web: "🖼️ Guardale tutte con le foto" }
   };
   const CONTACT_LBL = { es: "Tu WhatsApp o correo (opcional, por si no nos llega tu mensaje)", en: "Your WhatsApp or email (optional, in case your message doesn't reach us)",
     fr: "Votre WhatsApp ou e-mail (facultatif, au cas où votre message ne nous parviendrait pas)", de: "Ihre WhatsApp-Nummer oder E-Mail (optional, falls Ihre Nachricht uns nicht erreicht)",
-    pt: "Seu WhatsApp ou e-mail (opcional, caso sua mensagem não chegue até nós)" };
+    pt: "Seu WhatsApp ou e-mail (opcional, caso sua mensagem não chegue até nós)",
+    it: "Il tuo WhatsApp o la tua email (facoltativo, nel caso il tuo messaggio non ci arrivi)" };
   // Autorización de uso de imagen (opcional, sin marcar por defecto). Ver terminos.html#imagenes
   const IMG_OK = {
     es: { chk: "Autorizo que Espontáneos Travel use fotos y videos donde aparezca, tomados en mis experiencias, en su web y redes (opcional; puedo retirarla cuando quiera).", wa: "📸 Uso de fotos donde aparezco:", yes: "Autorizo", no: "No autorizo" },
     en: { chk: "I allow Espontáneos Travel to use photos and videos of me taken during my experiences on its website and social media (optional; I can withdraw it at any time).", wa: "📸 Use of photos of me:", yes: "I agree", no: "I don't agree" },
     fr: { chk: "J'autorise Espontáneos Travel à utiliser les photos et vidéos où j'apparais, prises pendant mes expériences, sur son site et ses réseaux (facultatif ; je peux la retirer à tout moment).", wa: "📸 Utilisation des photos où j'apparais :", yes: "J'autorise", no: "Je n'autorise pas" },
     de: { chk: "Ich erlaube Espontáneos Travel, Fotos und Videos von mir, die bei meinen Erlebnissen entstehen, auf seiner Website und in sozialen Netzwerken zu nutzen (freiwillig; jederzeit widerrufbar).", wa: "📸 Nutzung von Fotos, auf denen ich zu sehen bin:", yes: "Erlaubt", no: "Nicht erlaubt" },
-    pt: { chk: "Autorizo a Espontáneos Travel a usar fotos e vídeos em que eu apareça, feitos nas minhas experiências, no site e nas redes sociais da empresa (opcional; posso retirar esta autorização quando quiser).", wa: "📸 Uso de fotos em que apareço:", yes: "Autorizo", no: "Não autorizo" }
+    pt: { chk: "Autorizo a Espontáneos Travel a usar fotos e vídeos em que eu apareça, feitos nas minhas experiências, no site e nas redes sociais da empresa (opcional; posso retirar esta autorização quando quiser).", wa: "📸 Uso de fotos em que apareço:", yes: "Autorizo", no: "Não autorizo" },
+    it: { chk: "Autorizzo Espontáneos Travel a usare foto e video in cui compaio, scattati durante le mie esperienze, sul suo sito e sui suoi social (facoltativo; posso revocare l'autorizzazione quando voglio).", wa: "📸 Uso delle foto in cui compaio:", yes: "Autorizzo", no: "Non autorizzo" }
   };
+  // "{n} día|{n} días": la primera forma para 1, la segunda para el resto
+  const nForm = (s, n) => { const f = String(s).split("|"); return (f.length > 1 && +n !== 1 ? f[1] : f[0]).replace("{n}", n); };
   const LANG_ES = { es: "español", en: "inglés", fr: "francés", de: "alemán", pt: "portugués", it: "italiano" };
   const LANGNAME = { es: "Español", en: "English", fr: "Français", de: "Deutsch", pt: "Português", it: "Italiano" };
   const UI = {
@@ -125,6 +130,25 @@
       wa_q: "Olá Espontáneos Travel! Tenho uma pergunta:", wa_default: "Olá Espontáneos Travel! Gostaria de mais informações sobre as experiências.",
       open_wa: "Abrir WhatsApp", go_sust: "Ver seção Sustentabilidade", go_tours: "Ver experiências", pay_btn: "💳 Pagar com cartão",
       wa_tour: "🌿 Experiência:", wa_guide: "🧭 Idioma do guia:", confirm_book: "Quer reservar *{tour}*?", wa_lead_tour: "Olá Espontáneos Travel! Quero reservar:", consent: "Autorizo o tratamento dos meus dados conforme a {link} (Lei colombiana 1581 de 2012).", consent_link: "política de privacidade", consent_req: "Para continuar, aceite a política de dados 🙂", greet_fallback: "Olá! Sou a Jenny, da Espontáneos Travel 🌿 Como posso ajudar?"
+    },
+    it: {
+      launch: "Posso aiutarti?", close: "Chiudi", title: "Jenny", subtitle: "La tua host · online",
+      menu_prompt: "Scegli un argomento o scrivimi la tua domanda 👇", more: "➕ Altri argomenti", back: "↩ Menu", other: "Un'altra domanda",
+      foot: "Informazioni ufficiali del portfolio · un consulente conferma i dettagli", ask_ph: "Scrivi la tua domanda…", send: "Invia",
+      m_reservar: "📅 Prenota", m_horarios: "🕘 Orari", m_duracion: "⏱️ Durata", m_incluye: "✅ Cosa è incluso", m_llevar: "🎒 Cosa portare",
+      m_precios: "💲 Prezzi", m_pagos: "💳 Pagamenti", m_plans: "🗺️ Itinerari", m_scan: "📷 Scansiona QR", m_asesor: "💬 Parla con un consulente",
+      m_traslados: "🚐 Transfer", m_ninos: "👨‍👩‍👧 Bambini e anziani", m_access: "♿ Accessibilità", m_idiomas: "🗣️ Lingue", m_clima: "🌦️ Meteo",
+      m_temporadas: "📆 Stagioni", m_cancel: "↩️ Cancellazioni", m_sost: "🌿 Sostenibilità", m_empresa: "🏡 Chi siamo", m_redes: "📱 Social", m_compartido: "🚐 Tour condiviso Cocora + Salento",
+      pick_cat: "Quale esperienza? Scegli una categoria 👇", pick_tour: "Scegli l'esperienza:",
+      hub: "*{tour}* · {code}\nCosa vuoi sapere?", see_card: "🔎 Vedi la scheda completa", book_this: "📅 Prenota questa", another_tour: "Un'altra esperienza",
+      a_horario: "*{tour}*: {h}.", a_dur: "*{tour}* dura circa *{d}* dal ritiro in hotel.",
+      a_incl: "*{tour}* include:", a_noincl: "Non include:", a_tbd: "Questo dato te lo conferma un consulente 💬",
+      a_price_pub: "Prezzo di vendita 2026: *{p}*.", forecast: "🌦️ Previsioni per la tua data:",
+      rain: "🌧️ Probabile pioggia quel giorno: porta abbigliamento impermeabile.", uv: "☀️ Indice UV molto alto: crema solare, cappellino e occhiali da sole.", cold: "🧥 Mattina fredda: porta una giacca calda.",
+      f_guide: "Lingua della guida", no_match: "Non ho una risposta precisa a questa domanda 🙈 Ti metto in contatto con un consulente su WhatsApp che ti aiuterà.",
+      wa_q: "Ciao Espontáneos Travel! Ho una domanda:", wa_default: "Ciao Espontáneos Travel! Vorrei maggiori informazioni sulle vostre esperienze.",
+      open_wa: "Apri WhatsApp", go_sust: "Vai alla sezione Sostenibilità", go_tours: "Vedi le esperienze", pay_btn: "💳 Paga con carta",
+      wa_tour: "🌿 Esperienza:", wa_guide: "🧭 Lingua della guida:", confirm_book: "Vuoi prenotare *{tour}*?", wa_lead_tour: "Ciao Espontáneos Travel! Vorrei prenotare:", consent: "Autorizzo il trattamento dei miei dati secondo l'{link} (legge colombiana 1581 del 2012).", consent_link: "informativa sulla privacy", consent_req: "Per continuare, accetta l'informativa sulla privacy 🙂", greet_fallback: "Ciao! Sono Jenny di Espontáneos Travel 🌿 Come posso aiutarti?"
     }
   };
 
@@ -150,16 +174,20 @@
     pt: { change: "Para mudar um horário da sua reserva, abra *Minha viagem* com seu código: você escolhe a atividade e o novo horário, e seu anfitrião recebe pelo WhatsApp uma mensagem com todos os dados 👇",
       view: "Seu roteiro, horários, mapa e o que levar estão em *Minha viagem*. Abra com seu código de reserva 👇", open: "🔑 Abrir Minha viagem", nocode: "💬 Não tenho o código",
       wa_change: "Olá Espontáneos Travel! 👋 Tenho uma reserva e quero *mudar um horário*.\n• Nome da reserva: \n• Atividade: \n• Dia e horário atuais: \n• Novo horário que prefiro: ",
-      wa_view: "Olá Espontáneos Travel! 👋 Tenho uma reserva e preciso do meu *código de viagem*.\n• Nome da reserva: \n• Data da viagem: " }
+      wa_view: "Olá Espontáneos Travel! 👋 Tenho uma reserva e preciso do meu *código de viagem*.\n• Nome da reserva: \n• Data da viagem: " },
+    it: { change: "Per cambiare un orario della tua prenotazione, apri *Il mio viaggio* con il tuo codice: scegli l'attività e il nuovo orario, e il tuo host riceve su WhatsApp un messaggio con tutti i dati 👇",
+      view: "Il tuo itinerario, gli orari, la mappa e cosa portare sono in *Il mio viaggio*. Aprilo con il tuo codice di prenotazione 👇", open: "🔑 Apri Il mio viaggio", nocode: "💬 Non ho il codice",
+      wa_change: "Ciao Espontáneos Travel! 👋 Ho una prenotazione e vorrei *cambiare un orario*.\n• Nome della prenotazione: \n• Attività: \n• Giorno e ora attuali: \n• Nuovo orario che preferisco: ",
+      wa_view: "Ciao Espontáneos Travel! 👋 Ho una prenotazione e mi serve il mio *codice di viaggio*.\n• Nome della prenotazione: \n• Data del viaggio: " }
   };
   const ALIAS = {
-    parquecafe: ["parque del cafe", "coffee park", "parc du cafe", "kaffeepark", "parque do cafe"],
-    finca: ["tour del cafe", "tour de cafe", "coffee tour", "coffee farm", "finca cafetera", "fazenda de cafe", "ferme de cafe", "kaffeefarm", "kaffee-tour", "kaffeetour"],
-    catacafe: ["cata de cafe", "coffee tasting", "degustation de cafe", "kaffeeverkostung", "degustacao de cafe"]
+    parquecafe: ["parque del cafe", "coffee park", "parc du cafe", "kaffeepark", "parque do cafe", "parco del caffe"],
+    finca: ["tour del cafe", "tour de cafe", "coffee tour", "coffee farm", "finca cafetera", "fazenda de cafe", "ferme de cafe", "kaffeefarm", "kaffee-tour", "kaffeetour", "tour del caffe", "fattoria del caffe", "piantagione di caffe"],
+    catacafe: ["cata de cafe", "coffee tasting", "degustation de cafe", "kaffeeverkostung", "degustacao de cafe", "degustazione di caffe"]
   };
-  const CHANGE_VERB = /\b(cambi|mover|muev|reprogram|modific|aplaz|adelant|change|reschedul|move|modifi|deplac|andern|aendern|verschieb|mudar|alterar|remarc)\w*/;
-  const TIME_WORD = /\b(hora|horas|horario|horarios|fecha|dia|time|date|day|heure|horaire|jour|uhr|uhrzeit|zeit|termin|tag|data|reserva|booking|reservation|buchung)\b/;
-  const MY_TRIP = /\b(mi|my|ma|mon|mein|meine|minha|meu)\s+(reserva|viaje|codigo|booking|trip|code|reservation|voyage|buchung|reise|viagem)\b/;
+  const CHANGE_VERB = /\b(cambi|mover|muev|reprogram|modific|aplaz|adelant|change|reschedul|move|modifi|deplac|andern|aendern|verschieb|mudar|alterar|remarc|spost|rinvi|posticip)\w*/;
+  const TIME_WORD = /\b(hora|horas|horario|horarios|fecha|dia|time|date|day|heure|horaire|jour|uhr|uhrzeit|zeit|termin|tag|data|reserva|booking|reservation|buchung|ora|orario|orari|giorno|prenotazione)\b/;
+  const MY_TRIP = /\b(mi|my|ma|mon|mein|meine|minha|meu|mio|mia)\s+(reserva|viaje|codigo|booking|trip|code|reservation|voyage|buchung|reise|viagem|prenotazione|viaggio|codice)\b/;
 
   // Temas del árbol (id del nodo en jenny.json → etiqueta del menú)
   const PRIMARY = ["reservar", "horarios", "duracion", "que_incluye", "que_llevar", "precios", "pagos", "plans", "asesor"];
@@ -170,25 +198,25 @@
   const TOUR_Q = ["horarios", "duracion", "que_incluye", "que_llevar"];          // preguntas que necesitan una experiencia
   // Palabras clave para el texto libre (se suman a pregunta_tipo de jenny.json)
   const KW = {
-    horarios: ["hora", "horario", "a que hora", "a que horas sale", "recogen", "pickup", "what time", "schedule", "heure", "uhrzeit"],
-    duracion: ["dura", "cuanto tiempo", "cuantas horas", "duracion", "how long", "duration", "duree", "dauer", "duracao"],
-    que_incluye: ["incluye", "include", "inclus", "inklusive", "inclui"],
-    que_llevar: ["llevar", "ropa", "empacar", "bring", "pack", "emporter", "mitnehmen", "levar"],
-    precios: ["precio", "cuesta", "valor", "tarifa", "cotiz", "price", "cost", "prix", "preis", "preco", "quanto"],
-    reservar: ["reserv", "book", "buchen"],
-    pagos: ["pago", "pagar", "anticipo", "nequi", "daviplata", "tarjeta", "payment", "pay", "deposit", "paiement", "zahlung", "pagamento"],
-    traslados: ["traslado", "aeropuerto", "transfer", "airport", "aeroport", "flughafen", "aeroporto"],
-    ninos_mayores: ["nino", "bebe", "adulto mayor", "abuel", "kid", "child", "senior", "enfant", "kinder", "crianca"],
-    accesibilidad: ["accesib", "silla de ruedas", "discapacidad", "movilidad", "invidente", "wheelchair", "accessib", "barriere", "acessib"],
-    idiomas: ["idioma", "ingles", "language", "english", "langue", "sprache"],
-    clima: ["clima", "lluvia", "llueve", "frio", "calor", "weather", "rain", "meteo", "wetter", "chuva"],
-    temporadas: ["temporada", "semana santa", "season", "saison", "temporada alta"],
-    cancelacion: ["cancel", "reembols", "refund", "annul", "storn"],
-    sostenibilidad: ["sostenib", "comunidad", "ambiental", "sustainab", "durabl", "nachhaltig", "sustent"],
-    empresa: ["quienes son", "empresa", "about you", "who are", "qui etes", "wer seid", "quem sao"],
+    horarios: ["hora", "horario", "a que hora", "a que horas sale", "recogen", "pickup", "what time", "schedule", "heure", "uhrzeit", "orari", "a che ora", "ritiro"],
+    duracion: ["dura", "cuanto tiempo", "cuantas horas", "duracion", "how long", "duration", "duree", "dauer", "duracao", "quanto dura", "durata", "quante ore", "quanto tempo"],
+    que_incluye: ["incluye", "include", "inclus", "inklusive", "inclui", "compreso", "comprende"],
+    que_llevar: ["llevar", "ropa", "empacar", "bring", "pack", "emporter", "mitnehmen", "levar", "portare", "cosa portare", "valigia", "vestiti", "abbigliamento"],
+    precios: ["precio", "cuesta", "valor", "tarifa", "cotiz", "price", "cost", "prix", "preis", "preco", "quanto", "prezz", "quanto costa", "tariff", "preventiv"],
+    reservar: ["reserv", "book", "buchen", "prenot"],
+    pagos: ["pago", "pagar", "anticipo", "nequi", "daviplata", "tarjeta", "payment", "pay", "deposit", "paiement", "zahlung", "pagamento", "pagament", "acconto", "caparra", "carta di credito", "bonifico"],
+    traslados: ["traslado", "aeropuerto", "transfer", "airport", "aeroport", "flughafen", "aeroporto", "trasfer", "navetta"],
+    ninos_mayores: ["nino", "bebe", "adulto mayor", "abuel", "kid", "child", "senior", "enfant", "kinder", "crianca", "bambin", "neonat", "anzian", "figli", "terza eta"],
+    accesibilidad: ["accesib", "silla de ruedas", "discapacidad", "movilidad", "invidente", "wheelchair", "accessib", "barriere", "acessib", "sedia a rotelle", "disabil", "mobilita ridotta", "non vedent"],
+    idiomas: ["idioma", "ingles", "language", "english", "langue", "sprache", "lingua", "lingue", "inglese", "parla italiano", "parlate italiano", "in italiano"],
+    clima: ["clima", "lluvia", "llueve", "frio", "calor", "weather", "rain", "meteo", "wetter", "chuva", "pioggia", "piove", "freddo", "caldo", "temperatur"],
+    temporadas: ["temporada", "semana santa", "season", "saison", "temporada alta", "stagion", "alta stagione", "settimana santa", "pasqua"],
+    cancelacion: ["cancel", "reembols", "refund", "annul", "storn", "rimbors", "disdett", "disdire"],
+    sostenibilidad: ["sostenib", "comunidad", "ambiental", "sustainab", "durabl", "nachhaltig", "sustent", "comunita", "ambient"],
+    empresa: ["quienes son", "empresa", "about you", "who are", "qui etes", "wer seid", "quem sao", "chi siete", "azienda"],
     redes: ["instagram", "facebook", "redes", "social"],
-    compartido: ["compartido", "shared", "partage", "gruppentour", "compartilhado"],
-    asesor: ["asesor", "humano", "advisor", "human", "conseiller", "berater", "consultor"]
+    compartido: ["compartido", "shared", "partage", "gruppentour", "compartilhado", "condivis"],
+    asesor: ["asesor", "humano", "advisor", "human", "conseiller", "berater", "consultor", "consulent", "operatore", "umano", "persona reale"]
   };
 
   /* ---------- Estado ---------- */
@@ -243,7 +271,7 @@
     refreshStatic();
   }
   const MAX_LBL = { es: ["Ampliar el chat", "Reducir el chat"], en: ["Expand chat", "Shrink chat"], fr: ["Agrandir le chat", "Réduire le chat"],
-    de: ["Chat vergrößern", "Chat verkleinern"], pt: ["Ampliar o chat", "Reduzir o chat"] };
+    de: ["Chat vergrößern", "Chat verkleinern"], pt: ["Ampliar o chat", "Reduzir o chat"], it: ["Ingrandisci la chat", "Riduci la chat"] };
   function setMax(on, quiet) {
     panel.classList.toggle("espo-panel--max", on);
     maxBtn.setAttribute("aria-pressed", String(on));
@@ -441,7 +469,7 @@
 
     /* ----- Itinerarios (QR) ----- */
     if (id === "plans") {
-      const chips = EspoPlans.plans().map(p => ({ label: EspoPlans.name(p, lang) + " · " + P().days.replace("{n}", p.days), to: "plan:" + p.id }));
+      const chips = EspoPlans.plans().map(p => ({ label: EspoPlans.name(p, lang) + " · " + nForm(P().days, p.days), to: "plan:" + p.id }));
       chips.push({ label: U().back, to: "menu" });
       return { msgs: [P().plans_q], chips };
     }
@@ -453,7 +481,7 @@
       const name = EspoPlans.name(plan, lang);
       const msgs = [];
       if (ctx.fromQR) { msgs.push(P().from_qr.replace("{plan}", name)); ctx.fromQR = false; }
-      msgs.push(P().plan_intro.replace("{plan}", name).replace("{days}", P().days.replace("{n}", plan.days)) + "\n" + planLines(plan) +
+      msgs.push(P().plan_intro.replace("{plan}", name).replace("{days}", nForm(P().days, plan.days)) + "\n" + planLines(plan) +
         (plan.priceFrom ? "\n\n" + P().price_from.replace("{p}", plan.priceFrom) : ""));
       return { msgs, chips: [{ label: P().choose, kind: "primary", to: "form" }, { label: P().pack_for, to: "pack:" + plan.id }, { label: P().others, to: "plans" }, { label: U().back, to: "menu" }] };
     }
@@ -620,6 +648,23 @@
       n_grupo: "Grupo", c_grupo: "Vale para grupos a partir de {n} pessoas.", n_semana: "Dias úteis", c_semana: "Vale para experiências de {dias}, exceto feriados.",
       n_aliado: "Hotel parceiro", c_aliado: "Vale porque você chegou por um hotel parceiro.", n_codigo: "Código de convênio", c_codigo: "Vale com o código de uma empresa ou parceiro conveniado.",
       days: ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"], to: " a "
+    },
+    it: {
+      chip: "💲 Chiedi un preventivo", intro: "Ottima scelta! ✨ *{tour}* · {code}", ask: "Per darti la tua tariffa diretta con il vantaggio migliore, dimmi la data e quante persone siete 👇",
+      proof: "⭐ {cal} su Google · «{txt}» — {who}", proof0: "⭐ Valutazione {cal} dei nostri viaggiatori su Google.",
+      price_tbd: "💲 La tua tariffa diretta te la conferma il team commerciale su WhatsApp, con tutto ciò che è incluso nella scheda.",
+      ben: "🎁 Vantaggio convenzione: *{name}*{val}. {cond}", val: " ({v}% di sconto)", val_tbd: "L'importo esatto te lo conferma il team commerciale.",
+      ben_one: "I vantaggi non sono cumulabili: ti applichiamo quello più conveniente per te.", ben_valid: "Resta valido se confermi la prenotazione entro le prossime {h} ore (fino a {until}, ora colombiana).",
+      hook_any: "💡 Abbiamo vantaggi in convenzione: {list}. Se uno fa al caso tuo, lo aggiungiamo al tuo preventivo.",
+      tip_combo: "💡 Se aggiungi un'altra esperienza, hai diritto al vantaggio *{name}*. Queste si abbinano benissimo alla tua:",
+      added: "Ho aggiunto *{tour}* al tuo preventivo ✅", code_chip: "🎟️ Ho un codice convenzione", code_ask: "Scrivi il tuo codice convenzione 👇",
+      code_check: "Ho ricevuto il tuo codice *{c}*. Il team commerciale lo verifica quando conferma il tuo preventivo.",
+      hotel_chk: "🏨 Se il tuo hotel ha una convenzione con noi, il team commerciale la verifica e ti applica il vantaggio più conveniente.", wa_hotel: "🏨 Convenzione con il mio hotel:", tbc: "da confermare",
+      wa_ben: "🎁 Vantaggio:", wa_until: "valido fino a", wa_extra: "➕ Inoltre:", wa_code: "🎟️ Codice:",
+      n_combo: "Combo da {n} o più esperienze", c_combo: "Valido prenotando {n} o più esperienze nello stesso preventivo.",
+      n_grupo: "Gruppo", c_grupo: "Valido per gruppi da {n} persone in su.", n_semana: "Infrasettimanale", c_semana: "Valido per le esperienze dal {dias}, esclusi i festivi.",
+      n_aliado: "Hotel partner", c_aliado: "Valido perché arrivi tramite un hotel partner.", n_codigo: "Codice convenzione", c_codigo: "Valido con il codice di un'azienda o di un partner convenzionato.",
+      days: ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"], to: " al "
     }
   };
   const SL = () => SALES[lang] || SALES.es;
@@ -750,7 +795,10 @@
   // Palabras genéricas que no identifican una experiencia (evita "quiero reservar" → "yoga en reserva natural")
   const STOP = ["tour", "experiencia", "experience", "visita", "parque", "city", "cata", "full", "day", "reserva", "reservas", "natural",
     "naturales", "colombia", "quindio", "local", "locales", "mundo", "world", "total", "coffee", "cafe", "plato", "sesion", "tradicional",
-    "experiencial", "especial", "origen", "bienestar", "conexion", "manjares", "senderismo", "ecosistema", "unico", "aficionados", "trek"];
+    "experiencial", "especial", "origen", "bienestar", "conexion", "manjares", "senderismo", "ecosistema", "unico", "aficionados", "trek",
+    "esperienza", "esperienze", "parco", "caffe", "degustazione", "riserva", "riserve", "naturale", "naturali", "locale", "locali", "mondo",
+    "totale", "piatto", "sessione", "tradizionale", "esperienziale", "speciale", "origine", "benessere", "connessione", "delizie",
+    "escursionismo", "appassionati", "percorso", "giorno"];
   const esc_re = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const hasWord = (t, w) => new RegExp("(^|[^a-z0-9ñ])" + esc_re(w) + "([^a-z0-9ñ]|$)").test(t);   // palabra completa
   const hasStem = (t, w) => new RegExp("(^|[^a-z0-9ñ])" + esc_re(w)).test(t);                     // inicio de palabra

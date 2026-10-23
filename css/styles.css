@@ -7,6 +7,7 @@
 
 /* ---------- Design tokens ---------- */
 :root {
+  color-scheme: light;
   /* Brand palette (from logo) */
   --forest-900: #272E19;   /* verde oscuro del logo */
   --forest-800: #2f3820;
@@ -65,6 +66,7 @@
 }
 
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --bg:          #12160d;
   --bg-elev:     #1a2013;
   --bg-soft:     #1d2416;
@@ -92,6 +94,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg:          #12160d;
     --bg-elev:     #1a2013;
     --bg-soft:     #1d2416;
@@ -261,7 +264,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   display: flex; flex-direction: column; padding: 6rem var(--gutter) 2rem; gap: .25rem; overflow-y: auto;
 }
 .mobile-menu.open { transform: translateX(0); }
+/* Con el menú móvil abierto, los botones flotantes no tapan los idiomas ni las redes */
+body:has(.mobile-menu.open) .espo-launch, body:has(.mobile-menu.open) .wa-float { opacity: 0; visibility: hidden; pointer-events: none; }
 .mobile-menu a { font-family: var(--font-display); font-size: 1.6rem; padding: .7rem 0; border-bottom: 1px solid var(--border-soft); color: var(--text); }
+.mobile-menu a.btn--primary { color: var(--on-accent); }
 .mobile-menu .btn { font-family: var(--font-sans); margin-top: 1.2rem; }
 
 /* ---------- Hero ---------- */
@@ -522,6 +528,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 /* ---------- Toast ---------- */
 .toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 120%); z-index: 210; background: var(--forest-800); color: #fff; padding: .9rem 1.4rem; border-radius: var(--r-pill); box-shadow: var(--shadow-lg); font-weight: 600; display: flex; align-items: center; gap: .6rem; transition: transform .45s var(--ease-out); }
 .toast.show { transform: translate(-50%, 0); }
+/* Oculto del todo: antes asomaba una franja abajo al centro (28px de margen > el 120% de su alto) */
+.toast:not(.show) { transform: translate(-50%, calc(100% + 60px)); opacity: 0; visibility: hidden; pointer-events: none; }
+.toast { transition: transform .45s var(--ease-out), opacity .3s, visibility 0s linear .45s; }
+.toast.show { opacity: 1; visibility: visible; transition: transform .45s var(--ease-out), opacity .2s, visibility 0s; }
 .toast svg { width: 20px; height: 20px; color: var(--sun-400); }
 
 /* ---------- Responsive ---------- */
@@ -1164,6 +1174,7 @@ a.trust__item:hover { text-decoration-color: currentColor; }
 .flag-i--fr { background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'><path fill='%23002654' d='M0 0h1v2H0z'/><path fill='%23fff' d='M1 0h1v2H1z'/><path fill='%23CE1126' d='M2 0h1v2H2z'/></svg>"); }
 .flag-i--de { background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 3'><path d='M0 0h5v1H0z'/><path fill='%23DD0000' d='M0 1h5v1H0z'/><path fill='%23FFCE00' d='M0 2h5v1H0z'/></svg>"); }
 .flag-i--pt { background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'><path fill='%23009C3B' d='M0 0h20v14H0z'/><path fill='%23FFDF00' d='M10 1.6 18.4 7 10 12.4 1.6 7z'/><circle cx='10' cy='7' r='3.4' fill='%23002776'/><path d='M6.7 6.2c2.2-.5 4.6 0 6.6 1.3' stroke='%23fff' stroke-width='.55' fill='none'/></svg>"); }
+.flag-i--it { background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'><path fill='%23009246' d='M0 0h1v2H0z'/><path fill='%23fff' d='M1 0h1v2H1z'/><path fill='%23CE2B37' d='M2 0h1v2H2z'/></svg>"); }
 .lang__btn { padding-inline: .7rem; }
 .lang__btn .flag-i { width: 26px; height: 18px; }
 .lang__item .flag-i { width: 24px; height: 16px; }

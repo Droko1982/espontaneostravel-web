@@ -4,7 +4,7 @@
    Lo usan: el sitio (tarjetas, FAQ, sostenibilidad), Jenny (bot.js), el
    conserje (concierge.js), el panel y el portal. También funciona en Node
    (tools/build-static.js) para generar el HTML base en español (SEO).
-   Traducciones: data/jenny.i18n.json (en, fr, de, pt). Español = fuente.
+   Traducciones: data/jenny.i18n.json (en, fr, de, pt, it). Español = fuente.
    ========================================================================== */
 (function (root, factory) {
   const api = factory();
@@ -140,6 +140,7 @@
     if (lang === "fr") return h + " h " + mi;
     if (lang === "de") return h + ":" + mi + " Uhr";
     if (lang === "pt") return h + "h" + (mi === "00" ? "" : mi);
+    if (lang === "it") return h + ":" + mi;
     return ((h % 12) || 12) + ":" + mi + (h < 12 ? " a. m." : " p. m.");
   }
   const L = {
@@ -147,7 +148,8 @@
     en: { fijo1: "Pickup at {h}", fijoN: "Pickup: {h}", ventana: "Start between {a} and {b}", desde: "From {h}", tbd: "Time to be arranged", and: " or ", dur: "{n} h" },
     fr: { fijo1: "Départ à {h}", fijoN: "Départ : {h}", ventana: "Début entre {a} et {b}", desde: "À partir de {h}", tbd: "Horaire à convenir", and: " ou ", dur: "{n} h" },
     de: { fijo1: "Abholung um {h}", fijoN: "Abholung: {h}", ventana: "Start zwischen {a} und {b}", desde: "Ab {h}", tbd: "Uhrzeit nach Absprache", and: " oder ", dur: "{n} Std." },
-    pt: { fijo1: "Saída às {h}", fijoN: "Saída: {h}", ventana: "Início entre {a} e {b}", desde: "A partir das {h}", tbd: "Horário a combinar", and: " ou ", dur: "{n} h" }
+    pt: { fijo1: "Saída às {h}", fijoN: "Saída: {h}", ventana: "Início entre {a} e {b}", desde: "A partir das {h}", tbd: "Horário a combinar", and: " ou ", dur: "{n} h" },
+    it: { fijo1: "Partenza alle {h}", fijoN: "Partenza: {h}", ventana: "Inizio tra le {a} e le {b}", desde: "Dalle {h}", tbd: "Orario da concordare", and: " o ", dur: "{n} h" }
   };
   function fmtHorario(h, lang) {
     const l = L[lang] || L.es;

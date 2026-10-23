@@ -14,7 +14,7 @@
     siteUrl: "https://www.espontaneostravel.com",
     formEndpoint: "https://formsubmit.co/ajax/info@espontaneostravel.com"
   };
-  const SUPPORTED = ["es", "en", "fr", "de", "pt"];
+  const SUPPORTED = ["es", "en", "fr", "de", "pt", "it"];
   const DEFAULT_LANG = "es";
   // Tours que no están en el portafolio ni en el tarifario 2026: ocultos hasta que Carolina los valide.
   const PENDING_VALIDATION = ["rodizio", "alimentacion"];
@@ -91,12 +91,12 @@
   function tourName(tour) { const i = info(tour); return (i && i.nombre) || tour.name; }
   function tourText(tour) { return { name: tourName(tour), summary: tourSummary(tour) }; }
   // Departamentos en el idioma elegido (solo cambia el norte del Valle)
-  const NV = { es: "Norte del Valle del Cauca", en: "Northern Valle del Cauca", fr: "Nord du Valle del Cauca", de: "Nördliches Valle del Cauca", pt: "Norte do Valle del Cauca" };
+  const NV = { es: "Norte del Valle del Cauca", en: "Northern Valle del Cauca", fr: "Nord du Valle del Cauca", de: "Nördliches Valle del Cauca", pt: "Norte do Valle del Cauca", it: "Nord della Valle del Cauca" };
   function deptos(list) { return list.map(d => (d === "Norte del Valle del Cauca" ? (NV[currentLang] || d) : d)).join(", "); }
   function catLabel(cat) { const c = CATEGORIES.find(x => x.id === cat); return c ? (c[currentLang] || c.es) : cat; }
   function visibleTours() { return TOURS.filter(x => PENDING_VALIDATION.indexOf(x.id) < 0 && (!D() || D().published(x.id))); }
 
-  // Cada idioma tiene su inicio propio (/, /en/, /fr/, /de/, /pt/): el HTML trae data-page-lang (tools/build-static.js)
+  // Cada idioma tiene su inicio propio (/, /en/, /fr/, /de/, /pt/, /it/): el HTML trae data-page-lang (tools/build-static.js)
   const PAGE_LANG = document.documentElement.getAttribute("data-page-lang") || "";
   const langPath = (l) => (l === DEFAULT_LANG ? "/" : "/" + l + "/");
   function detectLang() {
@@ -112,7 +112,8 @@
     en: ["This page is also available in English.", "View in English", "Close"],
     fr: ["Cette page existe aussi en français.", "Voir en français", "Fermer"],
     de: ["Diese Seite gibt es auch auf Deutsch.", "Auf Deutsch ansehen", "Schließen"],
-    pt: ["Esta página também está disponível em português.", "Ver em português", "Fechar"]
+    pt: ["Esta página também está disponível em português.", "Ver em português", "Fechar"],
+    it: ["Questa pagina è disponibile anche in italiano.", "Vedi in italiano", "Chiudi"]
   };
   function langHint() {
     if (currentLang !== DEFAULT_LANG || new URLSearchParams(location.search).get("lang")) return;
@@ -423,10 +424,10 @@
     setMeta("name", "description", t("doc_desc"));
     setMeta("property", "og:title", t("doc_title"));
     setMeta("property", "og:description", t("doc_desc"));
-    setMeta("property", "og:locale", ({ es: "es_CO", en: "en_GB", fr: "fr_FR", de: "de_DE", pt: "pt_BR" })[currentLang]);
+    setMeta("property", "og:locale", ({ es: "es_CO", en: "en_GB", fr: "fr_FR", de: "de_DE", pt: "pt_BR", it: "it_IT" })[currentLang]);
     setMeta("name", "twitter:title", t("doc_title"));
     setMeta("name", "twitter:description", t("doc_desc"));
-    // Una dirección por idioma (igual que hreflang y sitemap.xml): español = raíz; los demás = /en/, /fr/, /de/, /pt/
+    // Una dirección por idioma (igual que hreflang y sitemap.xml): español = raíz; los demás = /en/, /fr/, /de/, /pt/, /it/
     if (document.head.querySelector('link[hreflang]')) {
       const canon = CFG.siteUrl + langPath(currentLang);
       let cl = document.head.querySelector('link[rel="canonical"]');
@@ -452,7 +453,7 @@
   }
   // La dirección sigue al idioma (sin recargar): / ↔ /en/ … (las direcciones viejas ?lang=xx pasan a /xx/)
   function syncLangUrl() {
-    if (!/^\/(index\.html)?$|^\/(en|fr|de|pt)\/(index\.html)?$/.test(location.pathname)) return;
+    if (!/^\/(index\.html)?$|^\/(en|fr|de|pt|it)\/(index\.html)?$/.test(location.pathname)) return;
     const url = new URL(location.href); url.searchParams.delete("lang");
     try { history.replaceState(null, "", langPath(currentLang) + url.search + url.hash); } catch (e) {}
   }

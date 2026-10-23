@@ -1,7 +1,7 @@
 {
  "_meta": {
   "descripcion": "Geodatos de Espontáneos Travel para js/maps.js: hubs, lugares por tour, pueblos y distancias por carretera precalculadas.",
-  "generado": "2026-10-16T22:26:17.956Z",
+  "generado": "2026-10-23T04:46:05.735Z",
   "generador": "tools/build-geo.js",
   "tours_fuente": "data/jenny.json (vigencia 2026)",
   "vigencia": 2026,
@@ -143,7 +143,8 @@
     "en": "The vehicle goes as far as Pijao; from there you continue by Willys jeep to the reserve (2,200–2,600 m a.s.l.).",
     "fr": "Les véhicules arrivent à Pijao ; on continue ensuite en Jeep Willys vers la réserve (2 200 à 2 600 m d’altitude).",
     "de": "Fahrzeuge fahren bis Pijao; von dort geht es im Jeep Willys weiter zum Reservat (2.200–2.600 m ü. M.).",
-    "pt": "Os veículos chegam a Pijao; de lá segue-se de Jeep Willys até a reserva (entre 2.200 e 2.600 m de altitude)."
+    "pt": "Os veículos chegam a Pijao; de lá segue-se de Jeep Willys até a reserva (entre 2.200 e 2.600 m de altitude).",
+    "it": "Il veicolo arriva fino a Pijao; da lì si prosegue in Jeep Willys verso la riserva (tra 2.200 e 2.600 m s.l.m.)."
    },
    "desde": {
     "armenia": {
@@ -513,7 +514,8 @@
     "en": "The Páramo del Chilí lies in the mountains between Quindío and Tolima. The map route reaches Pijao, the usual access point; your host will confirm where the hike starts.",
     "fr": "Le Páramo del Chilí se trouve dans la cordillère, entre le Quindío et le Tolima. L’itinéraire de la carte va jusqu’à Pijao, l’accès habituel ; votre hôte vous confirmera le point de départ de la randonnée.",
     "de": "Der Páramo del Chilí liegt in der Kordillere zwischen Quindío und Tolima. Die Route auf der Karte führt bis Pijao, dem üblichen Zugang; Ihr Gastgeber bestätigt Ihnen den Startpunkt der Wanderung.",
-    "pt": "O Páramo del Chilí fica na cordilheira, entre Quindío e Tolima. A rota do mapa chega a Pijao, o acesso habitual; seu anfitrião confirma o ponto de início da caminhada."
+    "pt": "O Páramo del Chilí fica na cordilheira, entre Quindío e Tolima. A rota do mapa chega a Pijao, o acesso habitual; seu anfitrião confirma o ponto de início da caminhada.",
+    "it": "Il Páramo del Chilí si trova nella cordigliera, tra Quindío e Tolima. Il percorso sulla mappa arriva fino a Pijao, l'accesso abituale; il tuo anfitrione ti conferma il punto di partenza dell'escursione."
    },
    "desde": {
     "armenia": {
@@ -721,7 +723,8 @@
     "en": "Hotels in Quindío and Risaralda: Santa Rosa or San Vicente hot springs. Hotels in Caldas: El Otoño or Tierra Viva.",
     "fr": "Hôtels au Quindío et au Risaralda : thermes de Santa Rosa ou San Vicente. Hôtels au Caldas : El Otoño ou Tierra Viva.",
     "de": "Hotels in Quindío und Risaralda: Thermen Santa Rosa oder San Vicente. Hotels in Caldas: El Otoño oder Tierra Viva.",
-    "pt": "Hotéis no Quindío e em Risaralda: termas de Santa Rosa ou San Vicente. Hotéis em Caldas: El Otoño ou Tierra Viva."
+    "pt": "Hotéis no Quindío e em Risaralda: termas de Santa Rosa ou San Vicente. Hotéis em Caldas: El Otoño ou Tierra Viva.",
+    "it": "Hotel nel Quindío e nel Risaralda: terme di Santa Rosa o San Vicente. Hotel nel Caldas: El Otoño o Tierra Viva."
    },
    "desde": {
     "armenia": {
@@ -929,7 +932,8 @@
     "en": "Meeting points: Plaza de Bolívar in Armenia at 8:00 a.m. or Parque de la Vida at 8:10 a.m.; departure 8:15 a.m.",
     "fr": "Points de rendez-vous : Plaza de Bolívar d’Armenia à 8h00 ou Parque de la Vida à 8h10 ; départ à 8h15.",
     "de": "Treffpunkte: Plaza de Bolívar in Armenia um 8:00 Uhr oder Parque de la Vida um 8:10 Uhr; Abfahrt 8:15 Uhr.",
-    "pt": "Pontos de encontro: Plaza de Bolívar de Armenia às 8h ou Parque de la Vida às 8h10; saída às 8h15."
+    "pt": "Pontos de encontro: Plaza de Bolívar de Armenia às 8h ou Parque de la Vida às 8h10; saída às 8h15.",
+    "it": "Punti d'incontro: Plaza de Bolívar di Armenia alle 8:00 o Parque de la Vida alle 8:10; partenza alle 8:15."
    },
    "desde": {
     "armenia": {
@@ -1020,7 +1024,8 @@
     "en": "Part of the journey may be in a Willys jeep, depending on road conditions.",
     "fr": "Une partie du trajet peut se faire en Jeep Willys, selon l’état des routes.",
     "de": "Ein Teil der Strecke kann je nach Straßenzustand im Jeep Willys gefahren werden.",
-    "pt": "Parte do trajeto pode ser feita de Jeep Willys, conforme as condições das estradas."
+    "pt": "Parte do trajeto pode ser feita de Jeep Willys, conforme as condições das estradas.",
+    "it": "Parte del tragitto può essere fatta in Jeep Willys, a seconda delle condizioni delle strade."
    },
    "desde": {
     "armenia": {
@@ -1111,7 +1116,8 @@
     "en": "The order of stops is indicative; your guide may adjust it.",
     "fr": "L’ordre des arrêts est indicatif ; le guide peut l’adapter.",
     "de": "Die Reihenfolge der Stopps ist unverbindlich; der Guide kann sie anpassen.",
-    "pt": "A ordem das paradas é indicativa; o guia pode ajustá-la."
+    "pt": "A ordem das paradas é indicativa; o guia pode ajustá-la.",
+    "it": "L'ordine delle tappe è indicativo; la guida può modificarlo."
    },
    "desde": {
     "armenia": {

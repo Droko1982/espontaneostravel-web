@@ -1,6 +1,6 @@
 /* ==========================================================================
    Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
-   Espontáneos Travel — UI translations (ES · EN · FR · DE · PT)
+   Espontáneos Travel — UI translations (ES · EN · FR · DE · PT · IT)
    ========================================================================== */
 
 const LANGS = [
@@ -8,7 +8,8 @@ const LANGS = [
   { code:"en", label:"English",  flag:"🇬🇧", name:"EN" },
   { code:"fr", label:"Français", flag:"🇫🇷", name:"FR" },
   { code:"de", label:"Deutsch",  flag:"🇩🇪", name:"DE" },
-  { code:"pt", label:"Português",flag:"🇧🇷", name:"PT" }
+  { code:"pt", label:"Português",flag:"🇧🇷", name:"PT" },
+  { code:"it", label:"Italiano", flag:"🇮🇹", name:"IT" }
 ];
 
 const I18N = {
@@ -20,7 +21,7 @@ const I18N = {
     hero_title_a:"Vive el alma del", hero_title_b:"campo colombiano", hero_title_c:"con quienes lo habitan",
     hero_lead:"Experiencias de turismo rural, cultural y de naturaleza en el Eje Cafetero. Tradiciones y orígenes vividos de la mano de comunidades locales, con un turismo auténtico, sostenible y sin barreras.",
     hero_cta1:"Explorar experiencias", hero_cta2:"Escríbenos por WhatsApp",
-    stat_exp:"Experiencias", stat_exp_v:"+30", stat_lang:"Idiomas", stat_lang_v:"5", stat_rating:"Valoración", stat_rating_v:"4.9★", stat_local:"100% local", stat_local_v:"Quindío",
+    stat_exp:"Experiencias", stat_exp_v:"+30", stat_lang:"Idiomas", stat_lang_v:"6", stat_rating:"Valoración", stat_rating_v:"4.9★", stat_local:"100% local", stat_local_v:"Quindío",
     scroll:"Descubre",
     trust_rnt:"Registro Nacional de Turismo 91795", trust_local:"Guías y familias locales", trust_sustain:"Turismo sostenible", trust_access:"Turismo sin barreras",
     about_eyebrow:"Tradiciones y Orígenes", about_title:"Somos el puente entre tú y el verdadero campo cafetero",
@@ -72,7 +73,7 @@ const I18N = {
     hero_title_a:"Live the soul of the", hero_title_b:"Colombian countryside", hero_title_c:"with those who call it home",
     hero_lead:"Rural, cultural and nature tourism in Colombia's Coffee Region. Traditions and origins lived hand in hand with local communities — authentic, sustainable and barrier-free travel.",
     hero_cta1:"Explore experiences", hero_cta2:"Message us on WhatsApp",
-    stat_exp:"Experiences", stat_exp_v:"30+", stat_lang:"Languages", stat_lang_v:"5", stat_rating:"Rating", stat_rating_v:"4.9★", stat_local:"100% local", stat_local_v:"Quindío",
+    stat_exp:"Experiences", stat_exp_v:"30+", stat_lang:"Languages", stat_lang_v:"6", stat_rating:"Rating", stat_rating_v:"4.9★", stat_local:"100% local", stat_local_v:"Quindío",
     scroll:"Discover",
     trust_rnt:"National Tourism Registry 91795", trust_local:"Local guides & families", trust_sustain:"Sustainable tourism", trust_access:"Barrier-free tourism",
     about_eyebrow:"Traditions & Origins", about_title:"The bridge between you and the real coffee countryside",
@@ -124,7 +125,7 @@ const I18N = {
     hero_title_a:"Vivez l'âme de la", hero_title_b:"campagne colombienne", hero_title_c:"avec ceux qui l'habitent",
     hero_lead:"Tourisme rural, culturel et nature dans la Région du Café. Traditions et origines vécues aux côtés des communautés locales — un voyage authentique, durable et sans barrières.",
     hero_cta1:"Explorer les expériences", hero_cta2:"Écrivez-nous sur WhatsApp",
-    stat_exp:"Expériences", stat_exp_v:"+30", stat_lang:"Langues", stat_lang_v:"5", stat_rating:"Note", stat_rating_v:"4,9★", stat_local:"100% local", stat_local_v:"Quindío",
+    stat_exp:"Expériences", stat_exp_v:"+30", stat_lang:"Langues", stat_lang_v:"6", stat_rating:"Note", stat_rating_v:"4,9★", stat_local:"100% local", stat_local_v:"Quindío",
     scroll:"Découvrir",
     trust_rnt:"Registre National du Tourisme 91795", trust_local:"Guides et familles locales", trust_sustain:"Tourisme durable", trust_access:"Tourisme sans barrières",
     about_eyebrow:"Traditions et Origines", about_title:"Le pont entre vous et la vraie campagne caféière",
@@ -176,7 +177,7 @@ const I18N = {
     hero_title_a:"Erleben Sie die Seele des", hero_title_b:"kolumbianischen Landes", hero_title_c:"mit denen, die dort leben",
     hero_lead:"Ländlicher, kultureller und Naturtourismus in Kolumbiens Kaffeeregion. Traditionen und Ursprünge erlebt Hand in Hand mit lokalen Gemeinschaften — authentisch, nachhaltig und barrierefrei.",
     hero_cta1:"Erlebnisse entdecken", hero_cta2:"Per WhatsApp schreiben",
-    stat_exp:"Erlebnisse", stat_exp_v:"30+", stat_lang:"Sprachen", stat_lang_v:"5", stat_rating:"Bewertung", stat_rating_v:"4,9★", stat_local:"100 % lokal", stat_local_v:"Quindío",
+    stat_exp:"Erlebnisse", stat_exp_v:"30+", stat_lang:"Sprachen", stat_lang_v:"6", stat_rating:"Bewertung", stat_rating_v:"4,9★", stat_local:"100 % lokal", stat_local_v:"Quindío",
     scroll:"Entdecken",
     trust_rnt:"Nationales Tourismusregister 91795", trust_local:"Lokale Guides & Familien", trust_sustain:"Nachhaltiger Tourismus", trust_access:"Barrierefreier Tourismus",
     about_eyebrow:"Traditionen & Ursprünge", about_title:"Die Brücke zwischen Ihnen und dem echten Kaffeeland",
@@ -228,7 +229,7 @@ const I18N = {
     hero_title_a:"Viva a alma do", hero_title_b:"campo colombiano", hero_title_c:"com quem o habita",
     hero_lead:"Turismo rural, cultural e de natureza na Região Cafeeira da Colômbia. Tradições e origens vividas lado a lado com as comunidades locais — uma viagem autêntica, sustentável e sem barreiras.",
     hero_cta1:"Explorar experiências", hero_cta2:"Fale conosco no WhatsApp",
-    stat_exp:"Experiências", stat_exp_v:"+30", stat_lang:"Idiomas", stat_lang_v:"5", stat_rating:"Avaliação", stat_rating_v:"4,9★", stat_local:"100% local", stat_local_v:"Quindío",
+    stat_exp:"Experiências", stat_exp_v:"+30", stat_lang:"Idiomas", stat_lang_v:"6", stat_rating:"Avaliação", stat_rating_v:"4,9★", stat_local:"100% local", stat_local_v:"Quindío",
     scroll:"Descubra",
     trust_rnt:"Registro Nacional de Turismo 91795", trust_local:"Guias e famílias locais", trust_sustain:"Turismo sustentável", trust_access:"Turismo sem barreiras",
     about_eyebrow:"Tradições e Origens", about_title:"A ponte entre você e o verdadeiro campo cafeeiro",
@@ -270,5 +271,57 @@ const I18N = {
     back_top:"Voltar ao topo", toast_sent:"Obrigado! Sua solicitação foi enviada. Responderemos muito em breve.",
     wa_default:"Olá Espontáneos Travel! Gostaria de mais informações sobre as experiências.",
     wa_tour:"Olá Espontáneos Travel! Tenho interesse na experiência:"
+  },
+
+  it: {
+    doc_title: "Espontáneos Travel · Turismo rurale, del caffè e sostenibile nell'Eje Cafetero, Colombia",
+    doc_desc: "Esperienze autentiche nel Paesaggio Culturale del Caffè: tour del caffè, Valle de Cocora, borghi storici, avvistamento di uccelli, turismo comunitario e accessibile. RNT 91795.",
+    nav_about:"Chi siamo", nav_tours:"Esperienze", nav_access:"Senza barriere", nav_gallery:"Galleria", nav_contact:"Contatti", nav_book:"Prenota",
+    hero_badge:"Turismo responsabile · Paesaggio Culturale del Caffè · UNESCO",
+    hero_title_a:"Vivi l'anima della", hero_title_b:"campagna colombiana", hero_title_c:"con chi la abita",
+    hero_lead:"Esperienze di turismo rurale, culturale e naturalistico nell'Eje Cafetero. Tradizioni e origini vissute insieme alle comunità locali, con un turismo autentico, sostenibile e senza barriere.",
+    hero_cta1:"Scopri le esperienze", hero_cta2:"Scrivici su WhatsApp",
+    stat_exp:"Esperienze", stat_exp_v:"+30", stat_lang:"Lingue", stat_lang_v:"6", stat_rating:"Valutazione", stat_rating_v:"4,9★", stat_local:"100% locale", stat_local_v:"Quindío",
+    scroll:"Scopri",
+    trust_rnt:"Registro Nazionale del Turismo 91795", trust_local:"Guide e famiglie locali", trust_sustain:"Turismo sostenibile", trust_access:"Turismo senza barriere",
+    about_eyebrow:"Tradizioni e Origini", about_title:"Siamo il ponte tra te e la vera campagna del caffè",
+    about_p1:"Da Espontáneos Travel favoriamo un contatto reale tra i viaggiatori e l'ambiente naturale, culturale e tradizionale della campagna colombiana. Creiamo esperienze che risvegliano in ogni visitatore la consapevolezza del valore del lavoro rurale e comunitario.",
+    about_p2:"Operiamo nel cuore della Regione del Caffè, un paesaggio dichiarato Patrimonio dell'Umanità, insieme a famiglie contadine, caffeicoltori e guide locali che condividono con te i loro saperi, la loro cucina e le loro storie.",
+    value1_t:"Sostenibilità", value1_d:"Pratiche responsabili che proteggono il paesaggio e portano benefici diretti alle comunità.",
+    value2_t:"Autenticità", value2_d:"Niente cartoline: esperienze vere con le persone che mantengono vive le tradizioni.",
+    value3_t:"Turismo senza barriere", value3_d:"Esperienze pensate perché tutte le persone possano viverle in autonomia e sicurezza.",
+    tours_eyebrow:"Portfolio di esperienze", tours_title:"Scegli la tua avventura nell'Eje Cafetero",
+    tours_sub:"Caffè, natura, cultura, avventura e turismo comunitario. Filtra per interesse e scopri l'esperienza perfetta per te.",
+    card_from:"Da", card_pp:"/ persona", card_details:"Vedi dettagli", card_wa:"Prenota",
+    dur_halfday:"Mezza giornata", dur_fullday:"Giornata intera", dur_threedays:"3 giorni / 2 notti",
+    grp_small:"Gruppo ridotto", grp_medium:"Gruppo medio", grp_family:"Per famiglie", grp_accessible:"Accessibile",
+    tours_empty:"Per ora non ci sono esperienze in questa categoria.",
+    steps_eyebrow:"Come funziona", steps_title:"Prenotare è facilissimo", steps_sub:"Quattro passi per vivere la tua esperienza nella campagna del caffè.",
+    step1_t:"Scegli la tua esperienza", step1_d:"Esplora il portfolio e trova il piano ideale per te o per il tuo gruppo.",
+    step2_t:"Scrivici", step2_d:"Contattaci su WhatsApp o tramite il modulo e raccontaci date ed esigenze.",
+    step3_t:"Progettiamo il tuo piano", step3_d:"Adattiamo ritmi, trasporto e dettagli su misura per te, accessibilità inclusa.",
+    step4_t:"Vivi e ricorda", step4_d:"Goditi un'esperienza autentica che sostiene le comunità locali.",
+    access_eyebrow:"Turismo senza barriere", access_title:"Un Paesaggio del Caffè per tutte le persone",
+    access_p:"Crediamo in un turismo in cui tutte le persone possano vivere il Paesaggio Culturale del Caffè in autonomia, in sicurezza e con piacere. Progettiamo percorsi accessibili, accompagnamento specializzato e ritmi flessibili in base alle tue esigenze.",
+    access_li1:"Percorsi, accessi e trasporti adattati", access_li2:"Accompagnamento e assistenza specializzati",
+    access_li3:"Ritmi e soste flessibili", access_li4:"Pianificazione personalizzata per ogni viaggiatore",
+    access_cta:"Pianifica un'esperienza accessibile",
+    gallery_eyebrow:"Galleria", gallery_title:"Momenti che ti aspettano", gallery_sub:"Un assaggio dei paesaggi, dei sapori e degli incontri che vivrai con noi.",
+    cta_title:"Hai voglia di vivere il vero Eje Cafetero?", cta_p:"Raccontaci cosa ti piacerebbe vivere e progettiamo un'esperienza su misura per te. Rispondiamo in fretta su WhatsApp o via e-mail.",
+    cta_btn1:"Prenota su WhatsApp", cta_btn2:"Invia una richiesta",
+    contact_eyebrow:"Contatti", contact_title:"Pianifichiamo la tua esperienza", contact_sub:"Scrivici e ti aiutiamo a progettare il viaggio perfetto nella Regione del Caffè.",
+    c_phone:"Telefono", c_wa:"WhatsApp", c_email:"E-mail", c_loc:"Dove siamo", c_loc_v:"Armenia, Quindío · Regione del Caffè, Colombia",
+    f_name:"Nome e cognome", f_email:"E-mail", f_phone:"Telefono / WhatsApp", f_people:"N. di persone",
+    f_tour:"Esperienza di interesse", f_tour_opt:"Seleziona un'esperienza (facoltativo)", f_date:"Data indicativa", f_msg:"Raccontaci cosa cerchi",
+    f_msg_ph:"Date, interessi, esigenze di accessibilità, lingua preferita…", f_submit:"Invia richiesta", f_note:"Puoi anche scriverci direttamente su WhatsApp. Ti rispondiamo in meno di 24 h.",
+    footer_tag:"Esperienze di turismo rurale, culturale e naturalistico nell'Eje Cafetero colombiano.",
+    footer_explore:"Esplora", footer_company:"Azienda", footer_contact:"Contatti",
+    fl_tours:"Esperienze", fl_about:"Chi siamo", fl_access:"Turismo senza barriere", fl_gallery:"Galleria", fl_book:"Prenota",
+    fl_sustain:"Sostenibilità", fl_community:"Comunità", fl_privacy:"Privacy", fl_terms:"Termini e condizioni",
+    rnt:"RNT 91795", rights:"Tutti i diritti riservati.", made:"Fatto con orgoglio nel Quindío, Colombia.",
+    modal_includes:"Cosa include", modal_wa:"Prenota su WhatsApp", modal_quote:"Richiedi un preventivo",
+    back_top:"Torna su", toast_sent:"Grazie! La tua richiesta è stata inviata. Ti risponderemo molto presto.",
+    wa_default:"Ciao Espontáneos Travel! Vorrei maggiori informazioni sulle vostre esperienze.",
+    wa_tour:"Ciao Espontáneos Travel! Mi interessa l'esperienza:"
   }
 };

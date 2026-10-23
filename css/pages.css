@@ -21,6 +21,19 @@
 .xp-langs span { background: var(--brand); color: var(--on-brand, #fff); }
 .xp-langs a:hover { background: var(--bg-soft); color: var(--brand); }
 @media (max-width: 700px) { .xp-hide-sm { display: none; } .xp-brand span { display: none; } .xp-nav { margin-left: 0; } .xp-top__in { justify-content: space-between; } }
+/* 6 banderas en celulares pequeños: más compactas y el logo nunca se encoge */
+.xp-brand { flex-shrink: 0; }
+@media (max-width: 480px) {
+  .xp-brand img { height: 34px; }
+  .xp-nav a { padding: .4rem .5rem; font-size: .88rem; }
+  .xp-langs { gap: 0; }
+  .xp-langs a, .xp-langs span { padding: .25rem .2rem; }
+  .xp-langs .flag-i { width: 20px; height: 14px; }
+}
+@media (max-width: 350px) {
+  .xp-langs a, .xp-langs span { padding: .2rem .12rem; }
+  .xp-langs .flag-i { width: 18px; height: 12px; }
+}
 
 .xp-crumbs { font-size: .85rem; color: var(--text-muted, var(--text-soft)); margin: 1rem 0 .8rem; }
 .xp-crumbs a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 2px; }

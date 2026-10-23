@@ -7,7 +7,7 @@
   "use strict";
   const LANGS = [
     { code:"es", name:"ES" }, { code:"en", name:"EN" }, { code:"fr", name:"FR" },
-    { code:"de", name:"DE" }, { code:"pt", name:"PT" }
+    { code:"de", name:"DE" }, { code:"pt", name:"PT" }, { code:"it", name:"IT" }
   ];
   const SUPPORTED = LANGS.map(l => l.code);
   const $ = (s, c = document) => c.querySelector(s);
@@ -49,7 +49,7 @@
   function decodeBooking(s) { try { const j = b64urlDecode(s); return j ? JSON.parse(j) : null; } catch (e) { return null; } }
 
   /* ---------- Add to calendar (.ics) ---------- */
-  const CAL_LABEL = { es: "Añadir a mi calendario", en: "Add to my calendar", fr: "Ajouter à mon calendrier", de: "Zu meinem Kalender", pt: "Adicionar ao meu calendário" };
+  const CAL_LABEL = { es: "Añadir a mi calendario", en: "Add to my calendar", fr: "Ajouter à mon calendrier", de: "Zu meinem Kalender", pt: "Adicionar ao meu calendário", it: "Aggiungi al mio calendario" };
   function pad2(n) { return String(n).padStart(2, "0"); }
   function icsFmt(d) { return d.getFullYear() + pad2(d.getMonth() + 1) + pad2(d.getDate()) + "T" + pad2(d.getHours()) + pad2(d.getMinutes()) + "00"; }
   const CAL_REMIND = {
@@ -57,7 +57,8 @@
     en: "You're travelling with Espontáneos Travel tomorrow: check your itinerary and what to pack 🎒",
     fr: "Demain vous voyagez avec Espontáneos Travel : vérifiez votre itinéraire et ce qu'il faut emporter 🎒",
     de: "Morgen reist du mit Espontáneos Travel: prüfe deinen Reiseplan und was du mitnimmst 🎒",
-    pt: "Amanhã você viaja com a Espontáneos Travel: confira seu roteiro e o que levar 🎒"
+    pt: "Amanhã você viaja com a Espontáneos Travel: confira seu roteiro e o que levar 🎒",
+    it: "Domani viaggi con Espontáneos Travel: controlla il tuo itinerario e cosa portare 🎒"
   };
   function icsText(s) { return String(s).replace(/\\/g, "\\\\").replace(/[,;]/g, m => "\\" + m).replace(/\n/g, "\\n"); }
   // RFC 5545: lines longer than 75 octets are folded (continuation lines start with a space)
@@ -249,29 +250,29 @@
       if (id === "change") changeScore = s;
     });
     // "quiero cambiar de horario": el verbo manda (cambiar/mover/reprogramar) sobre "horario" o "cambio" de dinero
-    if (changeScore > 0 && /\b(hora|horas|horario|horarios|time|times|heure|horaire|uhr|uhrzeit|zeit|dia|dias|day|fecha|date|jour|tag|data)\b/.test(t)) return "change";
+    if (changeScore > 0 && /\b(hora|horas|horario|horarios|time|times|heure|horaire|uhr|uhrzeit|zeit|dia|dias|day|fecha|date|jour|tag|data|ora|orario|orari|giorno|giorni)\b/.test(t)) return "change";
     return score > 0 ? best : null;
   }
   // Temas que tienen respuesta oficial en data/jenny.json: se responde con esa (misma fuente que el sitio)
   const OFFICIAL = { weather: "clima", rain: "clima", access: "accesibilidad", children: "ninos_mayores", travelers: "ninos_mayores",
     payment: "pagos", cancellation: "cancelacion", airport: "traslados" };
   const ED = () => (window.EspoData && EspoData.ready() ? EspoData : null);
-  const ROUTE_T = { es: "Tu ruta y distancias", en: "Your route & distances", fr: "Votre itinéraire et les distances", de: "Ihre Route & Entfernungen", pt: "Sua rota e distâncias" };
-  const TIPS_T = { es: "Para esta experiencia", en: "For this experience", fr: "Pour cette expérience", de: "Für dieses Erlebnis", pt: "Para esta experiência" };
+  const ROUTE_T = { es: "Tu ruta y distancias", en: "Your route & distances", fr: "Votre itinéraire et les distances", de: "Ihre Route & Entfernungen", pt: "Sua rota e distâncias", it: "Il tuo percorso e le distanze" };
+  const TIPS_T = { es: "Para esta experiencia", en: "For this experience", fr: "Pour cette expérience", de: "Für dieses Erlebnis", pt: "Para esta experiência", it: "Per questa esperienza" };
   // Respaldo: temas oficiales de Jenny (data/jenny.json) por palabras clave + pregunta_tipo traducido
   const OFFICIAL_KW = {
-    clima: ["clima", "lluvia", "llover", "llueve", "frio", "calor", "temperatura", "weather", "rain", "cold", "meteo", "pluie", "wetter", "regen", "chuva", "tempo"],
-    pagos: ["pago", "pagar", "anticipo", "saldo", "nequi", "daviplata", "tarjeta", "payment", "pay", "deposit", "paiement", "zahlung", "pagamento"],
-    cancelacion: ["cancel", "reembols", "refund", "annul", "storn"],
-    accesibilidad: ["accesib", "silla de ruedas", "movilidad", "invidente", "wheelchair", "accessib", "barriere", "acessib"],
-    ninos_mayores: ["nino", "bebe", "adulto mayor", "kid", "child", "senior", "enfant", "kinder", "crianca"],
-    idiomas: ["idioma", "ingles", "language", "english", "langue", "sprache"],
-    traslados: ["traslado", "aeropuerto", "airport", "aeroport", "flughafen", "aeroporto"],
-    temporadas: ["temporada", "semana santa", "season", "saison"],
+    clima: ["clima", "lluvia", "llover", "llueve", "frio", "calor", "temperatura", "weather", "rain", "cold", "meteo", "pluie", "wetter", "regen", "chuva", "tempo", "pioggia", "piove", "freddo", "caldo"],
+    pagos: ["pago", "pagar", "anticipo", "saldo", "nequi", "daviplata", "tarjeta", "payment", "pay", "deposit", "paiement", "zahlung", "pagamento", "pagament", "acconto", "caparra", "carta di credito", "bonifico"],
+    cancelacion: ["cancel", "reembols", "refund", "annul", "storn", "rimbors", "disdett", "disdire"],
+    accesibilidad: ["accesib", "silla de ruedas", "movilidad", "invidente", "wheelchair", "accessib", "barriere", "acessib", "sedia a rotelle", "disabil", "mobilita ridotta", "non vedent"],
+    ninos_mayores: ["nino", "bebe", "adulto mayor", "kid", "child", "senior", "enfant", "kinder", "crianca", "bambin", "neonat", "anzian", "figli"],
+    idiomas: ["idioma", "ingles", "language", "english", "langue", "sprache", "lingua", "lingue", "inglese", "parla italiano", "in italiano"],
+    traslados: ["traslado", "aeropuerto", "airport", "aeroport", "flughafen", "aeroporto", "transfer", "trasferiment", "navetta"],
+    temporadas: ["temporada", "semana santa", "season", "saison", "stagion", "settimana santa", "pasqua"],
     sostenibilidad: ["sostenib", "sustainab", "durabl", "nachhaltig", "sustent"],
-    empresa: ["quienes son", "empresa", "who are", "about you"],
-    redes: ["instagram", "facebook", "redes sociales", "social media"],
-    que_llevar: ["llevar", "empacar", "maleta", "ropa", "bring", "pack", "emporter", "mitnehmen", "levar"]
+    empresa: ["quienes son", "empresa", "who are", "about you", "chi siete", "azienda"],
+    redes: ["instagram", "facebook", "redes sociales", "social media", "social network"],
+    que_llevar: ["llevar", "empacar", "maleta", "ropa", "bring", "pack", "emporter", "mitnehmen", "levar", "cosa portare", "valigia", "vestiti"]
   };
   function officialMatch(q) {
     const D = ED(); if (!D) return null;
@@ -285,7 +286,7 @@
     });
     return best;
   }
-  const PAY_CARD = { es: "💳 Pagar con tarjeta", en: "💳 Pay by card", fr: "💳 Payer par carte", de: "💳 Mit Karte zahlen", pt: "💳 Pagar com cartão" };
+  const PAY_CARD = { es: "💳 Pagar con tarjeta", en: "💳 Pay by card", fr: "💳 Payer par carte", de: "💳 Mit Karte zahlen", pt: "💳 Pagar com cartão", it: "💳 Paga con carta" };
   function officialChips(nodeId) {
     const out = [{ label: U().wa_host, kind: "wa", wa: true, waMsg: U().wa_generic }, { label: U().back }];
     const pay = nodeId === "pagos" && HAS_PLANS && EspoPlans.safePayLink(EspoPlans.cfg.payLink);
@@ -323,7 +324,7 @@
     }
     if (act === "dyn:guide") {
       const g = booking.guide || {}; const gl = (g.langs || []).map(c => (LANGS.find(x => x.code === c) || {}).name || c).join(", ");
-      const msg = (lang === "en" ? `Your guide is *${g.name}* and speaks: ${gl}.` : lang === "fr" ? `Votre guide est *${g.name}* et parle : ${gl}.` : lang === "de" ? `Ihr Guide ist *${g.name}* und spricht: ${gl}.` : lang === "pt" ? `Seu guia é *${g.name}* e fala: ${gl}.` : `Tu guía es *${g.name}* y habla: ${gl}.`);
+      const msg = (lang === "en" ? `Your guide is *${g.name}* and speaks: ${gl}.` : lang === "fr" ? `Votre guide est *${g.name}* et parle : ${gl}.` : lang === "de" ? `Ihr Guide ist *${g.name}* und spricht: ${gl}.` : lang === "pt" ? `Seu guia é *${g.name}* e fala: ${gl}.` : lang === "it" ? `La tua guida è *${g.name}* e parla: ${gl}.` : `Tu guía es *${g.name}* y habla: ${gl}.`);
       botSay([msg]).then(() => chips([{ label: U().wa_host, kind: "wa", wa: true, waMsg: U().wa_generic }, { label: U().back, topic0: true }].map(x => x.topic0 ? { label: U().back } : x)));
       return;
     }
@@ -393,7 +394,16 @@
       same_day: "mesmo dia", preview: "Esta é a mensagem para o seu anfitrião 👇", note: "A mudança fica *confirmada quando seu anfitrião responder*: depende do guia, do motorista e da disponibilidade.",
       send: "📲 Enviar pelo WhatsApp", edit: "✏️ Escolher outro horário", sent: "Pronto! Quando seu anfitrião confirmar, a mudança aparece no seu roteiro.",
       hi: "Olá, sou {name} (reserva {code}) 👋", title: "⏰ *Pedido de mudança de horário*", act: "• Atividade: {v}", was: "• Marcada: {v}", want: "• Novo horário que prefiro: {v}",
-      free: "• O que preciso mudar: {v}", party: "• Viajantes: {v}", hotel: "• Hotel: {v}", thanks: "Aguardo a confirmação. Obrigado(a)!", link: "Minha viagem:" }
+      free: "• O que preciso mudar: {v}", party: "• Viajantes: {v}", hotel: "• Hotel: {v}", thanks: "Aguardo a confirmação. Obrigado(a)!", link: "Minha viagem:" },
+    it: { which: "Quale attività vuoi spostare? 👇", other: "✍️ Altro", other_ask: "Dimmi cosa vuoi cambiare (attività, giorno e ora) e lo preparo per il tuo host 👇",
+      now: "*{act}* è in programma *{day}* alle *{time}*.", window: "Orario ufficiale di questa esperienza: {h}",
+      when: "A che ora preferiresti? Scegli un'opzione o scrivila qui sotto (es. 11:00 o «domenica 10:00»).",
+      official: "{t} (orario ufficiale)", earlier: "{t} (1 h prima)", later: "{t} (1 h dopo)", later2: "{t} (2 h dopo)",
+      other_day: "📅 Un altro giorno", type_time: "✍️ Scrivi un altro orario", type_ask: "Scrivimi il giorno e l'ora che preferisci 👇",
+      same_day: "stesso giorno", preview: "Ecco il messaggio per il tuo host 👇", note: "Il cambio è *confermato quando il tuo host ti risponde*: dipende dalla guida, dall'autista e dalla disponibilità.",
+      send: "📲 Invia su WhatsApp", edit: "✏️ Scegli un altro orario", sent: "Fatto! Quando il tuo host conferma, il cambio compare nel tuo itinerario.",
+      hi: "Ciao, sono {name} (prenotazione {code}) 👋", title: "⏰ *Richiesta di cambio orario*", act: "• Attività: {v}", was: "• In programma: {v}", want: "• Nuovo orario che preferisco: {v}",
+      free: "• Cosa devo cambiare: {v}", party: "• Persone: {v}", hotel: "• Hotel: {v}", thanks: "Resto in attesa della conferma. Grazie!", link: "Il mio viaggio:" }
   };
   const C = () => CHG[lang] || CHG.es;
   const CTX = {
@@ -411,7 +421,10 @@
       loc_ok: "Standort bereit ✅ Tippen Sie, um ihn Ihrem Gastgeber zu senden.", loc_fail: "Standort nicht verfügbar. Senden Sie die Nachricht und teilen Sie ihn in WhatsApp (📎 → Standort).", send: "📲 Per WhatsApp senden" },
     pt: { hotel: "🏨 Meu hotel: {v}", next: "🗓️ Próxima atividade: {v}", here: "📍 Estou aqui: {v}", share: "📍 (Compartilho minha localização por aqui)",
       loc_btn: "📍 Enviar com minha localização", no_loc: "📲 Enviar sem localização", loc_wait: "Buscando sua localização… (aceite a permissão do navegador)",
-      loc_ok: "Localização pronta ✅ Toque para enviar ao seu anfitrião.", loc_fail: "Não consegui obter sua localização. Envie a mensagem e compartilhe no WhatsApp (📎 → Localização).", send: "📲 Enviar pelo WhatsApp" }
+      loc_ok: "Localização pronta ✅ Toque para enviar ao seu anfitrião.", loc_fail: "Não consegui obter sua localização. Envie a mensagem e compartilhe no WhatsApp (📎 → Localização).", send: "📲 Enviar pelo WhatsApp" },
+    it: { hotel: "🏨 Il mio hotel: {v}", next: "🗓️ Prossima attività: {v}", here: "📍 Sono qui: {v}", share: "📍 (Ti invio la mia posizione qui)",
+      loc_btn: "📍 Invia con la mia posizione", no_loc: "📲 Invia senza posizione", loc_wait: "Sto cercando la tua posizione… (accetta il permesso del browser)",
+      loc_ok: "Posizione pronta ✅ Tocca per inviarla al tuo host.", loc_fail: "Non sono riuscita a ottenere la tua posizione. Invia il messaggio e condividila su WhatsApp (📎 → Posizione).", send: "📲 Invia su WhatsApp" }
   };
   const X = () => CTX[lang] || CTX.es;
   // Líneas de contexto: hotel, próxima actividad y enlace del viaje (para que el anfitrión no tenga que preguntar)
