@@ -8,7 +8,7 @@
      OSRM). El sitio no consulta OSRM en tiempo de ejecución.
    · Teselas CARTO Voyager / Dark Matter según el tema del sitio.
    · Google Maps solo vía enlaces de direcciones (sin API key ni costos).
-   · 5 idiomas: es, en, fr, de, pt (opts.lang).
+   · 6 idiomas: es, en, fr, de, pt, it (opts.lang).
 
    API
      EspoMaps.load()                         → Promise<geo>  (también 'espomaps:ready')
@@ -44,10 +44,10 @@
     subdomains: '',
     attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
   }, w.ESPO_MAP_TILES || {});
-  const LOCALE = { es: 'es-CO', en: 'en-US', fr: 'fr-FR', de: 'de-DE', pt: 'pt-BR' };
+  const LOCALE = { es: 'es-CO', en: 'en-US', fr: 'fr-FR', de: 'de-DE', pt: 'pt-BR', it: 'it-IT' };
   const MAX_WAYPOINTS = 9; // límite práctico de los enlaces de Google Maps
 
-  /* ---------- Textos (es, en, fr, de, pt) ---------- */
+  /* ---------- Textos (es, en, fr, de, pt, it) ---------- */
   const I18N = {
     es: {
       region_overview: 'Mapa de experiencias en el Eje Cafetero', region_tour: 'Mapa de ubicación y ruta: {name}', region_itin: 'Mapa de tu itinerario',
@@ -168,18 +168,42 @@
       aside_near: 'Local conforme o seu hotel', aside_mobile: 'Vão até o seu hotel', routes_attr: 'Rotas', places_list: 'Locais e distâncias',
       more_waypoints: 'O Google Maps aceita até {n} paradas por link; as primeiras são exibidas.', from_hotel: 'Do seu hotel',
       tours_here: '{n} experiências aqui'
+    },
+    it: {
+      region_overview: 'Mappa delle esperienze nell\'Eje Cafetero', region_tour: 'Mappa di posizione e percorso: {name}', region_itin: 'Mappa del tuo itinerario',
+      loading: 'Caricamento della mappa…', from: 'da', in_city: 'A {city}', see: 'Vedi l\'esperienza', directions: 'Come arrivare',
+      open_route: 'Apri il percorso in Google Maps', open_gm: 'Apri in Google Maps', from_me: 'Dalla mia posizione',
+      airport: 'Aeroporto', city: 'Città base', meeting: 'Punto d\'incontro', start: 'Partenza', stop: 'Tappa', dest: 'Destinazione',
+      on_foot: 'a piedi', on_foot_note: 'Il veicolo arriva fino a {place}; l\'ultimo tratto è a piedi (≈ {km} in linea d\'aria).',
+      zone: 'Zona approssimativa', zone_note: 'Il luogo esatto dipende dal tuo hotel; il cerchio indica la zona approssimativa.',
+      alternatives: 'Alternative in base al tuo hotel', wide_area: 'area estesa',
+      near_hotel: 'Vicino al tuo hotel', near_hotel_note: 'Il luogo esatto dipende da dove alloggi; te lo confermiamo al momento della prenotazione.',
+      service_area: 'Zona servita: {bases}', at_hotel: 'Nel tuo hotel',
+      mobile_title: 'Questa esperienza viene da te', mobile_hotel: 'Si svolge nel tuo hotel o alloggio: non devi spostarti.',
+      mobile_nearby: 'Si svolge nel tuo hotel o nella riserva naturale più vicina.',
+      mobile_city: 'Si svolge nel tuo hotel o in un luogo a massimo 20 minuti dalla città.',
+      service_in: 'Disponibile per gli hotel di {bases}.', city_tour: 'Percorso urbano', to_confirm: 'Posizione da confermare',
+      unavailable: 'Posizione non disponibile per questa esperienza.', map_error: 'Non siamo riusciti a caricare la mappa.',
+      offline: 'La mappa non è disponibile al momento (offline). Ecco i luoghi e le distanze:',
+      approx_line: 'circa, in linea d\'aria', by_road: 'su strada', traffic: 'Distanze e tempi stimati su strada, senza traffico (OSRM).',
+      route_total: 'Percorso', legs: 'Tratte', your_hotel: 'Il tuo hotel', hotel_area: 'zona di {area}, indicativa',
+      full_route: 'Percorso completo in Google Maps', day_route: 'Percorso del giorno {day} in Google Maps', no_location: 'senza posizione sulla mappa',
+      filter: 'Filtra per categoria', all: 'Tutte', aside_title: 'Esperienze nel tuo hotel o nelle vicinanze',
+      aside_near: 'Posizione in base al tuo hotel', aside_mobile: 'Vengono nel tuo hotel', routes_attr: 'Percorsi', places_list: 'Luoghi e distanze',
+      more_waypoints: 'Google Maps consente fino a {n} tappe per link; vengono mostrate le prime.', from_hotel: 'Dal tuo hotel',
+      tours_here: '{n} esperienze qui'
     }
   };
   // Etiquetas de categoría de respaldo (si la página no pasa `categories`)
   const CAT_LABELS = {
-    tradicionales: { es: 'Clásicos', en: 'Classic', fr: 'Classiques', de: 'Klassiker', pt: 'Clássicos' },
-    naturaleza: { es: 'Naturaleza', en: 'Nature', fr: 'Nature', de: 'Natur', pt: 'Natureza' },
-    rurales: { es: 'Rurales', en: 'Rural', fr: 'Rurales', de: 'Ländlich', pt: 'Rurais' },
-    bienestar: { es: 'Bienestar', en: 'Wellness', fr: 'Bien-être', de: 'Wellness', pt: 'Bem-estar' },
-    aventura: { es: 'Aventura', en: 'Adventure', fr: 'Aventure', de: 'Abenteuer', pt: 'Aventura' },
-    parques: { es: 'Parques', en: 'Theme Parks', fr: 'Parcs', de: 'Freizeitparks', pt: 'Parques' },
-    metropolitano: { es: 'Ciudades', en: 'Cities', fr: 'Villes', de: 'Städte', pt: 'Cidades' },
-    incentivos: { es: 'Alto Valor', en: 'Premium', fr: 'Premium', de: 'Premium', pt: 'Alto Valor' }
+    tradicionales: { es: 'Clásicos', en: 'Classic', fr: 'Classiques', de: 'Klassiker', pt: 'Clássicos', it: 'Classici' },
+    naturaleza: { es: 'Naturaleza', en: 'Nature', fr: 'Nature', de: 'Natur', pt: 'Natureza', it: 'Natura' },
+    rurales: { es: 'Rurales', en: 'Rural', fr: 'Rurales', de: 'Ländlich', pt: 'Rurais', it: 'Rurali' },
+    bienestar: { es: 'Bienestar', en: 'Wellness', fr: 'Bien-être', de: 'Wellness', pt: 'Bem-estar', it: 'Benessere' },
+    aventura: { es: 'Aventura', en: 'Adventure', fr: 'Aventure', de: 'Abenteuer', pt: 'Aventura', it: 'Avventura' },
+    parques: { es: 'Parques', en: 'Theme Parks', fr: 'Parcs', de: 'Freizeitparks', pt: 'Parques', it: 'Parchi' },
+    metropolitano: { es: 'Ciudades', en: 'Cities', fr: 'Villes', de: 'Städte', pt: 'Cidades', it: 'Città' },
+    incentivos: { es: 'Alto Valor', en: 'Premium', fr: 'Premium', de: 'Premium', pt: 'Alto Valor', it: 'Premium' }
   };
   const SVG = {
     plane: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>',
@@ -291,7 +315,7 @@
   function listBases(ids, lang) {
     const names = (ids || []).map(baseName);
     if (names.length < 2) return names.join('');
-    const and = { es: ' y ', en: ' and ', fr: ' et ', de: ' und ', pt: ' e ' }[lang] || ', ';
+    const and = { es: ' y ', en: ' and ', fr: ' et ', de: ' und ', pt: ' e ', it: ' e ' }[lang] || ', ';
     return names.slice(0, -1).join(', ') + and + names[names.length - 1];
   }
   // Líneas "≈ X km · Y min desde Armenia" (máx. 2: hub + Armenia/Pereira)
@@ -775,7 +799,7 @@
       }
       if (l.tipo === 'zona') badges.push('<span class="emap-badge emap-badge--soft">' + esc(tr(lang, 'zone')) + '</span>');
       if (l.validar) badges.push('<span class="emap-badge emap-badge--warn">' + esc(tr(lang, 'to_confirm')) + '</span>');
-      // Solo textos para el viajero: `publico` (5 idiomas) + notas generadas. `nota` es interna (operaciones).
+      // Solo textos para el viajero: `publico` (6 idiomas) + notas generadas. `nota` es interna (operaciones).
       if (l.publico) notes.push(l.publico[lang] || l.publico.es);
       if (l.acceso) notes.push(tr(lang, 'on_foot_note', { place: l.acceso.nombre, km: fmtKm(l.acceso.a_pie_km, lang) }));
       if (l.tipo === 'zona') notes.push(tr(lang, 'zone_note'));

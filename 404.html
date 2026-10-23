@@ -85,13 +85,14 @@
 <body>
 
 <header class="scene">
-  <a class="brand" href="/"><img src="/assets/img/logo-light-h160.webp" alt="" width="50" height="48" onerror="this.remove()"><span class="brand__name">Espontáneos Travel</span></a>
+  <a class="brand" href="/" aria-label="Espontáneos Travel"><img src="/assets/img/logo-light-h160.webp" alt="" width="50" height="48" onerror="this.remove()"><span class="brand__name">Espontáneos Travel</span></a>
   <div class="langs" role="group" aria-label="Idioma / Language">
     <button type="button" data-lang="es" aria-pressed="true">ES</button>
     <button type="button" data-lang="en" aria-pressed="false">EN</button>
     <button type="button" data-lang="fr" aria-pressed="false">FR</button>
     <button type="button" data-lang="de" aria-pressed="false">DE</button>
     <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    <button type="button" data-lang="it" aria-pressed="false">IT</button>
   </div>
   <!-- Paisaje Cultural Cafetero: montañas, cafetales, palmas de cera, niebla, un Willys y el letrero del sendero -->
   <svg viewBox="0 0 1200 470" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
@@ -279,9 +280,22 @@
         "A Paisagem Cultural do Café da Colômbia é Patrimônio Mundial da UNESCO desde 2011.",
         "Os jipes Willys ainda levam o café pelas montanhas. Armenia tem até um desfile para eles: o Yipao.",
         "A Colômbia é o país com mais espécies de aves do mundo: mais de 1.900.",
-        "O café daqui é colhido à mão, grão por grão, porque no mesmo galho os frutos amadurecem em ritmos diferentes."] }
+        "O café daqui é colhido à mão, grão por grão, porque no mesmo galho os frutos amadurecem em ritmos diferentes."] },
+    it: { tag: "Errore 404 · pagina non trovata", title: "Ops! Questo sentiero non esiste",
+      lead: "Anche le migliori guide si perdono tra i campi di caffè. La pagina che cerchi è stata spostata o non è mai esistita, ma noi siamo qui. Ti aiutiamo a ritrovare la strada.",
+      home: "← Torna alla home", tours: "🌿 Esperienze", plans: "🗺️ Pacchetti", trip: "🎟️ Il mio viaggio", dmc: "🤝 Agenzie / DMC", faq: "❓ Domande",
+      contactH: "Scrivici direttamente", contactP: "Seguiamo viaggiatori e agenzie di tutto il mondo. Raccontaci cosa cercavi e ti risponderemo.",
+      wa: "Scrivi su WhatsApp", mail: "Invia un'e-mail", call: "Chiama", reviews: "Recensioni su Google",
+      clock: "Ad Armenia, in Colombia, sono le {t} (UTC−5).", factH: "Lo sapevi?", factNext: "Un'altra curiosità →",
+      terms: "Termini e condizioni", privacy: "Privacy", sust: "Sostenibilità",
+      waMsg: "Ciao Espontáneos Travel, sono arrivato su una pagina del vostro sito che non esiste e vorrei qualche informazione.", mailSub: "Richiesta dal sito",
+      facts: ["La palma da cera del Quindío è l'albero nazionale della Colombia e può superare i 60 metri di altezza.",
+        "Il Paesaggio Culturale del Caffè della Colombia è Patrimonio dell'Umanità UNESCO dal 2011.",
+        "Le jeep Willys portano ancora oggi il caffè tra le montagne. Ad Armenia c'è perfino una sfilata dedicata a loro: lo Yipao.",
+        "La Colombia è il paese con più specie di uccelli al mondo: oltre 1.900.",
+        "Qui il caffè si raccoglie a mano, chicco per chicco, perché sullo stesso ramo i frutti maturano in tempi diversi."] }
   };
-  var LOC = { es: "es-CO", en: "en-GB", fr: "fr-FR", de: "de-DE", pt: "pt-BR" };
+  var LOC = { es: "es-CO", en: "en-GB", fr: "fr-FR", de: "de-DE", pt: "pt-BR", it: "it-IT" };
   var lang = "es", factIx = 0;
   try { var s = localStorage.getItem("esp_lang"); if (T[s]) lang = s; } catch (e) {}
   if (lang === "es") { var n = (navigator.language || "es").slice(0, 2).toLowerCase(); if (T[n]) lang = n; }
