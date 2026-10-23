@@ -9,7 +9,7 @@
    "de",
    "pt"
   ],
-  "status": "translated from data/jenny.json and reviewed by native-language editors (22-oct-2026); review again if the Spanish changes",
+  "status": "translated from data/jenny.json and reviewed line by line against the Spanish (AI review, 22-oct-2026); review again if the Spanish changes",
   "address_form": {
    "en": "you",
    "fr": "vous",
