@@ -329,6 +329,7 @@
 .pf .team { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin-top: 4px; }
 .pf .person { display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: start; }
 .pf .ccard.person { margin-top: 0; }
+.pf .person .quote { font-style: italic; font-size: .88rem; margin: 4px 0 2px; }
 .pf .person .av { width: 44px; height: 44px; border-radius: 50%; background: var(--olive); color: var(--surface); display: grid; place-items: center; font-family: var(--f-display); font-weight: 800; }
 .pf .person a { text-decoration: none; display: inline-flex; gap: 6px; align-items: center; font-size: .86rem; overflow-wrap: anywhere; }
 .pf .person a:hover { text-decoration: underline; }
