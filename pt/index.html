@@ -50,7 +50,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="/assets/img/d/1_2OrOZv2OwRm1r1F0G8nr7Bz25LC6Efx-1600.webp" fetchpriority="high">
-<link rel="stylesheet" href="/css/styles.css?v=e008b7be">
+<link rel="stylesheet" href="/css/styles.css?v=c9378031">
 <link rel="stylesheet" href="/css/maps.css?v=00d98169">
 
 <!-- Evita el destello de tema -->
@@ -463,8 +463,8 @@
 <section class="hero" id="inicio">
   <div class="hero__media" aria-hidden="true">
     <div class="hero__slide active" style="background-image:url('/assets/img/d/1_2OrOZv2OwRm1r1F0G8nr7Bz25LC6Efx-1600.webp')"></div>
-    <div class="hero__slide" style="background-image:url('/assets/img/d/10mSKl8HvCv8QdyjjX89cyTtPMRL9TJX2-1600.webp')"></div>
-    <div class="hero__slide" style="background-image:url('/assets/img/d/1i5qkI-fuZ0PF0D8AVlC_NC67BXzENgyT-1600.webp')"></div>
+    <div class="hero__slide" data-bg="/assets/img/d/10mSKl8HvCv8QdyjjX89cyTtPMRL9TJX2-1600.webp"></div>
+    <div class="hero__slide" data-bg="/assets/img/d/1i5qkI-fuZ0PF0D8AVlC_NC67BXzENgyT-1600.webp"></div>
   </div>
   <div class="container hero__inner">
     <span class="hero__badge reveal"><span class="dot"></span><span data-i18n="hero_badge">Paisagem Cultural Cafeeira · Patrimônio Mundial da UNESCO</span></span>
@@ -485,15 +485,15 @@
 </section>
 
 <!-- Franja de confianza -->
-<div class="trust" role="list">
+<div class="trust">
   <div class="container trust__inner">
-    <span class="trust__item" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><span data-i18n="trust_rnt">RNT 91795</span></span>
-    <a class="trust__item" role="listitem" href="#resenas" id="trust-google"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.5 1.3 6.5L12 17l-5.9 3.3 1.3-6.5-4.9-4.5 6.6-.8z"/></svg><span id="trust-google-txt">5,0 no Google</span></a>
-    <span class="trust__item" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span data-i18n="trust_local">Guias e famílias locais</span></span>
-    <a class="trust__item" role="listitem" href="#sostenibilidad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a10 10 0 0 0-7 17c2-6 5-8 7-8s5 2 7 8a10 10 0 0 0-7-17z"/></svg><span data-i18n="trust_sustain">Turismo sustentável</span></a>
-    <a class="trust__item" role="listitem" href="#sin-barreras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M19 13l-5-1-2 7M5 13l5-1M12 12v-2"/><circle cx="12" cy="19" r="2.2"/></svg><span data-i18n="trust_access">Sem barreiras</span></a>
-    <span class="trust__item" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="trust_exp">56 experiências</span></span>
-    <span class="trust__item" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span data-i18n="trust_lang">5 idiomas</span></span>
+    <span class="trust__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><span data-i18n="trust_rnt">RNT 91795</span></span>
+    <a class="trust__item" href="#resenas" id="trust-google"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.5 1.3 6.5L12 17l-5.9 3.3 1.3-6.5-4.9-4.5 6.6-.8z"/></svg><span id="trust-google-txt">5,0 no Google</span></a>
+    <span class="trust__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span data-i18n="trust_local">Guias e famílias locais</span></span>
+    <a class="trust__item" href="#sostenibilidad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a10 10 0 0 0-7 17c2-6 5-8 7-8s5 2 7 8a10 10 0 0 0-7-17z"/></svg><span data-i18n="trust_sustain">Turismo sustentável</span></a>
+    <a class="trust__item" href="#sin-barreras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M19 13l-5-1-2 7M5 13l5-1M12 12v-2"/><circle cx="12" cy="19" r="2.2"/></svg><span data-i18n="trust_access">Sem barreiras</span></a>
+    <span class="trust__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="trust_exp">56 experiências</span></span>
+    <span class="trust__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span data-i18n="trust_lang">5 idiomas</span></span>
   </div>
 </div>
 
@@ -1242,14 +1242,14 @@ Formas de pagamento, em nome de Espontáneos Travel SAS (NIT 902.056.513):
 <script src="/js/i18n.js?v=f87674a6"></script>
 <script src="/js/i18n-2026.js?v=be23e73c"></script>
 <script src="/js/img-local.js?v=7b7f284b"></script>
-<script src="/js/jenny-data.js?v=bcf723b0"></script>
+<script src="/js/jenny-data.js?v=ca0cfff8"></script>
 <script src="/js/render.js?v=d35c5cb6"></script>
 <script src="/js/pages-map.js?v=de7265c2"></script>
-<script src="/js/main.js?v=30f59a35"></script>
+<script src="/js/main.js?v=9717994d"></script>
 <script src="/js/plans.js?v=e8751819"></script>
 <script src="/js/qrscan.js?v=9dbbd032"></script>
 <script src="/js/maps.js?v=4b587ec2" defer></script>
-<script src="/js/bot.js?v=ab953cf7"></script>
+<script src="/js/bot.js?v=2400968a"></script>
 <script src="/js/faq.js?v=87e0ce3c"></script>
 <script type="module" src="/js/backend.js?v=049a1b27"></script>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>

@@ -206,8 +206,8 @@
 
   /* ---------- Interfaz ---------- */
   function build() {
-    launch = el("button", "espo-launch", `<span class="espo-launch__ava">J<span class="espo-badge">1</span></span><span class="espo-launch__txt"></span>`);
-    launch.setAttribute("aria-label", "Jenny");
+    launch = el("button", "espo-launch", `<span class="espo-launch__ava" aria-hidden="true">J<span class="espo-badge">1</span></span><span class="espo-launch__txt"></span>`);
+    // Nombre accesible = texto visible («¿Te ayudo?»); el avatar «J» va oculto para lectores
     launchTxt = launch.querySelector(".espo-launch__txt");
     badge = launch.querySelector(".espo-badge");
     panel = el("div", "espo-panel");

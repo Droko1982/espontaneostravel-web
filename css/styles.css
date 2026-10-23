@@ -450,7 +450,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .footer__brand p { color: #a9b79a; margin-top: 1rem; font-size: .95rem; max-width: 34ch; }
 .footer h4 { color: #fff; font-family: var(--font-sans); font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.1rem; }
 .footer__links { display: grid; gap: .6rem; }
-.footer__links a { color: #b9c6a8; font-size: .95rem; transition: color .2s, padding .2s; }
+.footer__links a { color: #b9c6a8; font-size: .95rem; transition: color .2s, padding .2s; min-height: 24px; display: inline-flex; align-items: center; }
 .footer__links a:hover { color: var(--sun-300); padding-left: 4px; }
 .footer__social { display: flex; gap: .6rem; margin-top: 1.2rem; }
 .footer__social a { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,255,255,.08); color: #fff; transition: all .25s var(--ease); }

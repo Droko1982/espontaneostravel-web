@@ -11,21 +11,27 @@
   else root.EspoData = api;
 })(typeof self !== "undefined" ? self : this, function () {
   "use strict";
-  let Y = null, I = null, loading = null;
+  let Y = null, I = null, loading = null, iLoading = null, BASE = "/";
+  const get = (u) => fetch(BASE + u, { cache: "no-cache" }).then(r => (r.ok ? r.json() : null)).catch(() => null);
 
   /* ---------- Carga ---------- */
-  function load(base) {
+  // lang = "es": las traducciones (data/jenny.i18n.json) se piden solo al cambiar de idioma (ensureLang)
+  function load(base, lang) {
     if (Y) return Promise.resolve(api);
     if (loading) return loading;
-    base = base || "/";
-    const get = (u) => fetch(base + u, { cache: "no-cache" }).then(r => (r.ok ? r.json() : null)).catch(() => null);
-    loading = Promise.all([get("data/jenny.json"), get("data/jenny.i18n.json")]).then(([y, i]) => {
+    BASE = base || "/";
+    loading = Promise.all([get("data/jenny.json"), lang === "es" ? null : loadI18n()]).then(([y]) => {
       if (!y) throw new Error("jenny.json");
-      Y = y; I = i || {};
+      Y = y;
       return api;
     });
     return loading;
   }
+  function loadI18n() {
+    if (!iLoading) iLoading = get("data/jenny.i18n.json").then(i => { I = i || {}; return api; });
+    return iLoading;
+  }
+  const ensureLang = (lang) => (!lang || lang === "es" || (I && I[lang]) ? Promise.resolve(api) : loadI18n());
   function use(y, i) { Y = y; I = i || {}; return api; }     // para Node / pruebas
   const ready = () => !!Y;
 
@@ -161,6 +167,6 @@
   // Agrupación por duración para filtros: corta (≤2 h), media (3–5 h), día completo (≥6 h)
   function durBucket(n) { if (n == null) return ""; return n <= 2 ? "corta" : n <= 5 ? "media" : "completa"; }
 
-  const api = { load, use, ready, published, tour, tours, node, planes, planesNoIncluye, general, sost, resenas, convenios, aliados, contacto, meta, fmtHorario, fmtDur, hhmm, durBucket };
+  const api = { load, ensureLang, use, ready, published, tour, tours, node, planes, planesNoIncluye, general, sost, resenas, convenios, aliados, contacto, meta, fmtHorario, fmtDur, hhmm, durBucket };
   return api;
 });
