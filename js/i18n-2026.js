@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Textos del rediseño 2026 (ES · EN · FR · DE · PT)
    Se combinan sobre I18N (js/i18n.js) al iniciar. Traducciones EN/FR/DE/PT
    pendientes de revisión de Carolina Toro.

@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Jenny, asistente de pre-venta del sitio
    Lee la MISMA fuente que el sitio y el conserje: data/jenny.json (+ i18n).
    Reglas: no inventa datos (null/POR_VALIDAR → asesor), nunca muestra tarifas

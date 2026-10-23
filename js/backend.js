@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Conexión pública mínima con Firebase (sin inicio de sesión)
 
    Uso en cualquier página pública:

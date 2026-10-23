@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Páginas por experiencia e índices (/experiencias/, /en/experiences/, …).
    Generadas por tools/build-pages.js. Usan los colores y botones de styles.css.
    ========================================================================== */
@@ -103,6 +104,7 @@
 .xp-article { max-width: 860px; }
 .xp-article > header .xp-note { margin-top: 0; }
 .xp-article p { line-height: 1.7; max-width: 72ch; }
+.xp-article p + p { margin-top: .8em; }
 .xp-figure { margin: 1.2rem 0 0; border-radius: var(--r-xl, 22px); overflow: hidden; background: var(--bg-soft); }
 .xp-figure img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 .xp-tablewrap { overflow-x: auto; border-radius: var(--r-md, 14px); border: 1px solid var(--border-soft); background: var(--card); }

@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Conserje con Jenny (motor). Zero-cost, estático.
    Carga data/bookings.json por ?code=, arma itinerario + chat multilingüe.
    ========================================================================== */

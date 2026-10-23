@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Preguntas frecuentes (5 idiomas + FAQPage JSON-LD)
    Las RESPUESTAS salen de data/jenny.json (las mismas de Jenny), así el
    sitio y la asistente nunca se contradicen. Aquí solo van las preguntas.

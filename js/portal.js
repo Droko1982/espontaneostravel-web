@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Portal B2B (agencias / DMC, asesores y administración)
    Firebase Auth + Cloud Firestore (plan gratuito Spark). Sin build: ES module.
 

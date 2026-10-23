@@ -1,4 +1,5 @@
 /* =====================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    js/maps.js — Mapas interactivos de Espontáneos Travel → window.EspoMaps
    ---------------------------------------------------------------------
    · Script clásico (sin build). Carga Leaflet 1.9.4 desde unpkg SOLO cuando

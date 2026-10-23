@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Itinerarios armados + "Qué llevar" según el clima.
    Compartido por el sitio (Jenny), el conserje (viaje.html) y el panel.
    - PLANS: itinerarios que el cliente elige (cada uno tiene su QR: ?plan=ID).

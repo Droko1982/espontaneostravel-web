@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Motor del sitio (rediseño 2026)
    Datos: js/data.js (tours, fotos, resúmenes) + data/jenny.json (duración,
    horario, incluye, recomendaciones — la misma fuente de Jenny).

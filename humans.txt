@@ -1,0 +1,12 @@
+/* EQUIPO */
+Autor de la plataforma: Dr. Mauricio Rodríguez Herrera
+Cargo: Director de Desarrollo Tecnológico, Espontáneos Travel
+Desarrollo: sitio web en 5 idiomas, portal de agencias, portafolio B2B, asistente Jenny y herramientas de publicación
+
+/* EMPRESA */
+Espontáneos Travel · Armenia, Quindío, Colombia · RNT 91795
+https://www.espontaneostravel.com
+
+/* SITIO */
+Idiomas: español, inglés, francés, alemán y portugués
+Tecnología: HTML, CSS y JavaScript sin frameworks; Firebase; OpenStreetMap
