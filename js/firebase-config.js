@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Configuración de Firebase (portal B2B y sitio público)
 
    CÓMO LLENARLO (una sola vez):

@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Plantillas HTML compartidas (navegador y Node).
    main.js las usa para pintar en el idioma elegido; tools/build-static.js
    las usa para dejar el HTML base en español dentro de index.html (SEO y

@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Service worker del conserje (viaje.html).
    Estrategia "red primero": con internet siempre se ve lo último; sin señal
    (Cocora, páramo, carretera) se usa la última copia guardada.

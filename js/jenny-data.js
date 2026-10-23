@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Fuente única de datos de Jenny (data/jenny.json)
    Lo usan: el sitio (tarjetas, FAQ, sostenibilidad), Jenny (bot.js), el
    conserje (concierge.js), el panel y el portal. También funciona en Node

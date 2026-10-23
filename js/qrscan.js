@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Lector de QR con la cámara (sin servidor).
    Usa BarcodeDetector (Chrome/Android) y, si no existe (iPhone/Safari,
    Firefox), carga jsQR desde CDN. Respaldo: subir una foto del QR.

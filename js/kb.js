@@ -1,4 +1,5 @@
 /* ==========================================================================
+   Autor de la plataforma: Dr. Mauricio Rodríguez Herrera · Director de Desarrollo Tecnológico
    Espontáneos Travel — Conserje con Jenny: base de conocimiento (ES/EN/FR/DE/PT)
    + strings de interfaz. Zero-cost, estático. Editable y expandible (IA luego).
    Placeholders que rellena concierge.js: {name} {region} {guide} {guideLangs}
