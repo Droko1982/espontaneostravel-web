@@ -12,27 +12,36 @@
   else root.EspoData = api;
 })(typeof self !== "undefined" ? self : this, function () {
   "use strict";
-  let Y = null, I = null, loading = null, iLoading = null, BASE = "/";
+  let Y = null, I = null, loading = null, iAll = null, BASE = "/";
+  const iOne = {};
   const get = (u) => fetch(BASE + u, { cache: "no-cache" }).then(r => (r.ok ? r.json() : null)).catch(() => null);
 
   /* ---------- Carga ---------- */
-  // lang = "es": las traducciones (data/jenny.i18n.json) se piden solo al cambiar de idioma (ensureLang)
+  // lang = "es": las traducciones se piden solo al cambiar de idioma (ensureLang).
+  // Con idioma: solo data/jenny.i18n.<idioma>.json; sin idioma (portal, conserje): el archivo completo.
   function load(base, lang) {
     if (Y) return Promise.resolve(api);
     if (loading) return loading;
     BASE = base || "/";
-    loading = Promise.all([get("data/jenny.json"), lang === "es" ? null : loadI18n()]).then(([y]) => {
+    loading = Promise.all([get("data/jenny.json"), lang === "es" ? null : loadI18n(lang)]).then(([y]) => {
       if (!y) throw new Error("jenny.json");
       Y = y;
       return api;
     });
     return loading;
   }
-  function loadI18n() {
-    if (!iLoading) iLoading = get("data/jenny.i18n.json").then(i => { I = i || {}; return api; });
-    return iLoading;
+  function loadI18n(lang) {
+    if (!lang) {
+      if (!iAll) iAll = get("data/jenny.i18n.json").then(i => { I = Object.assign(I || {}, i || {}); return api; });
+      return iAll;
+    }
+    if (!iOne[lang]) iOne[lang] = get("data/jenny.i18n." + lang + ".json").then(x => {
+      if (!x) return loadI18n();                       // respaldo: el archivo completo
+      I = I || {}; I[lang] = x; return api;
+    });
+    return iOne[lang];
   }
-  const ensureLang = (lang) => (!lang || lang === "es" || (I && I[lang]) ? Promise.resolve(api) : loadI18n());
+  const ensureLang = (lang) => (!lang || lang === "es" || (I && I[lang]) ? Promise.resolve(api) : loadI18n(lang));
   function use(y, i) { Y = y; I = i || {}; return api; }     // para Node / pruebas
   const ready = () => !!Y;
 
