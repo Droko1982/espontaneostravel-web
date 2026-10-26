@@ -6,8 +6,8 @@
    Solo guarda los archivos del conserje y el pronóstico; no toca el resto del sitio.
    Al cambiar estos archivos no hace falta tocar nada: con red siempre se descargan.
    ========================================================================== */
-const CACHE = "esp-conserje-v4";
-const CORE = ["viaje.html", "css/styles.css", "css/maps.css", "js/kb.js", "js/jenny-data.js", "js/plans.js", "js/qrscan.js", "js/concierge.js", "js/maps.js",
+const CACHE = "esp-conserje-v5";
+const CORE = ["viaje.html", "css/styles.css", "css/maps.css", "css/fonts.css", "assets/fonts/inter-latin.woff2", "assets/fonts/fraunces-latin.woff2", "js/kb.js", "js/jenny-data.js", "js/plans.js", "js/qrscan.js", "js/concierge.js", "js/maps.js",
   "data/bookings.json", "data/jenny.json", "data/jenny.i18n.json", "data/geo.json", "assets/img/logo.png", "assets/img/icon-192.png", "viaje.webmanifest"];
 
 self.addEventListener("install", (e) => {
