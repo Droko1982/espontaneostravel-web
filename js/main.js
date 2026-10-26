@@ -378,7 +378,8 @@
     const q = $("#modal-quote");
     q.querySelector("span").textContent = t("jenny_quote");
     // Cotiza con Jenny: abre el chat en esta experiencia (si Jenny no está, el formulario de contacto)
-    q.onclick = (e) => { e.preventDefault(); closeModal(); if (window.EspoBot && EspoBot.quote) { EspoBot.quote(id); return; } const sel = $("#f-tour"); if (sel) { const opt = Array.from(sel.options).find(o => o.value.indexOf(name) === 0); if (opt) sel.value = opt.value; } location.hash = "#contacto"; };
+    q.onclick = (e) => { e.preventDefault(); closeModal(); withBot(b => b.quote ? b.quote(id) : quoteForm(), quoteForm); };
+    const quoteForm = () => { const sel = $("#f-tour"); if (sel) { const opt = Array.from(sel.options).find(o => o.value.indexOf(name) === 0); if (opt) sel.value = opt.value; } location.hash = "#contacto"; };
     const hook = $("#modal-hook");
     if (hook) { hook.hidden = !(D() && D().convenios && D().convenios()); hook.textContent = t("jenny_hook"); }
     $("#modal").classList.add("open");
@@ -605,7 +606,7 @@
       const b = e.target.closest && e.target.closest("[data-plan-jenny]"); if (!b) return;
       e.preventDefault();
       const id = b.getAttribute("data-plan-jenny");
-      if (window.EspoBot && EspoBot.openPlan) EspoBot.openPlan(id); else location.search = "?plan=" + encodeURIComponent(id);
+      withBot(b => b.openPlan ? b.openPlan(id) : (location.search = "?plan=" + encodeURIComponent(id)), () => { location.search = "?plan=" + encodeURIComponent(id); });
     });
     $("#mm-close").addEventListener("click", closeMM);
     $$("#mobile-menu a").forEach(a => a.addEventListener("click", closeMM));
@@ -623,7 +624,7 @@
     $$("#view-toggle .seg__btn").forEach(b => b.addEventListener("click", () => setView(b.getAttribute("data-view"))));
     $$("[data-open-tour]").forEach(b => b.addEventListener("click", () => openModal(b.getAttribute("data-open-tour"))));
     // Abre a Jenny en un tema del árbol (p. ej. Sostenibilidad)
-    $$("[data-jenny-node]").forEach(b => b.addEventListener("click", () => { if (window.EspoBot && EspoBot.topic) EspoBot.topic(b.getAttribute("data-jenny-node")); }));
+    $$("[data-jenny-node]").forEach(b => b.addEventListener("click", () => withBot(j => j.topic && j.topic(b.getAttribute("data-jenny-node")))));
 
     $("#modal-close").addEventListener("click", closeModal);
     $("#modal-backdrop").addEventListener("click", closeModal);
@@ -659,6 +660,27 @@
     filterTo: (cat) => { activeFilter = cat || "all"; renderFilters(); renderTours(); const s = document.getElementById("experiencias"); if (s) s.scrollIntoView({ behavior: "smooth" }); },
     t: (k) => t(k)
   };
+
+  /* ---------- Jenny bajo demanda ----------
+     bot.js (y el lector de QR) se cargan después de la página, o antes si alguien la llama.
+     Las direcciones vienen de #lazy-js (data-*-src), así llevan la versión ?v= que pone publicar.py. */
+  let botLoading = null;
+  function loadBot() {
+    if (window.EspoBot) return Promise.resolve(window.EspoBot);
+    const box = document.getElementById("lazy-js");
+    if (!box) return Promise.resolve(null);
+    if (!botLoading) {
+      const add = (src) => new Promise((ok, bad) => { const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = bad; document.body.appendChild(s); });
+      botLoading = add(box.getAttribute("data-qr-src")).catch(() => {})
+        .then(() => add(box.getAttribute("data-bot-src")))
+        .then(() => window.EspoBot || null, () => null);
+    }
+    return botLoading;
+  }
+  // Llama a Jenny (cargándola si hace falta); si no se puede, usa el respaldo
+  const withBot = (fn, fallback) => loadBot().then(b => (b ? fn(b) : fallback && fallback()));
+  // #lazy-js está más abajo que este script: se busca cuando la página ya cargó
+  if (document.readyState === "complete") setTimeout(loadBot, 300); else addEventListener("load", () => setTimeout(loadBot, 300), { once: true });
 
   function init() {
     if (typeof I18N_EXTRA !== "undefined") SUPPORTED.forEach(lg => { if (I18N[lg] && I18N_EXTRA[lg]) Object.assign(I18N[lg], I18N_EXTRA[lg]); });

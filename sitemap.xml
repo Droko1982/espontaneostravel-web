@@ -7151,18 +7151,234 @@
   <url>
     <loc>https://www.espontaneostravel.com/sostenibilidad.html</loc>
     <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/sustainability.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/durabilite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/nachhaltigkeit.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/sustentabilidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/sostenibilita.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/en/sustainability.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/sustainability.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/durabilite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/nachhaltigkeit.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/sustentabilidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/sostenibilita.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/fr/durabilite.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/sustainability.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/durabilite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/nachhaltigkeit.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/sustentabilidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/sostenibilita.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/de/nachhaltigkeit.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/sustainability.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/durabilite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/nachhaltigkeit.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/sustentabilidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/sostenibilita.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/pt/sustentabilidade.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/sustainability.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/durabilite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/nachhaltigkeit.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/sustentabilidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/sostenibilita.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/it/sostenibilita.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/sustainability.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/durabilite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/nachhaltigkeit.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/sustentabilidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/sostenibilita.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/sostenibilidad.html"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.espontaneostravel.com/terminos.html</loc>
     <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/terminos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/agb.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/termos.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/termini-e-condizioni.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/terminos.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/en/terms.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/terminos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/agb.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/termos.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/termini-e-condizioni.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/terminos.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/fr/conditions-generales.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/terminos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/agb.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/termos.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/termini-e-condizioni.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/terminos.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/de/agb.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/terminos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/agb.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/termos.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/termini-e-condizioni.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/terminos.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/pt/termos.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/terminos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/agb.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/termos.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/termini-e-condizioni.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/terminos.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/it/termini-e-condizioni.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/terminos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/conditions-generales.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/agb.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/termos.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/termini-e-condizioni.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/terminos.html"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.espontaneostravel.com/privacidad.html</loc>
     <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/privacidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/en/privacy.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/privacidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/fr/confidentialite.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/privacidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/de/datenschutz.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/privacidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/pt/privacidade.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/privacidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.espontaneostravel.com/it/privacy.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.espontaneostravel.com/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.espontaneostravel.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.espontaneostravel.com/fr/confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.espontaneostravel.com/de/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.espontaneostravel.com/pt/privacidade.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.espontaneostravel.com/it/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espontaneostravel.com/privacidad.html"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

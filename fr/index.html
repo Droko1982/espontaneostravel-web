@@ -52,7 +52,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="/assets/img/d/1_2OrOZv2OwRm1r1F0G8nr7Bz25LC6Efx-1600.webp" fetchpriority="high">
 <link rel="stylesheet" href="/css/styles.css?v=6476c934">
 <link rel="stylesheet" href="/css/maps.css?v=379ea383">
@@ -988,7 +988,7 @@
     </div>
     <div class="sust__cta reveal">
       <button class="btn btn--brand" type="button" data-jenny-node="sostenibilidad" data-i18n="sust_cta_ask">Demandez à Jenny</button>
-      <a class="btn btn--ghost" href="/sostenibilidad.html" data-i18n="sust_policy">Lire notre politique de durabilité (en espagnol)</a>
+      <a class="btn btn--ghost" href="/fr/durabilite.html" data-i18n="sust_policy">Lire notre politique de durabilité</a>
     </div>
   </div>
 </section>
@@ -1122,7 +1122,7 @@ Moyens de paiement, au nom d&#39;Espontáneos Travel SAS (NIT 902.056.513) :
         </div>
         <div class="field"><label for="f-msg" data-i18n="f_msg">Dites-nous ce que vous cherchez</label><textarea id="f-msg" name="message" data-i18n-ph="f_msg_ph" placeholder="Dates, intérêts, besoins d&#39;accessibilité, langue préférée…"></textarea></div>
         <label class="consent"><input type="checkbox" id="f-consent" name="consent" required>
-          <span><span data-i18n="f_consent_a">J&#39;autorise le traitement de mes données personnelles selon la</span> <a href="/privacidad.html" target="_blank" rel="noopener" data-i18n="f_consent_link">politique de confidentialité</a> <span data-i18n="f_consent_b">(loi colombienne 1581 de 2012).</span></span></label>
+          <span><span data-i18n="f_consent_a">J&#39;autorise le traitement de mes données personnelles selon la</span> <a href="/fr/confidentialite.html" target="_blank" rel="noopener" data-i18n="f_consent_link">politique de confidentialité</a> <span data-i18n="f_consent_b">(loi colombienne 1581 de 2012).</span></span></label>
         <input type="hidden" name="_template" value="table">
         <input type="text" name="_honey" id="f-honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
         <button class="btn btn--primary btn--block" id="f-submit" type="submit" data-i18n="f_submit">Envoyer la demande</button>
@@ -1192,9 +1192,9 @@ Moyens de paiement, au nom d&#39;Espontáneos Travel SAS (NIT 902.056.513) :
     <div class="footer__bottom">
       <span>© <span id="year">2026</span> Espontáneos Travel SAS · NIT 902.056.513 · RNT 91795. <span data-i18n="rights">Tous droits réservés.</span></span>
       <nav class="footer__legal" aria-label="Legal">
-        <a href="/terminos.html" data-i18n="fl_terms">Conditions générales</a>
-        <a href="/privacidad.html" data-i18n="fl_privacy">Confidentialité</a>
-        <a href="/sostenibilidad.html" data-i18n="fl_sust_policy">Politique de durabilité</a>
+        <a href="/fr/conditions-generales.html" data-i18n="fl_terms">Conditions générales</a>
+        <a href="/fr/confidentialite.html" data-i18n="fl_privacy">Confidentialité</a>
+        <a href="/fr/durabilite.html" data-i18n="fl_sust_policy">Politique de durabilité</a>
       </nav>
     </div>
   </div>
@@ -1248,16 +1248,15 @@ Moyens de paiement, au nom d&#39;Espontáneos Travel SAS (NIT 902.056.513) :
 
 <script src="/js/data.js?v=fc496bcc"></script>
 <script src="/js/i18n.js?v=83c3bf09"></script>
-<script src="/js/i18n-2026.js?v=0608caa0"></script>
+<script src="/js/i18n-2026.js?v=eb2a5e93"></script>
 <script src="/js/img-local.js?v=7b7f284b"></script>
 <script src="/js/jenny-data.js?v=147905ef"></script>
 <script src="/js/render.js?v=b8943e8a"></script>
 <script src="/js/pages-map.js?v=33ed6ca9"></script>
-<script src="/js/main.js?v=620829d8"></script>
+<script src="/js/main.js?v=455886b2"></script>
 <script src="/js/plans.js?v=a05843b0"></script>
-<script src="/js/qrscan.js?v=8d700a6e"></script>
 <script src="/js/maps.js?v=6ddecc93" defer></script>
-<script src="/js/bot.js?v=d2a6297b"></script>
+<i hidden id="lazy-js" data-qr-src="/js/qrscan.js?v=8d700a6e" data-bot-src="/js/bot.js?v=d2a6297b"></i>
 <script src="/js/faq.js?v=cdc04e54"></script>
 <script type="module" src="/js/backend.js?v=c1360eba"></script>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
