@@ -420,6 +420,7 @@
     $$("[data-i18n]").forEach(el => { const v = t(el.getAttribute("data-i18n")); if (v) el.textContent = v; });
     $$("[data-i18n-ph]").forEach(el => { const v = t(el.getAttribute("data-i18n-ph")); if (v) el.setAttribute("placeholder", v); });
     $$("[data-i18n-aria]").forEach(el => { const v = t(el.getAttribute("data-i18n-aria")); if (v) el.setAttribute("aria-label", v); });
+    $$("[data-i18n-alt]").forEach(el => { const v = t(el.getAttribute("data-i18n-alt")); if (v) el.setAttribute("alt", v); });
     document.documentElement.lang = currentLang;
     document.title = t("doc_title");
     setMeta("name", "description", t("doc_desc"));
