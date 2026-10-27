@@ -206,7 +206,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .brand img { width: 46px; height: 46px; object-fit: contain; }
 .brand__text { display: flex; flex-direction: column; line-height: 1; }
 .brand__name { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; color: var(--text); letter-spacing: -.01em; }
-.brand__tag { font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-top: 3px; }
+.brand__tag { font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--accent-text); font-weight: 600; margin-top: 3px; }
 .header:not(.scrolled):not(.header--solid) .brand__name,
 .header:not(.scrolled):not(.header--solid) .nav__link { color: #fff; }
 .header:not(.scrolled):not(.header--solid) .icon-btn { color: #fff; border-color: rgba(255,255,255,.35); }

@@ -945,6 +945,8 @@ async function boot() {
     S.user = user;
     if (!user) {
       Object.assign(S, { profile: null, dmc: null, refsLoaded: false, dmcs: [], users: [], cache: {}, tab: null, vigencias: [], preset: null, pagos: null });
+      // El siguiente ingreso abre el portafolio en Inicio y con «Arma tu ruta» limpio
+      try { Object.keys(sessionStorage).filter(k => k.startsWith("pf27-")).forEach(k => sessionStorage.removeItem(k)); } catch (e) { /* sin almacenamiento */ }
       return renderAuth(location.hash === "#solicitar" ? "signup" : "login");   // portal.html#solicitar (página para agencias) abre la solicitud de acceso
     }
     if (S.signingUp) return; // el registro termina y luego enruta
