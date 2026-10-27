@@ -38,7 +38,7 @@ const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 const UI = {
   es: {
     banner_dmc: "Portafolio PCCC Espontáneos Travel 2027 · DMCs", banner_nac: "Portafolio PCCC Espontáneos Travel 2027 · Mayoristas y Mercado Nacional",
-    tar_dmc: "Tarifario DMC", tar_nac: "Tarifario Mercado Nacional y Mayoristas", tar_prev: "tarifas {0} vigentes en {1} mientras ET publica las nuevas", tar_none: "aún sin tarifas cargadas",
+    tar_dmc: "Tarifario DMC", tar_nac: "Tarifario Mercado Nacional y Mayoristas", tar_prev: "tarifas {0} vigentes hasta el 31 de marzo de {1} mientras ET publica las nuevas", tar_none: "aún sin tarifas cargadas",
     two_fingers: "Usa dos dedos para mover el mapa", mode: "Vista", m_agency: "Vista agencia", m_wl: "Marca blanca", wl_on: "Marca blanca: sin logo, precios, códigos ni datos solo agencias. Puedes mostrar esta pantalla a tu cliente.",
     t_mapa: "Inicio", map_open: "Ver el mapa del Eje Cafetero", map_close: "Ocultar el mapa", map_tg_s: "{0} experiencias, aeropuertos, capitales y fincas · clic para abrir",
     inst_sost: "Nuestro impacto sostenible", ico_t: "Iconografía", ico_l: "En este portafolio encontrarás información con las siguientes características:",
@@ -65,7 +65,7 @@ const UI = {
     s_supl: "Suplementos", g_sup: "Suplemento de guianza en otros idiomas", g_lang: "Idioma del guía", g_note: "valor por servicio de guía (no por persona)", s_combo: "Combínalo con", s_rate: "Tarifa neta por pasajero", pax: "Pasajeros", per_pax: "COP por pasajero", s_kit: "Kit de venta", pdf: "Descargar PDF", copy_txt: "Copiar texto", copy_link: "Copiar enlace de la ficha",
     kit_note: "PDF para tu cliente final (sin datos internos), con o sin logo, con o sin precios y en ES, EN, FR, IT o PT.", request: "Solicitar este tour", see_zones: "Ver municipios en el mapa", zones_note: "En «Arma tu ruta» se asigna la finca del municipio más cercano al hotel.",
     kids: "Niños de 0 a 2 años no pagan, pero ocupan silla de bebé en el vehículo; desde los 3 años pagan tarifa.", see_cond: "Políticas de reserva y pago", see_about: "Quiénes somos",
-    com_txt: "Experiencia con la comunidad local (campesinos, artesanos, productores).", cord_txt: "Hace parte del proyecto Paisaje Cordillerano.", carry: "Tarifa {0} · aplica en {1}", copied: "Copiado", link_copied: "Enlace copiado", txt_copied: "Texto copiado",
+    com_txt: "Experiencia con la comunidad local (campesinos, artesanos, productores).", cord_txt: "Hace parte del proyecto Paisaje Cordillerano.", carry: "Tarifas {0}: aplican hasta el 31 de marzo de {1}", copied: "Copiado", link_copied: "Enlace copiado", txt_copied: "Texto copiado",
     p_param: "Parámetro operativo", p_b2b: "Detalle técnico B2B", p_b2c: "Especificación comercial (B2C)", p_sched: "Horario recomendado", am: "Mañana", pm: "Tarde", ampm: "Mañana o tarde", guide_sup: "otros idiomas con suplemento de guianza",
     conv_t: "Convenciones e iconografía", inst_t: "Presentación institucional", idx_t: "Índice de experiencias", idx_l: "Toca una experiencia para abrir su ficha, o el nombre de la línea para verlas todas.", g_open: "Abrir todas", g_close: "Cerrar todas", see_more: "Más sobre nosotros", how_t: "Cómo usar el portafolio",
     ic_dur: "Duración y dificultad: tiempo estimado y exigencia física (baja, media, alta).", ic_geo: "Geolocalización: con el hotel de «Arma tu ruta», cada experiencia muestra su distancia y la finca se asigna en el municipio más cercano.",
@@ -103,7 +103,7 @@ const UI = {
   },
   en: {
     banner_dmc: "Espontáneos Travel PCCC Portfolio 2027 · DMCs", banner_nac: "Espontáneos Travel PCCC Portfolio 2027 · Wholesalers & Domestic Market",
-    tar_dmc: "DMC rate sheet", tar_nac: "Domestic Market & Wholesalers rate sheet", tar_prev: "{0} rates valid in {1} until ET publishes the new ones", tar_none: "no rates loaded yet",
+    tar_dmc: "DMC rate sheet", tar_nac: "Domestic Market & Wholesalers rate sheet", tar_prev: "{0} rates valid until March 31, {1}, while ET publishes the new ones", tar_none: "no rates loaded yet",
     two_fingers: "Use two fingers to move the map", mode: "View", m_agency: "Agency view", m_wl: "White label", wl_on: "White label: no logo, prices, codes or agency-only data. You can show this screen to your client.",
     t_mapa: "Home", map_open: "Show the Coffee Region map", map_close: "Hide the map", map_tg_s: "{0} experiences, airports, capitals and farms · click to open",
     inst_sost: "Our sustainable impact", ico_t: "Icons", ico_l: "In this portfolio you will find information with the following features:",
@@ -130,7 +130,7 @@ const UI = {
     s_supl: "Supplements", g_sup: "Guiding supplement in other languages", g_lang: "Guide language", g_note: "rate per guide service (not per person)", s_combo: "Pair it with", s_rate: "Net rate per passenger", pax: "Passengers", per_pax: "COP per passenger", s_kit: "Sales kit", pdf: "Download PDF", copy_txt: "Copy text", copy_link: "Copy sheet link",
     kit_note: "PDF for your final client (no internal data), with or without logo, with or without prices, in ES, EN, FR, IT or PT.", request: "Request this tour", see_zones: "See municipalities on the map", zones_note: "In «Build a route» the farm in the municipality closest to the hotel is assigned.",
     kids: "Children aged 0–2 travel free but occupy a baby seat in the vehicle; from age 3 they pay the rate.", see_cond: "Booking and payment policies", see_about: "About us",
-    com_txt: "Experience with the local community (farmers, artisans, producers).", cord_txt: "Part of the Paisaje Cordillerano project.", carry: "{0} rate · valid in {1}", copied: "Copied", link_copied: "Link copied", txt_copied: "Text copied",
+    com_txt: "Experience with the local community (farmers, artisans, producers).", cord_txt: "Part of the Paisaje Cordillerano project.", carry: "{0} rates: valid until March 31, {1}", copied: "Copied", link_copied: "Link copied", txt_copied: "Text copied",
     p_param: "Operating parameter", p_b2b: "B2B technical detail", p_b2c: "Commercial specification (B2C)", p_sched: "Recommended schedule", am: "Morning", pm: "Afternoon", ampm: "Morning or afternoon", guide_sup: "other languages with guiding supplement",
     conv_t: "Conventions and icons", inst_t: "Who we are", idx_t: "Experience index", idx_l: "Tap an experience to open its sheet, or a line name to see them all.", g_open: "Open all", g_close: "Close all", see_more: "More about us", how_t: "How to use the portfolio",
     ic_dur: "Duration and difficulty: estimated time and physical effort (low, medium, high).", ic_geo: "Geolocation: with the hotel from «Build a route», each experience shows its distance and the farm is assigned in the closest municipality.",
