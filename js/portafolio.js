@@ -1476,16 +1476,19 @@ async function buildPdf(ids, o) {
   const doc = new jsPDF({ unit: "mm", format: "a4" }), W = 210, Mg = 16, CW = W - 2 * Mg; const OL = [74, 92, 58];
   const agency = pdfTxt(String(o.agency || "").trim());
   const own = !logo && o.own && okLogo(o.own.logo) ? o.own : null, ofmt = own && /^data:image\/jpeg/.test(own.logo) ? "JPEG" : "PNG";
-  // Logo de la agencia sobre un recuadro blanco (se ve bien aunque sea oscuro o transparente)
-  const ownLogo = (x, y, maxW, maxH) => { const w = Math.min(maxW, maxH / own.ratio), h = w * own.ratio, y0 = y + (maxH - h) / 2;
-    doc.setFillColor(255, 255, 255); doc.roundedRect(x - 1.5, y0 - 1.5, w + 3, h + 3, 1.5, 1.5, "F"); doc.setFillColor(...OL);
-    try { doc.addImage(own.logo, ofmt, x, y0, w, h); } catch (e) { /* sin logo */ } return w; };
+  // Encabezado: verde solo con la marca Espontáneos Travel; con el logo de la agencia o sin logo, fondo blanco y línea fina
+  const head = h => {
+    if (logo) { doc.setFillColor(...OL); doc.rect(0, 0, W, h, "F"); doc.setTextColor(255); return; }
+    doc.setFillColor(255, 255, 255); doc.rect(0, 0, W, h, "F"); doc.setDrawColor(215, 220, 208); doc.setLineWidth(.4); doc.line(0, h, W, h); doc.setTextColor(35);
+  };
+  const ownLogo = (x, y, maxW, maxH) => { const w = Math.min(maxW, maxH / own.ratio), h = w * own.ratio;
+    try { doc.addImage(own.logo, ofmt, x, y + (maxH - h) / 2, w, h); } catch (e) { /* sin logo */ } return w; };
   const foot = () => { doc.setFontSize(8); doc.setTextColor(120); doc.setFont("helvetica", "normal"); doc.text(pdfTxt(logo ? "Espontáneos Travel SAS · RNT 91795 · info@espontaneostravel.com · WhatsApp +57 318 720 0023" : (agency || "Paisaje Cultural Cafetero") + " · 2027"), Mg, 289); doc.text(String(doc.getNumberOfPages()), W - Mg, 289, { align: "right" }); };
   const lgo = logo ? await logoData() : null;
   let y = Mg, first = true;
   if (ids.length > 1) {
     // portada
-    doc.setFillColor(...OL); doc.rect(0, 0, W, 72, "F"); doc.setTextColor(255);
+    head(72);
     if (logo) { if (lgo) { try { doc.addImage(lgo.d, "PNG", Mg, 12, 22, 22 * lgo.r); } catch (e) { /* sin logo */ } }
       doc.setFont("helvetica", "bold"); doc.setFontSize(24); doc.text(pdfTxt("Espontáneos Travel"), Mg + 27, 24); doc.setFont("helvetica", "normal"); doc.setFontSize(10.5); doc.text(pdfTxt("Armenia, Quindío · Colombia · RNT 91795"), Mg + 27, 31); }
     else if (own || agency) { const x = own ? Mg + ownLogo(Mg, 10, 64, 26) + 8 : Mg;
@@ -1505,7 +1508,7 @@ async function buildPdf(ids, o) {
     y = Mg;
     if (first) {
       // ficha individual: franja con la marca (o la agencia) en vez de portada
-      doc.setFillColor(...OL); doc.rect(0, 0, W, 16, "F"); doc.setTextColor(255); doc.setFont("helvetica", "bold"); doc.setFontSize(11);
+      head(16); doc.setFont("helvetica", "bold"); doc.setFontSize(11);
       if (logo && lgo) { try { doc.addImage(lgo.d, "PNG", Mg, 2.5, 11, 11 * lgo.r); } catch (err) { /* sin logo */ } }
       const hx = logo ? Mg + 14 : own ? Mg + ownLogo(Mg, 2.5, 40, 11) + 4 : Mg;
       doc.text(pdfTxt(logo ? "Espontáneos Travel · " + LB.title : (agency ? agency + " · " : "") + LB.title), hx, 10);
