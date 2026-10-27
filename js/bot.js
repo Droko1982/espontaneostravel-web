@@ -336,7 +336,7 @@
     if (busy) return;
     addBubble(esc(c.userLabel || c.label), "user");
     if (c.scan) { scanQR(); return; }
-    if (c.wa) { EspoApp.openWhatsApp(c.waMsg || composeWA()); if (HAS_PLANS && ctx.leadId && ctx.consent) EspoPlans.sendLead(leadData("whatsapp")); }
+    if (c.wa) { EspoApp.openWhatsApp(c.waMsg || composeWA(), "JENNY"); if (HAS_PLANS && ctx.leadId && ctx.consent) EspoPlans.sendLead(leadData("whatsapp")); }
     if (c.open) { EspoApp.openTour(c.open); closePanel(); }
     if (c.nav) { location.href = c.nav; return; }
     if (c.href) { window.open(c.href, "_blank", "noopener"); }

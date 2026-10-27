@@ -36,7 +36,8 @@
   }
   function waHost(msg) {
     const num = ((booking && booking.host && booking.host.phone) || "573187200023").replace(/\D/g, "");
-    return "https://wa.me/" + num + "?text=" + encodeURIComponent(fill(msg));
+    const m = fill(msg);
+    return "https://wa.me/" + num + "?text=" + encodeURIComponent(window.EspoOrigen ? window.EspoOrigen.etiquetar(m, "VIAJERO", (booking && booking.code) || "viaje") : m);
   }
   function mapsUrl(q) {
     const area = (booking && booking.hotel && booking.hotel.area) || "Eje Cafetero";

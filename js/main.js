@@ -129,7 +129,8 @@
     bar.append(msg, go, x);
     document.body.appendChild(bar);
   }
-  function waLink(msg) { return `https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(msg || t("wa_default"))}`; }
+  // Con la referencia de origen (js/origen.js): canal WEB por defecto, JENNY desde el chat
+  function waLink(msg, canal) { const m = msg || t("wa_default"); return `https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(window.EspoOrigen ? window.EspoOrigen.etiquetar(m, canal || "WEB") : m)}`; }
 
   /* ---------- Filtros ---------- */
   function renderFilters() {
@@ -557,7 +558,8 @@
       const btn = $("#f-submit"); const original = btn.textContent;
       btn.disabled = true; btn.textContent = "…";
       const data = Object.fromEntries(new FormData(form).entries());
-      data._subject = "Nueva solicitud — Espontáneos Travel";
+      data._subject = "[WEB] Nueva solicitud — Espontáneos Travel";
+      if (window.EspoOrigen) Object.assign(data, window.EspoOrigen.datos("Formulario de contacto del sitio"));
       data.consent = "Autoriza tratamiento de datos (Ley 1581 de 2012)";
       try {
         const res = await fetch(CFG.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) });
@@ -656,8 +658,8 @@
     tourText: (tour) => tourText(tour),
     catLabel: (cat) => catLabel(cat),
     openTour: (id) => openModal(id),
-    waLink: (msg) => waLink(msg),
-    openWhatsApp: (msg) => window.open(waLink(msg), "_blank", "noopener"),
+    waLink: (msg, canal) => waLink(msg, canal),
+    openWhatsApp: (msg, canal) => window.open(waLink(msg, canal), "_blank", "noopener"),
     filterTo: (cat) => { activeFilter = cat || "all"; renderFilters(); renderTours(); const s = document.getElementById("experiencias"); if (s) s.scrollIntoView({ behavior: "smooth" }); },
     t: (k) => t(k)
   };
