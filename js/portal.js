@@ -95,7 +95,7 @@ const I18N = {
     request_this: "Solicitar este tour", trip_details: "Datos del viaje",
     req_title: "Solicitar una reserva", req_sub: "Envíanos los datos y un asesor te confirma disponibilidad y tarifa final.",
     traveller: "Nombre del viajero o grupo", client_opt: "Cliente guardado (opcional)", tours: "Tours", add_tour: "Añadir tour",
-    choose_tour: "Elige un tour", no_tours_yet: "Aún no has añadido tours.", start_date: "Fecha de inicio", end_date: "Fecha de fin (opcional)",
+    choose_tour: "Elige un tour", tour_ph: "Escribe el nombre, el código o la línea del tour…", no_tours_yet: "Aún no has añadido tours.", start_date: "Fecha de inicio", end_date: "Fecha de fin (opcional)",
     pax: "Número de pasajeros", hotel: "Hotel o alojamiento", guide_lang: "Idioma del guía",
     needs: "Necesidades especiales (accesibilidad, alimentación…)", notes: "Notas", send_request: "Enviar solicitud",
     needs_hint: "Solo lo necesario para operar el tour; sin diagnósticos ni datos médicos (los detalles se coordinan por WhatsApp).",
@@ -166,7 +166,7 @@ const I18N = {
     request_this: "Request this tour", trip_details: "Trip details",
     req_title: "Request a booking", req_sub: "Send us the details and an advisor will confirm availability and the final rate.",
     traveller: "Traveller or group name", client_opt: "Saved client (optional)", tours: "Tours", add_tour: "Add tour",
-    choose_tour: "Choose a tour", no_tours_yet: "No tours added yet.", start_date: "Start date", end_date: "End date (optional)",
+    choose_tour: "Choose a tour", tour_ph: "Type the tour name, code or line…", no_tours_yet: "No tours added yet.", start_date: "Start date", end_date: "End date (optional)",
     pax: "Number of passengers", hotel: "Hotel or lodging", guide_lang: "Guide language",
     needs: "Special needs (accessibility, diet…)", notes: "Notes", send_request: "Send request",
     needs_hint: "Only what's needed to run the tour; no diagnoses or medical data (details are arranged via WhatsApp).",
@@ -2075,31 +2075,65 @@ async function loadMyClients() {
   return list(fs.query(col("clientes"), fs.where("dmcId", "==", S.profile.dmcId)));
 }
 
+// Buscador de tours: se escribe parte del nombre, el código o la línea y se elige de la lista (orden del índice del portafolio)
+function tourPicker(onPick) {
+  const lid = uid("tl");
+  const input = h("input", { type: "search", autocomplete: "off", role: "combobox", "aria-expanded": "false", "aria-controls": lid, "aria-autocomplete": "list", placeholder: t("tour_ph") });
+  const list = h("ul", { class: "p-combo__list", id: lid, role: "listbox", hidden: true });
+  const field = labeled(t("choose_tour"), input, "p-grow p-combo"); add(field, list);
+  const name = x => tourText(x, "nombre") || x.nombre;
+  let items = [], act = -1;
+  const open = on => { list.hidden = !on; input.setAttribute("aria-expanded", String(on)); if (!on) input.removeAttribute("aria-activedescendant"); };
+  function mark() {
+    items.forEach((x, i) => { const li = document.getElementById(lid + "-" + i); if (li) li.setAttribute("aria-selected", String(i === act)); });
+    const el = act >= 0 && document.getElementById(lid + "-" + act);
+    if (el) { input.setAttribute("aria-activedescendant", el.id); if (el.scrollIntoView) el.scrollIntoView({ block: "nearest" }); } else input.removeAttribute("aria-activedescendant");
+  }
+  function draw() {
+    const q = norm(input.value);
+    items = S.tours.list.filter(x => !q || norm([name(x), x.nombre, x.codigo, catName(x.cat)].join(" ")).includes(q))
+      .sort((a, b) => pfPos(a) - pfPos(b) || collate(name(a), name(b)));
+    act = items.length ? 0 : -1;
+    clear(list);
+    if (!items.length) add(list, h("li", { class: "p-combo__none" }, t("no_match")));
+    items.forEach((x, i) => add(list, h("li", { id: lid + "-" + i, role: "option", class: "p-combo__opt", "aria-selected": "false", onmousedown: ev => { ev.preventDefault(); pick(i); } },
+      h("span", null, name(x)), h("span", { class: "p-muted" }, ` · ${x.codigo}${x.cat ? " · " + catName(x.cat) : ""}`))));
+    open(true); mark();
+  }
+  function pick(i) { const x = items[i]; if (!x) return; onPick(x); input.value = ""; open(false); input.focus(); }
+  input.addEventListener("input", draw);
+  input.addEventListener("focus", draw);
+  input.addEventListener("blur", () => setTimeout(() => open(false), 150));
+  input.addEventListener("keydown", ev => {
+    if (ev.key === "ArrowDown" || ev.key === "ArrowUp") { ev.preventDefault(); if (list.hidden) draw(); else if (items.length) { act = (act + (ev.key === "ArrowDown" ? 1 : items.length - 1)) % items.length; mark(); } }
+    else if (ev.key === "Enter") { ev.preventDefault(); if (!list.hidden && act >= 0) pick(act); }   // Enter elige; nunca envía el formulario
+    else if (ev.key === "Escape" && !list.hidden) { ev.preventDefault(); open(false); }
+  });
+  return { el: field, input };
+}
 async function dmcSolicitar(view) {
   add(view, loadingBox());
   await S.jennyP;
   const myClients = (await loadMyClients().catch(() => [])).sort((a, b) => collate(a.nombre, b.nombre));
+  await loadPfOrder();
   clear(view);
   const chosen = [];
   const pre = S.preset && (S.preset.tour || S.preset.tours) ? S.preset : null;
   if (pre) S.preset = null;
   if (pre && pre.tour) chosen.push(pre.tour);
   if (pre && pre.tours) pre.tours.slice(0, MAX_TOURS).forEach(x => chosen.push({ tour_id: String(x.tour_id || "").slice(0, 40), codigo: String(x.codigo || "").slice(0, 20), nombre: String(x.nombre || "").slice(0, 200) }));
-  const tourSel = selectEl([["", t("choose_tour")]].concat(S.tours.list.map(x => [x.id_web, `${tourText(x, "nombre") || x.nombre} · ${x.codigo}`])), "", { id: uid("tour") });
+  const picker = tourPicker(x => {
+    if (chosen.length >= MAX_TOURS) return notify(t("max_tours"), "error");
+    if (!chosen.some(c => c.tour_id === x.id_web)) chosen.push({ tour_id: String(x.id_web || "").slice(0, 40), codigo: String(x.codigo || "").slice(0, 20), nombre: String(x.nombre || "").slice(0, 200) });
+    drawChips();
+  });
   const chips = h("ul", { class: "p-chips", "aria-live": "polite" });
   function drawChips() {
     clear(chips);
     if (!chosen.length) add(chips, h("li", { class: "p-muted" }, t("no_tours_yet")));
     chosen.forEach((c, i) => add(chips, h("li", { class: "p-chip" }, h("span", null, c.nombre),
-      h("button", { type: "button", class: "p-chip__x", "aria-label": `${t("remove")}: ${c.nombre}`, onclick: () => { chosen.splice(i, 1); drawChips(); tourSel.focus(); } }, "×"))));
+      h("button", { type: "button", class: "p-chip__x", "aria-label": `${t("remove")}: ${c.nombre}`, onclick: () => { chosen.splice(i, 1); drawChips(); picker.input.focus(); } }, "×"))));
   }
-  const addBtn = btn(t("add_tour"), () => {
-    const x = S.tours.byId.get(tourSel.value);
-    if (!x) return;
-    if (chosen.length >= MAX_TOURS) return notify(t("max_tours"), "error");
-    if (!chosen.some(c => c.tour_id === x.id_web)) chosen.push({ tour_id: String(x.id_web || "").slice(0, 40), codigo: String(x.codigo || "").slice(0, 20), nombre: String(x.nombre || "").slice(0, 200) });
-    tourSel.value = ""; drawChips();
-  });
   drawChips();
   const clientSel = selectEl([["", t("none")]].concat(myClients.map(c => [c.id, c.nombre])), "", { id: uid("cl") });
   const f = formFields([
@@ -2122,7 +2156,7 @@ async function dmcSolicitar(view) {
   });
   const form = mkForm(async () => {
     const v = f.get();
-    if (!chosen.length) { tourSel.focus(); throw userErr(t("need_tour")); }
+    if (!chosen.length) { picker.input.focus(); throw userErr(t("need_tour")); }
     const pax = parseInt(v.pax, 10);
     if (!(pax >= 1 && pax <= 500)) throw userErr(t("pax_invalid"));
     if (v.fecha_fin && v.fecha_fin < v.fecha_inicio) throw userErr(t("end_before"));
@@ -2135,7 +2169,7 @@ async function dmcSolicitar(view) {
     S.tabsApi.select("mis", true);
   },
   h("p", { class: "p-muted" }, t("required_note")),
-  group(t("tours"), h("div", { class: "p-inline" }, labeled(t("choose_tour"), tourSel, "p-grow"), h("div", { class: "p-inline__btn" }, addBtn)), chips),
+  group(t("tours"), h("div", { class: "p-inline" }, picker.el), chips),
   group(t("trip_details"), h("div", { class: "p-grid p-grid--first" }, labeled(t("client_opt"), clientSel)), f.el),
   h("div", { class: "p-form-actions" }, h("button", { type: "submit", class: "btn btn--primary" }, t("send_request"))));
   add(view, h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, t("req_title")), h("p", { class: "p-sub" }, t("req_sub")), form));
