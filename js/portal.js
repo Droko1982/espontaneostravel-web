@@ -1492,6 +1492,10 @@ async function dmcPortafolio(view) {
     lang: L(), tier: tierOf(), staff,
     agency: staff ? "Vista previa del equipo" : ((S.dmc && S.dmc.nombre) || ""),
     rates: data.rates, cond: data.cond, priv, splitNotes, empresa: EMPRESA, loadVideo, pagos: pagosOficiales(),
+    // Kit de venta: logo y nombre de la agencia guardados en kits/{uid} (solo el dueño los lee y los cambia)
+    who: S.user.uid,
+    kitLoad: () => fs.getDoc(dref("kits", S.user.uid)).then(s => (s.exists() ? s.data() : null)),
+    kitSave: k => fs.setDoc(dref("kits", S.user.uid), Object.assign({}, k, { actualizado: ts() })),
     // Ruta o ficha → formulario «Reservar» con los tours (y pasajeros, hotel e itinerario) ya puestos
     onRequest: staff ? null : pre => { S.preset = pre; S.tabsApi.select("solicitar", true); }
   });
@@ -3117,7 +3121,7 @@ function userCard(u, redraw) {
   // Eliminar la cuenta o la solicitud: pierde el acceso de inmediato (si vuelve a entrar, tendría que pedir acceso de nuevo)
   if (!self) acts.push(btn(u.estado === "pendiente" ? "Eliminar solicitud" : "Eliminar", e => {
     if (!window.confirm(`¿Eliminar ${u.estado === "pendiente" ? "la solicitud" : "la cuenta"} de ${u.nombre || u.email} (${u.email})? Pierde el acceso al portal de inmediato. No se puede deshacer.`)) return;
-    busy(e.currentTarget, async () => { await fs.deleteDoc(dref("users", u.id)); await loadRefs(true); notify(`${u.email} eliminado.`); redraw(); });
+    busy(e.currentTarget, async () => { await fs.deleteDoc(dref("users", u.id)); await fs.deleteDoc(dref("kits", u.id)).catch(() => {}); await loadRefs(true); notify(`${u.email} eliminado.`); redraw(); });
   }, "btn--danger"));
   return h("article", { class: "p-item" },
     h("header", { class: "p-item__head" }, h("h3", { class: "p-h3" }, u.nombre || u.email), badge(roleLabel(u.rol)),
@@ -3249,6 +3253,8 @@ async function adminAgencias(view) {
             const quien = users.length ? ` y sus ${users.length} usuario(s) (${users.map(u => u.email).join(", ")}), que pierden el acceso de inmediato` : "";
             if (!window.confirm(`¿Eliminar el DMC ${d.nombre}${quien}? No se puede deshacer.`)) return;
             if (users.length) await batchRun(users.filter(u => u.id !== S.user.uid).map(u => bt => bt.delete(dref("users", u.id))), null, "Eliminando usuarios");
+            // Logo y nombre guardados para el kit de venta de cada usuario (aparte: si falla, no frena la eliminación)
+            for (const u of users.filter(x => x.id !== S.user.uid)) await fs.deleteDoc(dref("kits", u.id)).catch(() => {});
             const special = await list(fs.query(col("tarifas"), fs.where("dmcId", "==", d.id)));
             if (special.length && window.confirm(`Tiene ${special.length} tarifa(s) especial(es). ¿Borrarlas también?`)) {
               await batchRun(special.map(x => bt => bt.delete(dref("tarifas", x.id))), null, "Borrando");

@@ -62,7 +62,7 @@ const UI = {
     f_dur_l: "Duración", f_mod: "Modalidad", f_lunch: "Almuerzo", f_age: "Edad", f_group: "Grupo", f_langs: "Idiomas", f_code: "Código", ask: "Consultar", min_pax: "mín. {0} pax", max_pax: "máx. {0}", upto: "Hasta {0} pax",
     s_exp: "La experiencia", s_photos: "Fotos", s_incl: "Incluye", s_noincl: "No incluye", s_oper: "Operación y horarios", s_tech: "Ficha técnica", s_reco: "Recomendaciones", s_noapto: "No apto para",
     s_sell: "Para vender", only_ag: "Solo agencias", why: "Por qué venderla", interesa: "Te interesa saber", where: "Dónde la operamos", menu: "Menú", impact: "Impacto local", s_notes: "Notas de tarifa y operación",
-    s_supl: "Suplementos", s_combo: "Combínalo con", s_rate: "Tarifa neta por pasajero", pax: "Pasajeros", per_pax: "COP por pasajero", s_kit: "Kit de venta", pdf: "Descargar PDF", copy_txt: "Copiar texto", copy_link: "Copiar enlace de la ficha",
+    s_supl: "Suplementos", g_sup: "Suplemento de guianza en otros idiomas", g_lang: "Idioma del guía", g_note: "valor por servicio de guía (no por persona)", s_combo: "Combínalo con", s_rate: "Tarifa neta por pasajero", pax: "Pasajeros", per_pax: "COP por pasajero", s_kit: "Kit de venta", pdf: "Descargar PDF", copy_txt: "Copiar texto", copy_link: "Copiar enlace de la ficha",
     kit_note: "PDF para tu cliente final (sin datos internos), con o sin logo, con o sin precios y en ES, EN, FR, IT o PT.", request: "Solicitar este tour", see_zones: "Ver municipios en el mapa", zones_note: "En «Arma tu ruta» se asigna la finca del municipio más cercano al hotel.",
     kids: "Niños de 0 a 2 años no pagan, pero ocupan silla de bebé en el vehículo; desde los 3 años pagan tarifa.", see_cond: "Políticas de reserva y pago", see_about: "Quiénes somos",
     com_txt: "Experiencia con la comunidad local (campesinos, artesanos, productores).", cord_txt: "Hace parte del proyecto Paisaje Cordillerano.", carry: "Tarifa {0} · aplica en {1}", copied: "Copiado", link_copied: "Enlace copiado", txt_copied: "Texto copiado",
@@ -85,13 +85,13 @@ const UI = {
     r5: "Recorrido", r_none: "Elige hotel y tours para ver el recorrido.", arr_leg: "Llegada {0} → {1}", arr_sub: "Traslado de llegada", dep_leg: "{0} → {1}", dep_sub: "Traslado de salida", go_back: "ida y regreso al hotel", per_leg: "c/trayecto",
     choose_hotel: "elige un hotel para calcular el trayecto", in_hotel: "En el hotel", finca_in: "Finca en {0}",
     tot_arr: "Traslado de llegada", tot_dep: "Traslado de salida", quote: "Cotizar", sup_of: "Suplemento {0}", tot: "Total neto por pasajero", tot_q: " (sin lo que está por cotizar)", tot_note: "{0} pax en {1}. No incluye hotel. {2}.",
-    fit: "Ver ruta completa en el mapa", copy_it: "Copiar itinerario", send_req: "Enviar como solicitud de reserva", kit_route: "Kit de venta con estos tours", reset: "Empezar de nuevo", it_copied: "Itinerario copiado", program: "Programa Paisaje Cultural Cafetero · {0} pasajeros", vehicle: "Vehículo",
+    fit: "Ver ruta completa en el mapa", fl_t: "Tu ruta", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Mapa grande", copy_it: "Copiar itinerario", send_req: "Enviar como solicitud de reserva", kit_route: "Kit de venta con estos tours", reset: "Empezar de nuevo", it_copied: "Itinerario copiado", program: "Programa Paisaje Cultural Cafetero · {0} pasajeros", vehicle: "Vehículo",
     tr_h: "Transporte", tr_l: "Vehículos habilitados para servicio especial que se adaptan a cada necesidad de viaje. Seguridad · comodidad · confianza. Capacidad recomendada para mayor comodidad y capacidad máxima autorizada.",
     tr_pax: "{0} a {1} pasajeros · máx. {2}", tr_upto: "Hasta {0} pasajeros", vip: "Plus de confort bajo solicitud", vid_soon: "Video en preparación", tr_cond: "Condiciones de transporte",
     tr_tab: "Traslados aeropuerto – hotel", tr_pp: "{0} pax · por persona", tr_code: "Código", tr_route: "Trayecto", tr_note: "Tarifa neta por persona y por trayecto, según tu tarifario. Manizales (MZL) y Cali (CLO): cotización a la medida.",
     sup_tab: "Suplementos", sup_t: "Suplemento", value: "Valor", guide_tab: "Guianza en otros idiomas", none_rates: "Tu tarifario aún no tiene estos valores: consulta a tu asesor.",
-    k_h: "Kit de venta", k_l: "Descarga un PDF con las experiencias que elijas, en el idioma de tu cliente. Puedes quitar el logo de Espontáneos y agregar tu markup.",
-    k1: "Experiencias", k_route: "Solo los tours de mi ruta", k_all: "Todo el portafolio", k_none: "Quitar todos", k_sel: "{0} seleccionadas", k2: "Idioma y marca", k_lang: "Idioma del PDF", k_logo: "Marca", k_with: "Con logo Espontáneos Travel", k_without: "Sin logo (marca blanca)",
+    k_h: "Kit de venta", k_l: "Descarga un PDF con las experiencias que elijas, en el idioma de tu cliente. Puedes poner el logo de tu agencia, quitar el de Espontáneos y agregar tu markup.",
+    k1: "Experiencias", k_route: "Solo los tours de mi ruta", k_all: "Todo el portafolio", k_none: "Quitar todos", k_sel: "{0} seleccionadas", k2: "Idioma y marca", k_lang: "Idioma del PDF", k_logo: "Marca", k_with: "Con logo Espontáneos Travel", k_without: "Sin logo (marca blanca)", k_own: "Con el logo de mi agencia", k_up: "Subir logo", k_up2: "Cambiar logo", k_rm: "Quitar logo", k_nologo: "Aún no has subido el logo de tu agencia.", k_own_alt: "Logo de tu agencia", k_up_l: "PNG, JPG, WebP, SVG o GIF, hasta 5 MB. Se guarda en tu usuario con el nombre de tu agencia y queda listo para tus próximos PDF.", k_saving: "Guardando en tu usuario…", k_saved: "Guardado en tu usuario.", k_nosave: "No se pudo guardar en tu usuario: por ahora se usa solo en esta sesión.", k_big: "La imagen pesa más de 5 MB.", k_badimg: "No pude leer esa imagen. Prueba con PNG o JPG.",
     k_agency: "Nombre de tu agencia en la portada (opcional)", k3: "Precios", k_price: "¿Qué precio mostrar?", k_pn: "Sin precios", k_pnet: "Con tarifa neta", k_psell: "Con precio de venta (neta + mi markup)", k_mk: "Mi markup (%)",
     k_pnote: "El PDF muestra el precio por persona para 2, 4, 6 y 10 pasajeros, según tu tarifario.", k_go: "Descargar PDF", k_need: "Elige al menos una experiencia.", k_making: "Armando el PDF…", k_done: "Listo: {0}", k_err: "No se pudo crear el PDF. Intenta de nuevo.",
     k_open: "Si no se descargó, ábrelo aquí", pdf_client: "PDF para tu cliente", pdf_net: "PDF con tarifa neta", pdf_more: "Más opciones (idioma, marca, markup)", pdf_note: "El PDF para el cliente no lleva tarifas ni datos internos. El de tarifa neta es solo para tu agencia.",
@@ -127,7 +127,7 @@ const UI = {
     f_dur_l: "Duration", f_mod: "Format", f_lunch: "Lunch", f_age: "Age", f_group: "Group", f_langs: "Languages", f_code: "Code", ask: "Ask us", min_pax: "min. {0} pax", max_pax: "max. {0}", upto: "Up to {0} pax",
     s_exp: "The experience", s_photos: "Photos", s_incl: "Includes", s_noincl: "Not included", s_oper: "Operation and schedules", s_tech: "Technical sheet", s_reco: "Recommendations", s_noapto: "Not suitable for",
     s_sell: "To sell it", only_ag: "Agencies only", why: "Why sell it", interesa: "Good to know", where: "Where we operate it", menu: "Menu", impact: "Local impact", s_notes: "Rate and operation notes",
-    s_supl: "Supplements", s_combo: "Pair it with", s_rate: "Net rate per passenger", pax: "Passengers", per_pax: "COP per passenger", s_kit: "Sales kit", pdf: "Download PDF", copy_txt: "Copy text", copy_link: "Copy sheet link",
+    s_supl: "Supplements", g_sup: "Guiding supplement in other languages", g_lang: "Guide language", g_note: "rate per guide service (not per person)", s_combo: "Pair it with", s_rate: "Net rate per passenger", pax: "Passengers", per_pax: "COP per passenger", s_kit: "Sales kit", pdf: "Download PDF", copy_txt: "Copy text", copy_link: "Copy sheet link",
     kit_note: "PDF for your final client (no internal data), with or without logo, with or without prices, in ES, EN, FR, IT or PT.", request: "Request this tour", see_zones: "See municipalities on the map", zones_note: "In «Build a route» the farm in the municipality closest to the hotel is assigned.",
     kids: "Children aged 0–2 travel free but occupy a baby seat in the vehicle; from age 3 they pay the rate.", see_cond: "Booking and payment policies", see_about: "About us",
     com_txt: "Experience with the local community (farmers, artisans, producers).", cord_txt: "Part of the Paisaje Cordillerano project.", carry: "{0} rate · valid in {1}", copied: "Copied", link_copied: "Link copied", txt_copied: "Text copied",
@@ -150,13 +150,13 @@ const UI = {
     r5: "Itinerary", r_none: "Choose a hotel and tours to see the itinerary.", arr_leg: "Arrival {0} → {1}", arr_sub: "Arrival transfer", dep_leg: "{0} → {1}", dep_sub: "Departure transfer", go_back: "return trip from the hotel", per_leg: "each way",
     choose_hotel: "choose a hotel to calculate the trip", in_hotel: "At the hotel", finca_in: "Farm in {0}",
     tot_arr: "Arrival transfer", tot_dep: "Departure transfer", quote: "Quote", sup_of: "Supplement {0}", tot: "Net total per passenger", tot_q: " (excluding items to quote)", tot_note: "{0} pax in {1}. Hotel not included. {2}.",
-    fit: "See full route on the map", copy_it: "Copy itinerary", send_req: "Send as booking request", kit_route: "Sales kit with these tours", reset: "Start over", it_copied: "Itinerary copied", program: "Coffee Cultural Landscape programme · {0} passengers", vehicle: "Vehicle",
+    fit: "See full route on the map", fl_t: "Your route", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Full map", copy_it: "Copy itinerary", send_req: "Send as booking request", kit_route: "Sales kit with these tours", reset: "Start over", it_copied: "Itinerary copied", program: "Coffee Cultural Landscape programme · {0} passengers", vehicle: "Vehicle",
     tr_h: "Transport", tr_l: "Vehicles licensed for special service, adapted to every travel need. Safety · comfort · trust. Recommended capacity for comfort and maximum authorised capacity.",
     tr_pax: "{0} to {1} passengers · max. {2}", tr_upto: "Up to {0} passengers", vip: "Comfort upgrade on request", vid_soon: "Video in preparation", tr_cond: "Transport conditions",
     tr_tab: "Airport – hotel transfers", tr_pp: "{0} pax · per person", tr_code: "Code", tr_route: "Route", tr_note: "Net rate per person, each way, from your rate sheet. Manizales (MZL) and Cali (CLO): tailor-made quote.",
     sup_tab: "Supplements", sup_t: "Supplement", value: "Value", guide_tab: "Guiding in other languages", none_rates: "Your rate sheet doesn't have these values yet: ask your advisor.",
-    k_h: "Sales kit", k_l: "Download a PDF with the experiences you choose, in your client's language. You can remove the Espontáneos logo and add your markup.",
-    k1: "Experiences", k_route: "Only the tours in my route", k_all: "Whole portfolio", k_none: "Clear all", k_sel: "{0} selected", k2: "Language and brand", k_lang: "PDF language", k_logo: "Brand", k_with: "With Espontáneos Travel logo", k_without: "No logo (white label)",
+    k_h: "Sales kit", k_l: "Download a PDF with the experiences you choose, in your client's language. You can use your agency's logo, remove the Espontáneos logo and add your markup.",
+    k1: "Experiences", k_route: "Only the tours in my route", k_all: "Whole portfolio", k_none: "Clear all", k_sel: "{0} selected", k2: "Language and brand", k_lang: "PDF language", k_logo: "Brand", k_with: "With Espontáneos Travel logo", k_without: "No logo (white label)", k_own: "With my agency's logo", k_up: "Upload logo", k_up2: "Change logo", k_rm: "Remove logo", k_nologo: "You haven't uploaded your agency's logo yet.", k_own_alt: "Your agency's logo", k_up_l: "PNG, JPG, WebP, SVG or GIF, up to 5 MB. It is saved to your user together with your agency name, ready for your next PDFs.", k_saving: "Saving to your user…", k_saved: "Saved to your user.", k_nosave: "Couldn't save to your user: for now it is used in this session only.", k_big: "The image is larger than 5 MB.", k_badimg: "I couldn't read that image. Try PNG or JPG.",
     k_agency: "Your agency name on the cover (optional)", k3: "Prices", k_price: "Which price to show?", k_pn: "No prices", k_pnet: "With net rate", k_psell: "With selling price (net + my markup)", k_mk: "My markup (%)",
     k_pnote: "The PDF shows the price per person for 2, 4, 6 and 10 passengers, from your rate sheet.", k_go: "Download PDF", k_need: "Choose at least one experience.", k_making: "Building the PDF…", k_done: "Done: {0}", k_err: "The PDF could not be created. Please try again.",
     k_open: "If it didn't download, open it here", pdf_client: "PDF for your client", pdf_net: "PDF with net rate", pdf_more: "More options (language, brand, markup)", pdf_note: "The client PDF has no rates or internal data. The net-rate PDF is for your agency only.",
@@ -191,7 +191,7 @@ const ICONS = {
   clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', users: '<circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.2 3.2 0 0 1 0 6.2M17.5 14.2A6 6 0 0 1 21 20"/>', globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
   food: '<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 0-3 2.5-3 6h3v12"/>', child: '<circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M8 11l4-2 4 2M9.5 21l2.5-6 2.5 6"/>', tag: '<path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="8" cy="8" r="1.5"/>',
   layers: '<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/>', pin: '<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>', hotel: '<path d="M3 20V6M21 20v-6a3 3 0 0 0-3-3h-8v9M3 15h18"/><circle cx="7" cy="10.5" r="2"/>',
-  plane: '<path d="M10.5 21 12 15l-7-3 1.5-1.5 7 1.5 4.5-6a2 2 0 0 1 3 2.5l-5 5.5 1 7-1.5 1.5-3-6"/>', download: '<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>', copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
+  plane: '<path d="M10.5 21 12 15l-7-3 1.5-1.5 7 1.5 4.5-6a2 2 0 0 1 3 2.5l-5 5.5 1 7-1.5 1.5-3-6"/>', download: '<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>', upload: '<path d="M12 16V5M7 10l5-5 5 5M5 20h14"/>', copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
   link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3A4 4 0 0 0 13 5.3l-1.2 1.2M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1.2-1.2"/>', send: '<path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/>', check: '<path d="m5 12 4.5 4.5L19 7"/>', plus: '<path d="M12 5v14M5 12h14"/>',
   star: '<path d="m12 3 2.7 5.6 6.1.8-4.4 4.3 1 6.1L12 17l-5.4 2.8 1-6.1-4.4-4.3 6.1-.8z"/>', leaf: '<path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15zM5 19l7-7"/>', shield: '<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
   phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>', mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>', eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
@@ -241,6 +241,7 @@ const mapH = () => (svg && svg.clientHeight) || Math.round(Math.min(680, Math.ma
 // Mapa plegable: cerrado al entrar; se abre con clic o cuando una acción lo necesita (ver zonas, ruta, ubicar un hotel)
 function mapShow(on, scroll) {
   const b = $r("mapblk"); if (!b) return;
+  if (on) closeFloat();
   if (on === b.classList.contains("closed")) {
     b.classList.toggle("closed", !on); S.mapOpen = on;
     $r("maptg").setAttribute("aria-expanded", String(on)); $r("maptgl").textContent = tx(on ? "map_close" : "map_open");
@@ -336,6 +337,27 @@ function fromPrice(id) {
   return { v: r.tarifa_neta, pax: r.pax_hasta };
 }
 function svcAt(code, p) { const r = pickAt(PR.svc.get(code), p); return r ? r.tarifa_neta : null; }
+// Guianza en otros idiomas (SU-ET006…SU-ET012): valor por servicio de guía según la duración, del tarifario de la cuenta
+const GUIDE_RE = /^SU-ET0(0[6-9]|1[0-2])$/;
+const GUIDES = () => [...PR.svc.keys()].filter(c => GUIDE_RE.test(c)).sort();
+const G_NAMES = { es: ["Español", "Inglés", "Francés", "Italiano", "Alemán", "Portugués", "Guía para invidentes"], en: ["Spanish", "English", "French", "Italian", "German", "Portuguese", "Guide for blind travelers"] };
+const guideName = c => (G_NAMES[L()] || G_NAMES.es)[+c.slice(-3) - 6] || String((PR.svc.get(c)[0] || {}).nombre || c).split("·").pop().trim();
+const guideCols = () => [...new Set(GUIDES().flatMap(g => PR.svc.get(g).map(r => r.temporada)))];
+const guideCol = t => (L() === "en" ? String(t).replace(/horas/, "hours") : t);
+// En la ficha: «Suplemento de guianza en otros idiomas» se abre, se elige el idioma y salen sus valores
+function guideSup() {
+  const g = GUIDES(); if (!g.length) return "";
+  const def = g.includes("SU-ET007") ? "SU-ET007" : g[0];
+  return `<details class="gsup"><summary>${tx("g_sup")}</summary>
+    <label class="field">${tx("g_lang")}<select data-r="gsel">${g.map(c => `<option value="${c}"${c === def ? " selected" : ""}>${esc(guideName(c))}</option>`).join("")}</select></label>
+    <div data-r="gvals" aria-live="polite">${guideVals(def)}</div></details>`;
+}
+function guideVals(c) {
+  const rows = PR.svc.get(c) || [];
+  return `<dl class="gvals">${guideCols().map(t => { const r = rows.find(x => x.temporada === t); return `<div><dt>${esc(guideCol(t))}</dt><dd>${r ? cop(r.tarifa_neta) : "N/A"}</dd></div>`; }).join("")}</dl>
+    <small class="sub"><span class="code">${esc(c)}</span> · ${tx("g_note")}</small>`;
+}
+function bindGuideSup(f) { const s = f.querySelector("[data-r=gsel]"); if (s) s.addEventListener("change", () => { f.querySelector("[data-r=gvals]").innerHTML = guideVals(s.value); }); }
 function tarLabel() {
   const base = CTX.tier === "nac" ? tx("tar_nac") : tx("tar_dmc");
   if (!PR.tours.size && !PR.svc.size) return base + " · " + tx("tar_none");
@@ -390,6 +412,7 @@ export async function mountPortafolio(host, ctx) {
   if (ac) ac.abort();
   ac = new AbortController();
   CTX = ctx;
+  if (K.who !== (ctx.who || "")) Object.assign(K, { who: ctx.who || "", sel: null, lang: "ES", brand: "et", own: null, price: "none", markup: 15, agency: "", pax: 0, loaded: false });
   loadFonts();
   await preload(L());
   buildModel();
@@ -477,6 +500,7 @@ function skeleton() {
       <section class="pane" id="pf-pane-cond" data-pane="cond" role="tabpanel" aria-labelledby="pf-tab-cond" hidden></section>
     </div>
   </div>
+  <aside class="rfloat" data-r="rfloat" hidden aria-label="${esc(tx("fl_t"))}"><div class="fl-head"><b>${ic("route", "sm")}${tx("fl_t")}</b><span class="sub" data-r="flsub"></span><button type="button" class="btn ghost sm" data-r="flbig">${ic("map", "sm")}${tx("fl_big")}</button><button type="button" class="iconbtn" data-r="flx" aria-label="${esc(tx("close"))}">${ic("x", "sm")}</button></div><div class="fl-map" data-r="flmap" inert></div></aside>
   <div data-r="pop"></div><div data-r="ficha"></div><div data-r="lb"></div><div data-r="toast"></div>
 </div>`;
 }
@@ -560,15 +584,19 @@ function bindStatic() {
   svg.addEventListener("wheel", ev => { ev.preventDefault(); zoomAt(ev.deltaY > 0 ? 1.15 : 1 / 1.15, ev.clientX, ev.clientY); }, { passive: false });
   let rz = 0; addEventListener("resize", () => { if (!ROOT.isConnected) { ac.abort(); return; } clearTimeout(rz); rz = setTimeout(() => { VB = fitAspect(VB); applyVB(); }, 120); }, sig);
   addEventListener("scroll", () => { if (S.active) placePop(); }, { passive: true, signal: ac.signal });
-  addEventListener("keydown", ev => { if (ev.key !== "Escape" || !ROOT.isConnected) return; if ($r("lb").firstChild) $r("lb").innerHTML = ""; else if ($r("ficha").firstChild) closeFicha(); else if (S.placing) stopPlacing(); else if (S.active) closePop(); }, sig);
+  addEventListener("keydown", ev => { if (ev.key !== "Escape" || !ROOT.isConnected) return; if ($r("lb").firstChild) $r("lb").innerHTML = ""; else if ($r("ficha").firstChild) closeFicha(); else if (S.placing) stopPlacing(); else if (!$r("rfloat").hidden) closeFloat(); else if (S.active) closePop(); }, sig);
   // ruta
   $r("rpax").addEventListener("change", e => { S.R.pax = Math.min(30, Math.max(1, Math.round(+e.target.value) || 1)); S.tpax = 0; saveR(); renderRoute(); });
   $r("rstart").addEventListener("change", e => { S.R.start = +e.target.value; saveR(); renderRoute(); });
-  $r("rarr").addEventListener("change", e => { S.R.arr = e.target.value; saveR(); renderRoute(); fitRoute(); });
-  $r("rdep").addEventListener("change", e => { S.R.dep = e.target.value; saveR(); renderRoute(); fitRoute(); });
-  $r("radd").addEventListener("change", e => { if (e.target.value) { toggleTour(e.target.value); fitRoute(); } });
-  $r("rfit").addEventListener("click", () => fitRoute(true));
-  $r("rclear").addEventListener("click", () => { S.newName = ""; stopPlacing(); S.R = { pax: 2, start: 2, arr: "AXM", dep: "AXM", hotel: null, finca: "", tours: [] }; saveR(); renderRoute(); animateTo(boxToVB(...VIEWS.eje)); });
+  $r("rarr").addEventListener("change", e => { S.R.arr = e.target.value; saveR(); renderRoute(); floatRoute(); });
+  $r("rdep").addEventListener("change", e => { S.R.dep = e.target.value; saveR(); renderRoute(); floatRoute(); });
+  $r("radd").addEventListener("change", e => { if (e.target.value) { toggleTour(e.target.value); floatRoute(); } });
+  $r("rfit").addEventListener("click", () => floatRoute(true));
+  $r("flx").addEventListener("click", closeFloat);
+  $r("flbig").addEventListener("click", () => { closeFloat(); mapShow(true, true); fitRoute(); });
+  // Un clic en cualquier otro lugar la cierra
+  document.addEventListener("pointerdown", ev => { const fl = $r("rfloat"); if (fl && !fl.hidden && !fl.contains(ev.target)) closeFloat(); }, sig);
+  $r("rclear").addEventListener("click", () => { S.newName = ""; stopPlacing(); closeFloat(); S.R = { pax: 2, start: 2, arr: "AXM", dep: "AXM", hotel: null, finca: "", tours: [] }; saveR(); renderRoute(); animateTo(boxToVB(...VIEWS.eje)); });
   $r("rcopy").addEventListener("click", () => copy(itineraryText(), tx("it_copied")));
   $r("rkit").addEventListener("click", () => { K.sel = new Set(S.R.tours.map(t => t.id)); setTab("kit"); });
   if ($r("rreq")) $r("rreq").addEventListener("click", () => {
@@ -580,6 +608,7 @@ function bindStatic() {
 
 /* ---------- pestañas y modo ---------- */
 function setTab(t, first) {
+  if (t !== "ruta") closeFloat();
   S.tab = t; ss.set("pf27-tab", t);
   $$("[data-tab]").forEach(b => { const on = b.dataset.tab === t; b.setAttribute("aria-selected", String(on)); b.tabIndex = on ? 0 : -1; });
   $$("[data-pane]").forEach(p => { p.hidden = p.dataset.pane !== t; });
@@ -615,7 +644,8 @@ const ZONEVIEW = { "Quindío": VIEWS.quindio, "Risaralda": [4.7, 5.35, -76.1, -7
 const DEPNAME = { "63": "Quindío", "66": "Risaralda", "17": "Caldas", "76": "Valle del Cauca" };
 function boxToVB(lat0, lat1, lon0, lon1) {
   const [x0, y0] = P(lat1, lon0), [x1, y1] = P(lat0, lon1), w = x1 - x0, h = y1 - y0;
-  const W = Math.max(1, mapW()), H = Math.max(1, mapH()), mob = W < 640, top = mob ? 64 : 96, bot = mob ? 110 : 96, side = 24;
+  // Márgenes para no tapar la ruta con el título y los controles del mapa grande; la vista flotante no los tiene
+  const W = Math.max(1, mapW()), H = Math.max(1, mapH()), mob = W < 640, fl = !!(svg && svg.closest(".rfloat")), top = fl ? 18 : mob ? 64 : 96, bot = fl ? 18 : mob ? 110 : 96, side = fl ? 18 : 24;
   const s = Math.max(w / Math.max(50, W - 2 * side), h / Math.max(50, H - top - bot));
   return { x: x0 - (W * s - w) / 2, y: y0 - top * s - ((H - top - bot) * s - h) / 2, w: W * s, h: H * s };
 }
@@ -681,22 +711,22 @@ function drawOverlay() {
   D.capitals.forEach(c => { const [n, , la, lo] = Array.isArray(c) ? c : [c.ciudad || c.nombre, c.departamento || c.depto, c.lat, c.lon]; const [x, y] = P(la, lo), r = 7 * u;
     const star = [...Array(10)].map((_, i) => { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; return (x + Math.cos(a) * rr) + "," + (y + Math.sin(a) * rr); }).join(" ");
     s += `<g class="cap"><polygon points="${star}" fill="var(--fg)" stroke="var(--land)" stroke-width="${1.5 * u}"/><text x="${n === "Cali" ? x - 10 * u : x + 10 * u}" y="${y + 4 * u}" font-size="${13 * u}" stroke-width="${4 * u}" text-anchor="${n === "Cali" ? "end" : "start"}">${esc(n)}</text></g>`; });
-  const selH = S.R.hotel;
-  if (S.hotels) HOTELS.forEach(h => { if (selH && norm(h.name) === norm(selH.name)) return; s += hotelSvg(h, false, u, veryIn); });
+  const selH = S.R.hotel, fl = !!svg.closest(".rfloat");   // vista flotante: solo lo que está en la ruta
+  if (S.hotels && !fl) HOTELS.forEach(h => { if (selH && norm(h.name) === norm(selH.name)) return; s += hotelSvg(h, false, u, veryIn); });
   if (selH) s += hotelSvg(selH, true, u, true);
-  s += fincasSvg(u);
+  if (!fl || inRoute("finca")) s += fincasSvg(u);
   s += routeSvg(u);
   D.airports.forEach(a => { const [x, y] = P(a.lat, a.lon), w = 30 * u, hh = 17 * u;
     s += `<g class="apt"><rect x="${x - w / 2}" y="${y - hh / 2}" width="${w}" height="${hh}" rx="${3 * u}"/><text class="iata" x="${x}" y="${y + 4 * u}" font-size="${10.5 * u}" text-anchor="middle">${a.id}</text>
       <text class="nm" x="${x}" y="${y + hh / 2 + 12 * u}" font-size="${10.5 * u}" stroke-width="${3.5 * u}" text-anchor="middle">✈ ${esc(a.name)}</text></g>`; });
   // Puntos: al alejar, los que se tocan (< 18 px) se agrupan en un círculo con el número; tocarlo acerca el mapa
-  const vis = visible(), R = 18 * u, items = EXP.filter(e => vis.has(e.id)).map(e => { const [x, y] = P(...llOf(e)); return { e, x, y }; });
+  const vis = fl ? new Set(S.R.tours.map(t => t.id)) : visible(), R = 18 * u, items = EXP.filter(e => vis.has(e.id)).map(e => { const [x, y] = P(...llOf(e)); return { e, x, y }; });
   const clusters = []; S.clusters = {};
   if (!veryIn) {
     items.forEach(it => { if (it.e.id === S.active) return; const c = clusters.find(c => Math.hypot(c.x - it.x, c.y - it.y) < R); if (c) { c.items.push(it); c.x = (c.x * (c.items.length - 1) + it.x) / c.items.length; c.y = (c.y * (c.items.length - 1) + it.y) / c.items.length; } else clusters.push({ x: it.x, y: it.y, items: [it] }); });
     const act = items.find(it => it.e.id === S.active); if (act) clusters.push({ x: act.x, y: act.y, items: [act] });
   } else items.forEach(it => clusters.push({ x: it.x, y: it.y, items: [it] }));
-  EXP.forEach(e => { if (!vis.has(e.id)) { const [x, y] = P(...llOf(e)); s += `<circle class="pin-dim" cx="${x}" cy="${y}" r="${3 * u}"/>`; } });
+  if (!fl) EXP.forEach(e => { if (!vis.has(e.id)) { const [x, y] = P(...llOf(e)); s += `<circle class="pin-dim" cx="${x}" cy="${y}" r="${3 * u}"/>`; } });
   clusters.forEach((c, i) => {
     if (c.items.length === 1) { s += pinSvg(c.items[0], u, veryIn); return; }
     const n = c.items.length, cnt = {}; c.items.forEach(it => { cnt[it.e.cat] = (cnt[it.e.cat] || 0) + 1; });
@@ -935,17 +965,11 @@ function openFicha(id) {
       ${!wl ? `<div class="box netbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><div class="big" data-r="net">${rate ? cop(rate.tarifa_neta) : tx("ask")}</div>
         <label>${tx("pax")} <input type="range" data-r="paxr" min="1" max="30" value="${pax0}"> <b data-r="paxn">${pax0}</b></label>
         <small>${esc(tarLabel())}. ${tx("per_pax")}.${rate && rate.temporada ? " " + esc(rate.temporada) + "." : ""}</small>${rate && rate._de ? `<span class="pill">${esc(tx("carry", rate._de, VIG))}</span>` : ""}
-        ${p.supl.length ? `<div class="supl"><span class="eyebrow">${tx("s_supl")}</span><ul>${p.supl.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}</div>` : ""}
+        ${p.supl.length || GUIDES().length ? `<div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${p.supl.length ? `<ul>${p.supl.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${guideSup()}</div>` : ""}</div>` : ""}
       <div class="btnrow col"><button type="button" class="btn add" data-add="${id}" aria-pressed="${inRoute(id)}">${inRoute(id) ? tx("in_route") : tx("add_route_l")}</button>
         ${CTX.onRequest && !wl ? `<button type="button" class="btn ghost" data-r="freq">${ic("send", "sm")}${tx("request")}</button>` : ""}</div>
       ${(!wl && p.impacto) || e.com || e.cord ? `<div class="box impact"><span class="eyebrow">${tx("impact")}${p.impacto && !wl ? ` <span class="b2b">${tx("only_ag")}</span>` : ""}</span><p>${!wl && p.impacto ? `<b>${esc(impName(p.impacto))}</b>` : ""}${e.com ? `<span>${esc(tx("com_txt"))}</span>` : ""}${e.cord ? `<span>${esc(tx("cord_txt"))}</span>` : ""}</p></div>` : ""}
       ${comb ? `<div class="box"><span class="eyebrow">${tx("s_combo")}</span><div class="combo">${comb}</div></div>` : ""}
-      <div class="box"><span class="eyebrow">${tx("s_kit")}</span><div class="kit">
-        <button type="button" class="btn" data-pdf="none">${ic("download", "sm")}${tx("pdf_client")}</button>
-        ${wl ? "" : `<button type="button" class="btn ghost" data-pdf="net">${ic("download", "sm")}${tx("pdf_net")}</button>`}
-        <button type="button" class="btn ghost" data-r="ktxt">${ic("copy", "sm")}${tx("copy_txt")}</button><button type="button" class="btn ghost" data-r="klink">${ic("link", "sm")}${tx("copy_link")}</button></div>
-        <p class="note" data-r="fst" aria-live="polite"></p>
-        <small class="sub">${tx("pdf_note")} <a href="#" data-r="kpdf">${tx("pdf_more")}</a></small></div>
     </aside></div></article></div>`;
   document.body.style.overflow = "hidden";
   const f = $r("ficha").firstChild; startSlides(f); hydrate(f);
@@ -958,10 +982,7 @@ function openFicha(id) {
   const sz = $r("seez"); if (sz) sz.addEventListener("click", () => { closeFicha(); mapShow(true, true); animateTo(boxToVB(...VIEWS.eje)); openPop(id); });
   if ($r("freq")) $r("freq").addEventListener("click", () => { closeFicha(); CTX.onRequest({ tours: [{ tour_id: e.id, codigo: e.code, nombre: e.name }] }); });
   bindAdd(f);
-  $r("kpdf").addEventListener("click", ev => { ev.preventDefault(); closeFicha(); K.sel = new Set([id]); setTab("kit"); });
-  f.querySelectorAll("[data-pdf]").forEach(b => b.addEventListener("click", () => pdfRun([id], { lang: L() === "en" ? "EN" : "ES", logo: !S.wl, price: S.wl ? "none" : b.dataset.pdf, markup: 0, agency: "", pax: $r("paxr") ? +$r("paxr").value : S.R.pax }, $r("fst"), b)));
-  $r("ktxt").addEventListener("click", () => copy(fichaText(e), tx("txt_copied")));
-  $r("klink").addEventListener("click", () => copy(location.origin + location.pathname + "#ficha=" + id, tx("link_copied")));
+  bindGuideSup(f);
   try { history.replaceState(null, "", location.pathname + location.search + "#ficha=" + id); } catch (err) { /* sin historial */ }
   f.querySelector("[data-r=fx]").focus({ preventScroll: true });
 }
@@ -1001,14 +1022,6 @@ function techTable(e) {
     [tx("p_cap"), capN ? tx("capB2B", capN) : tx("ask"), capN ? tx("capB2C", capN) : tx("ask")], [tx("p_meet"), meet[0], meet[1]], [tx("p_guide"), `${langs} (${tx("guide_sup")})`, langs]];
   return `<div class="tbl-wrap tech"><table><thead><tr><th>${tx("p_param")}</th>${S.wl ? "" : `<th>${tx("p_b2b")}</th>`}<th>${tx("p_b2c")}</th></tr></thead><tbody>
     ${rows.map(r => `<tr><th scope="row">${esc(r[0])}</th>${S.wl ? "" : `<td>${esc(r[1])}</td>`}<td>${esc(r[2])}</td></tr>`).join("")}</tbody></table></div>`;
-}
-function fichaText(e) {
-  const j = a => (a || []).join(", ");
-  let t = `${S.wl ? "" : e.code + " · "}${tr(e, "name")} (${e.deptos})\n${tr(e, "tagline")}\n\n${(tr(e, "desc") || []).join("\n\n")}\n\n`;
-  t += `${tx("s_incl")}: ${j(tr(e, "incl"))}.\n${tx("s_noincl")}: ${j(tr(e, "noIncl"))}.\n${tx("f_dur_l")}: ${tr(e, "dur")} · ${tx("f_mod")}: ${tr(e, "modalidad")}${tr(e, "edad") ? " · " + tx("f_age") + ": " + tr(e, "edad") : ""}\n`;
-  if ((tr(e, "oper") || []).length) t += `${tx("s_oper")}: ${tr(e, "oper").join(". ")}.\n`;
-  if ((tr(e, "reco") || []).length) t += `${tx("s_reco")}: ${tr(e, "reco").join(" ")}\n`;
-  return t;
 }
 function bindAdd(root) {
   root.querySelectorAll("[data-add]").forEach(b => b.addEventListener("click", () => { toggleTour(b.dataset.add); const on = inRoute(b.dataset.add); b.setAttribute("aria-pressed", String(on));
@@ -1106,9 +1119,9 @@ function renderRoute() {
     ${e.id === "finca" && FINCAS.length ? `<div class="fsel"><label class="field">${tx("which_finca")}<select data-r="rfinca"><option value="">${tx("finca_auto")}</option>${FINCAS.map(x => `<option value="${esc(x.id)}" ${x.id === R.finca ? "selected" : ""}>${esc(x.name)} · ${esc(x.muni)}${x.sup && !S.wl ? ` · +${cop(x.sup)} pp` : ""}</option>`).join("")}</select></label>${R.finca && finById[R.finca] && finById[R.finca].aviso ? `<p class="fnote money">${esc(finById[R.finca].aviso)}</p>` : ""}</div>` : ""}`; }).join("")
     : `<p class="empty">${tx("r_empty")}</p>`;
   $r("radd").innerHTML = `<option value="">${tx("r_choose")}</option>` + Object.keys(D.cats).map(k => `<optgroup label="${esc(catName(k))}">${EXP.filter(e => e.cat === k && !inRoute(e.id)).map(e => `<option value="${e.id}">${esc(tr(e, "name"))}</option>`).join("")}</optgroup>`).join("");
-  $r("rtours").querySelectorAll("[data-day]").forEach(s => s.addEventListener("change", () => { S.R.tours.find(t => t.id === s.dataset.day).day = +s.value; saveR(); renderRoute(); }));
-  $r("rtours").querySelectorAll("[data-rm]").forEach(b => b.addEventListener("click", () => toggleTour(b.dataset.rm)));
-  if ($r("rfinca")) $r("rfinca").addEventListener("change", e => { S.R.finca = e.target.value; saveR(); renderRoute(); fitRoute(); const g = finById[S.R.finca]; if (g && g.aviso && !S.wl) toast(g.aviso); });
+  $r("rtours").querySelectorAll("[data-day]").forEach(s => s.addEventListener("change", () => { S.R.tours.find(t => t.id === s.dataset.day).day = +s.value; saveR(); renderRoute(); floatRoute(); }));
+  $r("rtours").querySelectorAll("[data-rm]").forEach(b => b.addEventListener("click", () => { toggleTour(b.dataset.rm); floatRoute(); }));
+  if ($r("rfinca")) $r("rfinca").addEventListener("change", e => { S.R.finca = e.target.value; saveR(); renderRoute(); floatRoute(); const g = finById[S.R.finca]; if (g && g.aviso && !S.wl) toast(g.aviso); });
   const legs = buildRoute(); let html = "", lastDay = 0;
   legs.forEach(l => { if (l.day !== lastDay) { html += `<div class="daytag">${tx("day", l.day)}</div>`; lastDay = l.day; }
     html += `<div class="leg"><span class="k">${l.n}</span><div><b>${esc(l.title)}</b><br><span class="sub">${esc(l.sub)}</span></div><span class="t">${l.km ? `≈ ${l.km} km<br>${fmtMin(l.min)}${l.type === "x" ? " " + tx("per_leg") : ""}` : ""}</span></div>`; });
@@ -1131,9 +1144,23 @@ function fitRoute(show) {
   const pad = .05; animateTo(boxToVB(Math.min(...la) - pad, Math.max(...la) + pad * 1.6, Math.min(...lo) - pad, Math.max(...lo) + pad));
   if (show) mapShow(true, true);
 }
+// Vista flotante de la ruta: cada cambio en «Arma tu ruta» se ve en una ventana pequeña, sin abrir el mapa grande
+// (que ocupa toda la pantalla). Usa el mismo mapa (svg), prestado, y lo devuelve al cerrarse: X, Escape o clic afuera.
+function floatRoute(scroll) {
+  if (S.tab !== "ruta") return;
+  if (S.mapOpen) { fitRoute(scroll); return; }
+  const fl = $r("rfloat");
+  if (fl.hidden) { fl.hidden = false; $r("flmap").appendChild(svg); }
+  const n = S.R.tours.length; $r("flsub").textContent = n === 1 ? tx("fl_n1") : tx("fl_n", n);
+  VB = fitAspect(VB); commitVB(); fitRoute();
+}
+function closeFloat() {
+  const fl = $r("rfloat"); if (!fl || fl.hidden) return;
+  fl.hidden = true; $r("mapwrap").prepend(svg); VB = fitAspect(VB); commitVB();
+}
 
 /* ---------- hotel: aliados → usados antes → mapa abierto (OpenStreetMap) → enlace de Google Maps o tocar el mapa ---------- */
-function setHotel(h) { S.R.hotel = { id: h.id, name: h.name, muni: h.muni, concept: h.concept || "", zone: h.zone || null, lat: h.lat, lon: h.lon, et: !!h.et }; rememberHotel(h); saveR(); hotelBoxes(); if (S.tab === "ruta") fitRoute(); }
+function setHotel(h) { S.R.hotel = { id: h.id, name: h.name, muni: h.muni, concept: h.concept || "", zone: h.zone || null, lat: h.lat, lon: h.lon, et: !!h.et }; rememberHotel(h); saveR(); hotelBoxes(); floatRoute(); }
 // Dos buscadores con el mismo hotel: «Arma tu ruta» (key "r") y «Cercanas a mi hotel» en Experiencias (key "n")
 const hotelBoxes = () => { renderRoute(); renderList(); };
 function renderHotelBox(box = $r("rhbox"), key = "r") {
@@ -1212,7 +1239,7 @@ function renderTrans(hl) {
     <div class="body"><span class="pax">${v.capacidad_max ? tx("tr_pax", v.min, v.max, v.capacidad_max) : tx("tr_upto", v.max)}</span><h4>${esc(vf(v, "name"))}</h4>${v.equipaje ? `<span class="sub">${esc(vf(v, "equipaje"))}</span>` : ""}<span class="sub">${esc(vf(v, "uso"))}</span>
     ${v.vip ? `<span class="sub"><b>${tx("vip")}</b></span>` : ""}${v.suplemento ? `<span class="sub code money">${esc(v.suplemento)}</span>` : ""}</div></div>`;
   const svcRows = pre => [...PR.svc.keys()].filter(c => c.startsWith(pre)).sort();
-  const trs = svcRows("ET-"), sups = svcRows("SU-").filter(c => !/^SU-ET0(0[6-9]|1[0-2])$/.test(c)), guides = svcRows("SU-").filter(c => /^SU-ET0(0[6-9]|1[0-2])$/.test(c));
+  const trs = svcRows("ET-"), sups = svcRows("SU-").filter(c => !GUIDE_RE.test(c)), guides = GUIDES();
   const nm = c => (D.trayectos && D.trayectos[c]) || String((PR.svc.get(c)[0] || {}).nombre || c);
   const cond = (L() === "en" && CTX.empresa && CTX.empresa.en && CTX.empresa.en.fleet_cond) || (CTX.empresa && CTX.empresa.es && CTX.empresa.es.fleet_cond) || [];
   pane.innerHTML = `<h2>${tx("tr_h")}</h2><p class="lead">${tx("tr_l")}</p>
@@ -1224,8 +1251,8 @@ function renderTrans(hl) {
       ${trs.length ? `<div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("tr_route")}</th><th class="r">${tx("tr_pp", p)}</th></tr></thead><tbody>${trs.map(c => { const v = svcAt(c, p); return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c))}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div>` : `<p class="empty">${tx("none_rates")}</p>`}
       <p class="note">${tx("tr_note")}</p></div>
     ${sups.length ? `<div class="section money"><h3>${tx("sup_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th><th class="r">${tx("value")}</th></tr></thead><tbody>${sups.map(c => { const v = svcAt(c, p) ?? svcAt(c, 1); return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c))}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div></div>` : ""}
-    ${guides.length ? `<div class="section money"><h3>${tx("guide_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th>${[...new Set(guides.flatMap(c => PR.svc.get(c).map(r => r.temporada)))].map(s => `<th class="r">${esc(s)}</th>`).join("")}</tr></thead><tbody>
-      ${guides.map(c => { const rows = PR.svc.get(c), cols = [...new Set(guides.flatMap(g => PR.svc.get(g).map(r => r.temporada)))]; return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c).split("·").pop().trim())}</td>${cols.map(s => { const r = rows.find(x => x.temporada === s); return `<td class="r">${r ? cop(r.tarifa_neta) : "—"}</td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div></div>` : ""}`;
+    ${guides.length ? `<div class="section money"><h3>${tx("guide_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th>${guideCols().map(t => `<th class="r">${esc(guideCol(t))}</th>`).join("")}</tr></thead><tbody>
+      ${guides.map(c => { const rows = PR.svc.get(c), cols = guideCols(); return `<tr><td class="code">${esc(c)}</td><td>${esc(guideName(c))}</td>${cols.map(s => { const r = rows.find(x => x.temporada === s); return `<td class="r">${r ? cop(r.tarifa_neta) : "—"}</td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div></div>` : ""}`;
   const tp = pane.querySelector("[data-r=tpax]"); tp.addEventListener("change", () => { S.tpax = Math.min(30, Math.max(1, Math.round(+tp.value) || 1)); renderTrans(); });
   startSlides(pane);
   const big = md => { const v = D.vehicles.find(x => x.id === md.dataset.vf), on = md.querySelector(".slide.on"), k = on ? [...md.querySelectorAll(".slide")].indexOf(on) : 0; if (v) lightbox({ i: v.fotos[Math.max(0, k)] }); };
@@ -1259,7 +1286,7 @@ function renderCond() {
       ${E ? `<div class="ccard"><p class="note">${esc(E.cases_sub)}</p>${E.cases.map(([t, items], n) => `<details${n ? "" : " open"}><summary>${n + 1}. ${esc(t)}</summary>${ul(items)}</details>`).join("")}</div>` : ""}
       <div class="ccard"><h4>${tx("c_stories")}</h4><div class="cgrid">${(C.comunidad || []).map(c => `<div><h4>${esc(c.t)}</h4><p>${esc(c.p)}</p></div>`).join("")}</div></div></section>
     <section class="section" id="pf-c-team"><h3>${ic("users")}${tx("c_team")}</h3>
-      <div class="team">${(C.equipo || []).map(p => `<div class="ccard person">${p.f ? `<img class="av" src="${esc(p.f)}" alt="" width="44" height="44" loading="lazy" decoding="async">` : `<span class="av" aria-hidden="true">${esc(p.n.replace(/^(Dr|Dra)\.\s+/, "").split(" ").map(x => x[0]).join("").slice(0, 2))}</span>`}<div><h4>${esc(p.n)}</h4><p class="sub">${esc(p.r)}</p>${p.q ? `<p class="quote">«${esc(p.q)}»</p>` : ""}${p.m ? `<p><a href="mailto:${esc(p.m)}">${ic("mail", "sm")}${esc(p.m)}</a></p>` : ""}</div></div>`).join("")}</div>
+      <div class="team">${(C.equipo || []).map(p => `<div class="ccard person">${p.f ? `<img class="av" src="${esc(p.f)}" alt="" width="44" height="44" loading="lazy" decoding="async">` : `<span class="av" aria-hidden="true">${esc(p.n.replace(/^(Dr|Dra)\.\s+/, "").split(" ").map(x => x[0]).join("").slice(0, 2))}</span>`}<div><h4>${esc(p.n)}</h4><p class="sub">${esc(p.r)}</p>${p.q ? `<p class="quote">«${esc(p.q)}»</p>` : ""}${p.m ? `<p><a href="mailto:${esc(p.m)}">${ic("mail", "sm")}${esc(p.m).replace("@", "@<wbr>")}</a></p>` : ""}</div></div>`).join("")}</div>
       ${E ? `<div class="ccard"><h4>${esc(E.drivers_t || tx("c_drivers"))}</h4><div class="team">${E.drivers.map(n => `<div class="person"><span class="av" aria-hidden="true">${esc(n.split(" ").map(x => x[0]).join(""))}</span><div><b>${esc(n)}</b>${E.drivers_note ? `<p class="sub">${esc(E.drivers_note)}</p>` : ""}</div></div>`).join("")}</div>
         <h4>${esc(E.team_t)}</h4><ul>${E.protocols.map(([t, x]) => `<li><b>${esc(t)}:</b> ${esc(x)}</li>`).join("")}</ul></div>` : ""}
       <div class="ccard"><h4>${ic("phone", "sm")}${tx("c_contact")}</h4>${ul(C.contacto)}</div></section>
@@ -1315,10 +1342,23 @@ const KL = {
   PT: { oper: "Operação", supl: "Suplementos", title: "Paisagem Cultural do Café · Experiências 2027", incl: "Inclui", noIncl: "Não inclui", reco: "Recomendações", dur: "Duração", langs: "Idiomas", price: "Preço por pessoa", pax: "pax", note: "Valores em pesos colombianos (COP) por pessoa. Sujeitos a disponibilidade.", consult: "Sob consulta", exp: "Experiências incluídas", mod: "Modalidade", age: "Idade", prepared: "Preparado por" }
 };
 const LNAME = { ES: "Español", EN: "English", FR: "Français", IT: "Italiano", PT: "Português" };
-const K = { sel: null, lang: "ES", logo: true, price: "none", markup: 15, agency: "", pax: 0 };
+const K = { sel: null, lang: "ES", brand: "et", own: null, price: "none", markup: 15, agency: "", pax: 0, who: "", loaded: false };
+const okLogo = v => typeof v === "string" && v.length <= 400000 && /^data:image\/(png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(v);
+// Marca efectiva: en «Marca blanca» nunca va el logo de Espontáneos (sí el de la agencia, si lo subió)
+const kitBrand = () => (S.wl ? (K.brand === "own" && K.own ? "own" : "none") : K.brand);
 function renderKit() {
   if (!K.sel) K.sel = new Set(S.R.tours.map(t => t.id));
-  const logoV = K.logo && !S.wl, priceV = S.wl ? "none" : K.price;
+  // Logo y nombre guardados en el usuario: se leen una vez por sesión
+  if (!K.loaded && CTX.kitLoad) {
+    K.loaded = true;
+    CTX.kitLoad().then(k => {
+      if (!k) return;
+      if (okLogo(k.logo)) { K.own = { logo: k.logo, ratio: Math.min(10, Math.max(.05, +k.ratio || .5)) }; if (K.brand === "et") K.brand = "own"; }
+      if (!K.agency && typeof k.agencia === "string") K.agency = k.agencia.slice(0, 80);
+      if (S.tab === "kit") renderKit();
+    }).catch(() => { /* sin datos guardados */ });
+  }
+  const brandV = kitBrand(), priceV = S.wl ? "none" : K.price;
   const pane = ROOT.querySelector('[data-pane="kit"]');
   pane.innerHTML = `<h2>${tx("k_h")}</h2><p class="lead">${tx("k_l")}</p>
    <div class="steps">
@@ -1326,8 +1366,14 @@ function renderKit() {
       <div class="btnrow"><button type="button" class="btn ghost sm" data-r="kroute">${ic("route", "sm")}${tx("k_route")}</button><button type="button" class="btn ghost sm" data-r="kall">${tx("k_all")}</button><button type="button" class="btn ghost sm" data-r="knone">${tx("k_none")}</button></div></div>
     <div class="step"><h3><span class="k">2</span>${tx("k2")}</h3><div class="row2">
       <label class="field">${tx("k_lang")}<select data-r="klang">${Object.entries(LNAME).map(([k, v]) => `<option value="${k}" ${k === K.lang ? "selected" : ""}>${v}</option>`).join("")}</select></label>
-      <label class="field">${tx("k_logo")}<select data-r="klogo" ${S.wl ? "disabled" : ""}><option value="1" ${logoV ? "selected" : ""}>${tx("k_with")}</option><option value="0" ${logoV ? "" : "selected"}>${tx("k_without")}</option></select></label></div>
+      <label class="field">${tx("k_logo")}<select data-r="klogo" ${S.wl ? "disabled" : ""}><option value="et">${tx("k_with")}</option><option value="own">${tx("k_own")}</option><option value="none">${tx("k_without")}</option></select></label></div>
+      <div class="kown" data-r="kown" ${brandV === "own" ? "" : "hidden"}>
+        <div class="kprev">${K.own ? `<img src="${K.own.logo}" alt="${esc(tx("k_own_alt"))}">` : `<span class="sub">${tx("k_nologo")}</span>`}</div>
+        <div class="btnrow"><button type="button" class="btn ghost sm" data-r="kupb">${ic("upload", "sm")}${tx(K.own ? "k_up2" : "k_up")}</button>${K.own ? `<button type="button" class="btn ghost sm" data-r="krm">${ic("x", "sm")}${tx("k_rm")}</button>` : ""}
+          <input type="file" data-r="kfile" accept="image/png,image/jpeg,image/webp,image/svg+xml,image/gif" hidden></div>
+        <span class="note">${tx("k_up_l")}</span></div>
       <label class="field" data-r="kagw">${tx("k_agency")}<input data-r="kag" maxlength="80" value="${esc(K.agency)}"></label>
+      <p class="note" data-r="ksv" aria-live="polite"></p>
       <p class="note" data-r="ktr" ${K.lang === "ES" ? "hidden" : ""}>${ic("info", "sm")}${tx("k_trnote")}</p></div>
     <div class="step${S.wl ? " is-off" : ""}"><h3><span class="k">3</span>${tx("k3")}</h3>
       <label class="field">${tx("k_price")}<select data-r="kprice" ${S.wl ? "disabled" : ""}><option value="none">${tx("k_pn")}</option><option value="net">${tx("k_pnet")}</option><option value="sell">${tx("k_psell")}</option></select></label>
@@ -1347,8 +1393,17 @@ function renderKit() {
   $r("kpax").addEventListener("input", e => { K.pax = Math.min(30, Math.max(1, Math.round(+e.target.value) || 1)); });
   $r("kmk").addEventListener("input", e => { K.markup = Math.max(0, Math.min(100, +e.target.value || 0)); });
   $r("klang").addEventListener("change", e => { K.lang = e.target.value; $r("ktr").hidden = K.lang === "ES"; });
-  $r("klogo").addEventListener("change", e => { K.logo = e.target.value === "1"; });
-  $r("kag").addEventListener("input", e => { K.agency = e.target.value; });
+  const kl = $r("klogo"); kl.value = brandV;
+  kl.addEventListener("change", e => { K.brand = e.target.value; $r("kown").hidden = K.brand !== "own"; });
+  $r("kupb").addEventListener("click", () => $r("kfile").click());
+  $r("kfile").addEventListener("change", async e => {
+    const f = e.target.files && e.target.files[0]; e.target.value = ""; if (!f) return;
+    if (f.size > 5e6) { kitMsg(tx("k_big")); return; }
+    try { K.own = await logoFromFile(f); } catch (err) { kitMsg(tx("k_badimg")); return; }
+    K.brand = "own"; renderKit(); saveKit();
+  });
+  if ($r("krm")) $r("krm").addEventListener("click", () => { K.own = null; renderKit(); saveKit(); });
+  $r("kag").addEventListener("input", e => { K.agency = e.target.value; clearTimeout(K.t); K.t = setTimeout(saveKit, 900); });
   $r("kgo").addEventListener("click", makePDF);
   count();
 }
@@ -1379,11 +1434,39 @@ async function pdfRun(ids, o, st, btn) {
   catch (e) { if (st) st.textContent = e && e.code === "lib" ? tx("k_nolib") : tx("k_err"); if (window.console) console.error(e); return false; }
   finally { if (btn) btn.disabled = false; }
 }
-function makePDF() {
-  const wl = !!(S && S.wl);
-  return pdfRun([...K.sel], { lang: K.lang, logo: K.logo && !wl, price: wl ? "none" : K.price, markup: K.markup, agency: K.agency, pax: K.pax || S.R.pax }, $r("kst"), $r("kgo"));
+const kitMsg = m => { const el = $r("ksv"); if (el) el.textContent = m; };
+function saveKit() {
+  if (!CTX.kitSave) return;
+  const d = { agencia: String(K.agency || "").trim().slice(0, 80) }; if (K.own) { d.logo = K.own.logo; d.ratio = K.own.ratio; }
+  kitMsg(tx("k_saving"));
+  CTX.kitSave(d).then(() => kitMsg(tx("k_saved")), () => kitMsg(tx("k_nosave")));
 }
-// o = { lang: ES|EN|FR|IT|PT, logo, price: none|net|sell, markup, agency, pax }. Una sola ficha: sin portada.
+// Logo de la agencia: cualquier imagen se reduce en el navegador a PNG de hasta 600 × 300 px (JPEG con fondo blanco si pesa mucho)
+function logoFromFile(f) {
+  return new Promise((ok, bad) => {
+    const u = URL.createObjectURL(f), im = new Image();
+    const fail = e => { URL.revokeObjectURL(u); bad(e); };
+    im.onload = () => {
+      try {
+        let w = im.naturalWidth || 600, h = im.naturalHeight || 300;
+        const k = Math.min(/svg/.test(f.type) ? Infinity : 1, 600 / w, 300 / h); w = Math.max(1, Math.round(w * k)); h = Math.max(1, Math.round(h * k));
+        const c = document.createElement("canvas"); c.width = w; c.height = h; c.getContext("2d").drawImage(im, 0, 0, w, h);
+        let d = c.toDataURL("image/png");
+        if (d.length > 380000) { const c2 = document.createElement("canvas"); c2.width = w; c2.height = h; const g = c2.getContext("2d"); g.fillStyle = "#fff"; g.fillRect(0, 0, w, h); g.drawImage(c, 0, 0); d = c2.toDataURL("image/jpeg", .85); }
+        URL.revokeObjectURL(u);
+        if (!okLogo(d)) throw new Error("logo");
+        ok({ logo: d, ratio: Math.min(10, Math.max(.05, h / w)) });
+      } catch (e) { fail(e); }
+    };
+    im.onerror = () => fail(new Error("img"));
+    im.src = u;
+  });
+}
+function makePDF() {
+  const wl = !!(S && S.wl), b = kitBrand();
+  return pdfRun([...K.sel], { lang: K.lang, logo: b === "et", own: b === "own" ? K.own : null, price: wl ? "none" : K.price, markup: K.markup, agency: K.agency, pax: K.pax || S.R.pax }, $r("kst"), $r("kgo"));
+}
+// o = { lang: ES|EN|FR|IT|PT, logo (Espontáneos), own ({ logo, ratio } de la agencia), price: none|net|sell, markup, agency, pax }. Una sola ficha: sin portada.
 // Con precio, cada ficha muestra solo la tarifa por persona de los pasajeros cotizados (o.pax).
 async function buildPdf(ids, o) {
   const lang = o.lang || "ES", LB = KL[lang] || KL.ES, lg = lang.toLowerCase(), logo = !!o.logo, price = o.price || "none", mk = price === "sell" ? (+o.markup || 0) : 0;
@@ -1392,6 +1475,11 @@ async function buildPdf(ids, o) {
   const { jsPDF } = await loadJsPDF().catch(() => { throw Object.assign(new Error("lib"), { code: "lib" }); });
   const doc = new jsPDF({ unit: "mm", format: "a4" }), W = 210, Mg = 16, CW = W - 2 * Mg; const OL = [74, 92, 58];
   const agency = pdfTxt(String(o.agency || "").trim());
+  const own = !logo && o.own && okLogo(o.own.logo) ? o.own : null, ofmt = own && /^data:image\/jpeg/.test(own.logo) ? "JPEG" : "PNG";
+  // Logo de la agencia sobre un recuadro blanco (se ve bien aunque sea oscuro o transparente)
+  const ownLogo = (x, y, maxW, maxH) => { const w = Math.min(maxW, maxH / own.ratio), h = w * own.ratio, y0 = y + (maxH - h) / 2;
+    doc.setFillColor(255, 255, 255); doc.roundedRect(x - 1.5, y0 - 1.5, w + 3, h + 3, 1.5, 1.5, "F"); doc.setFillColor(...OL);
+    try { doc.addImage(own.logo, ofmt, x, y0, w, h); } catch (e) { /* sin logo */ } return w; };
   const foot = () => { doc.setFontSize(8); doc.setTextColor(120); doc.setFont("helvetica", "normal"); doc.text(pdfTxt(logo ? "Espontáneos Travel SAS · RNT 91795 · info@espontaneostravel.com · WhatsApp +57 318 720 0023" : (agency || "Paisaje Cultural Cafetero") + " · 2027"), Mg, 289); doc.text(String(doc.getNumberOfPages()), W - Mg, 289, { align: "right" }); };
   const lgo = logo ? await logoData() : null;
   let y = Mg, first = true;
@@ -1400,7 +1488,8 @@ async function buildPdf(ids, o) {
     doc.setFillColor(...OL); doc.rect(0, 0, W, 72, "F"); doc.setTextColor(255);
     if (logo) { if (lgo) { try { doc.addImage(lgo.d, "PNG", Mg, 12, 22, 22 * lgo.r); } catch (e) { /* sin logo */ } }
       doc.setFont("helvetica", "bold"); doc.setFontSize(24); doc.text(pdfTxt("Espontáneos Travel"), Mg + 27, 24); doc.setFont("helvetica", "normal"); doc.setFontSize(10.5); doc.text(pdfTxt("Armenia, Quindío · Colombia · RNT 91795"), Mg + 27, 31); }
-    else if (agency) { doc.setFont("helvetica", "bold"); doc.setFontSize(22); doc.text(agency, Mg, 28); }
+    else if (own || agency) { const x = own ? Mg + ownLogo(Mg, 10, 64, 26) + 8 : Mg;
+      if (agency) { doc.setFont("helvetica", "bold"); doc.setFontSize(own ? 18 : 22); doc.text(doc.splitTextToSize(agency, W - x - Mg).slice(0, 2), x, own ? 22 : 28); } }
     doc.setFont("helvetica", "bold"); doc.setFontSize(17); doc.text(pdfTxt(LB.title), Mg, 60);
     const cover = ids.map(id => byId[id].fotos[0]).find(Boolean);
     y = 80;
@@ -1418,7 +1507,8 @@ async function buildPdf(ids, o) {
       // ficha individual: franja con la marca (o la agencia) en vez de portada
       doc.setFillColor(...OL); doc.rect(0, 0, W, 16, "F"); doc.setTextColor(255); doc.setFont("helvetica", "bold"); doc.setFontSize(11);
       if (logo && lgo) { try { doc.addImage(lgo.d, "PNG", Mg, 2.5, 11, 11 * lgo.r); } catch (err) { /* sin logo */ } }
-      doc.text(pdfTxt(logo ? "Espontáneos Travel · " + LB.title : (agency ? agency + " · " : "") + LB.title), logo ? Mg + 14 : Mg, 10);
+      const hx = logo ? Mg + 14 : own ? Mg + ownLogo(Mg, 2.5, 40, 11) + 4 : Mg;
+      doc.text(pdfTxt(logo ? "Espontáneos Travel · " + LB.title : (agency ? agency + " · " : "") + LB.title), hx, 10);
       y = 22; first = false;
     }
     const fh = ids.length === 1 ? 560 : 680;     // ficha individual: foto un poco más baja para que todo quepa en una página
@@ -1456,7 +1546,7 @@ async function buildPdf(ids, o) {
     foot();
   }
   const base = ids.length === 1 ? `Ficha_${price === "none" ? ids[0] : (byId[ids[0]].code || ids[0])}_2027` : "Portafolio_PCCC_2027";
-  const fname = `${base}_${lang}${logo ? "" : "_marca-blanca"}${price === "none" ? "" : price === "net" ? "_neto" : "_venta"}.pdf`;
+  const fname = `${base}_${lang}${logo ? "" : own ? "_agencia" : "_marca-blanca"}${price === "none" ? "" : price === "net" ? "_neto" : "_venta"}.pdf`;
   return { blob: doc.output("blob"), fname };
 }
 // Para la pestaña Tarifas del portal: descarga la ficha (con tarifa neta) aunque el portafolio no esté abierto

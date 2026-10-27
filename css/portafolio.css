@@ -259,6 +259,12 @@
 .pf .field.inline input { width: 90px; }
 .pf .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (max-width: 480px) { .pf .row2 { grid-template-columns: 1fr; } }
+/* Kit de venta: logo propio de la agencia (vista previa sobre blanco, como sale en el PDF) */
+.pf .kown { display: grid; gap: 8px; margin-top: 10px; padding: 10px; border: 1px dashed var(--line); border-radius: 8px; }
+.pf .kprev { display: flex; align-items: center; min-height: 64px; padding: 8px 12px; background: #fff; border-radius: 6px; border: 1px solid var(--line); width: fit-content; max-width: 100%; }
+.pf .kprev img { display: block; max-width: min(260px, 100%); max-height: 90px; width: auto; height: auto; }
+.pf .kown .btnrow { margin: 0; }
+.pf .kprev .sub { color: #5D6656; }
 .pf .veh { display: flex; gap: 10px; align-items: center; font-size: .86rem; background: var(--surface-2); border-radius: 8px; padding: 8px 10px; }
 .pf .veh b { font-family: var(--f-display); }
 .pf .titems { display: grid; gap: 8px; }
@@ -420,6 +426,19 @@
 .pf .netbox small { color: var(--muted); font-size: .76rem; }
 .pf .supl { border-top: 1px dashed var(--line); padding-top: 8px; display: grid; gap: 4px; }
 .pf .supl ul { margin: 0; padding-left: 18px; font-size: .84rem; display: grid; gap: 3px; }
+/* Suplemento de guianza en otros idiomas: se abre, se elige el idioma y salen sus valores */
+.pf .gsup { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); margin-top: 4px; }
+.pf .gsup > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; font-size: .84rem; font-weight: 700; min-height: 40px; }
+.pf .gsup > summary::-webkit-details-marker { display: none; }
+.pf .gsup > summary::after { content: "+"; font-size: 1.1rem; line-height: 1; color: var(--muted); }
+.pf .gsup[open] > summary::after { content: "−"; }
+.pf .gsup[open] > summary { border-bottom: 1px solid var(--line); }
+.pf .gsup .field { padding: 8px 10px 0; }
+.pf .gsup [data-r="gvals"] { padding: 8px 10px 10px; display: grid; gap: 6px; }
+.pf .gvals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 0; }
+.pf .gvals div { background: var(--surface-2); border-radius: 6px; padding: 6px 8px; }
+.pf .gvals dt { font-size: .7rem; color: var(--muted); }
+.pf .gvals dd { margin: 0; font-weight: 700; font-size: .86rem; font-variant-numeric: tabular-nums; }
 .pf .impact { border-left: 3px solid var(--leaf); }
 .pf .impact p { display: grid; gap: 4px; font-size: .88rem; }
 .pf .combo { display: grid; gap: 8px; }
@@ -545,3 +564,16 @@
 /* El portal se ensancha mientras el portafolio está abierto (mapa + panel lado a lado) */
 .p-main.p-main--wide { max-width: 1680px; }
 @media (max-width: 640px) { .p-main.p-main--wide { padding-left: 8px; padding-right: 8px; } .pf { border-radius: 10px; } }
+
+/* ---------- vista flotante de la ruta («Arma tu ruta»): ventana pequeña sobre la página, sin abrir el mapa grande;
+   se cierra con la X, Escape o un clic afuera. El mapa que muestra es el mismo (prestado) y aquí solo se mira. ---------- */
+.pf .rfloat { position: fixed; right: 20px; bottom: 20px; z-index: 40; width: min(460px, calc(100vw - 40px)); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 18px 50px rgba(0,0,0,.28); overflow: hidden; display: flex; flex-direction: column; animation: pf-fl-in .18s ease-out; }
+.pf .rfloat[hidden] { display: none; }
+.pf .fl-head { display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 12px; border-bottom: 1px solid var(--line); }
+.pf .fl-head b { display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; }
+.pf .fl-head .sub { flex: 1; min-width: 0; }
+.pf .fl-map { position: relative; height: 320px; background: var(--sea); overflow: hidden; }
+.pf .rfloat .mapsvg { pointer-events: none; cursor: default; }
+@media (max-width: 640px) { .pf .rfloat { left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); width: auto; } .pf .fl-map { height: min(44vh, 340px); } }
+@media (prefers-reduced-motion: reduce) { .pf .rfloat { animation: none; } }
+@keyframes pf-fl-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
