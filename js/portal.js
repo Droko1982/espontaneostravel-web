@@ -1137,6 +1137,30 @@ function emailAccessRequest(userId, email, v, s) {
   } catch (e) { /* el aviso es un extra: la solicitud ya quedó guardada */ }
 }
 
+// Aviso a info@ de una solicitud de reserva hecha por una agencia (el pedido ya quedó guardado; el correo es un extra)
+function emailBookingRequest(id, d) {
+  if (!REQUESTS_EMAIL) return;
+  const agencia = (S.dmc && S.dmc.nombre) || d.dmcId || "";
+  const fechas = d.fecha_fin && d.fecha_fin !== d.fecha_inicio ? `${d.fecha_inicio} → ${d.fecha_fin}` : d.fecha_inicio;
+  const body = {
+    _subject: `📩 Portal: solicitud de reserva — ${agencia} · ${d.viajero} (${d.pax} pax)`,
+    _template: "table", _replyto: d.creadoPorEmail || "",
+    "Agencia": agencia,
+    "Enviada por": [S.profile && S.profile.nombre, d.creadoPorEmail].filter(Boolean).join(" · "),
+    "WhatsApp de la agencia": (S.profile && S.profile.whatsapp) || "",
+    "Viajero": d.viajero,
+    "Tours": d.tours.map((x, i) => `${i + 1}. ${x.nombre}${x.codigo ? " (" + x.codigo + ")" : ""}`).join("\n"),
+    "Fechas": fechas, "Pasajeros": String(d.pax), "Hotel": d.hotel || "", "Idioma del guía": d.idioma || "",
+    "Necesidades especiales": d.necesidades || "", "Notas": d.notas || "",
+    "Código del pedido": id || "",
+    "Responder en el portal": PORTAL_URL + "#pedidos",
+    "Cómo responder": "Entra al portal con tu cuenta del equipo: en «Pedidos DMC» cambias el estado y escribes la respuesta, que la agencia ve en «Mis solicitudes»."
+  };
+  try {
+    fetch(REQUESTS_EMAIL, { method: "POST", keepalive: true, headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body) }).catch(() => {});
+  } catch (e) { /* el aviso es un extra: la solicitud ya quedó guardada */ }
+}
+
 function renderSignup() {
   const fy = formFields([
     { name: "nombre", label: t("name"), required: true, max: 120, autocomplete: "name" },
@@ -2160,11 +2184,13 @@ async function dmcSolicitar(view) {
     const pax = parseInt(v.pax, 10);
     if (!(pax >= 1 && pax <= 500)) throw userErr(t("pax_invalid"));
     if (v.fecha_fin && v.fecha_fin < v.fecha_inicio) throw userErr(t("end_before"));
-    await fs.addDoc(col("solicitudes"), {
+    const d = {
       dmcId: S.profile.dmcId, creadoPor: S.user.uid, creadoPorEmail: S.user.email || "", clienteId: clientSel.value || null,
       viajero: v.viajero, tours: chosen.slice(0, MAX_TOURS), fecha_inicio: v.fecha_inicio, fecha_fin: v.fecha_fin, pax,
       hotel: v.hotel, idioma: v.idioma, necesidades: v.necesidades, notas: v.notas, estado: "nueva", creado: ts(), actualizado: ts()
-    });
+    };
+    const ref = await fs.addDoc(col("solicitudes"), d);
+    emailBookingRequest(ref && ref.id, d);
     notify(t("req_sent"));
     S.tabsApi.select("mis", true);
   },
@@ -2385,6 +2411,7 @@ function renderStaffApp() {
   dueFollowUps(hello);
   // Enlaces del correo de aviso (solo administración)
   if (location.hash === "#usuarios") { if (admin) S.tab = "usuarios"; clearHash(); }
+  if (location.hash === "#pedidos") { S.tab = "solicitudes"; clearHash(); }
   if (S.approval && !admin) { S.approval = null; clearHash(); notify("Solo un administrador puede aprobar solicitudes de acceso.", "error"); }
   const apHost = h("div", { class: "p-approve-host" });
   add(main, apHost);
