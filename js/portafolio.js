@@ -24,7 +24,10 @@ let VB = { x: 0, y: 0, w: 100, h: 100 }, svg = null, base = null, ov = null, ani
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const norm = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toUpperCase().trim();
 const cop = n => "$ " + Math.round(n).toLocaleString("es-CO");
-const ls = { get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* sin almacenamiento */ } } };
+const store = st => ({ get(k, d) { try { const v = st().getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set(k, v) { try { st().setItem(k, JSON.stringify(v)); } catch (e) { /* sin almacenamiento */ } } });
+const ls = store(() => localStorage);
+// Ruta y pestaña duran solo la sesión: cada ingreso abre en Inicio con «Arma tu ruta» limpio (portal.js borra pf27-* al cerrar sesión)
+const ss = store(() => sessionStorage);
 const $r = n => ROOT.querySelector(`[data-r="${n}"]`);
 const $$ = s => [...ROOT.querySelectorAll(s)];
 const json = u => fetch(u, { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error(u + " " + r.status); return r.json(); });
@@ -64,11 +67,11 @@ const UI = {
     kids: "Niños de 0 a 2 años no pagan, pero ocupan silla de bebé en el vehículo; desde los 3 años pagan tarifa.", see_cond: "Políticas de reserva y pago", see_about: "Quiénes somos",
     com_txt: "Experiencia con la comunidad local (campesinos, artesanos, productores).", cord_txt: "Hace parte del proyecto Paisaje Cordillerano.", carry: "Tarifa {0} · aplica en {1}", copied: "Copiado", link_copied: "Enlace copiado", txt_copied: "Texto copiado",
     p_param: "Parámetro operativo", p_b2b: "Detalle técnico B2B", p_b2c: "Especificación comercial (B2C)", p_sched: "Horario recomendado", am: "Mañana", pm: "Tarde", ampm: "Mañana o tarde", guide_sup: "otros idiomas con suplemento de guianza",
-    conv_t: "Convenciones e iconografía", inst_t: "Presentación institucional", idx_t: "Índice de experiencias", idx_l: "Toca una línea para ver sus experiencias.", see_more: "Más sobre nosotros", how_t: "Cómo usar el portafolio",
+    conv_t: "Convenciones e iconografía", inst_t: "Presentación institucional", idx_t: "Índice de experiencias", idx_l: "Toca una experiencia para abrir su ficha, o el nombre de la línea para verlas todas.", g_open: "Abrir todas", g_close: "Cerrar todas", see_more: "Más sobre nosotros", how_t: "Cómo usar el portafolio",
     ic_dur: "Duración y dificultad: tiempo estimado y exigencia física (baja, media, alta).", ic_geo: "Geolocalización: con el hotel de «Arma tu ruta», cada experiencia muestra su distancia y la finca se asigna en el municipio más cercano.",
     ic_com: "Comunitario: experiencia con la comunidad local (campesinos, artesanos, productores).", ic_cord: "Paisaje Cordillerano: tours del proyecto en Calarcá, Córdoba, Pijao, Buenavista y Génova (Quindío) y Caicedonia y Sevilla (Valle).",
     ic_b2b: "Solo agencias: datos de venta y operación que no salen en Marca blanca ni en el PDF para el cliente.", ic_code: "Códigos: HD medio día (menos de 7 h) · FD día completo (7 h o más) · PT parques temáticos.",
-    near: "≈ {0} km de tu hotel", near_sort: "Cercanas a mi hotel primero", near_hint: "Elige el hotel en «Arma tu ruta» y verás la distancia a cada experiencia.", p_diff: "Nivel de dificultad", p_cap: "Capacidad máxima", p_meet: "Punto de encuentro", p_guide: "Idioma de guianza",
+    near: "≈ {0} km de tu hotel", near_sort: "Cercanas a mi hotel primero", near_hint: "Escribe el hotel de tu cliente y ordenamos las experiencias por cercanía. Es el mismo hotel de «Arma tu ruta».", p_diff: "Nivel de dificultad", p_cap: "Capacidad máxima", p_meet: "Punto de encuentro", p_guide: "Idioma de guianza",
     low: "Baja", mid: "Media", high: "Alta", pick: "Recogida en el alojamiento (zona de cobertura según condiciones)", pickC: "Su hotel", onsite: "En el lugar de la experiencia", atHotel: "En el hotel del grupo",
     capB2B: "Tarifa publicada hasta {0} pax; grupos mayores: consultar", capB2C: "Hasta {0} personas", langB2B: "Español / inglés (otros idiomas con suplemento de guianza)", langC: "Español / inglés",
     r_h: "Arma tu ruta", r_l: "Elige aeropuerto, hotel y tours. La ruta se dibuja en el mapa con distancias por carretera, tiempos estimados y el vehículo según el número de pasajeros.",
@@ -129,11 +132,11 @@ const UI = {
     kids: "Children aged 0–2 travel free but occupy a baby seat in the vehicle; from age 3 they pay the rate.", see_cond: "Booking and payment policies", see_about: "About us",
     com_txt: "Experience with the local community (farmers, artisans, producers).", cord_txt: "Part of the Paisaje Cordillerano project.", carry: "{0} rate · valid in {1}", copied: "Copied", link_copied: "Link copied", txt_copied: "Text copied",
     p_param: "Operating parameter", p_b2b: "B2B technical detail", p_b2c: "Commercial specification (B2C)", p_sched: "Recommended schedule", am: "Morning", pm: "Afternoon", ampm: "Morning or afternoon", guide_sup: "other languages with guiding supplement",
-    conv_t: "Conventions and icons", inst_t: "Who we are", idx_t: "Experience index", idx_l: "Tap a line to see its experiences.", see_more: "More about us", how_t: "How to use the portfolio",
+    conv_t: "Conventions and icons", inst_t: "Who we are", idx_t: "Experience index", idx_l: "Tap an experience to open its sheet, or a line name to see them all.", g_open: "Open all", g_close: "Close all", see_more: "More about us", how_t: "How to use the portfolio",
     ic_dur: "Duration and difficulty: estimated time and physical effort (low, medium, high).", ic_geo: "Geolocation: with the hotel from «Build a route», each experience shows its distance and the farm is assigned in the closest municipality.",
     ic_com: "Community: experience with the local community (farmers, artisans, producers).", ic_cord: "Paisaje Cordillerano: tours of the project in Calarcá, Córdoba, Pijao, Buenavista and Génova (Quindío) and Caicedonia and Sevilla (Valle).",
     ic_b2b: "Agencies only: sales and operation data never shown in White label or in the client PDF.", ic_code: "Codes: HD half day (under 7 h) · FD full day (7 h or more) · PT theme parks.",
-    near: "≈ {0} km from your hotel", near_sort: "Closest to my hotel first", near_hint: "Choose the hotel in «Build a route» to see the distance to each experience.", p_diff: "Difficulty level", p_cap: "Maximum capacity", p_meet: "Meeting point", p_guide: "Guiding language",
+    near: "≈ {0} km from your hotel", near_sort: "Closest to my hotel first", near_hint: "Type your client's hotel and we sort the experiences by distance. It is the same hotel used in «Build a route».", p_diff: "Difficulty level", p_cap: "Maximum capacity", p_meet: "Meeting point", p_guide: "Guiding language",
     low: "Low", mid: "Medium", high: "High", pick: "Pick-up at the accommodation (coverage area as per conditions)", pickC: "Your hotel", onsite: "At the experience site", atHotel: "At the group's hotel",
     capB2B: "Rate published up to {0} pax; larger groups: ask us", capB2C: "Up to {0} people", langB2B: "Spanish / English (other languages with guiding supplement)", langC: "Spanish / English",
     r_h: "Build a route", r_l: "Choose airport, hotel and tours. The route is drawn on the map with road distances, estimated times and the vehicle for your group size.",
@@ -175,6 +178,9 @@ function tr(e, f, lang) {
   return e[f];
 }
 const catName = k => (L() === "en" && I18.en && I18.en.cats && I18.en.cats[k]) || (D.cats[k] && D.cats[k].name) || k;
+// Nombre de la línea como en el índice del portafolio en PDF que ya conocen las agencias («Experiencias rurales»…)
+const LINE = { es: { rur: "Experiencias rurales", nat: "Experiencias de naturaleza", bien: "Experiencias de bienestar" }, en: { rur: "Rural experiences", nat: "Nature experiences", bien: "Wellness experiences" } };
+const lineName = k => (LINE[L()] || LINE.es)[k] || catName(k);
 
 /* ---------- íconos (trazo, 24×24) ---------- */
 const ICONS = {
@@ -387,9 +393,10 @@ export async function mountPortafolio(host, ctx) {
   loadFonts();
   await preload(L());
   buildModel();
-  const saved = ls.get("pf27-ruta", null);
+  try { localStorage.removeItem("pf27-ruta"); localStorage.removeItem("pf27-tab"); } catch (e) { /* versiones anteriores las guardaban sin vencer */ }
+  const saved = ss.get("pf27-ruta", null);
   S = { cats: new Set(Object.keys(D.cats)), q: "", ideal: "", dur: "", lang: "", sugg: "", active: null, popLL: null, wl: false, hotels: false, fincas: true,
-    tab: ls.get("pf27-tab", "mapa"), placing: false, editing: false, newName: "",
+    tab: ss.get("pf27-tab", "mapa"), placing: false, editing: false, newName: "", newFor: "", near: false, open: {},
     R: Object.assign({ pax: 2, start: 2, arr: "AXM", dep: "AXM", hotel: null, finca: "", tours: [] }, saved || {}) };
   sanitizeR(S.R);
   if (!["mapa", "exp", "ruta", "trans", "kit", "cond"].includes(S.tab)) S.tab = "mapa";
@@ -443,8 +450,9 @@ function skeleton() {
           <select data-f="sugg" aria-label="${esc(tx("f_route"))}"><option value="">${tx("f_route")}</option>${Object.keys(D.sugg).map(r => `<option value="${esc(r)}">${esc(L() === "en" && I18.en && I18.en.sugg && I18.en.sugg[r] || r)}</option>`).join("")}</select>
           <button type="button" class="btn ghost sm" data-r="fclear" hidden>${ic("x")}${tx("f_clear")}</button>
         </div>
-        <label class="nearsort" data-r="nearw"><input type="checkbox" data-r="near"> ${ic("pin", "sm")}<span data-r="neart">${tx("near_sort")}</span></label>
-        <div class="count" data-r="count" role="status"></div>
+        <label class="nearsort" data-r="nearw"><input type="checkbox" data-r="near"> ${ic("pin", "sm")}<span>${tx("near_sort")}</span></label>
+        <div class="nearbox" data-r="nearbox" hidden></div>
+        <div class="listbar"><div class="count" data-r="count" role="status"></div><button type="button" class="btn ghost sm" data-r="gall" hidden></button></div>
         <div data-r="groups"></div>
       </section>
       <section class="pane" id="pf-pane-ruta" data-pane="ruta" role="tabpanel" aria-labelledby="pf-tab-ruta" hidden>
@@ -484,7 +492,7 @@ function bindStatic() {
   });
   // filtros
   const f = n => ROOT.querySelector(`[data-f="${n}"]`);
-  const refilter = () => { drawOverlay(); renderList(); $r("fclear").hidden = !(S.q || S.ideal || S.dur || S.lang || S.sugg || S.cats.size < Object.keys(D.cats).length); };
+  const refilter = () => { S.open = {}; drawOverlay(); renderList(); $r("fclear").hidden = !(S.q || S.ideal || S.dur || S.lang || S.sugg || S.cats.size < Object.keys(D.cats).length); };
   let qt = 0;
   f("q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { S.q = e.target.value; refilter(); }, 120); });
   ["ideal", "dur", "lang"].forEach(k => f(k).addEventListener("change", e => { S[k] = e.target.value; refilter(); }));
@@ -492,7 +500,14 @@ function bindStatic() {
     S.sugg = e.target.value; refilter();
     if (S.sugg) { const ids = D.sugg[S.sugg].filter(i => byId[i]); const la = ids.map(i => byId[i].lat), lo = ids.map(i => byId[i].lon); if (la.length) animateTo(boxToVB(Math.min(...la) - .06, Math.max(...la) + .08, Math.min(...lo) - .06, Math.max(...lo) + .06)); }
   });
-  $r("near").addEventListener("change", e => { S.near = e.target.checked; renderList(); });
+  $r("near").addEventListener("change", e => {
+    S.near = e.target.checked; renderList();
+    const q = S.near && !S.R.hotel && $r("nearbox").querySelector('[data-h="q"]'); if (q) q.focus();
+  });
+  $r("gall").addEventListener("click", () => {
+    const ds = $r("groups").querySelectorAll("details.group"), open = ![...ds].every(d => d.open);
+    ds.forEach(d => { d.open = open; S.open[d.dataset.g] = open; }); syncGall();
+  });
   $r("fclear").addEventListener("click", () => { S.q = S.ideal = S.dur = S.lang = S.sugg = ""; ["q", "ideal", "dur", "lang", "sugg"].forEach(k => { f(k).value = ""; }); S.cats = new Set(Object.keys(D.cats)); renderLegend(); refilter(); });
   S.refilter = refilter;
   // mapa
@@ -565,7 +580,7 @@ function bindStatic() {
 
 /* ---------- pestañas y modo ---------- */
 function setTab(t, first) {
-  S.tab = t; ls.set("pf27-tab", t);
+  S.tab = t; ss.set("pf27-tab", t);
   $$("[data-tab]").forEach(b => { const on = b.dataset.tab === t; b.setAttribute("aria-selected", String(on)); b.tabIndex = on ? 0 : -1; });
   $$("[data-pane]").forEach(p => { p.hidden = p.dataset.pane !== t; });
   if (t === "exp" && S.listDirty) renderList();
@@ -808,20 +823,35 @@ function renderList() {
   if (S.tab !== "exp") { S.listDirty = true; return; }      // se pinta al abrir «Experiencias»
   S.listDirty = false;
   const vis = visible(); let html = "", n = 0;
-  const nw = $r("nearw"); if (nw) { const has = !!S.R.hotel; $r("near").disabled = !has; nw.classList.toggle("is-off", !has); $r("neart").textContent = has ? tx("near_sort") + " · " + S.R.hotel.name : tx("near_hint"); }
-  for (const [k, c] of Object.entries(D.cats)) {
-    const items = EXP.filter(e => e.cat === k && vis.has(e.id)); if (!items.length) continue; n += items.length;
+  renderNear();
+  // Cada línea se abre y se cierra con un clic; cerradas al entrar, abiertas al buscar o filtrar (o si queda una sola)
+  const groups = Object.entries(D.cats).map(([k, c]) => [k, c, EXP.filter(e => e.cat === k && vis.has(e.id))]).filter(g => g[2].length);
+  const auto = !!(S.q || S.ideal || S.dur || S.lang || S.sugg) || groups.length === 1;
+  for (const [k, c, items] of groups) {
+    n += items.length;
     if (S.near && S.R.hotel) items.sort((a, b) => distKm(a) - distKm(b));
-    html += `<div class="group"><h3><i style="background:${c.color}"></i>${esc(catName(k))} <span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span></h3><div class="cards">` +
+    html += `<details class="group" data-g="${k}"${(k in S.open ? S.open[k] : auto) ? " open" : ""}><summary><i style="background:${c.color}"></i><span class="gname">${esc(lineName(k))}</span><span class="gn">${items.length}</span><span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span>${ic("chev", "sm")}</summary><div class="cards">` +
       items.map(e => `<button type="button" class="card${S.active === e.id ? " on" : ""}" data-card="${e.id}">
         <div class="media">${mediaBlock(e, { video: false, one: true })}${badges(e)}${videosOf(e.id).length ? '<span class="vid-tag">▶ Video</span>' : ""}</div>
         <div class="body"><h4>${esc(tr(e, "name"))}</h4><div class="meta"><span class="code">${e.code}</span>${e.code ? " · " : ""}${esc(e.deptos)} · ${ic("clock", "sm")}${esc(tr(e, "dur"))}</div>
         ${icoRow(e, "sm")}${nearLine(e)}<div class="meta tl">${esc(tr(e, "tagline"))}</div>
-        <div class="price">${priceLine(e)}</div></div></button>`).join("") + `</div></div>`;
+        <div class="price">${priceLine(e)}</div></div></button>`).join("") + `</div></details>`;
   }
   $r("groups").innerHTML = html || `<p class="empty">${tx("none_match")}</p>`;
   $r("count").textContent = n === 1 ? tx("n_exp1") : tx("n_exp", n);
   $r("groups").querySelectorAll("[data-card]").forEach(c => c.addEventListener("click", () => openFicha(c.dataset.card)));
+  $r("groups").querySelectorAll("details.group").forEach(d => d.addEventListener("toggle", () => { if (d.isConnected) { S.open[d.dataset.g] = d.open; syncGall(); } }));
+  syncGall();
+}
+function syncGall() {
+  const ds = [...$r("groups").querySelectorAll("details.group")], b = $r("gall");
+  b.hidden = ds.length < 2; b.textContent = ds.length && ds.every(d => d.open) ? tx("g_close") : tx("g_open");
+}
+// «Cercanas a mi hotel»: el hotel se busca aquí mismo (es el de «Arma tu ruta») y nada viene preseleccionado de otra sesión
+function renderNear() {
+  const box = $r("nearbox"); if (!box) return;
+  $r("near").checked = !!S.near; box.hidden = !S.near;
+  if (S.near) { renderHotelBox(box, "n"); if (!S.R.hotel) box.insertAdjacentHTML("beforeend", `<span class="note">${tx("near_hint")}</span>`); }
 }
 
 /* ---------- tarjeta flotante en el mapa ---------- */
@@ -986,7 +1016,7 @@ function bindAdd(root) {
 }
 
 /* ---------- arma tu ruta ---------- */
-const saveR = () => { ls.set("pf27-ruta", S.R); S.listDirty = true; };
+const saveR = () => { ss.set("pf27-ruta", S.R); S.listDirty = true; };
 function toggleTour(id) {
   if (inRoute(id)) S.R.tours = S.R.tours.filter(t => t.id !== id);
   else { const used = new Set(S.R.tours.map(t => t.day)); let d = +S.R.start; while (used.has(d) && d < 12) d++; S.R.tours.push({ id, day: d }); toast(tx("added_day", d)); }
@@ -1103,32 +1133,34 @@ function fitRoute(show) {
 }
 
 /* ---------- hotel: aliados → usados antes → mapa abierto (OpenStreetMap) → enlace de Google Maps o tocar el mapa ---------- */
-function setHotel(h) { S.R.hotel = { id: h.id, name: h.name, muni: h.muni, concept: h.concept || "", zone: h.zone || null, lat: h.lat, lon: h.lon, et: !!h.et }; rememberHotel(h); saveR(); renderRoute(); renderList(); fitRoute(); }
-function renderHotelBox() {
-  const box = $r("rhbox"), h = S.R.hotel;
-  if (h && !S.newName) {
-    box.innerHTML = `<div class="hsel">${ic("hotel")}<span><b>${esc(h.name)}</b><br><span class="sub">${esc(MUNI_LABEL(h.muni))}${h.concept ? " · " + esc(h.concept) : ""}${h.et ? ` · <span class="ally">${tx("h_ally")}</span>` : ""}</span></span><button type="button" class="btn ghost sm" data-r="hchange">${tx("h_change")}</button></div>`;
-    $r("hchange").addEventListener("click", () => { S.R.hotel = null; saveR(); renderRoute(); setTimeout(() => { const q = $r("hq"); if (q) q.focus(); }, 0); });
+function setHotel(h) { S.R.hotel = { id: h.id, name: h.name, muni: h.muni, concept: h.concept || "", zone: h.zone || null, lat: h.lat, lon: h.lon, et: !!h.et }; rememberHotel(h); saveR(); hotelBoxes(); if (S.tab === "ruta") fitRoute(); }
+// Dos buscadores con el mismo hotel: «Arma tu ruta» (key "r") y «Cercanas a mi hotel» en Experiencias (key "n")
+const hotelBoxes = () => { renderRoute(); renderList(); };
+function renderHotelBox(box = $r("rhbox"), key = "r") {
+  const h = S.R.hotel, $h = n => box.querySelector(`[data-h="${n}"]`), placing = S.newName && S.newFor === key;
+  if (h && !placing) {
+    box.innerHTML = `<div class="hsel">${ic("hotel")}<span><b>${esc(h.name)}</b><br><span class="sub">${esc(MUNI_LABEL(h.muni))}${h.concept ? " · " + esc(h.concept) : ""}${h.et ? ` · <span class="ally">${tx("h_ally")}</span>` : ""}</span></span><button type="button" class="btn ghost sm" data-h="change">${tx("h_change")}</button></div>`;
+    $h("change").addEventListener("click", () => { S.R.hotel = null; saveR(); hotelBoxes(); setTimeout(() => { const q = $h("q"); if (q) q.focus(); }, 0); });
     return;
   }
-  if (S.newName) {
+  if (placing) {
     box.innerHTML = `<div class="newh"><b>${esc(tx("h_place", S.newName))}</b>
-      <label class="field">${tx("h_link")}<div class="inrow"><input data-r="hlink" placeholder="${esc(tx("h_link_ph"))}" inputmode="url"><button type="button" class="btn" data-r="hlinkok">${tx("h_locate")}</button></div></label>
+      <label class="field">${tx("h_link")}<div class="inrow"><input data-h="link" placeholder="${esc(tx("h_link_ph"))}" inputmode="url"><button type="button" class="btn" data-h="linkok">${tx("h_locate")}</button></div></label>
       <span class="note">${tx("h_link_note")}</span>
-      <div class="btnrow"><button type="button" class="btn ghost" data-r="htap">${ic("pin", "sm")}${tx("h_tap")}</button><button type="button" class="btn ghost" data-r="hcancel">${tx("cancel")}</button></div></div>`;
-    $r("hlinkok").addEventListener("click", () => { const c = parseMaps($r("hlink").value); if (c) finishNewHotel(c[0], c[1]); else toast(tx("h_nolink")); });
-    $r("htap").addEventListener("click", startPlacing);
-    $r("hcancel").addEventListener("click", () => { S.newName = ""; stopPlacing(); renderHotelBox(); });
+      <div class="btnrow"><button type="button" class="btn ghost" data-h="tap">${ic("pin", "sm")}${tx("h_tap")}</button><button type="button" class="btn ghost" data-h="cancel">${tx("cancel")}</button></div></div>`;
+    $h("linkok").addEventListener("click", () => { const c = parseMaps($h("link").value); if (c) finishNewHotel(c[0], c[1]); else toast(tx("h_nolink")); });
+    $h("tap").addEventListener("click", startPlacing);
+    $h("cancel").addEventListener("click", () => { S.newName = ""; stopPlacing(); renderHotelBox(box, key); });
     return;
   }
-  box.innerHTML = `<div class="combo-in"><label class="field">${tx("r3")}<input data-r="hq" type="search" autocomplete="off" placeholder="${esc(tx("h_ph"))}" role="combobox" aria-expanded="false" aria-controls="pf-hs" aria-autocomplete="list"></label><div class="sugg" id="pf-hs" data-r="hs" role="listbox" hidden></div></div>`;
-  const q = $r("hq"), sg = $r("hs");
+  box.innerHTML = `<div class="combo-in"><label class="field">${tx("r3")}<input data-h="q" type="search" autocomplete="off" placeholder="${esc(tx("h_ph"))}" role="combobox" aria-expanded="false" aria-controls="pf-hs-${key}" aria-autocomplete="list"></label><div class="sugg" id="pf-hs-${key}" data-h="s" role="listbox" hidden></div></div>`;
+  const q = $h("q"), sg = $h("s");
   let osm = null, osmQ = "";
   const pick = b => {
     if (b.dataset.pick) { const h = HOTELS.find(x => x.id === b.dataset.pick); if (h) setHotel(h); }
     else if (b.dataset.osm != null) { const o = osm[+b.dataset.osm]; setHotel({ id: "osm" + o.id, name: o.name, muni: nearestMuni(o.lat, o.lon), concept: o.type, lat: o.lat, lon: o.lon }); }
     else if (b.dataset.search) searchOsm(q.value.trim());
-    else { S.newName = q.value.trim(); renderHotelBox(); }
+    else { S.newName = q.value.trim(); S.newFor = key; renderHotelBox(box, key); }
   };
   const show = () => {
     const v = norm(q.value), raw = q.value.trim();
@@ -1264,11 +1296,14 @@ function renderMapPane() {
         <li>${ic("clock", "sm")}<span>${esc(tx("ic_dur"))}</span></li><li>${ic("pin", "sm")}<span>${esc(tx("ic_geo"))}</span></li>
         <li><span class="mini com">${tx("b_com")}</span><span>${esc(tx("ic_com"))}</span></li><li><span class="mini cord">${tx("b_cord")}</span><span>${esc(tx("ic_cord"))}</span></li>
         <li><span class="b2b">${tx("only_ag")}</span><span>${esc(tx("ic_b2b"))}</span></li><li>${ic("tag", "sm")}<span>${esc(tx("ic_code"))}</span></li></ul></div>
-    <div class="section"><h3>${ic("grid")}${tx("idx_t")}</h3><p class="note">${tx("idx_l")}</p><div class="zbtns">${Object.entries(D.cats).map(([k, c]) => `<button type="button" class="chip" data-idx="${k}"><i style="background:${c.color}"></i>${esc(catName(k))} <span class="sub">${ccount[k] || 0}</span></button>`).join("")}</div></div>
+    <div class="section"><h3>${ic("grid")}${tx("idx_t")}</h3><p class="note">${tx("idx_l")}</p><div class="pidx">${Object.entries(D.cats).filter(([k]) => ccount[k]).map(([k, c]) => `<div class="pidx-g">
+      <button type="button" class="pidx-h" data-idx="${k}"><i style="background:${c.color}"></i>${esc(lineName(k))} <span class="sub">${ccount[k]}</span></button>
+      <ul>${EXP.filter(e => e.cat === k).map(e => `<li><button type="button" data-idx-e="${e.id}">${e.code ? `<span class="code">${esc(e.code)}</span><span class="code dash" aria-hidden="true">-</span>` : ""}<span class="nm">${esc(tr(e, "name"))}</span>${icoRow(e, "sm")}${e.nuevo ? `<span class="new">${tx("b_new")}</span>` : ""}</button></li>`).join("")}</ul></div>`).join("")}</div></div>
     <div class="section"><h3>${ic("star")}${tx("shortcuts")}</h3><div class="zbtns"><button type="button" class="btn ghost" data-go-tab="exp">${ic("grid", "sm")}${tx("sc_exp")}</button><button type="button" class="btn ghost" data-go-tab="ruta">${ic("route", "sm")}${tx("sc_ruta")}</button><button type="button" class="btn ghost" data-go-tab="kit">${ic("file", "sm")}${tx("sc_kit")}</button><button type="button" class="btn ghost" data-go-tab="cond">${ic("info", "sm")}${tx("sc_cond")}</button></div></div>`;
   pane.querySelectorAll("[data-go-tab]").forEach(b => b.addEventListener("click", () => setTab(b.dataset.goTab)));
   pane.querySelectorAll("[data-cond-go]").forEach(b => b.addEventListener("click", () => { setTab("cond"); jumpCond(b.dataset.condGo); }));
   pane.querySelectorAll("[data-idx]").forEach(b => b.addEventListener("click", () => { S.cats = new Set([b.dataset.idx]); renderLegend(); S.refilter(); setTab("exp"); }));
+  pane.querySelectorAll("[data-idx-e]").forEach(b => b.addEventListener("click", () => openFicha(b.dataset.idxE)));
 }
 
 /* ---------- kit de venta (PDF en el navegador con jsPDF, cargado solo al usarlo) ---------- */
@@ -1428,7 +1463,7 @@ async function buildPdf(ids, o) {
 export async function downloadFichaPdf(id, ctx, o, st) {
   if (!(ROOT && ROOT.isConnected)) { CTX = ctx; await preload(ctx.lang); buildModel(); }
   if (!byId[id]) return false;
-  const rp = (S && S.R && S.R.pax) || (ls.get("pf27-ruta", null) || {}).pax || 2;
+  const rp = (S && S.R && S.R.pax) || (ss.get("pf27-ruta", null) || {}).pax || 2;
   return pdfRun([id], Object.assign({ lang: (ctx.lang === "en" ? "EN" : "ES"), logo: true, price: "net", markup: 0, agency: "", pax: rp }, o || {}), st, null);
 }
 
