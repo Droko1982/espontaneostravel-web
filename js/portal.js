@@ -852,6 +852,18 @@ async function loadI18nTours() {
   try { const r = await fetch("data/jenny.i18n.json", { cache: "no-cache" }); if (r.ok) S.i18n = await r.json(); } catch (e) { /* opcional */ }
 }
 const tourOf = r => S.tours.byId.get(r.tour_id) || S.tours.byCode.get(r.codigo) || null;
+// Orden del índice del portafolio (línea y, dentro de cada línea, el de data/portafolio.json): «Tarifas» lo sigue
+async function loadPfOrder() {
+  if (S.pfOrder) return;
+  S.pfOrder = new Map();
+  try {
+    const r = await fetch("data/portafolio.json", { cache: "no-cache" }); if (!r.ok) return;
+    const P = await r.json(); let i = 0;
+    Object.keys(P.cats || {}).forEach(c => (P.tours || []).filter(x => x.cat === c).forEach(x => S.pfOrder.set(x.id, i++)));
+  } catch (e) { /* sin ese orden: por línea y nombre */ }
+}
+const CAT_POS = k => { const i = Object.keys(CATS).indexOf(k); return i < 0 ? 99 : i; };
+const pfPos = tour => (tour && S.pfOrder && S.pfOrder.has(tour.id_web) ? S.pfOrder.get(tour.id_web) : 1e4 + CAT_POS(tour && tour.cat) * 100);
 function tourText(tour, field) {
   if (!tour) return null;
   if (L() !== "es" && S.i18n && S.i18n[L()] && S.i18n[L()].tours) {
@@ -1363,7 +1375,7 @@ async function dmcTarifas(view) {
   let data = { rates: [], cond: new Map(), pending: [] }, shown = [];
   async function load() {
     clear(out); add(out, loadingBox()); count.textContent = "";
-    await loadGeo();
+    await Promise.all([loadGeo(), loadPfOrder()]);
     try { data = await loadDmcRates(Number(ySel.value)); }
     catch (e) { clear(out); add(out, errorBox(e, load)); return; }
     const seasons = [...new Set(data.rates.map(r => r.temporada).filter(Boolean))].sort(collate);
@@ -1380,17 +1392,17 @@ async function dmcTarifas(view) {
     const pend = season ? [] : data.pending.filter(x => (!cat || x.cat === cat) && (!term || norm([x.nombre, x.codigo, x.id_web, tourText(x, "nombre")].join(" ")).includes(term)));
     const pendBox = pend.length ? h("section", { class: "p-pending" },
       h("h3", { class: "p-h3" }, t("pending_t", ySel.value, pend.length)), h("p", { class: "p-muted" }, t("pending_note", ySel.value)),
-      h("div", { class: "p-tours" }, (S.geoSort && S.hotelGeo ? pend.slice().sort((a, b) => ((geoNearest(a, splitNotes((data.cond.get(a.id_web) || {}).notas_agencia)) || { km: 1e9 }).km) - ((geoNearest(b, splitNotes((data.cond.get(b.id_web) || {}).notas_agencia)) || { km: 1e9 }).km)) : pend).map(x => pendingCard(x, data.cond)))) : null;
+      h("div", { class: "p-tours" }, (S.geoSort && S.hotelGeo ? pend.slice().sort((a, b) => ((geoNearest(a, splitNotes((data.cond.get(a.id_web) || {}).notas_agencia)) || { km: 1e9 }).km) - ((geoNearest(b, splitNotes((data.cond.get(b.id_web) || {}).notas_agencia)) || { km: 1e9 }).km)) : pend.slice().sort((a, b) => pfPos(a) - pfPos(b))).map(x => pendingCard(x, data.cond)))) : null;
     if (!data.rates.length) { count.textContent = ""; add(out, data.pending.length ? null : emptyBox(t("no_rates", ySel.value)), pendBox); return; }
     if (!shown.length) { count.textContent = ""; add(out, pendBox || emptyBox(t("no_match"))); return; }
     const groups = new Map();
     shown.forEach(r => { const k = rateKey(r); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(r); });
     count.textContent = t("rates_count", shown.length, groups.size);
     const nameOf = rows => tourText(tourOf(rows[0]), "nombre") || rows[0].nombre;
-    // Experiencias por nombre y, al final, traslados y servicios por código
+    // Experiencias en el orden del índice del portafolio y, al final, traslados y servicios por código
     const kind = r => (isHotel(r) ? 2 : isService(r) ? 1 : 0);   // experiencias, luego traslados y servicios, luego hoteles
     const near = rows => { if (!S.geoSort || !S.hotelGeo) return 0; const tr = tourOf(rows[0]); const g = tr && geoNearest(tr, splitNotes((data.cond.get(tr.id_web) || {}).notas_agencia)); return g ? g.km : 1e9; };
-    [...groups.values()].sort((a, b) => (kind(a[0]) - kind(b[0])) || (near(a) - near(b)) || (kind(a[0]) === 1 ? collate(a[0].codigo, b[0].codigo) : collate(nameOf(a), nameOf(b))))
+    [...groups.values()].sort((a, b) => (kind(a[0]) - kind(b[0])) || (near(a) - near(b)) || (kind(a[0]) === 1 ? collate(a[0].codigo, b[0].codigo) : kind(a[0]) === 0 ? (pfPos(tourOf(a[0])) - pfPos(tourOf(b[0]))) || collate(nameOf(a), nameOf(b)) : collate(nameOf(a), nameOf(b))))
       .forEach(rows => add(out, tourCard(rows, data.cond)));
     if (pendBox) add(out, pendBox);
   }
@@ -1836,9 +1848,10 @@ const FICHA_LABELS = { "Por qué venderla": "Why sell it", "Te interesa": "Good 
 const fichaVal = (sp, k) => (sp.ficha.find(([x]) => x === k) || [])[1] || "";
 const IMPACTOS = { "Ambiental": ["🌿", "Ambiental", "Environmental"], "Sociocultural": ["🤝", "Sociocultural", "Socio-cultural"], "Económico": ["💰", "Económico", "Economic"] };
 // Índice filtrable con los nombres del documento del portafolio 2027 (sin la palabra «Turismo»)
+// Mismo orden de líneas que el índice del portafolio
 const CATS = { rurales: ["Rurales", "Rural"], naturaleza: ["Naturaleza", "Nature"], bienestar: ["Bienestar", "Wellness"], tradicionales: ["Tours tradicionales", "Traditional tours"],
-  metropolitano: ["Metropolitano", "Metropolitan"], aventura: ["Actividades de aventura", "Adventure activities"], incentivos: ["Incentivos y propuestas de alto valor", "Incentives & high-value proposals"],
-  parques: ["Parques temáticos", "Theme parks"],
+  metropolitano: ["Metropolitano", "Metropolitan"], aventura: ["Actividades de aventura", "Adventure activities"], parques: ["Parques temáticos", "Theme parks"],
+  incentivos: ["Incentivos y propuestas de alto valor", "Incentives & high-value proposals"],
   servicios: ["Traslados y servicios", "Transfers & services"], hoteles: ["Hoteles (noche por persona)", "Hotels (per person per night)"] };
 const rateCat = r => (tourOf(r) || {}).cat || (isHotel(r) ? "hoteles" : isService(r) ? "servicios" : "");
 const catName = c => (CATS[c] ? CATS[c][L() === "en" ? 1 : 0] : "");
