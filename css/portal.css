@@ -129,6 +129,13 @@
 .p-consent { margin: .5rem 0 1rem; padding: .75rem 1rem; background: var(--bg-soft); border-radius: var(--r-md); }
 .p-inline { display: flex; flex-wrap: wrap; gap: .5rem .75rem; align-items: flex-end; margin-bottom: .75rem; }
 .p-inline__btn { padding-bottom: 2px; }
+/* Buscador de tours (Reservar): lista que se filtra al escribir */
+.p-combo { position: relative; }
+.p-combo__list { position: absolute; left: 0; right: 0; top: 100%; z-index: 30; margin: .25rem 0 0; padding: .25rem; list-style: none; max-height: min(320px, 50vh); overflow-y: auto; background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--r-sm); box-shadow: 0 12px 30px rgba(0, 0, 0, .18); }
+.p-combo__list[hidden] { display: none; }
+.p-combo__opt { padding: .5rem .6rem; border-radius: 6px; cursor: pointer; line-height: 1.35; }
+.p-combo__opt[aria-selected="true"], .p-combo__opt:hover { background: var(--bg-soft); }
+.p-combo__none { padding: .5rem .6rem; color: var(--text-muted); }
 
 /* ---------- Barra de filtros ---------- */
 .p-toolbar { display: flex; flex-wrap: wrap; gap: .75rem 1rem; align-items: flex-end; margin: 0 0 1rem; }
