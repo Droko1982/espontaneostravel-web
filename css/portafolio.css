@@ -565,15 +565,30 @@
 .p-main.p-main--wide { max-width: 1680px; }
 @media (max-width: 640px) { .p-main.p-main--wide { padding-left: 8px; padding-right: 8px; } .pf { border-radius: 10px; } }
 
-/* ---------- vista flotante de la ruta («Arma tu ruta»): ventana pequeña sobre la página, sin abrir el mapa grande;
-   se cierra con la X, Escape o un clic afuera. El mapa que muestra es el mismo (prestado) y aquí solo se mira. ---------- */
-.pf .rfloat { position: fixed; right: 20px; bottom: 20px; z-index: 40; width: min(460px, calc(100vw - 40px)); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 18px 50px rgba(0,0,0,.28); overflow: hidden; display: flex; flex-direction: column; animation: pf-fl-in .18s ease-out; }
+/* ---------- mapa pequeño de «Arma tu ruta»: en computador queda a la izquierda del formulario y lo acompaña al
+   bajar (sticky); en tablet y celular sale abajo. Se cierra con la X, Escape u otra pestaña; un clic lo lleva al mapa grande.
+   El mapa que muestra es el mismo (prestado) y aquí solo se mira. ---------- */
+.pf .rhead { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px 16px; flex-wrap: wrap; }
+.pf .rhead .btn { flex: none; }
+.pf .rfloat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; animation: pf-fl-in .18s ease-out; }
 .pf .rfloat[hidden] { display: none; }
 .pf .fl-head { display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 12px; border-bottom: 1px solid var(--line); }
 .pf .fl-head b { display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; }
 .pf .fl-head .sub { flex: 1; min-width: 0; }
-.pf .fl-map { position: relative; height: 320px; background: var(--sea); overflow: hidden; }
+.pf .fl-body { position: relative; }
+.pf .fl-map { position: relative; height: clamp(340px, calc(100vh - var(--pf-top) - 150px), 680px); background: var(--sea); overflow: hidden; }
 .pf .rfloat .mapsvg { pointer-events: none; cursor: default; }
-@media (max-width: 640px) { .pf .rfloat { left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); width: auto; } .pf .fl-map { height: min(44vh, 340px); } }
+.pf .fl-exp { position: absolute; inset: 0; border: 0; background: transparent; cursor: zoom-in; }
+@media (min-width: 1100px) {
+  .pf .pane.docked { max-width: 1440px; }
+  .pf .rlay.dock { display: grid; grid-template-columns: minmax(360px, 42%) minmax(0, 1fr); gap: 18px; align-items: start; margin-top: 14px; }
+  .pf .rlay.dock .rfloat { position: sticky; top: calc(var(--pf-top) + 62px); z-index: 4; }
+  .pf .rlay.dock .steps { margin-top: 0; }
+}
+@media (max-width: 1099.98px) {
+  .pf .rfloat { position: fixed; left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); z-index: 40; box-shadow: 0 18px 50px rgba(0,0,0,.28); max-width: 640px; margin-inline: auto; }
+  .pf .fl-map { height: min(36vh, 300px); }
+  .pf .pane.docked { padding-bottom: calc(min(36vh, 300px) + 90px); }
+}
 @media (prefers-reduced-motion: reduce) { .pf .rfloat { animation: none; } }
 @keyframes pf-fl-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }

@@ -85,7 +85,7 @@ const UI = {
     r5: "Recorrido", r_none: "Elige hotel y tours para ver el recorrido.", arr_leg: "Llegada {0} → {1}", arr_sub: "Traslado de llegada", dep_leg: "{0} → {1}", dep_sub: "Traslado de salida", go_back: "ida y regreso al hotel", per_leg: "c/trayecto",
     choose_hotel: "elige un hotel para calcular el trayecto", in_hotel: "En el hotel", finca_in: "Finca en {0}",
     tot_arr: "Traslado de llegada", tot_dep: "Traslado de salida", quote: "Cotizar", sup_of: "Suplemento {0}", tot: "Total neto por pasajero", tot_q: " (sin lo que está por cotizar)", tot_note: "{0} pax en {1}. No incluye hotel. {2}.",
-    fit: "Ver ruta completa en el mapa", fl_t: "Tu ruta", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Mapa grande", copy_it: "Copiar itinerario", send_req: "Enviar como solicitud de reserva", kit_route: "Kit de venta con estos tours", reset: "Empezar de nuevo", it_copied: "Itinerario copiado", program: "Programa Paisaje Cultural Cafetero · {0} pasajeros", vehicle: "Vehículo",
+    fit: "Ver ruta completa en el mapa", fl_t: "Tu ruta", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Mapa grande", fl_show: "Ver mi ruta en el mapa", fl_exp: "Ver la ruta en el mapa grande", copy_it: "Copiar itinerario", send_req: "Enviar como solicitud de reserva", kit_route: "Kit de venta con estos tours", reset: "Empezar de nuevo", it_copied: "Itinerario copiado", program: "Programa Paisaje Cultural Cafetero · {0} pasajeros", vehicle: "Vehículo",
     tr_h: "Transporte", tr_l: "Vehículos habilitados para servicio especial que se adaptan a cada necesidad de viaje. Seguridad · comodidad · confianza. Capacidad recomendada para mayor comodidad y capacidad máxima autorizada.",
     tr_pax: "{0} a {1} pasajeros · máx. {2}", tr_upto: "Hasta {0} pasajeros", vip: "Plus de confort bajo solicitud", vid_soon: "Video en preparación", tr_cond: "Condiciones de transporte",
     tr_tab: "Traslados aeropuerto – hotel", tr_pp: "{0} pax · por persona", tr_code: "Código", tr_route: "Trayecto", tr_note: "Tarifa neta por persona y por trayecto, según tu tarifario. Manizales (MZL) y Cali (CLO): cotización a la medida.",
@@ -150,7 +150,7 @@ const UI = {
     r5: "Itinerary", r_none: "Choose a hotel and tours to see the itinerary.", arr_leg: "Arrival {0} → {1}", arr_sub: "Arrival transfer", dep_leg: "{0} → {1}", dep_sub: "Departure transfer", go_back: "return trip from the hotel", per_leg: "each way",
     choose_hotel: "choose a hotel to calculate the trip", in_hotel: "At the hotel", finca_in: "Farm in {0}",
     tot_arr: "Arrival transfer", tot_dep: "Departure transfer", quote: "Quote", sup_of: "Supplement {0}", tot: "Net total per passenger", tot_q: " (excluding items to quote)", tot_note: "{0} pax in {1}. Hotel not included. {2}.",
-    fit: "See full route on the map", fl_t: "Your route", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Full map", copy_it: "Copy itinerary", send_req: "Send as booking request", kit_route: "Sales kit with these tours", reset: "Start over", it_copied: "Itinerary copied", program: "Coffee Cultural Landscape programme · {0} passengers", vehicle: "Vehicle",
+    fit: "See full route on the map", fl_t: "Your route", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Full map", fl_show: "See my route on the map", fl_exp: "Open the route on the full map", copy_it: "Copy itinerary", send_req: "Send as booking request", kit_route: "Sales kit with these tours", reset: "Start over", it_copied: "Itinerary copied", program: "Coffee Cultural Landscape programme · {0} passengers", vehicle: "Vehicle",
     tr_h: "Transport", tr_l: "Vehicles licensed for special service, adapted to every travel need. Safety · comfort · trust. Recommended capacity for comfort and maximum authorised capacity.",
     tr_pax: "{0} to {1} passengers · max. {2}", tr_upto: "Up to {0} passengers", vip: "Comfort upgrade on request", vid_soon: "Video in preparation", tr_cond: "Transport conditions",
     tr_tab: "Airport – hotel transfers", tr_pp: "{0} pax · per person", tr_code: "Code", tr_route: "Route", tr_note: "Net rate per person, each way, from your rate sheet. Manizales (MZL) and Cali (CLO): tailor-made quote.",
@@ -479,7 +479,10 @@ function skeleton() {
         <div data-r="groups"></div>
       </section>
       <section class="pane" id="pf-pane-ruta" data-pane="ruta" role="tabpanel" aria-labelledby="pf-tab-ruta" hidden>
-        <h2>${tx("r_h")}</h2><p class="lead">${tx("r_l")}</p>
+        <div class="rhead"><div><h2>${tx("r_h")}</h2><p class="lead">${tx("r_l")}</p></div><button type="button" class="btn ghost sm" data-r="rshow">${ic("map", "sm")}${tx("fl_show")}</button></div>
+        <div class="rlay" data-r="rlay">
+        <aside class="rfloat" data-r="rfloat" hidden aria-label="${esc(tx("fl_t"))}"><div class="fl-head"><b>${ic("route", "sm")}${tx("fl_t")}</b><span class="sub" data-r="flsub"></span><button type="button" class="btn ghost sm" data-r="flbig">${ic("map", "sm")}${tx("fl_big")}</button><button type="button" class="iconbtn" data-r="flx" aria-label="${esc(tx("close"))}">${ic("x", "sm")}</button></div>
+          <div class="fl-body"><div class="fl-map" data-r="flmap" inert></div><button type="button" class="fl-exp" data-r="flexp" tabindex="-1" aria-hidden="true" title="${esc(tx("fl_exp"))}"></button></div></aside>
         <div class="steps">
           <div class="step"><h3><span class="k">1</span>${tx("r1")}</h3>
             <div class="row2"><label class="field">${tx("r_pax")}<input data-r="rpax" type="number" min="1" max="30" inputmode="numeric"></label>
@@ -494,13 +497,13 @@ function skeleton() {
             <div class="btnrow"><button type="button" class="btn" data-r="rfit">${ic("map")}${tx("fit")}</button><button type="button" class="btn ghost" data-r="rcopy">${ic("copy")}${tx("copy_it")}</button>
               ${CTX.onRequest ? `<button type="button" class="btn ghost" data-r="rreq">${ic("send")}${tx("send_req")}</button>` : ""}<button type="button" class="btn ghost" data-r="rkit">${ic("file")}${tx("kit_route")}</button><button type="button" class="btn ghost" data-r="rclear">${tx("reset")}</button></div></div>
         </div>
+        </div>
       </section>
       <section class="pane" id="pf-pane-trans" data-pane="trans" role="tabpanel" aria-labelledby="pf-tab-trans" hidden></section>
       <section class="pane" id="pf-pane-kit" data-pane="kit" role="tabpanel" aria-labelledby="pf-tab-kit" hidden></section>
       <section class="pane" id="pf-pane-cond" data-pane="cond" role="tabpanel" aria-labelledby="pf-tab-cond" hidden></section>
     </div>
   </div>
-  <aside class="rfloat" data-r="rfloat" hidden aria-label="${esc(tx("fl_t"))}"><div class="fl-head"><b>${ic("route", "sm")}${tx("fl_t")}</b><span class="sub" data-r="flsub"></span><button type="button" class="btn ghost sm" data-r="flbig">${ic("map", "sm")}${tx("fl_big")}</button><button type="button" class="iconbtn" data-r="flx" aria-label="${esc(tx("close"))}">${ic("x", "sm")}</button></div><div class="fl-map" data-r="flmap" inert></div></aside>
   <div data-r="pop"></div><div data-r="ficha"></div><div data-r="lb"></div><div data-r="toast"></div>
 </div>`;
 }
@@ -593,9 +596,9 @@ function bindStatic() {
   $r("radd").addEventListener("change", e => { if (e.target.value) { toggleTour(e.target.value); floatRoute(); } });
   $r("rfit").addEventListener("click", () => floatRoute(true));
   $r("flx").addEventListener("click", closeFloat);
-  $r("flbig").addEventListener("click", () => { closeFloat(); mapShow(true, true); fitRoute(); });
-  // Un clic en cualquier otro lugar la cierra
-  document.addEventListener("pointerdown", ev => { const fl = $r("rfloat"); if (fl && !fl.hidden && !fl.contains(ev.target)) closeFloat(); }, sig);
+  const bigMap = () => { closeFloat(); mapShow(true, true); fitRoute(); };
+  $r("flbig").addEventListener("click", bigMap); $r("flexp").addEventListener("click", bigMap);
+  $r("rshow").addEventListener("click", () => floatRoute(true));
   $r("rclear").addEventListener("click", () => { S.newName = ""; stopPlacing(); closeFloat(); S.R = { pax: 2, start: 2, arr: "AXM", dep: "AXM", hotel: null, finca: "", tours: [] }; saveR(); renderRoute(); animateTo(boxToVB(...VIEWS.eje)); });
   $r("rcopy").addEventListener("click", () => copy(itineraryText(), tx("it_copied")));
   $r("rkit").addEventListener("click", () => { K.sel = new Set(S.R.tours.map(t => t.id)); setTab("kit"); });
@@ -1144,19 +1147,25 @@ function fitRoute(show) {
   const pad = .05; animateTo(boxToVB(Math.min(...la) - pad, Math.max(...la) + pad * 1.6, Math.min(...lo) - pad, Math.max(...lo) + pad));
   if (show) mapShow(true, true);
 }
-// Vista flotante de la ruta: cada cambio en «Arma tu ruta» se ve en una ventana pequeña, sin abrir el mapa grande
-// (que ocupa toda la pantalla). Usa el mismo mapa (svg), prestado, y lo devuelve al cerrarse: X, Escape o clic afuera.
+// Mapa pequeño de la ruta: cada cambio en «Arma tu ruta» se ve a la izquierda del formulario (abajo en el celular),
+// sin abrir el mapa grande. Usa el mismo mapa (svg), prestado, y lo devuelve al cerrarse: X, Escape u otra pestaña.
 function floatRoute(scroll) {
   if (S.tab !== "ruta") return;
-  if (S.mapOpen) { fitRoute(scroll); return; }
+  if (S.mapOpen) {
+    const r = $r("mapwrap").getBoundingClientRect();
+    if (r.bottom > 140 && r.top < innerHeight - 140) { fitRoute(scroll); return; }   // el mapa grande está a la vista
+    // Abierto pero fuera de la vista: se pliega sin mover lo que se está mirando y se usa el pequeño
+    const pane = ROOT.querySelector('[data-pane="ruta"]'), t0 = pane.getBoundingClientRect().top;
+    mapShow(false); scrollBy(0, pane.getBoundingClientRect().top - t0);
+  }
   const fl = $r("rfloat");
-  if (fl.hidden) { fl.hidden = false; $r("flmap").appendChild(svg); }
+  if (fl.hidden) { fl.hidden = false; $r("rlay").classList.add("dock"); $r("rlay").parentElement.classList.add("docked"); $r("flmap").appendChild(svg); }
   const n = S.R.tours.length; $r("flsub").textContent = n === 1 ? tx("fl_n1") : tx("fl_n", n);
   VB = fitAspect(VB); commitVB(); fitRoute();
 }
 function closeFloat() {
   const fl = $r("rfloat"); if (!fl || fl.hidden) return;
-  fl.hidden = true; $r("mapwrap").prepend(svg); VB = fitAspect(VB); commitVB();
+  fl.hidden = true; $r("rlay").classList.remove("dock"); $r("rlay").parentElement.classList.remove("docked"); $r("mapwrap").prepend(svg); VB = fitAspect(VB); commitVB();
 }
 
 /* ---------- hotel: aliados → usados antes → mapa abierto (OpenStreetMap) → enlace de Google Maps o tocar el mapa ---------- */
