@@ -63,7 +63,7 @@ const UI = {
     s_exp: "La experiencia", s_photos: "Fotos", s_incl: "Incluye", s_noincl: "No incluye", s_oper: "Operación y horarios", s_tech: "Ficha técnica", s_reco: "Recomendaciones", s_noapto: "No apto para",
     s_sell: "Para vender", only_ag: "Solo agencias", why: "Por qué venderla", interesa: "Te interesa saber", where: "Dónde la operamos", menu: "Menú", impact: "Impacto local", s_notes: "Notas de tarifa y operación",
     s_supl: "Suplementos", g_sup: "Suplemento de guianza en otros idiomas", g_lang: "Idioma del guía", g_note: "valor por servicio de guía (no por persona)", s_combo: "Combínalo con", s_rate: "Tarifa neta por pasajero", pax: "Pasajeros", per_pax: "COP por pasajero", s_kit: "Kit de venta", pdf: "Descargar PDF", copy_txt: "Copiar texto", copy_link: "Copiar enlace de la ficha",
-    kit_note: "PDF para tu cliente final (sin datos internos), con o sin logo, con o sin precios y en ES, EN, FR, IT o PT.", request: "Solicitar este tour", see_zones: "Ver municipios en el mapa", zones_note: "En «Arma tu ruta» se asigna la finca del municipio más cercano al hotel.",
+    kit_note: "PDF para tu cliente final (sin datos internos), con o sin logo, con o sin precios y en ES, EN, FR, IT o PT.", request: "Solicitar este tour", see_zones: "Ver municipios en el mapa", zones_note: "En «Arma tu ruta» se sugiere el municipio más cercano al hotel; puedes cambiarlo en la lista o tocando su punto en el mapa.",
     kids: "Niños de 0 a 2 años no pagan, pero ocupan silla de bebé en el vehículo; desde los 3 años pagan tarifa.", see_cond: "Políticas de reserva y pago", see_about: "Quiénes somos",
     com_txt: "Experiencia con la comunidad local (campesinos, artesanos, productores).", cord_txt: "Hace parte del proyecto Paisaje Cordillerano.", carry: "Tarifas {0}: aplican hasta el 31 de marzo de {1}", copied: "Copiado", link_copied: "Enlace copiado", txt_copied: "Texto copiado",
     p_param: "Parámetro operativo", p_b2b: "Detalle técnico B2B", p_b2c: "Especificación comercial (B2C)", p_sched: "Horario recomendado", am: "Mañana", pm: "Tarde", ampm: "Mañana o tarde", guide_sup: "otros idiomas con suplemento de guianza",
@@ -75,19 +75,19 @@ const UI = {
     low: "Baja", mid: "Media", high: "Alta", pick: "Recogida en el alojamiento (zona de cobertura según condiciones)", pickC: "Su hotel", onsite: "En el lugar de la experiencia", atHotel: "En el hotel del grupo",
     capB2B: "Tarifa publicada hasta {0} pax; grupos mayores: consultar", capB2C: "Hasta {0} personas", langB2B: "Español / inglés (otros idiomas con suplemento de guianza)", langC: "Español / inglés",
     r_h: "Arma tu ruta", r_l: "Elige aeropuerto, hotel y tours. La ruta se dibuja en el mapa con distancias por carretera, tiempos estimados y el vehículo según el número de pasajeros.",
-    r1: "Grupo", r_pax: "Pasajeros", r_start: "Primer día de tours", r_d1: "Día 1 (el de llegada)", day: "Día {0}", veh_sug: "Vehículo sugerido", see_fleet: "ver flota",
+    r1: "Grupo", r_pax: "Pasajeros", r_start: "Primer día de tours", r_d1: "Día 1 (el de llegada)", r_pick: "Elige…", r_pax_ph: "Número de pasajeros", ap_pick: "Elige el aeropuerto…", veh_need: "Escribe el número de pasajeros y te sugerimos el vehículo.", tot_need: "Escribe el número de pasajeros para calcular el total.", day: "Día {0}", veh_sug: "Vehículo sugerido", see_fleet: "ver flota",
     r2: "Llegada y salida", r_arr: "Aeropuerto de llegada", r_dep: "Aeropuerto de salida", no_tr: "Sin traslado",
     r3: "Hotel", h_ph: "Escribe el nombre del hotel…", h_note: "Primero salen los hoteles aliados de ET. Si no está, búscalo en el mapa abierto (OpenStreetMap), pega su enlace de Google Maps o tócalo en el mapa.",
     h_ally: "Aliado ET", h_recent: "Usado antes", h_osm: "Buscar «{0}» en el mapa abierto", h_new: "Ubicar «{0}» con un enlace o en el mapa", h_change: "Cambiar", h_searching: "Buscando…", h_none: "No encontré ese hotel en el mapa abierto. Pega su enlace de Google Maps o tócalo en el mapa.",
     h_place: "Ubicar «{0}»", h_link: "Pega el enlace de Google Maps del hotel", h_link_ph: "https://www.google.com/maps/place/…", h_locate: "Ubicar", h_link_note: "Abre el hotel en Google Maps y copia la dirección completa de la barra del navegador. Los enlaces cortos (maps.app.goo.gl) no traen coordenadas.",
     h_tap: "Tocar en el mapa", cancel: "Cancelar", h_tap_b: "Toca el mapa donde queda «{0}»", h_nolink: "No encontré coordenadas en ese enlace", h_set: "{0} ubicado en {1}", h_chosen: "Hotel elegido: {0}", h_added: "Agregado por el asesor",
-    r4: "Tours por día", r_add: "Agregar tour", r_choose: "Elige un tour…", r_empty: "Agrega tours desde esta lista, desde el mapa o desde cada ficha.", remove: "Quitar", which_finca: "¿En qué finca?", finca_auto: "La más cercana al hotel (asignada por ET)",
+    r4: "Tours por día", r_add: "Agregar tour", r_choose: "Elige un tour…", r_empty: "Agrega tours desde esta lista, desde el mapa o desde cada ficha.", remove: "Quitar", which_finca: "¿En qué finca?", where_q: "¿Dónde?", z_auto: "La más cercana al hotel{0}", z_munis: "Municipios donde opera", z_fincas: "Fincas aliadas", z_hint: "También puedes tocar su punto en el mapa.", z_pick: "toca para elegir", z_set: "{0}: {1}", op_in: "En {0}", fl_pick: "toca un punto para elegir dónde", finca_auto: "La más cercana al hotel (asignada por ET)",
     r5: "Recorrido", r_none: "Elige hotel y tours para ver el recorrido.", arr_leg: "Llegada {0} → {1}", arr_sub: "Traslado de llegada", dep_leg: "{0} → {1}", dep_sub: "Traslado de salida", go_back: "ida y regreso al hotel", per_leg: "c/trayecto",
     choose_hotel: "elige un hotel para calcular el trayecto", in_hotel: "En el hotel", finca_in: "Finca en {0}",
     tot_arr: "Traslado de llegada", tot_dep: "Traslado de salida", quote: "Cotizar", sup_of: "Suplemento {0}", tot: "Total neto por pasajero", tot_q: " (sin lo que está por cotizar)", tot_note: "{0} pax en {1}. No incluye hotel. {2}.",
-    fit: "Ver ruta completa en el mapa", fl_t: "Tu ruta", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Mapa grande", fl_show: "Ver mi ruta en el mapa", fl_exp: "Ver la ruta en el mapa grande", copy_it: "Copiar itinerario", send_req: "Enviar como solicitud de reserva", kit_route: "Kit de venta con estos tours", reset: "Empezar de nuevo", it_copied: "Itinerario copiado", program: "Programa Paisaje Cultural Cafetero · {0} pasajeros", vehicle: "Vehículo",
+    fit: "Ver ruta completa en el mapa", fl_t: "Tu ruta", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Mapa grande", fl_show: "Ver mi ruta en el mapa", fl_exp: "Ver la ruta en el mapa grande", copy_it: "Copiar itinerario", send_req: "Enviar como solicitud de reserva", kit_route: "Kit de venta con estos tours", reset: "Empezar de nuevo", it_copied: "Itinerario copiado", program: "Programa Paisaje Cultural Cafetero · {0} pasajeros", program0: "Programa Paisaje Cultural Cafetero", vehicle: "Vehículo",
     tr_h: "Transporte", tr_l: "Vehículos habilitados para servicio especial que se adaptan a cada necesidad de viaje. Seguridad · comodidad · confianza. Capacidad recomendada para mayor comodidad y capacidad máxima autorizada.",
-    tr_pax: "{0} a {1} pasajeros · máx. {2}", tr_upto: "Hasta {0} pasajeros", vip: "Plus de confort bajo solicitud", vid_soon: "Video en preparación", tr_cond: "Condiciones de transporte",
+    tr_pax: "{0} a {1} pasajeros · máx. {2}", tr_upto: "Hasta {0} pasajeros", vip: "Plus de confort bajo solicitud", photo_of: "{0}: foto {1} de {2}", vid_soon: "Video en preparación", tr_cond: "Condiciones de transporte",
     tr_tab: "Traslados aeropuerto – hotel", tr_pp: "{0} pax · por persona", tr_code: "Código", tr_route: "Trayecto", tr_note: "Tarifa neta por persona y por trayecto, según tu tarifario. Manizales (MZL) y Cali (CLO): cotización a la medida.",
     sup_tab: "Suplementos", sup_t: "Suplemento", value: "Valor", guide_tab: "Guianza en otros idiomas", none_rates: "Tu tarifario aún no tiene estos valores: consulta a tu asesor.",
     k_h: "Kit de venta", k_l: "Descarga un PDF con las experiencias que elijas, en el idioma de tu cliente. Puedes poner el logo de tu agencia, quitar el de Espontáneos y agregar tu markup.",
@@ -128,7 +128,7 @@ const UI = {
     s_exp: "The experience", s_photos: "Photos", s_incl: "Includes", s_noincl: "Not included", s_oper: "Operation and schedules", s_tech: "Technical sheet", s_reco: "Recommendations", s_noapto: "Not suitable for",
     s_sell: "To sell it", only_ag: "Agencies only", why: "Why sell it", interesa: "Good to know", where: "Where we operate it", menu: "Menu", impact: "Local impact", s_notes: "Rate and operation notes",
     s_supl: "Supplements", g_sup: "Guiding supplement in other languages", g_lang: "Guide language", g_note: "rate per guide service (not per person)", s_combo: "Pair it with", s_rate: "Net rate per passenger", pax: "Passengers", per_pax: "COP per passenger", s_kit: "Sales kit", pdf: "Download PDF", copy_txt: "Copy text", copy_link: "Copy sheet link",
-    kit_note: "PDF for your final client (no internal data), with or without logo, with or without prices, in ES, EN, FR, IT or PT.", request: "Request this tour", see_zones: "See municipalities on the map", zones_note: "In «Build a route» the farm in the municipality closest to the hotel is assigned.",
+    kit_note: "PDF for your final client (no internal data), with or without logo, with or without prices, in ES, EN, FR, IT or PT.", request: "Request this tour", see_zones: "See municipalities on the map", zones_note: "In «Build a route» the municipality closest to the hotel is suggested; you can change it in the list or by tapping its point on the map.",
     kids: "Children aged 0–2 travel free but occupy a baby seat in the vehicle; from age 3 they pay the rate.", see_cond: "Booking and payment policies", see_about: "About us",
     com_txt: "Experience with the local community (farmers, artisans, producers).", cord_txt: "Part of the Paisaje Cordillerano project.", carry: "{0} rates: valid until March 31, {1}", copied: "Copied", link_copied: "Link copied", txt_copied: "Text copied",
     p_param: "Operating parameter", p_b2b: "B2B technical detail", p_b2c: "Commercial specification (B2C)", p_sched: "Recommended schedule", am: "Morning", pm: "Afternoon", ampm: "Morning or afternoon", guide_sup: "other languages with guiding supplement",
@@ -140,19 +140,19 @@ const UI = {
     low: "Low", mid: "Medium", high: "High", pick: "Pick-up at the accommodation (coverage area as per conditions)", pickC: "Your hotel", onsite: "At the experience site", atHotel: "At the group's hotel",
     capB2B: "Rate published up to {0} pax; larger groups: ask us", capB2C: "Up to {0} people", langB2B: "Spanish / English (other languages with guiding supplement)", langC: "Spanish / English",
     r_h: "Build a route", r_l: "Choose airport, hotel and tours. The route is drawn on the map with road distances, estimated times and the vehicle for your group size.",
-    r1: "Group", r_pax: "Passengers", r_start: "First tour day", r_d1: "Day 1 (arrival day)", day: "Day {0}", veh_sug: "Suggested vehicle", see_fleet: "see fleet",
+    r1: "Group", r_pax: "Passengers", r_start: "First tour day", r_d1: "Day 1 (arrival day)", r_pick: "Choose…", r_pax_ph: "Number of passengers", ap_pick: "Choose the airport…", veh_need: "Enter the number of passengers to get a vehicle suggestion.", tot_need: "Enter the number of passengers to calculate the total.", day: "Day {0}", veh_sug: "Suggested vehicle", see_fleet: "see fleet",
     r2: "Arrival and departure", r_arr: "Arrival airport", r_dep: "Departure airport", no_tr: "No transfer",
     r3: "Hotel", h_ph: "Type the hotel name…", h_note: "ET partner hotels come first. If it isn't there, search the open map (OpenStreetMap), paste its Google Maps link or tap it on the map.",
     h_ally: "ET partner", h_recent: "Used before", h_osm: "Search «{0}» on the open map", h_new: "Locate «{0}» with a link or on the map", h_change: "Change", h_searching: "Searching…", h_none: "I couldn't find that hotel on the open map. Paste its Google Maps link or tap it on the map.",
     h_place: "Locate «{0}»", h_link: "Paste the hotel's Google Maps link", h_link_ph: "https://www.google.com/maps/place/…", h_locate: "Locate", h_link_note: "Open the hotel in Google Maps and copy the full address from the browser bar. Short links (maps.app.goo.gl) carry no coordinates.",
     h_tap: "Tap on the map", cancel: "Cancel", h_tap_b: "Tap the map where «{0}» is", h_nolink: "No coordinates found in that link", h_set: "{0} located in {1}", h_chosen: "Hotel chosen: {0}", h_added: "Added by the agent",
-    r4: "Tours per day", r_add: "Add tour", r_choose: "Choose a tour…", r_empty: "Add tours from this list, from the map or from each sheet.", remove: "Remove", which_finca: "Which farm?", finca_auto: "The closest to the hotel (assigned by ET)",
+    r4: "Tours per day", r_add: "Add tour", r_choose: "Choose a tour…", r_empty: "Add tours from this list, from the map or from each sheet.", remove: "Remove", which_finca: "Which farm?", where_q: "Where?", z_auto: "Closest to the hotel{0}", z_munis: "Municipalities where it operates", z_fincas: "Partner farms", z_hint: "You can also tap its point on the map.", z_pick: "tap to choose", z_set: "{0}: {1}", op_in: "In {0}", fl_pick: "tap a point to choose where", finca_auto: "The closest to the hotel (assigned by ET)",
     r5: "Itinerary", r_none: "Choose a hotel and tours to see the itinerary.", arr_leg: "Arrival {0} → {1}", arr_sub: "Arrival transfer", dep_leg: "{0} → {1}", dep_sub: "Departure transfer", go_back: "return trip from the hotel", per_leg: "each way",
     choose_hotel: "choose a hotel to calculate the trip", in_hotel: "At the hotel", finca_in: "Farm in {0}",
     tot_arr: "Arrival transfer", tot_dep: "Departure transfer", quote: "Quote", sup_of: "Supplement {0}", tot: "Net total per passenger", tot_q: " (excluding items to quote)", tot_note: "{0} pax in {1}. Hotel not included. {2}.",
-    fit: "See full route on the map", fl_t: "Your route", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Full map", fl_show: "See my route on the map", fl_exp: "Open the route on the full map", copy_it: "Copy itinerary", send_req: "Send as booking request", kit_route: "Sales kit with these tours", reset: "Start over", it_copied: "Itinerary copied", program: "Coffee Cultural Landscape programme · {0} passengers", vehicle: "Vehicle",
+    fit: "See full route on the map", fl_t: "Your route", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Full map", fl_show: "See my route on the map", fl_exp: "Open the route on the full map", copy_it: "Copy itinerary", send_req: "Send as booking request", kit_route: "Sales kit with these tours", reset: "Start over", it_copied: "Itinerary copied", program: "Coffee Cultural Landscape programme · {0} passengers", program0: "Coffee Cultural Landscape programme", vehicle: "Vehicle",
     tr_h: "Transport", tr_l: "Vehicles licensed for special service, adapted to every travel need. Safety · comfort · trust. Recommended capacity for comfort and maximum authorised capacity.",
-    tr_pax: "{0} to {1} passengers · max. {2}", tr_upto: "Up to {0} passengers", vip: "Comfort upgrade on request", vid_soon: "Video in preparation", tr_cond: "Transport conditions",
+    tr_pax: "{0} to {1} passengers · max. {2}", tr_upto: "Up to {0} passengers", vip: "Comfort upgrade on request", photo_of: "{0}: photo {1} of {2}", vid_soon: "Video in preparation", tr_cond: "Transport conditions",
     tr_tab: "Airport – hotel transfers", tr_pp: "{0} pax · per person", tr_code: "Code", tr_route: "Route", tr_note: "Net rate per person, each way, from your rate sheet. Manizales (MZL) and Cali (CLO): tailor-made quote.",
     sup_tab: "Supplements", sup_t: "Supplement", value: "Value", guide_tab: "Guiding in other languages", none_rates: "Your rate sheet doesn't have these values yet: ask your advisor.",
     k_h: "Sales kit", k_l: "Download a PDF with the experiences you choose, in your client's language. You can use your agency's logo, remove the Espontáneos logo and add your markup.",
@@ -267,7 +267,7 @@ const MCN = () => M.mc, MDEP = () => M.mdep;
 function nearestMuni(lat, lon) { let best = null; for (const [k, c] of Object.entries(M.mc)) { const d = (c[0] - lat) ** 2 + (c[1] - lon) ** 2; if (!best || d < best.d) best = { k, d }; } return best ? best.k : ""; }
 const llOf = e => (S && S.wl ? [e.plat, e.plon] : [e.lat, e.lon]);
 const MUNI_LABEL = m => String(m || "").toLowerCase().split(" ").map(w => (w.length > 2 ? w[0].toUpperCase() + w.slice(1) : w)).join(" ")
-  .replace("Calarca", "Calarcá").replace("Cordoba", "Córdoba").replace("Genova", "Génova").replace("Alcala", "Alcalá").replace("Quindio", "Quindío").replace("Chinchina", "Chinchiná").replace("Ibague", "Ibagué");
+  .replace("Calarca", "Calarcá").replace("Cordoba", "Córdoba").replace("Genova", "Génova").replace("Alcala", "Alcalá").replace("Quindio", "Quindío").replace("Chinchina", "Chinchiná").replace("Ibague", "Ibagué").replace("Villamaria", "Villamaría");
 
 // Ficha técnica «solo agencias» desde las condiciones del portal (etiquetas «Por qué venderla: …»)
 function privFicha(id) {
@@ -290,6 +290,7 @@ function buildModel() {
     const sp = privFicha(e.id);
     e.p = { why: fv(sp, "Por qué venderla"), interesa: fv(sp, "Te interesa"), where: fv(sp, "Punto de operación"), menu: fv(sp, "Menú"),
       supl: bullets(fv(sp, "Suplementos")), notes: sp.cond, impacto: sp.imp, team: fv(sp, "Nota del equipo"), diff: fv(sp, "Dificultad"), cap: fv(sp, "Capacidad máxima") };
+    if (!e.zones && ZONE_CATS.has(e.cat)) { const z = zonesOf(e.p.where); if (z.length > 1) e.zones = z; }
     return e;
   });
   byId = Object.fromEntries(EXP.map(e => [e.id, e]));
@@ -392,11 +393,11 @@ function rememberHotel(h) {
 /* ---------- ruta guardada en el navegador: se valida al leerla (puede venir dañada o de otra versión) ---------- */
 const okHotel = h => h && typeof h.name === "string" && isFinite(h.lat) && isFinite(h.lon) && typeof (h.muni || "") === "string";
 function sanitizeR(R) {
-  R.pax = Math.min(30, Math.max(1, Math.round(+R.pax) || 2));
-  R.start = +R.start === 1 ? 1 : 2;
+  R.pax = Math.round(+R.pax) >= 1 ? Math.min(30, Math.round(+R.pax)) : 0;
+  R.start = +R.start === 1 || +R.start === 2 ? +R.start : 0;
   const apOk = a => a === "" || D.airports.some(x => x.id === a);
-  if (!apOk(R.arr)) R.arr = "AXM"; if (!apOk(R.dep)) R.dep = "AXM";
-  R.tours = (Array.isArray(R.tours) ? R.tours : []).filter(t => t && byId[t.id]).map(t => ({ id: t.id, day: Math.min(12, Math.max(1, Math.round(+t.day) || 2)) }));
+  if (!apOk(R.arr)) R.arr = null; if (!apOk(R.dep)) R.dep = null;
+  R.tours = (Array.isArray(R.tours) ? R.tours : []).filter(t => t && byId[t.id]).map(t => ({ id: t.id, day: Math.min(12, Math.max(1, Math.round(+t.day) || 2)), z: typeof t.z === "string" && (byId[t.id].zones || []).includes(t.z) ? t.z : "" }));
   R.hotel = okHotel(R.hotel) ? Object.assign({}, R.hotel, { muni: String(R.hotel.muni || ""), name: String(R.hotel.name) }) : null;
   if (typeof R.finca !== "string" || (R.finca && !finById[R.finca])) R.finca = "";
   return R;
@@ -420,7 +421,7 @@ export async function mountPortafolio(host, ctx) {
   const saved = ss.get("pf27-ruta", null);
   S = { cats: new Set(Object.keys(D.cats)), q: "", ideal: "", dur: "", lang: "", sugg: "", active: null, popLL: null, wl: false, hotels: false, fincas: true,
     tab: ss.get("pf27-tab", "mapa"), placing: false, editing: false, newName: "", newFor: "", near: false, open: {},
-    R: Object.assign({ pax: 2, start: 2, arr: "AXM", dep: "AXM", hotel: null, finca: "", tours: [] }, saved || {}) };
+    R: Object.assign(EMPTY_R(), saved || {}) };
   sanitizeR(S.R);
   if (!["mapa", "exp", "ruta", "trans", "kit", "cond"].includes(S.tab)) S.tab = "mapa";
   K.sel = null;
@@ -482,11 +483,11 @@ function skeleton() {
         <div class="rhead"><div><h2>${tx("r_h")}</h2><p class="lead">${tx("r_l")}</p></div><button type="button" class="btn ghost sm" data-r="rshow">${ic("map", "sm")}${tx("fl_show")}</button></div>
         <div class="rlay" data-r="rlay">
         <aside class="rfloat" data-r="rfloat" hidden aria-label="${esc(tx("fl_t"))}"><div class="fl-head"><b>${ic("route", "sm")}${tx("fl_t")}</b><span class="sub" data-r="flsub"></span><button type="button" class="btn ghost sm" data-r="flbig">${ic("map", "sm")}${tx("fl_big")}</button><button type="button" class="iconbtn" data-r="flx" aria-label="${esc(tx("close"))}">${ic("x", "sm")}</button></div>
-          <div class="fl-body"><div class="fl-map" data-r="flmap" inert></div><button type="button" class="fl-exp" data-r="flexp" tabindex="-1" aria-hidden="true" title="${esc(tx("fl_exp"))}"></button></div></aside>
+          <div class="fl-body"><div class="fl-map" data-r="flmap" title="${esc(tx("fl_exp"))}"></div></div></aside>
         <div class="steps">
           <div class="step"><h3><span class="k">1</span>${tx("r1")}</h3>
-            <div class="row2"><label class="field">${tx("r_pax")}<input data-r="rpax" type="number" min="1" max="30" inputmode="numeric"></label>
-            <label class="field">${tx("r_start")}<select data-r="rstart"><option value="1">${tx("r_d1")}</option><option value="2">${tx("day", 2)}</option></select></label></div>
+            <div class="row2"><label class="field">${tx("r_pax")}<input data-r="rpax" type="number" min="1" max="30" inputmode="numeric" placeholder="${esc(tx("r_pax_ph"))}"></label>
+            <label class="field">${tx("r_start")}<select data-r="rstart"><option value="">${tx("r_pick")}</option><option value="1">${tx("r_d1")}</option><option value="2">${tx("day", 2)}</option></select></label></div>
             <div class="veh" data-r="rveh"></div></div>
           <div class="step"><h3><span class="k">2</span>${tx("r2")}</h3>
             <div class="row2"><label class="field">${tx("r_arr")}<select data-r="rarr"></select></label><label class="field">${tx("r_dep")}<select data-r="rdep"></select></label></div></div>
@@ -589,17 +590,19 @@ function bindStatic() {
   addEventListener("scroll", () => { if (S.active) placePop(); }, { passive: true, signal: ac.signal });
   addEventListener("keydown", ev => { if (ev.key !== "Escape" || !ROOT.isConnected) return; if ($r("lb").firstChild) $r("lb").innerHTML = ""; else if ($r("ficha").firstChild) closeFicha(); else if (S.placing) stopPlacing(); else if (!$r("rfloat").hidden) closeFloat(); else if (S.active) closePop(); }, sig);
   // ruta
-  $r("rpax").addEventListener("change", e => { S.R.pax = Math.min(30, Math.max(1, Math.round(+e.target.value) || 1)); S.tpax = 0; saveR(); renderRoute(); });
-  $r("rstart").addEventListener("change", e => { S.R.start = +e.target.value; saveR(); renderRoute(); });
-  $r("rarr").addEventListener("change", e => { S.R.arr = e.target.value; saveR(); renderRoute(); floatRoute(); });
-  $r("rdep").addEventListener("change", e => { S.R.dep = e.target.value; saveR(); renderRoute(); floatRoute(); });
+  $r("rpax").addEventListener("change", e => { const n = Math.round(+e.target.value); S.R.pax = n >= 1 ? Math.min(30, n) : 0; S.tpax = 0; saveR(); renderRoute(); });
+  $r("rstart").addEventListener("change", e => { S.R.start = +e.target.value || 0; saveR(); renderRoute(); });
+  const apVal = v => (v === "?" ? null : v);
+  $r("rarr").addEventListener("change", e => { S.R.arr = apVal(e.target.value); saveR(); renderRoute(); floatRoute(); });
+  $r("rdep").addEventListener("change", e => { S.R.dep = apVal(e.target.value); saveR(); renderRoute(); floatRoute(); });
   $r("radd").addEventListener("change", e => { if (e.target.value) { toggleTour(e.target.value); floatRoute(); } });
   $r("rfit").addEventListener("click", () => floatRoute(true));
   $r("flx").addEventListener("click", closeFloat);
   const bigMap = () => { closeFloat(); mapShow(true, true); fitRoute(); };
-  $r("flbig").addEventListener("click", bigMap); $r("flexp").addEventListener("click", bigMap);
+  $r("flbig").addEventListener("click", bigMap);
+  $r("flmap").addEventListener("click", ev => { if (!ev.target.closest(".zopt")) bigMap(); });
   $r("rshow").addEventListener("click", () => floatRoute(true));
-  $r("rclear").addEventListener("click", () => { S.newName = ""; stopPlacing(); closeFloat(); S.R = { pax: 2, start: 2, arr: "AXM", dep: "AXM", hotel: null, finca: "", tours: [] }; saveR(); renderRoute(); animateTo(boxToVB(...VIEWS.eje)); });
+  $r("rclear").addEventListener("click", () => { S.newName = ""; stopPlacing(); closeFloat(); S.R = EMPTY_R(); saveR(); renderRoute(); animateTo(boxToVB(...VIEWS.eje)); });
   $r("rcopy").addEventListener("click", () => copy(itineraryText(), tx("it_copied")));
   $r("rkit").addEventListener("click", () => { K.sel = new Set(S.R.tours.map(t => t.id)); setTab("kit"); });
   if ($r("rreq")) $r("rreq").addEventListener("click", () => {
@@ -718,12 +721,14 @@ function drawOverlay() {
   if (S.hotels && !fl) HOTELS.forEach(h => { if (selH && norm(h.name) === norm(selH.name)) return; s += hotelSvg(h, false, u, veryIn); });
   if (selH) s += hotelSvg(selH, true, u, true);
   if (!fl || inRoute("finca")) s += fincasSvg(u);
+  s += zoneOptsSvg(u);
   s += routeSvg(u);
   D.airports.forEach(a => { const [x, y] = P(a.lat, a.lon), w = 30 * u, hh = 17 * u;
     s += `<g class="apt"><rect x="${x - w / 2}" y="${y - hh / 2}" width="${w}" height="${hh}" rx="${3 * u}"/><text class="iata" x="${x}" y="${y + 4 * u}" font-size="${10.5 * u}" text-anchor="middle">${a.id}</text>
       <text class="nm" x="${x}" y="${y + hh / 2 + 12 * u}" font-size="${10.5 * u}" stroke-width="${3.5 * u}" text-anchor="middle">✈ ${esc(a.name)}</text></g>`; });
   // Puntos: al alejar, los que se tocan (< 18 px) se agrupan en un círculo con el número; tocarlo acerca el mapa
-  const vis = fl ? new Set(S.R.tours.map(t => t.id)) : visible(), R = 18 * u, items = EXP.filter(e => vis.has(e.id)).map(e => { const [x, y] = P(...llOf(e)); return { e, x, y }; });
+  // En el pequeño, los tours con varios municipios se ven en su punto de la ruta (no en el punto general)
+  const vis = fl ? new Set(S.R.tours.map(t => t.id).filter(id => !(byId[id] || {}).zones)) : visible(), R = 18 * u, items = EXP.filter(e => vis.has(e.id)).map(e => { const [x, y] = P(...llOf(e)); return { e, x, y }; });
   const clusters = []; S.clusters = {};
   if (!veryIn) {
     items.forEach(it => { if (it.e.id === S.active) return; const c = clusters.find(c => Math.hypot(c.x - it.x, c.y - it.y) < R); if (c) { c.items.push(it); c.x = (c.x * (c.items.length - 1) + it.x) / c.items.length; c.y = (c.y * (c.items.length - 1) + it.y) / c.items.length; } else clusters.push({ x: it.x, y: it.y, items: [it] }); });
@@ -744,6 +749,7 @@ function drawOverlay() {
       <text x="${c.x}" y="${c.y + 4.2 * u}" font-size="${12 * u}" text-anchor="middle">${n}</text></g>`;
   });
   ov.innerHTML = s;
+  if (fl) ov.querySelectorAll("[tabindex]").forEach(n => n.removeAttribute("tabindex"));   // en el pequeño solo se mira y se toca
 }
 function pinSvg(it, u, veryIn) {
   const e = it.e, x = it.x, y = it.y, col = D.cats[e.cat].color, on = S.active === e.id, r = (veryIn || on ? 8.6 : 6.8) * u;
@@ -772,6 +778,7 @@ function zoomCluster(key) {
 }
 function onMapClick(ev) {
   if (S.dragMoved) return;
+  const zo = ev.target.closest(".zopt"); if (zo) { pickZone(zo.dataset.t, zo.dataset.z); return; }
   if (S.placing) { const r = wrapRect(), x = VB.x + (ev.clientX - r.left) * px(), y = VB.y + (ev.clientY - r.top) * px(); finishNewHotel(M.lat1 - y / M.k, x / M.k + M.lon0); return; }
   if (S.editing) { const m = ev.target.closest(".muni"); if (m) toggleZone(m.dataset.m); return; }
   const pin = ev.target.closest(".pin"), cl = ev.target.closest(".clu"), hot = ev.target.closest(".hot"), fin = ev.target.closest(".fin");
@@ -1032,10 +1039,12 @@ function bindAdd(root) {
 }
 
 /* ---------- arma tu ruta ---------- */
+// Ruta vacía: pasajeros y primer día sin elegir (0), aeropuertos sin elegir (null; "" es «Sin traslado»)
+const EMPTY_R = () => ({ pax: 0, start: 0, arr: null, dep: null, hotel: null, finca: "", tours: [] });
 const saveR = () => { ss.set("pf27-ruta", S.R); S.listDirty = true; };
 function toggleTour(id) {
   if (inRoute(id)) S.R.tours = S.R.tours.filter(t => t.id !== id);
-  else { const used = new Set(S.R.tours.map(t => t.day)); let d = +S.R.start; while (used.has(d) && d < 12) d++; S.R.tours.push({ id, day: d }); toast(tx("added_day", d)); }
+  else { const used = new Set(S.R.tours.map(t => t.day)); let d = +S.R.start || 2; while (used.has(d) && d < 12) d++; S.R.tours.push({ id, day: d }); toast(tx("added_day", d)); }
   if (id === "finca" && !inRoute("finca")) S.R.finca = "";
   saveR(); renderRoute();
 }
@@ -1055,11 +1064,66 @@ function legInfo(a, b, lo = 3) {
 const fmtMin = m => (m >= 60 ? `${Math.floor(m / 60)} h ${m % 60 ? String(m % 60).padStart(2, "0") : ""}`.trim() : `${m} min`);
 const vehFor = p => D.vehicles.filter(v => !v.vip && !v.suplemento).find(v => p >= v.min && p <= v.max) || D.vehicles.filter(v => !v.vip && !v.suplemento).slice(-1)[0];
 const vehName = v => { const x = L() === "en" && I18.en && I18.en.vehicles && I18.en.vehicles.find(y => y.id === v.id); return (x && x.name) || v.name; };
-function tourPoint(e, h) {
+// Municipios donde opera un tour, leídos de «Punto de operación» de su ficha técnica (solo agencias).
+// Solo en las líneas donde la lista son alternativas (en tours tradicionales, ciudades y parques suelen ser paradas del mismo día).
+const ZONE_CATS = new Set(["rur", "nat", "bien", "inc"]);
+let MK = null;
+const muniKeys = () => MK || (MK = Object.keys(M.mc).sort((a, b) => b.length - a.length));
+function zonesOf(txt) {
+  let t = String(txt || "").replace(/\([^)]*\)/g, " ").replace(/[A-Za-zÀ-ÿ]+\s*:/g, " ").replace(/\b(desde|de|del|a)\s+(Armenia|Pereira|Manizales)\b/gi, " ");
+  t = " " + norm(t).replace(/MANIZALEZ/g, "MANIZALES").replace(/BUENA VISTA/g, "BUENAVISTA").replace(/[^A-Z ]+/g, " ") + " ";
+  const out = [];
+  for (const k of muniKeys()) {
+    if (/^(RISARALDA|CALDAS|QUINDIO|TOLIMA|VALLE)$/.test(k)) continue;           // departamentos, no municipios
+    const i = t.indexOf(" " + k + " "); if (i < 0) continue;
+    out.push([i, k]); t = t.split(" " + k + " ").join(" " + "#".repeat(k.length) + " ");
+  }
+  return out.sort((a, b) => a[0] - b[0]).map(x => x[1]);
+}
+function nearestZone(e, h) {
+  let best = null;
+  e.zones.forEach(z => { const c = M.mc[norm(z)]; if (!c) return; const d = hav([h.lat, h.lon], c); if (!best || d < best.d) best = { d, z }; });
+  return best ? best.z : null;
+}
+// «¿Dónde?» en Arma tu ruta: sugerido (el más cercano al hotel), fincas aliadas (visita a finca) o un municipio de la lista
+function whereSel(e, t) {
+  const h = S.R.hotel, near = e.zones && h ? nearestZone(e, h) : null;
+  const cur = e.id === "finca" && S.R.finca && finById[S.R.finca] ? "f:" + S.R.finca : t.z ? "z:" + t.z : "";
+  const fin = e.id === "finca" && FINCAS.length ? `<optgroup label="${esc(tx("z_fincas"))}">${FINCAS.map(x => `<option value="f:${esc(x.id)}">${esc(x.name)} · ${esc(x.muni)}${x.sup ? ` · +${cop(x.sup)} pp` : ""}</option>`).join("")}</optgroup>` : "";
+  const mun = e.zones ? `<optgroup label="${esc(tx("z_munis"))}">${e.zones.map(z => `<option value="z:${esc(z)}">${esc(MUNI_LABEL(z))}</option>`).join("")}</optgroup>` : "";
+  const g = e.id === "finca" && finById[S.R.finca];
+  return `<div class="fsel"><label class="field">${tx(e.id === "finca" ? "which_finca" : "where_q")}<select data-zsel="${e.id}" data-cur="${esc(cur)}"><option value="">${esc(tx("z_auto", near ? " (" + MUNI_LABEL(near) + ")" : ""))}</option>${fin}${mun}</select></label>${g && g.aviso ? `<p class="fnote money">${esc(g.aviso)}</p>` : ""}${e.zones ? `<span class="note">${tx("z_hint")}</span>` : ""}</div>`;
+}
+// En el mapa (grande o pequeño): los otros municipios de cada tour de la ruta; tocar uno lo elige
+function zoneOptsSvg(u) {
+  if (S.wl || S.tab !== "ruta") return "";
+  const h = S.R.hotel; let s = "";
+  S.R.tours.forEach((t, k) => {
+    const e = byId[t.id]; if (!e || !e.zones) return;
+    const cur = (e.id === "finca" && S.R.finca) ? "" : (tourPoint(e, h, t.z).z || "");
+    const col = (D.cats[e.cat] || {}).color || "var(--olive)", off = (k % 4) * 4 * u;
+    e.zones.forEach(z => {
+      const c = M.mc[norm(z)]; if (!c || z === cur) return;
+      const [x0, y0] = P(c[0], c[1]), x = x0 + off, y = y0 - off;
+      const mark = e.id === "finca"
+        ? `<ellipse cx="${x}" cy="${y}" rx="${5 * u}" ry="${7 * u}" fill="#6B4528" stroke="#fff" stroke-width="${1.4 * u}" transform="rotate(-25 ${x} ${y})"/><path d="M${x - 1.2 * u},${y - 5 * u} q${3 * u},${5 * u} 0 ${10 * u}" stroke="#E7D3B5" stroke-width="${1.2 * u}" fill="none" transform="rotate(-25 ${x} ${y})"/>`
+        : `<circle cx="${x}" cy="${y}" r="${6.5 * u}" fill="#fff" stroke="${col}" stroke-width="${2.6 * u}"/><circle cx="${x}" cy="${y}" r="${2.4 * u}" fill="${col}"/>`;
+      s += `<g class="zopt" data-t="${esc(e.id)}" data-z="${esc(z)}"><title>${esc(tr(e, "name"))} · ${esc(MUNI_LABEL(z))} — ${esc(tx("z_pick"))}</title><circle cx="${x}" cy="${y}" r="${13 * u}" fill="transparent"/>${mark}</g>`;
+    });
+  });
+  return s;
+}
+function pickZone(id, z) {
+  const t = S.R.tours.find(x => x.id === id), e = byId[id]; if (!t || !e || !e.zones || !e.zones.includes(z)) return;
+  t.z = z; if (id === "finca") S.R.finca = "";
+  saveR(); renderRoute(); floatRoute(); toast(tx("z_set", tr(e, "name"), MUNI_LABEL(z)));
+}
+function tourPoint(e, h, z) {
   if (e.id === "finca" && S.R.finca && finById[S.R.finca]) { const f = finById[S.R.finca]; return { lat: f.lat, lon: f.lon, label: f.name + " · " + f.muni }; }
   if (e.athotel && h) return { lat: h.lat, lon: h.lon, label: tx("in_hotel") };
-  if (e.zones && h) { let best = null; e.zones.forEach(z => { const c = M.mc[norm(z)]; if (!c) return; const d = hav([h.lat, h.lon], c); if (!best || d < best.d) best = { d, z, c }; });
-    if (best) return { lat: best.c[0], lon: best.c[1], label: tx("finca_in", MUNI_LABEL(best.z)) }; }
+  // Municipio elegido (lista o mapa) o, si no, el más cercano al hotel
+  if (e.zones) { const pick = z && e.zones.includes(z) && M.mc[norm(z)] ? z : h ? nearestZone(e, h) : null;
+    if (pick) { const c = M.mc[norm(pick)]; return { lat: c[0], lon: c[1], label: tx(e.id === "finca" ? "finca_in" : "op_in", MUNI_LABEL(pick)), z: pick }; } }
   const [la, lo] = llOf(e); return { lat: la, lon: lo, label: e.deptos };
 }
 const apById = id => D.airports.find(a => a.id === id);
@@ -1067,8 +1131,8 @@ function buildRoute() {
   const R = S.R, h = R.hotel, legs = []; let n = 0;
   if (h && apById(R.arr)) { const a = apById(R.arr), i = legInfo([a.lat, a.lon], [h.lat, h.lon]); legs.push({ type: "t", day: 1, n: ++n, from: [a.lat, a.lon], to: [h.lat, h.lon], title: tx("arr_leg", a.id, h.name), sub: tx("arr_sub"), ...i }); }
   const tours = R.tours.slice().sort((x, y) => x.day - y.day);
-  tours.forEach(t => { const e = byId[t.id]; if (!h) { legs.push({ type: "x", day: t.day, n: ++n, title: tr(e, "name"), sub: e.deptos + " · " + tx("choose_hotel"), nohotel: true, to: llOf(e) }); return; }
-    const tp = tourPoint(e, h); const pts = [[h.lat, h.lon], ...(e.stops || []).map(s => [s[0], s[1]]), [tp.lat, tp.lon]];
+  tours.forEach(t => { const e = byId[t.id]; if (!h) { const p0 = tourPoint(e, null, t.z); legs.push({ type: "x", day: t.day, n: ++n, title: tr(e, "name"), sub: e.deptos + " · " + tx("choose_hotel"), nohotel: true, to: [p0.lat, p0.lon] }); return; }
+    const tp = tourPoint(e, h, t.z); const pts = [[h.lat, h.lon], ...(e.stops || []).map(s => [s[0], s[1]]), [tp.lat, tp.lon]];
     let km = 0, min = 0; for (let i = 1; i < pts.length; i++) { const li = legInfo(pts[i - 1], pts[i]); km += li.km; min += li.min; }
     legs.push({ type: "x", day: t.day, n: ++n, pts, to: [tp.lat, tp.lon], title: tr(e, "name"), sub: `${tp.label} · ${String(tr(e, "dur")).toLowerCase()} · ${tx("go_back")}`, km, min, id: e.id }); });
   if (h && apById(R.dep)) { const a = apById(R.dep), i = legInfo([h.lat, h.lon], [a.lat, a.lon]); const lastDay = Math.max(R.start, ...tours.map(t => t.day)) + 1;
@@ -1107,37 +1171,43 @@ function routeTotals() {
 function renderRoute() {
   const R = S.R;
   $r("rn").textContent = R.tours.length;
-  $r("rpax").value = R.pax; $r("rstart").value = R.start;
-  const v = vehFor(R.pax);
-  $r("rveh").innerHTML = `${ic("bus")}<span>${tx("veh_sug")}: <b>${esc(vehName(v))}</b> (${v.min}–${v.max} pax) · <a href="#" data-r="seeveh">${tx("see_fleet")}</a></span>`;
-  $r("seeveh").addEventListener("click", ev => { ev.preventDefault(); setTab("trans"); renderTrans(v.id); });
-  const ap = D.airports.map(a => `<option value="${a.id}">${a.id} · ${esc(a.name)} (${esc(a.city)})</option>`).join("") + `<option value="">${tx("no_tr")}</option>`;
-  $r("rarr").innerHTML = ap; $r("rdep").innerHTML = ap; $r("rarr").value = R.arr; $r("rdep").value = R.dep;
+  $r("rpax").value = R.pax || ""; $r("rstart").value = R.start ? String(R.start) : "";
+  const v = R.pax ? vehFor(R.pax) : null;
+  $r("rveh").innerHTML = v ? `${ic("bus")}<span>${tx("veh_sug")}: <b>${esc(vehName(v))}</b> (${v.min}–${v.max} pax) · <a href="#" data-r="seeveh">${tx("see_fleet")}</a></span>` : `${ic("bus")}<span>${tx("veh_need")}</span>`;
+  if (v) $r("seeveh").addEventListener("click", ev => { ev.preventDefault(); setTab("trans"); renderTrans(v.id); });
+  const ap = `<option value="?">${tx("ap_pick")}</option>` + D.airports.map(a => `<option value="${a.id}">${a.id} · ${esc(a.name)} (${esc(a.city)})</option>`).join("") + `<option value="">${tx("no_tr")}</option>`;
+  $r("rarr").innerHTML = ap; $r("rdep").innerHTML = ap; $r("rarr").value = R.arr == null ? "?" : R.arr; $r("rdep").value = R.dep == null ? "?" : R.dep;
   renderHotelBox();
   const list = R.tours.slice().sort((a, b) => a.day - b.day);
   $r("rtours").innerHTML = list.length ? list.map(t => { const e = byId[t.id], v = priceAt(e.id, R.pax); return `<div class="ti"><span class="th">${e.fotos[0] ? `<img src="${ph640(e.fotos[0])}" alt="">` : `<span class="ph sm"></span>`}</span>
-    <div class="ti-t"><b>${esc(tr(e, "name"))}</b><br><span class="sub">${esc(tr(e, "dur"))} · <span class="money">${v == null ? tx("ask_rate") : cop(v) + " pp"}</span></span></div>
+    <div class="ti-t"><b>${esc(tr(e, "name"))}</b><br><span class="sub">${esc(tr(e, "dur"))} · <span class="money">${v == null ? (R.pax ? tx("ask_rate") : "—") : cop(v) + " pp"}</span></span></div>
     <div class="ti-a"><select data-day="${e.id}" aria-label="${esc(tx("day", ""))}">${[...Array(12)].map((_, i) => `<option ${i + 1 === t.day ? "selected" : ""} value="${i + 1}">${tx("day", i + 1)}</option>`).join("")}</select>
     <button type="button" class="iconbtn" data-rm="${e.id}" aria-label="${esc(tx("remove"))}: ${esc(tr(e, "name"))}">${ic("x", "sm")}</button></div></div>
-    ${e.id === "finca" && FINCAS.length ? `<div class="fsel"><label class="field">${tx("which_finca")}<select data-r="rfinca"><option value="">${tx("finca_auto")}</option>${FINCAS.map(x => `<option value="${esc(x.id)}" ${x.id === R.finca ? "selected" : ""}>${esc(x.name)} · ${esc(x.muni)}${x.sup && !S.wl ? ` · +${cop(x.sup)} pp` : ""}</option>`).join("")}</select></label>${R.finca && finById[R.finca] && finById[R.finca].aviso ? `<p class="fnote money">${esc(finById[R.finca].aviso)}</p>` : ""}</div>` : ""}`; }).join("")
+    ${!S.wl && (e.zones || (e.id === "finca" && FINCAS.length)) ? whereSel(e, t) : ""}`; }).join("")
     : `<p class="empty">${tx("r_empty")}</p>`;
   $r("radd").innerHTML = `<option value="">${tx("r_choose")}</option>` + Object.keys(D.cats).map(k => `<optgroup label="${esc(catName(k))}">${EXP.filter(e => e.cat === k && !inRoute(e.id)).map(e => `<option value="${e.id}">${esc(tr(e, "name"))}</option>`).join("")}</optgroup>`).join("");
   $r("rtours").querySelectorAll("[data-day]").forEach(s => s.addEventListener("change", () => { S.R.tours.find(t => t.id === s.dataset.day).day = +s.value; saveR(); renderRoute(); floatRoute(); }));
   $r("rtours").querySelectorAll("[data-rm]").forEach(b => b.addEventListener("click", () => { toggleTour(b.dataset.rm); floatRoute(); }));
-  if ($r("rfinca")) $r("rfinca").addEventListener("change", e => { S.R.finca = e.target.value; saveR(); renderRoute(); floatRoute(); const g = finById[S.R.finca]; if (g && g.aviso && !S.wl) toast(g.aviso); });
+  $r("rtours").querySelectorAll("[data-zsel]").forEach(sel => { sel.value = sel.dataset.cur; sel.addEventListener("change", () => {
+    const id = sel.dataset.zsel, t = S.R.tours.find(x => x.id === id), v = sel.value; if (!t) return;
+    if (id === "finca") S.R.finca = v.startsWith("f:") ? v.slice(2) : "";
+    t.z = v.startsWith("z:") ? v.slice(2) : "";
+    saveR(); renderRoute(); floatRoute();
+    const g = id === "finca" && finById[S.R.finca]; if (g && g.aviso && !S.wl) toast(g.aviso);
+  }); });
   const legs = buildRoute(); let html = "", lastDay = 0;
   legs.forEach(l => { if (l.day !== lastDay) { html += `<div class="daytag">${tx("day", l.day)}</div>`; lastDay = l.day; }
     html += `<div class="leg"><span class="k">${l.n}</span><div><b>${esc(l.title)}</b><br><span class="sub">${esc(l.sub)}</span></div><span class="t">${l.km ? `≈ ${l.km} km<br>${fmtMin(l.min)}${l.type === "x" ? " " + tx("per_leg") : ""}` : ""}</span></div>`; });
   $r("rlegs").innerHTML = html || `<p class="empty">${tx("r_none")}</p>`;
   const T = routeTotals();
-  $r("rtot").innerHTML = T.rows.length ? T.rows.map(r => `<div><span>${esc(r.t)}${r.c ? ` <span class="code">${esc(r.c)}</span>` : ""}</span><span>${esc(r.v)}</span></div>`).join("") + `<div class="g"><span>${tx("tot")}${T.quote ? tx("tot_q") : ""}</span><span>${cop(T.total)}</span></div><span class="note">${esc(tx("tot_note", R.pax, vehName(vehFor(R.pax)).toLowerCase(), tarLabel()))}</span>` : "";
+  $r("rtot").innerHTML = !R.pax ? (R.tours.length || R.hotel ? `<p class="note">${tx("tot_need")}</p>` : "") : T.rows.length ? T.rows.map(r => `<div><span>${esc(r.t)}${r.c ? ` <span class="code">${esc(r.c)}</span>` : ""}</span><span>${esc(r.v)}</span></div>`).join("") + `<div class="g"><span>${tx("tot")}${T.quote ? tx("tot_q") : ""}</span><span>${cop(T.total)}</span></div><span class="note">${esc(tx("tot_note", R.pax, vehName(vehFor(R.pax)).toLowerCase(), tarLabel()))}</span>` : "";
   drawOverlay();
 }
 function itineraryText(forRequest) {
   const R = S.R, legs = buildRoute(), h = R.hotel;
-  let t = tx("program", R.pax) + "\n" + (h ? `${tx("r3")}: ${h.name} (${MUNI_LABEL(h.muni)})\n` : "") + `${tx("vehicle")}: ${vehName(vehFor(R.pax))}\n`; let d = 0;
+  let t = (R.pax ? tx("program", R.pax) : tx("program0")) + "\n" + (h ? `${tx("r3")}: ${h.name} (${MUNI_LABEL(h.muni)})\n` : "") + (R.pax ? `${tx("vehicle")}: ${vehName(vehFor(R.pax))}\n` : ""); let d = 0;
   legs.forEach(l => { if (l.day !== d) { t += `\n${tx("day", l.day)}\n`; d = l.day; } t += `• ${l.title} — ${l.sub}${l.km ? ` (≈ ${l.km} km, ${fmtMin(l.min)})` : ""}\n`; });
-  if (!S.wl && !forRequest) { const T = routeTotals(); t += `\n${T.rows.map(r => r.t + (r.c ? " " + r.c : "") + ": " + r.v).join("\n")}\n${tx("tot")}: ${cop(T.total)}\nEspontáneos Travel · RNT 91795`; }
+  if (!S.wl && !forRequest && R.pax) { const T = routeTotals(); t += `\n${T.rows.map(r => r.t + (r.c ? " " + r.c : "") + ": " + r.v).join("\n")}\n${tx("tot")}: ${cop(T.total)}\nEspontáneos Travel · RNT 91795`; }
   return t.slice(0, forRequest ? 1900 : 20000);
 }
 function fitRoute(show) {
@@ -1159,13 +1229,13 @@ function floatRoute(scroll) {
     mapShow(false); scrollBy(0, pane.getBoundingClientRect().top - t0);
   }
   const fl = $r("rfloat");
-  if (fl.hidden) { fl.hidden = false; $r("rlay").classList.add("dock"); $r("rlay").parentElement.classList.add("docked"); $r("flmap").appendChild(svg); }
-  const n = S.R.tours.length; $r("flsub").textContent = n === 1 ? tx("fl_n1") : tx("fl_n", n);
+  if (fl.hidden) { fl.hidden = false; $r("rlay").classList.add("dock"); $r("rlay").parentElement.classList.add("docked"); $r("flmap").appendChild(svg); svg.setAttribute("aria-hidden", "true"); }
+  const n = S.R.tours.length; $r("flsub").textContent = (n === 1 ? tx("fl_n1") : tx("fl_n", n)) + (!S.wl && S.R.tours.some(t => (byId[t.id] || {}).zones) ? " · " + tx("fl_pick") : "");
   VB = fitAspect(VB); commitVB(); fitRoute();
 }
 function closeFloat() {
   const fl = $r("rfloat"); if (!fl || fl.hidden) return;
-  fl.hidden = true; $r("rlay").classList.remove("dock"); $r("rlay").parentElement.classList.remove("docked"); $r("mapwrap").prepend(svg); VB = fitAspect(VB); commitVB();
+  fl.hidden = true; $r("rlay").classList.remove("dock"); $r("rlay").parentElement.classList.remove("docked"); svg.removeAttribute("aria-hidden"); $r("mapwrap").prepend(svg); VB = fitAspect(VB); commitVB();
 }
 
 /* ---------- hotel: aliados → usados antes → mapa abierto (OpenStreetMap) → enlace de Google Maps o tocar el mapa ---------- */
@@ -1242,8 +1312,9 @@ function renderTrans(hl) {
   const p = Math.min(30, Math.max(1, S.tpax || S.R.pax || 4)); const cur = hl || vehFor(p).id;
   const en = L() === "en" && I18.en && I18.en.vehicles ? Object.fromEntries(I18.en.vehicles.map(v => [v.id, v])) : {};
   const vf = (v, k) => (en[v.id] && en[v.id][k]) || v[k];
-  // Fotos del vehículo (data/portafolio.json → vehicles[].fotos): pasan solas; clic = foto grande
-  const vm = v => (v.fotos || []).length ? `<div class="media" data-vf="${esc(v.id)}" role="button" tabindex="0" aria-label="${esc(vf(v, "name"))}">${mediaBlock({ id: "veh-" + v.id, fotos: v.fotos, name: vf(v, "name") }, { video: false })}</div>` : `<div class="media"><div class="ph">${ic("bus")}${tx("vid_soon")}</div></div>`;
+  // Fotos del vehículo (data/portafolio.json → vehicles[].fotos): la principal y debajo hasta 3 más; clic = foto grande
+  const vph = (v, k, cls) => `<button type="button" class="${cls}" data-vf="${esc(v.id)}" data-k="${k}" aria-label="${esc(tx("photo_of", vf(v, "name"), k + 1, v.fotos.length))}"><img src="${ph640(v.fotos[k])}" alt="" loading="lazy" decoding="async"></button>`;
+  const vm = v => (v.fotos || []).length ? `<div class="vph">${vph(v, 0, "vmain")}${v.fotos.length > 1 ? `<div class="vthumbs">${v.fotos.slice(1, 4).map((x, i) => vph(v, i + 1, "vth")).join("")}</div>` : ""}</div>` : `<div class="media"><div class="ph">${ic("bus")}${tx("vid_soon")}</div></div>`;
   const vc = v => `<div class="vcard${v.id === cur ? " on" : ""}${v.vip ? " vip" : ""}">${vm(v)}
     <div class="body"><span class="pax">${v.capacidad_max ? tx("tr_pax", v.min, v.max, v.capacidad_max) : tx("tr_upto", v.max)}</span><h4>${esc(vf(v, "name"))}</h4>${v.equipaje ? `<span class="sub">${esc(vf(v, "equipaje"))}</span>` : ""}<span class="sub">${esc(vf(v, "uso"))}</span>
     ${v.vip ? `<span class="sub"><b>${tx("vip")}</b></span>` : ""}${v.suplemento ? `<span class="sub code money">${esc(v.suplemento)}</span>` : ""}</div></div>`;
@@ -1264,8 +1335,7 @@ function renderTrans(hl) {
       ${guides.map(c => { const rows = PR.svc.get(c), cols = guideCols(); return `<tr><td class="code">${esc(c)}</td><td>${esc(guideName(c))}</td>${cols.map(s => { const r = rows.find(x => x.temporada === s); return `<td class="r">${r ? cop(r.tarifa_neta) : "—"}</td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div></div>` : ""}`;
   const tp = pane.querySelector("[data-r=tpax]"); tp.addEventListener("change", () => { S.tpax = Math.min(30, Math.max(1, Math.round(+tp.value) || 1)); renderTrans(); });
   startSlides(pane);
-  const big = md => { const v = D.vehicles.find(x => x.id === md.dataset.vf), on = md.querySelector(".slide.on"), k = on ? [...md.querySelectorAll(".slide")].indexOf(on) : 0; if (v) lightbox({ i: v.fotos[Math.max(0, k)] }); };
-  pane.querySelectorAll("[data-vf]").forEach(md => { md.addEventListener("click", () => big(md)); md.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); big(md); } }); });
+  pane.querySelectorAll("[data-vf]").forEach(b => b.addEventListener("click", () => { const v = D.vehicles.find(x => x.id === b.dataset.vf); if (v) lightbox({ i: v.fotos[+b.dataset.k || 0] }); }));
   const fl = pane.querySelector("[data-fleet]"); if (fl) fl.addEventListener("click", () => lightbox({ i: D.flota[0] }));
 }
 
