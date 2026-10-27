@@ -1120,7 +1120,7 @@ function emailAccessRequest(userId, email, v, s) {
   if (!REQUESTS_EMAIL) return;
   const go = act => `${PORTAL_URL}#${act}-${userId}`;
   const body = {
-    _subject: "🔑 Portal: solicitud de acceso — " + (s.agencia || v.nombre || email),
+    _subject: "[PORTAL] 🔑 Portal: solicitud de acceso — " + (s.agencia || v.nombre || email),
     _template: "table", _replyto: email,
     "Agencia": s.agencia || "", "NIT / Tax ID": s.nit || "", "País y ciudad": [s.pais, s.ciudad].filter(Boolean).join(" · "),
     "Persona": v.nombre || "", "Correo": email, "WhatsApp": v.whatsapp || "", "Teléfono": s.telefono || "", "Web": s.web || "",
@@ -1132,6 +1132,7 @@ function emailAccessRequest(userId, email, v, s) {
     "Cómo funciona": "Abre el enlace que corresponda: el portal te pide entrar con tu cuenta de administrador y confirmar con un clic. Sin esa sesión, el enlace no cambia nada.",
     "Autorización de datos": `Sí (política versión ${s.versionPolitica || CONSENT_VERSION})`
   };
+  if (window.EspoOrigen) Object.assign(body, window.EspoOrigen.datos("Portal de agencias · Solicitud de acceso"));
   try {
     fetch(REQUESTS_EMAIL, { method: "POST", keepalive: true, headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body) }).catch(() => {});
   } catch (e) { /* el aviso es un extra: la solicitud ya quedó guardada */ }
@@ -1143,7 +1144,8 @@ function emailBookingRequest(id, d) {
   const agencia = (S.dmc && S.dmc.nombre) || d.dmcId || "";
   const fechas = d.fecha_fin && d.fecha_fin !== d.fecha_inicio ? `${d.fecha_inicio} → ${d.fecha_fin}` : d.fecha_inicio;
   const body = {
-    _subject: `📩 Portal: solicitud de reserva — ${agencia} · ${d.viajero} (${d.pax} pax)`,
+    _subject: `[PORTAL] 📩 Portal: solicitud de reserva — ${agencia} · ${d.viajero} (${d.pax} pax)`,
+    "Canal": "Portal de agencias · Reservar",
     _template: "table", _replyto: d.creadoPorEmail || "",
     "Agencia": agencia,
     "Enviada por": [S.profile && S.profile.nombre, d.creadoPorEmail].filter(Boolean).join(" · "),
@@ -1251,7 +1253,7 @@ function renderStatus(kind) {
         if (S.user.emailVerified) await au.getIdToken(S.user, true).catch(() => {});
         await enter();
       }), "btn--primary"),
-      wa ? h("a", { class: "btn btn--wa btn--sm", href: waLink(wa, t("wa_pending_msg") + (agency || S.user.email)), target: "_blank", rel: "noopener" }, t("wa_us")) : null)));
+      wa ? h("a", { class: "btn btn--wa btn--sm", href: waLink(wa, window.EspoOrigen ? window.EspoOrigen.etiquetar(t("wa_pending_msg") + (agency || S.user.email), "PORTAL", "solicitud pendiente") : t("wa_pending_msg") + (agency || S.user.email)), target: "_blank", rel: "noopener" }, t("wa_us")) : null)));
 }
 
 /* ==========================================================================

@@ -481,7 +481,7 @@
     emailed[d.leadId] = 1;
     const que = d.plan || d.tour || "—";
     const body = {
-      _subject: "🌿 Jenny: nuevo cliente — " + (d.name || "sin nombre") + " · " + que,
+      _subject: (d.src === "qr" ? "[VIAJERO] " : "[WEB] ") + "🌿 Jenny: nuevo cliente — " + (d.name || "sin nombre") + " · " + que,
       _template: "table",
       "Cliente": d.name || "", "Contacto": d.contact || "(no lo dejó: espera su WhatsApp)", "Plan o experiencia": que,
       "Fecha": d.date || "flexible", "Personas": d.party || "", "Alojamiento": d.hotel || "", "Accesibilidad": d.access ? "Sí" : "No",
@@ -490,11 +490,14 @@
       "Uso de fotos donde aparece": d.imagen ? "Sí, lo autoriza" : "No lo autoriza",
       "Autorización de datos": "Sí, aceptó la política de privacidad (Ley 1581 de 2012)"
     };
+    if (window.EspoOrigen) Object.assign(body, window.EspoOrigen.datos(d.src === "qr" ? "Conserje del viajero (QR)" : "Jenny, chat del sitio"));
     try {
       fetch(BIZ.leadsEmail, { method: "POST", keepalive: true, headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(body) }).catch(() => {});
     } catch (e) {}
   }
   function sendLead(data) {
+    // Página y origen de la visita (Google, Instagram, directo…) para el CRM
+    if (data && !data.page) data = Object.assign({}, data, { page: ((location.pathname.split("/").pop() || "index.html") + (window.EspoOrigen ? " · " + window.EspoOrigen.via() : "")).slice(0, 60) });
     emailLead(data || {});
     // Backend del portal (Firebase), si está configurado: el módulo js/backend.js expone EspoBackend
     try {
