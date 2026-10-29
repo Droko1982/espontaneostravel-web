@@ -3536,8 +3536,19 @@ async function adminTarifas(view) {
     add(exBox, tableWrap([
       { label: "Código", get: r => r.codigo }, { label: "Tour", get: r => r.nombre }, { label: "Temporada", get: r => r.temporada || "—" },
       { label: "Pax", get: r => `${r.pax_desde}–${r.pax_hasta}` }, { label: "Tarifa neta", cls: "num", get: r => money(r.tarifa_neta, r.moneda) },
-      { label: "Alcance", get: r => scopeLabel(r.dmcId) }, { label: "Notas (las ven las agencias)", get: r => r.notas || "" }
+      { label: "Alcance", get: r => scopeLabel(r.dmcId) }, { label: "Notas (las ven las agencias)", get: r => r.notas || "" },
+      { label: "Acción", get: r => btn("Eliminar", e => delTarifa(r, e.currentTarget)) }
     ], shown.slice(0, 300), { caption: "Tarifas cargadas" }));
+  }
+  // Borrar una tarifa suelta (p. ej. una que ya no aplica) sin reimportar el tarifario; la carga rápida de ese año se rehace sola
+  function delTarifa(r, el) {
+    if (!window.confirm(`¿Eliminar la tarifa ${r.codigo} · ${r.nombre} · ${r.pax_desde}–${r.pax_hasta} pax · ${money(r.tarifa_neta, r.moneda)} (${scopeLabel(r.dmcId)}) de la vigencia ${r.vigencia}? Las agencias dejan de verla. No se puede deshacer.`)) return;
+    busy(el, async () => {
+      await fs.deleteDoc(dref("tarifas", r.id));
+      const warn = await rebuildPacksSafe([Number(r.vigencia)]);
+      notify(`Tarifa ${r.codigo} eliminada de ${r.vigencia}.${warn}`);
+      await loadExisting();
+    });
   }
   vSel.addEventListener("change", loadExisting);
   q.addEventListener("input", debounce(drawExisting, 150));
