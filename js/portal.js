@@ -1949,7 +1949,11 @@ function paramTable(tour, sp, rows) {
     { label: t("p_param"), get: r => h("strong", null, r[0]) }, { label: t("p_b2b"), get: r => r[1] }      // sin columna B2C en el portal de agencias (ET, 29-oct-2026)
   ], filas, { stack: true, caption: t("ficha_t") }));
 }
+// Tours Compartidos 2027: sus suplementos, recomendaciones y modalidad salen del documento de ET (ficha nueva y tarifario 2027);
+// los de las condiciones de agencia anteriores (p. ej. ETFD014: Montenegro y Calarcá, otros horarios) ya no aplican
+const COMP_SKIP = new Set(["Suplementos", "Recomendaciones", "Modalidad"]);
 function tourInfo(tour, sp, openCond, rows) {
+  if (tour && tour.modalidad === "compartido") sp = Object.assign({}, sp, { ficha: sp.ficha.filter(([k]) => !COMP_SKIP.has(k)) });
   const list = (k) => tourText(tour, k) || [];
   const incl = list("incluye"), excl = list("no_incluye"), ops = list("notas");
   return [
