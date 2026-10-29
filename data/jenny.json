@@ -11,7 +11,7 @@
    "Base de Conocimiento Chatbot - Espontáneos Travel (docx)"
   ],
   "regla_de_oro": "Campos null o POR_VALIDAR: Jenny NO inventa; responde 'te lo confirma un asesor' y pasa a WhatsApp.",
-  "precios": "El tarifario es NETO (agencias): nunca se muestra al público. La tarifa directa al viajero es mayor que la de agencia (se cuidan los canales de venta) y solo aparece dentro de la cotización con Jenny, siempre acompañada del beneficio por convenio que más le convenga (ver «convenios»). Fichas, tarjetas y páginas dicen «Cotiza con Jenny» en lugar del precio. PVP aprobado hoy: Tour Compartido Cocora + Salento. Las condiciones con tarifas o suplementos están fuera del repositorio (privado/) y se cargan al portal DMC.",
+  "precios": "Ninguna tarifa va en la web ni en Jenny (decisión de ET, 29-oct-2026): fichas, tarjetas, páginas y el chat dicen «Cotiza con Jenny» y Jenny dirige al cliente con el anfitrión por WhatsApp, que le da la tarifa con el beneficio por convenio que aplique (ver «convenios»). El tarifario NETO solo se ve en el portal de agencias. Las condiciones con tarifas o suplementos están fuera del repositorio (privado/) y se cargan al portal.",
   "horario": "fijo = hora(s) de recogida en el hotel; ventana = el viajero elige la hora de inicio dentro del rango; desde = a partir de esa hora; null = por confirmar con un asesor",
   "recomendacion_fuente": "'documento ET' = texto oficial; 'propuesta (VALIDAR)' = redactada a partir del portafolio, pendiente de revisión de Carolina Toro",
   "vigencia": 2026,
@@ -327,7 +327,6 @@
    "codigo": "ETFD014",
    "tour": "compartidocs",
    "itinerario": "Sale de Armenia a las 8:15 a.m. En el Valle de Cocora hacemos interpretación del bosque de niebla y la palma de cera 🌴 (2 a 3 h). Luego vamos a Salento: recorrido histórico, tiempo libre para almorzar y caminar por la Calle Real 🛍️. Regreso a Armenia.",
-   "precio_publico": "$307.000 COP por persona (2026)",
    "incluye": [
     "Transporte",
     "Guía en español",
@@ -350,24 +349,12 @@
      "hora": "08:10"
     }
    ],
-   "traslado_a_punto_encuentro": {
-    "vehiculo": "Duster, valor por trayecto",
-    "Montenegro": "$115.000",
-    "Calarcá": "$125.000",
-    "Quimbaya": "$150.000",
-    "VALIDAR": "Montenegro: portafolio $100.000 vs base de conocimiento $115.000"
-   },
    "operacion": "Todos los días desde 2 pasajeros. Confirmar a más tardar a las 8:00 p.m. del día anterior.",
    "no_opera": [
     "Puente festivo de la semana de receso de octubre",
     "25 de diciembre",
     "1 al 6 de enero"
    ],
-   "guia_ingles_suplemento_pp": {
-    "2 pax": "$100.000",
-    "3 pax": "$66.000",
-    "4 pax": "$50.000"
-   },
    "salida": "reservar"
   },
   {
@@ -1823,8 +1810,7 @@
     "No opera el puente festivo de la semana de receso de octubre, el 25 de diciembre ni del 1 al 6 de enero.",
     "Ideal para personas de 4 a 70 años."
    ],
-   "precio_publico": "$307.000 COP por persona (2026)",
-   "VALIDAR": "Duración: Carolina confirmó 8 h (regreso 4:00 p.m.); la base de conocimiento dice 7 h (regreso 3:30 p.m.). Traslado Montenegro: portafolio $100.000 vs base $115.000.",
+   "VALIDAR": "Duración: Carolina confirmó 8 h (regreso 4:00 p.m.); la base de conocimiento dice 7 h (regreso 3:30 p.m.). Traslado desde Montenegro: hay dos valores distintos (ver privado/precios-retirados-web.json).",
    "recomendacion": {
     "fuente": "propuesta (VALIDAR)",
     "titulo": "🚐 ¡Tour compartido a Cocora y Salento!",
