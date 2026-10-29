@@ -1851,6 +1851,132 @@
    "ubicacion_publica": true
   },
   {
+   "id_web": "fincacomp",
+   "codigo": "ETHD066",
+   "cat": "tradicionales",
+   "nombre": "Tour compartido Finca cafetera",
+   "duracion_horas": 4,
+   "incluye": [
+    "Transporte",
+    "Anfitriones en la finca",
+    "Catación y métodos de preparación",
+    "Degustación de café",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Salida compartida: horario, punto de encuentro y tarifa por confirmar con el equipo comercial."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "☕ ¡Del grano a la taza!",
+    "items": [
+     "👟 Zapatos cerrados y cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "💧 Botella reutilizable (te damos agua en el recorrido)",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "☕ Prueba el café sin azúcar en la cata: así se sienten mejor sus notas",
+     "🚯 No dejes basura: deja el lugar como lo encontraste"
+    ]
+   },
+   "descripcion": "El café colombiano tiene Denominación de Origen y el Paisaje Cultural Cafetero es Patrimonio de la Humanidad. En una finca tradicional recorres el proceso de la semilla a la taza y aprendes a catar: la experiencia esencial del Eje Cafetero.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Caldas",
+    "Norte del Valle del Cauca"
+   ],
+   "modalidad": "compartido",
+   "almuerzo": false,
+   "combina": [],
+   "ubicacion_publica": false,
+   "publico": false,
+   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETHD001 mientras llega la ficha propia: faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
+  },
+  {
+   "id_web": "cacaocomp",
+   "codigo": "ETHD067",
+   "cat": "rurales",
+   "nombre": "Tour compartido de Cacao",
+   "duracion_horas": 4,
+   "incluye": [
+    "Transporte",
+    "Refrigerio",
+    "Anfitriones en la finca",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Salida compartida: horario, punto de encuentro y tarifa por confirmar con el equipo comercial."
+   ],
+   "recomendacion": {
+    "fuente": "documento ET",
+    "titulo": "🌱 ¡Prepárate para vivir una experiencia de cacao inolvidable!",
+    "items": [
+     "🎒 Mochila ligera y cómoda",
+     "🧢 Sombrero o gorra (protégete del sol)",
+     "🧴 Bloqueador solar y repelente",
+     "💧 Botella de agua reutilizable",
+     "👟 Zapatos cómodos para caminar",
+     "🌦️ Puede llover, ¡lleva un impermeable o paraguas plegable!",
+     "🚯 No dejes basura",
+     "🚫 Evita perfumes fuertes: pueden alterar el entorno natural del cultivo"
+    ]
+   },
+   "descripcion": "Colombia es reconocida en el mundo por su cacao fino de sabor y aroma. Participa en el proceso de la mazorca a la bebida, de la mano de las familias que lo cultivan: una cara del Eje Cafetero que pocos conocen.",
+   "departamentos": [
+    "Quindío",
+    "Risaralda",
+    "Caldas"
+   ],
+   "modalidad": "compartido",
+   "almuerzo": false,
+   "combina": [],
+   "ubicacion_publica": false,
+   "publico": false,
+   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETHD002 mientras llega la ficha propia: faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
+  },
+  {
+   "id_web": "cordilleracomp",
+   "codigo": "ETFD015",
+   "cat": "tradicionales",
+   "nombre": "Tour compartido Cordillera: Córdoba, Pijao y Buenavista",
+   "duracion_horas": 8,
+   "incluye": [
+    "Transporte",
+    "Trayecto en Jeep Willys (según condiciones)",
+    "Guía",
+    "Degustación de café",
+    "Souvenir",
+    "Almuerzo",
+    "Material fotográfico en digital"
+   ],
+   "notas": [
+    "Salida compartida: horario, punto de encuentro y tarifa por confirmar con el equipo comercial."
+   ],
+   "recomendacion": {
+    "fuente": "propuesta (VALIDAR)",
+    "titulo": "⛰️ ¡Pueblos de cordillera!",
+    "items": [
+     "👟 Zapatos cómodos",
+     "🧢 Sombrero o gorra, bloqueador solar y repelente",
+     "🧥 Abrigo ligero: la cordillera es fresca",
+     "🌧️ Puede llover: te prestamos capa reutilizable",
+     "💵 Efectivo para compras locales",
+     "🚙 Parte del trayecto puede ser en Jeep Willys por vías rurales",
+     "💊 Si te mareas en carretera, lleva tu medicamento"
+    ]
+   },
+   "descripcion": "El Quindío menos conocido: un día entre las montañas, recorriendo por vías rurales la autenticidad de tres pueblos de la cordillera.",
+   "departamentos": [
+    "Quindío"
+   ],
+   "modalidad": "compartido",
+   "almuerzo": true,
+   "combina": [],
+   "ubicacion_publica": true,
+   "publico": false,
+   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETFD004 mientras llega la ficha propia: faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
+  },
+  {
    "id_web": "cordillera",
    "codigo": "ETFD004",
    "cat": "tradicionales",

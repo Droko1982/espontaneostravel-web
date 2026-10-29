@@ -81,10 +81,12 @@
 .xp-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .xp-card__img { position: relative; overflow: hidden; display: grid; place-items: center; aspect-ratio: 3 / 2; background: linear-gradient(135deg, var(--olive-500, #6b7f4e), var(--forest-800, #272e19)); font-size: 2.4rem; }
 .xp-card__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-/* sello oficial del tour compartido 2027: sobre la foto (página y tarjetas) y junto al texto de «la otra versión» */
-.xp-hero__media .xp-seal, .xp-card__img .xp-seal { position: absolute; inset: 12px 12px auto auto; z-index: 1; width: clamp(68px, 12vw, 108px); height: auto; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 4px 16px rgba(0,0,0,.3); pointer-events: none; }
+/* sello oficial del tour compartido 2027 (sin fondo, como el logo; halo suave sobre la foto) y junto al texto de «la otra versión» */
+.xp-hero__media .xp-seal, .xp-card__img .xp-seal { position: absolute; inset: 12px 12px auto auto; z-index: 1; width: clamp(68px, 12vw, 108px); height: auto; aspect-ratio: 1; filter: drop-shadow(0 0 1px rgba(255,255,255,.95)) drop-shadow(0 0 3px rgba(255,255,255,.7)); pointer-events: none; }
 .xp-card__img .xp-seal { inset: 8px 8px auto auto; width: 54px; height: 54px; }
-.xp-seal--inline { flex: none; width: 76px; height: 76px; border-radius: 50%; box-shadow: var(--shadow-sm); }
+.xp-seal--inline { flex: none; width: 76px; height: 76px; border-radius: 50%; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .xp-seal--inline { background: #fff; } }
+:root[data-theme="dark"] .xp-seal--inline { background: #fff; }
 /* el mismo recorrido en la otra modalidad (compartido ↔ privado) */
 .xp-alt { display: grid; gap: 1rem 2rem; align-items: center; padding: clamp(1.1rem, 3vw, 1.6rem); background: var(--card); border: 1px solid var(--border-soft); border-radius: var(--r-xl, 22px); }
 @media (min-width: 760px) { .xp-alt { grid-template-columns: minmax(0, 1fr) minmax(0, 320px); } }
