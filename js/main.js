@@ -328,6 +328,9 @@
     const dist = window.EspoMaps && EspoMaps.distanceText ? EspoMaps.distanceText(id, currentLang) : "";
     if (dist) meta.push(`<span class="m m--dist">${I.pin}${esc(dist)}</span>`);
     $("#modal-meta").innerHTML = meta.join("");
+    // Sello del tour compartido sobre la foto grande (solo en esa experiencia)
+    const sealOld = $("#modal-seal"); if (sealOld) sealOld.remove();
+    if (i && i.modalidad === "compartido") $("#modal-hero").insertAdjacentHTML("beforeend", `<img class="modal__seal" id="modal-seal" src="${R().SEAL}" alt="" width="132" height="132" decoding="async">`);
     $("#modal-desc").textContent = ((i && i.descripcion) || tourSummary(tour)) + (i && i.horario_nota ? "\n\n" + i.horario_nota : "");
     // fotos
     const gal = $("#modal-gallery");

@@ -47,7 +47,7 @@ const UI = {
     ico_com: "Experiencia dirigida con la comunidad local (campesinos, artesanos, productores locales).",
     ico_cord: "Tours o experiencias que hacen parte del proyecto Paisaje Cordillerano. Municipios: Calarcá, Córdoba, Pijao, Buenavista y Génova en Quindío; Caicedonia y Sevilla en Valle del Cauca.",
     ico_lang: "Indica que el recorrido se puede hacer en ese idioma, independiente del guía bilingüe (consultar fincas en las que aplica).",
-    ico_shared: "Tour compartido.", ico_acc_s: "Accesible (consultar tarifas y ajustes)", b_shared: "Tour compartido",
+    ico_shared: "Tour compartido (Shared Tour): salida con horario y puntos de encuentro fijos; el viajero comparte vehículo y guía con otros viajeros.", ico_acc_s: "Accesible (consultar tarifas y ajustes)", b_shared: "Tour compartido",
     map_t: "El Eje Cafetero, punto por punto", map_s: "Arrastra para moverte. Toca un punto para ver la experiencia.", map_aria: "Mapa del Eje Cafetero: departamentos, capitales, aeropuertos y experiencias",
     v_region: "Región", v_eje: "Eje Cafetero", v_quindio: "Quindío", z_in: "Acercar", z_out: "Alejar", k_apt: "Aeropuerto", k_cap: "Capital", k_hot: "Hoteles aliados", k_fin: "Fincas cafeteras",
     t_exp: "Experiencias", t_ruta: "Arma tu ruta", t_trans: "Transporte", t_kit: "Kit de venta", t_cond: "Condiciones",
@@ -112,7 +112,7 @@ const UI = {
     ico_com: "Experience led together with the local community (farmers, artisans, local producers).",
     ico_cord: "Tours or experiences that are part of the Paisaje Cordillerano project. Towns: Calarcá, Córdoba, Pijao, Buenavista and Génova in Quindío; Caicedonia and Sevilla in Valle del Cauca.",
     ico_lang: "Shows that the tour can be done in that language, regardless of the bilingual guide (ask which farms this applies to).",
-    ico_shared: "Shared tour.", ico_acc_s: "Accessible (ask about rates and adjustments)", b_shared: "Shared tour",
+    ico_shared: "Shared tour: fixed departure time and meeting points; travellers share the vehicle and guide with other travellers.", ico_acc_s: "Accessible (ask about rates and adjustments)", b_shared: "Shared tour",
     map_t: "The Coffee Region, point by point", map_s: "Drag to move. Tap a point to see the experience.", map_aria: "Map of the Coffee Region: departments, capitals, airports and experiences",
     v_region: "Region", v_eje: "Coffee Region", v_quindio: "Quindío", z_in: "Zoom in", z_out: "Zoom out", k_apt: "Airport", k_cap: "Capital", k_hot: "Partner hotels", k_fin: "Coffee farms",
     t_exp: "Experiences", t_ruta: "Build a route", t_trans: "Transport", t_kit: "Sales kit", t_cond: "Conditions",
@@ -211,11 +211,13 @@ const GLYPH = {
 };
 
 // Iconografía del portafolio (la del PDF 2027): turismo accesible, comunitario, Paisaje Cordillerano, tour compartido e idiomas
+// El del tour compartido es el sello oficial «Shared Tour · Tour Compartido · Quindío» (tools/make_brand_assets.py --sello)
+const SEAL = "/assets/img/brand/tour-compartido.webp";
 const ICO = {
   acc: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="#E8762D"><circle cx="12" cy="4" r="2"/><path d="M19 13v-2c-1.54.02-3.09-.75-4.07-1.83l-1.29-1.43c-.17-.19-.38-.34-.61-.45-.01 0-.01-.01-.02-.01H13c-.35-.2-.75-.3-1.19-.26C10.76 7.11 10 8.04 10 9.09V15c0 1.1.9 2 2 2h5v5h2v-5.5c0-1.1-.9-2-2-2h-3v-3.45c1.29 1.07 3.25 1.94 5 1.95zm-6.17 5c-.41 1.16-1.52 2-2.83 2-1.66 0-3-1.34-3-3 0-1.31.84-2.41 2-2.83V12.1c-2.28.46-4 2.48-4 4.9 0 2.76 2.24 5 5 5 2.42 0 4.44-1.72 4.9-4h-2.07z"/></g></svg>',
   com: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="11.4" fill="#2F3B22"/><circle cx="12" cy="12" r="9.4" fill="none" stroke="#fff" stroke-width=".7" stroke-dasharray="1.2 1"/><g fill="#8DBF4A"><circle cx="7.7" cy="10.2" r="1.45"/><path d="M5.5 16.3c0-1.7 1-3.1 2.2-3.1s2.2 1.4 2.2 3.1z"/><circle cx="16.3" cy="10.2" r="1.45"/><path d="M14.1 16.3c0-1.7 1-3.1 2.2-3.1s2.2 1.4 2.2 3.1z"/></g><g fill="#F2A33A"><circle cx="12" cy="8.6" r="1.75"/><path d="M9.4 16.3c0-2.1 1.2-3.8 2.6-3.8s2.6 1.7 2.6 3.8z"/></g></svg>',
   cord: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.6 3.4 13.1A5.2 5.2 0 0 1 12 6.4a5.2 5.2 0 0 1 8.6 6.7z" fill="#fff" stroke="#E8762D" stroke-width="1.7" stroke-linejoin="round"/><path d="M4.9 13.9 8.8 9.8l3.2 3.3 3.3-3.4 3.8 4.1L12 20.3z" fill="#3E8E4A"/><path d="m8.8 9.8 3.2 3.3-2.1 2.2-3.1-3.1z" fill="#8DBF4A"/><path d="m12 20.3-3.6-3.6h7.2z" fill="#D9338E"/></svg>',
-  shared: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10.6" fill="#fff" stroke="#6BAA3A" stroke-width="1.8"/><g fill="none" stroke="#2F3B22" stroke-width="1.5" stroke-linecap="round"><circle cx="9.4" cy="9.8" r="2"/><path d="M6 16.6c.4-2.1 1.7-3.4 3.4-3.4s3 1.3 3.4 3.4"/><circle cx="15.4" cy="10.4" r="1.6"/><path d="M14.2 13.5c1.6-.2 3.1.9 3.5 3.1"/></g></svg>'
+  shared: `<img class="ico seal-i" src="${SEAL}" alt="" width="22" height="22" decoding="async">`
 };
 const FLAGS = {
   ES: '<rect width="24" height="24" fill="#AA151B"/><rect y="6" width="24" height="12" fill="#F1BF00"/>',
@@ -847,6 +849,7 @@ function startSlides(root) {
     load(1);
     const tid = setInterval(() => { if (!md.isConnected) { clearInterval(tid); return; } s[i].classList.remove("on"); i = (i + 1) % s.length; s[i].classList.add("on"); load((i + 1) % s.length); }, 3800); slideTimers.push(tid); });
 }
+const seal = (e, cls) => (e.shared ? `<img class="seal${cls ? " " + cls : ""}" src="${SEAL}" alt="" width="132" height="132" decoding="async">` : "");
 function badges(e) {
   const b = [];
   if (e.nuevo) b.push(`<span class="new">${tx("b_new")}</span>`); if (e.propio) b.push(`<span class="own">${tx("b_own")}</span>`);
@@ -872,7 +875,7 @@ function renderList() {
     if (S.near && S.R.hotel) items.sort((a, b) => distKm(a) - distKm(b));
     html += `<details class="group" data-g="${k}"${(k in S.open ? S.open[k] : auto) ? " open" : ""}><summary><i style="background:${c.color}"></i><span class="gname">${esc(lineName(k))}</span><span class="gn">${items.length}</span><span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span>${ic("chev", "sm")}</summary><div class="cards">` +
       items.map(e => `<button type="button" class="card${S.active === e.id ? " on" : ""}" data-card="${e.id}">
-        <div class="media">${mediaBlock(e, { video: false, one: true })}${badges(e)}${videosOf(e.id).length ? '<span class="vid-tag">▶ Video</span>' : ""}</div>
+        <div class="media">${mediaBlock(e, { video: false, one: true })}${badges(e)}${seal(e)}${videosOf(e.id).length ? '<span class="vid-tag">▶ Video</span>' : ""}</div>
         <div class="body"><h4>${esc(tr(e, "name"))}</h4><div class="meta"><span class="code">${e.code}</span>${e.code ? " · " : ""}${esc(e.deptos)} · ${ic("clock", "sm")}${esc(tr(e, "dur"))}</div>
         ${icoRow(e, "sm")}${nearLine(e)}<div class="meta tl">${esc(tr(e, "tagline"))}</div>
         <div class="price">${priceLine(e)}</div></div></button>`).join("") + `</div></details>`;
@@ -901,7 +904,7 @@ function openPop(id, fromList) {
   if (fromList) { const [x, y] = P(...llOf(e)); if (x < VB.x || x > VB.x + VB.w || y < VB.y || y > VB.y + VB.h) animateTo(boxToVB(...VIEWS.eje)); mapShow(true, true); }
   drawOverlay(); markActive();
   $r("pop").innerHTML = `<div class="pop" role="dialog" aria-label="${esc(tr(e, "name"))}">
-    <button type="button" class="x" data-r="popx" aria-label="${esc(tx("close"))}">×</button><div class="media">${mediaBlock(e)}${badges(e)}</div>
+    <button type="button" class="x" data-r="popx" aria-label="${esc(tx("close"))}">×</button><div class="media">${mediaBlock(e)}${badges(e)}${seal(e, "lg")}</div>
     <div class="body"><span class="eyebrow">${esc(catName(e.cat))} · ${esc(e.sub)}</span><h3>${esc(tr(e, "name"))}</h3>
       <div class="row"><span><span class="code">${esc(e.code)}</span> ${icoRow(e, "sm")} · ${esc(e.deptos)}</span><span>${ic("clock", "sm")}${esc(tr(e, "dur"))}</span></div>
       <p class="tl">${esc(tr(e, "tagline"))}</p>${nearLine(e)}
@@ -952,7 +955,7 @@ function openFicha(id) {
   const rate = rateRow(id, pax0);
   const nav = [["exp", tx("s_exp")], ["tech", tx("s_tech")], ["incl", tx("s_incl")], ["oper", tx("s_oper")], ...(sell ? [["sell", tx("s_sell")]] : []), ...(!wl ? [["rate", tx("s_rate").split(" ")[0] === "Tarifa" ? "Tarifa" : "Rate"]] : [])];
   $r("ficha").innerHTML = `<div class="ficha" role="dialog" aria-modal="true" aria-label="${esc(tr(e, "name"))}" data-fid="${id}"><article class="sheet">
-    <div class="hero"><div class="media">${mediaBlock(e, { label: false, big: true })}</div>${badges(e)}<button type="button" class="close" data-r="fx">${ic("x", "sm")}${tx("close")}</button>
+    <div class="hero"><div class="media">${mediaBlock(e, { label: false, big: true })}</div>${badges(e)}${seal(e, "xl")}<button type="button" class="close" data-r="fx">${ic("x", "sm")}${tx("close")}</button>
       <div class="hero-txt"><span class="eyebrow">${esc(catName(e.cat))} · ${esc(e.sub)} · ${esc(e.deptos)}</span><h2>${esc(tr(e, "name"))}</h2><p>${esc(tr(e, "tagline"))}</p></div></div>
     <dl class="facts">${fact("clock", tx("f_dur_l"), tr(e, "dur"))}${fact("users", tx("f_mod"), tr(e, "modalidad"))}${fact("food", tx("f_lunch"), tr(e, "almuerzo"))}${fact("child", tx("f_age"), tr(e, "edad") || tx("ask"))}${fact("users", tx("f_group"), grp)}
       <div><dt>${ic("globe", "sm")}${tx("f_langs")}</dt><dd>${(e.langs || []).map(langName).map(esc).join(", ")}</dd></div><div class="code-wrap"><dt>${ic("tag", "sm")}${tx("f_code")}</dt><dd><span class="code">${esc(e.code)}</span> ${icoRow(e)}</dd></div></dl>
@@ -1495,6 +1498,14 @@ async function imgData(url, w = 1400, h = 680) {
   const b = await (await fetch(url)).blob(); const bm = await createImageBitmap(b); const c = document.createElement("canvas"); c.width = w; c.height = h;
   const r = Math.max(w / bm.width, h / bm.height), sw = w / r, sh = h / r; c.getContext("2d").drawImage(bm, (bm.width - sw) / 2, (bm.height - sh) / 2, sw, sh, 0, 0, w, h); return c.toDataURL("image/jpeg", .82);
 }
+// Sello del tour compartido para el PDF (PNG con transparencia; se pide una sola vez)
+let sealPng = null;
+async function sealData() {
+  if (sealPng !== null) return sealPng;
+  try { const bm = await createImageBitmap(await (await fetch(SEAL)).blob()); const c = document.createElement("canvas"); c.width = bm.width; c.height = bm.height; c.getContext("2d").drawImage(bm, 0, 0); sealPng = c.toDataURL("image/png"); }
+  catch (e) { sealPng = ""; }
+  return sealPng;
+}
 async function logoData() { try { const b = await (await fetch("/assets/img/logo.png")).blob(); const bm = await createImageBitmap(b); const c = document.createElement("canvas"); c.width = 240; c.height = Math.round(240 * bm.height / bm.width); c.getContext("2d").drawImage(bm, 0, 0, c.width, c.height); return { d: c.toDataURL("image/png"), r: c.height / c.width }; } catch (e) { return null; } }
 // Suplementos con su valor: en precio de venta, el valor sube con el markup del asesor (redondeado a miles)
 const markupMoney = (s, mk) => (!mk ? String(s) : String(s).replace(/\$\s?([\d.]{4,})/g, (m, n) => "$" + (Math.round(+n.replace(/\./g, "") * (1 + mk / 100) / 1000) * 1000).toLocaleString("es-CO")));
@@ -1594,7 +1605,9 @@ async function buildPdf(ids, o) {
       y = 22; first = false;
     }
     const fh = ids.length === 1 ? 560 : 680;     // ficha individual: foto un poco más baja para que todo quepa en una página
-    const ph = e.fotos[0]; if (ph) { try { doc.addImage(await imgData(ph1600(ph), 1400, fh), "JPEG", Mg, y, CW, CW * fh / 1400); y += CW * fh / 1400 + 7; } catch (err) { /* sin foto */ } }
+    const ph = e.fotos[0]; if (ph) { try { doc.addImage(await imgData(ph1600(ph), 1400, fh), "JPEG", Mg, y, CW, CW * fh / 1400);
+      if (e.shared) { const sd = await sealData(); if (sd) { try { doc.addImage(sd, "PNG", Mg + CW - 28, y + 4, 24, 24); } catch (err) { /* sin sello */ } } }   // sello en la esquina de la foto
+      y += CW * fh / 1400 + 7; } catch (err) { /* sin foto */ } }
     doc.setTextColor(...OL); doc.setFont("helvetica", "bold"); doc.setFontSize(19); doc.splitTextToSize(pdfTxt(tr(e, "name", lg)), CW).forEach(l => { doc.text(l, Mg, y + 4); y += 8; });
     doc.setTextColor(90); doc.setFont("helvetica", "normal"); doc.setFontSize(9.5);
     const meta = `${logo && price !== "none" ? e.code + " · " : ""}${e.deptos} · ${LB.dur}: ${tr(e, "dur", lg)} · ${LB.mod}: ${tr(e, "modalidad", lg)}${tr(e, "edad", lg) ? " · " + LB.age + ": " + tr(e, "edad", lg) : ""} · ${LB.langs}: ${(e.langs || []).join(" · ")}`;

@@ -1786,6 +1786,9 @@
    "combina": [
     "finca"
    ],
+   "alterna": [
+    "compartidocs"
+   ],
    "ubicacion_publica": true
   },
   {
@@ -1842,6 +1845,9 @@
    "modalidad": "compartido",
    "almuerzo": false,
    "combina": [],
+   "alterna": [
+    "cocorasalento"
+   ],
    "ubicacion_publica": true
   },
   {

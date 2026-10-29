@@ -348,6 +348,10 @@ body:has(.mobile-menu.open) .espo-launch, body:has(.mobile-menu.open) .wa-float 
   font-size: .72rem; font-weight: 600; letter-spacing: .03em; text-transform: uppercase;
   background: color-mix(in srgb, var(--bg-elev) 85%, transparent); color: var(--brand); backdrop-filter: blur(6px);
 }
+/* sello oficial del tour compartido 2027 (disco blanco: se lee sobre la foto y en modo oscuro) */
+.tour-card__media img.tour-card__seal { position: absolute; top: 10px; right: 10px; z-index: 1; width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 3px 12px rgba(0,0,0,.3); pointer-events: none; }
+.tour-card:hover .tour-card__media img.tour-card__seal { transform: none; }
+.modal__seal { position: absolute; left: clamp(1.3rem,4vw,2.2rem); top: 58px; z-index: 2; width: 78px; height: 78px; border-radius: 50%; box-shadow: 0 3px 12px rgba(0,0,0,.3); pointer-events: none; }
 .tour-card__fav { position: absolute; top: 10px; right: 10px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.85); color: var(--accent); backdrop-filter: blur(4px); opacity: 0; transform: translateY(-6px); transition: all .3s var(--ease); }
 .tour-card:hover .tour-card__fav { opacity: 1; transform: translateY(0); }
 .tour-card__body { padding: 1.2rem 1.3rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
@@ -721,6 +725,21 @@ body:has(.mobile-menu.open) .espo-launch, body:has(.mobile-menu.open) .wa-float 
 .c-pack__tips b { color: var(--text); }
 
 .c-itin { display: grid; gap: 0; }
+/* Itinerario: nombre con enlace a la experiencia, «Qué incluye» por parada y experiencias por programar */
+.c-tour-link { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.c-tour-link:hover { color: var(--brand); }
+.c-step__more { margin-top: .45rem; font-size: .86rem; color: var(--text-soft); }
+.c-step__more summary { cursor: pointer; font-weight: 600; color: var(--brand); width: fit-content; }
+.c-step__more ul { list-style: none; display: grid; gap: .15rem; margin: .35rem 0 0; padding: 0; }
+.c-step__more p { margin: .35rem 0 0; line-height: 1.45; }
+.c-step--extra .c-step__dot { border-style: dashed; }
+/* Tu solicitud: lo que el cliente eligió */
+.c-req__list { display: grid; gap: .1rem; margin: 0; }
+.c-req__list div { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: .2rem 1rem; padding: .45rem 0; border-bottom: 1px solid var(--border-soft); }
+.c-req__list div:last-child { border-bottom: 0; }
+.c-req__list dt { font-size: .86rem; color: var(--text-muted); }
+.c-req__list dd { margin: 0; font-size: .92rem; color: var(--text); overflow-wrap: anywhere; }
+@media (max-width: 480px) { .c-req__list div { grid-template-columns: 1fr; } }
 .c-step { display: grid; grid-template-columns: 70px 20px 1fr; align-items: start; gap: .5rem; padding-bottom: 1.1rem; position: relative; }
 .c-step__time { font-size: .8rem; font-weight: 600; color: var(--text); text-align: right; line-height: 1.2; }
 .c-step__time small { display: block; font-weight: 500; color: var(--text-muted); font-size: .72rem; }

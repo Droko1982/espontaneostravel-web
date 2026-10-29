@@ -73,7 +73,7 @@
       // Portafolio 2027 (públicos): descripción corta, departamentos, modalidad, almuerzo y combinaciones
       descripcion: t.descripcion ? pick(t.descripcion, x.descripcion) : "",
       departamentos: t.departamentos || [], modalidad: t.modalidad || "", almuerzo: typeof t.almuerzo === "boolean" ? t.almuerzo : null,
-      combina: t.combina || [], combina_todas: !!t.combina_todas, ubicacion_publica: t.ubicacion_publica !== false, publico: t.publico !== false,
+      combina: t.combina || [], combina_todas: !!t.combina_todas, alterna: t.alterna || [], ubicacion_publica: t.ubicacion_publica !== false, publico: t.publico !== false,
       duracion_texto: t.duracion_texto || "",
       rec: { fuente: rec.fuente || "", titulo: pick(rec.titulo || "", xr.titulo), items: pick(rec.items || [], xr.items) }
     };
