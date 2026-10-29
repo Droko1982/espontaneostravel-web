@@ -48,7 +48,7 @@
       hub: "*{tour}* · {code}\n¿Qué quieres saber?", see_card: "🔎 Ver ficha completa", book_this: "📅 Reservar esta", another_tour: "Otra experiencia",
       a_horario: "*{tour}*: {h}.", a_dur: "*{tour}* dura aprox. *{d}* desde la recogida en tu hotel.",
       a_incl: "*{tour}* incluye:", a_noincl: "No incluye:", a_tbd: "Ese dato te lo confirma un asesor 💬",
-      a_price_pub: "Precio de venta 2026: *{p}*.", forecast: "🌦️ Pronóstico para tu fecha:",
+      forecast: "🌦️ Pronóstico para tu fecha:",
       rain: "🌧️ Lluvia probable ese día: lleva ropa impermeable.", uv: "☀️ Índice UV muy alto: bloqueador, gorra y gafas.", cold: "🧥 Mañana fría: lleva abrigo.",
       f_guide: "Idioma del guía", no_match: "No tengo esa respuesta exacta 🙈 Te paso con un asesor por WhatsApp para que te ayude.",
       wa_q: "¡Hola Espontáneos Travel! Tengo una pregunta:", wa_default: "¡Hola Espontáneos Travel! Me gustaría más información sobre sus experiencias.",
@@ -67,7 +67,7 @@
       hub: "*{tour}* · {code}\nWhat would you like to know?", see_card: "🔎 See full details", book_this: "📅 Book this", another_tour: "Another experience",
       a_horario: "*{tour}*: {h}.", a_dur: "*{tour}* takes about *{d}* from hotel pickup.",
       a_incl: "*{tour}* includes:", a_noincl: "Not included:", a_tbd: "An advisor will confirm that for you 💬",
-      a_price_pub: "2026 retail price: *{p}*.", forecast: "🌦️ Forecast for your date:",
+      forecast: "🌦️ Forecast for your date:",
       rain: "🌧️ Rain likely that day: bring waterproof clothing.", uv: "☀️ Very high UV: sunscreen, cap and sunglasses.", cold: "🧥 Chilly morning: bring a jacket.",
       f_guide: "Guide language", no_match: "I don't have that exact answer 🙈 Let me connect you with an advisor on WhatsApp.",
       wa_q: "Hi Espontáneos Travel! I have a question:", wa_default: "Hi Espontáneos Travel! I'd like more information about your experiences.",
@@ -86,7 +86,7 @@
       hub: "*{tour}* · {code}\nQue voulez-vous savoir ?", see_card: "🔎 Voir la fiche", book_this: "📅 Réserver celle-ci", another_tour: "Autre expérience",
       a_horario: "*{tour}* : {h}.", a_dur: "*{tour}* dure environ *{d}* depuis la prise en charge à l'hôtel.",
       a_incl: "*{tour}* comprend :", a_noincl: "Non inclus :", a_tbd: "Un conseiller vous le confirmera 💬",
-      a_price_pub: "Prix de vente 2026 : *{p}*.", forecast: "🌦️ Prévisions pour votre date :",
+      forecast: "🌦️ Prévisions pour votre date :",
       rain: "🌧️ Pluie probable ce jour-là : prévoyez des vêtements imperméables.", uv: "☀️ UV très élevé : crème solaire, casquette et lunettes.", cold: "🧥 Matinée froide : prévoyez une veste chaude.",
       f_guide: "Langue du guide", no_match: "Je n'ai pas de réponse précise à cette question 🙈 Je vous mets en contact avec un conseiller sur WhatsApp pour vous aider.",
       wa_q: "Bonjour Espontáneos Travel ! J'ai une question :", wa_default: "Bonjour Espontáneos Travel ! Je souhaite plus d'informations sur vos expériences.",
@@ -105,7 +105,7 @@
       hub: "*{tour}* · {code}\nWas möchten Sie wissen?", see_card: "🔎 Details ansehen", book_this: "📅 Dieses buchen", another_tour: "Anderes Erlebnis",
       a_horario: "*{tour}*: {h}.", a_dur: "*{tour}* dauert ca. *{d}* ab der Abholung an Ihrem Hotel.",
       a_incl: "*{tour}* beinhaltet:", a_noincl: "Nicht inklusive:", a_tbd: "Das bestätigt Ihnen ein Berater 💬",
-      a_price_pub: "Verkaufspreis 2026: *{p}*.", forecast: "🌦️ Vorhersage für Ihr Datum:",
+      forecast: "🌦️ Vorhersage für Ihr Datum:",
       rain: "🌧️ An diesem Tag ist Regen wahrscheinlich: wasserfeste Kleidung mitnehmen.", uv: "☀️ Sehr hoher UV-Index: Sonnencreme, Kappe und Sonnenbrille.", cold: "🧥 Kalter Morgen: warme Jacke mitnehmen.",
       f_guide: "Sprache des Guides", no_match: "Darauf habe ich keine genaue Antwort 🙈 Ich verbinde Sie per WhatsApp mit einem Berater.",
       wa_q: "Hallo Espontáneos Travel! Ich habe eine Frage:", wa_default: "Hallo Espontáneos Travel! Ich hätte gern mehr Informationen zu Ihren Erlebnissen.",
@@ -124,7 +124,7 @@
       hub: "*{tour}* · {code}\nO que você quer saber?", see_card: "🔎 Ver detalhes", book_this: "📅 Reservar esta", another_tour: "Outra experiência",
       a_horario: "*{tour}*: {h}.", a_dur: "*{tour}* dura aprox. *{d}* a partir do momento em que buscamos você no hotel.",
       a_incl: "*{tour}* inclui:", a_noincl: "Não inclui:", a_tbd: "Um consultor confirma isso para você 💬",
-      a_price_pub: "Preço de venda 2026: *{p}*.", forecast: "🌦️ Previsão para a sua data:",
+      forecast: "🌦️ Previsão para a sua data:",
       rain: "🌧️ Chuva provável nesse dia: leve roupa impermeável.", uv: "☀️ UV muito alto: protetor, boné e óculos.", cold: "🧥 Manhã fria: leve um casaco.",
       f_guide: "Idioma do guia", no_match: "Não tenho essa resposta exata 🙈 Vou passar você para um consultor no WhatsApp.",
       wa_q: "Olá Espontáneos Travel! Tenho uma pergunta:", wa_default: "Olá Espontáneos Travel! Gostaria de mais informações sobre as experiências.",
@@ -143,7 +143,7 @@
       hub: "*{tour}* · {code}\nCosa vuoi sapere?", see_card: "🔎 Vedi la scheda completa", book_this: "📅 Prenota questa", another_tour: "Un'altra esperienza",
       a_horario: "*{tour}*: {h}.", a_dur: "*{tour}* dura circa *{d}* dal ritiro in hotel.",
       a_incl: "*{tour}* include:", a_noincl: "Non include:", a_tbd: "Questo dato te lo conferma un consulente 💬",
-      a_price_pub: "Prezzo di vendita 2026: *{p}*.", forecast: "🌦️ Previsioni per la tua data:",
+      forecast: "🌦️ Previsioni per la tua data:",
       rain: "🌧️ Probabile pioggia quel giorno: porta abbigliamento impermeabile.", uv: "☀️ Indice UV molto alto: crema solare, cappellino e occhiali da sole.", cold: "🧥 Mattina fredda: porta una giacca calda.",
       f_guide: "Lingua della guida", no_match: "Non ho una risposta precisa a questa domanda 🙈 Ti metto in contatto con un consulente su WhatsApp che ti aiuterà.",
       wa_q: "Ciao Espontáneos Travel! Ho una domanda:", wa_default: "Ciao Espontáneos Travel! Vorrei maggiori informazioni sulle vostre esperienze.",
@@ -741,7 +741,7 @@
     const S = SL(), msgs = [], chips = [];
     if (!ctx.tourId && !ctx.planId) return { msgs, chips };
     const i = ctx.tourId ? D().tour(ctx.tourId, lang) : null;
-    msgs.push(i && i.precio_publico && !(ctx.extras || []).length ? U().a_price_pub.replace("{p}", esc(i.precio_publico)) : S.price_tbd);
+    msgs.push(S.price_tbd);          // ninguna tarifa en la web ni en el chat: la da el anfitrión por WhatsApp
     const C = D().convenios ? D().convenios() : null;
     if (!C) { ctx.benefitObj = null; return { msgs, chips }; }
     const ok = C.lista.filter(applies);
