@@ -62,6 +62,14 @@ const UI = {
     f_dur_l: "Duración", f_mod: "Modalidad", f_lunch: "Almuerzo", f_age: "Edad", f_group: "Grupo", f_langs: "Idiomas", f_code: "Código", ask: "Consultar", min_pax: "mín. {0} pax", max_pax: "máx. {0}", upto: "Hasta {0} pax",
     ph_dl: "Descargar las fotos ({0}) en JPG", ph_dl1: "Descargar esta foto", ph_bank: "Banco de imágenes", ph_bank_s: "Más fotos para descargar en Google Drive",
     ph_making: "Preparando foto {0} de {1}…", ph_err: "No se pudieron preparar las fotos. Intenta de nuevo.", ph_note: "Fotos en JPG, listas para tus materiales de venta.",
+    comp_intro: "Nuevos y exclusivos 2027. Salidas diarias garantizadas desde 2 pasajeros, con puntos de encuentro en Armenia. Ideal para pasajeros FIT y grupos pequeños.",
+    tu_rate: "Tarifa por persona", tu_pp: "COP por persona · 1 a 30 pax", tu_card: "por persona · 1 a 30 pax", tu_vig: "Tarifa {0}: rige desde el 1 de enero de {0}.",
+    s_meet: "Puntos de encuentro", dep_from: "Salida desde las {0}", g_en: "Guía en inglés", g_en_v: "COP total por servicio",
+    ctr_t: "Suplemento de traslado desde el hotel al punto de encuentro en Armenia", ctr_s: "Valor por persona, en COP, según el número de pasajeros de la reserva. Para más de 12 pasajeros, consultar.",
+    ctr_n: "Si el tour tiene punto de encuentro en tu municipio (Montenegro, Quimbaya o Calarcá), no aplica suplemento hasta ese punto.", ctr_srv: "Servicio", ctr_pax: "{0} pax", ctr_go: "Ver suplemento de traslado desde tu hotel",
+    imp_t: "Importante", imp_1: "Sostenibilidad: recomendamos al pasajero evitar plásticos de un solo uso. Prestamos capa para la lluvia; en caso de daño, el pasajero paga {0}.", imp_cost: "su valor",
+    imp_2: "Los guías llevan uniforme (camisa, chaleco o gorra) con el logo de Tour Compartido.", imp_3: "Recomendaciones: ropa y zapatos cómodos, gorra, gafas de sol, chaqueta impermeable y repelente. No usar perfumes ni cremas con olores dulces.",
+    imp_4: "Informar si el pasajero tiene alguna condición física o de salud que debamos tener en cuenta para la operación.", imp_5: "Dudas sobre la dinámica del tour: Operaciones y Reservas, +57 318 720 0023.", imp_wa: "Escribir por WhatsApp",
     s_exp: "La experiencia", s_photos: "Fotos", s_incl: "Incluye", s_noincl: "No incluye", s_oper: "Operación y horarios", s_tech: "Ficha técnica", s_reco: "Recomendaciones", s_noapto: "No apto para",
     s_sell: "Para vender", only_ag: "Solo agencias", why: "Por qué venderla", interesa: "Te interesa saber", where: "Dónde la operamos", menu: "Menú", impact: "Impacto local", s_notes: "Notas de tarifa y operación",
     s_supl: "Suplementos", g_sup: "Suplemento de guianza en otros idiomas", g_lang: "Idioma del guía", g_note: "valor por servicio de guía (no por persona)", s_combo: "Combínalo con", s_rate: "Tarifa neta por pasajero", pax: "Pasajeros", per_pax: "COP por pasajero", s_kit: "Kit de venta", pdf: "Descargar PDF", copy_txt: "Copiar texto", copy_link: "Copiar enlace de la ficha",
@@ -129,6 +137,14 @@ const UI = {
     f_dur_l: "Duration", f_mod: "Format", f_lunch: "Lunch", f_age: "Age", f_group: "Group", f_langs: "Languages", f_code: "Code", ask: "Ask us", min_pax: "min. {0} pax", max_pax: "max. {0}", upto: "Up to {0} pax",
     ph_dl: "Download the photos ({0}) as JPG", ph_dl1: "Download this photo", ph_bank: "Image bank", ph_bank_s: "More photos to download on Google Drive",
     ph_making: "Preparing photo {0} of {1}…", ph_err: "The photos could not be prepared. Please try again.", ph_note: "JPG photos, ready for your sales materials.",
+    comp_intro: "New and exclusive for 2027. Guaranteed daily departures from 2 passengers, with meeting points in Armenia. Ideal for FIT travellers and small groups.",
+    tu_rate: "Rate per person", tu_pp: "COP per person · 1 to 30 pax", tu_card: "per person · 1 to 30 pax", tu_vig: "{0} rate: valid from January 1, {0}.",
+    s_meet: "Meeting points", dep_from: "Departures from {0}", g_en: "English-speaking guide", g_en_v: "COP total per service",
+    ctr_t: "Transfer supplement from the hotel to the meeting point in Armenia", ctr_s: "Price per person in COP, by number of passengers in the booking. For more than 12 passengers, ask us.",
+    ctr_n: "If the tour has a meeting point in your town (Montenegro, Quimbaya or Calarcá), no supplement applies to that point.", ctr_srv: "Service", ctr_pax: "{0} pax", ctr_go: "See the transfer supplement from your hotel",
+    imp_t: "Important", imp_1: "Sustainability: we recommend passengers avoid single-use plastics. We lend rain ponchos; if one is damaged, the passenger pays {0}.", imp_cost: "its cost",
+    imp_2: "Guides wear a uniform (shirt, vest or cap) with the Shared Tour logo.", imp_3: "Recommendations: comfortable clothes and shoes, a cap, sunglasses, a waterproof jacket and insect repellent. Do not wear perfumes or creams with sweet scents.",
+    imp_4: "Let us know if the passenger has any physical or health condition we should take into account for the operation.", imp_5: "Questions about how the tour works: Operations and Reservations, +57 318 720 0023.", imp_wa: "Message on WhatsApp",
     s_exp: "The experience", s_photos: "Photos", s_incl: "Includes", s_noincl: "Not included", s_oper: "Operation and schedules", s_tech: "Technical sheet", s_reco: "Recommendations", s_noapto: "Not suitable for",
     s_sell: "To sell it", only_ag: "Agencies only", why: "Why sell it", interesa: "Good to know", where: "Where we operate it", menu: "Menu", impact: "Local impact", s_notes: "Rate and operation notes",
     s_supl: "Supplements", g_sup: "Guiding supplement in other languages", g_lang: "Guide language", g_note: "rate per guide service (not per person)", s_combo: "Pair it with", s_rate: "Net rate per passenger", pax: "Passengers", per_pax: "COP per passenger", s_kit: "Sales kit", pdf: "Download PDF", copy_txt: "Copy text", copy_link: "Copy sheet link",
@@ -183,9 +199,9 @@ function tr(e, f, lang) {
 }
 const catName = k => (L() === "en" && I18.en && I18.en.cats && I18.en.cats[k]) || (D.cats[k] && D.cats[k].name) || k;
 // Nombre de la línea como en el índice del portafolio en PDF que ya conocen las agencias («Experiencias rurales»…)
-const LINE = { es: { rur: "Experiencias rurales", nat: "Experiencias de naturaleza", bien: "Experiencias de bienestar", comp: "Tour compartido · Shared Tour" }, en: { rur: "Rural experiences", nat: "Nature experiences", bien: "Wellness experiences", comp: "Shared Tour" } };
-// La línea «Tour compartido» lleva su sello junto al nombre
-const lineSeal = k => (k === "comp" ? `<img class="ico seal-i lseal" src="${SEAL}" alt="" width="22" height="22" decoding="async">` : "");
+const LINE = { es: { rur: "Experiencias rurales", nat: "Experiencias de naturaleza", bien: "Experiencias de bienestar", compartidos: "Tours Compartidos 2027" }, en: { rur: "Rural experiences", nat: "Nature experiences", bien: "Wellness experiences", compartidos: "Shared Tours 2027" } };
+// El capítulo «Tours Compartidos 2027» lleva su sello junto al título
+const lineSeal = k => (k === "compartidos" ? `<img class="ico seal-i lseal" src="${SEAL}" alt="${esc(tx("b_shared"))}" width="22" height="22" decoding="async">` : "");
 const lineName = k => (LINE[L()] || LINE.es)[k] || catName(k);
 
 /* ---------- íconos (trazo, 24×24) ---------- */
@@ -214,7 +230,7 @@ const GLYPH = {
   aven: '<path d="M1.2-5-4 1h3.6L-1.3 5 4-1H.4z" fill="#fff"/>',
   parq: '<path d="m0-5 1.5 3.1 3.4.5-2.5 2.4.6 3.4L0 2.8-3 4.4l.6-3.4-2.5-2.4 3.4-.5z" fill="#fff"/>',
   inc: '<path d="M0-5 5 0 0 5-5 0z" fill="#fff"/>',
-  comp: '<circle cx="-2.3" cy="-2.3" r="1.8" fill="#fff"/><circle cx="2.5" cy="-1.7" r="1.5" fill="#fff"/><path d="M-5.3 4.6c.2-2.7 1.3-4.2 3-4.2s2.8 1.5 3 4.2zM.9 4.6c.2-2.2 1.1-3.5 2.6-3.5S5.4 2.4 5.6 4.6z" fill="#fff"/>'
+  compartidos: '<circle cx="-2.3" cy="-2.3" r="1.8" fill="#fff"/><circle cx="2.5" cy="-1.7" r="1.5" fill="#fff"/><path d="M-5.3 4.6c.2-2.7 1.3-4.2 3-4.2s2.8 1.5 3 4.2zM.9 4.6c.2-2.2 1.1-3.5 2.6-3.5S5.4 2.4 5.6 4.6z" fill="#fff"/>'
 };
 
 // Iconografía del portafolio (la del PDF 2027): turismo accesible, comunitario, Paisaje Cordillerano, tour compartido e idiomas
@@ -295,7 +311,7 @@ function buildModel() {
     if (P.coords && P.coords[e.id]) { e.lat = P.coords[e.id][0]; e.lon = P.coords[e.id][1]; }
     if (e.id === "finca" && P.fincaZonas && P.fincaZonas.length) e.zones = P.fincaZonas.slice();
     e.acc = /\bapto\b[^.]{0,40}(movilidad reducida|silla de ruedas)/i.test((e.reco || []).join(" "));   // accesible según su ficha
-    e.shared = e.modalidad === "Compartido";
+    e.shared = !!e.compartido || e.modalidad === "Compartido";      // el sello sale solo con «compartido» (data/portafolio.json)
     const sp = privFicha(e.id);
     e.p = { why: fv(sp, "Por qué venderla"), interesa: fv(sp, "Te interesa"), where: fv(sp, "Punto de operación"), menu: fv(sp, "Menú"),
       supl: bullets(fv(sp, "Suplementos")), notes: sp.cond, impacto: sp.imp, team: fv(sp, "Nota del equipo"), diff: fv(sp, "Dificultad"), cap: fv(sp, "Capacidad máxima") };
@@ -443,6 +459,7 @@ export async function mountPortafolio(host, ctx) {
   requestAnimationFrame(() => {
     VB = boxToVB(...VIEWS.eje); applyVB(); setTab(S.tab, true);
     const m = /#ficha=([a-z0-9_-]+)/i.exec(location.hash); if (m && byId[m[1]]) openFicha(m[1]);
+    else if (/^#tours-compartidos$/i.test(location.hash)) goComp(false);
   });
 }
 
@@ -856,7 +873,44 @@ function startSlides(root) {
     load(1);
     const tid = setInterval(() => { if (!md.isConnected) { clearInterval(tid); return; } s[i].classList.remove("on"); i = (i + 1) % s.length; s[i].classList.add("on"); load((i + 1) % s.length); }, 3800); slideTimers.push(tid); });
 }
-const seal = (e, cls) => (e.shared ? `<img class="seal${cls ? " " + cls : ""}" src="${SEAL}" alt="" width="132" height="132" decoding="async">` : "");
+const seal = (e, cls) => (e.shared ? `<img class="seal${cls ? " " + cls : ""}" src="${SEAL}" alt="${esc(tx("b_shared"))}" width="132" height="132" decoding="async">` : "");
+/* ---------- Tours Compartidos 2027: tarifa única por persona, puntos de encuentro, traslados e «Importante» ----------
+   La tarifa, la comisión y la nota de 1 pasajero (en «notas» de la fila) y los traslados (ET-TC-…), la guía en inglés y la capa
+   (SU-TC-…) llegan del tarifario de la cuenta (privado/tarifas-compartidos-2027.json, Tarifas → Importar): nunca en archivos públicos. */
+const TC_ROWS = [["ET-TC-CIRCASIA", "Hoteles en Circasia → Armenia", "Hotels in Circasia → Armenia"], ["ET-TC-MONTENEGRO", "Hoteles en Montenegro → Armenia", "Hotels in Montenegro → Armenia"],
+  ["ET-TC-QUIMBAYA", "Hoteles en Quimbaya → Armenia", "Hotels in Quimbaya → Armenia"], ["ET-TC-CALARCA", "Hoteles en Calarcá o La Tebaida → Armenia", "Hotels in Calarcá or La Tebaida → Armenia"],
+  ["ET-TC-CORDILLERA", "Hoteles en Córdoba, Buenavista y Pijao → Armenia", "Hotels in Córdoba, Buenavista and Pijao → Armenia"], ["ET-TC-PEREIRA", "Hoteles en Pereira → Armenia", "Hotels in Pereira → Armenia"]];
+const hm12 = h => { const [a, b] = String(h).split(":").map(Number); const pm = a >= 12, en = L() === "en"; return `${a % 12 || 12}:${String(b || 0).padStart(2, "0")} ${pm ? (en ? "p.m." : "p. m.") : (en ? "a.m." : "a. m.")}`; };
+const meetOf = e => tr(e, "meet") || [];
+function compTraslados() {
+  if (S.wl) return "";
+  const rows = TC_ROWS.filter(([c]) => PR.svc.has(c)); if (!rows.length) return "";
+  const pax = Array.from({ length: 12 }, (_, i) => i + 1);
+  return `<div class="section money comp-tr" id="pf-comp-traslados"><h3>${ic("bus")}${tx("ctr_t")}</h3><p class="note">${tx("ctr_s")}</p>
+    <div class="tbl-wrap ctr" tabindex="0" role="region" aria-label="${esc(tx("ctr_t"))}"><table><thead><tr><th scope="col">${tx("ctr_srv")}</th>${pax.map(n => `<th scope="col" class="r">${tx("ctr_pax", n)}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(([c, es, en]) => `<tr><th scope="row">${esc(L() === "en" ? en : es)}</th>${pax.map(n => { const v = svcAt(c, n); return `<td class="r">${v != null ? "$" + Math.round(v).toLocaleString("es-CO") : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div>
+    <p class="note">${tx("ctr_n")}</p></div>`;
+}
+function compImportante() {
+  const capa = S.wl ? null : svcAt("SU-TC-CAPA", 1);
+  return `<div class="ccard comp-imp"><h4>${ic("info", "sm")}${tx("imp_t")}</h4><ul>${[tx("imp_1", capa != null ? cop(capa) : tx("imp_cost")), tx("imp_2"), tx("imp_3"), tx("imp_4")].map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+    <p>${esc(tx("imp_5"))}</p><div class="btnrow"><a class="btn sm" href="https://wa.me/573187200023" target="_blank" rel="noopener">${ic("phone", "sm")}${tx("imp_wa")}</a></div></div>`;
+}
+// Tarifa única: valor por persona igual de 1 a 30 pax; debajo, la comisión y la nota de 1 pasajero (de «notas» de la fila)
+function uniBox(e, r) {
+  const notes = String(r.notas || "").split(/\s*\|\s*/).filter(Boolean).map(x => { const m = /^([^:]{2,30}):\s*(.+)$/.exec(x); return `<li>${m ? `<b>${esc(m[1])}:</b> ${esc(m[2])}` : esc(x)}</li>`; }).join("");
+  const g = svcAt("SU-TC-GUIAEN", 1);
+  return `<div class="box netbox uni" id="pf-f-rate"><span class="eyebrow">${tx("tu_rate")}</span><div class="big" data-r="net">${cop(r.tarifa_neta)}</div>
+    <small>${tx("tu_pp")}</small>${notes ? `<ul class="rnotes">${notes}</ul>` : ""}<small>${esc(tx("tu_vig", e.anio || VIG))}</small>
+    <div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${g != null ? `<ul><li>${tx("g_en")}: ${cop(g)} ${tx("g_en_v")}</li></ul>` : ""}
+      <button type="button" class="btn ghost sm" data-r="ctrgo">${ic("bus", "sm")}${tx("ctr_go")}</button></div></div>`;
+}
+// Ir al capítulo (y a su tabla de traslados): desde la ficha o con portal.html#tours-compartidos
+function goComp(toTable) {
+  if ($r("ficha") && $r("ficha").firstChild) closeFicha();
+  S.cats.add("compartidos"); S.open.compartidos = true; S.listDirty = true; setTab("exp");
+  requestAnimationFrame(() => { const t = (toTable && ROOT.querySelector("#pf-comp-traslados")) || ROOT.querySelector("#tours-compartidos"); if (t) t.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" }); });
+}
 function badges(e) {
   const b = [];
   if (e.nuevo) b.push(`<span class="new">${tx("b_new")}</span>`); if (e.propio) b.push(`<span class="own">${tx("b_own")}</span>`);
@@ -866,7 +920,7 @@ function badges(e) {
 // Distancia por carretera desde el hotel de «Arma tu ruta» (la finca, al municipio con finca más cercano)
 function distKm(e) { const h = S.R && S.R.hotel; if (!h) return null; const tp = tourPoint(e, h); return Math.max(1, legInfo([h.lat, h.lon], [tp.lat, tp.lon], 1).km); }
 const nearLine = e => { const k = distKm(e); return k == null ? "" : `<div class="near">${ic("pin", "sm")}${tx("near", k)}</div>`; };
-const priceLine = e => { const f = fromPrice(e.id); return f ? `${tx("from_net")} <b>${cop(f.v)}</b> <span class="code">· ${f.pax} pax</span>` : tx("ask_rate"); };
+const priceLine = e => { const u = e.tarifa_unica && rateRow(e.id, 2); if (u) return `<b>${cop(u.tarifa_neta)}</b> <span class="pu">${tx("tu_card")}</span>`; const f = fromPrice(e.id); return f ? `${tx("from_net")} <b>${cop(f.v)}</b> <span class="code">· ${f.pax} pax</span>` : tx("ask_rate"); };
 
 /* ---------- lista de experiencias ---------- */
 function renderList() {
@@ -880,12 +934,13 @@ function renderList() {
   for (const [k, c, items] of groups) {
     n += items.length;
     if (S.near && S.R.hotel) items.sort((a, b) => distKm(a) - distKm(b));
-    html += `<details class="group" data-g="${k}"${(k in S.open ? S.open[k] : auto) ? " open" : ""}><summary><i style="background:${c.color}"></i><span class="gname">${esc(lineName(k))}</span>${lineSeal(k)}<span class="gn">${items.length}</span><span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span>${ic("chev", "sm")}</summary><div class="cards">` +
+    const isComp = k === "compartidos";
+    html += `<details class="group" data-g="${k}"${isComp ? ' id="tours-compartidos"' : ""}${(k in S.open ? S.open[k] : auto) ? " open" : ""}><summary><i style="background:${c.color}"></i><span class="gname">${esc(lineName(k))}</span>${lineSeal(k)}<span class="gn">${items.length}</span><span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span>${ic("chev", "sm")}</summary>${isComp ? `<p class="gintro">${esc(tx("comp_intro"))}</p>` : ""}<div class="cards">` +
       items.map(e => `<button type="button" class="card${S.active === e.id ? " on" : ""}" data-card="${e.id}">
         <div class="media">${mediaBlock(e, { video: false, one: true })}${badges(e)}${seal(e)}${videosOf(e.id).length ? '<span class="vid-tag">▶ Video</span>' : ""}</div>
         <div class="body"><h4>${esc(tr(e, "name"))}</h4><div class="meta"><span class="code">${e.code}</span>${e.code ? " · " : ""}${esc(e.deptos)} · ${ic("clock", "sm")}${esc(tr(e, "dur"))}</div>
         ${icoRow(e, "sm")}${nearLine(e)}<div class="meta tl">${esc(tr(e, "tagline"))}</div>
-        <div class="price">${priceLine(e)}</div></div></button>`).join("") + `</div></details>`;
+        <div class="price">${priceLine(e)}</div></div></button>`).join("") + `</div>${isComp ? `<div class="gextra">${compTraslados()}${compImportante()}</div>` : ""}</details>`;
   }
   $r("groups").innerHTML = html || `<p class="empty">${tx("none_match")}</p>`;
   $r("count").textContent = n === 1 ? tx("n_exp1") : tx("n_exp", n);
@@ -960,7 +1015,7 @@ function openFicha(id) {
   const notes = !wl && p.notes && p.notes.length;
   const paxRows = seasonRows(PR.tours.get(id)), pax0 = rateRow(id, 2) ? 2 : (paxRows.length ? Math.min(...paxRows.map(r => r.pax_desde)) : 2);
   const rate = rateRow(id, pax0);
-  const nav = [["exp", tx("s_exp")], ["tech", tx("s_tech")], ["incl", tx("s_incl")], ["oper", tx("s_oper")], ...(sell ? [["sell", tx("s_sell")]] : []), ...(!wl ? [["rate", tx("s_rate").split(" ")[0] === "Tarifa" ? "Tarifa" : "Rate"]] : [])];
+  const nav = [["exp", tx("s_exp")], ["tech", tx("s_tech")], ["incl", tx("s_incl")], ["oper", tx("s_oper")], ...(meetOf(e).length ? [["meet", tx("s_meet")]] : []), ...(sell ? [["sell", tx("s_sell")]] : []), ...(!wl ? [["rate", tx("s_rate").split(" ")[0] === "Tarifa" ? "Tarifa" : "Rate"]] : [])];
   $r("ficha").innerHTML = `<div class="ficha" role="dialog" aria-modal="true" aria-label="${esc(tr(e, "name"))}" data-fid="${id}"><article class="sheet">
     <div class="hero"><div class="media">${mediaBlock(e, { label: false, big: true })}</div>${badges(e)}${seal(e, "xl")}<button type="button" class="close" data-r="fx">${ic("x", "sm")}${tx("close")}</button>
       <div class="hero-txt"><span class="eyebrow">${esc(catName(e.cat))} · ${esc(e.sub)} · ${esc(e.deptos)}</span><h2>${esc(tr(e, "name"))}</h2><p>${esc(tr(e, "tagline"))}</p></div></div>
@@ -975,6 +1030,7 @@ function openFicha(id) {
         <p class="note" data-r="phst" aria-live="polite">${(e.fotos || []).length ? esc(tx("ph_note")) : ""}</p></section>` : ""}
       <section id="pf-f-incl" class="lists"><div><h3>${ic("check")}${tx("s_incl")}</h3>${L1("", tr(e, "incl"), "yes")}</div><div><h3>${ic("x")}${tx("s_noincl")}</h3>${L1("", tr(e, "noIncl"), "no")}</div></section>
       <section id="pf-f-oper"><h3>${tx("s_oper")}</h3>${L1("", tr(e, "oper")) || `<p>${tx("ask")}</p>`}</section>
+      ${meetOf(e).length ? `<section id="pf-f-meet"><h3>${tx("s_meet")}</h3><ul class="ul meet">${meetOf(e).map(m => `<li><b>${esc(hm12(m.h))}</b> · ${esc(m.l)}</li>`).join("")}</ul></section>` : ""}
       ${(tr(e, "reco") || []).length || (tr(e, "noApto") || []).length ? `<section><h3>${tx("s_reco")}</h3>${L1("", tr(e, "reco"))}${(tr(e, "noApto") || []).length ? `<p class="fnote">${ic("info", "sm")}${esc(tx("s_noapto"))}: ${tr(e, "noApto").map(esc).join(" ")}</p>` : ""}</section>` : ""}
       ${sell ? `<section id="pf-f-sell" class="sellbox"><h3>${tx("s_sell")} <span class="b2b">${tx("only_ag")}</span></h3>
         ${p.why ? `<div><h4>${tx("why")}</h4><p>${esc(p.why)}</p></div>` : ""}${p.interesa ? `<div><h4>${tx("interesa")}</h4><p>${esc(p.interesa)}</p></div>` : ""}
@@ -984,7 +1040,7 @@ function openFicha(id) {
       ${notes ? `<section><h3>${tx("s_notes")} <span class="b2b">${tx("only_ag")}</span></h3><ul class="fnotes">${p.notes.map(x => `<li>${esc(x)}</li>`).join("")}</ul></section>` : ""}
       <section class="f-foot"><p class="note">${ic("child", "sm")}${esc(tx("kids"))}</p><div class="btnrow"><button type="button" class="btn ghost sm" data-cond="book">${ic("shield", "sm")}${tx("see_cond")}</button><button type="button" class="btn ghost sm" data-cond="about">${ic("info", "sm")}${tx("see_about")}</button></div></section>
     </div><aside class="aside">
-      ${!wl ? `<div class="box netbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><div class="big" data-r="net">${rate ? cop(rate.tarifa_neta) : tx("ask")}</div>
+      ${!wl && e.tarifa_unica && rate ? uniBox(e, rate) : ""}${!wl && !(e.tarifa_unica && rate) ? `<div class="box netbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><div class="big" data-r="net">${rate ? cop(rate.tarifa_neta) : tx("ask")}</div>
         <label>${tx("pax")} <input type="range" data-r="paxr" min="1" max="30" value="${pax0}"> <b data-r="paxn">${pax0}</b></label>
         <small>${esc(tarLabel())}. ${tx("per_pax")}.${rate && rate.temporada ? " " + esc(rate.temporada) + "." : ""}</small>${rate && rate._de ? `<span class="pill">${esc(tx("carry", rate._de, VIG))}</span>` : ""}
         ${p.supl.length || GUIDES().length ? `<div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${p.supl.length ? `<ul>${p.supl.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${guideSup()}</div>` : ""}</div>` : ""}
@@ -999,6 +1055,7 @@ function openFicha(id) {
   const pax = $r("paxr"); if (pax) pax.addEventListener("input", () => { $r("paxn").textContent = pax.value; const v = priceAt(id, +pax.value); $r("net").textContent = v != null ? cop(v) : tx("ask"); });
   f.querySelectorAll("[data-g]").forEach(b => b.addEventListener("click", () => lightbox(gal[+b.dataset.g], e)));
   if ($r("phdl")) $r("phdl").addEventListener("click", () => photosZip(e, $r("phst"), $r("phdl")));
+  if ($r("ctrgo")) $r("ctrgo").addEventListener("click", () => goComp(true));
   f.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => openFicha(b.dataset.go)));
   f.querySelectorAll("[data-jump]").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); const t = f.querySelector("#pf-f-" + a.dataset.jump); if (t) t.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" }); }));
   f.querySelectorAll("[data-cond]").forEach(b => b.addEventListener("click", () => { closeFicha(); setTab("cond"); jumpCond(b.dataset.cond); }));
@@ -1084,9 +1141,11 @@ function techTable(e) {
   const d = String(p.diff || "").toLowerCase(), diff = /baja|f[aá]cil/.test(d) ? tx("low") : /media|moderad/.test(d) ? tx("mid") : /alta|exigente/.test(d) ? tx("high") : tx("ask");
   const capN = parseInt(p.cap, 10) || (seasonRows(PR.tours.get(e.id)).reduce((m, r) => Math.max(m, r.pax_hasta || 0), 0)) || e.maxPax || 0;
   const incl = (e.incl || []).join(" ").toLowerCase();
-  const meet = e.athotel ? [tx("atHotel"), tx("atHotel")] : /transporte/.test(incl) ? [tx("pick"), tx("pickC")] : [tx("onsite"), tx("onsite")];
+  const mt = meetOf(e);
+  const meet = mt.length ? [mt.map(m => `${m.l} · ${hm12(m.h)}`).join(" / "), mt.map(m => m.l).join(" / ")] : e.athotel ? [tx("atHotel"), tx("atHotel")] : /transporte/.test(incl) ? [tx("pick"), tx("pickC")] : [tx("onsite"), tx("onsite")];
   const langs = (e.langs || []).map(langName).join(" / ") || tx("langC");
-  const rows = [[tx("f_dur_l"), durB, durC], [tx("p_sched"), oper[0] || tx("ask"), franja(oper.join(" ")) || oper[0] || tx("ask")], [tx("p_diff"), diff, diff],
+  const sched = mt.length ? [tx("dep_from", hm12(mt[0].h)), tx("dep_from", hm12(mt[0].h))] : [oper[0] || tx("ask"), franja(oper.join(" ")) || oper[0] || tx("ask")];
+  const rows = [[tx("f_dur_l"), durB, durC], [tx("p_sched"), sched[0], sched[1]], [tx("p_diff"), diff, diff],
     [tx("p_cap"), capN ? tx("capB2B", capN) : tx("ask"), capN ? tx("capB2C", capN) : tx("ask")], [tx("p_meet"), meet[0], meet[1]], [tx("p_guide"), `${langs} (${tx("guide_sup")})`, langs]];
   return `<div class="tbl-wrap tech"><table><thead><tr><th>${tx("p_param")}</th>${S.wl ? "" : `<th>${tx("p_b2b")}</th>`}<th>${tx("p_b2c")}</th></tr></thead><tbody>
     ${rows.map(r => `<tr><th scope="row">${esc(r[0])}</th>${S.wl ? "" : `<td>${esc(r[1])}</td>`}<td>${esc(r[2])}</td></tr>`).join("")}</tbody></table></div>`;
@@ -1472,11 +1531,11 @@ function renderMapPane() {
 
 /* ---------- kit de venta (PDF en el navegador con jsPDF, cargado solo al usarlo) ---------- */
 const KL = {
-  ES: { oper: "Operación", supl: "Suplementos", title: "Paisaje Cultural Cafetero · Experiencias 2027", incl: "Incluye", noIncl: "No incluye", reco: "Recomendaciones", dur: "Duración", langs: "Idiomas", price: "Precio por persona", pax: "pax", note: "Valores en pesos colombianos (COP) por persona. Sujetos a disponibilidad.", consult: "Consultar", exp: "Experiencias incluidas", mod: "Modalidad", age: "Edad", prepared: "Preparado por" },
-  EN: { oper: "Operation", supl: "Supplements", title: "Coffee Cultural Landscape · 2027 Experiences", incl: "Includes", noIncl: "Not included", reco: "Recommendations", dur: "Duration", langs: "Languages", price: "Price per person", pax: "pax", note: "Prices in Colombian pesos (COP) per person. Subject to availability.", consult: "On request", exp: "Experiences included", mod: "Format", age: "Age", prepared: "Prepared by" },
-  FR: { oper: "Fonctionnement", supl: "Suppléments", title: "Paysage culturel du café · Expériences 2027", incl: "Comprend", noIncl: "Ne comprend pas", reco: "Recommandations", dur: "Durée", langs: "Langues", price: "Prix par personne", pax: "pers.", note: "Prix en pesos colombiens (COP) par personne. Sous réserve de disponibilité.", consult: "Sur demande", exp: "Expériences incluses", mod: "Format", age: "Âge", prepared: "Préparé par" },
-  IT: { oper: "Operatività", supl: "Supplementi", title: "Paesaggio Culturale del Caffè · Esperienze 2027", incl: "Include", noIncl: "Non include", reco: "Consigli", dur: "Durata", langs: "Lingue", price: "Prezzo a persona", pax: "pax", note: "Prezzi in pesos colombiani (COP) a persona. Soggetti a disponibilità.", consult: "Su richiesta", exp: "Esperienze incluse", mod: "Modalità", age: "Età", prepared: "A cura di" },
-  PT: { oper: "Operação", supl: "Suplementos", title: "Paisagem Cultural do Café · Experiências 2027", incl: "Inclui", noIncl: "Não inclui", reco: "Recomendações", dur: "Duração", langs: "Idiomas", price: "Preço por pessoa", pax: "pax", note: "Valores em pesos colombianos (COP) por pessoa. Sujeitos a disponibilidade.", consult: "Sob consulta", exp: "Experiências incluídas", mod: "Modalidade", age: "Idade", prepared: "Preparado por" }
+  ES: { meet: "Puntos de encuentro", oper: "Operación", supl: "Suplementos", title: "Paisaje Cultural Cafetero · Experiencias 2027", incl: "Incluye", noIncl: "No incluye", reco: "Recomendaciones", dur: "Duración", langs: "Idiomas", price: "Precio por persona", pax: "pax", note: "Valores en pesos colombianos (COP) por persona. Sujetos a disponibilidad.", consult: "Consultar", exp: "Experiencias incluidas", mod: "Modalidad", age: "Edad", prepared: "Preparado por" },
+  EN: { meet: "Meeting points", oper: "Operation", supl: "Supplements", title: "Coffee Cultural Landscape · 2027 Experiences", incl: "Includes", noIncl: "Not included", reco: "Recommendations", dur: "Duration", langs: "Languages", price: "Price per person", pax: "pax", note: "Prices in Colombian pesos (COP) per person. Subject to availability.", consult: "On request", exp: "Experiences included", mod: "Format", age: "Age", prepared: "Prepared by" },
+  FR: { meet: "Points de rendez-vous", oper: "Fonctionnement", supl: "Suppléments", title: "Paysage culturel du café · Expériences 2027", incl: "Comprend", noIncl: "Ne comprend pas", reco: "Recommandations", dur: "Durée", langs: "Langues", price: "Prix par personne", pax: "pers.", note: "Prix en pesos colombiens (COP) par personne. Sous réserve de disponibilité.", consult: "Sur demande", exp: "Expériences incluses", mod: "Format", age: "Âge", prepared: "Préparé par" },
+  IT: { meet: "Punti d'incontro", oper: "Operatività", supl: "Supplementi", title: "Paesaggio Culturale del Caffè · Esperienze 2027", incl: "Include", noIncl: "Non include", reco: "Consigli", dur: "Durata", langs: "Lingue", price: "Prezzo a persona", pax: "pax", note: "Prezzi in pesos colombiani (COP) a persona. Soggetti a disponibilità.", consult: "Su richiesta", exp: "Esperienze incluse", mod: "Modalità", age: "Età", prepared: "A cura di" },
+  PT: { meet: "Pontos de encontro", oper: "Operação", supl: "Suplementos", title: "Paisagem Cultural do Café · Experiências 2027", incl: "Inclui", noIncl: "Não inclui", reco: "Recomendações", dur: "Duração", langs: "Idiomas", price: "Preço por pessoa", pax: "pax", note: "Valores em pesos colombianos (COP) por pessoa. Sujeitos a disponibilidade.", consult: "Sob consulta", exp: "Experiências incluídas", mod: "Modalidade", age: "Idade", prepared: "Preparado por" }
 };
 const LNAME = { ES: "Español", EN: "English", FR: "Français", IT: "Italiano", PT: "Português" };
 const K = { sel: null, lang: "ES", brand: "et", own: null, price: "none", markup: 15, agency: "", pax: 0, who: "", loaded: false };
@@ -1686,6 +1745,7 @@ async function buildPdf(ids, o) {
       else { y = list(LB.incl, incl, Mg, CW) + 3; if (y > 270) { foot(); doc.addPage(); y = Mg; } y = list(LB.noIncl, noi, Mg, CW) + 3; }
     }
     if ((tr(e, "oper", lg) || []).length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.oper, tr(e, "oper", lg), Mg, CW) + 3; }
+    if ((tr(e, "meet", lg) || []).length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.meet, tr(e, "meet", lg).map(m => `${m.h} · ${m.l}`), Mg, CW) + 3; }
     const reco = [...(tr(e, "reco", lg) || []), ...(tr(e, "noApto", lg) || [])];
     if (reco.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.reco, reco, Mg, CW) + 3; }
     // Suplementos (dato de tarifa): solo con precios y en español (son notas del tarifario)
