@@ -1933,7 +1933,7 @@ function paramTable(tour, sp, rows) {
   const capFicha = parseInt(fichaVal(sp, "Capacidad máxima"), 10);    // dato de operación (plantilla); si no, la tarifa máxima publicada
   const maxPax = capFicha > 0 ? capFicha : (rows || []).reduce((m, r) => Math.max(m, Number(r.pax_hasta) || 0), 0);
   const incl = (tourText(tour, "incluye") || []).join(" ").toLowerCase();
-  const shared = tour.id_web === "compartidocs";
+  const shared = tour.modalidad === "compartido" || tour.id_web === "compartidocs";      // Tours Compartidos 2027: solo en español
   const meet = shared ? [String((tour.horario && tour.horario.nota) || "").replace(/;?\s*salida.*$/i, ""), "Armenia"]
     : /transporte/.test(incl) ? [pv("pick"), pv("pickC")] : [pv("onsite"), pv("onsite")];
   const diff = dificultad(sp);
