@@ -1798,6 +1798,7 @@
      "08:00",
      "08:15"
     ],
+    "encuentro": true,
     "nota": "Puntos de encuentro: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m."
    },
    "incluye": [
@@ -1816,7 +1817,6 @@
    ],
    "notas": [
     "Todos los días",
-    "Duración 7 h aprox.",
     "Desde 2 pasajeros"
    ],
    "recomendacion": {
@@ -1858,7 +1858,6 @@
    ],
    "notas": [
     "Lunes a domingo",
-    "Duración 3 h aprox.",
     "Desde 2 pasajeros",
     "En la finca de 9:00 a.m. a 11:30 a.m. aprox."
    ],
@@ -1893,6 +1892,7 @@
      "08:15",
      "08:30"
     ],
+    "encuentro": true,
     "nota": "Puntos de encuentro: Armenia, Plaza de Bolívar, 8:00 a.m. · Armenia, Parque de la Vida, 8:15 a.m. · Quimbaya, La Casa del Café, Carrera 6 # 14-02 esquina, 8:30 a.m."
    },
    "no_incluye": [
@@ -1916,7 +1916,6 @@
    ],
    "notas": [
     "Todos los días",
-    "Duración 4 h aprox.",
     "Desde 2 pasajeros",
     "En la finca de 9:15 a.m. a 12:00 m. aprox."
    ],
@@ -1951,6 +1950,7 @@
      "08:15",
      "08:45"
     ],
+    "encuentro": true,
     "nota": "Puntos de encuentro: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m. · Montenegro, Iglesia del parque principal (costado derecho), 8:45 a.m."
    },
    "no_incluye": [
@@ -1975,7 +1975,6 @@
    ],
    "notas": [
     "Todos los días",
-    "Duración 6 h aprox.",
     "Desde 2 pasajeros"
    ],
    "recomendacion": {
@@ -2010,6 +2009,7 @@
      "08:45",
      "09:15"
     ],
+    "encuentro": true,
     "nota": "Puntos de encuentro: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m. · Calarcá, Parque principal, 8:45 a.m. · Río Verde, 9:15 a.m."
    },
    "no_incluye": [

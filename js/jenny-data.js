@@ -163,6 +163,7 @@
   function fmtHorario(h, lang) {
     const l = L[lang] || L.es;
     if (!h) return l.tbd;
+    if (h.tipo === "fijo" && h.encuentro && h.horas && h.horas.length) return l.desde.replace("{h}", hhmm(h.horas[0], lang));   // tours compartidos: los puntos de encuentro van en la nota
     if (h.tipo === "fijo" && h.horas && h.horas.length) {
       const hs = h.horas.map(x => hhmm(x, lang));
       return hs.length === 1 ? l.fijo1.replace("{h}", hs[0]) : l.fijoN.replace("{h}", hs.join(l.and));
