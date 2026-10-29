@@ -256,7 +256,7 @@
   },
   {
    "id": "idiomas",
-   "respuesta": "Guías en español, inglés, francés, italiano y portugués (la guianza en otro idioma tiene costo adicional). En el Tour Compartido, el guía en inglés tiene suplemento según el tamaño del grupo.",
+   "respuesta": "Guías en español, inglés, francés, italiano y portugués (la guianza en otro idioma tiene costo adicional). En los tours compartidos, el guía en inglés tiene un suplemento por servicio.",
    "salida": "reservar"
   },
   {
@@ -326,27 +326,29 @@
    ],
    "codigo": "ETFD014",
    "tour": "compartidocs",
-   "itinerario": "Sale de Armenia a las 8:15 a.m. En el Valle de Cocora hacemos interpretación del bosque de niebla y la palma de cera 🌴 (2 a 3 h). Luego vamos a Salento: recorrido histórico, tiempo libre para almorzar y caminar por la Calle Real 🛍️. Regreso a Armenia.",
+   "itinerario": "Sale de Armenia a las 8:15 a.m. hacia el Valle de Cocora: interpretación del bosque de niebla y la palma de cera en el mirador Bosque de Palmas 🌴 (2 a 3 h). Luego, Salento: recorrido histórico, tiempo para almorzar, Calle Real, compras y degustación de café ☕. Regreso a Armenia hacia las 3:30 p.m.",
    "incluye": [
     "Transporte",
-    "Guía en español",
-    "Entrada al Bosque de Palmas / mirador",
-    "Visita a Salento",
-    "Hidratación o café",
-    "Tarjeta de asistencia médica"
+    "Recorrido guiado en español",
+    "Visita al Valle de Cocora",
+    "Entrada al Mirador Bosque de Palmas",
+    "Visita a Salento y Calle Real",
+    "Degustación de café especial",
+    "Tarjeta de asistencia"
    ],
    "no_incluye": [
-    "Almuerzo",
-    "Gastos no especificados"
+    "Alimentación",
+    "Gastos no relacionados",
+    "Entrada a otros miradores"
    ],
    "puntos_encuentro": [
     {
-     "lugar": "Plaza de Bolívar, Armenia",
+     "lugar": "Parque de la Vida, Armenia",
      "hora": "08:00"
     },
     {
-     "lugar": "Parque de la Vida, Armenia",
-     "hora": "08:10"
+     "lugar": "Plaza de Bolívar, Armenia",
+     "hora": "08:15"
     }
    ],
    "operacion": "Todos los días desde 2 pasajeros. Confirmar a más tardar a las 8:00 p.m. del día anterior.",
@@ -1788,49 +1790,49 @@
    "id_web": "compartidocs",
    "codigo": "ETFD014",
    "cat": "tradicionales",
-   "nombre": "Tour compartido Valle de Cocora y Salento",
+   "nombre": "Valle de Cocora y Salento en compartido",
    "duracion_horas": 7,
    "horario": {
     "tipo": "fijo",
     "horas": [
      "08:00",
-     "08:10"
+     "08:15"
     ],
-    "nota": "Puntos de encuentro: Plaza de Bolívar 8:00 a.m. / Parque de la Vida 8:10 a.m.; salida 8:15 a.m."
+    "nota": "Puntos de encuentro: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m."
    },
    "incluye": [
     "Transporte",
-    "Guía en español",
-    "Entrada al Bosque de Palmas / mirador",
-    "Visita a Salento",
-    "Hidratación o café",
-    "Tarjeta de asistencia médica"
+    "Recorrido guiado en español",
+    "Visita al Valle de Cocora",
+    "Entrada al Mirador Bosque de Palmas",
+    "Visita a Salento y Calle Real",
+    "Degustación de café especial",
+    "Tarjeta de asistencia"
    ],
    "no_incluye": [
-    "Almuerzo",
-    "Gastos no especificados"
+    "Alimentación",
+    "Gastos no relacionados",
+    "Entrada a otros miradores"
    ],
    "notas": [
-    "Lleva repelente, bloqueador solar, gorra, ropa y zapatos cómodos.",
-    "Opera desde 2 personas; reservas hasta las 8:00 p. m. del día anterior.",
-    "No opera el puente festivo de la semana de receso de octubre, el 25 de diciembre ni del 1 al 6 de enero.",
-    "Ideal para personas de 4 a 70 años."
+    "Todos los días",
+    "Duración 7 h aprox.",
+    "Desde 2 pasajeros"
    ],
-   "VALIDAR": "Duración: Carolina confirmó 8 h (regreso 4:00 p.m.); la base de conocimiento dice 7 h (regreso 3:30 p.m.). Traslado desde Montenegro: hay dos valores distintos (ver privado/precios-retirados-web.json).",
    "recomendacion": {
-    "fuente": "propuesta (VALIDAR)",
-    "titulo": "🚐 ¡Tour compartido a Cocora y Salento!",
+    "fuente": "documento ET",
+    "titulo": "🚐 Para tu tour compartido",
     "items": [
-     "⏰ Confirma tu cupo antes de las 8:00 p.m. del día anterior",
-     "👟 Zapatos cómodos con buen agarre",
-     "🧢 Sombrero o gorra, bloqueador solar y repelente",
-     "🧥 Ropa en capas",
-     "🌧️ Puede llover: te prestamos capa reutilizable",
-     "💵 Efectivo: el almuerzo y los miradores adicionales se pagan aparte",
-     "💧 Botella reutilizable (te damos agua en el recorrido)"
+     "👟 Ropa y zapatos cómodos",
+     "🧢 Gorra y gafas de sol",
+     "🧥 Chaqueta impermeable: también te prestamos capa para la lluvia",
+     "🦟 Repelente",
+     "🌸 No uses perfumes ni cremas con olores dulces",
+     "♻️ Evita los plásticos de un solo uso",
+     "🩺 Cuéntanos si tienes alguna condición física o de salud que debamos tener en cuenta"
     ]
    },
-   "descripcion": "La forma más práctica y económica de conocer Cocora y Salento: salida diaria desde Armenia con guía, interpretación del bosque de niebla y de la palma de cera, y tiempo libre en la Calle Real.",
+   "descripcion": "Salida a las 8:15 a.m. desde Armenia hacia el Valle de Cocora, donde se hace interpretación del bosque de niebla y la palma de cera. El guía realiza el recorrido en el mirador Bosque de Palmas (2 a 3 h aprox.). Luego regresamos a Salento para un recorrido histórico, tiempo de almuerzo, recorrido por la Calle Real, tiempo de compras y degustación de café. Retorno a Armenia hacia las 3:30 p.m.",
    "departamentos": [
     "Quindío"
    ],
@@ -1846,36 +1848,36 @@
    "id_web": "fincacomp",
    "codigo": "ETHD066",
    "cat": "tradicionales",
-   "nombre": "Tour compartido Finca cafetera",
-   "duracion_horas": 4,
+   "nombre": "Visita a finca cafetera en compartido",
+   "duracion_horas": 3,
    "incluye": [
     "Transporte",
-    "Anfitriones en la finca",
-    "Catación y métodos de preparación",
+    "Recorrido guiado en español en la finca cafetera",
     "Degustación de café",
-    "Material fotográfico en digital"
+    "Tarjeta de asistencia"
    ],
    "notas": [
-    "Salida compartida: tu anfitrión te confirma por WhatsApp el horario y el punto de encuentro."
+    "Lunes a domingo",
+    "Duración 3 h aprox.",
+    "Desde 2 pasajeros",
+    "En la finca de 9:00 a.m. a 11:30 a.m. aprox."
    ],
    "recomendacion": {
-    "fuente": "propuesta (VALIDAR)",
-    "titulo": "☕ ¡Del grano a la taza!",
+    "fuente": "documento ET",
+    "titulo": "🚐 Para tu tour compartido",
     "items": [
-     "👟 Zapatos cerrados y cómodos",
-     "🧢 Sombrero o gorra, bloqueador solar y repelente",
-     "💧 Botella reutilizable (te damos agua en el recorrido)",
-     "🌧️ Puede llover: te prestamos capa reutilizable",
-     "☕ Prueba el café sin azúcar en la cata: así se sienten mejor sus notas",
-     "🚯 No dejes basura: deja el lugar como lo encontraste"
+     "👟 Ropa y zapatos cómodos",
+     "🧢 Gorra y gafas de sol",
+     "🧥 Chaqueta impermeable: también te prestamos capa para la lluvia",
+     "🦟 Repelente",
+     "🌸 No uses perfumes ni cremas con olores dulces",
+     "♻️ Evita los plásticos de un solo uso",
+     "🩺 Cuéntanos si tienes alguna condición física o de salud que debamos tener en cuenta"
     ]
    },
-   "descripcion": "El café colombiano tiene Denominación de Origen y el Paisaje Cultural Cafetero es Patrimonio de la Humanidad. En una finca tradicional recorres el proceso de la semilla a la taza y aprendes a catar: la experiencia esencial del Eje Cafetero.",
+   "descripcion": "Salida a las 8:00 a.m. desde Armenia hacia una finca cafetera. El recorrido inicia en los semilleros de café, donde los visitantes descubren los secretos del cultivo. A través de los cafetales aprenden sobre las variedades mientras escuchan historias de una finca tradicional. La experiencia incluye el proceso de beneficio y secado, y culmina con un taller para diferenciar y disfrutar los matices únicos de esta bebida emblemática.",
    "departamentos": [
-    "Quindío",
-    "Risaralda",
-    "Caldas",
-    "Norte del Valle del Cauca"
+    "Quindío"
    ],
    "modalidad": "compartido",
    "almuerzo": false,
@@ -1884,42 +1886,56 @@
     "finca"
    ],
    "ubicacion_publica": false,
-   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETHD001 mientras llega la ficha propia (también va en la web pública, sin precio): faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "08:00",
+     "08:15",
+     "08:30"
+    ],
+    "nota": "Puntos de encuentro: Armenia, Plaza de Bolívar, 8:00 a.m. · Armenia, Parque de la Vida, 8:15 a.m. · Quimbaya, La Casa del Café, Carrera 6 # 14-02 esquina, 8:30 a.m."
+   },
+   "no_incluye": [
+    "Alimentación",
+    "Gastos no relacionados",
+    "Guía de turismo"
+   ]
   },
   {
    "id_web": "cacaocomp",
    "codigo": "ETHD067",
    "cat": "rurales",
-   "nombre": "Tour compartido de Cacao",
+   "nombre": "Visita a finca de cacao en compartido",
    "duracion_horas": 4,
    "incluye": [
     "Transporte",
-    "Refrigerio",
-    "Anfitriones en la finca",
-    "Material fotográfico en digital"
+    "Recorrido guiado en español",
+    "Recorrido guiado en finca cacaotera",
+    "Degustación de chocolate y amasijo",
+    "Tarjeta de asistencia"
    ],
    "notas": [
-    "Salida compartida: tu anfitrión te confirma por WhatsApp el horario y el punto de encuentro."
+    "Todos los días",
+    "Duración 4 h aprox.",
+    "Desde 2 pasajeros",
+    "En la finca de 9:15 a.m. a 12:00 m. aprox."
    ],
    "recomendacion": {
     "fuente": "documento ET",
-    "titulo": "🌱 ¡Prepárate para vivir una experiencia de cacao inolvidable!",
+    "titulo": "🚐 Para tu tour compartido",
     "items": [
-     "🎒 Mochila ligera y cómoda",
-     "🧢 Sombrero o gorra (protégete del sol)",
-     "🧴 Bloqueador solar y repelente",
-     "💧 Botella de agua reutilizable",
-     "👟 Zapatos cómodos para caminar",
-     "🌦️ Puede llover, ¡lleva un impermeable o paraguas plegable!",
-     "🚯 No dejes basura",
-     "🚫 Evita perfumes fuertes: pueden alterar el entorno natural del cultivo"
+     "👟 Ropa y zapatos cómodos",
+     "🧢 Gorra y gafas de sol",
+     "🧥 Chaqueta impermeable: también te prestamos capa para la lluvia",
+     "🦟 Repelente",
+     "🌸 No uses perfumes ni cremas con olores dulces",
+     "♻️ Evita los plásticos de un solo uso",
+     "🩺 Cuéntanos si tienes alguna condición física o de salud que debamos tener en cuenta"
     ]
    },
-   "descripcion": "Colombia es reconocida en el mundo por su cacao fino de sabor y aroma. Participa en el proceso de la mazorca a la bebida, de la mano de las familias que lo cultivan: una cara del Eje Cafetero que pocos conocen.",
+   "descripcion": "Salida a las 8:00 a.m. desde Armenia hacia una finca cacaotera. Durante el recorrido se exploran los cultivos y se conoce el proceso desde la cosecha hasta la elaboración de productos de cacao. Los visitantes participan en el proceso y disfrutan la preparación y degustación de una bebida tradicional. Una experiencia auténtica e inolvidable.",
    "departamentos": [
-    "Quindío",
-    "Risaralda",
-    "Caldas"
+    "Quindío"
    ],
    "modalidad": "compartido",
    "almuerzo": false,
@@ -1928,51 +1944,78 @@
     "cacao"
    ],
    "ubicacion_publica": false,
-   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETHD002 mientras llega la ficha propia (también va en la web pública, sin precio): faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "08:00",
+     "08:15",
+     "08:45"
+    ],
+    "nota": "Puntos de encuentro: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m. · Montenegro, Iglesia del parque principal (costado derecho), 8:45 a.m."
+   },
+   "no_incluye": [
+    "Alimentación",
+    "Gastos no relacionados",
+    "Guía de turismo"
+   ]
   },
   {
    "id_web": "cordilleracomp",
    "codigo": "ETFD015",
    "cat": "tradicionales",
-   "nombre": "Tour compartido Cordillera: Córdoba, Pijao y Buenavista",
-   "duracion_horas": 8,
+   "nombre": "Pueblos de la Cordillera en compartido: Córdoba, Pijao y Buenavista",
+   "duracion_horas": 6,
    "incluye": [
     "Transporte",
-    "Trayecto en Jeep Willys (según condiciones)",
-    "Guía",
-    "Degustación de café",
-    "Souvenir",
-    "Almuerzo",
-    "Material fotográfico en digital"
+    "Recorrido guiado en español",
+    "Visita a Córdoba, Pijao y Buenavista",
+    "Taller o demostración artesanal",
+    "Degustación de café especial en terraza San Alberto",
+    "Tarjeta de asistencia"
    ],
    "notas": [
-    "Salida compartida: tu anfitrión te confirma por WhatsApp el horario y el punto de encuentro."
+    "Todos los días",
+    "Duración 6 h aprox.",
+    "Desde 2 pasajeros"
    ],
    "recomendacion": {
-    "fuente": "propuesta (VALIDAR)",
-    "titulo": "⛰️ ¡Pueblos de cordillera!",
+    "fuente": "documento ET",
+    "titulo": "🚐 Para tu tour compartido",
     "items": [
-     "👟 Zapatos cómodos",
-     "🧢 Sombrero o gorra, bloqueador solar y repelente",
-     "🧥 Abrigo ligero: la cordillera es fresca",
-     "🌧️ Puede llover: te prestamos capa reutilizable",
-     "💵 Efectivo para compras locales",
-     "🚙 Parte del trayecto puede ser en Jeep Willys por vías rurales",
-     "💊 Si te mareas en carretera, lleva tu medicamento"
+     "👟 Ropa y zapatos cómodos",
+     "🧢 Gorra y gafas de sol",
+     "🧥 Chaqueta impermeable: también te prestamos capa para la lluvia",
+     "🦟 Repelente",
+     "🌸 No uses perfumes ni cremas con olores dulces",
+     "♻️ Evita los plásticos de un solo uso",
+     "🩺 Cuéntanos si tienes alguna condición física o de salud que debamos tener en cuenta"
     ]
    },
-   "descripcion": "El Quindío menos conocido: un día entre las montañas, recorriendo por vías rurales la autenticidad de tres pueblos de la cordillera.",
+   "descripcion": "Encuentro en Armenia a las 8:00 a.m. para iniciar un recorrido por el sur del Quindío. Visitamos Córdoba, reconocido por el uso y la preservación de la guadua. Seguimos a Pijao, municipio del movimiento Cittaslow, donde recorremos sus calles y conocemos historias locales. Terminamos en Buenavista, el mirador por excelencia del Quindío, con vistas ideales para fotografías y degustación de un exquisito café de altura. Una experiencia natural y cultural que combina paisaje y tradiciones locales.",
    "departamentos": [
     "Quindío"
    ],
    "modalidad": "compartido",
-   "almuerzo": true,
+   "almuerzo": false,
    "combina": [],
    "alterna": [
     "cordillera"
    ],
    "ubicacion_publica": false,
-   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETFD004 mientras llega la ficha propia (también va en la web pública, sin precio): faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
+   "horario": {
+    "tipo": "fijo",
+    "horas": [
+     "08:00",
+     "08:15",
+     "08:45",
+     "09:15"
+    ],
+    "nota": "Puntos de encuentro: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m. · Calarcá, Parque principal, 8:45 a.m. · Río Verde, 9:15 a.m."
+   },
+   "no_incluye": [
+    "Alimentación",
+    "Gastos no relacionados"
+   ]
   },
   {
    "id_web": "cordillera",

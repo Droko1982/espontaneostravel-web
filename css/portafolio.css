@@ -189,9 +189,9 @@
 .pf .badge .cord { background: #6B4528; color: #fff; }
 .pf .vid-tag { position: absolute; right: 10px; bottom: 10px; z-index: 2; font-size: .7rem; font-weight: 700; background: rgba(0,0,0,.55); color: #fff; padding: 3px 8px; border-radius: 4px; }
 /* Sello oficial del tour compartido 2027 («Shared Tour · Tour Compartido · Quindío»): sin fondo, como el logo; un halo suave lo deja leer sobre la foto */
-.pf .media img.seal, .pf .hero .seal { position: absolute; inset: 10px 10px auto auto; z-index: 2; width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 0 1px rgba(255,255,255,.95)) drop-shadow(0 0 3px rgba(255,255,255,.7)); pointer-events: none; }
+.pf .media img.seal, .pf .hero .seal { position: absolute; inset: 10px 10px auto auto; z-index: 2; width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 0 1px rgba(255,255,255,.95)) drop-shadow(0 0 3px rgba(255,255,255,.7)); pointer-events: none; }
 .pf .media img.seal.lg { inset: auto auto 10px 10px; width: 66px; height: 66px; }
-.pf .media:has(> img.seal:not(.lg)) .badge { max-width: calc(100% - 82px); }      /* las insignias no quedan debajo del sello */
+.pf .media:has(> img.seal:not(.lg)) .badge { max-width: calc(100% - 98px); }      /* las insignias no quedan debajo del sello */
 .pf .hero .seal.xl { inset: 10px 128px auto auto; z-index: 4; width: clamp(60px, 8vw, 92px); height: clamp(60px, 8vw, 92px); }
 .pf .ico.seal-i { border-radius: 50%; }
 .pf .ico.lseal { width: 26px; height: 26px; margin-left: 6px; }
@@ -244,6 +244,20 @@
 .pf .group[open] > summary > svg { transform: rotate(180deg); }
 .pf .group[open] > summary { border-bottom: 1px solid var(--line); border-radius: var(--r) var(--r) 0 0; }
 .pf .group > .cards { padding: 14px; }
+/* Tours Compartidos 2027: introducción, tarifa única, puntos de encuentro, traslados (1.ª columna fija al desplazar) e «Importante» */
+.pf .group > .gintro { margin: 0; padding: 12px 14px 0; color: var(--muted); font-size: .92rem; max-width: 80ch; }
+.pf .group > .gextra { padding: 0 14px 16px; }
+.pf .gextra .section { margin-top: 6px; }
+.pf .ctr { max-width: 100%; }
+.pf .ctr table { min-width: 900px; font-size: .8rem; }
+.pf .ctr th, .pf .ctr td { padding: 7px 7px; }
+.pf .ctr thead th { font-size: .66rem; letter-spacing: .04em; white-space: nowrap; }
+.pf .ctr th[scope="row"] { position: sticky; left: 0; z-index: 1; background: var(--surface); min-width: 150px; max-width: 190px; padding-left: 12px; box-shadow: 1px 0 0 var(--line); }
+.pf .ctr thead th:first-child { position: sticky; left: 0; z-index: 2; background: var(--surface); }
+.pf .card .price .pu { font-size: .78rem; color: var(--muted); }
+.pf .netbox.uni .rnotes { list-style: none; margin: 4px 0; padding: 0; display: grid; gap: 4px; font-size: .84rem; }
+.pf .ul.meet b { font-variant-numeric: tabular-nums; }
+.pf .comp-imp .btnrow { margin-top: 2px; }
 .pf .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
 .pf .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; text-align: left; padding: 0; color: var(--fg); transition: border-color .15s, transform .15s; }
 .pf .card:hover { border-color: var(--olive); transform: translateY(-1px); }

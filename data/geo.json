@@ -1,7 +1,7 @@
 {
  "_meta": {
   "descripcion": "Geodatos de Espontáneos Travel para js/maps.js: hubs, lugares por tour, pueblos y distancias por carretera precalculadas.",
-  "generado": "2026-10-23T04:46:05.735Z",
+  "generado": "2026-10-29T17:18:23.902Z",
   "generador": "tools/build-geo.js",
   "tours_fuente": "data/jenny.json (vigencia 2026)",
   "vigencia": 2026,
@@ -895,7 +895,7 @@
   "compartidocs": {
    "tipo": "fijo",
    "nombre_lugar": "Salento y Valle de Cocora (salida desde Armenia)",
-   "tour": "Tour compartido Valle de Cocora y Salento",
+   "tour": "Valle de Cocora y Salento en compartido",
    "codigo": "ETFD014",
    "cat": "tradicionales",
    "duracion_h": 7,
@@ -906,7 +906,7 @@
    "punto": "cocora",
    "hub": "armenia",
    "fuente": "OSM Nominatim · node/703492775 · Cocora, Salento, Fría",
-   "nota": "Encuentro: Plaza de Bolívar de Armenia 8:00 a.m. y Parque de la Vida 8:10 a.m.; salida 8:15 a.m.",
+   "nota": "Encuentro: Parque de la Vida 8:00 a.m. o Plaza de Bolívar 8:15 a.m. (documento ET, 29-oct-2026)",
    "paradas": [
     {
      "id": "parquevida",
@@ -928,12 +928,12 @@
     }
    ],
    "publico": {
-    "es": "Puntos de encuentro: Plaza de Bolívar de Armenia 8:00 a.m. o Parque de la Vida 8:10 a.m.; salida 8:15 a.m.",
-    "en": "Meeting points: Plaza de Bolívar in Armenia at 8:00 a.m. or Parque de la Vida at 8:10 a.m.; departure 8:15 a.m.",
-    "fr": "Points de rendez-vous : Plaza de Bolívar d’Armenia à 8h00 ou Parque de la Vida à 8h10 ; départ à 8h15.",
-    "de": "Treffpunkte: Plaza de Bolívar in Armenia um 8:00 Uhr oder Parque de la Vida um 8:10 Uhr; Abfahrt 8:15 Uhr.",
-    "pt": "Pontos de encontro: Plaza de Bolívar de Armenia às 8h ou Parque de la Vida às 8h10; saída às 8h15.",
-    "it": "Punti d'incontro: Plaza de Bolívar di Armenia alle 8:00 o Parque de la Vida alle 8:10; partenza alle 8:15."
+    "es": "Puntos de encuentro: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m.",
+    "en": "Meeting points: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m.",
+    "fr": "Points de rendez-vous : Armenia, Parque de la Vida, 8 h · Armenia, Plaza de Bolívar, 8 h 15.",
+    "de": "Treffpunkte: Armenia, Parque de la Vida, 8:00 Uhr · Armenia, Plaza de Bolívar, 8:15 Uhr.",
+    "pt": "Pontos de encontro: Armenia, Parque de la Vida, 8h · Armenia, Plaza de Bolívar, 8h15.",
+    "it": "Punti d'incontro: Armenia, Parque de la Vida, 8:00 · Armenia, Plaza de Bolívar, 8:15."
    },
    "desde": {
     "armenia": {

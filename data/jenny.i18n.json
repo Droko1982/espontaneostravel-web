@@ -167,41 +167,42 @@
     "descripcion": "The lesser-known Quindío: a day in the mountains, travelling along rural roads to discover the authentic character of three towns in the cordillera."
    },
    "compartidocs": {
-    "nombre": "Shared Tour: Cocora Valley & Salento",
+    "nombre": "Cocora Valley and Salento – Shared Tour",
     "horario": {
-     "nota": "Meeting points: Plaza de Bolívar 8:00 a.m. / Parque de la Vida 8:10 a.m.; departure 8:15 a.m."
+     "nota": "Meeting points: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m."
     },
     "incluye": [
      "Transport",
-     "Spanish-speaking guide",
-     "Entrance to the Bosque de Palmas / viewpoint",
-     "Visit to Salento",
-     "Hydration or coffee",
-     "Medical assistance card"
+     "Guided tour in Spanish",
+     "Visit to the Cocora Valley",
+     "Entrance to the Bosque de Palmas viewpoint",
+     "Visit to Salento and the Calle Real",
+     "Specialty coffee tasting",
+     "Assistance card"
     ],
     "no_incluye": [
-     "Lunch",
-     "Any other expenses not listed"
+     "Meals",
+     "Expenses not listed",
+     "Entrance to other viewpoints"
     ],
     "notas": [
-     "Bring insect repellent, sunscreen, a cap, and comfortable clothes and shoes.",
-     "Runs with a minimum of 2 people; book by 8:00 p.m. the day before.",
-     "Does not run over the long holiday weekend of the October school break, on 25 December or from 1 to 6 January.",
-     "Ideal for ages 4 to 70."
+     "Every day",
+     "About 7 h",
+     "From 2 passengers"
     ],
     "recomendacion": {
-     "titulo": "🚐 Shared tour to Cocora & Salento!",
+     "titulo": "🚐 For your shared tour",
      "items": [
-      "⏰ Confirm your seat before 8:00 p.m. the day before",
-      "👟 Comfortable shoes with good grip",
-      "🧢 Hat or cap, sunscreen and insect repellent",
-      "🧥 Layers",
-      "🌧️ It may rain: we'll lend you a reusable poncho",
-      "💵 Cash: lunch and additional viewpoints are paid separately",
-      "💧 Reusable bottle (we give you water on the tour)"
+      "👟 Comfortable clothes and shoes",
+      "🧢 Cap and sunglasses",
+      "🧥 Waterproof jacket: we also lend you a rain poncho",
+      "🦟 Insect repellent",
+      "🌸 Avoid perfumes and creams with sweet scents",
+      "♻️ Avoid single-use plastics",
+      "🩺 Let us know about any physical or health condition we should take into account"
      ]
     },
-    "descripcion": "The most practical and affordable way to see Cocora and Salento: a daily departure from Armenia with a guide, interpretation of the cloud forest and the wax palm, and free time on the Calle Real."
+    "descripcion": "Departure at 8:15 a.m. from Armenia to the Cocora Valley, with interpretation of the cloud forest and the wax palm. The guide leads the walk at the Bosque de Palmas viewpoint (about 2 to 3 h). Then we head back to Salento for a historical tour, time for lunch, a stroll along the Calle Real, shopping time and a coffee tasting. Return to Armenia around 3:30 p.m."
    },
    "cocoraacaime": {
     "nombre": "Cocora Valley Trek: Acaime, home of the hummingbirds",
@@ -1531,83 +1532,113 @@
     "duracion_texto": "5–6 h"
    },
    "fincacomp": {
-    "nombre": "Shared Tour: Coffee Farm",
+    "nombre": "Coffee Farm Visit – Shared Tour",
     "incluye": [
      "Transport",
-     "Hosts at the farm",
-     "Cupping and brewing methods",
+     "Guided tour in Spanish at the coffee farm",
      "Coffee tasting",
-     "Digital photos"
+     "Assistance card"
     ],
     "notas": [
-     "Shared departure: your host will confirm the schedule and meeting point on WhatsApp."
+     "Monday to Sunday",
+     "About 3 h",
+     "From 2 passengers",
+     "At the farm from 9:00 a.m. to about 11:30 a.m."
     ],
     "recomendacion": {
-     "titulo": "☕ From bean to cup!",
+     "titulo": "🚐 For your shared tour",
      "items": [
-      "👟 Comfortable closed-toe shoes",
-      "🧢 Hat or cap, sunscreen and insect repellent",
-      "💧 Reusable bottle (we give you water on the tour)",
-      "🌧️ It may rain: we'll lend you a reusable poncho",
-      "☕ Try the coffee without sugar at the tasting: you'll pick up its notes better",
-      "🚯 Don't leave any litter: leave the place as you found it"
+      "👟 Comfortable clothes and shoes",
+      "🧢 Cap and sunglasses",
+      "🧥 Waterproof jacket: we also lend you a rain poncho",
+      "🦟 Insect repellent",
+      "🌸 Avoid perfumes and creams with sweet scents",
+      "♻️ Avoid single-use plastics",
+      "🩺 Let us know about any physical or health condition we should take into account"
      ]
     },
-    "descripcion": "Colombian coffee has a Designation of Origin, and the Coffee Cultural Landscape is a UNESCO World Heritage Site. On a traditional farm you follow the process from seed to cup and learn how to taste coffee: the essential Coffee Region experience."
+    "descripcion": "Departure at 8:00 a.m. from Armenia to a coffee farm. The tour starts at the coffee seedbeds, where visitors discover the secrets of cultivation. Walking through the coffee plantations, they learn about the varieties while hearing stories of a traditional farm. The experience includes the wet-milling and drying process and ends with a workshop to tell apart and enjoy the unique nuances of this iconic drink.",
+    "horario": {
+     "nota": "Meeting points: Armenia, Plaza de Bolívar, 8:00 a.m. · Armenia, Parque de la Vida, 8:15 a.m. · Quimbaya, La Casa del Café, Carrera 6 # 14-02 (corner), 8:30 a.m."
+    },
+    "no_incluye": [
+     "Meals",
+     "Expenses not listed",
+     "Tour guide"
+    ]
    },
    "cacaocomp": {
-    "nombre": "Shared Tour: Cacao",
+    "nombre": "Cacao Farm Visit – Shared Tour",
     "incluye": [
      "Transport",
-     "Snack",
-     "Hosts at the farm",
-     "Digital photos"
+     "Guided tour in Spanish",
+     "Guided tour of the cacao farm",
+     "Chocolate and traditional baked goods tasting",
+     "Assistance card"
     ],
     "notas": [
-     "Shared departure: your host will confirm the schedule and meeting point on WhatsApp."
+     "Every day",
+     "About 4 h",
+     "From 2 passengers",
+     "At the farm from 9:15 a.m. to about 12:00 noon"
     ],
     "recomendacion": {
-     "titulo": "🌱 Get ready for an unforgettable cacao experience!",
+     "titulo": "🚐 For your shared tour",
      "items": [
-      "🎒 Light, comfortable backpack",
-      "🧢 Hat or cap (protect yourself from the sun)",
-      "🧴 Sunscreen and insect repellent",
-      "💧 Reusable water bottle",
-      "👟 Comfortable walking shoes",
-      "🌦️ It may rain, so bring a raincoat or a folding umbrella!",
-      "🚯 Don't leave any litter",
-      "🚫 Avoid strong perfumes: they can disturb the crop's natural environment"
+      "👟 Comfortable clothes and shoes",
+      "🧢 Cap and sunglasses",
+      "🧥 Waterproof jacket: we also lend you a rain poncho",
+      "🦟 Insect repellent",
+      "🌸 Avoid perfumes and creams with sweet scents",
+      "♻️ Avoid single-use plastics",
+      "🩺 Let us know about any physical or health condition we should take into account"
      ]
     },
-    "descripcion": "Colombia is recognised around the world for its fine cacao, prized for its flavour and aroma. Take part in the process from pod to drink, alongside the families who grow it: a side of the Coffee Region that few people know."
+    "descripcion": "Departure at 8:00 a.m. from Armenia to a cacao farm. Along the way you explore the crops and learn the process from harvest to the making of cacao products. Visitors take part in the process and enjoy preparing and tasting a traditional drink. An authentic and unforgettable experience.",
+    "horario": {
+     "nota": "Meeting points: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m. · Montenegro, church on the main square (right side), 8:45 a.m."
+    },
+    "no_incluye": [
+     "Meals",
+     "Expenses not listed",
+     "Tour guide"
+    ]
    },
    "cordilleracomp": {
-    "nombre": "Shared Tour: Cordillera – Córdoba, Pijao and Buenavista",
+    "nombre": "Mountain Towns of the Cordillera – Shared Tour: Córdoba, Pijao and Buenavista",
     "incluye": [
      "Transport",
-     "Willys jeep ride (conditions permitting)",
-     "Guide",
-     "Coffee tasting",
-     "Souvenir",
-     "Lunch",
-     "Digital photos"
+     "Guided tour in Spanish",
+     "Visit to Córdoba, Pijao and Buenavista",
+     "Craft workshop or demonstration",
+     "Specialty coffee tasting at the San Alberto terrace",
+     "Assistance card"
     ],
     "notas": [
-     "Shared departure: your host will confirm the schedule and meeting point on WhatsApp."
+     "Every day",
+     "About 6 h",
+     "From 2 passengers"
     ],
     "recomendacion": {
-     "titulo": "⛰️ Mountain towns!",
+     "titulo": "🚐 For your shared tour",
      "items": [
-      "👟 Comfortable shoes",
-      "🧢 Hat or cap, sunscreen and insect repellent",
-      "🧥 A light jacket: it's cool in the mountains",
-      "🌧️ It may rain: we'll lend you a reusable poncho",
-      "💵 Cash for local shopping",
-      "🚙 Part of the route may be by Willys jeep on rural roads",
-      "💊 If you get carsick, bring your medication"
+      "👟 Comfortable clothes and shoes",
+      "🧢 Cap and sunglasses",
+      "🧥 Waterproof jacket: we also lend you a rain poncho",
+      "🦟 Insect repellent",
+      "🌸 Avoid perfumes and creams with sweet scents",
+      "♻️ Avoid single-use plastics",
+      "🩺 Let us know about any physical or health condition we should take into account"
      ]
     },
-    "descripcion": "The lesser-known Quindío: a day in the mountains, travelling along rural roads to discover the authentic character of three towns in the cordillera."
+    "descripcion": "Meeting in Armenia at 8:00 a.m. to start a tour of southern Quindío. We visit Córdoba, known for the use and preservation of guadua bamboo. We continue to Pijao, a Cittaslow town, where we walk its streets and hear local stories. We end in Buenavista, Quindío's viewpoint par excellence, with views ideal for photos and a tasting of an exquisite high-altitude coffee. A natural and cultural experience that combines landscape and local traditions.",
+    "horario": {
+     "nota": "Meeting points: Armenia, Parque de la Vida, 8:00 a.m. · Armenia, Plaza de Bolívar, 8:15 a.m. · Calarcá, main square, 8:45 a.m. · Río Verde, 9:15 a.m."
+    },
+    "no_incluye": [
+     "Meals",
+     "Expenses not listed"
+    ]
    }
   },
   "arbol": {
@@ -1651,7 +1682,7 @@
     "respuesta": "Yes! We have adapted options and special vehicles so everyone can enjoy the region without barriers. We also have a guide for blind travellers. Ask us and we'll give you personalised advice. ♿"
    },
    "idiomas": {
-    "respuesta": "Guides in Spanish, English, French, Italian and Portuguese (guiding in a language other than Spanish costs extra). On the Shared Tour, the English-speaking guide carries a supplement depending on group size."
+    "respuesta": "Guides in Spanish, English, French, Italian and Portuguese (guiding in a language other than Spanish costs extra). On shared tours, the English-speaking guide carries a supplement per service."
    },
    "clima": {
     "respuesta": "Mild climate all year round; it can rain in any season. It gets cold in Cocora, in the páramo and among the wax palms."
@@ -1703,18 +1734,20 @@
      "can I book for tomorrow?",
      "English-speaking guide?"
     ],
-    "itinerario": "Departs from Armenia at 8:15 a.m. In the Cocora Valley we explore the cloud forest and the wax palms with a guide 🌴 (2 to 3 h). Then we head to Salento: a historical walk, free time for lunch and a stroll along Calle Real 🛍️. Return to Armenia.",
+    "itinerario": "Departs from Armenia at 8:15 a.m. to the Cocora Valley: interpretation of the cloud forest and the wax palm at the Bosque de Palmas viewpoint 🌴 (2 to 3 h). Then Salento: a historical walk, time for lunch, the Calle Real, shopping and a coffee tasting ☕. Return to Armenia around 3:30 p.m.",
     "incluye": [
      "Transport",
-     "Spanish-speaking guide",
-     "Entrance to the Bosque de Palmas / viewpoint",
-     "Visit to Salento",
-     "Hydration or coffee",
-     "Medical assistance card"
+     "Guided tour in Spanish",
+     "Visit to the Cocora Valley",
+     "Entrance to the Bosque de Palmas viewpoint",
+     "Visit to Salento and the Calle Real",
+     "Specialty coffee tasting",
+     "Assistance card"
     ],
     "no_incluye": [
-     "Lunch",
-     "Any other expenses not listed"
+     "Meals",
+     "Expenses not listed",
+     "Entrance to other viewpoints"
     ],
     "operacion": "Every day, with a minimum of 2 passengers. Confirm by 8:00 p.m. the day before at the latest.",
     "no_opera": [
@@ -1950,41 +1983,42 @@
     "descripcion": "Le Quindío le moins connu : une journée au cœur des montagnes, à la découverte, par des routes rurales, de l'authenticité de trois villages de la cordillère."
    },
    "compartidocs": {
-    "nombre": "Tour partagé : vallée de Cocora et Salento",
+    "nombre": "Vallée de Cocora et Salento en tour partagé",
     "horario": {
-     "nota": "Points de rendez-vous : Plaza de Bolívar à 8 h 00 / Parque de la Vida à 8 h 10 ; départ à 8 h 15."
+     "nota": "Points de rendez-vous : Armenia, Parque de la Vida, 8 h · Armenia, Plaza de Bolívar, 8 h 15."
     },
     "incluye": [
      "Transport",
-     "Guide hispanophone",
-     "Entrée au Bosque de Palmas / point de vue",
-     "Visite de Salento",
-     "Hydratation ou café",
-     "Carte d'assistance médicale"
+     "Visite guidée en espagnol",
+     "Visite de la vallée de Cocora",
+     "Entrée au belvédère Bosque de Palmas",
+     "Visite de Salento et de la Calle Real",
+     "Dégustation de café de spécialité",
+     "Carte d'assistance"
     ],
     "no_incluye": [
-     "Déjeuner",
-     "Dépenses non précisées"
+     "Repas",
+     "Dépenses non mentionnées",
+     "Entrée à d'autres belvédères"
     ],
     "notas": [
-     "Prévoyez un répulsif anti-insectes, de la crème solaire, une casquette, ainsi que des vêtements et des chaussures confortables.",
-     "À partir de 2 personnes ; réservation jusqu'à 20 h 00 la veille.",
-     "Pas de départ pendant le pont férié de la semaine de vacances d'octobre, le 25 décembre, ni du 1er au 6 janvier.",
-     "Idéal de 4 à 70 ans."
+     "Tous les jours",
+     "Durée : 7 h environ",
+     "À partir de 2 passagers"
     ],
     "recomendacion": {
-     "titulo": "🚐 Tour partagé à Cocora et Salento !",
+     "titulo": "🚐 Pour votre tour partagé",
      "items": [
-      "⏰ Confirmez votre place avant 20 h 00 la veille",
-      "👟 Chaussures confortables avec une bonne adhérence",
-      "🧢 Chapeau ou casquette, crème solaire et anti-moustique",
-      "🧥 Plusieurs couches de vêtements",
-      "🌧️ Il peut pleuvoir : nous vous prêtons un poncho réutilisable",
-      "💵 Des espèces : le déjeuner et les points de vue supplémentaires se paient à part",
-      "💧 Gourde réutilisable (nous vous donnons de l'eau pendant la sortie)"
+      "👟 Vêtements et chaussures confortables",
+      "🧢 Casquette et lunettes de soleil",
+      "🧥 Veste imperméable : nous vous prêtons aussi une cape de pluie",
+      "🦟 Répulsif anti-moustiques",
+      "🌸 Évitez les parfums et les crèmes aux odeurs sucrées",
+      "♻️ Évitez les plastiques à usage unique",
+      "🩺 Signalez-nous toute condition physique ou de santé à prendre en compte"
      ]
     },
-    "descripcion": "La façon la plus pratique et la plus économique de découvrir Cocora et Salento : départ quotidien depuis Armenia avec guide, interprétation de la forêt de nuages et du palmier à cire, et temps libre dans la Calle Real."
+    "descripcion": "Départ à 8 h 15 depuis Armenia vers la vallée de Cocora, avec une interprétation de la forêt de nuages et du palmier à cire. Le guide mène la visite au belvédère Bosque de Palmas (2 à 3 h environ). Nous rejoignons ensuite Salento pour une visite historique, du temps pour déjeuner, une balade dans la Calle Real, du temps pour les achats et une dégustation de café. Retour à Armenia vers 15 h 30."
    },
    "cocoraacaime": {
     "nombre": "Trek vallée de Cocora · Acaime, la maison des colibris",
@@ -3314,83 +3348,113 @@
     "duracion_texto": "5–6 h"
    },
    "fincacomp": {
-    "nombre": "Tour partagé ferme caféière",
+    "nombre": "Visite d'une ferme caféière en tour partagé",
     "incluye": [
      "Transport",
-     "Hôtes à la ferme",
-     "Cupping et méthodes de préparation",
+     "Visite guidée en espagnol de la ferme caféière",
      "Dégustation de café",
-     "Photos numériques"
+     "Carte d'assistance"
     ],
     "notas": [
-     "Départ partagé : votre hôte vous confirme l'horaire et le point de rendez-vous sur WhatsApp."
+     "Du lundi au dimanche",
+     "Durée : 3 h environ",
+     "À partir de 2 passagers",
+     "À la ferme de 9 h à 11 h 30 environ"
     ],
     "recomendacion": {
-     "titulo": "☕ Du grain à la tasse !",
+     "titulo": "🚐 Pour votre tour partagé",
      "items": [
-      "👟 Chaussures fermées et confortables",
-      "🧢 Chapeau ou casquette, crème solaire et anti-moustique",
-      "💧 Gourde réutilisable (nous vous donnons de l'eau pendant la sortie)",
-      "🌧️ Il peut pleuvoir : nous vous prêtons un poncho réutilisable",
-      "☕ Goûtez le café sans sucre pendant le cupping : ses notes ressortent mieux",
-      "🚯 Ne laissez aucun déchet : laissez les lieux comme vous les avez trouvés"
+      "👟 Vêtements et chaussures confortables",
+      "🧢 Casquette et lunettes de soleil",
+      "🧥 Veste imperméable : nous vous prêtons aussi une cape de pluie",
+      "🦟 Répulsif anti-moustiques",
+      "🌸 Évitez les parfums et les crèmes aux odeurs sucrées",
+      "♻️ Évitez les plastiques à usage unique",
+      "🩺 Signalez-nous toute condition physique ou de santé à prendre en compte"
      ]
     },
-    "descripcion": "Le café colombien bénéficie d'une appellation d'origine et le Paysage culturel du café est inscrit au patrimoine mondial de l'UNESCO. Dans une ferme traditionnelle, vous suivez le processus de la graine à la tasse et apprenez à déguster : l'expérience essentielle de l'Eje Cafetero."
+    "descripcion": "Départ à 8 h depuis Armenia vers une ferme caféière. La visite commence dans les pépinières de café, où les visiteurs découvrent les secrets de la culture. À travers les caféiers, ils découvrent les variétés en écoutant les histoires d'une ferme traditionnelle. L'expérience comprend le traitement et le séchage du café, et se termine par un atelier pour distinguer et apprécier les nuances uniques de cette boisson emblématique.",
+    "horario": {
+     "nota": "Points de rendez-vous : Armenia, Plaza de Bolívar, 8 h · Armenia, Parque de la Vida, 8 h 15 · Quimbaya, La Casa del Café, Carrera 6 # 14-02 (à l'angle), 8 h 30."
+    },
+    "no_incluye": [
+     "Repas",
+     "Dépenses non mentionnées",
+     "Guide touristique"
+    ]
    },
    "cacaocomp": {
-    "nombre": "Tour partagé du cacao",
+    "nombre": "Visite d'une ferme de cacao en tour partagé",
     "incluye": [
      "Transport",
-     "Collation",
-     "Hôtes à la ferme",
-     "Photos numériques"
+     "Visite guidée en espagnol",
+     "Visite guidée de la ferme de cacao",
+     "Dégustation de chocolat et de pâtisseries traditionnelles",
+     "Carte d'assistance"
     ],
     "notas": [
-     "Départ partagé : votre hôte vous confirme l'horaire et le point de rendez-vous sur WhatsApp."
+     "Tous les jours",
+     "Durée : 4 h environ",
+     "À partir de 2 passagers",
+     "À la ferme de 9 h 15 à 12 h environ"
     ],
     "recomendacion": {
-     "titulo": "🌱 Préparez-vous à vivre une expérience cacao inoubliable !",
+     "titulo": "🚐 Pour votre tour partagé",
      "items": [
-      "🎒 Sac à dos léger et confortable",
-      "🧢 Chapeau ou casquette (protégez-vous du soleil)",
-      "🧴 Crème solaire et anti-moustique",
-      "💧 Gourde réutilisable",
-      "👟 Chaussures confortables pour marcher",
-      "🌦️ Il peut pleuvoir, prenez un imperméable ou un parapluie pliant !",
-      "🚯 Ne laissez aucun déchet",
-      "🚫 Évitez les parfums forts : ils peuvent perturber l'environnement naturel de la culture"
+      "👟 Vêtements et chaussures confortables",
+      "🧢 Casquette et lunettes de soleil",
+      "🧥 Veste imperméable : nous vous prêtons aussi une cape de pluie",
+      "🦟 Répulsif anti-moustiques",
+      "🌸 Évitez les parfums et les crèmes aux odeurs sucrées",
+      "♻️ Évitez les plastiques à usage unique",
+      "🩺 Signalez-nous toute condition physique ou de santé à prendre en compte"
      ]
     },
-    "descripcion": "La Colombie est reconnue dans le monde entier pour son cacao fin et aromatique. Participez au processus, de la cabosse à la boisson, aux côtés des familles qui le cultivent : une facette de l'Eje Cafetero que peu de gens connaissent."
+    "descripcion": "Départ à 8 h depuis Armenia vers une ferme de cacao. Au cours de la visite, on explore les cultures et on découvre le processus, de la récolte à l'élaboration des produits du cacao. Les visiteurs participent au processus et savourent la préparation et la dégustation d'une boisson traditionnelle. Une expérience authentique et inoubliable.",
+    "horario": {
+     "nota": "Points de rendez-vous : Armenia, Parque de la Vida, 8 h · Armenia, Plaza de Bolívar, 8 h 15 · Montenegro, église de la place principale (côté droit), 8 h 45."
+    },
+    "no_incluye": [
+     "Repas",
+     "Dépenses non mentionnées",
+     "Guide touristique"
+    ]
    },
    "cordilleracomp": {
-    "nombre": "Tour partagé Cordillère : Córdoba, Pijao et Buenavista",
+    "nombre": "Villages de la Cordillère en tour partagé : Córdoba, Pijao et Buenavista",
     "incluye": [
      "Transport",
-     "Trajet en Jeep Willys (selon les conditions)",
-     "Guide",
-     "Dégustation de café",
-     "Souvenir",
-     "Déjeuner",
-     "Photos numériques"
+     "Visite guidée en espagnol",
+     "Visite de Córdoba, Pijao et Buenavista",
+     "Atelier ou démonstration artisanale",
+     "Dégustation de café de spécialité sur la terrasse San Alberto",
+     "Carte d'assistance"
     ],
     "notas": [
-     "Départ partagé : votre hôte vous confirme l'horaire et le point de rendez-vous sur WhatsApp."
+     "Tous les jours",
+     "Durée : 6 h environ",
+     "À partir de 2 passagers"
     ],
     "recomendacion": {
-     "titulo": "⛰️ Villages de la cordillère !",
+     "titulo": "🚐 Pour votre tour partagé",
      "items": [
-      "👟 Chaussures confortables",
-      "🧢 Chapeau ou casquette, crème solaire et anti-moustique",
-      "🧥 Une veste légère : il fait frais dans la cordillère",
-      "🌧️ Il peut pleuvoir : nous vous prêtons un poncho réutilisable",
-      "💵 Des espèces pour les achats locaux",
-      "🚙 Une partie du trajet peut se faire en Jeep Willys sur des routes rurales",
-      "💊 Si vous avez le mal des transports, emportez votre médicament"
+      "👟 Vêtements et chaussures confortables",
+      "🧢 Casquette et lunettes de soleil",
+      "🧥 Veste imperméable : nous vous prêtons aussi une cape de pluie",
+      "🦟 Répulsif anti-moustiques",
+      "🌸 Évitez les parfums et les crèmes aux odeurs sucrées",
+      "♻️ Évitez les plastiques à usage unique",
+      "🩺 Signalez-nous toute condition physique ou de santé à prendre en compte"
      ]
     },
-    "descripcion": "Le Quindío le moins connu : une journée au cœur des montagnes, à la découverte, par des routes rurales, de l'authenticité de trois villages de la cordillère."
+    "descripcion": "Rendez-vous à Armenia à 8 h pour parcourir le sud du Quindío. Nous visitons Córdoba, connue pour l'usage et la préservation de la guadua. Nous continuons vers Pijao, membre du mouvement Cittaslow, où nous parcourons ses rues et découvrons des histoires locales. Nous terminons à Buenavista, le belvédère par excellence du Quindío, avec des vues idéales pour les photos et la dégustation d'un excellent café d'altitude. Une expérience naturelle et culturelle qui associe paysages et traditions locales.",
+    "horario": {
+     "nota": "Points de rendez-vous : Armenia, Parque de la Vida, 8 h · Armenia, Plaza de Bolívar, 8 h 15 · Calarcá, place principale, 8 h 45 · Río Verde, 9 h 15."
+    },
+    "no_incluye": [
+     "Repas",
+     "Dépenses non mentionnées"
+    ]
    }
   },
   "arbol": {
@@ -3434,7 +3498,7 @@
     "respuesta": "Oui ! Nous proposons des options adaptées et des véhicules spéciaux pour que chacun profite de la région sans barrières. Nous avons aussi un guide pour les personnes aveugles. Contactez-nous et nous vous conseillerons de façon personnalisée. ♿"
    },
    "idiomas": {
-    "respuesta": "Guides en espagnol, anglais, français, italien et portugais (les visites guidées dans une autre langue entraînent un coût supplémentaire). Pour le tour partagé, le guide anglophone fait l'objet d'un supplément selon la taille du groupe."
+    "respuesta": "Guides en espagnol, anglais, français, italien et portugais (les visites guidées dans une autre langue entraînent un coût supplémentaire). Pour les tours partagés, le guide anglophone fait l'objet d'un supplément par prestation."
    },
    "clima": {
     "respuesta": "Climat tempéré toute l'année ; il peut pleuvoir en toute saison. À Cocora, dans le páramo et parmi les palmiers à cire, il fait froid."
@@ -3486,18 +3550,20 @@
      "peut-on réserver pour demain ?",
      "guide en anglais ?"
     ],
-    "itinerario": "Départ d'Armenia à 8 h 15. Dans la vallée de Cocora, nous découvrons avec un guide la forêt de nuages et le palmier à cire 🌴 (2 à 3 h). Ensuite, direction Salento : visite historique, temps libre pour déjeuner et flâner dans la Calle Real 🛍️. Retour à Armenia.",
+    "itinerario": "Départ d'Armenia à 8 h 15 vers la vallée de Cocora : interprétation de la forêt de nuages et du palmier à cire au belvédère Bosque de Palmas 🌴 (2 à 3 h). Puis Salento : visite historique, temps pour déjeuner, la Calle Real, achats et dégustation de café ☕. Retour à Armenia vers 15 h 30.",
     "incluye": [
      "Transport",
-     "Guide hispanophone",
-     "Entrée au Bosque de Palmas / point de vue",
-     "Visite de Salento",
-     "Hydratation ou café",
-     "Carte d'assistance médicale"
+     "Visite guidée en espagnol",
+     "Visite de la vallée de Cocora",
+     "Entrée au belvédère Bosque de Palmas",
+     "Visite de Salento et de la Calle Real",
+     "Dégustation de café de spécialité",
+     "Carte d'assistance"
     ],
     "no_incluye": [
-     "Déjeuner",
-     "Dépenses non précisées"
+     "Repas",
+     "Dépenses non mentionnées",
+     "Entrée à d'autres belvédères"
     ],
     "operacion": "Tous les jours, à partir de 2 personnes. Confirmation au plus tard à 20 h 00 la veille.",
     "no_opera": [
@@ -3733,41 +3799,42 @@
     "descripcion": "Das weniger bekannte Quindío: ein Tag in den Bergen, auf Landstraßen unterwegs durch drei authentische Dörfer der Kordillere."
    },
    "compartidocs": {
-    "nombre": "Gruppentour Valle de Cocora und Salento",
+    "nombre": "Cocora-Tal und Salento als Gruppentour",
     "horario": {
-     "nota": "Treffpunkte: Plaza de Bolívar 8:00 Uhr / Parque de la Vida 8:10 Uhr; Abfahrt 8:15 Uhr."
+     "nota": "Treffpunkte: Armenia, Parque de la Vida, 8:00 Uhr · Armenia, Plaza de Bolívar, 8:15 Uhr."
     },
     "incluye": [
      "Transport",
-     "Spanischsprachiger Guide",
-     "Eintritt Bosque de Palmas / Aussichtspunkt",
-     "Besuch von Salento",
-     "Getränke oder Kaffee",
-     "Karte für medizinische Reiseassistenz"
+     "Geführter Rundgang auf Spanisch",
+     "Besuch des Cocora-Tals",
+     "Eintritt zum Aussichtspunkt Bosque de Palmas",
+     "Besuch von Salento und der Calle Real",
+     "Verkostung von Spezialitätenkaffee",
+     "Reiseassistenzkarte"
     ],
     "no_incluye": [
-     "Mittagessen",
-     "Nicht aufgeführte Ausgaben"
+     "Verpflegung",
+     "Nicht aufgeführte Ausgaben",
+     "Eintritt zu weiteren Aussichtspunkten"
     ],
     "notas": [
-     "Denken Sie an Insektenschutz, Sonnencreme, Kappe sowie bequeme Kleidung und Schuhe.",
-     "Ab 2 Personen; Buchung bis 20:00 Uhr am Vortag.",
-     "Keine Touren am langen Feiertagswochenende der Ferienwoche im Oktober, am 25. Dezember sowie vom 1. bis 6. Januar.",
-     "Ideal für Personen von 4 bis 70 Jahren."
+     "Täglich",
+     "Dauer ca. 7 Std.",
+     "Ab 2 Personen"
     ],
     "recomendacion": {
-     "titulo": "🚐 Gruppentour nach Cocora und Salento!",
+     "titulo": "🚐 Für Ihre Gruppentour",
      "items": [
-      "⏰ Bestätigen Sie Ihren Platz bis 20:00 Uhr am Vortag",
-      "👟 Bequeme Schuhe mit gutem Profil",
-      "🧢 Hut oder Kappe, Sonnencreme und Insektenschutz",
-      "🧥 Kleidung im Zwiebellook",
-      "🌧️ Es kann regnen: Wir leihen Ihnen einen wiederverwendbaren Regenponcho",
-      "💵 Bargeld: Mittagessen und zusätzliche Aussichtspunkte werden separat bezahlt",
-      "💧 Wiederverwendbare Flasche (unterwegs bekommen Sie Wasser von uns)"
+      "👟 Bequeme Kleidung und Schuhe",
+      "🧢 Kappe und Sonnenbrille",
+      "🧥 Regenjacke: Wir leihen Ihnen auch einen Regenponcho",
+      "🦟 Insektenschutz",
+      "🌸 Bitte keine Parfüms oder Cremes mit süßem Duft",
+      "♻️ Vermeiden Sie Einwegplastik",
+      "🩺 Teilen Sie uns körperliche oder gesundheitliche Besonderheiten mit, die wir berücksichtigen sollten"
      ]
     },
-    "descripcion": "Die praktischste und günstigste Art, Cocora und Salento kennenzulernen: tägliche Abfahrt ab Armenia mit Guide, Erläuterungen zum Nebelwald und zur Wachspalme sowie Freizeit in der Calle Real."
+    "descripcion": "Abfahrt um 8:15 Uhr in Armenia ins Cocora-Tal, mit Erläuterungen zum Nebelwald und zur Wachspalme. Der Guide führt den Rundgang am Aussichtspunkt Bosque de Palmas (ca. 2 bis 3 Std.). Danach geht es zurück nach Salento: historischer Rundgang, Zeit zum Mittagessen, Bummel über die Calle Real, Zeit zum Einkaufen und Kaffeeverkostung. Rückkehr nach Armenia gegen 15:30 Uhr."
    },
    "cocoraacaime": {
     "nombre": "Trek Valle de Cocora · Acaime, Haus der Kolibris",
@@ -5097,83 +5164,113 @@
     "duracion_texto": "5–6 h"
    },
    "fincacomp": {
-    "nombre": "Gruppentour Kaffeefarm",
+    "nombre": "Kaffeefarm-Besuch als Gruppentour",
     "incluye": [
      "Transport",
-     "Gastgeber auf der Finca",
-     "Cupping und Zubereitungsmethoden",
+     "Geführter Rundgang auf Spanisch auf der Kaffeefarm",
      "Kaffeeverkostung",
-     "Digitale Fotos"
+     "Reiseassistenzkarte"
     ],
     "notas": [
-     "Gruppentour: Uhrzeit und Treffpunkt bestätigt Ihnen Ihr Gastgeber per WhatsApp."
+     "Montag bis Sonntag",
+     "Dauer ca. 3 Std.",
+     "Ab 2 Personen",
+     "Auf der Farm von 9:00 bis ca. 11:30 Uhr"
     ],
     "recomendacion": {
-     "titulo": "☕ Von der Bohne in die Tasse!",
+     "titulo": "🚐 Für Ihre Gruppentour",
      "items": [
-      "👟 Geschlossene, bequeme Schuhe",
-      "🧢 Hut oder Kappe, Sonnencreme und Insektenschutz",
-      "💧 Wiederverwendbare Flasche (unterwegs bekommen Sie Wasser von uns)",
-      "🌧️ Es kann regnen: Wir leihen Ihnen einen wiederverwendbaren Regenponcho",
-      "☕ Probieren Sie den Kaffee beim Cupping ohne Zucker: So schmecken Sie seine Noten besser",
-      "🚯 Hinterlassen Sie keinen Müll: Verlassen Sie den Ort so, wie Sie ihn vorgefunden haben"
+      "👟 Bequeme Kleidung und Schuhe",
+      "🧢 Kappe und Sonnenbrille",
+      "🧥 Regenjacke: Wir leihen Ihnen auch einen Regenponcho",
+      "🦟 Insektenschutz",
+      "🌸 Bitte keine Parfüms oder Cremes mit süßem Duft",
+      "♻️ Vermeiden Sie Einwegplastik",
+      "🩺 Teilen Sie uns körperliche oder gesundheitliche Besonderheiten mit, die wir berücksichtigen sollten"
      ]
     },
-    "descripcion": "Kolumbianischer Kaffee trägt eine geschützte Ursprungsbezeichnung, und die Kaffeekulturlandschaft ist UNESCO-Welterbe. Auf einer traditionellen Finca verfolgen Sie den Weg vom Samenkorn bis zur Tasse und lernen, Kaffee zu verkosten: das Erlebnis, das in der Kaffeeregion nicht fehlen darf."
+    "descripcion": "Abfahrt um 8:00 Uhr in Armenia zu einer Kaffeefarm. Der Rundgang beginnt bei den Kaffeesetzlingen, wo die Besucher die Geheimnisse des Anbaus entdecken. Zwischen den Kaffeesträuchern lernen sie die Sorten kennen und hören Geschichten einer traditionellen Farm. Das Erlebnis umfasst die Aufbereitung und Trocknung und endet mit einem Workshop, in dem man die einzigartigen Nuancen dieses ikonischen Getränks unterscheiden und genießen lernt.",
+    "horario": {
+     "nota": "Treffpunkte: Armenia, Plaza de Bolívar, 8:00 Uhr · Armenia, Parque de la Vida, 8:15 Uhr · Quimbaya, La Casa del Café, Carrera 6 # 14-02 (Ecke), 8:30 Uhr."
+    },
+    "no_incluye": [
+     "Verpflegung",
+     "Nicht aufgeführte Ausgaben",
+     "Reiseleiter"
+    ]
    },
    "cacaocomp": {
-    "nombre": "Gruppentour Kakao",
+    "nombre": "Kakaofarm-Besuch als Gruppentour",
     "incluye": [
      "Transport",
-     "Snack",
-     "Gastgeber auf der Finca",
-     "Digitale Fotos"
+     "Geführter Rundgang auf Spanisch",
+     "Geführter Rundgang auf der Kakaofarm",
+     "Verkostung von Schokolade und traditionellem Gebäck",
+     "Reiseassistenzkarte"
     ],
     "notas": [
-     "Gruppentour: Uhrzeit und Treffpunkt bestätigt Ihnen Ihr Gastgeber per WhatsApp."
+     "Täglich",
+     "Dauer ca. 4 Std.",
+     "Ab 2 Personen",
+     "Auf der Farm von 9:15 bis ca. 12:00 Uhr"
     ],
     "recomendacion": {
-     "titulo": "🌱 Machen Sie sich bereit für ein unvergessliches Kakao-Erlebnis!",
+     "titulo": "🚐 Für Ihre Gruppentour",
      "items": [
-      "🎒 Leichter, bequemer Rucksack",
-      "🧢 Hut oder Kappe (schützen Sie sich vor der Sonne)",
-      "🧴 Sonnencreme und Insektenschutz",
-      "💧 Wiederverwendbare Wasserflasche",
-      "👟 Bequeme Schuhe zum Gehen",
-      "🌦️ Es kann regnen – nehmen Sie eine Regenjacke oder einen Taschenschirm mit!",
-      "🚯 Hinterlassen Sie keinen Müll",
-      "🚫 Verzichten Sie auf starke Parfüms: Sie können die natürliche Umgebung der Pflanzung stören"
+      "👟 Bequeme Kleidung und Schuhe",
+      "🧢 Kappe und Sonnenbrille",
+      "🧥 Regenjacke: Wir leihen Ihnen auch einen Regenponcho",
+      "🦟 Insektenschutz",
+      "🌸 Bitte keine Parfüms oder Cremes mit süßem Duft",
+      "♻️ Vermeiden Sie Einwegplastik",
+      "🩺 Teilen Sie uns körperliche oder gesundheitliche Besonderheiten mit, die wir berücksichtigen sollten"
      ]
     },
-    "descripcion": "Kolumbien ist weltweit für seinen Fein- und Aromakakao bekannt. Machen Sie selbst mit – von der Kakaofrucht bis zum Getränk –, an der Seite der Familien, die ihn anbauen: eine Seite der Kaffeeregion, die nur wenige kennen."
+    "descripcion": "Abfahrt um 8:00 Uhr in Armenia zu einer Kakaofarm. Unterwegs erkunden Sie die Pflanzungen und lernen den Weg von der Ernte bis zur Herstellung von Kakaoprodukten kennen. Die Besucher machen selbst mit und genießen die Zubereitung und Verkostung eines traditionellen Getränks. Ein authentisches und unvergessliches Erlebnis.",
+    "horario": {
+     "nota": "Treffpunkte: Armenia, Parque de la Vida, 8:00 Uhr · Armenia, Plaza de Bolívar, 8:15 Uhr · Montenegro, Kirche am Hauptplatz (rechte Seite), 8:45 Uhr."
+    },
+    "no_incluye": [
+     "Verpflegung",
+     "Nicht aufgeführte Ausgaben",
+     "Reiseleiter"
+    ]
    },
    "cordilleracomp": {
-    "nombre": "Gruppentour Cordillera: Córdoba, Pijao und Buenavista",
+    "nombre": "Bergdörfer der Kordillere als Gruppentour: Córdoba, Pijao und Buenavista",
     "incluye": [
      "Transport",
-     "Fahrt im Jeep Willys (je nach Bedingungen)",
-     "Guide",
-     "Kaffeeverkostung",
-     "Souvenir",
-     "Mittagessen",
-     "Digitale Fotos"
+     "Geführter Rundgang auf Spanisch",
+     "Besuch von Córdoba, Pijao und Buenavista",
+     "Handwerksworkshop oder -vorführung",
+     "Verkostung von Spezialitätenkaffee auf der Terrasse San Alberto",
+     "Reiseassistenzkarte"
     ],
     "notas": [
-     "Gruppentour: Uhrzeit und Treffpunkt bestätigt Ihnen Ihr Gastgeber per WhatsApp."
+     "Täglich",
+     "Dauer ca. 6 Std.",
+     "Ab 2 Personen"
     ],
     "recomendacion": {
-     "titulo": "⛰️ Bergdörfer der Kordillere!",
+     "titulo": "🚐 Für Ihre Gruppentour",
      "items": [
-      "👟 Bequeme Schuhe",
-      "🧢 Hut oder Kappe, Sonnencreme und Insektenschutz",
-      "🧥 Leichte Jacke: In der Kordillere ist es frisch",
-      "🌧️ Es kann regnen: Wir leihen Ihnen einen wiederverwendbaren Regenponcho",
-      "💵 Bargeld für lokale Einkäufe",
-      "🚙 Ein Teil der Strecke kann im Jeep Willys über ländliche Wege zurückgelegt werden",
-      "💊 Wenn Ihnen beim Autofahren übel wird, nehmen Sie Ihr Medikament mit"
+      "👟 Bequeme Kleidung und Schuhe",
+      "🧢 Kappe und Sonnenbrille",
+      "🧥 Regenjacke: Wir leihen Ihnen auch einen Regenponcho",
+      "🦟 Insektenschutz",
+      "🌸 Bitte keine Parfüms oder Cremes mit süßem Duft",
+      "♻️ Vermeiden Sie Einwegplastik",
+      "🩺 Teilen Sie uns körperliche oder gesundheitliche Besonderheiten mit, die wir berücksichtigen sollten"
      ]
     },
-    "descripcion": "Das weniger bekannte Quindío: ein Tag in den Bergen, auf Landstraßen unterwegs durch drei authentische Dörfer der Kordillere."
+    "descripcion": "Treffpunkt in Armenia um 8:00 Uhr für eine Tour durch den Süden des Quindío. Wir besuchen Córdoba, bekannt für die Nutzung und den Erhalt des Guadua-Bambus. Weiter geht es nach Pijao, einem Ort der Cittaslow-Bewegung, wo wir durch die Straßen gehen und lokale Geschichten hören. Zum Schluss Buenavista, der Aussichtspunkt des Quindío schlechthin, mit idealen Fotomotiven und der Verkostung eines exquisiten Hochlandkaffees. Ein Natur- und Kulturerlebnis, das Landschaft und lokale Traditionen verbindet.",
+    "horario": {
+     "nota": "Treffpunkte: Armenia, Parque de la Vida, 8:00 Uhr · Armenia, Plaza de Bolívar, 8:15 Uhr · Calarcá, Hauptplatz, 8:45 Uhr · Río Verde, 9:15 Uhr."
+    },
+    "no_incluye": [
+     "Verpflegung",
+     "Nicht aufgeführte Ausgaben"
+    ]
    }
   },
   "arbol": {
@@ -5217,7 +5314,7 @@
     "respuesta": "Ja! Wir haben angepasste Angebote und Spezialfahrzeuge, damit alle die Region ohne Barrieren genießen können. Außerdem haben wir einen Guide für blinde Menschen. Fragen Sie uns, wir beraten Sie ganz persönlich. ♿"
    },
    "idiomas": {
-    "respuesta": "Guides auf Spanisch, Englisch, Französisch, Italienisch und Portugiesisch; deutschsprachige Guides bieten wir derzeit nicht an (Führungen in einer anderen Sprache als Spanisch kosten extra). Bei der Gruppentour wird für den englischsprachigen Guide je nach Gruppengröße ein Zuschlag berechnet."
+    "respuesta": "Guides auf Spanisch, Englisch, Französisch, Italienisch und Portugiesisch; deutschsprachige Guides bieten wir derzeit nicht an (Führungen in einer anderen Sprache als Spanisch kosten extra). Bei den Gruppentouren wird für den englischsprachigen Guide ein Zuschlag pro Service berechnet."
    },
    "clima": {
     "respuesta": "Ganzjährig gemäßigtes Klima; Regen ist in jeder Jahreszeit möglich. In Cocora, im Páramo und bei den Wachspalmen ist es kalt."
@@ -5269,18 +5366,20 @@
      "Kann ich für morgen buchen?",
      "Englischsprachiger Guide?"
     ],
-    "itinerario": "Abfahrt ab Armenia um 8:15 Uhr. Im Valle de Cocora entdecken wir mit einem Guide den Nebelwald und die Wachspalme 🌴 (2 bis 3 Std.). Danach geht es nach Salento: historischer Rundgang, Freizeit zum Mittagessen und Bummel über die Calle Real 🛍️. Rückfahrt nach Armenia.",
+    "itinerario": "Abfahrt in Armenia um 8:15 Uhr ins Cocora-Tal: Erläuterungen zu Nebelwald und Wachspalme am Aussichtspunkt Bosque de Palmas 🌴 (2 bis 3 Std.). Danach Salento: historischer Rundgang, Zeit zum Mittagessen, Calle Real, Einkaufen und Kaffeeverkostung ☕. Rückkehr nach Armenia gegen 15:30 Uhr.",
     "incluye": [
      "Transport",
-     "Spanischsprachiger Guide",
-     "Eintritt Bosque de Palmas / Aussichtspunkt",
-     "Besuch von Salento",
-     "Getränke oder Kaffee",
-     "Karte für medizinische Reiseassistenz"
+     "Geführter Rundgang auf Spanisch",
+     "Besuch des Cocora-Tals",
+     "Eintritt zum Aussichtspunkt Bosque de Palmas",
+     "Besuch von Salento und der Calle Real",
+     "Verkostung von Spezialitätenkaffee",
+     "Reiseassistenzkarte"
     ],
     "no_incluye": [
-     "Mittagessen",
-     "Nicht aufgeführte Ausgaben"
+     "Verpflegung",
+     "Nicht aufgeführte Ausgaben",
+     "Eintritt zu weiteren Aussichtspunkten"
     ],
     "operacion": "Täglich ab 2 Personen. Bestätigung spätestens bis 20:00 Uhr am Vortag.",
     "no_opera": [
@@ -5516,41 +5615,42 @@
     "descripcion": "O Quindío menos conhecido: um dia entre as montanhas, percorrendo por estradas rurais a autenticidade de três povoados da cordilheira."
    },
    "compartidocs": {
-    "nombre": "Tour Compartilhado Vale de Cocora e Salento",
+    "nombre": "Vale de Cocora e Salento em tour compartilhado",
     "horario": {
-     "nota": "Pontos de encontro: Plaza de Bolívar 8h / Parque de la Vida 8h10; saída 8h15."
+     "nota": "Pontos de encontro: Armenia, Parque de la Vida, 8h · Armenia, Plaza de Bolívar, 8h15."
     },
     "incluye": [
      "Transporte",
-     "Guia em espanhol",
-     "Entrada no Bosque de Palmas / mirante",
-     "Visita a Salento",
-     "Hidratação ou café",
-     "Cartão de assistência médica"
+     "Passeio guiado em espanhol",
+     "Visita ao Vale de Cocora",
+     "Entrada no mirante Bosque de Palmas",
+     "Visita a Salento e à Calle Real",
+     "Degustação de café especial",
+     "Cartão de assistência"
     ],
     "no_incluye": [
-     "Almoço",
-     "Despesas não especificadas"
+     "Alimentação",
+     "Gastos não relacionados",
+     "Entrada em outros mirantes"
     ],
     "notas": [
-     "Leve repelente, protetor solar, boné, roupas e calçados confortáveis.",
-     "Opera a partir de 2 pessoas; reservas até as 20h do dia anterior.",
-     "Não opera no feriado prolongado da semana de recesso de outubro, em 25 de dezembro nem de 1º a 6 de janeiro.",
-     "Ideal para pessoas de 4 a 70 anos."
+     "Todos os dias",
+     "Duração de 7 h aprox.",
+     "A partir de 2 passageiros"
     ],
     "recomendacion": {
-     "titulo": "🚐 Tour compartilhado para Cocora e Salento!",
+     "titulo": "🚐 Para o seu tour compartilhado",
      "items": [
-      "⏰ Confirme sua vaga até as 20h do dia anterior",
-      "👟 Calçado confortável com boa aderência",
-      "🧢 Chapéu ou boné, protetor solar e repelente",
-      "🧥 Roupas em camadas",
-      "🌧️ Pode chover: emprestamos uma capa de chuva reutilizável",
-      "💵 Dinheiro em espécie: o almoço e os mirantes adicionais são pagos à parte",
-      "💧 Garrafa reutilizável (damos água durante o passeio)"
+      "👟 Roupas e calçados confortáveis",
+      "🧢 Boné e óculos de sol",
+      "🧥 Jaqueta impermeável: também emprestamos capa de chuva",
+      "🦟 Repelente",
+      "🌸 Evite perfumes e cremes com cheiro doce",
+      "♻️ Evite plásticos descartáveis",
+      "🩺 Avise-nos sobre qualquer condição física ou de saúde que devamos considerar"
      ]
     },
-    "descripcion": "A forma mais prática e econômica de conhecer Cocora e Salento: saída diária de Armenia com guia, interpretação da floresta nublada e da palmeira-de-cera, e tempo livre na Calle Real."
+    "descripcion": "Saída às 8h15 de Armenia rumo ao Vale de Cocora, com interpretação da floresta de neblina e da palmeira-de-cera. O guia conduz o percurso no mirante Bosque de Palmas (2 a 3 h aprox.). Depois voltamos a Salento para um passeio histórico, tempo para o almoço, caminhada pela Calle Real, tempo para compras e degustação de café. Retorno a Armenia por volta das 15h30."
    },
    "cocoraacaime": {
     "nombre": "Trekking Vale de Cocora · Acaime, a casa dos beija-flores",
@@ -6880,83 +6980,113 @@
     "duracion_texto": "5–6 h"
    },
    "fincacomp": {
-    "nombre": "Tour compartilhado fazenda de café",
+    "nombre": "Visita a uma fazenda de café em tour compartilhado",
     "incluye": [
      "Transporte",
-     "Anfitriões na fazenda",
-     "Cupping e métodos de preparo",
+     "Passeio guiado em espanhol na fazenda de café",
      "Degustação de café",
-     "Fotos digitais"
+     "Cartão de assistência"
     ],
     "notas": [
-     "Saída compartilhada: seu anfitrião confirma o horário e o ponto de encontro pelo WhatsApp."
+     "De segunda a domingo",
+     "Duração de 3 h aprox.",
+     "A partir de 2 passageiros",
+     "Na fazenda das 9h às 11h30 aprox."
     ],
     "recomendacion": {
-     "titulo": "☕ Do grão à xícara!",
+     "titulo": "🚐 Para o seu tour compartilhado",
      "items": [
-      "👟 Calçado fechado e confortável",
-      "🧢 Chapéu ou boné, protetor solar e repelente",
-      "💧 Garrafa reutilizável (damos água durante o passeio)",
-      "🌧️ Pode chover: emprestamos uma capa de chuva reutilizável",
-      "☕ Prove o café sem açúcar no cupping: assim você sente melhor suas notas",
-      "🚯 Não deixe lixo: deixe o lugar como você o encontrou"
+      "👟 Roupas e calçados confortáveis",
+      "🧢 Boné e óculos de sol",
+      "🧥 Jaqueta impermeável: também emprestamos capa de chuva",
+      "🦟 Repelente",
+      "🌸 Evite perfumes e cremes com cheiro doce",
+      "♻️ Evite plásticos descartáveis",
+      "🩺 Avise-nos sobre qualquer condição física ou de saúde que devamos considerar"
      ]
     },
-    "descripcion": "O café colombiano tem Denominação de Origem, e a Paisagem Cultural Cafeeira é Patrimônio Mundial da UNESCO. Em uma fazenda tradicional, você acompanha o processo da semente à xícara e aprende a degustar: a experiência essencial do Eixo Cafeeiro."
+    "descripcion": "Saída às 8h de Armenia rumo a uma fazenda de café. O passeio começa nos viveiros de café, onde os visitantes descobrem os segredos do cultivo. Pelos cafezais, conhecem as variedades enquanto ouvem histórias de uma fazenda tradicional. A experiência inclui o beneficiamento e a secagem e termina com uma oficina para diferenciar e apreciar as nuances únicas dessa bebida emblemática.",
+    "horario": {
+     "nota": "Pontos de encontro: Armenia, Plaza de Bolívar, 8h · Armenia, Parque de la Vida, 8h15 · Quimbaya, La Casa del Café, Carrera 6 # 14-02 (esquina), 8h30."
+    },
+    "no_incluye": [
+     "Alimentação",
+     "Gastos não relacionados",
+     "Guia de turismo"
+    ]
    },
    "cacaocomp": {
-    "nombre": "Tour compartilhado do cacau",
+    "nombre": "Visita a uma fazenda de cacau em tour compartilhado",
     "incluye": [
      "Transporte",
-     "Lanche",
-     "Anfitriões na fazenda",
-     "Fotos digitais"
+     "Passeio guiado em espanhol",
+     "Passeio guiado na fazenda de cacau",
+     "Degustação de chocolate e quitandas tradicionais",
+     "Cartão de assistência"
     ],
     "notas": [
-     "Saída compartilhada: seu anfitrião confirma o horário e o ponto de encontro pelo WhatsApp."
+     "Todos os dias",
+     "Duração de 4 h aprox.",
+     "A partir de 2 passageiros",
+     "Na fazenda das 9h15 às 12h aprox."
     ],
     "recomendacion": {
-     "titulo": "🌱 Prepare-se para uma experiência de cacau inesquecível!",
+     "titulo": "🚐 Para o seu tour compartilhado",
      "items": [
-      "🎒 Mochila leve e confortável",
-      "🧢 Chapéu ou boné (proteja-se do sol)",
-      "🧴 Protetor solar e repelente",
-      "💧 Garrafa de água reutilizável",
-      "👟 Calçado confortável para caminhar",
-      "🌦️ Pode chover: leve uma capa de chuva ou um guarda-chuva dobrável!",
-      "🚯 Não deixe lixo",
-      "🚫 Evite perfumes fortes: eles podem alterar o ambiente natural da plantação"
+      "👟 Roupas e calçados confortáveis",
+      "🧢 Boné e óculos de sol",
+      "🧥 Jaqueta impermeável: também emprestamos capa de chuva",
+      "🦟 Repelente",
+      "🌸 Evite perfumes e cremes com cheiro doce",
+      "♻️ Evite plásticos descartáveis",
+      "🩺 Avise-nos sobre qualquer condição física ou de saúde que devamos considerar"
      ]
     },
-    "descripcion": "A Colômbia é reconhecida no mundo todo por seu cacau fino de sabor e aroma. Participe do processo, do fruto à bebida, ao lado das famílias que o cultivam: uma face do Eixo Cafeeiro que poucos conhecem."
+    "descripcion": "Saída às 8h de Armenia rumo a uma fazenda de cacau. Durante o passeio, você conhece as plantações e o processo, da colheita à elaboração dos produtos de cacau. Os visitantes participam do processo e aproveitam o preparo e a degustação de uma bebida tradicional. Uma experiência autêntica e inesquecível.",
+    "horario": {
+     "nota": "Pontos de encontro: Armenia, Parque de la Vida, 8h · Armenia, Plaza de Bolívar, 8h15 · Montenegro, igreja da praça principal (lado direito), 8h45."
+    },
+    "no_incluye": [
+     "Alimentação",
+     "Gastos não relacionados",
+     "Guia de turismo"
+    ]
    },
    "cordilleracomp": {
-    "nombre": "Tour compartilhado Cordilheira: Córdoba, Pijao e Buenavista",
+    "nombre": "Vilarejos da Cordilheira em tour compartilhado: Córdoba, Pijao e Buenavista",
     "incluye": [
      "Transporte",
-     "Trajeto de Jeep Willys (conforme as condições)",
-     "Guia",
-     "Degustação de café",
-     "Souvenir",
-     "Almoço",
-     "Fotos digitais"
+     "Passeio guiado em espanhol",
+     "Visita a Córdoba, Pijao e Buenavista",
+     "Oficina ou demonstração artesanal",
+     "Degustação de café especial no terraço San Alberto",
+     "Cartão de assistência"
     ],
     "notas": [
-     "Saída compartilhada: seu anfitrião confirma o horário e o ponto de encontro pelo WhatsApp."
+     "Todos os dias",
+     "Duração de 6 h aprox.",
+     "A partir de 2 passageiros"
     ],
     "recomendacion": {
-     "titulo": "⛰️ Vilarejos da cordilheira!",
+     "titulo": "🚐 Para o seu tour compartilhado",
      "items": [
-      "👟 Calçado confortável",
-      "🧢 Chapéu ou boné, protetor solar e repelente",
-      "🧥 Agasalho leve: a cordilheira é fresca",
-      "🌧️ Pode chover: emprestamos uma capa de chuva reutilizável",
-      "💵 Dinheiro em espécie para compras locais",
-      "🚙 Parte do trajeto pode ser de Jeep Willys por estradas rurais",
-      "💊 Se você enjoa na estrada, leve seu remédio"
+      "👟 Roupas e calçados confortáveis",
+      "🧢 Boné e óculos de sol",
+      "🧥 Jaqueta impermeável: também emprestamos capa de chuva",
+      "🦟 Repelente",
+      "🌸 Evite perfumes e cremes com cheiro doce",
+      "♻️ Evite plásticos descartáveis",
+      "🩺 Avise-nos sobre qualquer condição física ou de saúde que devamos considerar"
      ]
     },
-    "descripcion": "O Quindío menos conhecido: um dia entre as montanhas, percorrendo por estradas rurais a autenticidade de três povoados da cordilheira."
+    "descripcion": "Encontro em Armenia às 8h para um passeio pelo sul do Quindío. Visitamos Córdoba, reconhecida pelo uso e pela preservação da guadua. Seguimos para Pijao, município do movimento Cittaslow, onde percorremos suas ruas e conhecemos histórias locais. Terminamos em Buenavista, o mirante por excelência do Quindío, com vistas ideais para fotos e degustação de um excelente café de altitude. Uma experiência natural e cultural que une paisagem e tradições locais.",
+    "horario": {
+     "nota": "Pontos de encontro: Armenia, Parque de la Vida, 8h · Armenia, Plaza de Bolívar, 8h15 · Calarcá, praça principal, 8h45 · Río Verde, 9h15."
+    },
+    "no_incluye": [
+     "Alimentação",
+     "Gastos não relacionados"
+    ]
    }
   },
   "arbol": {
@@ -7000,7 +7130,7 @@
     "respuesta": "Sim! Temos opções adaptadas e veículos especiais para que todos aproveitem a região sem barreiras. Também temos guia para pessoas cegas. Fale com a gente e orientamos você de forma personalizada. ♿"
    },
    "idiomas": {
-    "respuesta": "Guias em espanhol, inglês, francês, italiano e português (o serviço de guia em outro idioma tem custo adicional). No Tour Compartilhado, o guia em inglês tem um suplemento conforme o tamanho do grupo."
+    "respuesta": "Guias em espanhol, inglês, francês, italiano e português (o serviço de guia em outro idioma tem custo adicional). Nos tours compartilhados, o guia em inglês tem um suplemento por serviço."
    },
    "clima": {
     "respuesta": "Clima ameno o ano todo; pode chover em qualquer época. Em Cocora, no páramo e na região da palmeira-de-cera faz frio."
@@ -7052,18 +7182,20 @@
      "dá para reservar para amanhã?",
      "guia em inglês?"
     ],
-    "itinerario": "Saída de Armenia às 8h15. No Vale de Cocora, conhecemos com um guia a floresta nublada e a palmeira-de-cera 🌴 (2 a 3 h). Depois seguimos para Salento: passeio histórico, tempo livre para almoçar e caminhar pela Calle Real 🛍️. Retorno a Armenia.",
+    "itinerario": "Sai de Armenia às 8h15 rumo ao Vale de Cocora: interpretação da floresta de neblina e da palmeira-de-cera no mirante Bosque de Palmas 🌴 (2 a 3 h). Depois, Salento: passeio histórico, tempo para o almoço, Calle Real, compras e degustação de café ☕. Retorno a Armenia por volta das 15h30.",
     "incluye": [
      "Transporte",
-     "Guia em espanhol",
-     "Entrada no Bosque de Palmas / mirante",
-     "Visita a Salento",
-     "Hidratação ou café",
-     "Cartão de assistência médica"
+     "Passeio guiado em espanhol",
+     "Visita ao Vale de Cocora",
+     "Entrada no mirante Bosque de Palmas",
+     "Visita a Salento e à Calle Real",
+     "Degustação de café especial",
+     "Cartão de assistência"
     ],
     "no_incluye": [
-     "Almoço",
-     "Despesas não especificadas"
+     "Alimentação",
+     "Gastos não relacionados",
+     "Entrada em outros mirantes"
     ],
     "operacion": "Todos os dias, a partir de 2 passageiros. Confirmar até as 20h do dia anterior.",
     "no_opera": [
@@ -7299,41 +7431,42 @@
     "descripcion": "Il Quindío meno conosciuto: una giornata tra le montagne, lungo strade rurali, alla scoperta dell'autenticità di tre paesi della cordigliera."
    },
    "compartidocs": {
-    "nombre": "Tour condiviso Valle de Cocora e Salento",
+    "nombre": "Valle de Cocora e Salento in tour condiviso",
     "horario": {
-     "nota": "Punti d'incontro: Plaza de Bolívar alle 8:00 / Parque de la Vida alle 8:10; partenza alle 8:15."
+     "nota": "Punti d'incontro: Armenia, Parque de la Vida, 8:00 · Armenia, Plaza de Bolívar, 8:15."
     },
     "incluye": [
      "Trasporto",
-     "Guida in spagnolo",
-     "Ingresso al Bosque de Palmas / belvedere",
-     "Visita a Salento",
-     "Idratazione o caffè",
-     "Tessera di assistenza medica"
+     "Visita guidata in spagnolo",
+     "Visita alla Valle de Cocora",
+     "Ingresso al belvedere Bosque de Palmas",
+     "Visita a Salento e alla Calle Real",
+     "Degustazione di caffè specialty",
+     "Tessera di assistenza"
     ],
     "no_incluye": [
-     "Pranzo",
-     "Spese non specificate"
+     "Pasti",
+     "Spese non indicate",
+     "Ingresso ad altri belvedere"
     ],
     "notas": [
-     "Porta repellente, crema solare, cappellino, abbigliamento e scarpe comode.",
-     "Si effettua con un minimo di 2 persone; prenotazioni entro le 20:00 del giorno precedente.",
-     "Non si effettua nel weekend lungo festivo della settimana di vacanze scolastiche di ottobre, il 25 dicembre e dall'1 al 6 gennaio.",
-     "Ideale per persone tra 4 e 70 anni."
+     "Tutti i giorni",
+     "Durata 7 ore circa",
+     "Da 2 passeggeri"
     ],
     "recomendacion": {
-     "titulo": "🚐 Tour condiviso a Cocora e Salento!",
+     "titulo": "🚐 Per il tuo tour condiviso",
      "items": [
-      "⏰ Conferma il tuo posto entro le 20:00 del giorno prima",
-      "👟 Scarpe comode con buona aderenza",
-      "🧢 Cappello o cappellino, crema solare e repellente",
-      "🧥 Vestiti a strati",
-      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
-      "💵 Contanti: il pranzo e i belvedere aggiuntivi si pagano a parte",
-      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)"
+      "👟 Abiti e scarpe comodi",
+      "🧢 Cappellino e occhiali da sole",
+      "🧥 Giacca impermeabile: ti prestiamo anche una mantella per la pioggia",
+      "🦟 Repellente",
+      "🌸 Evita profumi e creme dall'odore dolce",
+      "♻️ Evita la plastica monouso",
+      "🩺 Segnalaci qualsiasi condizione fisica o di salute da tenere in conto"
      ]
     },
-    "descripcion": "Il modo più pratico ed economico per conoscere Cocora e Salento: partenza ogni giorno da Armenia con guida, interpretazione della foresta nebulosa e della palma da cera, e tempo libero sulla Calle Real."
+    "descripcion": "Partenza alle 8:15 da Armenia verso la Valle de Cocora, con l'interpretazione della foresta nebulosa e della palma da cera. La guida conduce il percorso al belvedere Bosque de Palmas (2-3 ore circa). Poi torniamo a Salento per un giro storico, tempo per il pranzo, una passeggiata lungo la Calle Real, tempo per gli acquisti e una degustazione di caffè. Rientro ad Armenia verso le 15:30."
    },
    "cocoraacaime": {
     "nombre": "Trek Valle de Cocora · Acaime, casa dei colibrì",
@@ -8663,83 +8796,113 @@
     "duracion_texto": "5–6 h"
    },
    "fincacomp": {
-    "nombre": "Tour condiviso fattoria del caffè",
+    "nombre": "Visita a una fattoria del caffè in tour condiviso",
     "incluye": [
      "Trasporto",
-     "Padroni di casa in fattoria",
-     "Cupping e metodi di preparazione",
+     "Visita guidata in spagnolo della fattoria del caffè",
      "Degustazione di caffè",
-     "Materiale fotografico in digitale"
+     "Tessera di assistenza"
     ],
     "notas": [
-     "Partenza condivisa: il tuo host ti conferma orario e punto d'incontro su WhatsApp."
+     "Dal lunedì alla domenica",
+     "Durata 3 ore circa",
+     "Da 2 passeggeri",
+     "In fattoria dalle 9:00 alle 11:30 circa"
     ],
     "recomendacion": {
-     "titulo": "☕ Dal chicco alla tazza!",
+     "titulo": "🚐 Per il tuo tour condiviso",
      "items": [
-      "👟 Scarpe chiuse e comode",
-      "🧢 Cappello o cappellino, crema solare e repellente",
-      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
-      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
-      "☕ Assaggia il caffè senza zucchero durante la degustazione: ne coglierai meglio le note",
-      "🚯 Non lasciare rifiuti: lascia il posto come l'hai trovato"
+      "👟 Abiti e scarpe comodi",
+      "🧢 Cappellino e occhiali da sole",
+      "🧥 Giacca impermeabile: ti prestiamo anche una mantella per la pioggia",
+      "🦟 Repellente",
+      "🌸 Evita profumi e creme dall'odore dolce",
+      "♻️ Evita la plastica monouso",
+      "🩺 Segnalaci qualsiasi condizione fisica o di salute da tenere in conto"
      ]
     },
-    "descripcion": "Il caffè colombiano ha la Denominazione di Origine e il Paesaggio Culturale del Caffè è Patrimonio dell'Umanità UNESCO. In una fattoria tradizionale segui il processo dal seme alla tazza e impari a degustare il caffè: l'esperienza essenziale dell'Eje Cafetero."
+    "descripcion": "Partenza alle 8:00 da Armenia verso una fattoria del caffè. Il percorso inizia nei vivai di caffè, dove i visitatori scoprono i segreti della coltivazione. Tra le piantagioni imparano a conoscere le varietà ascoltando le storie di una fattoria tradizionale. L'esperienza comprende la lavorazione e l'essiccazione e si conclude con un laboratorio per distinguere e apprezzare le sfumature uniche di questa bevanda simbolo.",
+    "horario": {
+     "nota": "Punti d'incontro: Armenia, Plaza de Bolívar, 8:00 · Armenia, Parque de la Vida, 8:15 · Quimbaya, La Casa del Café, Carrera 6 # 14-02 (angolo), 8:30."
+    },
+    "no_incluye": [
+     "Pasti",
+     "Spese non indicate",
+     "Guida turistica"
+    ]
    },
    "cacaocomp": {
-    "nombre": "Tour condiviso del cacao",
+    "nombre": "Visita a una fattoria del cacao in tour condiviso",
     "incluye": [
      "Trasporto",
-     "Spuntino",
-     "Padroni di casa in fattoria",
-     "Materiale fotografico in digitale"
+     "Visita guidata in spagnolo",
+     "Visita guidata della fattoria del cacao",
+     "Degustazione di cioccolato e prodotti da forno tradizionali",
+     "Tessera di assistenza"
     ],
     "notas": [
-     "Partenza condivisa: il tuo host ti conferma orario e punto d'incontro su WhatsApp."
+     "Tutti i giorni",
+     "Durata 4 ore circa",
+     "Da 2 passeggeri",
+     "In fattoria dalle 9:15 alle 12:00 circa"
     ],
     "recomendacion": {
-     "titulo": "🌱 Preparati a vivere un'esperienza indimenticabile con il cacao!",
+     "titulo": "🚐 Per il tuo tour condiviso",
      "items": [
-      "🎒 Zaino leggero e comodo",
-      "🧢 Cappello o cappellino (proteggiti dal sole)",
-      "🧴 Crema solare e repellente",
-      "💧 Borraccia riutilizzabile",
-      "👟 Scarpe comode per camminare",
-      "🌦️ Può piovere: porta un impermeabile o un ombrello pieghevole!",
-      "🚯 Non lasciare rifiuti",
-      "🚫 Evita profumi forti: possono alterare l'ambiente naturale della coltivazione"
+      "👟 Abiti e scarpe comodi",
+      "🧢 Cappellino e occhiali da sole",
+      "🧥 Giacca impermeabile: ti prestiamo anche una mantella per la pioggia",
+      "🦟 Repellente",
+      "🌸 Evita profumi e creme dall'odore dolce",
+      "♻️ Evita la plastica monouso",
+      "🩺 Segnalaci qualsiasi condizione fisica o di salute da tenere in conto"
      ]
     },
-    "descripcion": "La Colombia è riconosciuta nel mondo per il suo cacao fine di sapore e aroma. Partecipa al processo, dalla cabossa alla bevanda, insieme alle famiglie che lo coltivano: un volto dell'Eje Cafetero che pochi conoscono."
+    "descripcion": "Partenza alle 8:00 da Armenia verso una fattoria del cacao. Durante il percorso si esplorano le coltivazioni e si scopre il processo, dalla raccolta alla lavorazione dei prodotti a base di cacao. I visitatori partecipano al processo e si godono la preparazione e la degustazione di una bevanda tradizionale. Un'esperienza autentica e indimenticabile.",
+    "horario": {
+     "nota": "Punti d'incontro: Armenia, Parque de la Vida, 8:00 · Armenia, Plaza de Bolívar, 8:15 · Montenegro, chiesa della piazza principale (lato destro), 8:45."
+    },
+    "no_incluye": [
+     "Pasti",
+     "Spese non indicate",
+     "Guida turistica"
+    ]
    },
    "cordilleracomp": {
-    "nombre": "Tour condiviso Cordigliera: Córdoba, Pijao e Buenavista",
+    "nombre": "Paesi della Cordigliera in tour condiviso: Córdoba, Pijao e Buenavista",
     "incluye": [
      "Trasporto",
-     "Tragitto in Jeep Willys (se le condizioni lo permettono)",
-     "Guida",
-     "Degustazione di caffè",
-     "Souvenir",
-     "Pranzo",
-     "Materiale fotografico in digitale"
+     "Visita guidata in spagnolo",
+     "Visita a Córdoba, Pijao e Buenavista",
+     "Laboratorio o dimostrazione artigianale",
+     "Degustazione di caffè specialty sulla terrazza San Alberto",
+     "Tessera di assistenza"
     ],
     "notas": [
-     "Partenza condivisa: il tuo host ti conferma orario e punto d'incontro su WhatsApp."
+     "Tutti i giorni",
+     "Durata 6 ore circa",
+     "Da 2 passeggeri"
     ],
     "recomendacion": {
-     "titulo": "⛰️ Paesi della cordigliera!",
+     "titulo": "🚐 Per il tuo tour condiviso",
      "items": [
-      "👟 Scarpe comode",
-      "🧢 Cappello o cappellino, crema solare e repellente",
-      "🧥 Un capo caldo leggero: in cordigliera fa fresco",
-      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
-      "💵 Contanti per acquisti locali",
-      "🚙 Parte del tragitto può essere in Jeep Willys su strade rurali",
-      "💊 Se soffri il mal d'auto, porta il tuo medicinale"
+      "👟 Abiti e scarpe comodi",
+      "🧢 Cappellino e occhiali da sole",
+      "🧥 Giacca impermeabile: ti prestiamo anche una mantella per la pioggia",
+      "🦟 Repellente",
+      "🌸 Evita profumi e creme dall'odore dolce",
+      "♻️ Evita la plastica monouso",
+      "🩺 Segnalaci qualsiasi condizione fisica o di salute da tenere in conto"
      ]
     },
-    "descripcion": "Il Quindío meno conosciuto: una giornata tra le montagne, lungo strade rurali, alla scoperta dell'autenticità di tre paesi della cordigliera."
+    "descripcion": "Ritrovo ad Armenia alle 8:00 per iniziare un percorso nel sud del Quindío. Visitiamo Córdoba, nota per l'uso e la tutela della guadua. Proseguiamo verso Pijao, comune del movimento Cittaslow, dove percorriamo le sue strade e scopriamo storie locali. Concludiamo a Buenavista, il belvedere per eccellenza del Quindío, con viste ideali per le foto e la degustazione di uno squisito caffè d'altura. Un'esperienza naturale e culturale che unisce paesaggio e tradizioni locali.",
+    "horario": {
+     "nota": "Punti d'incontro: Armenia, Parque de la Vida, 8:00 · Armenia, Plaza de Bolívar, 8:15 · Calarcá, piazza principale, 8:45 · Río Verde, 9:15."
+    },
+    "no_incluye": [
+     "Pasti",
+     "Spese non indicate"
+    ]
    }
   },
   "arbol": {
@@ -8783,7 +8946,7 @@
     "respuesta": "Sì! Abbiamo opzioni adattate e veicoli speciali perché tutti possano godersi la regione senza barriere. Abbiamo anche una guida per persone non vedenti. Chiedici e ti consigliamo in modo personalizzato. ♿"
    },
    "idiomas": {
-    "respuesta": "Guide in spagnolo, inglese, francese, italiano e portoghese (la guida in una lingua diversa dallo spagnolo ha un costo aggiuntivo). Nel Tour condiviso, la guida in inglese ha un supplemento in base al numero di persone del gruppo."
+    "respuesta": "Guide in spagnolo, inglese, francese, italiano e portoghese (la guida in una lingua diversa dallo spagnolo ha un costo aggiuntivo). Nei tour condivisi, la guida in inglese ha un supplemento per servizio."
    },
    "clima": {
     "respuesta": "Clima temperato tutto l'anno; può piovere in qualsiasi stagione. A Cocora, nel páramo e tra le palme da cera fa freddo."
@@ -8835,18 +8998,20 @@
      "si può prenotare per domani?",
      "guida in inglese?"
     ],
-    "itinerario": "Partenza da Armenia alle 8:15. Nella Valle de Cocora facciamo un'interpretazione della foresta nebulosa e della palma da cera 🌴 (da 2 a 3 h). Poi andiamo a Salento: visita storica, tempo libero per pranzare e passeggiare lungo la Calle Real 🛍️. Rientro ad Armenia.",
+    "itinerario": "Partenza da Armenia alle 8:15 verso la Valle de Cocora: interpretazione della foresta nebulosa e della palma da cera al belvedere Bosque de Palmas 🌴 (2-3 ore). Poi Salento: giro storico, tempo per il pranzo, la Calle Real, acquisti e degustazione di caffè ☕. Rientro ad Armenia verso le 15:30.",
     "incluye": [
      "Trasporto",
-     "Guida in spagnolo",
-     "Ingresso al Bosque de Palmas / belvedere",
-     "Visita a Salento",
-     "Idratazione o caffè",
-     "Tessera di assistenza medica"
+     "Visita guidata in spagnolo",
+     "Visita alla Valle de Cocora",
+     "Ingresso al belvedere Bosque de Palmas",
+     "Visita a Salento e alla Calle Real",
+     "Degustazione di caffè specialty",
+     "Tessera di assistenza"
     ],
     "no_incluye": [
-     "Pranzo",
-     "Spese non specificate"
+     "Pasti",
+     "Spese non indicate",
+     "Ingresso ad altri belvedere"
     ],
     "operacion": "Tutti i giorni, con un minimo di 2 passeggeri. Conferma entro le 20:00 del giorno precedente.",
     "no_opera": [
