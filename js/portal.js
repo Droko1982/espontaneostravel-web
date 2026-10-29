@@ -1946,7 +1946,7 @@ function paramTable(tour, sp, rows) {
     [pv("lang"), shared ? pv("langShared") : pv("langB2B"), shared ? pv("langSharedC") : pv("langC")]
   ];
   return h("div", { class: "p-table-wrap p-params" }, table([
-    { label: t("p_param"), get: r => h("strong", null, r[0]) }, { label: t("p_b2b"), get: r => r[1] }, { label: t("p_b2c"), get: r => r[2] }
+    { label: t("p_param"), get: r => h("strong", null, r[0]) }, { label: t("p_b2b"), get: r => r[1] }      // sin columna B2C en el portal de agencias (ET, 29-oct-2026)
   ], filas, { stack: true, caption: t("ficha_t") }));
 }
 function tourInfo(tour, sp, openCond, rows) {
