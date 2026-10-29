@@ -65,7 +65,7 @@ const UI = {
     comp_intro: "Nuevos y exclusivos 2027. Salidas diarias garantizadas desde 2 pasajeros, con puntos de encuentro en Armenia. Ideal para pasajeros FIT y grupos pequeños.",
     tu_rate: "Tarifa por persona", tu_pp: "COP por persona · 1 a 30 pax", tu_card: "por persona · 1 a 30 pax", tu_vig: "Tarifa {0}: rige desde el 1 de enero de {0}.",
     s_meet: "Puntos de encuentro", dep_from: "Salida desde las {0}", g_en: "Guía en inglés", g_en_v: "COP total por servicio",
-    ctr_t: "Suplemento de traslado desde el hotel al punto de encuentro en Armenia", ctr_s: "Valor por persona, en COP, según el número de pasajeros de la reserva. Para más de 12 pasajeros, consultar.",
+    ctr_t: "Suplemento de traslado desde el hotel al punto de encuentro", ctr_s: "Valor por persona, en COP, según el número de pasajeros de la reserva. Para más de 12 pasajeros, consultar.",
     ctr_n: "Si el tour tiene punto de encuentro en tu municipio (Montenegro, Quimbaya o Calarcá), no aplica suplemento hasta ese punto.", ctr_srv: "Servicio", ctr_pax: "{0} pax", ctr_go: "Ver suplemento de traslado desde tu hotel",
     imp_t: "Importante", imp_1: "Sostenibilidad: recomendamos al pasajero evitar plásticos de un solo uso. Prestamos capa para la lluvia; en caso de daño, el pasajero paga {0}.", imp_cost: "su valor",
     imp_2: "Los guías llevan uniforme (camisa, chaleco o gorra) con el logo de Tour Compartido.", imp_3: "Recomendaciones: ropa y zapatos cómodos, gorra, gafas de sol, chaqueta impermeable y repelente. No usar perfumes ni cremas con olores dulces.",
@@ -140,7 +140,7 @@ const UI = {
     comp_intro: "New and exclusive for 2027. Guaranteed daily departures from 2 passengers, with meeting points in Armenia. Ideal for FIT travellers and small groups.",
     tu_rate: "Rate per person", tu_pp: "COP per person · 1 to 30 pax", tu_card: "per person · 1 to 30 pax", tu_vig: "{0} rate: valid from January 1, {0}.",
     s_meet: "Meeting points", dep_from: "Departures from {0}", g_en: "English-speaking guide", g_en_v: "COP total per service",
-    ctr_t: "Transfer supplement from the hotel to the meeting point in Armenia", ctr_s: "Price per person in COP, by number of passengers in the booking. For more than 12 passengers, ask us.",
+    ctr_t: "Transfer supplement from the hotel to the meeting point", ctr_s: "Price per person in COP, by number of passengers in the booking. For more than 12 passengers, ask us.",
     ctr_n: "If the tour has a meeting point in your town (Montenegro, Quimbaya or Calarcá), no supplement applies to that point.", ctr_srv: "Service", ctr_pax: "{0} pax", ctr_go: "See the transfer supplement from your hotel",
     imp_t: "Important", imp_1: "Sustainability: we recommend passengers avoid single-use plastics. We lend rain ponchos; if one is damaged, the passenger pays {0}.", imp_cost: "its cost",
     imp_2: "Guides wear a uniform (shirt, vest or cap) with the Shared Tour logo.", imp_3: "Recommendations: comfortable clothes and shoes, a cap, sunglasses, a waterproof jacket and insect repellent. Do not wear perfumes or creams with sweet scents.",
@@ -877,9 +877,13 @@ const seal = (e, cls) => (e.shared ? `<img class="seal${cls ? " " + cls : ""}" s
 /* ---------- Tours Compartidos 2027: tarifa única por persona, puntos de encuentro, traslados e «Importante» ----------
    La tarifa, la comisión y la nota de 1 pasajero (en «notas» de la fila) y los traslados (ET-TC-…), la guía en inglés y la capa
    (SU-TC-…) llegan del tarifario de la cuenta (privado/tarifas-compartidos-2027.json, Tarifas → Importar): nunca en archivos públicos. */
-const TC_ROWS = [["ET-TC-CIRCASIA", "Hoteles en Circasia → Armenia", "Hotels in Circasia → Armenia"], ["ET-TC-MONTENEGRO", "Hoteles en Montenegro → Armenia", "Hotels in Montenegro → Armenia"],
-  ["ET-TC-QUIMBAYA", "Hoteles en Quimbaya → Armenia", "Hotels in Quimbaya → Armenia"], ["ET-TC-CALARCA", "Hoteles en Calarcá o La Tebaida → Armenia", "Hotels in Calarcá or La Tebaida → Armenia"],
-  ["ET-TC-CORDILLERA", "Hoteles en Córdoba, Buenavista y Pijao → Armenia", "Hotels in Córdoba, Buenavista and Pijao → Armenia"], ["ET-TC-PEREIRA", "Hoteles en Pereira → Armenia", "Hotels in Pereira → Armenia"]];
+const TC_ROWS = [["ET-TC-CIRCASIA", "Hoteles en Circasia → punto de encuentro en Armenia", "Hotels in Circasia → meeting point in Armenia"],
+  ["ET-TC-FILANDIA-QUIMBAYA", "Hoteles en Filandia → punto de encuentro en Quimbaya", "Hotels in Filandia → meeting point in Quimbaya"],
+  ["ET-TC-MONTENEGRO", "Hoteles en Montenegro → punto de encuentro en Armenia", "Hotels in Montenegro → meeting point in Armenia"],
+  ["ET-TC-QUIMBAYA", "Hoteles en Quimbaya → punto de encuentro en Armenia", "Hotels in Quimbaya → meeting point in Armenia"],
+  ["ET-TC-CALARCA", "Hoteles en Calarcá o La Tebaida → punto de encuentro en Armenia", "Hotels in Calarcá or La Tebaida → meeting point in Armenia"],
+  ["ET-TC-CORDILLERA", "Hoteles en Córdoba, Buenavista y Pijao → punto de encuentro en Armenia", "Hotels in Córdoba, Buenavista and Pijao → meeting point in Armenia"],
+  ["ET-TC-FILANDIA", "Hoteles en Filandia → punto de encuentro en Armenia", "Hotels in Filandia → meeting point in Armenia"]];
 const hm12 = h => { const [a, b] = String(h).split(":").map(Number); const pm = a >= 12, en = L() === "en"; return `${a % 12 || 12}:${String(b || 0).padStart(2, "0")} ${pm ? (en ? "p.m." : "p. m.") : (en ? "a.m." : "a. m.")}`; };
 const meetOf = e => tr(e, "meet") || [];
 function compTraslados() {
