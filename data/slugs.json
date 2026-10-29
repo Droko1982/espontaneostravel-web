@@ -182,6 +182,14 @@
   "pt": "tour-do-cacau",
   "it": "tour-del-cacao"
  },
+ "cacaocomp": {
+  "es": "tour-compartido-de-cacao",
+  "en": "shared-tour-cacao",
+  "fr": "tour-partage-du-cacao",
+  "de": "gruppentour-kakao",
+  "pt": "tour-compartilhado-do-cacau",
+  "it": "tour-condiviso-del-cacao"
+ },
  "cajaviajera": {
   "es": "experiencia-la-caja-viajera-del-cafe",
   "en": "experience-la-caja-viajera-del-cafe",
@@ -302,6 +310,14 @@
   "pt": "full-day-vilarejos-da-cordilheira-cordoba-pijao-e-buenavista",
   "it": "full-day-cordillera-cordoba-pijao-e-buenavista"
  },
+ "cordilleracomp": {
+  "es": "tour-compartido-cordillera-cordoba-pijao-y-buenavista",
+  "en": "shared-tour-cordillera-cordoba-pijao-and-buenavista",
+  "fr": "tour-partage-cordillere-cordoba-pijao-et-buenavista",
+  "de": "gruppentour-cordillera-cordoba-pijao-und-buenavista",
+  "pt": "tour-compartilhado-cordilheira-cordoba-pijao-e-buenavista",
+  "it": "tour-condiviso-cordigliera-cordoba-pijao-e-buenavista"
+ },
  "cuyabro": {
   "es": "arte-cuyabro-y-cafe-de-origen",
   "en": "cuyabro-art-and-single-origin-coffee",
@@ -333,6 +349,14 @@
   "de": "besuch-einer-kaffeefinca",
   "pt": "visita-a-uma-fazenda-de-cafe",
   "it": "visita-a-una-fattoria-del-caffe"
+ },
+ "fincacomp": {
+  "es": "tour-compartido-finca-cafetera",
+  "en": "shared-tour-coffee-farm",
+  "fr": "tour-partage-ferme-cafeiere",
+  "de": "gruppentour-kaffeefarm",
+  "pt": "tour-compartilhado-fazenda-de-cafe",
+  "it": "tour-condiviso-fattoria-del-caffe"
  },
  "frutas": {
   "es": "tour-de-las-frutas-experiencia-de-la-guayaba",

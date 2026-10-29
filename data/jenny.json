@@ -508,6 +508,9 @@
    "combina": [
     "cordillera"
    ],
+   "alterna": [
+    "cacaocomp"
+   ],
    "ubicacion_publica": false
   },
   {
@@ -1671,6 +1674,9 @@
     "filandia",
     "canopy"
    ],
+   "alterna": [
+    "fincacomp"
+   ],
    "ubicacion_publica": false
   },
   {
@@ -1850,7 +1856,7 @@
     "Material fotográfico en digital"
    ],
    "notas": [
-    "Salida compartida: horario, punto de encuentro y tarifa por confirmar con el equipo comercial."
+    "Salida compartida: tu anfitrión te confirma por WhatsApp el horario y el punto de encuentro."
    ],
    "recomendacion": {
     "fuente": "propuesta (VALIDAR)",
@@ -1874,9 +1880,11 @@
    "modalidad": "compartido",
    "almuerzo": false,
    "combina": [],
+   "alterna": [
+    "finca"
+   ],
    "ubicacion_publica": false,
-   "publico": false,
-   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETHD001 mientras llega la ficha propia: faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
+   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETHD001 mientras llega la ficha propia (también va en la web pública, sin precio): faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
   },
   {
    "id_web": "cacaocomp",
@@ -1891,7 +1899,7 @@
     "Material fotográfico en digital"
    ],
    "notas": [
-    "Salida compartida: horario, punto de encuentro y tarifa por confirmar con el equipo comercial."
+    "Salida compartida: tu anfitrión te confirma por WhatsApp el horario y el punto de encuentro."
    ],
    "recomendacion": {
     "fuente": "documento ET",
@@ -1916,9 +1924,11 @@
    "modalidad": "compartido",
    "almuerzo": false,
    "combina": [],
+   "alterna": [
+    "cacao"
+   ],
    "ubicacion_publica": false,
-   "publico": false,
-   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETHD002 mientras llega la ficha propia: faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
+   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETHD002 mientras llega la ficha propia (también va en la web pública, sin precio): faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
   },
   {
    "id_web": "cordilleracomp",
@@ -1936,7 +1946,7 @@
     "Material fotográfico en digital"
    ],
    "notas": [
-    "Salida compartida: horario, punto de encuentro y tarifa por confirmar con el equipo comercial."
+    "Salida compartida: tu anfitrión te confirma por WhatsApp el horario y el punto de encuentro."
    ],
    "recomendacion": {
     "fuente": "propuesta (VALIDAR)",
@@ -1958,9 +1968,11 @@
    "modalidad": "compartido",
    "almuerzo": true,
    "combina": [],
-   "ubicacion_publica": true,
-   "publico": false,
-   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETFD004 mientras llega la ficha propia: faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
+   "alterna": [
+    "cordillera"
+   ],
+   "ubicacion_publica": false,
+   "VALIDAR": "Capítulo «Tour compartido» 2027 (códigos de Carolina, 29-oct-2026). Textos, fotos e incluye copiados de la versión privada ETFD004 mientras llega la ficha propia (también va en la web pública, sin precio): faltan horario, punto de encuentro, qué incluye de la salida compartida y tarifa neta."
   },
   {
    "id_web": "cordillera",
@@ -2010,6 +2022,9 @@
    "combina": [
     "aves",
     "catacafe"
+   ],
+   "alterna": [
+    "cordilleracomp"
    ],
    "ubicacion_publica": true
   },
