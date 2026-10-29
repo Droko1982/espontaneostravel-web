@@ -314,7 +314,7 @@ function buildModel() {
     e.shared = !!e.compartido || e.modalidad === "Compartido";      // el sello sale solo con «compartido» (data/portafolio.json)
     const sp = privFicha(e.id);
     e.p = { why: fv(sp, "Por qué venderla"), interesa: fv(sp, "Te interesa"), where: fv(sp, "Punto de operación"), menu: fv(sp, "Menú"),
-      supl: bullets(fv(sp, "Suplementos")), notes: sp.cond, impacto: sp.imp, team: fv(sp, "Nota del equipo"), diff: fv(sp, "Dificultad"), cap: fv(sp, "Capacidad máxima") };
+      supl: e.tarifa_unica ? [] : bullets(fv(sp, "Suplementos")), notes: sp.cond, impacto: sp.imp, team: fv(sp, "Nota del equipo"), diff: fv(sp, "Dificultad"), cap: fv(sp, "Capacidad máxima") };
     if (!e.zones && ZONE_CATS.has(e.cat)) { const z = zonesOf(e.p.where); if (z.length > 1) e.zones = z; }
     return e;
   });
@@ -1728,7 +1728,7 @@ async function buildPdf(ids, o) {
       doc.text(pdfTxt(logo ? "Espontáneos Travel · " + LB.title : (agency ? agency + " · " : "") + LB.title), hx, 10);
       y = 22; first = false;
     }
-    const fh = ids.length === 1 ? 560 : 680;     // ficha individual: foto un poco más baja para que todo quepa en una página
+    const fh = ids.length === 1 ? ((e.meet || []).length ? 420 : 560) : 680;     // ficha individual: foto más baja para que todo quepa en una página (más aún con puntos de encuentro)
     const ph = e.fotos[0]; if (ph) { try { doc.addImage(await imgData(ph1600(ph), 1400, fh), "JPEG", Mg, y, CW, CW * fh / 1400);
       if (e.shared) { const sd = await sealData(); if (sd) { try { doc.addImage(sd, "PNG", Mg + CW - 28, y + 4, 24, 24); } catch (err) { /* sin sello */ } } }   // sello en la esquina de la foto
       y += CW * fh / 1400 + 7; } catch (err) { /* sin foto */ } }
