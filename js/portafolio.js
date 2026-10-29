@@ -60,6 +60,8 @@ const UI = {
     b_new: "Nuevo 2027", b_own: "Experiencia ET", b_com: "Comunitario", b_cord: "Paisaje Cordillerano", from_net: "Neta desde", pax10: "10 pax", ask_rate: "Consultar tarifa", photo_soon: "Material en preparación",
     see_ficha: "Ver ficha completa", add_route: "+ A la ruta", add_route_l: "+ Agregar a la ruta", in_route: "✓ En la ruta", close: "Cerrar", added_day: "Agregado a la ruta · Día {0}",
     f_dur_l: "Duración", f_mod: "Modalidad", f_lunch: "Almuerzo", f_age: "Edad", f_group: "Grupo", f_langs: "Idiomas", f_code: "Código", ask: "Consultar", min_pax: "mín. {0} pax", max_pax: "máx. {0}", upto: "Hasta {0} pax",
+    ph_dl: "Descargar las fotos ({0}) en JPG", ph_dl1: "Descargar esta foto", ph_bank: "Banco de imágenes", ph_bank_s: "Más fotos para descargar en Google Drive",
+    ph_making: "Preparando foto {0} de {1}…", ph_err: "No se pudieron preparar las fotos. Intenta de nuevo.", ph_note: "Fotos en JPG, listas para tus materiales de venta.",
     s_exp: "La experiencia", s_photos: "Fotos", s_incl: "Incluye", s_noincl: "No incluye", s_oper: "Operación y horarios", s_tech: "Ficha técnica", s_reco: "Recomendaciones", s_noapto: "No apto para",
     s_sell: "Para vender", only_ag: "Solo agencias", why: "Por qué venderla", interesa: "Te interesa saber", where: "Dónde la operamos", menu: "Menú", impact: "Impacto local", s_notes: "Notas de tarifa y operación",
     s_supl: "Suplementos", g_sup: "Suplemento de guianza en otros idiomas", g_lang: "Idioma del guía", g_note: "valor por servicio de guía (no por persona)", s_combo: "Combínalo con", s_rate: "Tarifa neta por pasajero", pax: "Pasajeros", per_pax: "COP por pasajero", s_kit: "Kit de venta", pdf: "Descargar PDF", copy_txt: "Copiar texto", copy_link: "Copiar enlace de la ficha",
@@ -125,6 +127,8 @@ const UI = {
     b_new: "New 2027", b_own: "ET experience", b_com: "Community", b_cord: "Paisaje Cordillerano", from_net: "Net from", pax10: "10 pax", ask_rate: "Rate on request", photo_soon: "Material in preparation",
     see_ficha: "See full sheet", add_route: "+ To route", add_route_l: "+ Add to route", in_route: "✓ In route", close: "Close", added_day: "Added to route · Day {0}",
     f_dur_l: "Duration", f_mod: "Format", f_lunch: "Lunch", f_age: "Age", f_group: "Group", f_langs: "Languages", f_code: "Code", ask: "Ask us", min_pax: "min. {0} pax", max_pax: "max. {0}", upto: "Up to {0} pax",
+    ph_dl: "Download the photos ({0}) as JPG", ph_dl1: "Download this photo", ph_bank: "Image bank", ph_bank_s: "More photos to download on Google Drive",
+    ph_making: "Preparing photo {0} of {1}…", ph_err: "The photos could not be prepared. Please try again.", ph_note: "JPG photos, ready for your sales materials.",
     s_exp: "The experience", s_photos: "Photos", s_incl: "Includes", s_noincl: "Not included", s_oper: "Operation and schedules", s_tech: "Technical sheet", s_reco: "Recommendations", s_noapto: "Not suitable for",
     s_sell: "To sell it", only_ag: "Agencies only", why: "Why sell it", interesa: "Good to know", where: "Where we operate it", menu: "Menu", impact: "Local impact", s_notes: "Rate and operation notes",
     s_supl: "Supplements", g_sup: "Guiding supplement in other languages", g_lang: "Guide language", g_note: "rate per guide service (not per person)", s_combo: "Pair it with", s_rate: "Net rate per passenger", pax: "Passengers", per_pax: "COP per passenger", s_kit: "Sales kit", pdf: "Download PDF", copy_txt: "Copy text", copy_link: "Copy sheet link",
@@ -179,7 +183,9 @@ function tr(e, f, lang) {
 }
 const catName = k => (L() === "en" && I18.en && I18.en.cats && I18.en.cats[k]) || (D.cats[k] && D.cats[k].name) || k;
 // Nombre de la línea como en el índice del portafolio en PDF que ya conocen las agencias («Experiencias rurales»…)
-const LINE = { es: { rur: "Experiencias rurales", nat: "Experiencias de naturaleza", bien: "Experiencias de bienestar" }, en: { rur: "Rural experiences", nat: "Nature experiences", bien: "Wellness experiences" } };
+const LINE = { es: { rur: "Experiencias rurales", nat: "Experiencias de naturaleza", bien: "Experiencias de bienestar", comp: "Tour compartido · Shared Tour" }, en: { rur: "Rural experiences", nat: "Nature experiences", bien: "Wellness experiences", comp: "Shared Tour" } };
+// La línea «Tour compartido» lleva su sello junto al nombre
+const lineSeal = k => (k === "comp" ? `<img class="ico seal-i lseal" src="${SEAL}" alt="" width="22" height="22" decoding="async">` : "");
 const lineName = k => (LINE[L()] || LINE.es)[k] || catName(k);
 
 /* ---------- íconos (trazo, 24×24) ---------- */
@@ -207,7 +213,8 @@ const GLYPH = {
   metro: '<path d="M-5 5V-.5h3.5V-5H4v10z" fill="#fff"/>',
   aven: '<path d="M1.2-5-4 1h3.6L-1.3 5 4-1H.4z" fill="#fff"/>',
   parq: '<path d="m0-5 1.5 3.1 3.4.5-2.5 2.4.6 3.4L0 2.8-3 4.4l.6-3.4-2.5-2.4 3.4-.5z" fill="#fff"/>',
-  inc: '<path d="M0-5 5 0 0 5-5 0z" fill="#fff"/>'
+  inc: '<path d="M0-5 5 0 0 5-5 0z" fill="#fff"/>',
+  comp: '<circle cx="-2.3" cy="-2.3" r="1.8" fill="#fff"/><circle cx="2.5" cy="-1.7" r="1.5" fill="#fff"/><path d="M-5.3 4.6c.2-2.7 1.3-4.2 3-4.2s2.8 1.5 3 4.2zM.9 4.6c.2-2.2 1.1-3.5 2.6-3.5S5.4 2.4 5.6 4.6z" fill="#fff"/>'
 };
 
 // Iconografía del portafolio (la del PDF 2027): turismo accesible, comunitario, Paisaje Cordillerano, tour compartido e idiomas
@@ -873,7 +880,7 @@ function renderList() {
   for (const [k, c, items] of groups) {
     n += items.length;
     if (S.near && S.R.hotel) items.sort((a, b) => distKm(a) - distKm(b));
-    html += `<details class="group" data-g="${k}"${(k in S.open ? S.open[k] : auto) ? " open" : ""}><summary><i style="background:${c.color}"></i><span class="gname">${esc(lineName(k))}</span><span class="gn">${items.length}</span><span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span>${ic("chev", "sm")}</summary><div class="cards">` +
+    html += `<details class="group" data-g="${k}"${(k in S.open ? S.open[k] : auto) ? " open" : ""}><summary><i style="background:${c.color}"></i><span class="gname">${esc(lineName(k))}</span>${lineSeal(k)}<span class="gn">${items.length}</span><span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span>${ic("chev", "sm")}</summary><div class="cards">` +
       items.map(e => `<button type="button" class="card${S.active === e.id ? " on" : ""}" data-card="${e.id}">
         <div class="media">${mediaBlock(e, { video: false, one: true })}${badges(e)}${seal(e)}${videosOf(e.id).length ? '<span class="vid-tag">▶ Video</span>' : ""}</div>
         <div class="body"><h4>${esc(tr(e, "name"))}</h4><div class="meta"><span class="code">${e.code}</span>${e.code ? " · " : ""}${esc(e.deptos)} · ${ic("clock", "sm")}${esc(tr(e, "dur"))}</div>
@@ -963,7 +970,9 @@ function openFicha(id) {
     <div class="f-body"><div class="f-main">
       <section id="pf-f-exp"><h3>${tx("s_exp")}</h3>${(tr(e, "desc") || []).map(x => `<p>${esc(x)}</p>`).join("")}</section>
       <section id="pf-f-tech"><h3>${tx("s_tech")}</h3>${techTable(e)}</section>
-      ${gal.length > 1 ? `<section><h3>${tx("s_photos")}</h3><div class="gallery">${gal.map((g, i) => `<button type="button" data-g="${i}" aria-label="${esc(tx("s_photos"))} ${i + 1}">${g.v ? `${g.p ? `<img src="${esc(g.p)}" alt="" loading="lazy">` : ""}<span class="play">▶ Video</span>` : `<img src="${ph640(g.i)}" alt="${esc(tr(e, "name"))} ${i + 1}" loading="lazy">`}</button>`).join("")}</div></section>` : ""}
+      ${(e.fotos || []).length || gal.length > 1 ? `<section id="pf-f-photos"><h3>${tx("s_photos")}</h3>${gal.length > 1 ? `<div class="gallery">${gal.map((g, i) => `<button type="button" data-g="${i}" aria-label="${esc(tx("s_photos"))} ${i + 1}">${g.v ? `${g.p ? `<img src="${esc(g.p)}" alt="" loading="lazy">` : ""}<span class="play">▶ Video</span>` : `<img src="${ph640(g.i)}" alt="${esc(tr(e, "name"))} ${i + 1}" loading="lazy">`}</button>`).join("")}</div>` : ""}
+        <div class="btnrow phdl">${(e.fotos || []).length ? `<button type="button" class="btn ghost sm" data-r="phdl">${ic("download", "sm")}${tx("ph_dl", e.fotos.length)}</button>` : ""}${!wl && BANK ? `<a class="btn ghost sm" href="${BANK}" target="_blank" rel="noopener" title="${esc(tx("ph_bank_s"))}">${ic("grid", "sm")}${tx("ph_bank")} ↗</a>` : ""}</div>
+        <p class="note" data-r="phst" aria-live="polite">${(e.fotos || []).length ? esc(tx("ph_note")) : ""}</p></section>` : ""}
       <section id="pf-f-incl" class="lists"><div><h3>${ic("check")}${tx("s_incl")}</h3>${L1("", tr(e, "incl"), "yes")}</div><div><h3>${ic("x")}${tx("s_noincl")}</h3>${L1("", tr(e, "noIncl"), "no")}</div></section>
       <section id="pf-f-oper"><h3>${tx("s_oper")}</h3>${L1("", tr(e, "oper")) || `<p>${tx("ask")}</p>`}</section>
       ${(tr(e, "reco") || []).length || (tr(e, "noApto") || []).length ? `<section><h3>${tx("s_reco")}</h3>${L1("", tr(e, "reco"))}${(tr(e, "noApto") || []).length ? `<p class="fnote">${ic("info", "sm")}${esc(tx("s_noapto"))}: ${tr(e, "noApto").map(esc).join(" ")}</p>` : ""}</section>` : ""}
@@ -988,7 +997,8 @@ function openFicha(id) {
   const f = $r("ficha").firstChild; startSlides(f); hydrate(f);
   $r("fx").addEventListener("click", closeFicha); f.addEventListener("click", ev => { if (ev.target === f) closeFicha(); });
   const pax = $r("paxr"); if (pax) pax.addEventListener("input", () => { $r("paxn").textContent = pax.value; const v = priceAt(id, +pax.value); $r("net").textContent = v != null ? cop(v) : tx("ask"); });
-  f.querySelectorAll("[data-g]").forEach(b => b.addEventListener("click", () => lightbox(gal[+b.dataset.g])));
+  f.querySelectorAll("[data-g]").forEach(b => b.addEventListener("click", () => lightbox(gal[+b.dataset.g], e)));
+  if ($r("phdl")) $r("phdl").addEventListener("click", () => photosZip(e, $r("phst"), $r("phdl")));
   f.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => openFicha(b.dataset.go)));
   f.querySelectorAll("[data-jump]").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); const t = f.querySelector("#pf-f-" + a.dataset.jump); if (t) t.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" }); }));
   f.querySelectorAll("[data-cond]").forEach(b => b.addEventListener("click", () => { closeFicha(); setTab("cond"); jumpCond(b.dataset.cond); }));
@@ -1003,9 +1013,54 @@ function closeFicha() {
   $r("ficha").innerHTML = ""; document.body.style.overflow = "";
   if (/#ficha=/.test(location.hash)) { try { history.replaceState(null, "", location.pathname + location.search); } catch (err) { /* sin historial */ } }
 }
-function lightbox(g) {
-  $r("lb").innerHTML = `<div class="lb" role="dialog" aria-modal="true"><button type="button" class="close">${ic("x", "sm")}${tx("close")}</button>${g.v ? `<video data-vid="${esc(g.v.id)}" data-partes="${+g.v.partes}" ${g.p ? `poster="${esc(g.p)}"` : ""} data-auto="1" controls muted loop playsinline></video>` : `<img src="${ph1600(g.i)}" alt="">`}</div>`;
+function lightbox(g, e) {
+  $r("lb").innerHTML = `<div class="lb" role="dialog" aria-modal="true"><button type="button" class="close">${ic("x", "sm")}${tx("close")}</button>${g.v ? `<video data-vid="${esc(g.v.id)}" data-partes="${+g.v.partes}" ${g.p ? `poster="${esc(g.p)}"` : ""} data-auto="1" controls muted loop playsinline></video>` : `<img src="${ph1600(g.i)}" alt="">`}${!g.v && e ? `<button type="button" class="btn sm lb-dl">${ic("download", "sm")}${tx("ph_dl1")}</button>` : ""}</div>`;
   const lb = $r("lb").firstChild; hydrate(lb); lb.addEventListener("click", ev => { if (ev.target === lb || ev.target.closest(".close")) $r("lb").innerHTML = ""; });
+  const dl = lb.querySelector(".lb-dl");
+  if (dl) dl.addEventListener("click", async () => {
+    dl.disabled = true;
+    try { const n = (e.fotos || []).indexOf(g.i) + 1; savePdf(new Blob([await jpgOf(ph1600(g.i))], { type: "image/jpeg" }), photoName(e, n > 0 ? n : 1), null); }
+    catch (err) { toast(tx("ph_err")); } finally { dl.disabled = false; }
+  });
+}
+/* ---------- fotos de la ficha para las agencias: en JPG (la versión grande de la web), todas en un .zip ---------- */
+// Banco de imágenes adicional: la carpeta pública del Drive del portafolio (la misma de donde salen las fotos de la web)
+const BANK = "https://drive.google.com/drive/folders/1W7NduWZYekGmVh9JrxO07jpV8Jq8NTEU";
+const slugTxt = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 50);
+const photoName = (e, n) => `${e.code || e.id}_${slugTxt(tr(e, "name"))}_${String(n).padStart(2, "0")}.jpg`;
+async function jpgOf(url) {
+  const bm = await createImageBitmap(await (await fetch(url)).blob()); const c = document.createElement("canvas"); c.width = bm.width; c.height = bm.height;
+  const g = c.getContext("2d"); g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height); g.drawImage(bm, 0, 0);
+  const b = await new Promise((ok, bad) => c.toBlob(x => (x ? ok(x) : bad(new Error("jpg"))), "image/jpeg", .9));
+  return new Uint8Array(await b.arrayBuffer());
+}
+// ZIP sin compresión (las fotos ya vienen comprimidas): encabezado local + directorio central + fin, con CRC-32
+const CRC_T = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+const crc32 = u => { let c = 0xFFFFFFFF; for (let i = 0; i < u.length; i++) c = CRC_T[(c ^ u[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; };
+function zipBlob(files) {
+  const enc = new TextEncoder(), parts = [], cd = [], d = new Date(); let off = 0;
+  const dt = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate(), tm = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1);
+  for (const f of files) {
+    const nm = enc.encode(f.name), crc = crc32(f.data), n = f.data.length;
+    const h = new DataView(new ArrayBuffer(30));
+    [[0, 0x04034b50, 4], [4, 20, 2], [6, 0x0800, 2], [10, tm, 2], [12, dt, 2], [14, crc, 4], [18, n, 4], [22, n, 4], [26, nm.length, 2]].forEach(([o, v, z]) => (z === 4 ? h.setUint32(o, v, true) : h.setUint16(o, v, true)));
+    const c = new DataView(new ArrayBuffer(46));
+    [[0, 0x02014b50, 4], [4, 20, 2], [6, 20, 2], [8, 0x0800, 2], [12, tm, 2], [14, dt, 2], [16, crc, 4], [20, n, 4], [24, n, 4], [28, nm.length, 2], [42, off, 4]].forEach(([o, v, z]) => (z === 4 ? c.setUint32(o, v, true) : c.setUint16(o, v, true)));
+    parts.push(h, nm, f.data); cd.push(c, nm); off += 30 + nm.length + n;
+  }
+  const size = cd.reduce((s, x) => s + x.byteLength, 0), end = new DataView(new ArrayBuffer(22));
+  [[0, 0x06054b50, 4], [8, files.length, 2], [10, files.length, 2], [12, size, 4], [16, off, 4]].forEach(([o, v, z]) => (z === 4 ? end.setUint32(o, v, true) : end.setUint16(o, v, true)));
+  return new Blob([...parts, ...cd, end], { type: "application/zip" });
+}
+async function photosZip(e, st, btn) {
+  const fotos = (e.fotos || []).slice(0, 20); if (!fotos.length) return;
+  if (btn) btn.disabled = true;
+  try {
+    const files = [];
+    for (let i = 0; i < fotos.length; i++) { if (st) st.textContent = tx("ph_making", i + 1, fotos.length); files.push({ name: photoName(e, i + 1), data: await jpgOf(ph1600(fotos[i])) }); }
+    savePdf(zipBlob(files), `Fotos_${e.code || e.id}_${slugTxt(tr(e, "name"))}.zip`, st);
+  } catch (err) { if (st) st.textContent = tx("ph_err"); if (window.console) console.error(err); }
+  finally { if (btn) btn.disabled = false; }
 }
 // Menú del Excel («Opción 1. * Trucha … * Cerdo …»): una línea por plato, agrupado por opción
 function menuHtml(m) {
@@ -1406,7 +1461,7 @@ function renderMapPane() {
         <li><span class="mini com">${tx("b_com")}</span><span>${esc(tx("ic_com"))}</span></li><li><span class="mini cord">${tx("b_cord")}</span><span>${esc(tx("ic_cord"))}</span></li>
         <li><span class="b2b">${tx("only_ag")}</span><span>${esc(tx("ic_b2b"))}</span></li><li>${ic("tag", "sm")}<span>${esc(tx("ic_code"))}</span></li></ul></div>
     <div class="section"><h3>${ic("grid")}${tx("idx_t")}</h3><p class="note">${tx("idx_l")}</p><div class="pidx">${Object.entries(D.cats).filter(([k]) => ccount[k]).map(([k, c]) => `<div class="pidx-g">
-      <button type="button" class="pidx-h" data-idx="${k}"><i style="background:${c.color}"></i>${esc(lineName(k))} <span class="sub">${ccount[k]}</span></button>
+      <button type="button" class="pidx-h" data-idx="${k}"><i style="background:${c.color}"></i>${esc(lineName(k))}${lineSeal(k)} <span class="sub">${ccount[k]}</span></button>
       <ul>${EXP.filter(e => e.cat === k).map(e => `<li><button type="button" data-idx-e="${e.id}">${e.code ? `<span class="code">${esc(e.code)}</span><span class="code dash" aria-hidden="true">-</span>` : ""}<span class="nm">${esc(tr(e, "name"))}</span>${icoRow(e, "sm")}${e.nuevo ? `<span class="new">${tx("b_new")}</span>` : ""}</button></li>`).join("")}</ul></div>`).join("")}</div></div>
     <div class="section"><h3>${ic("star")}${tx("shortcuts")}</h3><div class="zbtns"><button type="button" class="btn ghost" data-go-tab="exp">${ic("grid", "sm")}${tx("sc_exp")}</button><button type="button" class="btn ghost" data-go-tab="ruta">${ic("route", "sm")}${tx("sc_ruta")}</button><button type="button" class="btn ghost" data-go-tab="kit">${ic("file", "sm")}${tx("sc_kit")}</button><button type="button" class="btn ghost" data-go-tab="cond">${ic("info", "sm")}${tx("sc_cond")}</button></div></div>`;
   pane.querySelectorAll("[data-go-tab]").forEach(b => b.addEventListener("click", () => setTab(b.dataset.goTab)));
@@ -1498,11 +1553,15 @@ async function imgData(url, w = 1400, h = 680) {
   const b = await (await fetch(url)).blob(); const bm = await createImageBitmap(b); const c = document.createElement("canvas"); c.width = w; c.height = h;
   const r = Math.max(w / bm.width, h / bm.height), sw = w / r, sh = h / r; c.getContext("2d").drawImage(bm, (bm.width - sw) / 2, (bm.height - sh) / 2, sw, sh, 0, 0, w, h); return c.toDataURL("image/jpeg", .82);
 }
-// Sello del tour compartido para el PDF (PNG con transparencia; se pide una sola vez)
+// Sello del tour compartido para el PDF (PNG sin fondo, con el mismo halo suave de la web para leerse sobre la foto; se pide una sola vez)
 let sealPng = null;
 async function sealData() {
   if (sealPng !== null) return sealPng;
-  try { const bm = await createImageBitmap(await (await fetch(SEAL)).blob()); const c = document.createElement("canvas"); c.width = bm.width; c.height = bm.height; c.getContext("2d").drawImage(bm, 0, 0); sealPng = c.toDataURL("image/png"); }
+  try {
+    const bm = await createImageBitmap(await (await fetch(SEAL)).blob()); const c = document.createElement("canvas"); c.width = bm.width; c.height = bm.height;
+    const g = c.getContext("2d"); g.shadowColor = "rgba(255,255,255,.95)"; g.shadowBlur = 6; g.drawImage(bm, 0, 0); g.drawImage(bm, 0, 0);
+    g.shadowColor = "transparent"; g.drawImage(bm, 0, 0); sealPng = c.toDataURL("image/png");
+  }
   catch (e) { sealPng = ""; }
   return sealPng;
 }
