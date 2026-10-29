@@ -1852,7 +1852,7 @@
    "duracion_horas": 3,
    "incluye": [
     "Transporte",
-    "Recorrido guiado en español en la finca cafetera",
+    "Recorrido guiado en español por el anfitrión de la finca cafetera",
     "Degustación de café",
     "Tarjeta de asistencia"
    ],
@@ -1898,7 +1898,7 @@
    "no_incluye": [
     "Alimentación",
     "Gastos no relacionados",
-    "Guía de turismo"
+    "Guía de turismo acompañante"
    ]
   },
   {
@@ -1909,8 +1909,7 @@
    "duracion_horas": 4,
    "incluye": [
     "Transporte",
-    "Recorrido guiado en español",
-    "Recorrido guiado en finca cacaotera",
+    "Recorrido guiado en español por el anfitrión de la finca cacaotera",
     "Degustación de chocolate y amasijo",
     "Tarjeta de asistencia"
    ],
@@ -1956,7 +1955,7 @@
    "no_incluye": [
     "Alimentación",
     "Gastos no relacionados",
-    "Guía de turismo"
+    "Guía de turismo acompañante"
    ]
   },
   {

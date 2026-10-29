@@ -1534,7 +1534,7 @@
     "nombre": "Coffee Farm Visit – Shared Tour",
     "incluye": [
      "Transport",
-     "Guided tour in Spanish at the coffee farm",
+     "Guided tour in Spanish by the coffee farm host",
      "Coffee tasting",
      "Assistance card"
     ],
@@ -1562,15 +1562,14 @@
     "no_incluye": [
      "Meals",
      "Expenses not listed",
-     "Tour guide"
+     "Accompanying tour guide"
     ]
    },
    "cacaocomp": {
     "nombre": "Cacao Farm Visit – Shared Tour",
     "incluye": [
      "Transport",
-     "Guided tour in Spanish",
-     "Guided tour of the cacao farm",
+     "Guided tour in Spanish by the cacao farm host",
      "Chocolate and traditional baked goods tasting",
      "Assistance card"
     ],
@@ -1598,7 +1597,7 @@
     "no_incluye": [
      "Meals",
      "Expenses not listed",
-     "Tour guide"
+     "Accompanying tour guide"
     ]
    },
    "cordilleracomp": {
@@ -3346,7 +3345,7 @@
     "nombre": "Visite d'une ferme caféière en tour partagé",
     "incluye": [
      "Transport",
-     "Visite guidée en espagnol de la ferme caféière",
+     "Visite guidée en espagnol par l'hôte de la ferme caféière",
      "Dégustation de café",
      "Carte d'assistance"
     ],
@@ -3374,15 +3373,14 @@
     "no_incluye": [
      "Repas",
      "Dépenses non mentionnées",
-     "Guide touristique"
+     "Guide touristique accompagnateur"
     ]
    },
    "cacaocomp": {
     "nombre": "Visite d'une ferme de cacao en tour partagé",
     "incluye": [
      "Transport",
-     "Visite guidée en espagnol",
-     "Visite guidée de la ferme de cacao",
+     "Visite guidée en espagnol par l'hôte de la ferme de cacao",
      "Dégustation de chocolat et de pâtisseries traditionnelles",
      "Carte d'assistance"
     ],
@@ -3410,7 +3408,7 @@
     "no_incluye": [
      "Repas",
      "Dépenses non mentionnées",
-     "Guide touristique"
+     "Guide touristique accompagnateur"
     ]
    },
    "cordilleracomp": {
@@ -5158,7 +5156,7 @@
     "nombre": "Kaffeefarm-Besuch als Gruppentour",
     "incluye": [
      "Transport",
-     "Geführter Rundgang auf Spanisch auf der Kaffeefarm",
+     "Führung auf Spanisch durch den Gastgeber der Kaffeefarm",
      "Kaffeeverkostung",
      "Reiseassistenzkarte"
     ],
@@ -5186,15 +5184,14 @@
     "no_incluye": [
      "Verpflegung",
      "Nicht aufgeführte Ausgaben",
-     "Reiseleiter"
+     "Begleitender Reiseleiter"
     ]
    },
    "cacaocomp": {
     "nombre": "Kakaofarm-Besuch als Gruppentour",
     "incluye": [
      "Transport",
-     "Geführter Rundgang auf Spanisch",
-     "Geführter Rundgang auf der Kakaofarm",
+     "Führung auf Spanisch durch den Gastgeber der Kakaofarm",
      "Verkostung von Schokolade und traditionellem Gebäck",
      "Reiseassistenzkarte"
     ],
@@ -5222,7 +5219,7 @@
     "no_incluye": [
      "Verpflegung",
      "Nicht aufgeführte Ausgaben",
-     "Reiseleiter"
+     "Begleitender Reiseleiter"
     ]
    },
    "cordilleracomp": {
@@ -6970,7 +6967,7 @@
     "nombre": "Visita a uma fazenda de café em tour compartilhado",
     "incluye": [
      "Transporte",
-     "Passeio guiado em espanhol na fazenda de café",
+     "Passeio guiado em espanhol pelo anfitrião da fazenda de café",
      "Degustação de café",
      "Cartão de assistência"
     ],
@@ -6998,15 +6995,14 @@
     "no_incluye": [
      "Alimentação",
      "Gastos não relacionados",
-     "Guia de turismo"
+     "Guia de turismo acompanhante"
     ]
    },
    "cacaocomp": {
     "nombre": "Visita a uma fazenda de cacau em tour compartilhado",
     "incluye": [
      "Transporte",
-     "Passeio guiado em espanhol",
-     "Passeio guiado na fazenda de cacau",
+     "Passeio guiado em espanhol pelo anfitrião da fazenda de cacau",
      "Degustação de chocolate e quitandas tradicionais",
      "Cartão de assistência"
     ],
@@ -7034,7 +7030,7 @@
     "no_incluye": [
      "Alimentação",
      "Gastos não relacionados",
-     "Guia de turismo"
+     "Guia de turismo acompanhante"
     ]
    },
    "cordilleracomp": {
@@ -8782,7 +8778,7 @@
     "nombre": "Visita a una fattoria del caffè in tour condiviso",
     "incluye": [
      "Trasporto",
-     "Visita guidata in spagnolo della fattoria del caffè",
+     "Visita guidata in spagnolo con l'host della fattoria del caffè",
      "Degustazione di caffè",
      "Tessera di assistenza"
     ],
@@ -8810,15 +8806,14 @@
     "no_incluye": [
      "Pasti",
      "Spese non indicate",
-     "Guida turistica"
+     "Guida turistica accompagnatrice"
     ]
    },
    "cacaocomp": {
     "nombre": "Visita a una fattoria del cacao in tour condiviso",
     "incluye": [
      "Trasporto",
-     "Visita guidata in spagnolo",
-     "Visita guidata della fattoria del cacao",
+     "Visita guidata in spagnolo con l'host della fattoria del cacao",
      "Degustazione di cioccolato e prodotti da forno tradizionali",
      "Tessera di assistenza"
     ],
@@ -8846,7 +8841,7 @@
     "no_incluye": [
      "Pasti",
      "Spese non indicate",
-     "Guida turistica"
+     "Guida turistica accompagnatrice"
     ]
    },
    "cordilleracomp": {
