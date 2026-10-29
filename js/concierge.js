@@ -160,23 +160,31 @@
       nextWrap.innerHTML = `
         <span class="c-next__label">⏭️ ${esc(U().next_stop)}</span>
         <div class="c-next__row">
-          <div><b>${esc(fill(titleOf(it)))}</b><span>${esc(fmtDay(it))} · ${esc(it.time || "")}</span></div>
+          <div><b>${stepTitle(it)}</b><span>${esc(fmtDay(it))} · ${esc(it.time || "")}</span></div>
           ${it.maps ? `<a class="c-mini" href="${esc(it.maps)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></a>` : ""}
         </div>${nextTips(it)}`;
     } else { nextWrap.style.display = "none"; }
 
     // itinerary
     $("#c-itin-title").textContent = U().itinerary;
+    // Con pocas paradas, «Qué incluye» abierto: el cliente y el equipo ven todo sin tocar nada
+    const extras = tripExtras(), openMore = booking.itinerary.length + extras.length <= 3;
     $("#c-itin").innerHTML = booking.itinerary.map((it, i) => `
       <li class="c-step${i === ni ? " now" : ""}">
         <span class="c-step__time">${esc(it.time || "")}<small>${esc(fmtDay(it))}</small></span>
         <span class="c-step__dot"></span>
         <span class="c-step__body">
-          <b>${esc(fill(titleOf(it)))}</b>${stepFacts(it)}
+          <b>${stepTitle(it)}</b>${stepFacts(it)}${stepMore(it.tourId, openMore)}
           ${it.maps ? `<a href="${esc(it.maps)}" target="_blank" rel="noopener" class="c-step__map">${esc(U().maps_btn)} →</a>` : ""}
         </span>
+      </li>`).join("") + extras.map(id => `
+      <li class="c-step c-step--extra">
+        <span class="c-step__time">—<small>${esc(RQ().extra)}</small></span>
+        <span class="c-step__dot"></span>
+        <span class="c-step__body"><b>${stepTitle({ tourId: id })}</b>${stepFacts({ tourId: id })}${stepMore(id, openMore)}</span>
       </li>`).join("");
     const calBtn = $("#c-cal"); if (calBtn) { const cl = $("#c-cal-label"); if (cl) cl.textContent = CAL_LABEL[lang] || CAL_LABEL.es; calBtn.onclick = downloadICS; }
+    renderRequest();
     renderPack();
     renderRoute();
 
@@ -583,6 +591,68 @@
   }
 
   /* ---------- Datos oficiales por parada (duración, recomendaciones) ---------- */
+  const okId = id => /^[a-z0-9]{2,40}$/.test(String(id || ""));
+  // Página propia de la experiencia en el idioma de la página (dirección legible: js/pages-map.js); sin ella, la ficha en el inicio
+  function tourHref(id) {
+    const P = window.ESPO_PAGES, s = P && P.slugs[id], l = s && s[lang] ? lang : "es";
+    return s && s[l] ? "/" + P.dir[l] + "/" + s[l] + ".html" : (lang === "es" ? "/" : "/" + lang + "/") + "#tour-" + id;
+  }
+  // Nombre de la parada; si es una experiencia del catálogo, enlaza a su página (pestaña nueva: el itinerario queda abierto)
+  function stepTitle(it) {
+    const D = ED(), i = D && okId(it.tourId) && D.tour(it.tourId, lang);
+    const t = esc(fill(titleOf(it)) || (i && i.nombre) || "");
+    return i ? `<a class="c-tour-link" href="${esc(tourHref(it.tourId))}" target="_blank" rel="noopener">${t}<span aria-hidden="true"> ↗</span></a>` : t;
+  }
+  // Qué incluye, qué no y el punto de encuentro (datos oficiales de la experiencia)
+  function stepMore(id, open) {
+    const D = ED(), i = D && okId(id) && D.tour(id, lang); if (!i) return "";
+    const inc = i.incluye || [], no = i.no_incluye || [], R = RQ();
+    if (!inc.length && !no.length && !i.horario_nota) return "";
+    return `<details class="c-step__more"${open ? " open" : ""}><summary>${esc(R.incl)}</summary>
+      ${inc.length ? `<ul>${inc.map(x => `<li>✓ ${esc(x)}</li>`).join("")}</ul>` : ""}
+      ${no.length ? `<p><strong>${esc(R.noincl)}:</strong> ${no.map(esc).join(" · ")}</p>` : ""}${i.horario_nota ? `<p>📍 ${esc(i.horario_nota)}</p>` : ""}</details>`;
+  }
+  // Experiencias que el cliente sumó sin fecha (combo): van al final del itinerario «por programar»
+  function tripExtras() {
+    const D = ED(), seen = {};
+    (booking.itinerary || []).forEach(it => { if (it.tourId) seen[it.tourId] = 1; });      // las que ya tienen fecha no se repiten
+    return (Array.isArray(booking.extras) ? booking.extras : []).filter(id => okId(id) && !seen[id] && (seen[id] = 1) && D && D.tour(id, lang)).slice(0, 6);
+  }
+  /* ---------- Tu solicitud: todo lo que el cliente eligió en el sitio ---------- */
+  const RQ_T = {
+    es: { t: "📋 Tu solicitud", plan: "🗺️ Itinerario", start: "📅 Inicio", guide: "🧭 Idioma del guía", contact: "💬 Idioma de contacto", access: "♿ Turismo accesible", diet: "🍽️ Alimentación", notes: "📝 Notas", kit: "🎒 Ayuda con lo que te falte", deal: "🎁 Beneficio por convenio", hotel: "🏨 Convenio con tu hotel", code: "🔑 Código", photos: "📸 Uso de fotos donde apareces", yes: "Sí", ok: "Autorizado", no: "No autorizado", tbc: "por confirmar", until: "válido hasta", incl: "Qué incluye", noincl: "No incluye", extra: "Por programar" },
+    en: { t: "📋 Your request", plan: "🗺️ Itinerary", start: "📅 Start", guide: "🧭 Guide language", contact: "💬 Contact language", access: "♿ Accessible tourism", diet: "🍽️ Diet", notes: "📝 Notes", kit: "🎒 Help with anything you're missing", deal: "🎁 Partner benefit", hotel: "🏨 Agreement with your hotel", code: "🔑 Code", photos: "📸 Use of photos showing you", yes: "Yes", ok: "Authorised", no: "Not authorised", tbc: "to be confirmed", until: "valid until", incl: "What's included", noincl: "Not included", extra: "To be scheduled" },
+    fr: { t: "📋 Votre demande", plan: "🗺️ Itinéraire", start: "📅 Début", guide: "🧭 Langue du guide", contact: "💬 Langue de contact", access: "♿ Tourisme accessible", diet: "🍽️ Alimentation", notes: "📝 Notes", kit: "🎒 Aide pour ce qui vous manque", deal: "🎁 Avantage partenaire", hotel: "🏨 Accord avec votre hôtel", code: "🔑 Code", photos: "📸 Utilisation des photos où vous apparaissez", yes: "Oui", ok: "Autorisée", no: "Non autorisée", tbc: "à confirmer", until: "valable jusqu'au", incl: "Ce qui est inclus", noincl: "Non inclus", extra: "À programmer" },
+    de: { t: "📋 Ihre Anfrage", plan: "🗺️ Reiseplan", start: "📅 Beginn", guide: "🧭 Sprache des Guides", contact: "💬 Kontaktsprache", access: "♿ Barrierefreier Tourismus", diet: "🍽️ Ernährung", notes: "📝 Notizen", kit: "🎒 Hilfe bei fehlender Ausrüstung", deal: "🎁 Partnervorteil", hotel: "🏨 Vereinbarung mit Ihrem Hotel", code: "🔑 Code", photos: "📸 Nutzung von Fotos, auf denen Sie zu sehen sind", yes: "Ja", ok: "Erlaubt", no: "Nicht erlaubt", tbc: "noch zu bestätigen", until: "gültig bis", incl: "Inklusive", noincl: "Nicht inklusive", extra: "Noch zu planen" },
+    pt: { t: "📋 Sua solicitação", plan: "🗺️ Roteiro", start: "📅 Início", guide: "🧭 Idioma do guia", contact: "💬 Idioma de contato", access: "♿ Turismo acessível", diet: "🍽️ Alimentação", notes: "📝 Observações", kit: "🎒 Ajuda com o que faltar", deal: "🎁 Benefício de convênio", hotel: "🏨 Convênio com seu hotel", code: "🔑 Código", photos: "📸 Uso de fotos em que você aparece", yes: "Sim", ok: "Autorizado", no: "Não autorizado", tbc: "a confirmar", until: "válido até", incl: "O que inclui", noincl: "Não inclui", extra: "A programar" },
+    it: { t: "📋 La tua richiesta", plan: "🗺️ Itinerario", start: "📅 Inizio", guide: "🧭 Lingua della guida", contact: "💬 Lingua di contatto", access: "♿ Turismo accessibile", diet: "🍽️ Alimentazione", notes: "📝 Note", kit: "🎒 Aiuto con ciò che ti manca", deal: "🎁 Vantaggio convenzione", hotel: "🏨 Convenzione con il tuo hotel", code: "🔑 Codice", photos: "📸 Uso delle foto in cui compari", yes: "Sì", ok: "Autorizzato", no: "Non autorizzato", tbc: "da confermare", until: "valido fino al", incl: "Cosa include", noincl: "Non include", extra: "Da programmare" }
+  };
+  const RQ = () => RQ_T[lang] || RQ_T.es;
+  const LNAME = { es: "Español", en: "English", fr: "Français", de: "Deutsch", pt: "Português", it: "Italiano" };
+  const clip = (v, n) => String(v == null ? "" : v).trim().slice(0, n || 200);
+  function fmtUntil(ms) {
+    try { return new Date(+ms).toLocaleString(lang === "en" ? "en-GB" : lang, { timeZone: "America/Bogota", weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }); } catch (e) { return ""; }
+  }
+  function renderRequest() {
+    const box = $("#c-req"); if (!box) return;
+    const R = RQ(), p = booking.prefs || {}, d = booking.deal || {}, g = booking.guide || {}, rows = [];
+    const add = (k, v) => { if (v) rows.push(`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`); };
+    const plan = booking.plan && HAS_PLANS ? EspoPlans.planById(booking.plan) : null;
+    if (plan) add(R.plan, EspoPlans.name(plan, lang));
+    const first = (booking.itinerary || [])[0];
+    if (first && first.date) add(R.start, longDay(first));
+    add(R.guide, (g.langs || []).map(c => LNAME[c] || clip(c, 20)).join(", "));
+    if (booking._fromLink && LNAME[booking.lang]) add(R.contact, LNAME[booking.lang]);
+    if (p.accessible) add(R.access, R.yes);
+    add(R.diet, clip(p.diet)); add(R.notes, clip(p.notes));
+    if (p.kit) add(R.kit, R.yes);
+    if (d.name) add(R.deal, clip(d.name, 80) + (d.until && fmtUntil(d.until) ? " · " + R.until + " " + fmtUntil(d.until) : "") + " (" + R.tbc + ")");
+    if (d.hotel) add(R.hotel, R.tbc);
+    if (d.code) add(R.code, clip(d.code, 30) + " (" + R.tbc + ")");
+    if (typeof p.photos === "boolean") add(R.photos, p.photos ? R.ok : R.no);
+    box.style.display = rows.length ? "" : "none";
+    box.innerHTML = `<h2 class="c-card__title">${esc(R.t)}</h2><dl class="c-req__list">${rows.join("")}</dl>`;
+  }
   function stepFacts(it) {
     const D = ED(); const i = D && it.tourId && D.tour(it.tourId, lang);
     return i ? `<small class="c-step__facts">⏱ ${esc(D.fmtDur(i.dur, lang))} · ${esc(i.codigo)}</small>` : "";

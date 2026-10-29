@@ -22,6 +22,9 @@
     moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>'
   };
 
+  // Sello oficial del tour compartido 2027 («Shared Tour · Tour Compartido · Quindío»); decorativo: el nombre ya lo dice
+  const SEAL = "/assets/img/brand/tour-compartido.webp";
+
   /* Tarjeta de experiencia.
      base: tour de js/data.js (id, cat, name, sum) · info: EspoData.tour() o null
      ctx: { t(key), lang, catLabel(cat), img: { src, srcset, sizes } , summary, fmtDur, fmtHorario, delay } */
@@ -38,7 +41,8 @@
     return `<article class="tour-card reveal" data-delay="${ctx.delay || 1}" data-id="${esc(base.id)}" data-cat="${esc(base.cat)}" data-dur="${esc(bucket)}" data-search="${esc(search)}" tabindex="0" role="button" aria-label="${esc(t("card_cta") + ": " + name)}">
   <div class="tour-card__media">
     <img src="${esc(im.src || "")}"${im.srcset ? ` srcset="${esc(im.srcset)}" sizes="(max-width: 700px) 92vw, 380px"` : ""} alt="${esc(name)}" loading="lazy" decoding="async" width="640" height="427"${im.attrs || ""}>
-    <span class="tour-card__cat">${esc(ctx.catLabel(base.cat))}</span>
+    <span class="tour-card__cat">${esc(ctx.catLabel(base.cat))}</span>${info && info.modalidad === "compartido" ? `
+    <img class="tour-card__seal" src="${SEAL}" alt="" width="132" height="132" loading="lazy" decoding="async">` : ""}
   </div>
   <div class="tour-card__body">
     <h3>${esc(name)}</h3>
@@ -165,5 +169,5 @@ ${r.destacadas.length ? `<div class="reviews__marquee">
 </div>`;
   }
 
-  return { esc, card, catTiles, faq, sost, resenas, score, planes, ICON };
+  return { esc, card, catTiles, faq, sost, resenas, score, planes, ICON, SEAL };
 });

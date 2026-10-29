@@ -53,7 +53,7 @@
       f_guide: "Idioma del guía", no_match: "No tengo esa respuesta exacta 🙈 Te paso con un asesor por WhatsApp para que te ayude.",
       wa_q: "¡Hola Espontáneos Travel! Tengo una pregunta:", wa_default: "¡Hola Espontáneos Travel! Me gustaría más información sobre sus experiencias.",
       open_wa: "Abrir WhatsApp", go_sust: "Ver sección Sostenibilidad", go_tours: "Ver experiencias", pay_btn: "💳 Pagar con tarjeta",
-      wa_tour: "🌿 Experiencia:", wa_guide: "🧭 Idioma del guía:", confirm_book: "¿Quieres reservar *{tour}*?", wa_lead_tour: "¡Hola Espontáneos Travel! Quiero reservar:", consent: "Autorizo el tratamiento de mis datos según la {link} (Ley 1581 de 2012).", consent_link: "política de privacidad", consent_req: "Para continuar, acepta la política de datos 🙂", greet_fallback: "¡Hola! Soy Jenny, de Espontáneos Travel 🌿 ¿En qué te ayudo?"
+      wa_tour: "🌿 Experiencia:", wa_page: "🔎 Ver la experiencia:", wa_guide: "🧭 Idioma del guía:", confirm_book: "¿Quieres reservar *{tour}*?", wa_lead_tour: "¡Hola Espontáneos Travel! Quiero reservar:", consent: "Autorizo el tratamiento de mis datos según la {link} (Ley 1581 de 2012).", consent_link: "política de privacidad", consent_req: "Para continuar, acepta la política de datos 🙂", greet_fallback: "¡Hola! Soy Jenny, de Espontáneos Travel 🌿 ¿En qué te ayudo?"
     },
     en: {
       launch: "Need help?", close: "Close", title: "Jenny", subtitle: "Your host · online",
@@ -72,7 +72,7 @@
       f_guide: "Guide language", no_match: "I don't have that exact answer 🙈 Let me connect you with an advisor on WhatsApp.",
       wa_q: "Hi Espontáneos Travel! I have a question:", wa_default: "Hi Espontáneos Travel! I'd like more information about your experiences.",
       open_wa: "Open WhatsApp", go_sust: "See the Sustainability section", go_tours: "See experiences", pay_btn: "💳 Pay by card",
-      wa_tour: "🌿 Experience:", wa_guide: "🧭 Guide language:", confirm_book: "Would you like to book *{tour}*?", wa_lead_tour: "Hi Espontáneos Travel! I'd like to book:", consent: "I authorise the processing of my data under the {link} (Colombian Law 1581 of 2012).", consent_link: "privacy policy", consent_req: "To continue, please accept the data policy 🙂", greet_fallback: "Hi! I'm Jenny from Espontáneos Travel 🌿 How can I help?"
+      wa_tour: "🌿 Experience:", wa_page: "🔎 See the experience:", wa_guide: "🧭 Guide language:", confirm_book: "Would you like to book *{tour}*?", wa_lead_tour: "Hi Espontáneos Travel! I'd like to book:", consent: "I authorise the processing of my data under the {link} (Colombian Law 1581 of 2012).", consent_link: "privacy policy", consent_req: "To continue, please accept the data policy 🙂", greet_fallback: "Hi! I'm Jenny from Espontáneos Travel 🌿 How can I help?"
     },
     fr: {
       launch: "Besoin d'aide ?", close: "Fermer", title: "Jenny", subtitle: "Votre hôtesse · en ligne",
@@ -91,7 +91,7 @@
       f_guide: "Langue du guide", no_match: "Je n'ai pas de réponse précise à cette question 🙈 Je vous mets en contact avec un conseiller sur WhatsApp pour vous aider.",
       wa_q: "Bonjour Espontáneos Travel ! J'ai une question :", wa_default: "Bonjour Espontáneos Travel ! Je souhaite plus d'informations sur vos expériences.",
       open_wa: "Ouvrir WhatsApp", go_sust: "Voir la section Durabilité", go_tours: "Voir les expériences", pay_btn: "💳 Payer par carte",
-      wa_tour: "🌿 Expérience :", wa_guide: "🧭 Langue du guide :", confirm_book: "Voulez-vous réserver *{tour}* ?", wa_lead_tour: "Bonjour Espontáneos Travel ! Je souhaite réserver :", consent: "J'autorise le traitement de mes données selon la {link} (loi colombienne 1581 de 2012).", consent_link: "politique de confidentialité", consent_req: "Pour continuer, veuillez accepter la politique de confidentialité 🙂", greet_fallback: "Bonjour ! Je suis Jenny, d'Espontáneos Travel 🌿 Comment puis-je vous aider ?"
+      wa_tour: "🌿 Expérience :", wa_page: "🔎 Voir l'expérience :", wa_guide: "🧭 Langue du guide :", confirm_book: "Voulez-vous réserver *{tour}* ?", wa_lead_tour: "Bonjour Espontáneos Travel ! Je souhaite réserver :", consent: "J'autorise le traitement de mes données selon la {link} (loi colombienne 1581 de 2012).", consent_link: "politique de confidentialité", consent_req: "Pour continuer, veuillez accepter la politique de confidentialité 🙂", greet_fallback: "Bonjour ! Je suis Jenny, d'Espontáneos Travel 🌿 Comment puis-je vous aider ?"
     },
     de: {
       launch: "Kann ich helfen?", close: "Schließen", title: "Jenny", subtitle: "Ihre Gastgeberin · online",
@@ -110,7 +110,7 @@
       f_guide: "Sprache des Guides", no_match: "Darauf habe ich keine genaue Antwort 🙈 Ich verbinde Sie per WhatsApp mit einem Berater.",
       wa_q: "Hallo Espontáneos Travel! Ich habe eine Frage:", wa_default: "Hallo Espontáneos Travel! Ich hätte gern mehr Informationen zu Ihren Erlebnissen.",
       open_wa: "WhatsApp öffnen", go_sust: "Bereich Nachhaltigkeit ansehen", go_tours: "Erlebnisse ansehen", pay_btn: "💳 Mit Karte zahlen",
-      wa_tour: "🌿 Erlebnis:", wa_guide: "🧭 Sprache des Guides:", confirm_book: "Möchten Sie *{tour}* buchen?", wa_lead_tour: "Hallo Espontáneos Travel! Ich möchte buchen:", consent: "Ich stimme der Verarbeitung meiner Daten gemäß der {link} zu (kolumbianisches Gesetz 1581 von 2012).", consent_link: "Datenschutzerklärung", consent_req: "Bitte akzeptieren Sie die Datenschutzerklärung, um fortzufahren 🙂", greet_fallback: "Hallo! Ich bin Jenny von Espontáneos Travel 🌿 Wie kann ich Ihnen helfen?"
+      wa_tour: "🌿 Erlebnis:", wa_page: "🔎 Erlebnis ansehen:", wa_guide: "🧭 Sprache des Guides:", confirm_book: "Möchten Sie *{tour}* buchen?", wa_lead_tour: "Hallo Espontáneos Travel! Ich möchte buchen:", consent: "Ich stimme der Verarbeitung meiner Daten gemäß der {link} zu (kolumbianisches Gesetz 1581 von 2012).", consent_link: "Datenschutzerklärung", consent_req: "Bitte akzeptieren Sie die Datenschutzerklärung, um fortzufahren 🙂", greet_fallback: "Hallo! Ich bin Jenny von Espontáneos Travel 🌿 Wie kann ich Ihnen helfen?"
     },
     pt: {
       launch: "Posso ajudar?", close: "Fechar", title: "Jenny", subtitle: "Sua anfitriã · online",
@@ -129,7 +129,7 @@
       f_guide: "Idioma do guia", no_match: "Não tenho essa resposta exata 🙈 Vou passar você para um consultor no WhatsApp.",
       wa_q: "Olá Espontáneos Travel! Tenho uma pergunta:", wa_default: "Olá Espontáneos Travel! Gostaria de mais informações sobre as experiências.",
       open_wa: "Abrir WhatsApp", go_sust: "Ver seção Sustentabilidade", go_tours: "Ver experiências", pay_btn: "💳 Pagar com cartão",
-      wa_tour: "🌿 Experiência:", wa_guide: "🧭 Idioma do guia:", confirm_book: "Quer reservar *{tour}*?", wa_lead_tour: "Olá Espontáneos Travel! Quero reservar:", consent: "Autorizo o tratamento dos meus dados conforme a {link} (Lei colombiana 1581 de 2012).", consent_link: "política de privacidade", consent_req: "Para continuar, aceite a política de dados 🙂", greet_fallback: "Olá! Sou a Jenny, da Espontáneos Travel 🌿 Como posso ajudar?"
+      wa_tour: "🌿 Experiência:", wa_page: "🔎 Ver a experiência:", wa_guide: "🧭 Idioma do guia:", confirm_book: "Quer reservar *{tour}*?", wa_lead_tour: "Olá Espontáneos Travel! Quero reservar:", consent: "Autorizo o tratamento dos meus dados conforme a {link} (Lei colombiana 1581 de 2012).", consent_link: "política de privacidade", consent_req: "Para continuar, aceite a política de dados 🙂", greet_fallback: "Olá! Sou a Jenny, da Espontáneos Travel 🌿 Como posso ajudar?"
     },
     it: {
       launch: "Posso aiutarti?", close: "Chiudi", title: "Jenny", subtitle: "La tua host · online",
@@ -148,7 +148,7 @@
       f_guide: "Lingua della guida", no_match: "Non ho una risposta precisa a questa domanda 🙈 Ti metto in contatto con un consulente su WhatsApp che ti aiuterà.",
       wa_q: "Ciao Espontáneos Travel! Ho una domanda:", wa_default: "Ciao Espontáneos Travel! Vorrei maggiori informazioni sulle vostre esperienze.",
       open_wa: "Apri WhatsApp", go_sust: "Vai alla sezione Sostenibilità", go_tours: "Vedi le esperienze", pay_btn: "💳 Paga con carta",
-      wa_tour: "🌿 Esperienza:", wa_guide: "🧭 Lingua della guida:", confirm_book: "Vuoi prenotare *{tour}*?", wa_lead_tour: "Ciao Espontáneos Travel! Vorrei prenotare:", consent: "Autorizzo il trattamento dei miei dati secondo l'{link} (legge colombiana 1581 del 2012).", consent_link: "informativa sulla privacy", consent_req: "Per continuare, accetta l'informativa sulla privacy 🙂", greet_fallback: "Ciao! Sono Jenny di Espontáneos Travel 🌿 Come posso aiutarti?"
+      wa_tour: "🌿 Esperienza:", wa_page: "🔎 Vedi l'esperienza:", wa_guide: "🧭 Lingua della guida:", confirm_book: "Vuoi prenotare *{tour}*?", wa_lead_tour: "Ciao Espontáneos Travel! Vorrei prenotare:", consent: "Autorizzo il trattamento dei miei dati secondo l'{link} (legge colombiana 1581 del 2012).", consent_link: "informativa sulla privacy", consent_req: "Per continuare, accetta l'informativa sulla privacy 🙂", greet_fallback: "Ciao! Sono Jenny di Espontáneos Travel 🌿 Come posso aiutarti?"
     }
   };
 
@@ -455,12 +455,12 @@
     if (id.startsWith("q:")) return quoteNode(id.slice(2));
     if (id.startsWith("qadd:")) {
       const c = id.slice(5); ctx.extras = (ctx.extras || []).filter(x => x !== c).concat([c]);
-      const q = quoteBlock();
+      const q = quoteBlock(); refreshLink();
       return { msgs: [SL().added.replace("{tour}", esc(tourLabel(c)))].concat(q.msgs.slice(1)), chips: ctx.sumBase ? withQuote(ctx.sumBase, q) : nextChips("asesor") };
     }
     if (id === "qcode") return { msgs: [SL().code_ask], codeForm: true };
     if (id === "qupd") {
-      const S = SL(), q = quoteBlock();
+      const S = SL(), q = quoteBlock(); refreshLink();
       const first = ctx.code ? S.code_check.replace("{c}", esc(ctx.code.c)) : "";
       return { msgs: [first].concat(q.msgs.slice(1)).filter(Boolean), chips: ctx.sumBase ? withQuote(ctx.sumBase, q) : nextChips("asesor") };
     }
@@ -913,23 +913,44 @@
     if (rows.length) return "*" + P().fc_title + "*\n" + rows.map(d => "• " + (d.date ? fmtDate(d.date) + " · " : "") + d.title + "\n   " + EspoPlans.fcText(d.fc)).join("\n");
     return pack.days.length ? P().fc_na : "";
   }
+  // Itinerario provisional (viaje.html?d=): lleva todo lo que eligió el cliente para que el equipo lo procese sin preguntar de nuevo
   function provisionalLink() {
     if (!ctx.date || !(ctx.planId || ctx.tourId)) return "";
-    const c = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let code = "PRE-"; for (let i = 0; i < 5; i++) code += c[Math.floor(Math.random() * c.length)];
+    if (!ctx.preCode) { const c = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; ctx.preCode = "PRE-"; for (let i = 0; i < 5; i++) ctx.preCode += c[Math.floor(Math.random() * c.length)]; }
     const itin = ctx.planId ? EspoPlans.planToItinerary(EspoPlans.planById(ctx.planId), ctx.date)
       : [{ date: ctx.date, time: "09:00", tourId: ctx.tourId, title: ctx.tourName, maps: "" }];
-    const booking = { code, lang, name: ctx.name, party: ctx.party, status: "pendiente", region: "Eje Cafetero · Quindío",
+    const booking = { code: ctx.preCode, lang, name: ctx.name, party: ctx.party, status: "pendiente", region: "Eje Cafetero · Quindío",
       host: { name: "Espontáneos Travel", phone: "573187200023" }, guide: { name: "—", langs: [ctx.guide || lang] },
-      hotel: { name: ctx.hotel || "", area: "Quindío" }, prefs: { accessible: !!ctx.access, diet: ctx.diet || "" }, itinerary: itin };
+      hotel: { name: ctx.hotel || "", area: "Quindío" },
+      prefs: { accessible: !!ctx.access, diet: ctx.diet || "", notes: ctx.notes || "", kit: !!ctx.kit, photos: !!ctx.imagen }, itinerary: itin };
+    if (ctx.planId) booking.plan = ctx.planId;
+    if (!ctx.planId && (ctx.extras || []).length) booking.extras = ctx.extras.slice();     // experiencias sumadas: fecha por programar
+    // Beneficio, convenio del hotel y código: los confirma el equipo comercial (sin porcentajes en la web)
+    const deal = {};
+    if (ctx.benefitObj) { deal.name = convText(ctx.benefitObj, lang).name; if (ctx.qUntil) deal.until = ctx.qUntil; }
+    if (ctx.hotelChk) deal.hotel = true;
+    if (ctx.code) deal.code = ctx.code.c;
+    if (Object.keys(deal).length) booking.deal = deal;
     const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(booking)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
     return location.origin + "/viaje.html?d=" + b64;
+  }
+  // Se rehace al sumar experiencias o un código (mismo código PRE-), y el botón «Ver mi itinerario» apunta al nuevo
+  function refreshLink() {
+    const l = provisionalLink(); ctx.link = l;
+    (ctx.sumBase || []).forEach(c => { if (c.prov) c.href = l; });
+    return l;
+  }
+  // Página propia de la experiencia (dirección legible, js/pages-map.js); sin ella, la ficha en el inicio
+  function tourPage(id) {
+    const P = window.ESPO_PAGES, s = P && P.slugs[id], l = s && s[lang] ? lang : "es";
+    return location.origin + (s && s[l] ? "/" + P.dir[l] + "/" + s[l] + ".html" : (lang === "es" ? "/" : "/" + lang + "/") + "#tour-" + id);
   }
   function summaryNode() {
     const T = P();
     return EspoPlans.packFor(currentStops(), lang).then(pack => {
-      const link = provisionalLink(); ctx.link = link;
       if (!ctx.leadId) ctx.leadId = EspoPlans.newLeadId();
       const q = quoteBlock();
+      const link = refreshLink();          // después de la cotización: lleva el beneficio y el convenio
       if (ctx.consent) EspoPlans.sendLead(leadData("resumen"));      // solo con autorización (Ley 1581)
       const what = ctx.planId ? EspoPlans.name(EspoPlans.planById(ctx.planId), lang) : (ctx.tourName + (ctx.tourCode ? " (" + ctx.tourCode + ")" : ""));
       const sum = [
@@ -944,7 +965,7 @@
       if (ctx.diet) sum.push("*" + T.wa_diet + "* " + esc(ctx.diet));
       if (ctx.kit) sum.push(T.wa_kit);
       const base = [{ label: T.send_wa, kind: "wa", wa: true }];
-      if (link) base.push({ label: T.prov, href: link });
+      if (link) base.push({ label: T.prov, href: link, prov: true });
       base.push({ label: T.share, share: packText(pack).replace(/\*/g, "") });
       base.push({ label: U().m_pagos, to: "n:pagos" }, { label: U().back, to: "menu" });
       ctx.sumBase = base;
@@ -978,8 +999,12 @@
       return parts.join("\n");
     }
     const T = P(); const parts = [ctx.planId ? T.wa_lead : U().wa_lead_tour, ""];
+    if (ctx.link) refreshLink();
     if (ctx.planId) { const plan = EspoPlans.planById(ctx.planId); parts.push(T.wa_plan + " " + EspoPlans.name(plan, lang) + " (" + plan.days + "d · " + plan.id + ")"); }
-    else if (ctx.tourName) parts.push(T.wa_tour + " " + ctx.tourName + (ctx.tourCode ? " (" + ctx.tourCode + ")" : ""));
+    else if (ctx.tourName) {
+      parts.push(T.wa_tour + " " + ctx.tourName + (ctx.tourCode ? " (" + ctx.tourCode + ")" : ""));
+      if (ctx.tourId) parts.push(U().wa_page + " " + tourPage(ctx.tourId));
+    }
     if (!ctx.planId && (ctx.extras || []).length) parts.push(SL().wa_extra + " " + extrasText());
     parts.push(T.wa_name + " " + ctx.name);
     parts.push(T.wa_date + " " + (ctx.date ? ctx.date + " (" + fmtDate(ctx.date) + ")" : T.flexible));
