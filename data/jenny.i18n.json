@@ -1529,6 +1529,85 @@
    "bicimonos": {
     "nombre": "Bike · Monkey Sanctuary",
     "duracion_texto": "5–6 h"
+   },
+   "fincacomp": {
+    "nombre": "Shared Tour: Coffee Farm",
+    "incluye": [
+     "Transport",
+     "Hosts at the farm",
+     "Cupping and brewing methods",
+     "Coffee tasting",
+     "Digital photos"
+    ],
+    "notas": [
+     "Shared departure: your host will confirm the schedule and meeting point on WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "☕ From bean to cup!",
+     "items": [
+      "👟 Comfortable closed-toe shoes",
+      "🧢 Hat or cap, sunscreen and insect repellent",
+      "💧 Reusable bottle (we give you water on the tour)",
+      "🌧️ It may rain: we'll lend you a reusable poncho",
+      "☕ Try the coffee without sugar at the tasting: you'll pick up its notes better",
+      "🚯 Don't leave any litter: leave the place as you found it"
+     ]
+    },
+    "descripcion": "Colombian coffee has a Designation of Origin, and the Coffee Cultural Landscape is a UNESCO World Heritage Site. On a traditional farm you follow the process from seed to cup and learn how to taste coffee: the essential Coffee Region experience."
+   },
+   "cacaocomp": {
+    "nombre": "Shared Tour: Cacao",
+    "incluye": [
+     "Transport",
+     "Snack",
+     "Hosts at the farm",
+     "Digital photos"
+    ],
+    "notas": [
+     "Shared departure: your host will confirm the schedule and meeting point on WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "🌱 Get ready for an unforgettable cacao experience!",
+     "items": [
+      "🎒 Light, comfortable backpack",
+      "🧢 Hat or cap (protect yourself from the sun)",
+      "🧴 Sunscreen and insect repellent",
+      "💧 Reusable water bottle",
+      "👟 Comfortable walking shoes",
+      "🌦️ It may rain, so bring a raincoat or a folding umbrella!",
+      "🚯 Don't leave any litter",
+      "🚫 Avoid strong perfumes: they can disturb the crop's natural environment"
+     ]
+    },
+    "descripcion": "Colombia is recognised around the world for its fine cacao, prized for its flavour and aroma. Take part in the process from pod to drink, alongside the families who grow it: a side of the Coffee Region that few people know."
+   },
+   "cordilleracomp": {
+    "nombre": "Shared Tour: Cordillera – Córdoba, Pijao and Buenavista",
+    "incluye": [
+     "Transport",
+     "Willys jeep ride (conditions permitting)",
+     "Guide",
+     "Coffee tasting",
+     "Souvenir",
+     "Lunch",
+     "Digital photos"
+    ],
+    "notas": [
+     "Shared departure: your host will confirm the schedule and meeting point on WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "⛰️ Mountain towns!",
+     "items": [
+      "👟 Comfortable shoes",
+      "🧢 Hat or cap, sunscreen and insect repellent",
+      "🧥 A light jacket: it's cool in the mountains",
+      "🌧️ It may rain: we'll lend you a reusable poncho",
+      "💵 Cash for local shopping",
+      "🚙 Part of the route may be by Willys jeep on rural roads",
+      "💊 If you get carsick, bring your medication"
+     ]
+    },
+    "descripcion": "The lesser-known Quindío: a day in the mountains, travelling along rural roads to discover the authentic character of three towns in the cordillera."
    }
   },
   "arbol": {
@@ -3233,6 +3312,85 @@
    "bicimonos": {
     "nombre": "Vélo · Sanctuaire des singes",
     "duracion_texto": "5–6 h"
+   },
+   "fincacomp": {
+    "nombre": "Tour partagé ferme caféière",
+    "incluye": [
+     "Transport",
+     "Hôtes à la ferme",
+     "Cupping et méthodes de préparation",
+     "Dégustation de café",
+     "Photos numériques"
+    ],
+    "notas": [
+     "Départ partagé : votre hôte vous confirme l'horaire et le point de rendez-vous sur WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "☕ Du grain à la tasse !",
+     "items": [
+      "👟 Chaussures fermées et confortables",
+      "🧢 Chapeau ou casquette, crème solaire et anti-moustique",
+      "💧 Gourde réutilisable (nous vous donnons de l'eau pendant la sortie)",
+      "🌧️ Il peut pleuvoir : nous vous prêtons un poncho réutilisable",
+      "☕ Goûtez le café sans sucre pendant le cupping : ses notes ressortent mieux",
+      "🚯 Ne laissez aucun déchet : laissez les lieux comme vous les avez trouvés"
+     ]
+    },
+    "descripcion": "Le café colombien bénéficie d'une appellation d'origine et le Paysage culturel du café est inscrit au patrimoine mondial de l'UNESCO. Dans une ferme traditionnelle, vous suivez le processus de la graine à la tasse et apprenez à déguster : l'expérience essentielle de l'Eje Cafetero."
+   },
+   "cacaocomp": {
+    "nombre": "Tour partagé du cacao",
+    "incluye": [
+     "Transport",
+     "Collation",
+     "Hôtes à la ferme",
+     "Photos numériques"
+    ],
+    "notas": [
+     "Départ partagé : votre hôte vous confirme l'horaire et le point de rendez-vous sur WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "🌱 Préparez-vous à vivre une expérience cacao inoubliable !",
+     "items": [
+      "🎒 Sac à dos léger et confortable",
+      "🧢 Chapeau ou casquette (protégez-vous du soleil)",
+      "🧴 Crème solaire et anti-moustique",
+      "💧 Gourde réutilisable",
+      "👟 Chaussures confortables pour marcher",
+      "🌦️ Il peut pleuvoir, prenez un imperméable ou un parapluie pliant !",
+      "🚯 Ne laissez aucun déchet",
+      "🚫 Évitez les parfums forts : ils peuvent perturber l'environnement naturel de la culture"
+     ]
+    },
+    "descripcion": "La Colombie est reconnue dans le monde entier pour son cacao fin et aromatique. Participez au processus, de la cabosse à la boisson, aux côtés des familles qui le cultivent : une facette de l'Eje Cafetero que peu de gens connaissent."
+   },
+   "cordilleracomp": {
+    "nombre": "Tour partagé Cordillère : Córdoba, Pijao et Buenavista",
+    "incluye": [
+     "Transport",
+     "Trajet en Jeep Willys (selon les conditions)",
+     "Guide",
+     "Dégustation de café",
+     "Souvenir",
+     "Déjeuner",
+     "Photos numériques"
+    ],
+    "notas": [
+     "Départ partagé : votre hôte vous confirme l'horaire et le point de rendez-vous sur WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "⛰️ Villages de la cordillère !",
+     "items": [
+      "👟 Chaussures confortables",
+      "🧢 Chapeau ou casquette, crème solaire et anti-moustique",
+      "🧥 Une veste légère : il fait frais dans la cordillère",
+      "🌧️ Il peut pleuvoir : nous vous prêtons un poncho réutilisable",
+      "💵 Des espèces pour les achats locaux",
+      "🚙 Une partie du trajet peut se faire en Jeep Willys sur des routes rurales",
+      "💊 Si vous avez le mal des transports, emportez votre médicament"
+     ]
+    },
+    "descripcion": "Le Quindío le moins connu : une journée au cœur des montagnes, à la découverte, par des routes rurales, de l'authenticité de trois villages de la cordillère."
    }
   },
   "arbol": {
@@ -4937,6 +5095,85 @@
    "bicimonos": {
     "nombre": "Rad · Affen-Refugium",
     "duracion_texto": "5–6 h"
+   },
+   "fincacomp": {
+    "nombre": "Gruppentour Kaffeefarm",
+    "incluye": [
+     "Transport",
+     "Gastgeber auf der Finca",
+     "Cupping und Zubereitungsmethoden",
+     "Kaffeeverkostung",
+     "Digitale Fotos"
+    ],
+    "notas": [
+     "Gruppentour: Uhrzeit und Treffpunkt bestätigt Ihnen Ihr Gastgeber per WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "☕ Von der Bohne in die Tasse!",
+     "items": [
+      "👟 Geschlossene, bequeme Schuhe",
+      "🧢 Hut oder Kappe, Sonnencreme und Insektenschutz",
+      "💧 Wiederverwendbare Flasche (unterwegs bekommen Sie Wasser von uns)",
+      "🌧️ Es kann regnen: Wir leihen Ihnen einen wiederverwendbaren Regenponcho",
+      "☕ Probieren Sie den Kaffee beim Cupping ohne Zucker: So schmecken Sie seine Noten besser",
+      "🚯 Hinterlassen Sie keinen Müll: Verlassen Sie den Ort so, wie Sie ihn vorgefunden haben"
+     ]
+    },
+    "descripcion": "Kolumbianischer Kaffee trägt eine geschützte Ursprungsbezeichnung, und die Kaffeekulturlandschaft ist UNESCO-Welterbe. Auf einer traditionellen Finca verfolgen Sie den Weg vom Samenkorn bis zur Tasse und lernen, Kaffee zu verkosten: das Erlebnis, das in der Kaffeeregion nicht fehlen darf."
+   },
+   "cacaocomp": {
+    "nombre": "Gruppentour Kakao",
+    "incluye": [
+     "Transport",
+     "Snack",
+     "Gastgeber auf der Finca",
+     "Digitale Fotos"
+    ],
+    "notas": [
+     "Gruppentour: Uhrzeit und Treffpunkt bestätigt Ihnen Ihr Gastgeber per WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "🌱 Machen Sie sich bereit für ein unvergessliches Kakao-Erlebnis!",
+     "items": [
+      "🎒 Leichter, bequemer Rucksack",
+      "🧢 Hut oder Kappe (schützen Sie sich vor der Sonne)",
+      "🧴 Sonnencreme und Insektenschutz",
+      "💧 Wiederverwendbare Wasserflasche",
+      "👟 Bequeme Schuhe zum Gehen",
+      "🌦️ Es kann regnen – nehmen Sie eine Regenjacke oder einen Taschenschirm mit!",
+      "🚯 Hinterlassen Sie keinen Müll",
+      "🚫 Verzichten Sie auf starke Parfüms: Sie können die natürliche Umgebung der Pflanzung stören"
+     ]
+    },
+    "descripcion": "Kolumbien ist weltweit für seinen Fein- und Aromakakao bekannt. Machen Sie selbst mit – von der Kakaofrucht bis zum Getränk –, an der Seite der Familien, die ihn anbauen: eine Seite der Kaffeeregion, die nur wenige kennen."
+   },
+   "cordilleracomp": {
+    "nombre": "Gruppentour Cordillera: Córdoba, Pijao und Buenavista",
+    "incluye": [
+     "Transport",
+     "Fahrt im Jeep Willys (je nach Bedingungen)",
+     "Guide",
+     "Kaffeeverkostung",
+     "Souvenir",
+     "Mittagessen",
+     "Digitale Fotos"
+    ],
+    "notas": [
+     "Gruppentour: Uhrzeit und Treffpunkt bestätigt Ihnen Ihr Gastgeber per WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "⛰️ Bergdörfer der Kordillere!",
+     "items": [
+      "👟 Bequeme Schuhe",
+      "🧢 Hut oder Kappe, Sonnencreme und Insektenschutz",
+      "🧥 Leichte Jacke: In der Kordillere ist es frisch",
+      "🌧️ Es kann regnen: Wir leihen Ihnen einen wiederverwendbaren Regenponcho",
+      "💵 Bargeld für lokale Einkäufe",
+      "🚙 Ein Teil der Strecke kann im Jeep Willys über ländliche Wege zurückgelegt werden",
+      "💊 Wenn Ihnen beim Autofahren übel wird, nehmen Sie Ihr Medikament mit"
+     ]
+    },
+    "descripcion": "Das weniger bekannte Quindío: ein Tag in den Bergen, auf Landstraßen unterwegs durch drei authentische Dörfer der Kordillere."
    }
   },
   "arbol": {
@@ -6641,6 +6878,85 @@
    "bicimonos": {
     "nombre": "Bike · Santuário de Macacos",
     "duracion_texto": "5–6 h"
+   },
+   "fincacomp": {
+    "nombre": "Tour compartilhado fazenda de café",
+    "incluye": [
+     "Transporte",
+     "Anfitriões na fazenda",
+     "Cupping e métodos de preparo",
+     "Degustação de café",
+     "Fotos digitais"
+    ],
+    "notas": [
+     "Saída compartilhada: seu anfitrião confirma o horário e o ponto de encontro pelo WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "☕ Do grão à xícara!",
+     "items": [
+      "👟 Calçado fechado e confortável",
+      "🧢 Chapéu ou boné, protetor solar e repelente",
+      "💧 Garrafa reutilizável (damos água durante o passeio)",
+      "🌧️ Pode chover: emprestamos uma capa de chuva reutilizável",
+      "☕ Prove o café sem açúcar no cupping: assim você sente melhor suas notas",
+      "🚯 Não deixe lixo: deixe o lugar como você o encontrou"
+     ]
+    },
+    "descripcion": "O café colombiano tem Denominação de Origem, e a Paisagem Cultural Cafeeira é Patrimônio Mundial da UNESCO. Em uma fazenda tradicional, você acompanha o processo da semente à xícara e aprende a degustar: a experiência essencial do Eixo Cafeeiro."
+   },
+   "cacaocomp": {
+    "nombre": "Tour compartilhado do cacau",
+    "incluye": [
+     "Transporte",
+     "Lanche",
+     "Anfitriões na fazenda",
+     "Fotos digitais"
+    ],
+    "notas": [
+     "Saída compartilhada: seu anfitrião confirma o horário e o ponto de encontro pelo WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "🌱 Prepare-se para uma experiência de cacau inesquecível!",
+     "items": [
+      "🎒 Mochila leve e confortável",
+      "🧢 Chapéu ou boné (proteja-se do sol)",
+      "🧴 Protetor solar e repelente",
+      "💧 Garrafa de água reutilizável",
+      "👟 Calçado confortável para caminhar",
+      "🌦️ Pode chover: leve uma capa de chuva ou um guarda-chuva dobrável!",
+      "🚯 Não deixe lixo",
+      "🚫 Evite perfumes fortes: eles podem alterar o ambiente natural da plantação"
+     ]
+    },
+    "descripcion": "A Colômbia é reconhecida no mundo todo por seu cacau fino de sabor e aroma. Participe do processo, do fruto à bebida, ao lado das famílias que o cultivam: uma face do Eixo Cafeeiro que poucos conhecem."
+   },
+   "cordilleracomp": {
+    "nombre": "Tour compartilhado Cordilheira: Córdoba, Pijao e Buenavista",
+    "incluye": [
+     "Transporte",
+     "Trajeto de Jeep Willys (conforme as condições)",
+     "Guia",
+     "Degustação de café",
+     "Souvenir",
+     "Almoço",
+     "Fotos digitais"
+    ],
+    "notas": [
+     "Saída compartilhada: seu anfitrião confirma o horário e o ponto de encontro pelo WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "⛰️ Vilarejos da cordilheira!",
+     "items": [
+      "👟 Calçado confortável",
+      "🧢 Chapéu ou boné, protetor solar e repelente",
+      "🧥 Agasalho leve: a cordilheira é fresca",
+      "🌧️ Pode chover: emprestamos uma capa de chuva reutilizável",
+      "💵 Dinheiro em espécie para compras locais",
+      "🚙 Parte do trajeto pode ser de Jeep Willys por estradas rurais",
+      "💊 Se você enjoa na estrada, leve seu remédio"
+     ]
+    },
+    "descripcion": "O Quindío menos conhecido: um dia entre as montanhas, percorrendo por estradas rurais a autenticidade de três povoados da cordilheira."
    }
   },
   "arbol": {
@@ -8345,6 +8661,85 @@
    "bicimonos": {
     "nombre": "Bici · Santuario delle Scimmie",
     "duracion_texto": "5–6 h"
+   },
+   "fincacomp": {
+    "nombre": "Tour condiviso fattoria del caffè",
+    "incluye": [
+     "Trasporto",
+     "Padroni di casa in fattoria",
+     "Cupping e metodi di preparazione",
+     "Degustazione di caffè",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Partenza condivisa: il tuo host ti conferma orario e punto d'incontro su WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "☕ Dal chicco alla tazza!",
+     "items": [
+      "👟 Scarpe chiuse e comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "💧 Borraccia riutilizzabile (durante il tour l'acqua te la diamo noi)",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "☕ Assaggia il caffè senza zucchero durante la degustazione: ne coglierai meglio le note",
+      "🚯 Non lasciare rifiuti: lascia il posto come l'hai trovato"
+     ]
+    },
+    "descripcion": "Il caffè colombiano ha la Denominazione di Origine e il Paesaggio Culturale del Caffè è Patrimonio dell'Umanità UNESCO. In una fattoria tradizionale segui il processo dal seme alla tazza e impari a degustare il caffè: l'esperienza essenziale dell'Eje Cafetero."
+   },
+   "cacaocomp": {
+    "nombre": "Tour condiviso del cacao",
+    "incluye": [
+     "Trasporto",
+     "Spuntino",
+     "Padroni di casa in fattoria",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Partenza condivisa: il tuo host ti conferma orario e punto d'incontro su WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "🌱 Preparati a vivere un'esperienza indimenticabile con il cacao!",
+     "items": [
+      "🎒 Zaino leggero e comodo",
+      "🧢 Cappello o cappellino (proteggiti dal sole)",
+      "🧴 Crema solare e repellente",
+      "💧 Borraccia riutilizzabile",
+      "👟 Scarpe comode per camminare",
+      "🌦️ Può piovere: porta un impermeabile o un ombrello pieghevole!",
+      "🚯 Non lasciare rifiuti",
+      "🚫 Evita profumi forti: possono alterare l'ambiente naturale della coltivazione"
+     ]
+    },
+    "descripcion": "La Colombia è riconosciuta nel mondo per il suo cacao fine di sapore e aroma. Partecipa al processo, dalla cabossa alla bevanda, insieme alle famiglie che lo coltivano: un volto dell'Eje Cafetero che pochi conoscono."
+   },
+   "cordilleracomp": {
+    "nombre": "Tour condiviso Cordigliera: Córdoba, Pijao e Buenavista",
+    "incluye": [
+     "Trasporto",
+     "Tragitto in Jeep Willys (se le condizioni lo permettono)",
+     "Guida",
+     "Degustazione di caffè",
+     "Souvenir",
+     "Pranzo",
+     "Materiale fotografico in digitale"
+    ],
+    "notas": [
+     "Partenza condivisa: il tuo host ti conferma orario e punto d'incontro su WhatsApp."
+    ],
+    "recomendacion": {
+     "titulo": "⛰️ Paesi della cordigliera!",
+     "items": [
+      "👟 Scarpe comode",
+      "🧢 Cappello o cappellino, crema solare e repellente",
+      "🧥 Un capo caldo leggero: in cordigliera fa fresco",
+      "🌧️ Può piovere: ti prestiamo una mantella antipioggia riutilizzabile",
+      "💵 Contanti per acquisti locali",
+      "🚙 Parte del tragitto può essere in Jeep Willys su strade rurali",
+      "💊 Se soffri il mal d'auto, porta il tuo medicinale"
+     ]
+    },
+    "descripcion": "Il Quindío meno conosciuto: una giornata tra le montagne, lungo strade rurali, alla scoperta dell'autenticità di tre paesi della cordigliera."
    }
   },
   "arbol": {
