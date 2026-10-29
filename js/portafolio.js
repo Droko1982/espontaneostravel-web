@@ -878,7 +878,7 @@ const seal = (e, cls) => (e.shared ? `<img class="seal${cls ? " " + cls : ""}" s
    La tarifa, la comisión y la nota de 1 pasajero (en «notas» de la fila) y los traslados (ET-TC-…), la guía en inglés y la capa
    (SU-TC-…) llegan del tarifario de la cuenta (privado/tarifas-compartidos-2027.json, Tarifas → Importar): nunca en archivos públicos. */
 const TC_ROWS = [["ET-TC-CIRCASIA", "Hoteles en Circasia → punto de encuentro en Armenia", "Hotels in Circasia → meeting point in Armenia"],
-  ["ET-TC-FILANDIA-QUIMBAYA", "Hoteles en Filandia → punto de encuentro en Quimbaya", "Hotels in Filandia → meeting point in Quimbaya"],
+  ["ET-TC-FIL-QUIMBAYA", "Hoteles en Filandia → punto de encuentro en Quimbaya", "Hotels in Filandia → meeting point in Quimbaya"],
   ["ET-TC-MONTENEGRO", "Hoteles en Montenegro → punto de encuentro en Armenia", "Hotels in Montenegro → meeting point in Armenia"],
   ["ET-TC-QUIMBAYA", "Hoteles en Quimbaya → punto de encuentro en Armenia", "Hotels in Quimbaya → meeting point in Armenia"],
   ["ET-TC-CALARCA", "Hoteles en Calarcá o La Tebaida → punto de encuentro en Armenia", "Hotels in Calarcá or La Tebaida → meeting point in Armenia"],
