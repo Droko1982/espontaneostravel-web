@@ -2467,30 +2467,54 @@ async function staffLeads(view) {
   const q = h("input", { type: "search", id: uid("q"), autocomplete: "off", placeholder: "Nombre, hotel, itinerario…" });
   const sep = sepSelect();
   const stats = h("p", { class: "p-count", role: "status" });
+  const pipe = h("div", { class: "p-pipe", role: "group", "aria-label": "Bandeja de leads" });
   const out = h("div", { class: "p-cards" });
-  let rows = [], shown = [];
+  // Bandejas para depurar la lista: por revisar → aceptados, o a la papelera (se restaura o se borra sola a los 30 días)
+  let rows = [], trash = [], shown = [], bandeja = "revisar";
   async function load() {
     clear(out); add(out, loadingBox());
     const a = from.value ? new Date(from.value + "T00:00:00") : addDays(new Date(), -30);
     const b = addDays(to.value ? new Date(to.value + "T00:00:00") : new Date(), 1);
     try {
-      rows = await list(fs.query(col("leads"), fs.where("creado", ">=", fs.Timestamp.fromDate(a)), fs.where("creado", "<", fs.Timestamp.fromDate(b)), fs.orderBy("creado", "desc"), fs.limit(500)));
+      [rows, trash] = await Promise.all([
+        list(fs.query(col("leads"), fs.where("creado", ">=", fs.Timestamp.fromDate(a)), fs.where("creado", "<", fs.Timestamp.fromDate(b)), fs.orderBy("creado", "desc"), fs.limit(500))),
+        list(fs.query(col("leads"), fs.where("bandeja", "==", "papelera"), fs.limit(500)))]);
     } catch (e) { clear(out); add(out, errorBox(e, load)); return; }
-    const srcs = [...new Set(rows.map(r => r.src).filter(Boolean))].sort(collate);
+    await purgeTrash();
+    trash.sort((x, y) => leadMs(y.bandejaEn) - leadMs(x.bandejaEn));
+    const srcs = [...new Set(rows.concat(trash).map(r => r.src).filter(Boolean))].sort(collate);
     const keep = src.value;
     clear(src); add(src, h("option", { value: "" }, "Todos"), srcs.map(s => h("option", { value: s }, s)));
     src.value = srcs.includes(keep) ? keep : "";
     draw();
   }
+  // Vaciar la papelera: lo que lleva más de 30 días se borra solo (al abrir Leads con una cuenta de administración)
+  async function purgeTrash() {
+    if (S.profile.rol !== "admin") return;
+    const lim = Date.now() - LEAD_TRASH_DAYS * 864e5;
+    const old = trash.filter(l => leadMs(l.bandejaEn) && leadMs(l.bandejaEn) < lim);
+    for (const l of old) { try { await fs.deleteDoc(dref("leads", l.id)); } catch (e) { /* lo intenta de nuevo la próxima vez */ } }
+    trash = trash.filter(l => !old.includes(l)); rows = rows.filter(l => !old.includes(l));
+  }
+  // Mover un lead entre bandejas sin volver a leer todo
+  const ctx = {
+    move(l, to) { if (to === "papelera") { if (!trash.includes(l)) trash.unshift(l); } else { trash = trash.filter(x => x !== l); if (!rows.includes(l)) rows.unshift(l); } draw(); },
+    remove(l) { trash = trash.filter(x => x !== l); rows = rows.filter(x => x !== l); draw(); }
+  };
   function draw() {
     const term = norm(q.value);
-    shown = rows.filter(l => (!stage.value || l.stage === stage.value) && (!src.value || l.src === src.value) && (!onlyNew.checked || !l.contactado)
+    const n = { revisar: rows.filter(l => leadBox(l) === "revisar").length, aceptado: rows.filter(l => leadBox(l) === "aceptado").length, papelera: trash.length };
+    clear(pipe);
+    LEAD_BOXES.forEach(([k, lab]) => add(pipe, h("button", { type: "button", class: "p-pipe__btn", "aria-pressed": String(bandeja === k), onclick: () => { bandeja = k; draw(); } }, lab, h("b", null, String(n[k])))));
+    const base = bandeja === "papelera" ? trash : rows.filter(l => leadBox(l) === bandeja);
+    shown = base.filter(l => (!stage.value || l.stage === stage.value) && (!src.value || l.src === src.value) && (!onlyNew.checked || !l.contactado)
       && (!term || norm([l.name, l.plan, l.tour, l.hotel, l.notes, l.leadId].join(" ")).includes(term)));
     const by = k => shown.filter(l => l.stage === k).length;
-    stats.textContent = `${shown.length} leads · ${STAGES.map(([k, lab]) => `${lab}: ${by(k)}`).join(" · ")}${rows.length >= 500 ? " · (máx. 500: acorta el rango de fechas)" : ""}`;
+    stats.textContent = `${shown.length} leads · ${STAGES.map(([k, lab]) => `${lab}: ${by(k)}`).join(" · ")}${rows.length >= 500 ? " · (máx. 500: acorta el rango de fechas)" : ""}`
+      + (bandeja === "papelera" ? ` · Se borran solos ${LEAD_TRASH_DAYS} días después de enviarlos a la papelera.` : "");
     clear(out);
-    if (!shown.length) add(out, emptyBox("No hay leads con esos filtros."));
-    shown.forEach(l => add(out, leadCard(l, draw)));
+    if (!shown.length) add(out, emptyBox(bandeja === "papelera" ? "La papelera está vacía." : "No hay leads con esos filtros."));
+    shown.forEach(l => add(out, leadCard(l, draw, ctx)));
   }
   [stage, src, onlyNew].forEach(el => el.addEventListener("change", draw));
   [from, to].forEach(el => el.addEventListener("change", load));
@@ -2499,32 +2523,61 @@ async function staffLeads(view) {
     h("div", { class: "p-toolbar" }, labeled("Desde", from), labeled("Hasta", to), labeled("Etapa", stage), labeled("Origen", src), labeled("Buscar", q, "p-grow")),
     h("div", { class: "p-toolbar" }, checkField("Solo sin contactar", onlyNew), labeled("Formato CSV", sep),
       h("div", { class: "p-toolbar__end" }, btn("Actualizar", e => busy(e.currentTarget, load)),
-        btn("Exportar CSV", () => download(`leads-${isoDay(new Date())}.csv`, toCSV(shown.map(plain), ["id", "creado", "stage", "name", "plan", "tour", "date", "party", "hotel", "access", "diet", "notes", "kit", "src", "lang", "link", "page", "leadId", "contactado", "contactadoEn", "clienteId"], sep.value), "text/csv;charset=utf-8")))),
-    stats, out);
+        btn("Exportar CSV", () => download(`leads-${isoDay(new Date())}.csv`, toCSV(shown.map(plain), ["id", "creado", "stage", "name", "plan", "tour", "date", "party", "hotel", "access", "diet", "notes", "kit", "src", "lang", "link", "page", "leadId", "contactado", "contactadoEn", "clienteId", "bandeja", "bandejaEn"], sep.value), "text/csv;charset=utf-8")))),
+    pipe, stats, out);
   await load();
 }
 
-function leadCard(l, redraw) {
-  const done = !!l.contactado;
+// Bandejas de Leads (depurar la lista): por revisar, aceptados y papelera (se borra sola a los 30 días)
+const LEAD_BOXES = [["revisar", "Por revisar"], ["aceptado", "Aceptados"], ["papelera", "Papelera"]];
+const LEAD_TRASH_DAYS = 30;
+const leadBox = l => (l.bandeja === "aceptado" || l.bandeja === "papelera" ? l.bandeja : "revisar");
+const leadMs = v => { const d = toDate(v); return d ? d.getTime() : 0; };
+function leadCard(l, redraw, ctx) {
+  const done = !!l.contactado, box = leadBox(l), admin = S.profile.rol === "admin";
+  const who = l.name || "Sin nombre";
+  const mover = (to, el) => busy(el, async () => {
+    const upd = { bandeja: to, bandejaPor: S.user.uid, bandejaEn: ts() };
+    await fs.updateDoc(dref("leads", l.id), upd);
+    Object.assign(l, upd, { bandejaEn: new Date() });
+    if (ctx) ctx.move(l, to); else redraw();
+    notify(to === "papelera" ? `${who}: a la papelera (se borra sola en ${LEAD_TRASH_DAYS} días).` : to === "aceptado" ? `${who}: aceptado.` : `${who}: de vuelta en «Por revisar».`);
+  });
+  const vence = box === "papelera" && leadMs(l.bandejaEn) ? fmtDay(new Date(leadMs(l.bandejaEn) + LEAD_TRASH_DAYS * 864e5)) : "";
+  const actions = box === "papelera" ? [
+    btn("Restaurar", e => mover("revisar", e.currentTarget), "btn--brand"),
+    admin ? btn("Eliminar definitivamente", e => {
+      if (!window.confirm(`¿Borrar DEFINITIVAMENTE el lead de ${who}?\n\nSe eliminan sus datos y no se puede deshacer.`)) return;
+      busy(e.currentTarget, async () => { await fs.deleteDoc(dref("leads", l.id)); if (ctx) ctx.remove(l); notify(`${who}: eliminado definitivamente.`); });
+    }, "btn--danger") : null
+  ] : [
+    ownTripLink(l.link) ? h("a", { class: "btn btn--ghost btn--sm", href: ownTripLink(l.link), target: "_blank", rel: "noopener noreferrer" }, "Abrir enlace del cliente") : null,
+    btn(done ? "Marcar como no contactado" : "Marcar contactado", e => busy(e.currentTarget, async () => {
+      const upd = done ? { contactado: false } : { contactado: true, contactadoPor: S.user.uid, contactadoEn: ts() };
+      await fs.updateDoc(dref("leads", l.id), upd);
+      Object.assign(l, upd, done ? {} : { contactadoEn: new Date() });
+      redraw();
+    }), done ? null : "btn--brand"),
+    l.clienteId ? badge("Cliente creado", "ok") : btn("Crear cliente", () => {
+      S.preset = { cliente: { nombre: l.name || "", idioma: l.lang || "es", origen: origenFromLead(l), notasInternas: leadSummary(l) }, leadId: l.id };
+      S.tabsApi.select("clientes", true);
+    }),
+    box === "aceptado" ? btn("Volver a «Por revisar»", e => mover("revisar", e.currentTarget)) : btn("✓ Aceptar", e => mover("aceptado", e.currentTarget)),
+    btn("Eliminar", e => {
+      if (!window.confirm(`¿Enviar a la papelera el lead de ${who}?\n\nPodrás restaurarlo durante ${LEAD_TRASH_DAYS} días; después se borra solo.`)) return;
+      mover("papelera", e.currentTarget);
+    }, "btn--danger")
+  ];
   return h("article", { class: "p-item" + (done ? " is-done" : "") },
-    h("header", { class: "p-item__head" }, h("h3", { class: "p-h3" }, l.name || "Sin nombre"), badge(STAGE_LABEL[l.stage] || l.stage, STAGE_KIND[l.stage]), done ? badge("Contactado", "ok") : null),
+    h("header", { class: "p-item__head" }, h("h3", { class: "p-h3" }, who), badge(STAGE_LABEL[l.stage] || l.stage, STAGE_KIND[l.stage]), done ? badge("Contactado", "ok") : null,
+      box === "aceptado" ? badge("Aceptado", "ok") : null, box === "papelera" ? badge(`En papelera · se borra el ${vence}`, "warn") : null),
     kvList(kv("Recibido", fmtDateTime(l.creado)), kv("Itinerario", l.plan), kv("Experiencia", l.tour), kv("Fecha del viaje", l.date), kv("Personas", l.party),
       kv("Alojamiento", l.hotel), kv("Accesibilidad", l.access ? "Sí" : ""), kv("Alimentación", l.diet), kv("Notas", l.notes), kv("Kit", l.kit ? "Sí" : ""),
       kv("Origen", l.src), kv("Idioma", l.lang), kv("Página", l.page),
       done ? kv("Contactado por", `${userName(l.contactadoPor)} · ${fmtDateTime(l.contactadoEn)}`) : null,
+      box !== "revisar" && l.bandejaPor ? kv(box === "papelera" ? "Enviado a la papelera por" : "Aceptado por", `${userName(l.bandejaPor)} · ${fmtDateTime(l.bandejaEn)}`) : null,
       l.link && !ownTripLink(l.link) ? kv("Enlace (no verificado, no se abre)", h("span", { class: "p-break p-muted" }, String(l.link).slice(0, 300))) : null),
-    h("div", { class: "p-actions" },
-      ownTripLink(l.link) ? h("a", { class: "btn btn--ghost btn--sm", href: ownTripLink(l.link), target: "_blank", rel: "noopener noreferrer" }, "Abrir enlace del cliente") : null,
-      btn(done ? "Marcar como no contactado" : "Marcar contactado", e => busy(e.currentTarget, async () => {
-        const upd = done ? { contactado: false } : { contactado: true, contactadoPor: S.user.uid, contactadoEn: ts() };
-        await fs.updateDoc(dref("leads", l.id), upd);
-        Object.assign(l, upd, done ? {} : { contactadoEn: new Date() });
-        redraw();
-      }), done ? null : "btn--brand"),
-      l.clienteId ? badge("Cliente creado", "ok") : btn("Crear cliente", () => {
-        S.preset = { cliente: { nombre: l.name || "", idioma: l.lang || "es", origen: origenFromLead(l), notasInternas: leadSummary(l) }, leadId: l.id };
-        S.tabsApi.select("clientes", true);
-      })));
+    h("div", { class: "p-actions" }, actions));
 }
 
 /* ---------- Clientes (CRM) ---------- */
