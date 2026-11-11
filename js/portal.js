@@ -55,7 +55,7 @@ const I18N = {
     email: "Correo electrónico", password: "Contraseña", login_btn: "Ingresar", forgot: "¿Olvidaste tu contraseña?",
     no_account: "¿Tu agencia aún no tiene acceso?", request_access: "Solicitar acceso", back_login: "Volver a ingresar",
     staff_note: "¿Eres del equipo de Espontáneos? El administrador crea tu cuenta.",
-    back_site: "Volver a la web", traveler_title: "¿Eres viajero?", traveler_body: "Este portal es solo para agencias. Mira nuestras experiencias y reserva por WhatsApp.", traveler_btn: "Ver experiencias →",
+    back_site: "Volver a la web", nav_back: "Atrás", nav_back_to: "Volver a: {0}", traveler_title: "¿Eres viajero?", traveler_body: "Este portal es solo para agencias. Mira nuestras experiencias y reserva por WhatsApp.", traveler_btn: "Ver experiencias →",
     reset_title: "Recupera tu contraseña", reset_sub: "Escribe tu correo y te enviamos un enlace para crear una nueva.",
     reset_btn: "Enviar enlace", reset_done: "Si el correo está registrado, te llegará un enlace para crear una nueva contraseña. Revisa también la carpeta de spam.",
     signup_title: "Solicita acceso para tu agencia", signup_sub: "Revisamos cada solicitud y activamos las cuentas manualmente. Al aprobarla podrás ver tarifas netas y solicitar reservas.",
@@ -126,7 +126,7 @@ const I18N = {
     email: "Email", password: "Password", login_btn: "Sign in", forgot: "Forgot your password?",
     no_account: "Your agency doesn't have access yet?", request_access: "Request access", back_login: "Back to sign in",
     staff_note: "Espontáneos team member? Your account is created by the administrator.",
-    back_site: "Back to website", traveler_title: "Travelling with us?", traveler_body: "This portal is for agencies only. Browse our experiences and book on WhatsApp.", traveler_btn: "See experiences →",
+    back_site: "Back to website", nav_back: "Back", nav_back_to: "Back to: {0}", traveler_title: "Travelling with us?", traveler_body: "This portal is for agencies only. Browse our experiences and book on WhatsApp.", traveler_btn: "See experiences →",
     reset_title: "Reset your password", reset_sub: "Enter your email and we'll send you a link to create a new one.",
     reset_btn: "Send link", reset_done: "If the email is registered, you'll receive a link to create a new password. Please check your spam folder too.",
     signup_title: "Request access for your agency", signup_sub: "We review every request and activate accounts manually. Once approved you'll see net rates and can request bookings.",
@@ -938,11 +938,43 @@ function readHash() {
   const m = /^#(?:aprobar-(dmc|asesor|admin)|(rechazar))-([A-Za-z0-9]{10,128})$/.exec(location.hash || "");
   if (m) S.approval = { rol: m[1] || "no", uid: m[3] };
 }
-function clearHash() { try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* sin historial */ } }
+function clearHash() { try { history.replaceState(history.state, "", location.pathname + location.search); } catch (e) { /* sin historial */ } }
+
+/* ---------- Atrás: vuelve a la pestaña o vista anterior del portal sin empezar de nuevo ----------
+   Cada pestaña del portal (y, dentro del Portafolio, cada pestaña y cada ficha) es un paso del historial del navegador, con su estado:
+   { et: 1, i: n.º de paso desde que se entró, tab: pestaña del portal, pf: pestaña del portafolio, ficha, lb: nombre de la vista, prev: la anterior }.
+   El botón Atrás del navegador y «‹ Atrás» del encabezado vuelven al paso anterior; «Volver a la web» sigue saliendo al sitio. */
+function navState() { const s = history.state; return s && s.et ? s : null; }
+const navUrl = hash => location.pathname + location.search + (hash === undefined ? location.hash : hash);
+function navPush(st, hash) {
+  const cur = navState();
+  try { history.pushState(Object.assign({ et: 1, i: (cur ? cur.i : 0) + 1, prev: cur ? cur.lb || "" : "", tab: S.tab, pf: null, ficha: null }, st), "", navUrl(hash === undefined ? "" : hash)); } catch (e) { /* sin historial */ }
+  syncBack();
+}
+function navReplace(st, hash) {
+  const cur = navState() || { et: 1, i: 0, prev: "" };
+  try { history.replaceState(Object.assign({}, cur, { tab: S.tab }, st), "", navUrl(hash)); } catch (e) { /* sin historial */ }
+  syncBack();
+}
+function syncBack() {
+  const b = $("#p-navback"); if (!b) return;
+  const s = navState(), to = s && s.prev ? t("nav_back_to", s.prev) : t("nav_back");
+  b.hidden = !(s && s.i > 0); b.title = to; b.setAttribute("aria-label", to);
+}
+function onNavPop(ev) {
+  syncBack();
+  const st = ev.state;
+  if (!st || !st.et || !S.tabsApi || (S.view !== "dmc" && S.view !== "staff")) return;
+  if (st.tab && st.tab !== S.tab && $("#tab-" + st.tab)) {
+    try { if (st.pf) sessionStorage.setItem("pf27-tab", JSON.stringify(st.pf)); } catch (e) { /* sin almacenamiento */ }
+    S.tabsApi.select(st.tab, false, true);
+  } else if (st.tab === S.tab && S.pfMod && S.pfMod.navTo && S.pfMod.portafolioMounted()) S.pfMod.navTo(st);   // navTo falta si el navegador aún tiene en caché el portafolio.js anterior
+}
 
 async function boot() {
   readHash();
-  window.addEventListener("hashchange", () => { readHash(); if (S.view === "staff") renderStaffApp(); });
+  window.addEventListener("hashchange", () => { readHash(); if (S.view === "staff" && /^#(usuarios|pedidos|aprobar-|rechazar-)/.test(location.hash)) renderStaffApp(); });
+  window.addEventListener("popstate", onNavPop);
   // Tema guardado por el sitio (antes era un script en línea; la CSP de portal.html no permite scripts en línea)
   try { const th = localStorage.getItem("esp_theme"); if (th === "dark" || th === "light") document.documentElement.setAttribute("data-theme", th); } catch (e) { /* sin almacenamiento */ }
   S.lang = initialLang();
@@ -1006,6 +1038,7 @@ function renderHeader() {
   const box = clear($("#p-header-actions"));
   // Siempre visible: quien llegó aquí por error vuelve al sitio con un clic
   const site = S.lang === "en" && S.view !== "staff" ? "/en/" : "/";
+  if (S.view === "dmc" || S.view === "staff") add(box, h("button", { type: "button", class: "btn btn--ghost btn--sm p-back p-navback", id: "p-navback", hidden: true, onclick: () => history.back() }, h("span", { "aria-hidden": "true" }, "‹ "), t("nav_back")));
   add(box, h("a", { class: "btn btn--ghost btn--sm p-back", href: site }, h("span", { "aria-hidden": "true" }, "← "), t("back_site")));
   $("#p-skip").textContent = t("skip");
   $("#p-brand-tag").textContent = S.view === "staff" ? "Portal interno" : t("portal_tag");
@@ -1018,6 +1051,7 @@ function renderHeader() {
     add(box, h("span", { class: "p-who" }, h("span", { class: "p-who__name" }, who), S.profile ? h("span", { class: "p-role" }, roleLabel(S.profile.rol)) : null));
     add(box, btn(t("logout"), () => au.signOut(S.fb.auth)));
   }
+  syncBack();
 }
 function screen(...kids) {
   const m = clear($("#p-main"));
@@ -1260,7 +1294,8 @@ function renderStatus(kind) {
    Pestañas accesibles (role=tablist, flechas, Inicio/Fin)
    ========================================================================== */
 function mountTabs(host, defs, handlers, ariaLabel) {
-  const current = defs.some(d => d.id === S.tab) ? S.tab : defs[0].id;
+  const st0 = navState(), want = S.tab || (st0 && st0.tab);   // al recargar, la misma pestaña en la que se estaba
+  const current = defs.some(d => d.id === want) ? want : defs[0].id;
   const nav = h("div", { class: "p-tabs", role: "tablist", "aria-label": ariaLabel || "Secciones" });
   const panel = h("section", { class: "p-panel", role: "tabpanel", id: "p-panel", tabindex: "-1" });
   const btns = defs.map(d => h("button", {
@@ -1275,11 +1310,13 @@ function mountTabs(host, defs, handlers, ariaLabel) {
     else if (e.key === "ArrowLeft") j = (i - 1 + btns.length) % btns.length;
     else if (e.key === "Home") j = 0;
     else if (e.key === "End") j = btns.length - 1;
-    if (j != null) { e.preventDefault(); btns[j].focus(); choose(defs[j].id, false); }
+    if (j != null) { e.preventDefault(); btns[j].focus(); choose(defs[j].id, false, "key"); }
   });
   append(nav, btns);
   add(host, nav, panel);
-  function choose(id, fromClick) {
+  // how: "init" al montar, "key" con las flechas (reemplazan el paso), "hist" desde Atrás/Adelante; clic o select(): paso nuevo
+  function choose(id, fromClick, how) {
+    const prev = S.tab;
     S.tab = id;
     btns.forEach((b, k) => { const on = defs[k].id === id; b.setAttribute("aria-selected", String(on)); b.tabIndex = on ? 0 : -1; });
     panel.setAttribute("aria-labelledby", "tab-" + id);
@@ -1289,9 +1326,13 @@ function mountTabs(host, defs, handlers, ariaLabel) {
     add(panel, view);
     Promise.resolve().then(() => handlers[id](view)).catch(e => { clear(view); add(view, errorBox(e, () => choose(id))); });
     if (fromClick) { const b = btns[defs.findIndex(d => d.id === id)]; if (b && b.scrollIntoView) b.scrollIntoView({ block: "nearest", inline: "nearest" }); }
+    if (how !== "hist") {
+      const st = { tab: id, pf: null, ficha: null, lb: String((defs.find(d => d.id === id) || {}).label || id) };
+      if (how === "init" || how === "key" || prev === id) navReplace(st, how === "init" ? undefined : ""); else navPush(st, "");
+    }
   }
-  choose(current, false);
-  return { select: (id, focus) => { choose(id, false); if (focus) { const b = $("#tab-" + id); if (b) b.focus(); } } };
+  choose(current, false, "init");
+  return { select: (id, focus, hist) => { choose(id, false, hist ? "hist" : ""); if (focus) { const b = $("#tab-" + id); if (b) b.focus(); } } };
 }
 
 /* ==========================================================================
@@ -1525,6 +1566,7 @@ async function dmcPortafolio(view) {
   const host = h("div", { class: "p-pf" });
   add(view, host);
   const { mountPortafolio } = mod;
+  S.pfMod = mod;
   const staff = S.view === "staff";
   await mountPortafolio(host, {
     lang: L(), tier: tierOf(), staff,
@@ -1535,7 +1577,9 @@ async function dmcPortafolio(view) {
     kitLoad: () => fs.getDoc(dref("kits", S.user.uid)).then(s => (s.exists() ? s.data() : null)),
     kitSave: k => fs.setDoc(dref("kits", S.user.uid), Object.assign({}, k, { actualizado: ts() })),
     // Ruta o ficha → formulario «Reservar» con los tours (y pasajeros, hotel e itinerario) ya puestos
-    onRequest: staff ? null : pre => { S.preset = pre; S.tabsApi.select("solicitar", true); }
+    onRequest: staff ? null : pre => { S.preset = pre; S.tabsApi.select("solicitar", true); },
+    // Pestañas y fichas del portafolio en el historial del navegador (botón Atrás)
+    nav: { push: navPush, replace: navReplace }
   });
 }
 

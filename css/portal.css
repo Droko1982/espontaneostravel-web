@@ -282,6 +282,7 @@
 
 /* Volver a la web (encabezado) y aviso para viajeros en la pantalla de ingreso */
 .p-back { white-space: nowrap; }
+.p-navback[hidden] { display: none; }
 .p-traveler { max-width: 520px; margin: clamp(.5rem, 3vw, 1.5rem) auto 0; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; padding: .85rem 1rem; border-radius: var(--r-lg); background: #fff7ec; border: 1px solid #ffe0bf; color: #4b3a28; }
 .p-traveler p { margin: 0; flex: 1 1 240px; }
 .p-traveler + .p-auth { margin-top: .8rem; }
