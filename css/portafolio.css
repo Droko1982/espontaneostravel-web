@@ -671,3 +671,10 @@
 .pf .daytag.warn { color: var(--fg); }
 .pf .daytag.warn::before { content: "\26A0\FE0E  "; color: var(--cherry); }
 .pf .trn { display: inline-block; margin-top: 2px; font-size: .76rem; color: var(--muted); line-height: 1.35; }
+/* ---------- buscador de hoteles (tarifario, mapa abierto, dirección) y guianza por duración ---------- */
+.pf .ally.tar { background: var(--bean); }
+.pf .sugg .hd { margin-top: 4px; padding-top: 8px; border-top: 1px solid var(--line); font-weight: 700; }
+.pf .hsel > .hsel-a { flex: none; display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.pf .gaddw { padding: 0 10px 10px; }
+.pf .supl > .gaddw { padding: 6px 0 0; }
+.pf .gaddw .btn[aria-pressed="true"] { background: var(--cherry); color: #fff; border-color: var(--cherry); }
