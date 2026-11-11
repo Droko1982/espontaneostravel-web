@@ -87,10 +87,14 @@ const UI = {
     r_h: "Arma tu ruta", r_l: "Elige aeropuerto, hotel y tours. La ruta se dibuja en el mapa con distancias por carretera, tiempos estimados y el vehículo según el número de pasajeros.",
     r1: "Grupo", r_pax: "Pasajeros", r_start: "Primer día de tours", r_d1: "Día 1 (el de llegada)", r_pick: "Elige…", r_pax_ph: "Número de pasajeros", ap_pick: "Elige el aeropuerto…", veh_need: "Escribe el número de pasajeros y te sugerimos el vehículo.", tot_need: "Escribe el número de pasajeros para calcular el total.", day: "Día {0}", veh_sug: "Vehículo sugerido", see_fleet: "ver flota",
     r2: "Llegada y salida", r_arr: "Aeropuerto de llegada", r_dep: "Aeropuerto de salida", no_tr: "Sin traslado",
-    r3: "Hotel", h_ph: "Escribe el nombre del hotel…", h_note: "Primero salen los hoteles aliados de ET. Si no está, búscalo en el mapa abierto (OpenStreetMap), pega su enlace de Google Maps o tócalo en el mapa.",
-    h_ally: "Aliado ET", h_recent: "Usado antes", h_osm: "Buscar «{0}» en el mapa abierto", h_new: "Ubicar «{0}» con un enlace o en el mapa", h_change: "Cambiar", h_searching: "Buscando…", h_none: "No encontré ese hotel en el mapa abierto. Pega su enlace de Google Maps o tócalo en el mapa.",
-    h_place: "Ubicar «{0}»", h_link: "Pega el enlace de Google Maps del hotel", h_link_ph: "https://www.google.com/maps/place/…", h_locate: "Ubicar", h_link_note: "Abre el hotel en Google Maps y copia la dirección completa de la barra del navegador. Los enlaces cortos (maps.app.goo.gl) no traen coordenadas.",
-    h_tap: "Tocar en el mapa", cancel: "Cancelar", h_tap_b: "Toca el mapa donde queda «{0}»", h_nolink: "No encontré coordenadas en ese enlace", h_set: "{0} ubicado en {1}", h_chosen: "Hotel elegido: {0}", h_added: "Agregado por el asesor",
+    r3: "Hotel", h_ph: "Escribe el nombre del hotel…", h_note: "Primero salen los hoteles aliados de ET y los del tarifario de traslados; mientras escribes también se busca en el mapa abierto. Si no aparece, búscalo como dirección o ubícalo con su enlace de Google Maps, sus coordenadas, su Plus Code o tocándolo en el mapa.",
+    h_ally: "Aliado ET", h_recent: "Usado antes", h_osm: "Buscar «{0}» en el mapa abierto", h_new: "Ubicar «{0}» con un enlace, coordenadas, Plus Code o en el mapa", h_change: "Cambiar", h_searching: "Buscando…", h_none: "No encontré ese hotel en el mapa abierto. Pega su enlace de Google Maps o tócalo en el mapa.",
+    h_place: "Ubicar «{0}»", h_link: "Enlace de Google Maps, coordenadas, Plus Code o dirección", h_link_ph: "Enlace, «4.8312, -75.7612», «6R2F+5V Pereira» o la dirección", h_locate: "Ubicar", h_link_note: "Sirve el enlace largo de Google Maps (el de la barra del navegador), las coordenadas en cualquier formato (4.8312, -75.7612 · 4°49'52\"N 75°45'40\"W), el Plus Code que muestra Google en la ficha del lugar (6R2F+5V Pereira) o la dirección. Los enlaces cortos (maps.app.goo.gl) no traen la ubicación.",
+    h_tap: "Tocar en el mapa", cancel: "Cancelar", h_tap_b: "Toca el mapa donde queda «{0}»", h_nolink: "No pude ubicar eso. Prueba con las coordenadas o el Plus Code del hotel, o tócalo en el mapa.", h_set: "{0} ubicado en {1}", h_chosen: "Hotel elegido: {0}", h_added: "Agregado por el asesor",
+    h_tar: "Tarifario ET", h_tar_c: "ubicación aproximada · zona {0}", h_web: "En el mapa abierto (OpenStreetMap)", h_none_web: "No aparece en el mapa abierto: búscalo como dirección o ubícalo con un enlace, coordenadas o en el mapa.",
+    h_addr: "Buscar «{0}» como dirección", h_addr_ok: "Por dirección", h_addr_near: "No encontré la dirección completa; lo más cercano a «{0}»:", h_addr_none: "Tampoco encontré esa dirección: ubícalo con un enlace, coordenadas, Plus Code o en el mapa.",
+    h_coord: "Usar estas coordenadas: {1} ({0})", h_pin_name: "Alojamiento en {0}", h_addr_c: "ubicado por dirección", h_near_c: "ubicación aproximada (cerca de {0})", h_fix: "Ajustar en el mapa",
+    h_near_t: "{0}: ubicado cerca de «{1}» (aproximado). Si quieres el punto exacto, usa «Ajustar en el mapa».", h_short: "Ese es un enlace corto de Google Maps y no trae la ubicación. Ábrelo y copia la dirección completa de la barra del navegador, o el Plus Code del lugar, y pégalo aquí.",
     r4: "Tours por día", r_add: "Agregar tour", r_choose: "Elige un tour…", r_empty: "Agrega tours desde esta lista, desde el mapa o desde cada ficha.", remove: "Quitar", which_finca: "¿En qué finca?", where_q: "¿Dónde?", z_auto: "La más cercana al hotel{0}", z_munis: "Municipios donde opera", z_fincas: "Fincas aliadas", z_hint: "También puedes tocar su punto en el mapa.", z_pick: "toca para elegir", z_set: "{0}: {1}", op_in: "En {0}", fl_pick: "toca un punto para elegir dónde", finca_auto: "La más cercana al hotel (asignada por ET)",
     r5: "Recorrido", r_none: "Elige hotel y tours para ver el recorrido.", arr_leg: "Llegada {0} → {1}", arr_sub: "Traslado de llegada", dep_leg: "{0} → {1}", dep_sub: "Traslado de salida", go_back: "ida y regreso al hotel", per_leg: "c/trayecto",
     choose_hotel: "elige un hotel para calcular el trayecto", in_hotel: "En el hotel", finca_in: "Finca en {0}",
@@ -117,7 +121,9 @@ const UI = {
     al_long: "Día {0}: ≈ {1} entre tours y trayectos. Es una jornada muy larga: reparte los tours en otro día.", al_late: "Día {0}: el regreso al hotel sería hacia las {1}, muy tarde. Revisa si conviene pasar un tour a otro día.",
     al_arr: "Día 1 es el de llegada: el vuelo debe aterrizar en {1} a más tardar a las {2} para hacer «{0}».", al_arr_no: "Día 1 es el de llegada: «{0}» no alcanza ese día (el vuelo tendría que aterrizar en {1} antes de las 5:00 a. m.). Pásalo al Día 2.",
     sg_hint: "toca para ver u ocultar", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
-    k_tr: "Agregar la página de traslados (aeropuerto – hotel y entre ciudades)"
+    k_tr: "Agregar la página de traslados (aeropuerto – hotel y entre ciudades)",
+    g_lbl: "guía en {0}", g_match: "Tour de {0}: aplica la guianza de {1}.", g_add: "+ Sumar {0} a la ruta", g_in: "✓ {0} en la ruta (quitar)", g_on: "{0} sumada a la ruta · {1} (Día {2})", g_off: "{0} quitada de la ruta · {1}",
+    g_route: "Guía en otro idioma", g_none: "Sin suplemento de guianza", g_srv: "por servicio", g_row: "{0} · {1}", g_div: "{0} ÷ {1} pax"
   },
   en: {
     banner_dmc: "Espontáneos Travel PCCC Portfolio 2027 · DMCs", banner_nac: "Espontáneos Travel PCCC Portfolio 2027 · Wholesalers & Domestic Market",
@@ -170,10 +176,14 @@ const UI = {
     r_h: "Build a route", r_l: "Choose airport, hotel and tours. The route is drawn on the map with road distances, estimated times and the vehicle for your group size.",
     r1: "Group", r_pax: "Passengers", r_start: "First tour day", r_d1: "Day 1 (arrival day)", r_pick: "Choose…", r_pax_ph: "Number of passengers", ap_pick: "Choose the airport…", veh_need: "Enter the number of passengers to get a vehicle suggestion.", tot_need: "Enter the number of passengers to calculate the total.", day: "Day {0}", veh_sug: "Suggested vehicle", see_fleet: "see fleet",
     r2: "Arrival and departure", r_arr: "Arrival airport", r_dep: "Departure airport", no_tr: "No transfer",
-    r3: "Hotel", h_ph: "Type the hotel name…", h_note: "ET partner hotels come first. If it isn't there, search the open map (OpenStreetMap), paste its Google Maps link or tap it on the map.",
-    h_ally: "ET partner", h_recent: "Used before", h_osm: "Search «{0}» on the open map", h_new: "Locate «{0}» with a link or on the map", h_change: "Change", h_searching: "Searching…", h_none: "I couldn't find that hotel on the open map. Paste its Google Maps link or tap it on the map.",
-    h_place: "Locate «{0}»", h_link: "Paste the hotel's Google Maps link", h_link_ph: "https://www.google.com/maps/place/…", h_locate: "Locate", h_link_note: "Open the hotel in Google Maps and copy the full address from the browser bar. Short links (maps.app.goo.gl) carry no coordinates.",
-    h_tap: "Tap on the map", cancel: "Cancel", h_tap_b: "Tap the map where «{0}» is", h_nolink: "No coordinates found in that link", h_set: "{0} located in {1}", h_chosen: "Hotel chosen: {0}", h_added: "Added by the agent",
+    r3: "Hotel", h_ph: "Type the hotel name…", h_note: "ET partner hotels and hotels from the transfer rate sheet come first; the open map is also searched as you type. If it isn't there, search it as an address or locate it with its Google Maps link, its coordinates, its Plus Code or by tapping the map.",
+    h_ally: "ET partner", h_recent: "Used before", h_osm: "Search «{0}» on the open map", h_new: "Locate «{0}» with a link, coordinates, Plus Code or on the map", h_change: "Change", h_searching: "Searching…", h_none: "I couldn't find that hotel on the open map. Paste its Google Maps link or tap it on the map.",
+    h_place: "Locate «{0}»", h_link: "Google Maps link, coordinates, Plus Code or address", h_link_ph: "Link, «4.8312, -75.7612», «6R2F+5V Pereira» or the address", h_locate: "Locate", h_link_note: "Use the long Google Maps link (from the browser bar), coordinates in any format (4.8312, -75.7612 · 4°49'52\"N 75°45'40\"W), the Plus Code Google shows on the place card (6R2F+5V Pereira) or the address. Short links (maps.app.goo.gl) carry no location.",
+    h_tap: "Tap on the map", cancel: "Cancel", h_tap_b: "Tap the map where «{0}» is", h_nolink: "I couldn't locate that. Try the hotel's coordinates or Plus Code, or tap it on the map.", h_set: "{0} located in {1}", h_chosen: "Hotel chosen: {0}", h_added: "Added by the agent",
+    h_tar: "ET rate sheet", h_tar_c: "approximate location · {0} area", h_web: "On the open map (OpenStreetMap)", h_none_web: "Not on the open map: search it as an address or locate it with a link, coordinates or on the map.",
+    h_addr: "Search «{0}» as an address", h_addr_ok: "By address", h_addr_near: "I couldn't find the full address; closest to «{0}»:", h_addr_none: "I couldn't find that address either: locate it with a link, coordinates, Plus Code or on the map.",
+    h_coord: "Use these coordinates: {1} ({0})", h_pin_name: "Accommodation in {0}", h_addr_c: "located by address", h_near_c: "approximate location (near {0})", h_fix: "Adjust on the map",
+    h_near_t: "{0}: located near «{1}» (approximate). For the exact spot, use «Adjust on the map».", h_short: "That is a short Google Maps link and carries no location. Open it and copy the full address from the browser bar, or the place's Plus Code, and paste it here.",
     r4: "Tours per day", r_add: "Add tour", r_choose: "Choose a tour…", r_empty: "Add tours from this list, from the map or from each sheet.", remove: "Remove", which_finca: "Which farm?", where_q: "Where?", z_auto: "Closest to the hotel{0}", z_munis: "Municipalities where it operates", z_fincas: "Partner farms", z_hint: "You can also tap its point on the map.", z_pick: "tap to choose", z_set: "{0}: {1}", op_in: "In {0}", fl_pick: "tap a point to choose where", finca_auto: "The closest to the hotel (assigned by ET)",
     r5: "Itinerary", r_none: "Choose a hotel and tours to see the itinerary.", arr_leg: "Arrival {0} → {1}", arr_sub: "Arrival transfer", dep_leg: "{0} → {1}", dep_sub: "Departure transfer", go_back: "return trip from the hotel", per_leg: "each way",
     choose_hotel: "choose a hotel to calculate the trip", in_hotel: "At the hotel", finca_in: "Farm in {0}",
@@ -200,7 +210,9 @@ const UI = {
     al_long: "Day {0}: ≈ {1} of tours and driving. That is a very long day: spread the tours over another day.", al_late: "Day {0}: the group would be back at the hotel around {1}, which is late. Consider moving a tour to another day.",
     al_arr: "Day 1 is the arrival day: the flight must land at {1} by {2} at the latest to do «{0}».", al_arr_no: "Day 1 is the arrival day: «{0}» doesn't fit that day (the flight would have to land at {1} before 5:00 a.m.). Move it to Day 2.",
     sg_hint: "tap to show or hide", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
-    k_tr: "Add the transfers page (airport – hotel and between cities)"
+    k_tr: "Add the transfers page (airport – hotel and between cities)",
+    g_lbl: "guide in {0}", g_match: "{0} tour: the {1} guiding rate applies.", g_add: "+ Add {0} to the route", g_in: "✓ {0} in the route (remove)", g_on: "{0} added to the route · {1} (Day {2})", g_off: "{0} removed from the route · {1}",
+    g_route: "Guide in another language", g_none: "No guiding supplement", g_srv: "per service", g_row: "{0} · {1}", g_div: "{0} ÷ {1} pax"
   }
 };
 const L = () => (CTX && CTX.lang === "en" ? "en" : "es");
@@ -399,20 +411,60 @@ const G_NAMES = { es: ["Español", "Inglés", "Francés", "Italiano", "Alemán",
 const guideName = c => (G_NAMES[L()] || G_NAMES.es)[+c.slice(-3) - 6] || String((PR.svc.get(c)[0] || {}).nombre || c).split("·").pop().trim();
 const guideCols = () => [...new Set(GUIDES().flatMap(g => PR.svc.get(g).map(r => r.temporada)))];
 const guideCol = t => (L() === "en" ? String(t).replace(/horas/, "hours") : t);
-// En la ficha: «Suplemento de guianza en otros idiomas» se abre, se elige el idioma y salen sus valores
-function guideSup() {
+// La guianza que corresponde a la duración del tour (ET, nov-2026): hasta 4 h → columna «4 horas»; más de 4 h → «8 horas».
+// En los tours compartidos (tarifa única) es la guía en inglés SU-TC-GUIAEN (total por servicio). Se suma a la ruta por tour (campo g).
+const GUIDE_TC = "SU-TC-GUIAEN";
+const guideOpts = e => (e.tarifa_unica ? (PR.svc.has(GUIDE_TC) ? [GUIDE_TC] : []) : GUIDES());
+function guideColFor(e) { const want = (+e.hrs || 0) > 4 ? 8 : 4; return guideCols().find(t => parseInt(t, 10) === want) || null; }
+function guideVal(c, e) {
+  if (c === GUIDE_TC) return svcAt(c, 1);
+  const col = guideColFor(e), r = col && (PR.svc.get(c) || []).find(x => x.temporada === col); return r ? r.tarifa_neta : null;
+}
+// «guía en francés» / «guide in French»; la de invidentes va con su propio nombre
+const gLabel = c => { const n = guideName(c === GUIDE_TC ? "SU-ET007" : c); return c === "SU-ET012" ? n.toLowerCase() : tx("g_lbl", L() === "en" ? n : n.toLowerCase()); };
+const capFirst = x => String(x).charAt(0).toUpperCase() + String(x).slice(1);
+const routeGuide = id => { const t = S.R.tours.find(x => x.id === id); return (t && t.g) || ""; };
+// En la ficha: «Suplemento de guianza en otros idiomas» se abre, se elige el idioma y sale solo el valor de la duración del tour
+function guideSup(e) {
   const g = GUIDES(); if (!g.length) return "";
-  const def = g.includes("SU-ET007") ? "SU-ET007" : g[0];
-  return `<details class="gsup"><summary>${tx("g_sup")}</summary>
+  const cur = routeGuide(e.id), def = g.includes(cur) ? cur : g.includes("SU-ET007") ? "SU-ET007" : g[0];
+  return `<details class="gsup"${cur ? " open" : ""}><summary>${tx("g_sup")}</summary>
     <label class="field">${tx("g_lang")}<select data-r="gsel">${g.map(c => `<option value="${c}"${c === def ? " selected" : ""}>${esc(guideName(c))}</option>`).join("")}</select></label>
-    <div data-r="gvals" aria-live="polite">${guideVals(def)}</div></details>`;
+    <div data-r="gvals" aria-live="polite">${guideVals(def, e)}</div><div class="gaddw">${gAddBtn(e, def)}</div></details>`;
 }
-function guideVals(c) {
-  const rows = PR.svc.get(c) || [];
-  return `<dl class="gvals">${guideCols().map(t => { const r = rows.find(x => x.temporada === t); return `<div><dt>${esc(guideCol(t))}</dt><dd>${r ? cop(r.tarifa_neta) : "N/A"}</dd></div>`; }).join("")}</dl>
+function guideVals(c, e) {
+  const rows = PR.svc.get(c) || [], col = guideColFor(e);
+  if (!col) return `<dl class="gvals">${guideCols().map(t => { const r = rows.find(x => x.temporada === t); return `<div><dt>${esc(guideCol(t))}</dt><dd>${r ? cop(r.tarifa_neta) : "N/A"}</dd></div>`; }).join("")}</dl>
     <small class="sub"><span class="code">${esc(c)}</span> · ${tx("g_note")}</small>`;
+  const v = guideVal(c, e);
+  return `<dl class="gvals"><div><dt>${esc(guideCol(col))}</dt><dd>${v != null ? cop(v) : "N/A"}</dd></div></dl>
+    <small class="sub"><span class="code">${esc(c)}</span> · ${tx("g_note")}. ${esc(tx("g_match", tr(e, "dur"), guideCol(col)))}</small>`;
 }
-function bindGuideSup(f) { const s = f.querySelector("[data-r=gsel]"); if (s) s.addEventListener("change", () => { f.querySelector("[data-r=gvals]").innerHTML = guideVals(s.value); }); }
+const gAddBtn = (e, c) => { const on = routeGuide(e.id) === c; return `<button type="button" class="btn ghost sm" data-r="gadd" data-gc="${esc(c)}" aria-pressed="${on}">${esc(on ? tx("g_in", capFirst(gLabel(c))) : tx("g_add", gLabel(c)))}</button>`; };
+// Sumar (o quitar) la guianza de un tour en la ruta; si el tour no estaba, entra también
+function toggleGuide(id, c) {
+  const e = byId[id]; let t = S.R.tours.find(x => x.id === id);
+  if (t && t.g === c) { t.g = ""; saveR(); renderRoute(); toast(tx("g_off", capFirst(gLabel(c)), tr(e, "name"))); return; }
+  if (!t) { toggleTour(id); t = S.R.tours.find(x => x.id === id); }
+  t.g = c; saveR(); renderRoute(); toast(tx("g_on", capFirst(gLabel(c)), tr(e, "name"), t.day), 4000);
+}
+function bindGuideSup(f, e) {
+  const s = f.querySelector("[data-r=gsel]");
+  const sync = () => {
+    f.querySelectorAll("[data-r=gadd]").forEach(b => { if (s && b.closest(".gsup")) b.dataset.gc = s.value; const c = b.dataset.gc, on = routeGuide(e.id) === c;
+      b.setAttribute("aria-pressed", String(on)); b.textContent = on ? tx("g_in", capFirst(gLabel(c))) : tx("g_add", gLabel(c)); });
+    const a = f.querySelector(".aside [data-add]"); if (a) { const on = inRoute(e.id); a.setAttribute("aria-pressed", String(on)); a.textContent = on ? tx("in_route") : tx("add_route_l"); }
+  };
+  if (s) s.addEventListener("change", () => { f.querySelector("[data-r=gvals]").innerHTML = guideVals(s.value, e); sync(); });
+  f.querySelectorAll("[data-r=gadd]").forEach(b => b.addEventListener("click", () => { toggleGuide(e.id, b.dataset.gc); sync(); }));
+  f.querySelectorAll(".aside [data-add]").forEach(b => b.addEventListener("click", sync));   // quitar el tour quita también su guía
+}
+// En «Arma tu ruta»: guía en otro idioma por tour (con el valor de su duración)
+function guideSel(e, t) {
+  const col = e.tarifa_unica ? null : guideColFor(e);
+  return `<div class="fsel gsel"><label class="field">${tx("g_route")}${col ? ` · ${esc(guideCol(col))}` : ""}<select data-gsel="${e.id}"><option value="">${tx("g_none")}</option>${guideOpts(e).map(c => { const v = guideVal(c, e);
+    return `<option value="${c}"${t.g === c ? " selected" : ""}>${esc(capFirst(gLabel(c)))}${v != null && !S.wl ? ` · +${cop(v)} ${tx("g_srv")}` : ""}</option>`; }).join("")}</select></label></div>`;
+}
 function tarLabel() {
   const base = CTX.tier === "nac" ? tx("tar_nac") : tx("tar_dmc");
   if (!PR.tours.size && !PR.svc.size) return base + " · " + tx("tar_none");
@@ -432,27 +484,81 @@ function buildHotels(list) {
     const c = muniCenter(m[2]); if (!c) continue;
     push({ id: code, name: m[1], muni: norm(m[2]), concept: m[3] || "", lat: c[0] + 0.004, lon: c[1] + 0.004, et: true });
   }
+  tarHotels(out).forEach(push);
   const rec = ls.get("pf27-hoteles", []);
-  (Array.isArray(rec) ? rec : []).filter(okHotel).forEach(h => push(Object.assign({}, h, { muni: norm(h.muni || ""), et: false, recent: true })));
+  (Array.isArray(rec) ? rec : []).filter(okHotel).forEach(h => push(Object.assign({}, h, { muni: norm(h.muni || ""), et: false, tar: false, recent: true })));
   return out;
 }
+// Hoteles que nombran las notas del tarifario de traslados («…e incluye: Sazagua y San Carlos Lodge», «HOTELES EN COCORA: (…)») y que no son
+// aliados: entran con ubicación aproximada (centro de la zona del traslado) y con ese traslado (tr), para que el total use el código correcto.
+// Solo con un tarifario que traiga esas notas (hoy el DMC).
+const titleCase = x => String(x).toLowerCase().replace(/(^|[\s-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()).replace(/ (O|Y|De|Del) /g, m => m.toLowerCase());
+function tarHotels(have) {
+  const keys = have.map(h => hKey(h.name)), known = k => keys.some(x => x === k || (k.length >= 6 && lev1(x, k)));
+  const out = new Map();
+  for (const [code, rows] of PR.svc) {
+    const ap = (/^ET-(AXM|PEI)\d/.exec(code) || [])[1]; if (!ap) continue;
+    const raw = String(rows.map(r => r.notas).find(Boolean) || "").trim(); if (!raw) continue;
+    const coc = /^HOTELES EN COCORA:\s*\(?(.+?)\)?\.?$/i.exec(raw), inc = /incluye:\s*(.+)$/i.exec(raw);
+    const list = coc ? coc[1] : inc ? inc[1] : ""; if (!list) continue;
+    const munis = (coc ? ["SALENTO"] : zonesOf(trayName(code))).filter(m => M.mc[m]); if (!munis.length) continue;
+    const lat = munis.reduce((a, m) => a + M.mc[m][0], 0) / munis.length, lon = munis.reduce((a, m) => a + M.mc[m][1], 0) / munis.length;
+    list.split(/\s*,\s*|\s+y\s+/i).map(x => x.trim()).filter(x => x.length > 2).forEach(nm0 => {
+      const k = hKey(nm0); if (!k || known(k)) return;
+      const dup = [...out.keys()].find(x => x === k || (k.length >= 6 && lev1(x, k)));
+      if (dup) { const h = out.get(dup); h.tr[ap] = h.tr[ap] || code; return; }
+      out.set(k, { id: "tar-" + k.toLowerCase(), name: titleCase(nm0), muni: nearestMuni(lat, lon), concept: tx("h_tar_c", munis.map(MUNI_LABEL).join(", ")), lat, lon, et: false, tar: true, approx: true, tr: { [ap]: code } });
+    });
+  }
+  return [...out.values()];
+}
+// Búsqueda tolerante: sin tildes, en cualquier orden, por el comienzo de cada palabra, con una letra de error
+// y sin exigir palabras genéricas («hotel», «casa», «finca»…); «biohabitat» también encuentra «Bio Habitat».
+const H_GEN = new Set(["HOTEL", "HOTELES", "ECOHOTEL", "LODGE", "ECOLODGE", "RESORT", "HACIENDA", "CASA", "FINCA", "GLAMPING", "CAMPESTRE", "BOUTIQUE", "EL", "LA", "LOS", "LAS", "DE", "DEL", "Y", "O"]);
+const hToks = x => norm(x).replace(/[^A-Z0-9 ]+/g, " ").split(/\s+/).filter(Boolean);
+const hKey = x => hToks(x).filter(t => !H_GEN.has(t)).join("");
+function lev1(a, b) {
+  if (a === b) return true; if (Math.abs(a.length - b.length) > 1) return false;
+  let i = 0, j = 0, d = 0;
+  while (i < a.length && j < b.length) { if (a[i] === b[j]) { i++; j++; continue; } if (++d > 1) return false; if (a.length > b.length) i++; else if (b.length > a.length) j++; else { i++; j++; } }
+  return d + (a.length - i) + (b.length - j) <= 1;
+}
+function hotelScore(h, qt) {
+  const ht = hToks(`${h.name} ${MUNI_LABEL(h.muni)}`), hk = hKey(h.name); let sc = 0;
+  for (const t of qt) {
+    if (ht.some(x => x.startsWith(t))) sc += 2;
+    else if (hk.includes(t)) sc += 1.5;
+    else if (t.length >= 4 && ht.some(x => x.length >= 4 && (lev1(x, t) || lev1(x.slice(0, t.length), t)))) sc += 1;
+    else if (!H_GEN.has(t)) return 0;
+  }
+  return sc + .1;
+}
+const hRank = h => (h.et ? 0 : h.tar ? 1 : h.recent ? 2 : 3);
+function hotelHits(raw) {
+  const qt = hToks(raw).filter(t => t.length > 1);
+  return HOTELS.map(h => [h, qt.length ? hotelScore(h, qt) : 1]).filter(x => x[1] > 0)
+    .sort((a, b) => b[1] - a[1] || hRank(a[0]) - hRank(b[0]) || a[0].name.localeCompare(b[0].name, "es")).map(x => x[0]);
+}
 function rememberHotel(h) {
-  if (h.et) return;
+  if (h.et || h.tar) return;
   const prev = ls.get("pf27-hoteles", []);
   const list = (Array.isArray(prev) ? prev : []).filter(x => okHotel(x) && norm(x.name) !== norm(h.name));
-  list.unshift({ id: h.id, name: h.name, muni: h.muni, concept: h.concept || "", lat: h.lat, lon: h.lon });
-  ls.set("pf27-hoteles", list.slice(0, 12));
+  list.unshift({ id: h.id, name: h.name, muni: h.muni, concept: h.concept || "", lat: h.lat, lon: h.lon, approx: !!h.approx });
+  ls.set("pf27-hoteles", list.slice(0, 30));
 }
 
 /* ---------- ruta guardada en el navegador: se valida al leerla (puede venir dañada o de otra versión) ---------- */
 const okHotel = h => h && typeof h.name === "string" && isFinite(h.lat) && isFinite(h.lon) && typeof (h.muni || "") === "string";
+// Traslados propios de un hotel del tarifario: { AXM: "ET-…", PEI: "ET-…" }
+const okTr = tr => (tr && typeof tr === "object" ? Object.fromEntries(["AXM", "PEI"].filter(k => typeof tr[k] === "string" && /^ET-[A-Z0-9-]{3,20}$/.test(tr[k])).map(k => [k, tr[k]])) : null);
 function sanitizeR(R) {
   R.pax = Math.round(+R.pax) >= 1 ? Math.min(30, Math.round(+R.pax)) : 0;
   R.start = +R.start === 1 || +R.start === 2 ? +R.start : 0;
   const apOk = a => a === "" || D.airports.some(x => x.id === a);
   if (!apOk(R.arr)) R.arr = null; if (!apOk(R.dep)) R.dep = null;
-  R.tours = (Array.isArray(R.tours) ? R.tours : []).filter(t => t && byId[t.id]).map(t => ({ id: t.id, day: Math.min(12, Math.max(1, Math.round(+t.day) || 2)), z: typeof t.z === "string" && (byId[t.id].zones || []).includes(t.z) ? t.z : "" }));
-  R.hotel = okHotel(R.hotel) ? Object.assign({}, R.hotel, { muni: String(R.hotel.muni || ""), name: String(R.hotel.name) }) : null;
+  R.tours = (Array.isArray(R.tours) ? R.tours : []).filter(t => t && byId[t.id]).map(t => ({ id: t.id, day: Math.min(12, Math.max(1, Math.round(+t.day) || 2)), z: typeof t.z === "string" && (byId[t.id].zones || []).includes(t.z) ? t.z : "",
+    g: typeof t.g === "string" && (GUIDE_RE.test(t.g) || t.g === GUIDE_TC) && PR.svc.has(t.g) ? t.g : "" }));
+  R.hotel = okHotel(R.hotel) ? Object.assign({}, R.hotel, { muni: String(R.hotel.muni || ""), name: String(R.hotel.name), tr: okTr(R.hotel.tr) }) : null;
   if (typeof R.finca !== "string" || (R.finca && !finById[R.finca])) R.finca = "";
   if (typeof R.veh !== "string" || !D.vehicles.some(v => v.id === R.veh)) R.veh = "";
   return R;
@@ -956,7 +1062,7 @@ function uniBox(e, r) {
   const g = svcAt("SU-TC-GUIAEN", 1);
   return `<div class="box netbox uni" id="pf-f-rate"><span class="eyebrow">${tx("tu_rate")}</span><div class="big" data-r="net">${cop(r.tarifa_neta)}</div>
     <small>${tx("tu_pp")}</small>${notes ? `<ul class="rnotes">${notes}</ul>` : ""}<small>${esc(tx("tu_vig", e.anio || VIG))}</small>
-    <div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${g != null ? `<ul><li>${tx("g_en")}: ${cop(g)} ${tx("g_en_v")}</li></ul>` : ""}
+    <div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${g != null ? `<ul><li>${tx("g_en")}: ${cop(g)} ${tx("g_en_v")}</li></ul><div class="gaddw">${gAddBtn(e, GUIDE_TC)}</div>` : ""}
       <button type="button" class="btn ghost sm" data-r="ctrgo">${ic("bus", "sm")}${tx("ctr_go")}</button></div></div>`;
 }
 // Ir al capítulo (y a su tabla de traslados): desde la ficha o con portal.html#tours-compartidos
@@ -1103,7 +1209,7 @@ function openFicha(id, how) {
       ${!wl && e.tarifa_unica && rate ? uniBox(e, rate) : ""}${!wl && !(e.tarifa_unica && rate) ? `<div class="box netbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><div class="big" data-r="net">${rate ? cop(rate.tarifa_neta) : tx("ask")}</div>
         <label>${tx("pax")} <input type="range" data-r="paxr" min="1" max="30" value="${pax0}"> <b data-r="paxn">${pax0}</b></label>
         <small>${esc(tarLabel())}. ${tx("per_pax")}.${rate && rate.temporada ? " " + esc(rate.temporada) + "." : ""}</small>${rate && rate._de ? `<span class="pill">${esc(tx("carry", rate._de, VIG))}</span>` : ""}
-        ${p.supl.length || GUIDES().length ? `<div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${p.supl.length ? `<ul>${p.supl.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${guideSup()}</div>` : ""}</div>` : ""}
+        ${p.supl.length || GUIDES().length ? `<div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${p.supl.length ? `<ul>${p.supl.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${guideSup(e)}</div>` : ""}</div>` : ""}
       <div class="btnrow col"><button type="button" class="btn add" data-add="${id}" aria-pressed="${inRoute(id)}">${inRoute(id) ? tx("in_route") : tx("add_route_l")}</button>
         ${CTX.onRequest && !wl ? `<button type="button" class="btn ghost" data-r="freq">${ic("send", "sm")}${tx("request")}</button>` : ""}</div>
       ${(!wl && p.impacto) || e.com || e.cord ? `<div class="box impact"><span class="eyebrow">${tx("impact")}</span><p>${!wl && p.impacto ? `<b>${esc(impName(p.impacto))}</b>` : ""}${e.com ? `<span>${esc(tx("com_txt"))}</span>` : ""}${e.cord ? `<span>${esc(tx("cord_txt"))}</span>` : ""}</p></div>` : ""}
@@ -1122,7 +1228,7 @@ function openFicha(id, how) {
   const sz = $r("seez"); if (sz) sz.addEventListener("click", () => { closeFicha("swap"); mapShow(true, true); animateTo(boxToVB(...VIEWS.eje)); openPop(id); });
   if ($r("freq")) $r("freq").addEventListener("click", () => { closeFicha("swap"); CTX.onRequest({ tours: [{ tour_id: e.id, codigo: e.code, nombre: e.name }] }); });
   bindAdd(f);
-  bindGuideSup(f);
+  bindGuideSup(f, e);
   if (how !== "hist" && how !== "redraw") navMark({ pf: S.tab, ficha: id, lb: tr(e, "name") }, !how, "#ficha=" + id);
   f.querySelector("[data-r=fx]").focus({ preventScroll: true });
 }
@@ -1322,10 +1428,10 @@ function buildRoute() {
   const R = S.R, h = R.hotel, legs = []; let n = 0;
   if (h && apById(R.arr)) { const a = apById(R.arr), i = legInfo([a.lat, a.lon], [h.lat, h.lon]); legs.push({ type: "t", day: 1, n: ++n, from: [a.lat, a.lon], to: [h.lat, h.lon], title: tx("arr_leg", a.id, h.name), sub: tx("arr_sub"), ...i }); }
   const tours = R.tours.slice().sort((x, y) => x.day - y.day);
-  tours.forEach(t => { const e = byId[t.id]; if (!h) { const p0 = tourPoint(e, null, t.z); legs.push({ type: "x", day: t.day, n: ++n, title: tr(e, "name"), sub: e.deptos + " · " + tx("choose_hotel"), nohotel: true, to: [p0.lat, p0.lon] }); return; }
+  tours.forEach(t => { const e = byId[t.id]; if (!h) { const p0 = tourPoint(e, null, t.z); legs.push({ type: "x", day: t.day, n: ++n, title: tr(e, "name"), sub: e.deptos + " · " + tx("choose_hotel") + (t.g ? " · " + gLabel(t.g) : ""), nohotel: true, to: [p0.lat, p0.lon] }); return; }
     const tp = tourPoint(e, h, t.z); const pts = [[h.lat, h.lon], ...(e.stops || []).map(s => [s[0], s[1]]), [tp.lat, tp.lon]];
     let km = 0, min = 0; for (let i = 1; i < pts.length; i++) { const li = legInfo(pts[i - 1], pts[i]); km += li.km; min += li.min; }
-    legs.push({ type: "x", day: t.day, n: ++n, pts, to: [tp.lat, tp.lon], title: tr(e, "name"), sub: `${tp.label} · ${String(tr(e, "dur")).toLowerCase()} · ${tx("go_back")}`, km, min, id: e.id }); });
+    legs.push({ type: "x", day: t.day, n: ++n, pts, to: [tp.lat, tp.lon], title: tr(e, "name"), sub: `${tp.label} · ${String(tr(e, "dur")).toLowerCase()} · ${tx("go_back")}${t.g ? " · " + gLabel(t.g) : ""}`, km, min, id: e.id }); });
   if (h && apById(R.dep)) { const a = apById(R.dep), i = legInfo([h.lat, h.lon], [a.lat, a.lon]); const lastDay = Math.max(R.start, ...tours.map(t => t.day)) + 1;
     legs.push({ type: "t", day: lastDay, n: ++n, from: [h.lat, h.lon], to: [a.lat, a.lon], title: tx("dep_leg", h.name, a.id), sub: tx("dep_sub"), ...i }); }
   return legs;
@@ -1402,6 +1508,7 @@ function routeSvg(u) {
   return s + nums;
 }
 function transferCode(h, ap) {
+  if (h.tr && typeof h.tr[ap] === "string" && PR.svc.has(h.tr[ap])) return h.tr[ap];   // hotel nombrado en la nota de ese traslado
   const Z = D.zonas, mk = norm(h.muni || "");
   const g = h.zone || Z.grupos_por_municipio[mk] || (M.mdep[mk] === "66" ? "G4" : M.mdep[mk] === "17" ? "G5" : null);
   const rule = Z.reglas[ap];
@@ -1413,7 +1520,9 @@ function routeTotals() {
     if (v != null) { total += v; rows.push({ t: lbl, c, v: cop(v) }); } else { quote = true; rows.push({ t: `${lbl} (${a})`, v: tx("quote") }); } });
   R.tours.slice().sort((a, b) => a.day - b.day).forEach(t => { const e = byId[t.id]; const v = priceAt(e.id, p);
     if (v == null) { quote = true; rows.push({ t: tr(e, "name"), v: tx("ask") }); } else { total += v; rows.push({ t: tr(e, "name"), v: cop(v) }); }
-    if (e.id === "finca" && R.finca && finById[R.finca] && finById[R.finca].sup) { const f = finById[R.finca]; total += f.sup; rows.push({ t: tx("sup_of", f.name), v: cop(f.sup) }); } });
+    if (e.id === "finca" && R.finca && finById[R.finca] && finById[R.finca].sup) { const f = finById[R.finca]; total += f.sup; rows.push({ t: tx("sup_of", f.name), v: cop(f.sup) }); }
+    if (t.g) { const gv = guideVal(t.g, e), gl = tx("g_row", capFirst(gLabel(t.g)), tr(e, "name"));
+      if (gv == null) { quote = true; rows.push({ t: gl, v: tx("ask") }); } else { const pp = Math.round(gv / Math.max(1, p)); total += pp; rows.push({ t: `${gl} (${tx("g_div", cop(gv), Math.max(1, p))})`, v: cop(pp) }); } } });
   if (vehChosen()) { quote = true; rows.push({ t: tx("veh_row", vehName(routeVeh())), v: tx("quote") }); }
   return { rows, total, quote };
 }
@@ -1430,12 +1539,13 @@ function renderRoute() {
     <div class="ti-t"><b>${esc(tr(e, "name"))}</b><br><span class="sub">${esc(tr(e, "dur"))} · <span class="money">${v == null ? (R.pax ? tx("ask_rate") : "—") : cop(v) + " pp"}</span></span></div>
     <div class="ti-a"><select data-day="${e.id}" aria-label="${esc(tx("day", ""))}">${[...Array(12)].map((_, i) => `<option ${i + 1 === t.day ? "selected" : ""} value="${i + 1}">${tx("day", i + 1)}</option>`).join("")}</select>
     <button type="button" class="iconbtn" data-rm="${e.id}" aria-label="${esc(tx("remove"))}: ${esc(tr(e, "name"))}">${ic("x", "sm")}</button></div></div>
-    ${!S.wl && (e.zones || (e.id === "finca" && FINCAS.length)) ? whereSel(e, t) : ""}`; }).join("")
+    ${!S.wl && (e.zones || (e.id === "finca" && FINCAS.length)) ? whereSel(e, t) : ""}${guideOpts(e).length ? guideSel(e, t) : ""}`; }).join("")
     : `<p class="empty">${tx("r_empty")}</p>`;
   $r("radd").innerHTML = `<option value="">${tx("r_choose")}</option>` + Object.keys(D.cats).map(k => `<optgroup label="${esc(catName(k))}">${EXP.filter(e => e.cat === k && !inRoute(e.id)).map(e => `<option value="${e.id}">${esc(tr(e, "name"))}</option>`).join("")}</optgroup>`).join("");
   $r("rtours").querySelectorAll("[data-day]").forEach(s => s.addEventListener("change", () => { S.R.tours.find(t => t.id === s.dataset.day).day = +s.value; saveR(); renderRoute(); floatRoute();
     const a = routeAlerts().find(x => x.day === +s.value && x.lv === "warn"); if (a) toast(a.txt, 7000); }));
   $r("rtours").querySelectorAll("[data-rm]").forEach(b => b.addEventListener("click", () => { toggleTour(b.dataset.rm); floatRoute(); }));
+  $r("rtours").querySelectorAll("[data-gsel]").forEach(sel => sel.addEventListener("change", () => { const t = S.R.tours.find(x => x.id === sel.dataset.gsel); if (!t) return; t.g = sel.value; saveR(); renderRoute(); }));
   $r("rtours").querySelectorAll("[data-zsel]").forEach(sel => { sel.value = sel.dataset.cur; sel.addEventListener("change", () => {
     const id = sel.dataset.zsel, t = S.R.tours.find(x => x.id === id), v = sel.value; if (!t) return;
     if (id === "finca") S.R.finca = v.startsWith("f:") ? v.slice(2) : "";
@@ -1503,71 +1613,177 @@ function closeFloat() {
   fl.hidden = true; $r("rlay").classList.remove("dock"); $r("rlay").parentElement.classList.remove("docked"); svg.removeAttribute("aria-hidden"); $r("mapwrap").prepend(svg); VB = fitAspect(VB); commitVB();
 }
 
-/* ---------- hotel: aliados → usados antes → mapa abierto (OpenStreetMap) → enlace de Google Maps o tocar el mapa ---------- */
-function setHotel(h) { S.R.hotel = { id: h.id, name: h.name, muni: h.muni, concept: h.concept || "", zone: h.zone || null, lat: h.lat, lon: h.lon, et: !!h.et }; rememberHotel(h); saveR(); hotelBoxes(); floatRoute(); }
+/* ---------- hotel: aliados y del tarifario → usados antes → mapa abierto → dirección → enlace, coordenadas, Plus Code o tocar el mapa ----------
+   Mientras se escribe se consulta Photon (photon.komoot.io, OpenStreetMap, hecho para buscar al escribir). Nominatim no permite autocompletar
+   (política de uso): solo se le pregunta al pedir «Buscar como dirección» o al «Ubicar», y como máximo una vez por segundo. */
+function setHotel(h) { S.R.hotel = { id: h.id, name: h.name, muni: h.muni, concept: h.concept || "", zone: h.zone || null, lat: h.lat, lon: h.lon, et: !!h.et, tar: !!h.tar, approx: !!h.approx, tr: okTr(h.tr) }; rememberHotel(h); saveR(); hotelBoxes(); floatRoute(); }
 // Dos buscadores con el mismo hotel: «Arma tu ruta» (key "r") y «Cercanas a mi hotel» en Experiencias (key "n")
 const hotelBoxes = () => { renderRoute(); renderList(); };
+const KIND = { hotel: ["Hotel", "Hotel"], guest_house: ["Posada", "Guest house"], hostel: ["Hostal", "Hostel"], motel: ["Motel", "Motel"], chalet: ["Cabaña", "Chalet"], apartment: ["Apartamento", "Apartment"],
+  camp_site: ["Camping / glamping", "Campsite / glamping"], caravan_site: ["Camping", "Campsite"], resort: ["Resort", "Resort"], holiday_village: ["Centro vacacional", "Holiday village"] };
+const kindName = o => (KIND[o.val] ? KIND[o.val][L() === "en" ? 1 : 0] : "");
+const GEO_C = new Map();
+const wait = ms => new Promise(r => setTimeout(r, ms));
+async function photonSearch(text) {
+  const k = "p:" + text; if (GEO_C.has(k)) return GEO_C.get(k);
+  let out = [];
+  try {
+    const r = await fetch("https://photon.komoot.io/api/?limit=10&lat=4.6&lon=-75.7&bbox=-76.6,3.3,-74.8,5.7&q=" + encodeURIComponent(text));
+    const j = r.ok ? await r.json() : null;
+    out = ((j && j.features) || []).map(f => { const q = f.properties || {}, g = (f.geometry || {}).coordinates || [];
+      return { id: String(q.osm_type || "") + (q.osm_id || ""), name: String(q.name || ""), lat: +g[1], lon: +g[0], key: String(q.osm_key || ""), val: String(q.osm_value || ""),
+        addr: [q.street && q.street + (q.housenumber ? " " + q.housenumber : ""), q.district || q.locality, q.city || q.county, q.state].filter(Boolean).join(", ") }; })
+      .filter(x => x.name && isFinite(x.lat) && isFinite(x.lon) && !/^(waterway|natural|railway|power|man_made|landuse)$/.test(x.key))
+      .sort((a, b) => (KIND[b.val] ? 2 : b.key === "tourism" ? 1 : 0) - (KIND[a.val] ? 2 : a.key === "tourism" ? 1 : 0)).slice(0, 8);
+  } catch (e) { out = []; }
+  GEO_C.set(k, out); return out;
+}
+async function nominatimSearch(text) {
+  const k = "n:" + text; if (GEO_C.has(k)) return GEO_C.get(k);
+  let out = [];
+  try {
+    const r = await fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&countrycodes=co&accept-language=es&viewbox=-76.6,5.7,-74.8,3.3&bounded=1&q=" + encodeURIComponent(text), { headers: { Accept: "application/json" } });
+    const j = r.ok ? await r.json() : [];
+    out = (j || []).map(x => ({ id: x.place_id, name: x.name || String(x.display_name || "").split(",")[0], lat: +x.lat, lon: +x.lon, key: x.category || "", val: x.type || "", addr: String(x.display_name || "").split(",").slice(1, 4).join(",").trim() }))
+      .filter(x => isFinite(x.lat) && isFinite(x.lon));
+  } catch (e) { out = []; }
+  GEO_C.set(k, out); return out;
+}
+// Dirección: completa y, si no aparece, recortada desde el principio
+// («Casa X by Y, vía Marsella #Km 6, Pereira, Risaralda» → «vía Marsella, Pereira, Risaralda» → «Pereira, Risaralda»)
+async function geocodeAddr(text) {
+  const clean = String(text || "").replace(/#/g, " ").replace(/\b(km|kil[oó]metro)\s*\d+(?:[.,]\d+)?/gi, " ").replace(/\s{2,}/g, " ").replace(/\s+,/g, ",").trim();
+  const parts = clean.split(/\s*[,;]\s*/).map(x => x.trim()).filter(Boolean);
+  for (let i = 0; i < parts.length; i++) {
+    const q = parts.slice(i).join(", ");
+    if (/^(colombia|risaralda|quind[ií]o|caldas|valle(\sdel\scauca)?|tolima)(,\s*colombia)?$/i.test(q)) break;
+    if (i) await wait(1100);
+    const items = await nominatimSearch(q);
+    if (items.length) return { items, match: q, exact: i === 0 };
+  }
+  return { items: [], match: "", exact: false };
+}
 function renderHotelBox(box = $r("rhbox"), key = "r") {
   const h = S.R.hotel, $h = n => box.querySelector(`[data-h="${n}"]`), placing = S.newName && S.newFor === key;
   if (h && !placing) {
-    box.innerHTML = `<div class="hsel">${ic("hotel")}<span><b>${esc(h.name)}</b><br><span class="sub">${esc(MUNI_LABEL(h.muni))}${h.concept ? " · " + esc(h.concept) : ""}${h.et ? ` · <span class="ally">${tx("h_ally")}</span>` : ""}</span></span><button type="button" class="btn ghost sm" data-h="change">${tx("h_change")}</button></div>`;
+    box.innerHTML = `<div class="hsel">${ic("hotel")}<span><b>${esc(h.name)}</b><br><span class="sub">${esc(MUNI_LABEL(h.muni))}${h.concept ? " · " + esc(h.concept) : ""}${h.et ? ` · <span class="ally">${tx("h_ally")}</span>` : h.tar ? ` · <span class="ally tar">${tx("h_tar")}</span>` : ""}</span></span>
+      <span class="hsel-a">${h.approx ? `<button type="button" class="btn ghost sm" data-h="fix">${ic("pin", "sm")}${tx("h_fix")}</button>` : ""}<button type="button" class="btn ghost sm" data-h="change">${tx("h_change")}</button></span></div>`;
     $h("change").addEventListener("click", () => { S.R.hotel = null; saveR(); hotelBoxes(); setTimeout(() => { const q = $h("q"); if (q) q.focus(); }, 0); });
+    if ($h("fix")) $h("fix").addEventListener("click", () => { S.fixFrom = h; S.newName = h.name; S.newFor = key; renderHotelBox(box, key); startPlacing(); });
     return;
   }
   if (placing) {
     box.innerHTML = `<div class="newh"><b>${esc(tx("h_place", S.newName))}</b>
-      <label class="field">${tx("h_link")}<div class="inrow"><input data-h="link" placeholder="${esc(tx("h_link_ph"))}" inputmode="url"><button type="button" class="btn" data-h="linkok">${tx("h_locate")}</button></div></label>
-      <span class="note">${tx("h_link_note")}</span>
+      <label class="field">${tx("h_link")}<div class="inrow"><input data-h="link" placeholder="${esc(tx("h_link_ph"))}" autocomplete="off"><button type="button" class="btn" data-h="linkok">${tx("h_locate")}</button></div></label>
+      <span class="note">${esc(tx("h_link_note"))}</span>
       <div class="btnrow"><button type="button" class="btn ghost" data-h="tap">${ic("pin", "sm")}${tx("h_tap")}</button><button type="button" class="btn ghost" data-h="cancel">${tx("cancel")}</button></div></div>`;
-    $h("linkok").addEventListener("click", () => { const c = parseMaps($h("link").value); if (c) finishNewHotel(c[0], c[1]); else toast(tx("h_nolink")); });
+    const go = async () => {
+      const raw = $h("link").value.trim(); if (!raw) { $h("link").focus(); return; }
+      const c = parseCoords(raw); if (c) { finishNewHotel(c[0], c[1]); return; }
+      if (/(maps\.app\.goo\.gl|goo\.gl\/maps|g\.co\/kgs)/i.test(raw)) { toast(tx("h_short"), 9000); return; }
+      const b = $h("linkok"); b.disabled = true; b.textContent = tx("h_searching");
+      const g = await geocodeAddr(raw);
+      if (!b.isConnected) return; b.disabled = false; b.textContent = tx("h_locate");
+      if (g.items.length) finishNewHotel(g.items[0].lat, g.items[0].lon, g.exact ? "" : g.match); else toast(tx("h_nolink"), 7000);
+    };
+    $h("linkok").addEventListener("click", go);
+    $h("link").addEventListener("keydown", ev => { if (ev.key === "Enter") { ev.preventDefault(); go(); } });
     $h("tap").addEventListener("click", startPlacing);
-    $h("cancel").addEventListener("click", () => { S.newName = ""; stopPlacing(); renderHotelBox(box, key); });
+    $h("cancel").addEventListener("click", () => { S.newName = ""; S.fixFrom = null; stopPlacing(); renderHotelBox(box, key); });
     return;
   }
   box.innerHTML = `<div class="combo-in"><label class="field">${tx("r3")}<input data-h="q" type="search" autocomplete="off" placeholder="${esc(tx("h_ph"))}" role="combobox" aria-expanded="false" aria-controls="pf-hs-${key}" aria-autocomplete="list"></label><div class="sugg" id="pf-hs-${key}" data-h="s" role="listbox" hidden></div></div>`;
   const q = $h("q"), sg = $h("s");
-  let osm = null, osmQ = "";
+  let web = [], webQ = "", geo = { items: [] }, geoQ = "", geoBusy = "", seq = 0, tm = 0;
   const pick = b => {
-    if (b.dataset.pick) { const h = HOTELS.find(x => x.id === b.dataset.pick); if (h) setHotel(h); }
-    else if (b.dataset.osm != null) { const o = osm[+b.dataset.osm]; setHotel({ id: "osm" + o.id, name: o.name, muni: nearestMuni(o.lat, o.lon), concept: o.type, lat: o.lat, lon: o.lon }); }
-    else if (b.dataset.search) searchOsm(q.value.trim());
-    else { S.newName = q.value.trim(); S.newFor = key; renderHotelBox(box, key); }
+    const raw = q.value.trim();
+    if (b.dataset.pick) { const x = HOTELS.find(y => y.id === b.dataset.pick); if (x) setHotel(x); }
+    else if (b.dataset.coord) { const c = parseCoords(raw); if (c) { const muni = nearestMuni(c[0], c[1]); setHotel({ id: "c" + Date.now(), name: tx("h_pin_name", MUNI_LABEL(muni)), muni, concept: tx("h_added"), lat: c[0], lon: c[1] }); } }
+    else if (b.dataset.web != null) { const o = web[+b.dataset.web]; setHotel({ id: "osm" + o.id, name: o.name, muni: nearestMuni(o.lat, o.lon), concept: kindName(o), lat: o.lat, lon: o.lon }); }
+    else if (b.dataset.geo != null) { const o = geo.items[+b.dataset.geo], nm = raw.split(",")[0].trim() || o.name;
+      setHotel({ id: "g" + Date.now(), name: nm, muni: nearestMuni(o.lat, o.lon), concept: geo.exact ? tx("h_addr_c") : tx("h_near_c", geo.match), lat: o.lat, lon: o.lon, approx: !geo.exact });
+      if (!geo.exact) toast(tx("h_near_t", nm, geo.match), 8000); }
+    else if (b.dataset.addr) searchAddr(raw);
+    else { S.newName = raw; S.newFor = key; renderHotelBox(box, key); }
   };
+  const tag = x => (x.et ? ` <span class="ally">${tx("h_ally")}</span>` : x.tar ? ` <span class="ally tar">${tx("h_tar")}</span>` : x.recent ? ` <span class="s2">· ${tx("h_recent")}</span>` : "");
   const show = () => {
-    const v = norm(q.value), raw = q.value.trim();
-    const hits = HOTELS.filter(h => !v || norm(h.name).includes(v) || h.muni.includes(v)).slice(0, 8);
-    let html = hits.map(h => `<button type="button" role="option" data-pick="${esc(h.id)}"><b>${esc(h.name)}</b>${h.et ? ` <span class="ally">${tx("h_ally")}</span>` : h.recent ? ` <span class="s2">· ${tx("h_recent")}</span>` : ""}<br><span class="s2">${esc(MUNI_LABEL(h.muni))}${h.concept ? " · " + esc(h.concept) : ""}</span></button>`).join("");
-    if (osm && osmQ === raw) html += osm.length ? osm.map((o, i) => `<button type="button" role="option" data-osm="${i}"><b>${esc(o.name)}</b> <span class="s2">· OpenStreetMap</span><br><span class="s2">${esc(o.addr)}</span></button>`).join("") : `<p class="s2 pad">${tx("h_none")}</p>`;
-    if (raw.length >= 3 && !(osm && osmQ === raw)) html += `<button type="button" class="new" data-search="1">${ic("map", "sm")}${esc(tx("h_osm", raw))}</button>`;
-    if (raw) html += `<button type="button" class="new" data-newh="1">${ic("pin", "sm")}${esc(tx("h_new", raw))}</button>`;
+    const raw = q.value.trim(), c = raw.length >= 5 ? parseCoords(raw) : null;
+    let html = c ? `<button type="button" role="option" class="new" data-coord="1">${ic("pin", "sm")}${esc(tx("h_coord", MUNI_LABEL(nearestMuni(c[0], c[1])), c[0].toFixed(5) + ", " + c[1].toFixed(5)))}</button>` : "";
+    html += hotelHits(raw).slice(0, raw ? 25 : 60).map(x => `<button type="button" role="option" data-pick="${esc(x.id)}"><b>${esc(x.name)}</b>${tag(x)}<br><span class="s2">${esc(MUNI_LABEL(x.muni))}${x.concept ? " · " + esc(x.concept) : ""}</span></button>`).join("");
+    if (!c && raw.length >= 3) {
+      if (webQ === raw) html += web.length ? `<p class="s2 pad hd">${tx("h_web")}</p>` + web.map((o, i) => `<button type="button" role="option" data-web="${i}"><b>${esc(o.name)}</b>${kindName(o) ? ` <span class="s2">· ${esc(kindName(o))}</span>` : ""}<br><span class="s2">${esc(o.addr)}</span></button>`).join("") : `<p class="s2 pad">${tx("h_none_web")}</p>`;
+      else html += `<p class="s2 pad">${tx("h_searching")}</p>`;
+      if (geoQ === raw) html += geo.items.length ? `<p class="s2 pad hd">${esc(geo.exact ? tx("h_addr_ok") : tx("h_addr_near", geo.match))}</p>` + geo.items.map((o, i) => `<button type="button" role="option" data-geo="${i}"><b>${esc(o.name)}</b><br><span class="s2">${esc(o.addr)}</span></button>`).join("") : `<p class="s2 pad">${tx("h_addr_none")}</p>`;
+      else if (geoBusy === raw) html += `<p class="s2 pad">${tx("h_searching")}</p>`;
+      else html += `<button type="button" class="new" data-addr="1">${ic("map", "sm")}${esc(tx("h_addr", raw))}</button>`;
+    }
+    if (raw && !c) html += `<button type="button" class="new" data-newh="1">${ic("pin", "sm")}${esc(tx("h_new", raw))}</button>`;
     sg.innerHTML = html; sg.hidden = !html; q.setAttribute("aria-expanded", String(!sg.hidden));
     sg.querySelectorAll("button").forEach(b => b.addEventListener("mousedown", ev => { ev.preventDefault(); pick(b); }));
   };
-  async function searchOsm(text) {
-    if (!text) return; sg.innerHTML = `<p class="s2 pad">${tx("h_searching")}</p>`; sg.hidden = false;
-    try {
-      const u = "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=6&countrycodes=co&accept-language=es&viewbox=-76.6,5.7,-74.8,3.3&bounded=1&q=" + encodeURIComponent(text);
-      const r = await fetch(u, { headers: { Accept: "application/json" } }); const j = r.ok ? await r.json() : [];
-      osm = (j || []).map(x => ({ id: x.place_id, name: x.name || String(x.display_name || "").split(",")[0], addr: String(x.display_name || "").split(",").slice(1, 4).join(","), lat: +x.lat, lon: +x.lon, type: x.type === "hotel" ? "Hotel" : "" })).filter(x => isFinite(x.lat));
-    } catch (e) { osm = []; }
-    osmQ = text; if (q.isConnected) show();
+  // Mapa abierto mientras se escribe (Photon), con una pausa para no consultar en cada letra
+  const live = () => {
+    clearTimeout(tm); const raw = q.value.trim(); if (raw.length < 3 || webQ === raw || parseCoords(raw)) return;
+    tm = setTimeout(async () => { const my = ++seq, r = await photonSearch(raw); if (my !== seq || !q.isConnected) return; web = r; webQ = raw; if (document.activeElement === q) show(); }, 380);
+  };
+  async function searchAddr(text) {
+    if (!text) return; geoBusy = text; show();
+    const g = await geocodeAddr(text); if (!q.isConnected) return;
+    geo = g; geoQ = text; geoBusy = ""; if (document.activeElement === q) show();
   }
-  q.addEventListener("input", show); q.addEventListener("focus", show); q.addEventListener("blur", () => setTimeout(() => { sg.hidden = true; q.setAttribute("aria-expanded", "false"); }, 150));
+  q.addEventListener("input", () => { show(); live(); }); q.addEventListener("focus", () => { show(); live(); });
+  q.addEventListener("blur", () => setTimeout(() => { sg.hidden = true; q.setAttribute("aria-expanded", "false"); }, 150));
   q.addEventListener("keydown", ev => { if (ev.key === "Enter") { ev.preventDefault(); const f = sg.querySelector("button"); if (f) pick(f); } });
 }
-function parseMaps(s) {
-  try { s = decodeURIComponent(s || ""); } catch (e) { /* tal cual */ }
-  const pats = [/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/, /@(-?\d+\.\d+),(-?\d+\.\d+)/, /[?&](?:q|query|ll|destination)=(-?\d+\.\d+),\s*(-?\d+\.\d+)/, /^\s*(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)\s*$/];
-  for (const p of pats) { const m = s.match(p); if (m) { const la = +m[1], lo = +m[2]; if (la > 2 && la < 7 && lo > -78 && lo < -74) return [la, lo]; } }
+/* Ubicación pegada por la agencia → [lat, lon] (o null): enlace de Google Maps u OpenStreetMap, Plus Code, grados-minutos-segundos
+   o dos números decimales (con punto o coma decimal, en cualquier orden y con o sin signo: en el Eje la longitud siempre es oeste). */
+const inEje = (la, lo) => la > 2 && la < 7 && lo > -78 && lo < -74;
+function fixLL(a, b) {
+  for (let [la, lo] of [[a, b], [b, a]]) { if (lo > 74 && lo < 78) lo = -lo; if (la < -2 && la > -7) la = -la; if (inEje(la, lo)) return [la, lo]; }
   return null;
+}
+function parseCoords(s0) {
+  let s = String(s0 || "").trim(); if (!s) return null;
+  try { s = decodeURIComponent(s); } catch (e) { /* tal cual */ }
+  const pats = [/!3d(-?\d+(?:\.\d+)?)!4d(-?\d+(?:\.\d+)?)/, /@(-?\d+\.\d+),\s*(-?\d+\.\d+)/, /[?&](?:q|query|ll|sll|destination|daddr|center)=(-?\d+\.\d+),\s*\+?(-?\d+\.\d+)/i,
+    /[?&]mlat=(-?\d+\.\d+)&mlon=(-?\d+\.\d+)/, /\/(?:search|place|dir)\/(-?\d+\.\d+),\s*\+?(-?\d+\.\d+)/, /#map=\d+\/(-?\d+\.\d+)\/(-?\d+\.\d+)/];
+  for (const p of pats) { const m = s.match(p); if (m) { const c = fixLL(+m[1], +m[2]); if (c) return c; } }
+  const pc = plusCode(s); if (pc) return pc;
+  const n = x => +String(x || 0).replace(",", ".");
+  const dms = [...s.matchAll(/(\d{1,3}(?:[.,]\d+)?)\s*[°º]\s*(?:(\d{1,2}(?:[.,]\d+)?)\s*['’′]\s*)?(?:(\d{1,2}(?:[.,]\d+)?)\s*(?:["”″]|''|’’)\s*)?([NSEOW])?/g)];
+  if (dms.length >= 2) { const v = dms.slice(0, 2).map(m => { const d = n(m[1]) + n(m[2]) / 60 + n(m[3]) / 3600; return /[SWO]/.test(m[4] || "") ? -d : d; }); const c = fixLL(v[0], v[1]); if (c) return c; }
+  const t = /\d\.\d/.test(s) ? s : s.replace(/(\d),(\d)/g, "$1.$2");
+  const nums = [...t.matchAll(/(-?\d{1,3}\.\d+)\s*°?\s*([NSEOW])?/g)].slice(0, 2);
+  if (nums.length === 2) { const v = nums.map(m => (/[SWO]/.test(m[2] || "") ? -Math.abs(+m[1]) : +m[1])); return fixLL(v[0], v[1]); }
+  return null;
+}
+// Plus Code de Google (Open Location Code): completo («67P76R2F+5V») o corto («6R2F+5V Pereira», que se completa con el
+// municipio que trae el texto o, si no trae, con el centro del Eje Cafetero)
+const OLC = "23456789CFGHJMPQRVWX", OLC_RES = [20, 1, .05, .0025, .000125];
+function olcDecode(c) { let la = -90, lo = -180, k = 0; for (let i = 0; i + 1 < c.length && k < 5; i += 2, k++) { la += OLC.indexOf(c[i]) * OLC_RES[k]; lo += OLC.indexOf(c[i + 1]) * OLC_RES[k]; } return [la + OLC_RES[k - 1] / 2, lo + OLC_RES[k - 1] / 2]; }
+function olcEncode(la, lo, len) { la = Math.min(89.999999, Math.max(-90, la)) + 90; lo = ((lo + 180) % 360 + 360) % 360; let x = ""; for (let k = 0; k < len / 2; k++) { const a = Math.floor(la / OLC_RES[k]), b = Math.floor(lo / OLC_RES[k]); la -= a * OLC_RES[k]; lo -= b * OLC_RES[k]; x += OLC[a] + OLC[b]; } return x; }
+function plusCode(s) {
+  const m = /(?:^|[\s,(])([23456789CFGHJMPQRVWX]{2,8})\+([23456789CFGHJMPQRVWX]{2,3})(?=$|[\s,)])/i.exec(s); if (!m) return null;
+  const pre = m[1].toUpperCase(), post = m[2].toUpperCase().slice(0, 2); if (pre.length % 2) return null;
+  if (pre.length === 8) { const [la, lo] = olcDecode(pre + post); return fixLL(la, lo); }
+  const rest = " " + norm(s.slice(m.index + m[0].length)).replace(/[^A-Z ]+/g, " ") + " ", mk = muniKeys().find(k => rest.includes(" " + k + " ")), ref = mk ? M.mc[mk] : [4.6, -75.7];
+  const pad = 8 - pre.length, res = Math.pow(20, 2 - pad / 2), half = res / 2;
+  let [la, lo] = olcDecode(olcEncode(ref[0], ref[1], pad) + pre + post);
+  if (ref[0] + half < la) la -= res; else if (ref[0] - half > la) la += res;
+  if (ref[1] + half < lo) lo -= res; else if (ref[1] - half > lo) lo += res;
+  return fixLL(la, lo);
 }
 function startPlacing() { S.placing = true; svg.classList.add("placing"); mapShow(true, true);
   $r("banner").innerHTML = `<div class="mapbanner">${ic("pin", "sm")}${esc(tx("h_tap_b", S.newName))} <button type="button" data-r="bx">${tx("cancel")}</button></div>`; $r("bx").addEventListener("click", stopPlacing); }
 function stopPlacing() { S.placing = false; svg.classList.remove("placing"); $r("banner").innerHTML = ""; }
-function finishNewHotel(lat, lon) {
-  const muni = nearestMuni(lat, lon);
-  const h = { id: "c" + Date.now(), name: S.newName || "Hotel", muni, concept: tx("h_added"), lat, lon };
-  S.newName = ""; stopPlacing(); HOTELS.push(Object.assign({ recent: true }, h)); setHotel(h); toast(tx("h_set", h.name, MUNI_LABEL(muni)));
+// near: texto de la dirección aproximada (cuando la dirección completa no apareció)
+function finishNewHotel(lat, lon, near) {
+  const muni = nearestMuni(lat, lon), prev = S.fixFrom; S.fixFrom = null;
+  const h = { id: "c" + Date.now(), name: S.newName || "Hotel", muni, concept: near ? tx("h_near_c", near) : tx("h_added"), lat, lon, approx: !!near };
+  if (prev && prev.name === h.name && prev.tr) h.tr = prev.tr;     // al ajustar un hotel del tarifario conserva su traslado
+  S.newName = ""; stopPlacing(); HOTELS.push(Object.assign({ recent: true }, h)); setHotel(h);
+  toast(near ? tx("h_near_t", h.name, near) : tx("h_set", h.name, MUNI_LABEL(muni)), near ? 8000 : 0);
 }
 function toggleZone() { /* reservado: edición de municipios con fincas (equipo ET) */ }
 
@@ -1698,11 +1914,11 @@ function renderMapPane() {
 
 /* ---------- kit de venta (PDF en el navegador con jsPDF, cargado solo al usarlo) ---------- */
 const KL = {
-  ES: { trInc: "Los traslados incluyen", trIncL: ["Recibimiento en el aeropuerto con letrero", "Ayuda con el equipaje", "Hasta 1 hora de espera si el vuelo se retrasa", "Hidratación", "Desde 9 pasajeros, la tarifa incluye guía o asistente", "Sin recargo nocturno ni en festivos"], trUrb: "Aplica para hoteles dentro del perímetro urbano e incluye: {0}", trCoc: "Hoteles en Cocora: {0}", tr: "Traslados", trIntro: "Traslados privados en vehículos habilitados para servicio especial, con conductores profesionales.", trAp: "Aeropuerto - hotel", trCity: "Entre ciudades", trComp: "Del hotel al punto de encuentro (Tours Compartidos)", trWay: "por trayecto", trRT: "ida y vuelta", trNote: "Manizales (MZL) y Cali (CLO): cotización a la medida.", trVeh: "Vehículo para {0} pax: {1}", meet: "Puntos de encuentro", oper: "Operación", supl: "Suplementos", title: "Paisaje Cultural Cafetero · Experiencias 2027", incl: "Incluye", noIncl: "No incluye", reco: "Recomendaciones", dur: "Duración", langs: "Idiomas", price: "Precio por persona", pax: "pax", note: "Valores en pesos colombianos (COP) por persona. Sujetos a disponibilidad.", consult: "Consultar", exp: "Experiencias incluidas", mod: "Modalidad", age: "Edad", prepared: "Preparado por" },
-  EN: { trInc: "Transfers include", trIncL: ["Airport welcome with a name sign", "Help with luggage", "Up to 1 hour of waiting time if the flight is delayed", "Hydration", "From 9 passengers, the rate includes a guide or assistant", "No night or holiday surcharge"], trUrb: "Applies to hotels within the urban area, and also: {0}", trCoc: "Cocora hotels: {0}", tr: "Transfers", trIntro: "Private transfers in vehicles licensed for special service, with professional drivers.", trAp: "Airport - hotel", trCity: "Between cities", trComp: "Hotel to meeting point (Shared Tours)", trWay: "each way", trRT: "round trip", trNote: "Manizales (MZL) and Cali (CLO): tailor-made quote.", trVeh: "Vehicle for {0} pax: {1}", meet: "Meeting points", oper: "Operation", supl: "Supplements", title: "Coffee Cultural Landscape · 2027 Experiences", incl: "Includes", noIncl: "Not included", reco: "Recommendations", dur: "Duration", langs: "Languages", price: "Price per person", pax: "pax", note: "Prices in Colombian pesos (COP) per person. Subject to availability.", consult: "On request", exp: "Experiences included", mod: "Format", age: "Age", prepared: "Prepared by" },
-  FR: { trInc: "Les transferts comprennent", trIncL: ["Accueil à l'aéroport avec pancarte", "Aide avec les bagages", "Jusqu'à 1 heure d'attente en cas de retard du vol", "Hydratation", "À partir de 9 passagers, le tarif comprend un guide ou un assistant", "Aucun supplément de nuit ni les jours fériés"], trUrb: "S'applique aux hôtels du périmètre urbain, ainsi qu'à : {0}", trCoc: "Hôtels à Cocora : {0}", tr: "Transferts", trIntro: "Transferts privés dans des véhicules agréés pour le service spécial, avec chauffeurs professionnels.", trAp: "Aéroport - hôtel", trCity: "Entre villes", trComp: "De l'hôtel au point de rendez-vous (Tours partagés)", trWay: "par trajet", trRT: "aller-retour", trNote: "Manizales (MZL) et Cali (CLO) : devis sur mesure.", trVeh: "Véhicule pour {0} pers. : {1}", meet: "Points de rendez-vous", oper: "Fonctionnement", supl: "Suppléments", title: "Paysage culturel du café · Expériences 2027", incl: "Comprend", noIncl: "Ne comprend pas", reco: "Recommandations", dur: "Durée", langs: "Langues", price: "Prix par personne", pax: "pers.", note: "Prix en pesos colombiens (COP) par personne. Sous réserve de disponibilité.", consult: "Sur demande", exp: "Expériences incluses", mod: "Format", age: "Âge", prepared: "Préparé par" },
-  IT: { trInc: "I trasferimenti includono", trIncL: ["Accoglienza in aeroporto con cartello", "Aiuto con i bagagli", "Fino a 1 ora di attesa se il volo è in ritardo", "Idratazione", "Da 9 passeggeri, la tariffa include una guida o un assistente", "Nessun supplemento notturno né festivo"], trUrb: "Vale per gli hotel nel perimetro urbano e anche per: {0}", trCoc: "Hotel a Cocora: {0}", tr: "Trasferimenti", trIntro: "Trasferimenti privati con veicoli autorizzati al servizio speciale e autisti professionisti.", trAp: "Aeroporto - hotel", trCity: "Tra città", trComp: "Dall'hotel al punto d'incontro (Tour condivisi)", trWay: "per tratta", trRT: "andata e ritorno", trNote: "Manizales (MZL) e Cali (CLO): preventivo su misura.", trVeh: "Veicolo per {0} pax: {1}", meet: "Punti d'incontro", oper: "Operatività", supl: "Supplementi", title: "Paesaggio Culturale del Caffè · Esperienze 2027", incl: "Include", noIncl: "Non include", reco: "Consigli", dur: "Durata", langs: "Lingue", price: "Prezzo a persona", pax: "pax", note: "Prezzi in pesos colombiani (COP) a persona. Soggetti a disponibilità.", consult: "Su richiesta", exp: "Esperienze incluse", mod: "Modalità", age: "Età", prepared: "A cura di" },
-  PT: { trInc: "Os traslados incluem", trIncL: ["Recepção no aeroporto com placa", "Ajuda com a bagagem", "Até 1 hora de espera se o voo atrasar", "Hidratação", "A partir de 9 passageiros, a tarifa inclui guia ou assistente", "Sem acréscimo noturno nem em feriados"], trUrb: "Vale para hotéis dentro do perímetro urbano e também: {0}", trCoc: "Hotéis em Cocora: {0}", tr: "Traslados", trIntro: "Traslados privados em veículos habilitados para serviço especial, com motoristas profissionais.", trAp: "Aeroporto - hotel", trCity: "Entre cidades", trComp: "Do hotel ao ponto de encontro (Tours Compartilhados)", trWay: "por trajeto", trRT: "ida e volta", trNote: "Manizales (MZL) e Cali (CLO): cotação sob medida.", trVeh: "Veículo para {0} pax: {1}", meet: "Pontos de encontro", oper: "Operação", supl: "Suplementos", title: "Paisagem Cultural do Café · Experiências 2027", incl: "Inclui", noIncl: "Não inclui", reco: "Recomendações", dur: "Duração", langs: "Idiomas", price: "Preço por pessoa", pax: "pax", note: "Valores em pesos colombianos (COP) por pessoa. Sujeitos a disponibilidade.", consult: "Sob consulta", exp: "Experiências incluídas", mod: "Modalidade", age: "Idade", prepared: "Preparado por" }
+  ES: { gl: ["Guía en español", "Guía en inglés", "Guía en francés", "Guía en italiano", "Guía en alemán", "Guía en portugués", "Guía para invidentes"], gInc: "Incluye", hours: "horas", trInc: "Los traslados incluyen", trIncL: ["Recibimiento en el aeropuerto con letrero", "Ayuda con el equipaje", "Hasta 1 hora de espera si el vuelo se retrasa", "Hidratación", "Desde 9 pasajeros, la tarifa incluye guía o asistente", "Sin recargo nocturno ni en festivos"], trUrb: "Aplica para hoteles dentro del perímetro urbano e incluye: {0}", trCoc: "Hoteles en Cocora: {0}", tr: "Traslados", trIntro: "Traslados privados en vehículos habilitados para servicio especial, con conductores profesionales.", trAp: "Aeropuerto - hotel", trCity: "Entre ciudades", trComp: "Del hotel al punto de encuentro (Tours Compartidos)", trWay: "por trayecto", trRT: "ida y vuelta", trNote: "Manizales (MZL) y Cali (CLO): cotización a la medida.", trVeh: "Vehículo para {0} pax: {1}", meet: "Puntos de encuentro", oper: "Operación", supl: "Suplementos", title: "Paisaje Cultural Cafetero · Experiencias 2027", incl: "Incluye", noIncl: "No incluye", reco: "Recomendaciones", dur: "Duración", langs: "Idiomas", price: "Precio por persona", pax: "pax", note: "Valores en pesos colombianos (COP) por persona. Sujetos a disponibilidad.", consult: "Consultar", exp: "Experiencias incluidas", mod: "Modalidad", age: "Edad", prepared: "Preparado por" },
+  EN: { gl: ["Spanish-speaking guide", "English-speaking guide", "French-speaking guide", "Italian-speaking guide", "German-speaking guide", "Portuguese-speaking guide", "Guide for blind travellers"], gInc: "Includes", hours: "hours", trInc: "Transfers include", trIncL: ["Airport welcome with a name sign", "Help with luggage", "Up to 1 hour of waiting time if the flight is delayed", "Hydration", "From 9 passengers, the rate includes a guide or assistant", "No night or holiday surcharge"], trUrb: "Applies to hotels within the urban area, and also: {0}", trCoc: "Cocora hotels: {0}", tr: "Transfers", trIntro: "Private transfers in vehicles licensed for special service, with professional drivers.", trAp: "Airport - hotel", trCity: "Between cities", trComp: "Hotel to meeting point (Shared Tours)", trWay: "each way", trRT: "round trip", trNote: "Manizales (MZL) and Cali (CLO): tailor-made quote.", trVeh: "Vehicle for {0} pax: {1}", meet: "Meeting points", oper: "Operation", supl: "Supplements", title: "Coffee Cultural Landscape · 2027 Experiences", incl: "Includes", noIncl: "Not included", reco: "Recommendations", dur: "Duration", langs: "Languages", price: "Price per person", pax: "pax", note: "Prices in Colombian pesos (COP) per person. Subject to availability.", consult: "On request", exp: "Experiences included", mod: "Format", age: "Age", prepared: "Prepared by" },
+  FR: { gl: ["Guide hispanophone", "Guide anglophone", "Guide francophone", "Guide italophone", "Guide germanophone", "Guide lusophone", "Guide pour personnes aveugles"], gInc: "Comprend", hours: "heures", trInc: "Les transferts comprennent", trIncL: ["Accueil à l'aéroport avec pancarte", "Aide avec les bagages", "Jusqu'à 1 heure d'attente en cas de retard du vol", "Hydratation", "À partir de 9 passagers, le tarif comprend un guide ou un assistant", "Aucun supplément de nuit ni les jours fériés"], trUrb: "S'applique aux hôtels du périmètre urbain, ainsi qu'à : {0}", trCoc: "Hôtels à Cocora : {0}", tr: "Transferts", trIntro: "Transferts privés dans des véhicules agréés pour le service spécial, avec chauffeurs professionnels.", trAp: "Aéroport - hôtel", trCity: "Entre villes", trComp: "De l'hôtel au point de rendez-vous (Tours partagés)", trWay: "par trajet", trRT: "aller-retour", trNote: "Manizales (MZL) et Cali (CLO) : devis sur mesure.", trVeh: "Véhicule pour {0} pers. : {1}", meet: "Points de rendez-vous", oper: "Fonctionnement", supl: "Suppléments", title: "Paysage culturel du café · Expériences 2027", incl: "Comprend", noIncl: "Ne comprend pas", reco: "Recommandations", dur: "Durée", langs: "Langues", price: "Prix par personne", pax: "pers.", note: "Prix en pesos colombiens (COP) par personne. Sous réserve de disponibilité.", consult: "Sur demande", exp: "Expériences incluses", mod: "Format", age: "Âge", prepared: "Préparé par" },
+  IT: { gl: ["Guida in spagnolo", "Guida in inglese", "Guida in francese", "Guida in italiano", "Guida in tedesco", "Guida in portoghese", "Guida per non vedenti"], gInc: "Include", hours: "ore", trInc: "I trasferimenti includono", trIncL: ["Accoglienza in aeroporto con cartello", "Aiuto con i bagagli", "Fino a 1 ora di attesa se il volo è in ritardo", "Idratazione", "Da 9 passeggeri, la tariffa include una guida o un assistente", "Nessun supplemento notturno né festivo"], trUrb: "Vale per gli hotel nel perimetro urbano e anche per: {0}", trCoc: "Hotel a Cocora: {0}", tr: "Trasferimenti", trIntro: "Trasferimenti privati con veicoli autorizzati al servizio speciale e autisti professionisti.", trAp: "Aeroporto - hotel", trCity: "Tra città", trComp: "Dall'hotel al punto d'incontro (Tour condivisi)", trWay: "per tratta", trRT: "andata e ritorno", trNote: "Manizales (MZL) e Cali (CLO): preventivo su misura.", trVeh: "Veicolo per {0} pax: {1}", meet: "Punti d'incontro", oper: "Operatività", supl: "Supplementi", title: "Paesaggio Culturale del Caffè · Esperienze 2027", incl: "Include", noIncl: "Non include", reco: "Consigli", dur: "Durata", langs: "Lingue", price: "Prezzo a persona", pax: "pax", note: "Prezzi in pesos colombiani (COP) a persona. Soggetti a disponibilità.", consult: "Su richiesta", exp: "Esperienze incluse", mod: "Modalità", age: "Età", prepared: "A cura di" },
+  PT: { gl: ["Guia em espanhol", "Guia em inglês", "Guia em francês", "Guia em italiano", "Guia em alemão", "Guia em português", "Guia para cegos"], gInc: "Inclui", hours: "horas", trInc: "Os traslados incluem", trIncL: ["Recepção no aeroporto com placa", "Ajuda com a bagagem", "Até 1 hora de espera se o voo atrasar", "Hidratação", "A partir de 9 passageiros, a tarifa inclui guia ou assistente", "Sem acréscimo noturno nem em feriados"], trUrb: "Vale para hotéis dentro do perímetro urbano e também: {0}", trCoc: "Hotéis em Cocora: {0}", tr: "Traslados", trIntro: "Traslados privados em veículos habilitados para serviço especial, com motoristas profissionais.", trAp: "Aeroporto - hotel", trCity: "Entre cidades", trComp: "Do hotel ao ponto de encontro (Tours Compartilhados)", trWay: "por trajeto", trRT: "ida e volta", trNote: "Manizales (MZL) e Cali (CLO): cotação sob medida.", trVeh: "Veículo para {0} pax: {1}", meet: "Pontos de encontro", oper: "Operação", supl: "Suplementos", title: "Paisagem Cultural do Café · Experiências 2027", incl: "Inclui", noIncl: "Não inclui", reco: "Recomendações", dur: "Duração", langs: "Idiomas", price: "Preço por pessoa", pax: "pax", note: "Valores em pesos colombianos (COP) por pessoa. Sujeitos a disponibilidade.", consult: "Sob consulta", exp: "Experiências incluídas", mod: "Modalidade", age: "Idade", prepared: "Preparado por" }
 };
 const KLu = () => (L() === "en" ? KL.EN : KL.ES);   // textos del kit en el idioma del portal
 const LNAME = { ES: "Español", EN: "English", FR: "Français", IT: "Italiano", PT: "Português" };
@@ -1844,9 +2060,11 @@ function logoFromFile(f) {
 }
 function makePDF() {
   const wl = !!(S && S.wl), b = kitBrand();
-  return pdfRun([...K.sel], { lang: K.lang, logo: b === "et", own: b === "own" ? K.own : null, price: wl ? "none" : K.price, markup: K.markup, agency: K.agency, pax: K.pax || S.R.pax, tr: K.tr }, $r("kst"), $r("kgo"));
+  return pdfRun([...K.sel], { lang: K.lang, logo: b === "et", own: b === "own" ? K.own : null, price: wl ? "none" : K.price, markup: K.markup, agency: K.agency, pax: K.pax || S.R.pax, tr: K.tr,
+    guides: Object.fromEntries(S.R.tours.filter(t => t.g).map(t => [t.id, t.g])) }, $r("kst"), $r("kgo"));
 }
 // o = { lang: ES|EN|FR|IT|PT, logo (Espontáneos), own ({ logo, ratio } de la agencia), price: none|net|sell, markup, agency, pax, tr }. Una sola ficha: sin portada.
+// guides: { id: código } guía en otro idioma de la ruta: va como línea en la ficha y, con precio, sumada por persona (valor por servicio ÷ pax).
 // tr: última página con los traslados (aeropuerto – hotel, entre ciudades y, si hay tours compartidos, del hotel al punto de encuentro).
 // Con precio, cada ficha muestra solo la tarifa por persona de los pasajeros cotizados (o.pax).
 async function buildPdf(ids, o) {
@@ -1903,6 +2121,9 @@ async function buildPdf(ids, o) {
     doc.setTextColor(90); doc.setFont("helvetica", "normal"); doc.setFontSize(9.5);
     const meta = `${logo && price !== "none" ? e.code + " · " : ""}${e.deptos} · ${LB.dur}: ${tr(e, "dur", lg)} · ${LB.mod}: ${tr(e, "modalidad", lg)}${tr(e, "edad", lg) ? " · " + LB.age + ": " + tr(e, "edad", lg) : ""} · ${LB.langs}: ${(e.langs || []).join(" · ")}`;
     doc.splitTextToSize(pdfTxt(meta), CW).forEach(l => { doc.text(l, Mg, y + 2); y += 4.6; }); y += 3;
+    const gc = (o.guides || {})[id] && PR.svc.has(o.guides[id]) ? o.guides[id] : "", gcol = gc && !e.tarifa_unica ? guideColFor(e) : null;
+    const gTxt = gc ? `${(LB.gl || KL.ES.gl)[gc === GUIDE_TC ? 1 : +gc.slice(-3) - 6] || ""}${gcol ? ` (${parseInt(gcol, 10)} ${LB.hours})` : ""}` : "";
+    if (gTxt) { doc.setTextColor(...OL); doc.setFont("helvetica", "bold"); doc.setFontSize(10); doc.text(pdfTxt("+ " + gTxt), Mg, y + 1); y += 6; doc.setFont("helvetica", "normal"); }
     doc.setTextColor(30); doc.setFont("helvetica", "italic"); doc.setFontSize(11); doc.splitTextToSize(pdfTxt(tr(e, "tagline", lg)), CW).forEach(l => { doc.text(l, Mg, y); y += 5.5; }); y += 2;
     doc.setFont("helvetica", "normal"); doc.setFontSize(10);
     const para = t => { doc.splitTextToSize(pdfTxt(t), CW).forEach(l => { if (y > 272) { foot(); doc.addPage(); y = Mg; } doc.text(l, Mg, y); y += 5; }); y += 2; };
@@ -1925,10 +2146,13 @@ async function buildPdf(ids, o) {
     if (price !== "none" && lang === "ES" && e.p.supl.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.supl, e.p.supl.map(x => markupMoney(x, mk)), Mg, CW) + 3; }
     if (price !== "none") {
       if (y > 262) { foot(); doc.addPage(); y = Mg; }       // el cuadro de precio (≈ 22 mm) cabe hasta antes del pie
-      const v = priceAt(e.id, qp), cell = v != null ? "$ " + (mk ? Math.round(v * (1 + mk / 100) / 1000) * 1000 : v).toLocaleString("es-CO") : LB.consult;
+      const gv = gc ? guideVal(gc, e) : null, v0 = priceAt(e.id, qp), v = v0 != null && gv != null ? Math.round(v0 + gv / qp) : v0;
+      const cell = v != null ? "$ " + (mk ? Math.round(v * (1 + mk / 100) / 1000) * 1000 : v).toLocaleString("es-CO") : LB.consult;
       doc.setFillColor(238, 242, 236); doc.rect(Mg, y, CW, 15, "F"); doc.setFont("helvetica", "bold"); doc.setTextColor(...OL); doc.setFontSize(10.5); doc.text(pdfTxt(`${LB.price} · ${qp} ${LB.pax}`), Mg + 4, y + 9.5);
       doc.setFontSize(14); doc.setTextColor(30); doc.text(pdfTxt(cell), W - Mg - 4, y + 10, { align: "right" });
-      y += 19; doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(110); doc.text(pdfTxt(LB.note), Mg, y); doc.setFontSize(10);
+      y += 19; doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(110);
+      if (gTxt) { doc.text(pdfTxt(`${LB.gInc}: ${gTxt}${gv == null ? " (" + LB.consult + ")" : ""}`), Mg, y); y += 4; }
+      doc.text(pdfTxt(LB.note), Mg, y); doc.setFontSize(10);
     }
     foot();
   }
