@@ -200,7 +200,6 @@
 /* Fotos de la ficha: descargar en JPG y banco de imágenes */
 .pf .phdl { margin-top: 12px; }
 .pf .lb .lb-dl { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); }
-.pf .b2b { display: inline-block; font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: var(--cherry); color: var(--on-cherry); border-radius: 4px; padding: 2px 6px; margin-left: 6px; vertical-align: middle; font-family: var(--f-body); }
 .pf .pill { display: inline-block; justify-self: start; font-size: .72rem; font-weight: 700; border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; color: var(--muted); }
 
 /* ---------- pestañas del portafolio ---------- */
@@ -525,7 +524,6 @@
 .pf .iconguide { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; font-size: .84rem; }
 .pf .iconguide li { display: flex; gap: 8px; align-items: flex-start; }
 .pf .iconguide .ic { margin-top: 2px; color: var(--olive); }
-.pf .iconguide .b2b { margin-left: 0; flex: none; }
 .pf .mini { flex: none; font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 2px 6px; border-radius: 4px; color: #fff; }
 .pf .mini.com { background: #2F6F8F; } .pf .mini.cord { background: #6B4528; }
 .pf .mt { margin-top: 10px; }
@@ -555,7 +553,7 @@
 .pf .lb .close { position: fixed; }
 
 /* ---------- marca blanca: sin precios, códigos ni datos solo agencias ---------- */
-.pf.wl .price, .pf.wl .netbox, .pf.wl .code, .pf.wl .code-wrap, .pf.wl .money, .pf.wl .b2b, .pf.wl .ally { display: none !important; }
+.pf.wl .price, .pf.wl .netbox, .pf.wl .code, .pf.wl .code-wrap, .pf.wl .money, .pf.wl .ally { display: none !important; }
 
 /* ---------- impresión: solo la ficha abierta ---------- */
 @media print {
@@ -631,3 +629,45 @@
 }
 @media (prefers-reduced-motion: reduce) { .pf .rfloat { animation: none; } }
 @keyframes pf-fl-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Aves y Bicicleta plegadas dentro de su línea (índice, Experiencias y Kit de venta) ---------- */
+.pf .pidx li.fold { padding-left: 0; }
+.pf .pidx li.fold::before { content: none; }
+.pf .pidx .fold > details > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; min-height: 30px; padding: 3px 0; font-weight: 700; }
+.pf .pidx .fold > details > summary::-webkit-details-marker { display: none; }
+.pf .pidx .fold > details > summary .ic { transform: rotate(-90deg); transition: transform .2s; color: var(--muted); }
+.pf .pidx .fold > details[open] > summary .ic { transform: none; }
+.pf .pidx .fold > details > summary .sub { font-weight: 500; font-size: .8rem; color: var(--muted); }
+.pf .pidx .fold > details > summary:hover .fn { color: var(--cherry); }
+.pf .pidx .fold ul { margin: 0 0 4px 7px; padding-left: 4px; border-left: 2px solid var(--line); }
+.pf .subgrp { grid-column: 1 / -1; border: 1px dashed var(--line); border-radius: var(--r); background: var(--bg); }
+.pf .subgrp > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 10px 12px; min-height: 46px; border-radius: var(--r); font-weight: 700; }
+.pf .subgrp > summary::-webkit-details-marker { display: none; }
+.pf .subgrp > summary:hover { background: var(--surface-2); }
+.pf .subgrp > summary:focus-visible { outline: 2px solid var(--cherry); outline-offset: 2px; }
+.pf .subgrp > summary .gn { font-size: .74rem; font-weight: 700; padding: 1px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); }
+.pf .subgrp > summary .sub { font-weight: 500; font-size: .8rem; color: var(--muted); }
+.pf .subgrp > summary > .ic { margin-left: auto; flex: none; transition: transform .2s; }
+.pf .subgrp[open] > summary > .ic { transform: rotate(180deg); }
+.pf .subgrp > .cards { padding: 0 12px 12px; }
+.pf .kchk .kfold > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: .9rem; font-weight: 700; min-height: 30px; }
+.pf .kchk .kfold > summary::-webkit-details-marker { display: none; }
+.pf .kchk .kfold > summary .ic { transform: rotate(-90deg); transition: transform .2s; color: var(--muted); }
+.pf .kchk .kfold[open] > summary .ic { transform: none; }
+.pf .kchk .kfold > summary .sub { font-weight: 500; font-size: .78rem; color: var(--muted); }
+.pf .kchk .kfold > label { margin-left: 20px; }
+.pf .kopt { display: flex; gap: 8px; align-items: center; font-size: .88rem; font-weight: 600; cursor: pointer; width: fit-content; min-height: 32px; }
+
+/* ---------- Arma tu ruta: vehículo elegible y avisos de horario ---------- */
+.pf .veh.vehpick { display: grid; gap: 8px; background: transparent; padding: 0; }
+.pf .vehpick .vinfo { display: flex; gap: 10px; align-items: center; font-size: .86rem; background: var(--surface-2); border-radius: 8px; padding: 8px 10px; }
+.pf .vehpick .vinfo b { font-family: var(--f-display); }
+.pf .vact { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; }
+.pf .vact .btn[aria-pressed="true"] { background: var(--cherry); color: #fff; border-color: var(--cherry); }
+.pf .vsug { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--olive); }
+.pf .ralerts { display: grid; gap: 6px; }
+.pf .ralerts:empty { display: none; }
+.pf .fnote.info { background: var(--surface-2); border-left-color: var(--sky); font-weight: 500; }
+.pf .daytag.warn { color: var(--fg); }
+.pf .daytag.warn::before { content: "\26A0\FE0E  "; color: var(--cherry); }
+.pf .trn { display: inline-block; margin-top: 2px; font-size: .76rem; color: var(--muted); line-height: 1.35; }
