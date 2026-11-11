@@ -154,6 +154,71 @@
 
   // Viajero con reserva que escribe en el sitio ("quiero cambiar de horario", "mi reserva"): lo llevamos a Mi viaje
   // (allí el cambio es guiado) o, si no tiene el código, a WhatsApp con una plantilla clara para llenar.
+  // Temas de logística (nov-2026): vehículos, recogida en el hotel, combinar experiencias y los 4 tours compartidos.
+  // Se suman a UI[lang] al cargar (m_compartido reemplaza el antiguo «Tour compartido Cocora + Salento»).
+  const JX = {
+    es: { hi: "¡Hola! 👋 Soy Jenny. Pregúntame lo que quieras sobre experiencias, traslados, horarios o reservas, o elige un tema 👇", thanks: "¡Con mucho gusto! 😊 ¿Te ayudo con algo más?",
+      m_vehiculos: "🚙 Vehículos", m_recogida: "🏨 Recogida en el hotel", m_combinar: "🗓️ Varias experiencias en un día", m_compartido: "🚐 Tours compartidos",
+      veh_list: "Nuestros vehículos:", veh_range: "{a} a {b} personas", veh_jeep: "hasta {b} por jeep", veh_for: "Para *{n} personas* te sugerimos: *{v}*.",
+      veh_big: "Para *{n} personas* organizamos varios vehículos; lo armamos al cotizar.", tr_guide9: "✅ Como son {n}, el traslado incluye guía o asistente.",
+      comp_pick: "Elige un tour compartido para ver sus puntos de encuentro y qué incluye 👇",
+      comp_note: "🗣️ Guía en español (en inglés, con suplemento) · 🚐 Si te hospedas fuera de Armenia, te llevamos de tu hotel al punto de encuentro según la zona.",
+      a_dur_meet: "*{tour}* dura aprox. *{d}* desde el punto de encuentro.", a_dur_plain: "*{tour}* dura aprox. *{d}*.",
+      pk_trans: "✅ *{tour}* incluye transporte desde tu hotel.", pk_notrans: "ℹ️ *{tour}* no incluye transporte; si lo necesitas, te lo cotizamos.",
+      cb_with: "*{tour}* combina muy bien con:", tr_delay: "Sí ✈️ Si tu vuelo se retrasa, te esperamos hasta 1 hora; ese tiempo de espera ya está incluido en el traslado. Si el retraso es mayor, avísanos por WhatsApp y reprogramamos la recogida.", tr_night: "No 🌙 Los traslados no tienen recargo nocturno ni en festivos.", tr_mzl: "✈️ Desde el aeropuerto de Manizales (La Nubia) o de Cali te cotizamos el traslado a la medida.", veh_change: "Sí 🚙 Puedes pedir un vehículo distinto al sugerido —por ejemplo, más espacio para el equipaje, la SUV VIP o un Jeep Willys—: dínoslo al cotizar y lo ajustamos.",
+      cb_all: "*{tour}* se puede combinar con cualquier otra experiencia." },
+    en: { hi: "Hi! 👋 I'm Jenny. Ask me anything about experiences, transfers, schedules or bookings, or pick a topic 👇", thanks: "You're welcome! 😊 Anything else I can help with?",
+      m_vehiculos: "🚙 Vehicles", m_recogida: "🏨 Hotel pickup", m_combinar: "🗓️ Several experiences in one day", m_compartido: "🚐 Shared tours",
+      veh_list: "Our vehicles:", veh_range: "{a} to {b} people", veh_jeep: "up to {b} per jeep", veh_for: "For *{n} people* we suggest: *{v}*.",
+      veh_big: "For *{n} people* we arrange several vehicles; we'll plan it in your quote.", tr_guide9: "✅ As you're {n}, the transfer includes a guide or assistant.",
+      comp_pick: "Pick a shared tour to see its meeting points and what's included 👇",
+      comp_note: "🗣️ Spanish-speaking guide (English for a supplement) · 🚐 If you're staying outside Armenia, we can take you from your hotel to the meeting point, depending on the area.",
+      a_dur_meet: "*{tour}* takes about *{d}* from the meeting point.", a_dur_plain: "*{tour}* takes about *{d}*.",
+      pk_trans: "✅ *{tour}* includes transport from your hotel.", pk_notrans: "ℹ️ *{tour}* doesn't include transport; if you need it, we'll add it to your quote.",
+      cb_with: "*{tour}* goes really well with:", tr_delay: "Yes ✈️ If your flight is delayed, we wait up to 1 hour; that waiting time is already included in the transfer. If the delay is longer, let us know on WhatsApp and we'll reschedule the pickup.", tr_night: "No 🌙 There is no night or holiday surcharge on transfers.", tr_mzl: "✈️ From Manizales (La Nubia) or Cali airport we prepare a tailor-made transfer quote.", veh_change: "Yes 🚙 You can ask for a different vehicle from the one we suggest — for example, more room for luggage, the VIP SUV or a Jeep Willys: just tell us when you request your quote and we'll adjust it.",
+      cb_all: "*{tour}* can be combined with any other experience." },
+    fr: { hi: "Bonjour ! 👋 Je suis Jenny. Posez-moi vos questions sur les expériences, les transferts, les horaires ou les réservations, ou choisissez un thème 👇", thanks: "Avec plaisir ! 😊 Puis-je vous aider pour autre chose ?",
+      m_vehiculos: "🚙 Véhicules", m_recogida: "🏨 Prise en charge à l'hôtel", m_combinar: "🗓️ Plusieurs expériences en un jour", m_compartido: "🚐 Tours partagés",
+      veh_list: "Nos véhicules :", veh_range: "{a} à {b} personnes", veh_jeep: "jusqu'à {b} par jeep", veh_for: "Pour *{n} personnes*, nous vous suggérons : *{v}*.",
+      veh_big: "Pour *{n} personnes*, nous prévoyons plusieurs véhicules ; nous l'organisons dans le devis.", tr_guide9: "✅ Comme vous êtes {n}, le transfert comprend un guide ou un assistant.",
+      comp_pick: "Choisissez un tour partagé pour voir ses points de rendez-vous et ce qu'il comprend 👇",
+      comp_note: "🗣️ Guide hispanophone (anglophone avec supplément) · 🚐 Si vous logez hors d'Armenia, nous pouvons vous conduire de votre hôtel au point de rendez-vous selon la zone.",
+      a_dur_meet: "*{tour}* dure environ *{d}* à partir du point de rendez-vous.", a_dur_plain: "*{tour}* dure environ *{d}*.",
+      pk_trans: "✅ *{tour}* comprend le transport depuis votre hôtel.", pk_notrans: "ℹ️ *{tour}* ne comprend pas le transport ; si vous en avez besoin, nous l'ajoutons au devis.",
+      cb_with: "*{tour}* se combine très bien avec :", tr_delay: "Oui ✈️ Si votre vol est retardé, nous vous attendons jusqu'à 1 heure ; ce temps d'attente est déjà compris dans le transfert. Si le retard est plus long, prévenez-nous sur WhatsApp et nous reprogrammons la prise en charge.", tr_night: "Non 🌙 Les transferts n'ont aucun supplément de nuit ni les jours fériés.", tr_mzl: "✈️ Depuis l'aéroport de Manizales (La Nubia) ou de Cali, nous vous faisons un devis de transfert sur mesure.", veh_change: "Oui 🚙 Vous pouvez demander un autre véhicule que celui suggéré — par exemple plus d'espace pour les bagages, le SUV VIP ou une Jeep Willys : dites-le-nous lors du devis et nous l'ajustons.",
+      cb_all: "*{tour}* peut se combiner avec n'importe quelle autre expérience." },
+    de: { hi: "Hallo! 👋 Ich bin Jenny. Fragen Sie mich alles zu Erlebnissen, Transfers, Uhrzeiten oder Buchungen, oder wählen Sie ein Thema 👇", thanks: "Gern geschehen! 😊 Kann ich Ihnen noch bei etwas helfen?",
+      m_vehiculos: "🚙 Fahrzeuge", m_recogida: "🏨 Abholung im Hotel", m_combinar: "🗓️ Mehrere Erlebnisse an einem Tag", m_compartido: "🚐 Gruppentouren",
+      veh_list: "Unsere Fahrzeuge:", veh_range: "{a} bis {b} Personen", veh_jeep: "bis zu {b} pro Jeep", veh_for: "Für *{n} Personen* empfehlen wir: *{v}*.",
+      veh_big: "Für *{n} Personen* planen wir mehrere Fahrzeuge ein; das klären wir im Angebot.", tr_guide9: "✅ Da Sie {n} Personen sind, ist beim Transfer ein Guide oder eine Begleitperson inklusive.",
+      comp_pick: "Wählen Sie eine Gruppentour, um Treffpunkte und Leistungen zu sehen 👇",
+      comp_note: "🗣️ Spanischsprachiger Guide (Englisch gegen Zuschlag) · 🚐 Wohnen Sie außerhalb von Armenia, bringen wir Sie je nach Gegend vom Hotel zum Treffpunkt.",
+      a_dur_meet: "*{tour}* dauert ca. *{d}* ab dem Treffpunkt.", a_dur_plain: "*{tour}* dauert ca. *{d}*.",
+      pk_trans: "✅ *{tour}* beinhaltet den Transport ab Ihrem Hotel.", pk_notrans: "ℹ️ *{tour}* beinhaltet keinen Transport; wenn Sie ihn brauchen, nehmen wir ihn ins Angebot auf.",
+      cb_with: "*{tour}* lässt sich sehr gut kombinieren mit:", tr_delay: "Ja ✈️ Hat Ihr Flug Verspätung, warten wir bis zu 1 Stunde; diese Wartezeit ist im Transfer bereits enthalten. Bei längerer Verspätung schreiben Sie uns per WhatsApp, und wir verschieben die Abholung.", tr_night: "Nein 🌙 Für Transfers gibt es keinen Nacht- oder Feiertagszuschlag.", tr_mzl: "✈️ Vom Flughafen Manizales (La Nubia) oder Cali erstellen wir Ihnen ein individuelles Transferangebot.", veh_change: "Ja 🚙 Sie können ein anderes als das vorgeschlagene Fahrzeug wünschen – zum Beispiel mehr Platz für Gepäck, den VIP-SUV oder einen Jeep Willys: Sagen Sie es uns bei der Anfrage, und wir passen es an.",
+      cb_all: "*{tour}* lässt sich mit jedem anderen Erlebnis kombinieren." },
+    pt: { hi: "Olá! 👋 Sou a Jenny. Pergunte o que quiser sobre experiências, traslados, horários ou reservas, ou escolha um tema 👇", thanks: "Por nada! 😊 Posso ajudar em mais alguma coisa?",
+      m_vehiculos: "🚙 Veículos", m_recogida: "🏨 Busca no hotel", m_combinar: "🗓️ Várias experiências em um dia", m_compartido: "🚐 Tours compartilhados",
+      veh_list: "Nossos veículos:", veh_range: "{a} a {b} pessoas", veh_jeep: "até {b} por jipe", veh_for: "Para *{n} pessoas* sugerimos: *{v}*.",
+      veh_big: "Para *{n} pessoas* organizamos vários veículos; montamos isso na cotação.", tr_guide9: "✅ Como vocês são {n}, o traslado inclui guia ou assistente.",
+      comp_pick: "Escolha um tour compartilhado para ver os pontos de encontro e o que inclui 👇",
+      comp_note: "🗣️ Guia em espanhol (em inglês, com suplemento) · 🚐 Se você se hospeda fora de Armenia, levamos você do hotel ao ponto de encontro, conforme a região.",
+      a_dur_meet: "*{tour}* dura aprox. *{d}* a partir do ponto de encontro.", a_dur_plain: "*{tour}* dura aprox. *{d}*.",
+      pk_trans: "✅ *{tour}* inclui transporte a partir do seu hotel.", pk_notrans: "ℹ️ *{tour}* não inclui transporte; se precisar, incluímos na cotação.",
+      cb_with: "*{tour}* combina muito bem com:", tr_delay: "Sim ✈️ Se o seu voo atrasar, esperamos até 1 hora; esse tempo de espera já está incluído no traslado. Se o atraso for maior, avise-nos pelo WhatsApp e reprogramamos a busca.", tr_night: "Não 🌙 Os traslados não têm acréscimo noturno nem em feriados.", tr_mzl: "✈️ Do aeroporto de Manizales (La Nubia) ou de Cali fazemos uma cotação de traslado sob medida.", veh_change: "Sim 🚙 Você pode pedir um veículo diferente do sugerido — por exemplo, mais espaço para a bagagem, o SUV VIP ou um Jeep Willys: é só avisar na cotação e ajustamos.",
+      cb_all: "*{tour}* pode ser combinado com qualquer outra experiência." },
+    it: { hi: "Ciao! 👋 Sono Jenny. Chiedimi quello che vuoi su esperienze, transfer, orari o prenotazioni, oppure scegli un argomento 👇", thanks: "Figurati! 😊 Posso aiutarti con qualcos'altro?",
+      m_vehiculos: "🚙 Veicoli", m_recogida: "🏨 Ritiro in hotel", m_combinar: "🗓️ Più esperienze in un giorno", m_compartido: "🚐 Tour condivisi",
+      veh_list: "I nostri veicoli:", veh_range: "da {a} a {b} persone", veh_jeep: "fino a {b} per jeep", veh_for: "Per *{n} persone* ti suggeriamo: *{v}*.",
+      veh_big: "Per *{n} persone* organizziamo più veicoli; lo prepariamo nel preventivo.", tr_guide9: "✅ Dato che siete in {n}, il transfer include una guida o un assistente.",
+      comp_pick: "Scegli un tour condiviso per vedere i punti d'incontro e cosa include 👇",
+      comp_note: "🗣️ Guida in spagnolo (in inglese con supplemento) · 🚐 Se alloggi fuori Armenia, ti accompagniamo dal tuo hotel al punto d'incontro, a seconda della zona.",
+      a_dur_meet: "*{tour}* dura circa *{d}* dal punto d'incontro.", a_dur_plain: "*{tour}* dura circa *{d}*.",
+      pk_trans: "✅ *{tour}* include il trasporto dal tuo hotel.", pk_notrans: "ℹ️ *{tour}* non include il trasporto; se ti serve, lo aggiungiamo al preventivo.",
+      cb_with: "*{tour}* si abbina benissimo con:", tr_delay: "Sì ✈️ Se il tuo volo è in ritardo, ti aspettiamo fino a 1 ora; questo tempo di attesa è già incluso nel transfer. Se il ritardo è maggiore, avvisaci su WhatsApp e riprogrammiamo il ritiro.", tr_night: "No 🌙 I transfer non hanno supplementi notturni né festivi.", tr_mzl: "✈️ Dall'aeroporto di Manizales (La Nubia) o di Cali ti facciamo un preventivo di transfer su misura.", veh_change: "Sì 🚙 Puoi chiedere un veicolo diverso da quello suggerito — per esempio più spazio per i bagagli, il SUV VIP o una Jeep Willys: dillo nel preventivo e lo adattiamo.",
+      cb_all: "*{tour}* si può abbinare a qualsiasi altra esperienza." }
+  };
+  Object.keys(JX).forEach(l => { if (UI[l]) Object.assign(UI[l], JX[l]); });
   const MT = {
     es: { change: "Para cambiar un horario de tu reserva, abre *Mi viaje* con tu código: eliges la actividad y la nueva hora, y tu anfitrión recibe por WhatsApp un mensaje con todos los datos 👇",
       view: "Tu itinerario, horarios, mapa y qué llevar están en *Mi viaje*. Ábrelo con tu código de reserva 👇", open: "🔑 Abrir Mi viaje", nocode: "💬 No tengo el código",
@@ -191,24 +256,45 @@
 
   // Temas del árbol (id del nodo en jenny.json → etiqueta del menú)
   const PRIMARY = ["reservar", "horarios", "duracion", "que_incluye", "que_llevar", "precios", "pagos", "plans", "asesor"];
-  const MORE = ["compartido", "traslados", "ninos_mayores", "accesibilidad", "idiomas", "clima", "temporadas", "cancelacion", "sostenibilidad", "empresa", "redes", "scan"];
+  const MORE = ["compartido", "traslados", "vehiculos", "recogida", "combinar", "ninos_mayores", "accesibilidad", "idiomas", "clima", "temporadas", "cancelacion", "sostenibilidad", "empresa", "redes", "scan"];
   const LABEL = { reservar: "m_reservar", horarios: "m_horarios", duracion: "m_duracion", que_incluye: "m_incluye", que_llevar: "m_llevar", precios: "m_precios",
     pagos: "m_pagos", plans: "m_plans", asesor: "m_asesor", traslados: "m_traslados", ninos_mayores: "m_ninos", accesibilidad: "m_access", idiomas: "m_idiomas",
-    clima: "m_clima", temporadas: "m_temporadas", cancelacion: "m_cancel", sostenibilidad: "m_sost", empresa: "m_empresa", redes: "m_redes", compartido: "m_compartido", scan: "m_scan" };
+    clima: "m_clima", temporadas: "m_temporadas", cancelacion: "m_cancel", sostenibilidad: "m_sost", empresa: "m_empresa", redes: "m_redes", compartido: "m_compartido", scan: "m_scan",
+    vehiculos: "m_vehiculos", recogida: "m_recogida", combinar: "m_combinar" };
   const TOUR_Q = ["horarios", "duracion", "que_incluye", "que_llevar"];          // preguntas que necesitan una experiencia
   // Palabras clave para el texto libre (se suman a pregunta_tipo de jenny.json)
   const KW = {
     horarios: ["hora", "horario", "a que hora", "a que horas sale", "recogen", "pickup", "what time", "schedule", "heure", "uhrzeit", "orari", "a che ora", "ritiro"],
     duracion: ["dura", "cuanto tiempo", "cuantas horas", "duracion", "how long", "duration", "duree", "dauer", "duracao", "quanto dura", "durata", "quante ore", "quanto tempo"],
     que_incluye: ["incluye", "include", "inclus", "inklusive", "inclui", "compreso", "comprende"],
-    que_llevar: ["llevar", "ropa", "empacar", "bring", "pack", "emporter", "mitnehmen", "levar", "portare", "cosa portare", "valigia", "vestiti", "abbigliamento"],
+    que_llevar: ["llevar", "ropa", "empacar", "bring", "pack", "emporter", "mitnehmen", "levar", "portare", "cosa portare", "valigia", "vestiti", "abbigliamento",
+      "que llevo", "que empaco", "maleta", "what should i wear", "que mettre", "was ziehe ich", "o que levo", "cosa mi metto"],
     precios: ["precio", "cuesta", "valor", "tarifa", "cotiz", "price", "cost", "prix", "preis", "preco", "quanto", "prezz", "quanto costa", "tariff", "preventiv"],
     reservar: ["reserv", "book", "buchen", "prenot"],
     pagos: ["pago", "pagar", "anticipo", "nequi", "daviplata", "tarjeta", "payment", "pay", "deposit", "paiement", "zahlung", "pagamento", "pagament", "acconto", "caparra", "carta di credito", "bonifico"],
-    traslados: ["traslado", "aeropuerto", "transfer", "airport", "aeroport", "flughafen", "aeroporto", "trasfer", "navetta"],
+    traslados: ["traslado", "aeropuerto", "transfer", "airport", "aeroport", "flughafen", "aeroporto", "trasfer", "navetta",
+      "llegamos", "llegamos a", "llego a", "llegada", "aterriz", "vuelo", "retras", "recargo", "flight", "delayed", "landing", "arrival", "arriving",
+      "mon vol", "notre vol", "vol retard", "atterri", "flug", "landung", "ankunft", "voo", "chegada", "pouso", "il volo", "mio volo", "volo in ritardo", "atterragg"],
+    // Equipaje solo como capacidad («¿cuántas maletas caben?»); «qué empaco» sigue siendo qué llevar
+    vehiculos: ["vehiculo", "carro", "camioneta", "buseta", "microbus", "maletas", "equipaje cabe", "cuanto equipaje", "willys", "jeep", "una van", "la van", "vans",
+      "vehicle", "minivan", "minibus", "how many suitcases", "how much luggage", "luggage space", "the van", "vehicule", "voiture", "combien de valises", "combien de bagages",
+      "fahrzeug", "wie viele koffer", "wie viel gepack", "kleinbus", "veiculo", "quantas malas", "quanta bagagem", "veicol", "pulmino", "quante valigie", "quanti bagagli"],
+    recogida: ["me recogen", "nos recogen", "recogen en", "recoger en", "recogida en", "pasan por", "punto de encuentro", "desde mi hotel", "desde el hotel",
+      "me hospedo", "nos hospedamos", "hospedados en", "pick us up", "pick me up", "pick up at", "pick-up", "hotel pickup", "from my hotel", "from the hotel",
+      "meeting point", "staying in", "staying at", "nous chercher", "me chercher", "prise en charge", "point de rendez", "depuis l'hotel", "je loge", "nous logeons",
+      "abholen", "abholung", "treffpunkt", "vom hotel", "wir wohnen", "ich wohne", "buscam", "buscar no hotel", "ponto de encontro", "estou hospedad", "estamos hospedad",
+      "prendere in hotel", "venite a prendere", "punto d'incontro", "punto di incontro", "dall'hotel", "alloggio a", "alloggiamo"],
+    combinar: ["dos tours", "2 tours", "dos experiencias", "2 experiencias", "varias experiencias", "varios tours", "mismo dia", "en un dia", "un solo dia",
+      "combinar", "combinan", "two tours", "same day", "in one day", "in a day", "combine", "deux tours", "deux experiences", "meme jour", "en une journee", "combiner",
+      "zwei touren", "zwei erlebnisse", "selben tag", "an einem tag", "kombinier", "dois tours", "duas experiencias", "mesmo dia", "em um dia", "num dia",
+      "due tour", "due esperienze", "stesso giorno", "in un giorno", "combinare", "abbinare"],
     ninos_mayores: ["nino", "bebe", "adulto mayor", "abuel", "kid", "child", "senior", "enfant", "kinder", "crianca", "bambin", "neonat", "anzian", "figli", "terza eta"],
-    accesibilidad: ["accesib", "silla de ruedas", "discapacidad", "movilidad", "invidente", "wheelchair", "accessib", "barriere", "acessib", "sedia a rotelle", "disabil", "mobilita ridotta", "non vedent"],
-    idiomas: ["idioma", "ingles", "language", "english", "langue", "sprache", "lingua", "lingue", "inglese", "parla italiano", "parlate italiano", "in italiano"],
+    accesibilidad: ["accesib", "silla de ruedas", "discapacidad", "movilidad", "invidente", "wheelchair", "accessib", "barriere", "acessib", "sedia a rotelle", "disabil", "mobilita ridotta", "non vedent",
+      "sin barreras", "barrier-free", "barrier free", "sans barriere", "barrierefrei", "rollstuhl", "sem barreiras", "cadeira de rodas", "fauteuil roulant", "ciego", "blind", "aveugle", "cego"],
+    idiomas: ["idioma", "ingles", "language", "english", "langue", "sprache", "lingua", "lingue", "inglese", "parla italiano", "parlate italiano", "in italiano",
+      "aleman", "frances", "italiano", "portugues", "espanol", "guia en", "guide in", "speaking guide", "german", "french", "italian", "portuguese", "spanish",
+      "allemand", "anglais", "espagnol", "italien", "portugais", "anglophone", "francophone", "germanophone", "hispanophone", "italophone", "lusophone",
+      "deutsch", "englisch", "franzosisch", "italienisch", "portugiesisch", "spanisch", "alemao", "espanhol", "guia em", "tedesco", "francese", "portoghese", "spagnolo", "guida in"],
     clima: ["clima", "lluvia", "llueve", "frio", "calor", "weather", "rain", "meteo", "wetter", "chuva", "pioggia", "piove", "freddo", "caldo", "temperatur"],
     temporadas: ["temporada", "semana santa", "season", "saison", "temporada alta", "stagion", "alta stagione", "settimana santa", "pasqua"],
     cancelacion: ["cancel", "reembols", "refund", "annul", "storn", "rimbors", "disdett", "disdire"],
@@ -334,6 +420,7 @@
   }
   function onChip(c) {
     if (busy) return;
+    ctx.q = ""; ctx.paxNow = 0;
     addBubble(esc(c.userLabel || c.label), "user");
     if (c.scan) { scanQR(); return; }
     if (c.wa) { EspoApp.openWhatsApp(c.waMsg || composeWA(), "JENNY"); if (HAS_PLANS && ctx.leadId && ctx.consent) EspoPlans.sendLead(leadData("whatsapp")); }
@@ -377,6 +464,8 @@
       else if (w === "precios") out.push({ label: U().m_precios, to: "n:precios" });
       else if (w === "horarios") out.push({ label: U().m_horarios, to: "n:horarios" });
       else if (w === "accesibilidad") out.push({ label: U().m_access, to: "n:accesibilidad" });
+      else if (["traslados", "vehiculos", "recogida", "compartido", "combinar"].indexOf(w) >= 0) out.push({ label: U()[LABEL[w]], to: "n:" + w });
+      else if (w === "plans" && HAS_PLANS) out.push({ label: U().m_plans, to: "plans" });
       else if (w === "experiencias") out.push({ label: U().go_tours, anchor: "#experiencias" });
       else if (/sostenibilidad/i.test(w)) out.push({ label: U().go_sust, anchor: "#sostenibilidad" });
     });
@@ -401,7 +490,13 @@
       const n = id.slice(2);
       if (n === "plans") return buildNode("plans");
       if (n === "asesor") return { msgs: [(D().node("asesor", lang) || {}).respuesta], chips: [{ label: U().open_wa, kind: "wa", wa: true }, { label: U().back, to: "menu" }] };
-      if (n === "compartido") return tourNode("compartidocs", "compartido");
+      if (n === "compartido") {
+        // Los 4 tours compartidos 2027: resumen y una ficha por tour (puntos de encuentro, qué incluye)
+        const node = D().node("tour_compartido", lang) || {}, comp = sharedTours();
+        if (!node.respuesta || !comp.length) return tourNode("compartidocs", "compartido");
+        return { msgs: [node.respuesta, U().comp_pick], chips: comp.map(x => ({ label: EspoApp.tourText(x).name, to: "tour:" + x.id }))
+          .concat([{ label: U().m_recogida, to: "n:recogida" }, { label: U().back, to: "menu" }]) };
+      }
       if (n === "reservar") {
         const node = D().node("reservar", lang);
         if (ctx.tourId || ctx.planId) {
@@ -437,7 +532,9 @@
       const chips = nextChips(node.salida);
       if (n === "pagos" && HAS_PLANS && EspoPlans.cfg.payLink) chips.unshift({ label: U().pay_btn, href: EspoPlans.cfg.payLink });
       if (n === "accesibilidad") ctx.access = true;
-      return { msgs: [node.respuesta], chips };
+      const extra = topicExtras(n);
+      if (extra.chips.length) chips.unshift(...extra.chips);
+      return { msgs: leadFor(n).concat([node.respuesta], extra.msgs), chips };
     }
 
     if (id === "cats") return { msgs: [U().pick_cat], chips: catChips() };
@@ -510,13 +607,81 @@
     ctx.tourId = tid; ctx.tourName = info.nombre; ctx.tourCode = info.codigo; ctx.planId = null;
     if (ctx.intent) { const q = ctx.intent; ctx.intent = null; if (q === "cotizar") return quoteNode(tid); if (q === "reservar") return { msgs: [P().form_intro], form: true }; return tourAnswer(tid, q); }
     const msgs = [];
-    if (special === "compartido") {
-      const n = D().node("tour_compartido", lang) || {};
-      msgs.push("*" + info.nombre + "* · " + info.codigo + "\n" + (n.itinerario || ""));
+    if (special === "compartido" || info.modalidad === "compartido") {
+      // Tour compartido: recorrido, puntos de encuentro, operación y guía/traslado (Cocora y Salento trae su detalle del árbol)
+      const n = tid === "compartidocs" ? (D().node("tour_compartido", lang) || {}) : {};
+      msgs.push("*" + info.nombre + "* · " + info.codigo + "\n" + (n.itinerario || info.descripcion || ""));
       if (n.puntos_encuentro) msgs.push("📍 " + n.puntos_encuentro.map(p => p.lugar + " — " + D().hhmm(p.hora, lang)).join("\n📍 "));
+      else if (info.horario_nota) msgs.push("📍 " + info.horario_nota);
       if (n.operacion) msgs.push("🗓️ " + n.operacion + (n.no_opera ? "\n🚫 " + n.no_opera.join(" · ") : ""));
+      else if (info.notas.length) msgs.push("🗓️ " + info.notas.join(" · "));
+      msgs.push(U().comp_note);
     } else msgs.push(U().hub.replace("{tour}", info.nombre).replace("{code}", info.codigo));
     return { msgs, chips: tourChips(tid) };
+  }
+  // Tours compartidos publicados (ETHD066, ETHD067, ETFD014, ETFD015)
+  function sharedTours() { return EspoApp.tours().filter(x => (D().tour(x.id, lang) || {}).modalidad === "compartido"); }
+  const hasTransport = (i) => i.incluye.some(x => /transport|trasport|traslado/i.test(x));
+
+  /* ---------- Vehículos, recogida y combinaciones (datos públicos del kit; sin tarifas) ---------- */
+  function vehicles() { return (D().vehiculos ? D().vehiculos(lang) : []); }
+  // Vehículo sugerido para n personas: el de rango recomendado (min–max), sin los especiales (VIP, Willys)
+  function vehFor(n) {
+    if (!n) return "";
+    const list = vehicles().filter(v => !v.vip && v.capacidad_max);
+    const v = list.find(x => n >= x.min && n <= x.max) || list.find(x => n <= x.capacidad_max);
+    return v ? U().veh_for.replace("{n}", n).replace("{v}", v.nombre) : U().veh_big.replace("{n}", n);
+  }
+  function vehList() {
+    const lines = vehicles().map(v => {
+      const range = v.capacidad_max ? U().veh_range.replace("{a}", v.min).replace("{b}", v.max) : U().veh_jeep.replace("{b}", v.max);
+      return (v.vip ? "✨ " : v.capacidad_max ? "🚐 " : "🚙 ") + "*" + v.nombre + "*: " + range + (v.equipaje ? " · " + v.equipaje : "") + (v.vip || !v.capacidad_max ? " · " + v.uso : "");
+    });
+    return lines.length ? U().veh_list + "\n" + lines.join("\n") : "";
+  }
+  // Notas de la experiencia en contexto que responden el tema (edad, movilidad, lluvia, guía bilingüe)
+  const TOUR_NOTE = {
+    ninos_mayores: /\d+\s*(a|to|à|bis|e|-)\s*\d+\s*(años|years|ans|jahre|jahren|anos|anni)|mayores de|over 18|plus de 18|über 18|maiores de|maggiorenni|più di 18|niñ|child|enfant|kinder|crian|bambin/i,
+    accesibilidad: /movilidad|mobility|mobilit|silla de ruedas|wheelchair|fauteuil|rollstuhl|cadeira de rodas|sedia a rotelle|cardi|dificultad|difficult|schwierig|dificuldade|difficolt/i,
+    clima: /lluev|lluvia|rain|pluie|regen|chuv|piogg|piov|clima|weather|météo|wetter/i,
+    idiomas: /biling|zweisprach|idioma|language|langue|sprache|lingua|español|spanish|espagnol|spanisch|espanhol|spagnolo|inglés|english|anglais|englisch|inglês|inglese/i
+  };
+  // Respuesta directa a lo que preguntó por escrito (ctx.q), antes del texto completo del tema
+  const DELAY = /retras|delay|retard|verspat|atras|ritard|\blate\b/, SURCH = /recargo|surcharge|zuschlag|acrescimo|supplemento|supplement/;
+  const NIGHT = /noche|nocturn|festiv|night|holiday|nuit|ferie|nacht|feiertag|noite|notur|feriad|notte|nottur/, COSTW = /cobr|cuest|cost|extra|caro|pay more|cher|teuer|pagar mais|paga/;
+  const OTHER_AP = /manizales|la nubia|\bcali\b|\bmzl\b|\bclo\b/, APW = /aeropuerto|airport|aeroport|flughafen|aeroporto|vuelo|flight|\bvol\b|\bflug|\bvoo\b|\bvolo\b/;
+  const VCHANGE = /cambi|otro vehiculo|elegir|escoger|choose|change|other vehicle|different vehicle|autre|choisir|ander|wahl|outro|escolher|trocar|altro|scegliere/;
+  function leadFor(n) {
+    const q = ctx.q || "", out = [];
+    if (n === "traslados") {
+      if (DELAY.test(q)) out.push(U().tr_delay);
+      if (SURCH.test(q) || (NIGHT.test(q) && COSTW.test(q))) out.push(U().tr_night);
+      if (OTHER_AP.test(q) && APW.test(q)) out.push(U().tr_mzl);
+    } else if (n === "vehiculos" && VCHANGE.test(q)) out.push(U().veh_change);
+    return out;
+  }
+  function topicExtras(n) {
+    const msgs = [], chips = [];
+    const i = ctx.tourId && D().tour(ctx.tourId, lang);
+    if (n === "traslados" && ctx.paxNow) {
+      msgs.push(vehFor(ctx.paxNow) + (ctx.paxNow >= 9 ? "\n" + U().tr_guide9.replace("{n}", ctx.paxNow) : ""));
+    } else if (n === "vehiculos") {
+      const l = vehList(); if (l) msgs.push(l);
+      if (ctx.pax) msgs.push(vehFor(ctx.pax));
+    } else if (n === "recogida" && i) {
+      if (i.modalidad === "compartido" && i.horario_nota) msgs.push("📍 *" + i.nombre + "*: " + i.horario_nota);
+      else if (i.incluye.length) msgs.push((hasTransport(i) ? U().pk_trans : U().pk_notrans).replace("{tour}", i.nombre));
+    } else if (n === "combinar" && i) {
+      const vis = EspoApp.tours(), with_ = i.combina.filter(c => c !== i.id && vis.some(x => x.id === c));
+      if (with_.length) {
+        msgs.push(U().cb_with.replace("{tour}", i.nombre) + "\n" + with_.map(c => "• " + ((D().tour(c, lang) || {}).nombre || c)).join("\n"));
+        with_.slice(0, 3).forEach(c => chips.push({ label: (D().tour(c, lang) || {}).nombre || c, to: "tour:" + c }));
+      } else if (i.combina_todas) msgs.push(U().cb_all.replace("{tour}", i.nombre));
+    } else if (TOUR_NOTE[n] && i) {
+      const notes = i.notas.concat(n === "idiomas" ? i.incluye : []).filter(x => TOUR_NOTE[n].test(x)).slice(0, 2);
+      if (notes.length) msgs.push("ℹ️ *" + i.nombre + "*:\n" + notes.join("\n"));
+    }
+    return { msgs, chips };
   }
   function tourChips(tid) {
     return [
@@ -535,11 +700,14 @@
     if (q === "horarios") {
       if (!i.horario) msgs.push(U().a_tbd);
       else msgs.push(U().a_horario.replace("{tour}", i.nombre).replace("{h}", D().fmtHorario(i.horario, lang)).replace(/\.\.$/, ".") + (i.horario_nota ? "\n" + i.horario_nota : ""));
-      const key = i.notas.find(n => /horario|ingreso|opera|schedule|open|horaire|uhr|horár/i.test(n)); if (key) msgs.push("ℹ️ " + key);
+      const key = i.notas.find(n => /horario|ingreso|opera|schedule|open|horaire|uhr|horár|runs daily|tous les jours|täglich|todos os dias|tutti i giorni|sale en la|departs|départ|abfahrt|saída|partenza/i.test(n)); if (key) msgs.push("ℹ️ " + key);
     } else if (q === "duracion") {
-      msgs.push(i.dur == null ? U().a_tbd : U().a_dur.replace("{tour}", i.nombre).replace("{d}", D().fmtDur(i.dur, lang)));
+      // «desde la recogida en tu hotel» solo si la experiencia incluye transporte; los compartidos cuentan desde el punto de encuentro
+      const k = i.modalidad === "compartido" ? "a_dur_meet" : hasTransport(i) ? "a_dur" : "a_dur_plain";
+      msgs.push(i.dur == null ? U().a_tbd : U()[k].replace("{tour}", i.nombre).replace("{d}", D().fmtDur(i.dur, lang)));
     } else if (q === "que_incluye") {
-      msgs.push(U().a_incl.replace("{tour}", i.nombre) + "\n" + i.incluye.map(x => "✅ " + x).join("\n"));
+      if (!i.incluye.length) msgs.push(U().a_tbd);
+      else msgs.push(U().a_incl.replace("{tour}", i.nombre) + "\n" + i.incluye.map(x => "✅ " + x).join("\n"));
       msgs.push((i.no_incluye.length ? U().a_noincl + " " + i.no_incluye.join(" · ") + ". " : "") + D().general("no_incluye_siempre", lang));
     } else if (q === "que_llevar") {
       if (i.rec.items.length) msgs.push("*" + i.rec.titulo + "*\n" + i.rec.items.join("\n"));
@@ -798,38 +966,134 @@
     "experiencial", "especial", "origen", "bienestar", "conexion", "manjares", "senderismo", "ecosistema", "unico", "aficionados", "trek",
     "esperienza", "esperienze", "parco", "caffe", "degustazione", "riserva", "riserve", "naturale", "naturali", "locale", "locali", "mondo",
     "totale", "piatto", "sessione", "tradizionale", "esperienziale", "speciale", "origine", "benessere", "connessione", "delizie",
-    "escursionismo", "appassionati", "percorso", "giorno"];
+    "escursionismo", "appassionati", "percorso", "giorno",
+    // nov-2026: palabras comunes de los nombres en otros idiomas (artículos, «visita», «aventura»…) y la modalidad
+    // compartida (la decide el tema «compartido», no el nombre): «Gibt es einen…» ya no abre «Einen Tag lang Bauer sein»
+    "einen", "einer", "eines", "einem", "della", "delle", "degli", "dello", "nella", "nelle", "entre", "durch", "zwischen", "house", "maison",
+    "hands", "lokale", "locaux", "locais", "santa", "maria", "single", "monde", "voller", "journee", "complete", "fullday", "towns", "visit",
+    "visite", "besuch", "unique", "nature", "natur", "natura", "natureza", "route", "river", "fiume", "parcours", "recorrido", "rundgang",
+    "culture", "cultura", "traditional", "traditionnel", "traditionelle", "specialty", "origin", "origem", "aventura", "adventure", "aventure",
+    "abenteuer", "avventura", "trekking", "hiking", "garden", "jardin", "jardim", "giardino", "garten", "workshop", "atelier", "taller",
+    "oficina", "laboratorio", "tasting", "degustation", "verkostung", "degustacao", "making", "creation", "fabrication", "balade", "passeggiata",
+    "compartido", "shared", "partage", "gruppentour", "compartilhado", "condiviso", "condivisa"];
+  // Lugares: nombrar la ciudad no basta para cambiar de tema («llegamos a Pereira» es un traslado, no el City tour Pereira)
+  const PLACE = ["armenia", "pereira", "manizales", "salento", "filandia", "quimbaya", "circasia", "montenegro", "calarca", "cartago",
+    "cocora", "quindio", "risaralda", "caldas", "cordillera", "cordoba", "pijao", "buenavista", "caicedonia", "sevilla", "valle", "valley", "vallee"];
+  // Temas que se responden con la experiencia en contexto (recogida, combinaciones, notas de edad, movilidad, clima, idioma)
+  const TOPIC_CTX = ["recogida", "combinar", "ninos_mayores", "accesibilidad", "clima", "idiomas", "asesor"];
+  // Cuántas personas («somos 8», «grupo de 12», «for 6 people», «siamo in sei»…)
+  const NUMW = { dos: 2, tres: 3, cuatro: 4, cinco: 5, seis: 6, siete: 7, ocho: 8, nueve: 9, diez: 10, once: 11, doce: 12, quince: 15, veinte: 20,
+    one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, fifteen: 15, twenty: 20,
+    deux: 2, trois: 3, quatre: 4, cinq: 5, sept: 7, huit: 8, neuf: 9, dix: 10, onze: 11, douze: 12, vingt: 20,
+    zwei: 2, drei: 3, vier: 4, funf: 5, sechs: 6, sieben: 7, acht: 8, neun: 9, zehn: 10, elf: 11, zwolf: 12, zwanzig: 20,
+    dois: 2, duas: 2, quatro: 4, sete: 7, oito: 8, nove: 9, dez: 10, doze: 12, vinte: 20,
+    due: 2, tre: 3, quattro: 4, cinque: 5, sei: 6, sette: 7, otto: 8, dieci: 10, undici: 11, dodici: 12, venti: 20 };
+  const N_RE = "(\\d{1,2}|" + Object.keys(NUMW).join("|") + ")";
+  const PEOPLE = "(personas|persona|pax|pasajeros|adultos|viajeros|people|persons|passengers|travell?ers|adults|guests|personnes|voyageurs|adultes|passagers|personen|reisende|erwachsene|pessoas|passageiros|viajantes|persone|passeggeri|viaggiatori|adulti|ospiti)";
+  const PAX_RES = [new RegExp("(^|[^a-z0-9])" + N_RE + "\\s+" + PEOPLE + "([^a-z]|$)"),
+    new RegExp("(somos|seremos|we are|we're|nous sommes|on est|wir sind|siamo|saremo)\\s+(in\\s+)?" + N_RE + "([^a-z0-9]|$)"),
+    new RegExp("(grupo|group|groupe|gruppe|gruppo)\\s+(de|of|von|di)\\s+" + N_RE + "([^a-z0-9]|$)")];
+  function paxOf(t) {
+    for (const re of PAX_RES) {
+      const m = re.exec(t); if (!m) continue;
+      const w = m.slice(1).find(x => x && (/^\d+$/.test(x) || NUMW[x]));
+      const n = /^\d+$/.test(w) ? +w : NUMW[w];
+      if (n >= 1 && n <= 60) return n;
+    }
+    return 0;
+  }
+  // Una letra de diferencia (falta, sobra o cambia): «trasldo» → «traslado»
+  function lev1(a, b) {
+    if (a === b) return true;
+    if (Math.abs(a.length - b.length) > 1) return false;
+    let i = 0, j = 0, d = 0;
+    while (i < a.length && j < b.length) {
+      if (a[i] === b[j]) { i++; j++; continue; }
+      if (++d > 1) return false;
+      if (a.length > b.length) i++; else if (b.length > a.length) j++; else { i++; j++; }
+    }
+    return d + (a.length - i) + (b.length - j) <= 1;
+  }
   const esc_re = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const hasWord = (t, w) => new RegExp("(^|[^a-z0-9ñ])" + esc_re(w) + "([^a-z0-9ñ]|$)").test(t);   // palabra completa
   const hasStem = (t, w) => new RegExp("(^|[^a-z0-9ñ])" + esc_re(w)).test(t);                     // inicio de palabra
+  function setTour(id) {
+    const info = D().tour(id, lang), base = EspoApp.tours().find(x => x.id === id);
+    Object.assign(ctx, { tourId: id, tourName: info ? info.nombre : (base ? EspoApp.tourText(base).name : id), tourCode: info ? info.codigo : "", planId: null, intent: null });
+  }
   function freeText(q) {
     if (!D() || !D().ready()) { const no = () => noMatch(q); D() ? D().load().then(() => freeText(q), no) : no(); return; }
     const t = norm(q);
     // 0) ¿ya tiene reserva? (cambiar un horario / ver su viaje)
     const chg = CHANGE_VERB.test(t) && TIME_WORD.test(t);
     if (chg || MY_TRIP.test(t)) { go(chg ? "mytrip:change" : "mytrip:view"); return; }
+    // Solo un saludo o un agradecimiento («hola», «gracias Jenny»): se contesta y se ofrece el menú
+    const tt = t.replace(/[^a-z0-9ñ ]/g, " ").replace(/\s+/g, " ").trim(), who = "( (jenny|amiga|there|everyone|a todos|equipo|team))?$";
+    if (new RegExp("^(hola|holi|buenas|buenos dias|buenas tardes|buenas noches|hello|hi|hey|good (morning|afternoon|evening)|bonjour|bonsoir|salut|hallo|guten (tag|morgen|abend)|servus|ola|oi|bom dia|boa tarde|boa noite|ciao|buongiorno|buonasera|salve)" + who).test(tt)) {
+      botSay([U().hi]).then(() => renderChips(menuChips())); return;
+    }
+    if (new RegExp("^(muchas |mil )?(gracias|thanks|thank you|thx|merci( beaucoup)?|danke( schon| sehr)?|vielen dank|obrigad[oa]|grazie( mille)?|perfecto|perfect|genial|super)" + who).test(tt)) {
+      botSay([U().thanks]).then(() => renderChips(menuChips())); return;
+    }
+    const pax = paxOf(t);
+    ctx.q = t; ctx.paxNow = pax;               // lo que escribió ahora (respuesta directa y vehículo sugerido)
+    if (pax) { ctx.pax = pax; if (!ctx.party) ctx.party = pax; }
     // 1) ¿menciona una experiencia? (palabras completas y distintivas del nombre)
-    let best = null, bestScore = 0;
+    let best = null, bestScore = 0, strong = false;
+    const wantsShared = /compartid|shared|partag|gruppentour|group tour|compartilhad|condivis/.test(t);
     EspoApp.tours().forEach(x => {
       const words = norm(x.name + " " + EspoApp.tourText(x).name).split(/[^a-z0-9ñ]+/).filter(w => w.length > 4 && STOP.indexOf(w) < 0);
-      const s = words.filter((w, i, a) => a.indexOf(w) === i).reduce((a, w) => a + (hasWord(t, w) ? w.length : 0), 0);
-      if (s > bestScore) { bestScore = s; best = x.id; }
+      const hit = words.filter((w, i, a) => a.indexOf(w) === i && hasWord(t, w));
+      const shared = (D().tour(x.id, lang) || {}).modalidad === "compartido";
+      const s = hit.reduce((a, w) => a + w.length, 0) - (hit.length && shared !== wantsShared ? 0.5 : 0);
+      if (s > bestScore) { bestScore = s; best = x.id; strong = hit.some(w => PLACE.indexOf(w) < 0); }
     });
     // 2) ¿qué pregunta? (palabras clave + pregunta_tipo de jenny.json, salvo las frases genéricas del tour compartido)
-    let topic = null, tScore = 0;
+    const sc = {};
     Object.keys(KW).forEach(id => {
       let kws = KW[id].slice();
       const node = id === "compartido" ? null : D().node(id, lang);
       if (node && node.pregunta_tipo) kws = kws.concat(node.pregunta_tipo);
       const s = kws.reduce((a, k) => { const nk = norm(k).replace(/[¿?¡!]/g, "").trim(); return a + (nk && hasStem(t, nk) ? nk.length : 0); }, 0);
-      if (s > tScore) { tScore = s; topic = id; }
+      if (s > 0) sc[id] = s;
     });
     // Nombres que la gente usa y no salen de las palabras del título ("tour del café", "parque del café")
-    Object.keys(ALIAS).forEach(id => { if (bestScore < 10 && ALIAS[id].some(a => t.indexOf(a) >= 0)) { bestScore = 10; best = id; } });
-    if (best && bestScore >= 5) {
+    Object.keys(ALIAS).forEach(id => { if (bestScore < 10 && ALIAS[id].some(a => t.indexOf(a) >= 0)) { bestScore = 10; best = id; strong = true; } });
+    if (bestScore < 5) best = null;
+    // «compartido» + una experiencia → su versión compartida (Cacao → Cacao en compartido); el tema ya quedó resuelto
+    if (best && sc.compartido) {
+      const bi = D().tour(best, lang);
+      const alt = bi && bi.modalidad !== "compartido" && bi.alterna.find(a => sharedTours().some(x => x.id === a));
+      if (alt) best = alt;
+      if ((D().tour(best, lang) || {}).modalidad === "compartido") { strong = true; delete sc.compartido; }
+    }
+    // Tema con más puntaje (a igual puntaje, el que va primero en KW); «precios» cede ante un tema concreto
+    // («¿el guía en inglés cuesta más?» → idiomas; ese tema ya explica que el valor sale al cotizar)
+    const ranked = Object.keys(sc).sort((a, b) => sc[b] - sc[a]);
+    let topic = ranked[0] || null;
+    const general = ranked.find(id => TOUR_Q.indexOf(id) < 0 && ["precios", "reservar", "compartido"].indexOf(id) < 0);
+    if (topic === "precios" && general && sc[general] >= 5 && !(best && strong)) topic = general;
+    // Una pregunta de horario/duración junto a una ciudad y un tema de logística es de logística («¿cuánto dura el traslado a Pereira?»)
+    if (best && !strong && TOUR_Q.indexOf(topic) >= 0 && general && sc[general] >= 7) topic = general;
+    // 3) Sin tema ni experiencia: se tolera una letra de error en las palabras clave largas
+    if (!topic && !best) {
+      const toks = t.split(/[^a-z0-9ñ]+/).filter(w => w.length >= 7);
+      let fs = 0;
+      Object.keys(KW).forEach(id => KW[id].forEach(k => {
+        const nk = norm(k); if (nk.length < 7 || /\s/.test(nk)) return;
+        if (toks.some(w => w[0] === nk[0] && lev1(w, nk)) && nk.length > fs) { fs = nk.length; topic = id; }
+      }));
+    }
+    // Solo dijo cuántos son («somos 40 personas»): vehículos para ese grupo
+    if (!topic && !best && pax) topic = "vehiculos";
+    if (best) {
       if (topic && TOUR_Q.indexOf(topic) >= 0) { go("ta:" + best + ":" + topic); return; }
-      const info = D().tour(best, lang);
-      Object.assign(ctx, { tourId: best, tourName: info ? info.nombre : EspoApp.tourText(EspoApp.tours().find(x => x.id === best)).name, tourCode: info ? info.codigo : "", planId: null, intent: null });
+      // Un tema general (traslados, recogida, idiomas…) se responde; la experiencia queda en contexto solo si se nombró de verdad
+      if (topic && topic !== "precios" && topic !== "reservar" && topic !== "compartido") {
+        if (strong && TOPIC_CTX.indexOf(topic) >= 0) setTour(best);
+        go("n:" + topic); return;
+      }
+      setTour(best);
       if (topic === "precios" || topic === "reservar") { go("n:" + topic); return; }
       go("tour:" + best); return;
     }
@@ -859,7 +1123,7 @@
     const T = P();
     quick.innerHTML = "";
     const today = EspoPlans.localISO();
-    const guide = ctx.guide || (lang === "de" ? "en" : lang);   // no hay guías en alemán: a quien escribe en alemán se le propone inglés
+    const guide = ctx.guide || lang;   // guías en los 6 idiomas (alemán con suplemento, como los demás distintos al español)
     const f = el("form", "espo-form");
     f.setAttribute("autocomplete", "on");
     f.innerHTML =
@@ -869,7 +1133,7 @@
          <label>${esc(T.f_people)}<input name="people" type="number" min="1" max="60" value="${esc(ctx.party || 2)}"></label>
        </div>
        <label>${esc(T.f_hotel)}<input name="hotel" maxlength="80" value="${esc(ctx.hotel || "")}"></label>
-       <label>${esc(U().f_guide)}<select name="guide">${["es", "en", "fr", "pt", "it"].map(c => `<option value="${c}"${c === guide ? " selected" : ""}>${LANGNAME[c]}</option>`).join("")}</select></label>
+       <label>${esc(U().f_guide)}<select name="guide">${["es", "en", "fr", "de", "pt", "it"].map(c => `<option value="${c}"${c === guide ? " selected" : ""}>${LANGNAME[c]}</option>`).join("")}</select></label>
        <label>${esc(CONTACT_LBL[lang] || CONTACT_LBL.es)}<input name="contact" maxlength="80" autocomplete="tel" inputmode="email" value="${esc(ctx.contact || "")}"></label>
        <label>${esc(T.f_diet)}<input name="diet" maxlength="80" value="${esc(ctx.diet || "")}"></label>
        <label>${esc(T.f_notes)}<input name="notes" maxlength="160" value="${esc(ctx.notes || "")}"></label>
