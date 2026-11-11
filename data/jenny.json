@@ -1,14 +1,15 @@
 {
  "_meta": {
   "descripcion": "Fuente única de datos de Jenny (sitio, conserje y portal). Generado a partir de jenny-arbol-faq.json (brief de rediseño, oct. 2026) con limpieza de textos del portafolio.",
-  "version": "2026-10-08",
+  "version": "2026-11-11",
   "empresa": "Espontáneos Travel SAS",
   "fuentes": [
    "PCCC_Portafolio_2026 (Word): horarios, duración, incluye, observaciones",
    "RECOMENDACIONES.docx (5 tours)",
    "TARIFARIO MERCADO NACIONAL 2026 (planes, temporadas, niños)",
    "Política de Sostenibilidad ET",
-   "Base de Conocimiento Chatbot - Espontáneos Travel (docx)"
+   "Base de Conocimiento Chatbot - Espontáneos Travel (docx)",
+   "Kit de agencias 2027 (11-nov-2026): qué incluyen los traslados, guianza por idioma, vehículos, tours compartidos y el «qué incluye» de 19 experiencias (data/portafolio*.json). Sin tarifas."
   ],
   "regla_de_oro": "Campos null o POR_VALIDAR: Jenny NO inventa; responde 'te lo confirma un asesor' y pasa a WhatsApp.",
   "precios": "Ninguna tarifa va en la web ni en Jenny (decisión de ET, 29-oct-2026): fichas, tarjetas, páginas y el chat dicen «Cotiza con Jenny» y Jenny dirige al cliente con el anfitrión por WhatsApp, que le da la tarifa con el beneficio por convenio que aplique (ver «convenios»). El tarifario NETO solo se ve en el portal de agencias. Las condiciones con tarifas o suplementos están fuera del repositorio (privado/) y se cargan al portal.",
@@ -172,6 +173,9 @@
     "pagos",
     "cancelacion",
     "traslados",
+    "combinar",
+    "recogida",
+    "vehiculos",
     "ninos_mayores",
     "accesibilidad",
     "idiomas",
@@ -246,8 +250,13 @@
   },
   {
    "id": "traslados",
-   "respuesta": "Hacemos traslados desde el aeropuerto El Edén (Armenia) y Matecaña (Pereira) a hoteles del Quindío y Risaralda, y entre Armenia, Pereira y Manizales. Trayecto aprox. 1 h.",
-   "salida": "precios"
+   "respuesta": "¡Sí! 🚐 Hacemos traslados privados desde los aeropuertos El Edén (Armenia) y Matecaña (Pereira) a tu hotel en Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, la cordillera (Córdoba, Pijao, Buenavista), Pereira y Cerritos, y entre Armenia, Pereira y Manizales. Viajas en vehículo habilitado para servicio especial, con conductor profesional.\n\nTu traslado incluye:\n✅ Recibimiento en el aeropuerto con letrero\n✅ Ayuda con el equipaje\n✅ Hasta 1 hora de espera si el vuelo se retrasa\n✅ Hidratación\n✅ Desde 9 pasajeros, guía o asistente\n✅ Sin recargo nocturno ni en festivos\n\nDesde los aeropuertos de Manizales o Cali te cotizamos a la medida. Para cotizar, cuéntame tu vuelo (aeropuerto, fecha y hora), cuántas personas viajan y tu hotel.",
+   "salida": "vehiculos|precios",
+   "pregunta_tipo": [
+    "¿qué incluye el traslado?",
+    "¿me recogen en el aeropuerto?",
+    "¿qué pasa si mi vuelo se retrasa?"
+   ]
   },
   {
    "id": "accesibilidad",
@@ -256,8 +265,8 @@
   },
   {
    "id": "idiomas",
-   "respuesta": "Guías en español, inglés, francés, italiano y portugués (la guianza en otro idioma tiene costo adicional). En los tours compartidos, el guía en inglés tiene un suplemento por servicio.",
-   "salida": "reservar"
+   "respuesta": "Nuestros guías hablan español, inglés, francés, italiano, alemán y portugués 🗣️, y tenemos guía para personas invidentes. Según la experiencia, la guianza en un idioma distinto al español puede tener un costo adicional: es por servicio (no por persona) y depende de la duración del tour (4 u 8 horas); también la puedes pedir para tus traslados. Los tours compartidos operan en español; el guía en inglés se pide con un suplemento por servicio. Cuéntame qué idioma prefieres y te lo confirmamos al cotizar.",
+   "salida": "reservar|compartido"
   },
   {
    "id": "clima",
@@ -312,7 +321,7 @@
     "¿es apto para niños?",
     "¿y para adultos mayores?"
    ],
-   "respuesta": "¡Claro que sí! Para los niños, algunas caminatas requieren acompañamiento y condición física básica. Para adultos mayores te recomendamos las opciones que mejor se adapten a su movilidad. 👨‍👩‍👧‍👦 Tarifa niño de 3 a 10 años; menores de 3 años pagan tarifa mínima sin alimentación. En el Parque del Café la tarifa niño aplica para estaturas entre 91 y 124 cm.",
+   "respuesta": "¡Claro que sí! Para los niños, algunas caminatas requieren acompañamiento y condición física básica. Para adultos mayores te recomendamos las opciones que mejor se adapten a su movilidad. 👨‍👩‍👧‍👦 Hay tarifa de niño de 3 a 10 años; para bebés y niños menores de 3 años te confirmamos la condición al cotizar (en el vehículo viajan en silla de bebé). Si viajas con menores de 18 años, lleva su registro civil de nacimiento. En el Parque del Café la tarifa niño aplica para estaturas entre 91 y 124 cm.",
    "salida": "accesibilidad|reservar"
   },
   {
@@ -357,7 +366,38 @@
     "25 de diciembre",
     "1 al 6 de enero"
    ],
-   "salida": "reservar"
+   "salida": "reservar",
+   "respuesta": "Tenemos 4 tours compartidos 🚐, con salida diaria desde 2 pasajeros: compartes el recorrido con otros viajeros, con guía en español, y sale más económico que un tour privado.\n☕ Visita a finca cafetera (3 h)\n🍫 Visita a finca de cacao (4 h)\n🌴 Valle de Cocora y Salento (7 h)\n⛰️ Pueblos de la Cordillera: Córdoba, Pijao y Buenavista (6 h)\n\nSalen desde las 8:00 a. m. de puntos de encuentro en Armenia y, según el tour, en Quimbaya, Montenegro, Calarcá o Río Verde. Si te hospedas en Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida o la cordillera, te llevamos de tu hotel al punto de encuentro (ida y vuelta). ¿Guía en inglés? Se pide con un suplemento."
+  },
+  {
+   "id": "vehiculos",
+   "pregunta_tipo": [
+    "¿en qué vehículo vamos?",
+    "¿cuántas maletas caben?",
+    "¿puedo elegir el vehículo?"
+   ],
+   "respuesta": "Viajas en vehículo privado, habilitado para servicio especial y con conductor profesional 🚐. Lo elegimos según el tamaño del grupo y el equipaje: camioneta para 1 o 2 personas, vans para grupos de 3 a 15, microbús hasta 19 y busetón hasta 30. Para viajeros VIP tenemos una SUV de confort superior (bajo solicitud) y, para Cocora, la cordillera y los caminos rurales, el clásico Jeep Willys (hasta 6 personas por jeep, con suplemento). Si prefieres otro vehículo —por ejemplo, más espacio para el equipaje—, pídelo al cotizar.",
+   "salida": "traslados|precios"
+  },
+  {
+   "id": "recogida",
+   "pregunta_tipo": [
+    "¿me recogen en el hotel?",
+    "¿dónde es el punto de encuentro?",
+    "¿pasan por mi hotel?"
+   ],
+   "respuesta": "En las experiencias que incluyen transporte te recogemos en tu hotel y te llevamos de regreso 🏨. La tarifa aplica para hoteles en Armenia, Pereira o Manizales, o a máximo 20 minutos de la ciudad; si te hospedas más lejos (por ejemplo, en Cocora, la cordillera o Hacienda Bambusa), puede aplicar un suplemento, que te confirmamos al cotizar. En los tours compartidos nos encontramos en un punto de encuentro, y si te hospedas en Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida o la cordillera, te llevamos desde tu hotel. Dime el nombre de tu hotel o la zona y lo revisamos.",
+   "salida": "traslados|compartido"
+  },
+  {
+   "id": "combinar",
+   "pregunta_tipo": [
+    "¿puedo hacer dos tours el mismo día?",
+    "¿qué experiencias puedo combinar?",
+    "¿cuántos tours por día?"
+   ],
+   "respuesta": "¡Claro! 🗓️ Puedes combinar dos experiencias de medio día el mismo día (una en la mañana y otra en la tarde) cuando sus horarios lo permiten; las de día completo (7 horas o más) ocupan la jornada. Organizamos cada día para que los recorridos no se crucen y no sea agotador: contamos los traslados entre un lugar y otro y que estés de regreso en tu hotel a una hora razonable. El día que llegas, si tu vuelo aterriza temprano, puedes hacer una experiencia corta en la tarde. Cuéntame cuáles te interesan y te ayudo a armar el plan.",
+   "salida": "plans|reservar"
   },
   {
    "id": "asesor",
@@ -758,11 +798,17 @@
    "nombre": "Artesanos · Elaboración de jeeps Willys",
    "duracion_horas": 2,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Artesano instructor",
+    "Taller artesanal",
+    "Artesanía elaborada",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa cómoda.",
     "Ideal para personas de 5 a 80 años.",
-    "Actividad móvil: se puede hacer en tu hotel o en el lugar donde estés."
+    "Actividad móvil: se puede hacer en tu hotel o en el lugar donde estés.",
+    "Opera todos los días entre 9:00 a. m. y 2:00 p. m."
    ],
    "descripcion": "El Jeep Willys, el «Yipao», es el símbolo del Quindío y patrimonio cultural de la región. En este taller armas tu propio Willys en miniatura y te llevas a casa un ícono del Paisaje Cultural Cafetero.",
    "departamentos": [
@@ -775,7 +821,10 @@
    "almuerzo": false,
    "combina": [],
    "combina_todas": true,
-   "ubicacion_publica": false
+   "ubicacion_publica": false,
+   "no_incluye": [
+    "Lugar donde se hace el taller"
+   ]
   },
   {
    "id_web": "artesanosaves",
@@ -784,11 +833,17 @@
    "nombre": "Artesanos · Elaboración de aves",
    "duracion_horas": 1.5,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Artesano instructor",
+    "Taller artesanal",
+    "Artesanía elaborada",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa cómoda.",
     "Ideal para personas de 5 a 80 años.",
-    "Actividad móvil: se puede hacer en tu hotel o en el lugar donde estés."
+    "Actividad móvil: se puede hacer en tu hotel o en el lugar donde estés.",
+    "Opera todos los días entre 9:00 a. m. y 2:00 p. m."
    ],
    "descripcion": "Un taller con una asociación de mujeres cabeza de hogar de Armenia que crearon su propia pasta para modelar aves. Moldea y pinta un ave de la región mientras te cuentan cómo reconocerla en el campo, y llévate tu pieza de recuerdo.",
    "departamentos": [
@@ -801,7 +856,10 @@
    "almuerzo": false,
    "combina": [],
    "combina_todas": true,
-   "ubicacion_publica": false
+   "ubicacion_publica": false,
+   "no_incluye": [
+    "Lugar donde se hace el taller"
+   ]
   },
   {
    "id_web": "artesanosbalcones",
@@ -810,11 +868,17 @@
    "nombre": "Artesanos · Balcones",
    "duracion_horas": 1.5,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Artesano instructor",
+    "Taller artesanal",
+    "Artesanía elaborada",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa cómoda.",
     "Ideal para personas de 5 a 80 años.",
-    "Actividad móvil: se puede hacer en tu hotel o en el lugar donde estés."
+    "Actividad móvil: se puede hacer en tu hotel o en el lugar donde estés.",
+    "Opera todos los días entre 9:00 a. m. y 2:00 p. m."
    ],
    "descripcion": "Los balcones de colores y la arquitectura de bahareque son parte de lo que la UNESCO reconoció en el Paisaje Cultural Cafetero. En este taller recreas en miniatura un balcón típico y te llevas un pedazo de esa arquitectura.",
    "departamentos": [
@@ -827,7 +891,10 @@
    "almuerzo": false,
    "combina": [],
    "combina_todas": true,
-   "ubicacion_publica": false
+   "ubicacion_publica": false,
+   "no_incluye": [
+    "Lugar donde se hace el taller"
+   ]
   },
   {
    "id_web": "artesanosarcilla",
@@ -836,10 +903,16 @@
    "nombre": "Artesanos · Arcilla",
    "duracion_horas": 1.5,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Artesano instructor",
+    "Taller artesanal",
+    "Artesanía elaborada",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa cómoda.",
-    "Ideal para personas de 5 a 80 años."
+    "Ideal para personas de 5 a 80 años.",
+    "Opera todos los días entre 9:00 a. m. y 2:00 p. m."
    ],
    "descripcion": "Artesanos locales te enseñan a trabajar la greda que sacan de los ríos de la cordillera. Moldea tu propia pieza mientras escuchas historias del oficio: reúnen cerca de mil piezas antes de encender el horno, donde se cuecen hasta 24 horas.",
    "departamentos": [
@@ -853,7 +926,10 @@
     "filandia",
     "cacao"
    ],
-   "ubicacion_publica": false
+   "ubicacion_publica": false,
+   "no_incluye": [
+    "Lugar donde se hace el taller"
+   ]
   },
   {
    "id_web": "artesanoscesteria",
@@ -862,10 +938,16 @@
    "nombre": "Artesanos · Taller de cestería",
    "duracion_horas": 2,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Artesano instructor",
+    "Taller artesanal",
+    "Artesanía elaborada",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa cómoda.",
-    "Ideal para personas de 5 a 80 años."
+    "Ideal para personas de 5 a 80 años.",
+    "Opera todos los días entre 9:00 a. m. y 2:00 p. m."
    ],
    "descripcion": "Filandia es reconocida por su tradición cestera, un oficio que pasa de generación en generación con bejucos y fibras de la región. Teje tu propia pieza con un maestro artesano y conoce de primera mano una tradición viva del Paisaje Cultural Cafetero.",
    "departamentos": [
@@ -880,7 +962,10 @@
     "cacao",
     "barbasbremen"
    ],
-   "ubicacion_publica": false
+   "ubicacion_publica": false,
+   "no_incluye": [
+    "Lugar donde se hace el taller"
+   ]
   },
   {
    "id_web": "catacerveza",
@@ -889,7 +974,13 @@
    "nombre": "Cata de cerveza local",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Visita guiada a la planta de producción",
+    "Cata guiada con el maestro cervecero",
+    "Maridaje",
+    "Souvenir"
+   ],
    "notas": [
     "Lleva zapatos cómodos, repelente y bloqueador.",
     "Avisa con anticipación si tienes restricciones alimentarias.",
@@ -1012,12 +1103,20 @@
    "nombre": "Aves para conocedores (birdwatching especializado)",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Desayuno",
+    "Guía de aves",
+    "Binoculares",
+    "Lista de chequeo de aves",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
     "Si tienes binoculares o cámara, tráelos.",
     "Lleva repelente e hidratación; en las rutas de alta montaña, ropa térmica.",
-    "Mínimo 2 personas; si el grupo es grande, se divide."
+    "Mínimo 2 personas; si el grupo es grande, se divide.",
+    "Ruta a la medida según las especies que el grupo quiera ver."
    ],
    "descripcion": "Para observadores con experiencia: jornadas en los mejores puntos de aves del Paisaje Cultural Cafetero, donde eBird registra entre 170 y 370 especies por localidad. El guía especializado arma la ruta según las especies que busca tu grupo.",
    "departamentos": [
@@ -1045,12 +1144,20 @@
    "nombre": "Reservas naturales · Barbas-Bremen",
    "duracion_horas": 3,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Entrada a la reserva",
+    "Hidratación y Snack",
+    "Guía",
+    "Souvenir",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva repelente y ropa cómoda, impermeable y de manga larga.",
     "Dificultad baja, media o media-alta, según la condición del grupo.",
     "Ideal para personas de 12 a 70 años.",
-    "No apto para personas con antecedentes cardiorrespiratorios."
+    "No apto para personas con antecedentes cardiorrespiratorios.",
+    "Opera todos los días; el recorrido inicia entre 7:00 y 9:00 a. m."
    ],
    "descripcion": "Entre Filandia y Pereira, Barbas-Bremen es uno de los últimos corredores de bosque andino de la región y hogar de monos aulladores: el lugar ideal para escucharlos y verlos en libertad, por senderos de bosque y guadua.",
    "departamentos": [
@@ -1072,12 +1179,20 @@
    "nombre": "Reservas naturales · Otún Quimbaya",
    "duracion_horas": 6,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Entrada a la reserva",
+    "Hidratación y Snack",
+    "Guía",
+    "Souvenir",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva repelente y ropa cómoda, impermeable y de manga larga.",
     "Dificultad baja, media o media-alta, según la condición del grupo.",
     "Ideal para personas de 12 a 70 años.",
-    "No apto para personas con antecedentes cardiorrespiratorios."
+    "No apto para personas con antecedentes cardiorrespiratorios.",
+    "Opera todos los días; el recorrido inicia entre 7:00 y 9:00 a. m."
    ],
    "descripcion": "Santuario de Fauna y Flora de Parques Nacionales Naturales en la cuenca del río Otún: refugio de la pava caucana, ave endémica de Colombia, y de monos aulladores, a menos de una hora de Pereira.",
    "departamentos": [
@@ -1098,12 +1213,20 @@
    "nombre": "Reservas naturales · Río Blanco",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Entrada a la reserva",
+    "Hidratación y Snack",
+    "Guía",
+    "Souvenir",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva repelente y ropa cómoda, impermeable y de manga larga.",
     "Dificultad baja, media o media-alta, según la condición del grupo.",
     "Ideal para personas de 12 a 70 años.",
-    "No apto para personas con antecedentes cardiorrespiratorios."
+    "No apto para personas con antecedentes cardiorrespiratorios.",
+    "Opera todos los días; el recorrido inicia entre 7:00 y 9:00 a. m."
    ],
    "descripcion": "A minutos de Manizales, la Reserva Río Blanco protege el agua de la ciudad y es uno de los destinos de aves más reconocidos de Colombia, famosa por sus comederos de grallarias, buscadas por observadores de todo el mundo.",
    "departamentos": [
@@ -1369,7 +1492,14 @@
    "nombre": "Visita a La Romelia · orquídeas y frutas exóticas",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Visita guiada (unas 3 h) por viveros de orquídeas, bonsáis y frutales",
+    "Visita a la casa principal",
+    "Degustación de frutas de la finca",
+    "Almuerzo campesino",
+    "Guía bilingüe (inglés/español) con reserva previa"
+   ],
    "notas": [
     "Lleva ropa cómoda, zapato cerrado, gorra, bloqueador, repelente e impermeable ligero.",
     "No apto para personas con alergia a las flores o al polen.",
@@ -1396,12 +1526,20 @@
    "nombre": "Aves · Rancho California (aves acuáticas)",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Desayuno",
+    "Guía de aves",
+    "Binoculares",
+    "Lista de chequeo de aves",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
     "Si tienes binoculares o cámara, tráelos.",
     "Lleva repelente, hidratación, gorra y bloqueador: al mediodía hace calor.",
-    "Mínimo 2 personas; si el grupo es grande, se divide."
+    "Mínimo 2 personas; si el grupo es grande, se divide.",
+    "Sale en la mañana; la hora depende de la ruta y de las especies que quieras ver."
    ],
    "descripcion": "Un humedal en el valle del río Barragán, refugio de aves acuáticas: un recorrido plano por potreros, lagos y ríos, muy cómodo para el primer día del viaje.",
    "departamentos": [
@@ -1422,12 +1560,20 @@
    "nombre": "Aves · Camino Nacional (ruta de Humboldt)",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Desayuno",
+    "Guía de aves",
+    "Binoculares",
+    "Lista de chequeo de aves",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
     "Si tienes binoculares o cámara, tráelos.",
     "Lleva repelente, hidratación, abrigo y ropa térmica: temprano hace frío.",
-    "Mínimo 2 personas; si el grupo es grande, se divide."
+    "Mínimo 2 personas; si el grupo es grande, se divide.",
+    "Sale en la mañana; la hora depende de la ruta y de las especies que quieras ver."
    ],
    "descripcion": "El antiguo camino que recorrieron Humboldt y Bonpland en 1801, en bosque de niebla a 3.370 m s. n. m. Es uno de los mejores lugares del país para ver el loro orejiamarillo, que anida en la palma de cera y estuvo al borde de la extinción.",
    "departamentos": [
@@ -1448,12 +1594,20 @@
    "nombre": "Aves · Bremen–La Popa (AICA Barbas-Bremen)",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Desayuno",
+    "Guía de aves",
+    "Binoculares",
+    "Lista de chequeo de aves",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
     "Si tienes binoculares o cámara, tráelos.",
     "Lleva repelente e hidratación.",
-    "Mínimo 2 personas; si el grupo es grande, se divide."
+    "Mínimo 2 personas; si el grupo es grande, se divide.",
+    "Sale en la mañana; la hora depende de la ruta y de las especies que quieras ver."
    ],
    "descripcion": "Área protegida y Área de Importancia para la Conservación de las Aves (AICA) en el cañón del río Barbas, con caminata por trocha ancha y plana y paradas frecuentes de observación.",
    "departamentos": [
@@ -1474,11 +1628,19 @@
    "nombre": "Aves · Jardín de aves en Circasia",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Desayuno",
+    "Guía de aves",
+    "Binoculares",
+    "Lista de chequeo de aves",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa cómoda en tonos neutros; si tienes cámara o binoculares, tráelos.",
     "Apto para personas con movilidad reducida.",
-    "Mínimo 2 personas; si el grupo es grande, se divide."
+    "Mínimo 2 personas; si el grupo es grande, se divide.",
+    "Sale en la mañana; la hora depende de la ruta y de las especies que quieras ver."
    ],
    "descripcion": "Observa y fotografía aves desde la terraza techada de una casa con jardines que limitan con el bosque, con café especial: sin esfuerzo físico y protegido del sol y la lluvia. Ideal para personas con movilidad reducida y para fotógrafos.",
    "departamentos": [
@@ -1499,12 +1661,20 @@
    "nombre": "Aves · Caicedonia y Sevilla (Valle del Cauca)",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Desayuno",
+    "Guía de aves",
+    "Binoculares",
+    "Lista de chequeo de aves",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
     "Si tienes binoculares o cámara, tráelos.",
     "Lleva repelente e hidratación.",
-    "Mínimo 2 personas; si el grupo es grande, se divide."
+    "Mínimo 2 personas; si el grupo es grande, se divide.",
+    "Sale en la mañana; la hora depende de la ruta y de las especies que quieras ver."
    ],
    "descripcion": "Caicedonia, la «Centinela del Valle», concentra más de 325 especies de aves entre cafetales, lagos y humedales. Rutas cortas con un guía local que está entre los mayores observadores de aves del Valle del Cauca.",
    "departamentos": [
@@ -1525,13 +1695,21 @@
    "nombre": "Aves · Retorno del Colibrí (comederos y fotografía)",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Desayuno",
+    "Guía de aves",
+    "Binoculares",
+    "Lista de chequeo de aves",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Sale desde el Quindío.",
     "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
     "Si tienes binoculares o cámara, tráelos.",
     "Lleva repelente e hidratación.",
-    "Mínimo 2 personas; si el grupo es grande, se divide."
+    "Mínimo 2 personas; si el grupo es grande, se divide.",
+    "Sale en la mañana; la hora depende de la ruta y de las especies que quieras ver."
    ],
    "descripcion": "Una reserva dedicada a la conservación, con jardines y comederos diseñados para fotografiar colibríes y aves endémicas a corta distancia. La actividad es casi toda estacionaria: el sueño del fotógrafo de naturaleza.",
    "departamentos": [
@@ -1552,13 +1730,21 @@
    "nombre": "Aves · Alto del Campanario (páramo)",
    "duracion_horas": 4,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Desayuno",
+    "Guía de aves",
+    "Binoculares",
+    "Lista de chequeo de aves",
+    "Material fotográfico en digital"
+   ],
    "notas": [
     "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
     "Lleva ropa térmica, guantes y gorro, y buena hidratación.",
     "Si tienes binoculares o cámara, tráelos.",
     "No apto para personas con antecedentes cardiorrespiratorios.",
-    "Mínimo 2 personas; si el grupo es grande, se divide."
+    "Mínimo 2 personas; si el grupo es grande, se divide.",
+    "Sale en la mañana; la hora depende de la ruta y de las especies que quieras ver."
    ],
    "descripcion": "Aves de páramo y bosque altoandino entre 3.400 y 4.600 m s. n. m.: bandadas mixtas, tapaculos, grallarias y tángaras de altura en un paisaje de niebla y frailejones. Para observadores con buena condición física.",
    "departamentos": [
@@ -2568,7 +2754,12 @@
    "nombre": "Aventura natural en canopy",
    "duracion_horas": 3,
    "horario": null,
-   "incluye": [],
+   "incluye": [
+    "Transporte",
+    "Circuito de 16 plataformas y más de 1.900 m: tirolinas, puentes colgantes, ascensos y puntos de observación",
+    "Equipo y protocolos de seguridad",
+    "Acompañamiento de guías del canopy"
+   ],
    "notas": [
     "Lleva zapato cerrado de amarrar y ropa cómoda (pantalón largo), sin objetos sueltos en los bolsillos.",
     "Depende del clima: si llueve, no opera."
@@ -3453,6 +3644,88 @@
    "notas": [],
    "duracion_texto": "5–6 h",
    "publico": false
+  }
+ ],
+ "vehiculos": [
+  {
+   "id": "duster",
+   "min": 1,
+   "max": 2,
+   "capacidad_max": 2,
+   "nombre": "Camioneta tipo Duster",
+   "equipaje": "Hasta 2 maletas grandes + equipaje de mano",
+   "uso": "Traslados privados, parejas y viajeros con poco equipaje"
+  },
+  {
+   "id": "h1",
+   "min": 3,
+   "max": 4,
+   "capacidad_max": 6,
+   "nombre": "Van Hyundai H1",
+   "equipaje": "Hasta 5 maletas medianas",
+   "uso": "Familias y grupos pequeños, traslados y tours"
+  },
+  {
+   "id": "traffic",
+   "min": 5,
+   "max": 7,
+   "capacidad_max": 7,
+   "nombre": "Van Renault Traffic",
+   "equipaje": "Hasta 7 maletas medianas",
+   "uso": "Grupos pequeños, traslados y tours"
+  },
+  {
+   "id": "master",
+   "min": 8,
+   "max": 12,
+   "capacidad_max": 12,
+   "nombre": "Van Renault Master",
+   "equipaje": "Hasta 12 maletas medianas",
+   "uso": "Grupos medianos, viajes y tours"
+  },
+  {
+   "id": "sprinter",
+   "min": 13,
+   "max": 15,
+   "capacidad_max": 15,
+   "nombre": "Van Mercedes Sprinter",
+   "equipaje": "Hasta 15 maletas medianas",
+   "uso": "Grupos medianos y viajes largos"
+  },
+  {
+   "id": "micro",
+   "min": 16,
+   "max": 19,
+   "capacidad_max": 19,
+   "nombre": "Microbús",
+   "equipaje": "Bodega para el equipaje del grupo",
+   "uso": "Grupos grandes y excursiones"
+  },
+  {
+   "id": "buseton",
+   "min": 20,
+   "max": 30,
+   "capacidad_max": 30,
+   "nombre": "Busetón",
+   "equipaje": "Bodega para grupos y eventos",
+   "uso": "Grupos numerosos, eventos e incentivos"
+  },
+  {
+   "id": "jetour",
+   "min": 1,
+   "max": 3,
+   "capacidad_max": 5,
+   "vip": true,
+   "nombre": "SUV Jetour · Línea Confort Superior",
+   "equipaje": "Hasta 4 maletas medianas",
+   "uso": "Viajeros VIP, ejecutivos y lunas de miel (bajo solicitud)"
+  },
+  {
+   "id": "willys",
+   "min": 1,
+   "max": 6,
+   "nombre": "Jeep Willys",
+   "uso": "Cocora, cordillera y caminos rurales"
   }
  ]
 }

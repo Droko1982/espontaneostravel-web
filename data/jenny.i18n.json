@@ -1,7 +1,7 @@
 {
  "_meta": {
   "source": "data/jenny.json",
-  "source_version": "2026-10-08",
+  "source_version": "2026-11-11",
   "vigencia": 2026,
   "languages": [
    "en",
@@ -1323,7 +1323,17 @@
     "notas": [
      "Wear comfortable clothes.",
      "Ideal for ages 5 to 80.",
-     "We come to you: it can be done at your hotel or wherever you are."
+     "We come to you: it can be done at your hotel or wherever you are.",
+     "Runs daily between 9:00 a.m. and 2:00 p.m."
+    ],
+    "incluye": [
+     "Artisan instructor",
+     "Craft workshop",
+     "Handicraft made by the traveler",
+     "Digital photos"
+    ],
+    "no_incluye": [
+     "Venue for the workshop"
     ]
    },
    "artesanosaves": {
@@ -1332,7 +1342,17 @@
     "notas": [
      "Wear comfortable clothes.",
      "Ideal for ages 5 to 80.",
-     "We come to you: it can be done at your hotel or wherever you are."
+     "We come to you: it can be done at your hotel or wherever you are.",
+     "Runs daily between 9:00 a.m. and 2:00 p.m."
+    ],
+    "incluye": [
+     "Artisan instructor",
+     "Craft workshop",
+     "Handicraft made by the traveler",
+     "Digital photos"
+    ],
+    "no_incluye": [
+     "Venue for the workshop"
     ]
    },
    "artesanosbalcones": {
@@ -1341,7 +1361,17 @@
     "notas": [
      "Wear comfortable clothes.",
      "Ideal for ages 5 to 80.",
-     "We come to you: it can be done at your hotel or wherever you are."
+     "We come to you: it can be done at your hotel or wherever you are.",
+     "Runs daily between 9:00 a.m. and 2:00 p.m."
+    ],
+    "incluye": [
+     "Artisan instructor",
+     "Craft workshop",
+     "Handicraft made by the traveler",
+     "Digital photos"
+    ],
+    "no_incluye": [
+     "Venue for the workshop"
     ]
    },
    "artesanosarcilla": {
@@ -1349,7 +1379,17 @@
     "descripcion": "Local artisans teach you to work the clay they gather from the rivers of the cordillera. Mould your own piece while you listen to stories of the craft: they collect around a thousand pieces before lighting the kiln, where the pieces are fired for up to 24 hours.",
     "notas": [
      "Wear comfortable clothes.",
-     "Ideal for ages 5 to 80."
+     "Ideal for ages 5 to 80.",
+     "Runs daily between 9:00 a.m. and 2:00 p.m."
+    ],
+    "incluye": [
+     "Artisan instructor",
+     "Craft workshop",
+     "Handicraft made by the traveler",
+     "Digital photos"
+    ],
+    "no_incluye": [
+     "Venue for the workshop"
     ]
    },
    "artesanoscesteria": {
@@ -1357,7 +1397,17 @@
     "descripcion": "Filandia is known for its basket-weaving tradition, a craft handed down from generation to generation using vines and fibres from the region. Weave your own piece with a master artisan and get to know a living tradition of the Coffee Cultural Landscape first-hand.",
     "notas": [
      "Wear comfortable clothes.",
-     "Ideal for ages 5 to 80."
+     "Ideal for ages 5 to 80.",
+     "Runs daily between 9:00 a.m. and 2:00 p.m."
+    ],
+    "incluye": [
+     "Artisan instructor",
+     "Craft workshop",
+     "Handicraft made by the traveler",
+     "Digital photos"
+    ],
+    "no_incluye": [
+     "Venue for the workshop"
     ]
    },
    "catacerveza": {
@@ -1367,6 +1417,13 @@
      "Bring comfortable shoes, insect repellent and sunscreen.",
      "Let us know in advance if you have any dietary restrictions.",
      "For over-18s only."
+    ],
+    "incluye": [
+     "Transportation",
+     "Guided visit to the production plant",
+     "Guided tasting with the master brewer",
+     "Pairing",
+     "Souvenir"
     ]
    },
    "avesconocedores": {
@@ -1376,7 +1433,16 @@
      "Wear long-sleeved, waterproof clothes in greens, browns or olive (no white or bright colours) and hiking boots.",
      "If you have binoculars or a camera, bring them.",
      "Bring insect repellent and water; on high-mountain routes, thermal clothing.",
-     "Minimum 2 people; large groups are split up."
+     "Minimum 2 people; large groups are split up.",
+     "Tailor-made route based on the species the group wants to see."
+    ],
+    "incluye": [
+     "Transportation",
+     "Breakfast",
+     "Birding guide",
+     "Binoculars",
+     "Bird checklist",
+     "Digital photos"
     ]
    },
    "barbasbremen": {
@@ -1386,7 +1452,16 @@
      "Bring insect repellent and comfortable, waterproof, long-sleeved clothes.",
      "Low, moderate or moderate-to-high difficulty, depending on the group's fitness.",
      "Ideal for ages 12 to 70.",
-     "Not suitable for people with a history of heart or respiratory conditions."
+     "Not suitable for people with a history of heart or respiratory conditions.",
+     "Runs daily; the walk starts between 7:00 and 9:00 a.m."
+    ],
+    "incluye": [
+     "Transportation",
+     "Reserve entrance fee",
+     "Hydration and snack",
+     "Guide",
+     "Souvenir",
+     "Digital photos"
     ]
    },
    "otunquimbaya": {
@@ -1396,7 +1471,16 @@
      "Bring insect repellent and comfortable, waterproof, long-sleeved clothes.",
      "Low, moderate or moderate-to-high difficulty, depending on the group's fitness.",
      "Ideal for ages 12 to 70.",
-     "Not suitable for people with a history of heart or respiratory conditions."
+     "Not suitable for people with a history of heart or respiratory conditions.",
+     "Runs daily; the walk starts between 7:00 and 9:00 a.m."
+    ],
+    "incluye": [
+     "Transportation",
+     "Reserve entrance fee",
+     "Hydration and snack",
+     "Guide",
+     "Souvenir",
+     "Digital photos"
     ]
    },
    "rioblanco": {
@@ -1406,7 +1490,16 @@
      "Bring insect repellent and comfortable, waterproof, long-sleeved clothes.",
      "Low, moderate or moderate-to-high difficulty, depending on the group's fitness.",
      "Ideal for ages 12 to 70.",
-     "Not suitable for people with a history of heart or respiratory conditions."
+     "Not suitable for people with a history of heart or respiratory conditions.",
+     "Runs daily; the walk starts between 7:00 and 9:00 a.m."
+    ],
+    "incluye": [
+     "Transportation",
+     "Reserve entrance fee",
+     "Hydration and snack",
+     "Guide",
+     "Souvenir",
+     "Digital photos"
     ]
    },
    "romelia": {
@@ -1416,6 +1509,14 @@
      "Bring comfortable clothes, closed-toe shoes, a cap, sunscreen, insect repellent and a light waterproof.",
      "Not suitable for people allergic to flowers or pollen.",
      "Minimum 4 people."
+    ],
+    "incluye": [
+     "Transportation",
+     "Guided tour (about 3 h) of the orchid, bonsai and fruit-tree nurseries",
+     "Visit to the main house",
+     "Tasting of fruit from the farm",
+     "Farm-style lunch",
+     "Bilingual guide (English/Spanish) with prior booking"
     ]
    },
    "avesrancho": {
@@ -1425,7 +1526,16 @@
      "Wear long-sleeved, waterproof clothes in greens, browns or olive (no white or bright colours) and hiking boots.",
      "If you have binoculars or a camera, bring them.",
      "Bring insect repellent, water, a cap and sunscreen: it gets hot at midday.",
-     "Minimum 2 people; large groups are split up."
+     "Minimum 2 people; large groups are split up.",
+     "Departs in the morning; the time depends on the route and the species you want to see."
+    ],
+    "incluye": [
+     "Transportation",
+     "Breakfast",
+     "Birding guide",
+     "Binoculars",
+     "Bird checklist",
+     "Digital photos"
     ]
    },
    "avescamino": {
@@ -1435,7 +1545,16 @@
      "Wear long-sleeved, waterproof clothes in greens, browns or olive (no white or bright colours) and hiking boots.",
      "If you have binoculars or a camera, bring them.",
      "Bring insect repellent, water, a warm layer and thermal clothing: it is cold early in the morning.",
-     "Minimum 2 people; large groups are split up."
+     "Minimum 2 people; large groups are split up.",
+     "Departs in the morning; the time depends on the route and the species you want to see."
+    ],
+    "incluye": [
+     "Transportation",
+     "Breakfast",
+     "Birding guide",
+     "Binoculars",
+     "Bird checklist",
+     "Digital photos"
     ]
    },
    "avesbremen": {
@@ -1445,7 +1564,16 @@
      "Wear long-sleeved, waterproof clothes in greens, browns or olive (no white or bright colours) and hiking boots.",
      "If you have binoculars or a camera, bring them.",
      "Bring insect repellent and water.",
-     "Minimum 2 people; large groups are split up."
+     "Minimum 2 people; large groups are split up.",
+     "Departs in the morning; the time depends on the route and the species you want to see."
+    ],
+    "incluye": [
+     "Transportation",
+     "Breakfast",
+     "Birding guide",
+     "Binoculars",
+     "Bird checklist",
+     "Digital photos"
     ]
    },
    "avescircasia": {
@@ -1454,7 +1582,16 @@
     "notas": [
      "Wear comfortable clothes in neutral tones; if you have a camera or binoculars, bring them.",
      "Suitable for people with reduced mobility.",
-     "Minimum 2 people; large groups are split up."
+     "Minimum 2 people; large groups are split up.",
+     "Departs in the morning; the time depends on the route and the species you want to see."
+    ],
+    "incluye": [
+     "Transportation",
+     "Breakfast",
+     "Birding guide",
+     "Binoculars",
+     "Bird checklist",
+     "Digital photos"
     ]
    },
    "avescaicedonia": {
@@ -1464,7 +1601,16 @@
      "Wear long-sleeved, waterproof clothes in greens, browns or olive (no white or bright colours) and hiking boots.",
      "If you have binoculars or a camera, bring them.",
      "Bring insect repellent and water.",
-     "Minimum 2 people; large groups are split up."
+     "Minimum 2 people; large groups are split up.",
+     "Departs in the morning; the time depends on the route and the species you want to see."
+    ],
+    "incluye": [
+     "Transportation",
+     "Breakfast",
+     "Birding guide",
+     "Binoculars",
+     "Bird checklist",
+     "Digital photos"
     ]
    },
    "avescolibri": {
@@ -1475,7 +1621,16 @@
      "Wear long-sleeved, waterproof clothes in greens, browns or olive (no white or bright colours) and hiking boots.",
      "If you have binoculars or a camera, bring them.",
      "Bring insect repellent and water.",
-     "Minimum 2 people; large groups are split up."
+     "Minimum 2 people; large groups are split up.",
+     "Departs in the morning; the time depends on the route and the species you want to see."
+    ],
+    "incluye": [
+     "Transportation",
+     "Breakfast",
+     "Birding guide",
+     "Binoculars",
+     "Bird checklist",
+     "Digital photos"
     ]
    },
    "avescampanario": {
@@ -1486,7 +1641,16 @@
      "Bring thermal clothing, gloves and a warm hat, and plenty of water.",
      "If you have binoculars or a camera, bring them.",
      "Not suitable for people with a history of heart or respiratory conditions.",
-     "Minimum 2 people; large groups are split up."
+     "Minimum 2 people; large groups are split up.",
+     "Departs in the morning; the time depends on the route and the species you want to see."
+    ],
+    "incluye": [
+     "Transportation",
+     "Breakfast",
+     "Birding guide",
+     "Binoculars",
+     "Bird checklist",
+     "Digital photos"
     ]
    },
    "canopy": {
@@ -1495,6 +1659,12 @@
     "notas": [
      "Wear closed-toe lace-up shoes and comfortable clothes (long trousers), with nothing loose in your pockets.",
      "Weather-dependent: it does not run if it rains."
+    ],
+    "incluye": [
+     "Transportation",
+     "16-platform circuit of more than 1,900 m: zip lines, hanging bridges, climbs and lookout points",
+     "Safety equipment and protocols",
+     "Accompanied by canopy guides"
     ]
    },
    "cookingclass": {
@@ -1671,13 +1841,18 @@
     "respuesta": "To book, you pay a 50% deposit. Your quote shows the balance due and the payment deadlines.\n\nPayment methods, in the name of Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia savings: 756-000062-16\n📱 Nequi or Daviplata: +57 317 645 6723\n💳 Debit or credit card: secure Wompi payment button\n\n💵 You can pay the balance in Colombian pesos, US dollars or euros.\n📩 Send us the receipt on WhatsApp.\n⚠️ We only use these methods. If anyone asks you to pay into another account, check with us first."
    },
    "traslados": {
-    "respuesta": "We provide transfers from El Edén (Armenia) and Matecaña (Pereira) airports to hotels in Quindío and Risaralda, and between Armenia, Pereira and Manizales. The journey takes approx. 1 h."
+    "respuesta": "Yes! 🚐 We provide private transfers from El Edén (Armenia) and Matecaña (Pereira) airports to your hotel in Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, the cordillera (Córdoba, Pijao, Buenavista), Pereira and Cerritos, and between Armenia, Pereira and Manizales. You travel in a vehicle licensed for special transport, with a professional driver.\n\nYour transfer includes:\n✅ Airport welcome with a name sign\n✅ Help with your luggage\n✅ Up to 1 hour of waiting time if your flight is delayed\n✅ Hydration\n✅ From 9 passengers, a guide or assistant\n✅ No night or holiday surcharge\n\nFrom Manizales or Cali airports we prepare a tailor-made quote. For a quote, tell me your flight (airport, date and time), how many people are travelling and your hotel.",
+    "pregunta_tipo": [
+     "what does the transfer include?",
+     "do you pick us up at the airport?",
+     "what if my flight is delayed?"
+    ]
    },
    "accesibilidad": {
     "respuesta": "Yes! We have adapted options and special vehicles so everyone can enjoy the region without barriers. We also have a guide for blind travellers. Ask us and we'll give you personalised advice. ♿"
    },
    "idiomas": {
-    "respuesta": "Guides in Spanish, English, French, Italian and Portuguese (guiding in a language other than Spanish costs extra). On shared tours, the English-speaking guide carries a supplement per service."
+    "respuesta": "Our guides speak Spanish, English, French, Italian, German and Portuguese 🗣️, and we have a guide for blind travellers. Depending on the experience, guiding in a language other than Spanish may cost extra: it is charged per service (not per person) and depends on the length of the tour (4 or 8 hours); you can also request it for your transfers. Shared tours run in Spanish; an English-speaking guide is available for a supplement per service. Tell me which language you prefer and we'll confirm it in your quote."
    },
    "clima": {
     "respuesta": "Mild climate all year round; it can rain in any season. It gets cold in Cocora, in the páramo and among the wax palms."
@@ -1719,7 +1894,7 @@
      "is it suitable for children?",
      "what about older adults?"
     ],
-    "respuesta": "Of course! For children, some walks require adult supervision and basic fitness. For older adults, we recommend the options that best suit their mobility. 👨‍👩‍👧‍👦 Child rate for ages 3 to 10; children under 3 pay a minimum rate without meals. At Parque del Café, the child rate applies to heights between 91 and 124 cm."
+    "respuesta": "Of course! For children, some walks require adult supervision and basic fitness. For older adults, we recommend the options that best suit their mobility. 👨‍👩‍👧‍👦 There is a child rate for ages 3 to 10; for babies and children under 3, we'll confirm the conditions in your quote (in the vehicle they travel in a baby seat). If you travel with children under 18, bring their birth certificate. At Parque del Café, the child rate applies to heights between 91 and 124 cm."
    },
    "tour_compartido": {
     "pregunta_tipo": [
@@ -1749,10 +1924,35 @@
      "The long holiday weekend of the October school break",
      "25 December",
      "1 to 6 January"
-    ]
+    ],
+    "respuesta": "We have 4 shared tours 🚐, departing daily from 2 passengers: you share the tour with other travellers, with a Spanish-speaking guide, and it costs less than a private tour.\n☕ Coffee farm visit (3 h)\n🍫 Cacao farm visit (4 h)\n🌴 Cocora Valley and Salento (7 h)\n⛰️ Mountain towns of the Cordillera: Córdoba, Pijao and Buenavista (6 h)\n\nThey leave from 8:00 a.m. from meeting points in Armenia and, depending on the tour, in Quimbaya, Montenegro, Calarcá or Río Verde. If you're staying in Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida or the cordillera, we take you from your hotel to the meeting point (round trip). English-speaking guide? Available for a supplement."
    },
    "asesor": {
     "respuesta": "I'll put you in touch with an advisor on WhatsApp 💬 (reply in less than 24 h)."
+   },
+   "vehiculos": {
+    "respuesta": "You travel in a private vehicle licensed for special transport, with a professional driver 🚐. We choose it according to your group size and luggage: an SUV for 1 or 2 people, vans for groups of 3 to 15, a minibus for up to 19 and a midibus for up to 30. For VIP travellers we have a superior-comfort SUV (on request) and, for Cocora, the cordillera and rural roads, the classic Jeep Willys (up to 6 people per jeep, for a supplement). If you'd prefer a different vehicle — for example, more room for luggage — just ask when you request your quote.",
+    "pregunta_tipo": [
+     "what vehicle will we travel in?",
+     "how many suitcases fit?",
+     "can I choose the vehicle?"
+    ]
+   },
+   "recogida": {
+    "respuesta": "On experiences that include transport, we pick you up at your hotel and take you back 🏨. The rate applies to hotels in Armenia, Pereira or Manizales, or up to 20 minutes from the city; if you're staying further away (for example in Cocora, the cordillera or Hacienda Bambusa), a supplement may apply, which we'll confirm in your quote. On shared tours we meet at a meeting point, and if you're staying in Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida or the cordillera, we take you there from your hotel. Tell me your hotel's name or area and we'll check.",
+    "pregunta_tipo": [
+     "do you pick us up at the hotel?",
+     "where is the meeting point?",
+     "can you pick me up from my hotel?"
+    ]
+   },
+   "combinar": {
+    "respuesta": "Of course! 🗓️ You can combine two half-day experiences on the same day (one in the morning and one in the afternoon) when their schedules allow it; full-day experiences (7 hours or more) take up the whole day. We plan each day so that tours don't overlap and it isn't exhausting: we factor in the travel time between places and make sure you're back at your hotel at a reasonable hour. On your arrival day, if your flight lands early, you can do a short experience in the afternoon. Tell me which ones you like and I'll help you plan.",
+    "pregunta_tipo": [
+     "can I do two tours on the same day?",
+     "which experiences can I combine?",
+     "how many tours per day?"
+    ]
    }
   },
   "planes": {
@@ -1827,6 +2027,52 @@
      "rol": "Rural lodging",
      "texto": "With our consultancy, he joined the Coffee Cultural Landscape routes portal."
     }
+   }
+  },
+  "vehiculos": {
+   "duster": {
+    "nombre": "Duster-type SUV",
+    "equipaje": "Up to 2 large suitcases + carry-on luggage",
+    "uso": "Private transfers, couples and travelers with light luggage"
+   },
+   "h1": {
+    "nombre": "Hyundai H1 van",
+    "equipaje": "Up to 5 medium suitcases",
+    "uso": "Families and small groups, transfers and tours"
+   },
+   "traffic": {
+    "nombre": "Renault Traffic van",
+    "equipaje": "Up to 7 medium suitcases",
+    "uso": "Small groups, transfers and tours"
+   },
+   "master": {
+    "nombre": "Renault Master van",
+    "equipaje": "Up to 12 medium suitcases",
+    "uso": "Medium-sized groups, trips and tours"
+   },
+   "sprinter": {
+    "nombre": "Mercedes Sprinter van",
+    "equipaje": "Up to 15 medium suitcases",
+    "uso": "Medium-sized groups and long trips"
+   },
+   "micro": {
+    "nombre": "Minibus",
+    "equipaje": "Luggage hold for the group's baggage",
+    "uso": "Large groups and excursions"
+   },
+   "buseton": {
+    "nombre": "Midibus",
+    "equipaje": "Luggage hold for groups and events",
+    "uso": "Large groups, events and incentives"
+   },
+   "jetour": {
+    "nombre": "Jetour SUV · Superior Comfort Line",
+    "equipaje": "Up to 4 medium suitcases",
+    "uso": "VIP travelers, executives and honeymooners (on request)"
+   },
+   "willys": {
+    "nombre": "Jeep Willys",
+    "uso": "Cocora, the cordillera and rural roads"
    }
   }
  },
@@ -3134,7 +3380,17 @@
     "notas": [
      "Prévoyez des vêtements confortables.",
      "Idéal de 5 à 80 ans.",
-     "Activité mobile : elle peut se faire à votre hôtel ou à l'endroit où vous vous trouvez."
+     "Activité mobile : elle peut se faire à votre hôtel ou à l'endroit où vous vous trouvez.",
+     "Tous les jours entre 9 h et 14 h."
+    ],
+    "incluye": [
+     "Artisan instructeur",
+     "Atelier artisanal",
+     "Objet artisanal réalisé",
+     "Photos au format numérique"
+    ],
+    "no_incluye": [
+     "Lieu de l'atelier"
     ]
    },
    "artesanosaves": {
@@ -3143,7 +3399,17 @@
     "notas": [
      "Prévoyez des vêtements confortables.",
      "Idéal de 5 à 80 ans.",
-     "Activité mobile : elle peut se faire à votre hôtel ou à l'endroit où vous vous trouvez."
+     "Activité mobile : elle peut se faire à votre hôtel ou à l'endroit où vous vous trouvez.",
+     "Tous les jours entre 9 h et 14 h."
+    ],
+    "incluye": [
+     "Artisan instructeur",
+     "Atelier artisanal",
+     "Objet artisanal réalisé",
+     "Photos au format numérique"
+    ],
+    "no_incluye": [
+     "Lieu de l'atelier"
     ]
    },
    "artesanosbalcones": {
@@ -3152,7 +3418,17 @@
     "notas": [
      "Prévoyez des vêtements confortables.",
      "Idéal de 5 à 80 ans.",
-     "Activité mobile : elle peut se faire à votre hôtel ou à l'endroit où vous vous trouvez."
+     "Activité mobile : elle peut se faire à votre hôtel ou à l'endroit où vous vous trouvez.",
+     "Tous les jours entre 9 h et 14 h."
+    ],
+    "incluye": [
+     "Artisan instructeur",
+     "Atelier artisanal",
+     "Objet artisanal réalisé",
+     "Photos au format numérique"
+    ],
+    "no_incluye": [
+     "Lieu de l'atelier"
     ]
    },
    "artesanosarcilla": {
@@ -3160,7 +3436,17 @@
     "descripcion": "Des artisans locaux vous apprennent à travailler l'argile qu'ils extraient des rivières de la cordillère. Façonnez votre propre pièce tout en écoutant des histoires du métier : ils rassemblent près de mille pièces avant d'allumer le four, où elles cuisent jusqu'à 24 heures.",
     "notas": [
      "Prévoyez des vêtements confortables.",
-     "Idéal de 5 à 80 ans."
+     "Idéal de 5 à 80 ans.",
+     "Tous les jours entre 9 h et 14 h."
+    ],
+    "incluye": [
+     "Artisan instructeur",
+     "Atelier artisanal",
+     "Objet artisanal réalisé",
+     "Photos au format numérique"
+    ],
+    "no_incluye": [
+     "Lieu de l'atelier"
     ]
    },
    "artesanoscesteria": {
@@ -3168,7 +3454,17 @@
     "descripcion": "Filandia est réputée pour sa tradition de vannerie, un savoir-faire transmis de génération en génération à partir de lianes et de fibres de la région. Tressez votre propre pièce avec un maître artisan et découvrez de première main une tradition vivante du Paysage culturel du café.",
     "notas": [
      "Prévoyez des vêtements confortables.",
-     "Idéal de 5 à 80 ans."
+     "Idéal de 5 à 80 ans.",
+     "Tous les jours entre 9 h et 14 h."
+    ],
+    "incluye": [
+     "Artisan instructeur",
+     "Atelier artisanal",
+     "Objet artisanal réalisé",
+     "Photos au format numérique"
+    ],
+    "no_incluye": [
+     "Lieu de l'atelier"
     ]
    },
    "catacerveza": {
@@ -3178,6 +3474,13 @@
      "Prévoyez des chaussures confortables, un répulsif anti-insectes et de la crème solaire.",
      "Prévenez-nous à l'avance si vous avez des restrictions alimentaires.",
      "Réservé aux plus de 18 ans."
+    ],
+    "incluye": [
+     "Transport",
+     "Visite guidée de l'unité de production",
+     "Dégustation guidée avec le maître brasseur",
+     "Accords mets-bières",
+     "Souvenir"
     ]
    },
    "avesconocedores": {
@@ -3187,7 +3490,16 @@
      "Portez des vêtements à manches longues et imperméables, dans des tons verts, marron ou olive (ni blanc ni couleurs vives), ainsi que des chaussures de randonnée montantes.",
      "Si vous avez des jumelles ou un appareil photo, apportez-les.",
      "Prévoyez un répulsif anti-insectes et de quoi vous hydrater ; sur les itinéraires de haute montagne, des vêtements thermiques.",
-     "Minimum 2 personnes ; les grands groupes sont divisés."
+     "Minimum 2 personnes ; les grands groupes sont divisés.",
+     "Itinéraire sur mesure selon les espèces que le groupe souhaite observer."
+    ],
+    "incluye": [
+     "Transport",
+     "Petit-déjeuner",
+     "Guide ornithologue",
+     "Jumelles",
+     "Check-list des oiseaux",
+     "Photos au format numérique"
     ]
    },
    "barbasbremen": {
@@ -3197,7 +3509,16 @@
      "Prévoyez un répulsif anti-insectes et des vêtements confortables, imperméables et à manches longues.",
      "Difficulté faible, moyenne ou moyenne à élevée, selon la condition physique du groupe.",
      "Idéal de 12 à 70 ans.",
-     "Ne convient pas aux personnes ayant des antécédents cardio-respiratoires."
+     "Ne convient pas aux personnes ayant des antécédents cardio-respiratoires.",
+     "Tous les jours ; la visite commence entre 7 h et 9 h."
+    ],
+    "incluye": [
+     "Transport",
+     "Entrée à la réserve",
+     "Hydratation et en-cas",
+     "Guide",
+     "Souvenir",
+     "Photos au format numérique"
     ]
    },
    "otunquimbaya": {
@@ -3207,7 +3528,16 @@
      "Prévoyez un répulsif anti-insectes et des vêtements confortables, imperméables et à manches longues.",
      "Difficulté faible, moyenne ou moyenne à élevée, selon la condition physique du groupe.",
      "Idéal de 12 à 70 ans.",
-     "Ne convient pas aux personnes ayant des antécédents cardio-respiratoires."
+     "Ne convient pas aux personnes ayant des antécédents cardio-respiratoires.",
+     "Tous les jours ; la visite commence entre 7 h et 9 h."
+    ],
+    "incluye": [
+     "Transport",
+     "Entrée à la réserve",
+     "Hydratation et en-cas",
+     "Guide",
+     "Souvenir",
+     "Photos au format numérique"
     ]
    },
    "rioblanco": {
@@ -3217,7 +3547,16 @@
      "Prévoyez un répulsif anti-insectes et des vêtements confortables, imperméables et à manches longues.",
      "Difficulté faible, moyenne ou moyenne à élevée, selon la condition physique du groupe.",
      "Idéal de 12 à 70 ans.",
-     "Ne convient pas aux personnes ayant des antécédents cardio-respiratoires."
+     "Ne convient pas aux personnes ayant des antécédents cardio-respiratoires.",
+     "Tous les jours ; la visite commence entre 7 h et 9 h."
+    ],
+    "incluye": [
+     "Transport",
+     "Entrée à la réserve",
+     "Hydratation et en-cas",
+     "Guide",
+     "Souvenir",
+     "Photos au format numérique"
     ]
    },
    "romelia": {
@@ -3227,6 +3566,14 @@
      "Prévoyez des vêtements confortables, des chaussures fermées, une casquette, de la crème solaire, un répulsif anti-insectes et un imperméable léger.",
      "Ne convient pas aux personnes allergiques aux fleurs ou au pollen.",
      "Minimum 4 personnes."
+    ],
+    "incluye": [
+     "Transport",
+     "Visite guidée (environ 3 h) des pépinières d'orchidées, de bonsaïs et d'arbres fruitiers",
+     "Visite de la maison principale",
+     "Dégustation de fruits de la ferme",
+     "Déjeuner paysan",
+     "Guide bilingue (anglais/espagnol) sur réservation préalable"
     ]
    },
    "avesrancho": {
@@ -3236,7 +3583,16 @@
      "Portez des vêtements à manches longues et imperméables, dans des tons verts, marron ou olive (ni blanc ni couleurs vives), ainsi que des chaussures de randonnée montantes.",
      "Si vous avez des jumelles ou un appareil photo, apportez-les.",
      "Prévoyez un répulsif anti-insectes, de quoi vous hydrater, une casquette et de la crème solaire : il fait chaud à midi.",
-     "Minimum 2 personnes ; les grands groupes sont divisés."
+     "Minimum 2 personnes ; les grands groupes sont divisés.",
+     "Départ le matin ; l'heure dépend de l'itinéraire et des espèces que vous souhaitez observer."
+    ],
+    "incluye": [
+     "Transport",
+     "Petit-déjeuner",
+     "Guide ornithologue",
+     "Jumelles",
+     "Check-list des oiseaux",
+     "Photos au format numérique"
     ]
    },
    "avescamino": {
@@ -3246,7 +3602,16 @@
      "Portez des vêtements à manches longues et imperméables, dans des tons verts, marron ou olive (ni blanc ni couleurs vives), ainsi que des chaussures de randonnée montantes.",
      "Si vous avez des jumelles ou un appareil photo, apportez-les.",
      "Prévoyez un répulsif anti-insectes, de quoi vous hydrater, un vêtement chaud et des vêtements thermiques : il fait froid tôt le matin.",
-     "Minimum 2 personnes ; les grands groupes sont divisés."
+     "Minimum 2 personnes ; les grands groupes sont divisés.",
+     "Départ le matin ; l'heure dépend de l'itinéraire et des espèces que vous souhaitez observer."
+    ],
+    "incluye": [
+     "Transport",
+     "Petit-déjeuner",
+     "Guide ornithologue",
+     "Jumelles",
+     "Check-list des oiseaux",
+     "Photos au format numérique"
     ]
    },
    "avesbremen": {
@@ -3256,7 +3621,16 @@
      "Portez des vêtements à manches longues et imperméables, dans des tons verts, marron ou olive (ni blanc ni couleurs vives), ainsi que des chaussures de randonnée montantes.",
      "Si vous avez des jumelles ou un appareil photo, apportez-les.",
      "Prévoyez un répulsif anti-insectes et de quoi vous hydrater.",
-     "Minimum 2 personnes ; les grands groupes sont divisés."
+     "Minimum 2 personnes ; les grands groupes sont divisés.",
+     "Départ le matin ; l'heure dépend de l'itinéraire et des espèces que vous souhaitez observer."
+    ],
+    "incluye": [
+     "Transport",
+     "Petit-déjeuner",
+     "Guide ornithologue",
+     "Jumelles",
+     "Check-list des oiseaux",
+     "Photos au format numérique"
     ]
    },
    "avescircasia": {
@@ -3265,7 +3639,16 @@
     "notas": [
      "Prévoyez des vêtements confortables aux tons neutres ; si vous avez un appareil photo ou des jumelles, apportez-les.",
      "Accessible aux personnes à mobilité réduite.",
-     "Minimum 2 personnes ; les grands groupes sont divisés."
+     "Minimum 2 personnes ; les grands groupes sont divisés.",
+     "Départ le matin ; l'heure dépend de l'itinéraire et des espèces que vous souhaitez observer."
+    ],
+    "incluye": [
+     "Transport",
+     "Petit-déjeuner",
+     "Guide ornithologue",
+     "Jumelles",
+     "Check-list des oiseaux",
+     "Photos au format numérique"
     ]
    },
    "avescaicedonia": {
@@ -3275,7 +3658,16 @@
      "Portez des vêtements à manches longues et imperméables, dans des tons verts, marron ou olive (ni blanc ni couleurs vives), ainsi que des chaussures de randonnée montantes.",
      "Si vous avez des jumelles ou un appareil photo, apportez-les.",
      "Prévoyez un répulsif anti-insectes et de quoi vous hydrater.",
-     "Minimum 2 personnes ; les grands groupes sont divisés."
+     "Minimum 2 personnes ; les grands groupes sont divisés.",
+     "Départ le matin ; l'heure dépend de l'itinéraire et des espèces que vous souhaitez observer."
+    ],
+    "incluye": [
+     "Transport",
+     "Petit-déjeuner",
+     "Guide ornithologue",
+     "Jumelles",
+     "Check-list des oiseaux",
+     "Photos au format numérique"
     ]
    },
    "avescolibri": {
@@ -3286,7 +3678,16 @@
      "Portez des vêtements à manches longues et imperméables, dans des tons verts, marron ou olive (ni blanc ni couleurs vives), ainsi que des chaussures de randonnée montantes.",
      "Si vous avez des jumelles ou un appareil photo, apportez-les.",
      "Prévoyez un répulsif anti-insectes et de quoi vous hydrater.",
-     "Minimum 2 personnes ; les grands groupes sont divisés."
+     "Minimum 2 personnes ; les grands groupes sont divisés.",
+     "Départ le matin ; l'heure dépend de l'itinéraire et des espèces que vous souhaitez observer."
+    ],
+    "incluye": [
+     "Transport",
+     "Petit-déjeuner",
+     "Guide ornithologue",
+     "Jumelles",
+     "Check-list des oiseaux",
+     "Photos au format numérique"
     ]
    },
    "avescampanario": {
@@ -3297,7 +3698,16 @@
      "Prévoyez des vêtements thermiques, des gants, un bonnet et suffisamment d'eau.",
      "Si vous avez des jumelles ou un appareil photo, apportez-les.",
      "Ne convient pas aux personnes ayant des antécédents cardio-respiratoires.",
-     "Minimum 2 personnes ; les grands groupes sont divisés."
+     "Minimum 2 personnes ; les grands groupes sont divisés.",
+     "Départ le matin ; l'heure dépend de l'itinéraire et des espèces que vous souhaitez observer."
+    ],
+    "incluye": [
+     "Transport",
+     "Petit-déjeuner",
+     "Guide ornithologue",
+     "Jumelles",
+     "Check-list des oiseaux",
+     "Photos au format numérique"
     ]
    },
    "canopy": {
@@ -3306,6 +3716,12 @@
     "notas": [
      "Prévoyez des chaussures fermées à lacets et des vêtements confortables (pantalon long), sans objets dans les poches.",
      "Selon la météo : l'activité n'a pas lieu en cas de pluie."
+    ],
+    "incluye": [
+     "Transport",
+     "Circuit de 16 plateformes et plus de 1 900 m : tyroliennes, ponts suspendus, montées et points d'observation",
+     "Équipement et protocoles de sécurité",
+     "Accompagnement par les guides du canopy"
     ]
    },
    "cookingclass": {
@@ -3482,13 +3898,18 @@
     "respuesta": "Pour réserver, vous versez un acompte de 50 %. Le solde et les dates limites figurent dans votre devis.\n\nMoyens de paiement, au nom d'Espontáneos Travel SAS (NIT 902.056.513) :\n🏦 Bancolombia, compte d'épargne : 756-000062-16\n📱 Nequi ou Daviplata : +57 317 645 6723\n💳 Carte de débit ou de crédit : bouton de paiement sécurisé Wompi\n\n💵 Le solde peut être réglé en pesos colombiens, en dollars ou en euros.\n📩 Envoyez-nous le justificatif sur WhatsApp.\n⚠️ Nous n'utilisons que ces moyens. Si quelqu'un vous demande de payer sur un autre compte, vérifiez d'abord auprès de nous."
    },
    "traslados": {
-    "respuesta": "Nous assurons les transferts depuis les aéroports El Edén (Armenia) et Matecaña (Pereira) vers les hôtels du Quindío et du Risaralda, ainsi qu'entre Armenia, Pereira et Manizales. Trajet d'environ 1 h."
+    "respuesta": "Oui ! 🚐 Nous assurons des transferts privés depuis les aéroports El Edén (Armenia) et Matecaña (Pereira) jusqu'à votre hôtel à Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, dans la cordillère (Córdoba, Pijao, Buenavista), à Pereira et Cerritos, ainsi qu'entre Armenia, Pereira et Manizales. Vous voyagez dans un véhicule agréé pour le transport spécial, avec un chauffeur professionnel.\n\nVotre transfert comprend :\n✅ Accueil à l'aéroport avec une pancarte\n✅ Aide avec les bagages\n✅ Jusqu'à 1 heure d'attente si votre vol est retardé\n✅ Hydratation\n✅ À partir de 9 passagers, un guide ou un assistant\n✅ Aucun supplément de nuit ni les jours fériés\n\nDepuis les aéroports de Manizales ou de Cali, nous vous faisons un devis sur mesure. Pour un devis, indiquez-moi votre vol (aéroport, date et heure), le nombre de voyageurs et votre hôtel.",
+    "pregunta_tipo": [
+     "que comprend le transfert ?",
+     "venez-vous nous chercher à l'aéroport ?",
+     "et si mon vol est retardé ?"
+    ]
    },
    "accesibilidad": {
     "respuesta": "Oui ! Nous proposons des options adaptées et des véhicules spéciaux pour que chacun profite de la région sans barrières. Nous avons aussi un guide pour les personnes aveugles. Contactez-nous et nous vous conseillerons de façon personnalisée. ♿"
    },
    "idiomas": {
-    "respuesta": "Guides en espagnol, anglais, français, italien et portugais (les visites guidées dans une autre langue entraînent un coût supplémentaire). Pour les tours partagés, le guide anglophone fait l'objet d'un supplément par prestation."
+    "respuesta": "Nos guides parlent espagnol, anglais, français, italien, allemand et portugais 🗣️, et nous avons un guide pour les personnes aveugles. Selon l'expérience, le guidage dans une autre langue que l'espagnol peut entraîner un coût supplémentaire : il est facturé par service (et non par personne) et dépend de la durée du tour (4 ou 8 heures) ; vous pouvez aussi le demander pour vos transferts. Les tours partagés se déroulent en espagnol ; un guide anglophone est possible avec un supplément par service. Dites-moi quelle langue vous préférez et nous vous la confirmerons dans le devis."
    },
    "clima": {
     "respuesta": "Climat tempéré toute l'année ; il peut pleuvoir en toute saison. À Cocora, dans le páramo et parmi les palmiers à cire, il fait froid."
@@ -3530,7 +3951,7 @@
      "est-ce adapté aux enfants ?",
      "et pour les seniors ?"
     ],
-    "respuesta": "Bien sûr ! Pour les enfants, certaines randonnées demandent un accompagnement et une condition physique de base. Pour les seniors, nous recommandons les options les mieux adaptées à leur mobilité. 👨‍👩‍👧‍👦 Tarif enfant de 3 à 10 ans ; les moins de 3 ans paient un tarif minimum sans repas. Au Parque del Café, le tarif enfant s'applique aux enfants mesurant entre 91 et 124 cm."
+    "respuesta": "Bien sûr ! Pour les enfants, certaines randonnées demandent un accompagnement et une condition physique de base. Pour les seniors, nous recommandons les options les mieux adaptées à leur mobilité. 👨‍👩‍👧‍👦 Il existe un tarif enfant de 3 à 10 ans ; pour les bébés et les enfants de moins de 3 ans, nous vous confirmons les conditions dans le devis (dans le véhicule, ils voyagent dans un siège bébé). Si vous voyagez avec des mineurs de moins de 18 ans, apportez leur acte de naissance. Au Parque del Café, le tarif enfant s'applique aux enfants mesurant entre 91 et 124 cm."
    },
    "tour_compartido": {
     "pregunta_tipo": [
@@ -3560,10 +3981,35 @@
      "Le long week-end férié de la semaine de vacances scolaires d'octobre",
      "25 décembre",
      "Du 1er au 6 janvier"
-    ]
+    ],
+    "respuesta": "Nous avons 4 tours partagés 🚐, avec départ quotidien dès 2 passagers : vous partagez la visite avec d'autres voyageurs, avec un guide hispanophone, et c'est plus économique qu'un tour privé.\n☕ Visite d'une ferme de café (3 h)\n🍫 Visite d'une ferme de cacao (4 h)\n🌴 Vallée de Cocora et Salento (7 h)\n⛰️ Villages de la Cordillère : Córdoba, Pijao et Buenavista (6 h)\n\nDéparts à partir de 8 h depuis des points de rendez-vous à Armenia et, selon le tour, à Quimbaya, Montenegro, Calarcá ou Río Verde. Si vous logez à Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida ou dans la cordillère, nous vous conduisons de votre hôtel au point de rendez-vous (aller-retour). Un guide anglophone ? Possible avec un supplément."
    },
    "asesor": {
     "respuesta": "Je vous mets en contact avec un conseiller sur WhatsApp 💬 (réponse en moins de 24 h)."
+   },
+   "vehiculos": {
+    "respuesta": "Vous voyagez dans un véhicule privé agréé pour le transport spécial, avec un chauffeur professionnel 🚐. Nous le choisissons selon la taille du groupe et les bagages : un SUV pour 1 ou 2 personnes, des vans pour les groupes de 3 à 15, un minibus jusqu'à 19 et un midibus jusqu'à 30. Pour les voyageurs VIP, nous avons un SUV de confort supérieur (sur demande) et, pour Cocora, la cordillère et les chemins ruraux, la célèbre Jeep Willys (jusqu'à 6 personnes par jeep, avec supplément). Si vous préférez un autre véhicule — par exemple plus d'espace pour les bagages —, demandez-le lors du devis.",
+    "pregunta_tipo": [
+     "dans quel véhicule allons-nous voyager ?",
+     "combien de valises peut-on mettre ?",
+     "puis-je choisir le véhicule ?"
+    ]
+   },
+   "recogida": {
+    "respuesta": "Pour les expériences qui comprennent le transport, nous venons vous chercher à votre hôtel et vous y ramenons 🏨. Le tarif s'applique aux hôtels d'Armenia, de Pereira ou de Manizales, ou situés à 20 minutes maximum de la ville ; si vous logez plus loin (par exemple à Cocora, dans la cordillère ou à l'Hacienda Bambusa), un supplément peut s'appliquer, que nous vous confirmons dans le devis. Pour les tours partagés, le rendez-vous se fait à un point de rencontre, et si vous logez à Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida ou dans la cordillère, nous vous y conduisons depuis votre hôtel. Indiquez-moi le nom de votre hôtel ou la zone et nous vérifions.",
+    "pregunta_tipo": [
+     "venez-vous nous chercher à l'hôtel ?",
+     "où est le point de rendez-vous ?",
+     "passez-vous à mon hôtel ?"
+    ]
+   },
+   "combinar": {
+    "respuesta": "Bien sûr ! 🗓️ Vous pouvez combiner deux expériences d'une demi-journée le même jour (une le matin et une l'après-midi) quand leurs horaires le permettent ; les expériences d'une journée complète (7 heures ou plus) occupent toute la journée. Nous organisons chaque jour pour que les visites ne se chevauchent pas et que ce ne soit pas épuisant : nous tenons compte des trajets entre chaque lieu et veillons à ce que vous soyez de retour à votre hôtel à une heure raisonnable. Le jour de votre arrivée, si votre vol atterrit tôt, vous pouvez faire une courte expérience l'après-midi. Dites-moi lesquelles vous intéressent et je vous aide à organiser le programme.",
+    "pregunta_tipo": [
+     "puis-je faire deux tours le même jour ?",
+     "quelles expériences puis-je combiner ?",
+     "combien de tours par jour ?"
+    ]
    }
   },
   "planes": {
@@ -3638,6 +4084,52 @@
      "rol": "Hébergement rural",
      "texto": "Grâce à notre accompagnement-conseil, il a intégré le portail des routes du Paysage culturel du café."
     }
+   }
+  },
+  "vehiculos": {
+   "duster": {
+    "nombre": "SUV type Duster",
+    "equipaje": "Jusqu'à 2 grandes valises + bagages à main",
+    "uso": "Transferts privés, couples et voyageurs avec peu de bagages"
+   },
+   "h1": {
+    "nombre": "Van Hyundai H1",
+    "equipaje": "Jusqu'à 5 valises moyennes",
+    "uso": "Familles et petits groupes, transferts et tours"
+   },
+   "traffic": {
+    "nombre": "Van Renault Traffic",
+    "equipaje": "Jusqu'à 7 valises moyennes",
+    "uso": "Petits groupes, transferts et tours"
+   },
+   "master": {
+    "nombre": "Van Renault Master",
+    "equipaje": "Jusqu'à 12 valises moyennes",
+    "uso": "Groupes moyens, voyages et tours"
+   },
+   "sprinter": {
+    "nombre": "Van Mercedes Sprinter",
+    "equipaje": "Jusqu'à 15 valises moyennes",
+    "uso": "Groupes moyens et longs trajets"
+   },
+   "micro": {
+    "nombre": "Minibus",
+    "equipaje": "Soute pour les bagages du groupe",
+    "uso": "Grands groupes et excursions"
+   },
+   "buseton": {
+    "nombre": "Midibus",
+    "equipaje": "Soute pour groupes et événements",
+    "uso": "Groupes nombreux, événements et incentives"
+   },
+   "jetour": {
+    "nombre": "SUV Jetour · Ligne Confort Supérieur",
+    "equipaje": "Jusqu'à 4 valises moyennes",
+    "uso": "Voyageurs VIP, cadres et voyages de noces (sur demande)"
+   },
+   "willys": {
+    "nombre": "Jeep Willys",
+    "uso": "Cocora, la cordillère et les chemins ruraux"
    }
   }
  },
@@ -4945,7 +5437,17 @@
     "notas": [
      "Tragen Sie bequeme Kleidung.",
      "Ideal für Personen von 5 bis 80 Jahren.",
-     "Mobile Aktivität: Sie kann in Ihrem Hotel oder an Ihrem jeweiligen Aufenthaltsort stattfinden."
+     "Mobile Aktivität: Sie kann in Ihrem Hotel oder an Ihrem jeweiligen Aufenthaltsort stattfinden.",
+     "Täglich zwischen 9:00 und 14:00 Uhr."
+    ],
+    "incluye": [
+     "Kunsthandwerker als Kursleiter",
+     "Handwerksworkshop",
+     "Selbst gefertigtes Kunsthandwerk",
+     "Digitale Fotos"
+    ],
+    "no_incluye": [
+     "Ort für den Workshop"
     ]
    },
    "artesanosaves": {
@@ -4954,7 +5456,17 @@
     "notas": [
      "Tragen Sie bequeme Kleidung.",
      "Ideal für Personen von 5 bis 80 Jahren.",
-     "Mobile Aktivität: Sie kann in Ihrem Hotel oder an Ihrem jeweiligen Aufenthaltsort stattfinden."
+     "Mobile Aktivität: Sie kann in Ihrem Hotel oder an Ihrem jeweiligen Aufenthaltsort stattfinden.",
+     "Täglich zwischen 9:00 und 14:00 Uhr."
+    ],
+    "incluye": [
+     "Kunsthandwerker als Kursleiter",
+     "Handwerksworkshop",
+     "Selbst gefertigtes Kunsthandwerk",
+     "Digitale Fotos"
+    ],
+    "no_incluye": [
+     "Ort für den Workshop"
     ]
    },
    "artesanosbalcones": {
@@ -4963,7 +5475,17 @@
     "notas": [
      "Tragen Sie bequeme Kleidung.",
      "Ideal für Personen von 5 bis 80 Jahren.",
-     "Mobile Aktivität: Sie kann in Ihrem Hotel oder an Ihrem jeweiligen Aufenthaltsort stattfinden."
+     "Mobile Aktivität: Sie kann in Ihrem Hotel oder an Ihrem jeweiligen Aufenthaltsort stattfinden.",
+     "Täglich zwischen 9:00 und 14:00 Uhr."
+    ],
+    "incluye": [
+     "Kunsthandwerker als Kursleiter",
+     "Handwerksworkshop",
+     "Selbst gefertigtes Kunsthandwerk",
+     "Digitale Fotos"
+    ],
+    "no_incluye": [
+     "Ort für den Workshop"
     ]
    },
    "artesanosarcilla": {
@@ -4971,7 +5493,17 @@
     "descripcion": "Einheimische Kunsthandwerker zeigen Ihnen, wie man den Ton verarbeitet, den sie aus den Flüssen der Kordillere holen. Formen Sie Ihr eigenes Stück und hören Sie dabei Geschichten über das Handwerk: Rund tausend Stücke werden gesammelt, bevor der Ofen angeheizt wird, in dem sie bis zu 24 Stunden gebrannt werden.",
     "notas": [
      "Tragen Sie bequeme Kleidung.",
-     "Ideal für Personen von 5 bis 80 Jahren."
+     "Ideal für Personen von 5 bis 80 Jahren.",
+     "Täglich zwischen 9:00 und 14:00 Uhr."
+    ],
+    "incluye": [
+     "Kunsthandwerker als Kursleiter",
+     "Handwerksworkshop",
+     "Selbst gefertigtes Kunsthandwerk",
+     "Digitale Fotos"
+    ],
+    "no_incluye": [
+     "Ort für den Workshop"
     ]
    },
    "artesanoscesteria": {
@@ -4979,7 +5511,17 @@
     "descripcion": "Filandia ist bekannt für seine Tradition der Korbflechterei, ein Handwerk, das mit Lianen und Fasern aus der Region von Generation zu Generation weitergegeben wird. Flechten Sie mit einem Meister der Korbflechterei Ihr eigenes Stück und lernen Sie aus erster Hand eine lebendige Tradition der Kaffeekulturlandschaft kennen.",
     "notas": [
      "Tragen Sie bequeme Kleidung.",
-     "Ideal für Personen von 5 bis 80 Jahren."
+     "Ideal für Personen von 5 bis 80 Jahren.",
+     "Täglich zwischen 9:00 und 14:00 Uhr."
+    ],
+    "incluye": [
+     "Kunsthandwerker als Kursleiter",
+     "Handwerksworkshop",
+     "Selbst gefertigtes Kunsthandwerk",
+     "Digitale Fotos"
+    ],
+    "no_incluye": [
+     "Ort für den Workshop"
     ]
    },
    "catacerveza": {
@@ -4989,6 +5531,13 @@
      "Tragen Sie bequeme Schuhe und denken Sie an Insektenschutz und Sonnencreme.",
      "Teilen Sie uns Ernährungseinschränkungen bitte rechtzeitig mit.",
      "Nur für Personen ab 18 Jahren."
+    ],
+    "incluye": [
+     "Transport",
+     "Geführter Besuch der Produktionsstätte",
+     "Geführte Verkostung mit dem Braumeister",
+     "Food-Pairing",
+     "Souvenir"
     ]
    },
    "avesconocedores": {
@@ -4998,7 +5547,16 @@
      "Tragen Sie langärmelige, wasserdichte Kleidung in Grün-, Braun- oder Olivtönen (kein Weiß, keine auffälligen Farben) und Wanderstiefel.",
      "Wenn Sie ein Fernglas oder eine Kamera haben, bringen Sie sie mit.",
      "Denken Sie an Insektenschutz und ausreichend Wasser; auf Hochgebirgsrouten auch an Thermokleidung.",
-     "Mindestens 2 Personen; große Gruppen werden aufgeteilt."
+     "Mindestens 2 Personen; große Gruppen werden aufgeteilt.",
+     "Maßgeschneiderte Route je nach den Arten, die die Gruppe sehen möchte."
+    ],
+    "incluye": [
+     "Transport",
+     "Frühstück",
+     "Vogelkundlicher Guide",
+     "Fernglas",
+     "Vogel-Checkliste",
+     "Digitale Fotos"
     ]
    },
    "barbasbremen": {
@@ -5008,7 +5566,16 @@
      "Denken Sie an Insektenschutz und bequeme, wasserdichte, langärmelige Kleidung.",
      "Schwierigkeitsgrad niedrig, mittel oder mittel bis hoch, je nach Kondition der Gruppe.",
      "Ideal für Personen von 12 bis 70 Jahren.",
-     "Nicht geeignet für Personen mit Herz- oder Lungenvorerkrankungen."
+     "Nicht geeignet für Personen mit Herz- oder Lungenvorerkrankungen.",
+     "Täglich; die Tour beginnt zwischen 7:00 und 9:00 Uhr."
+    ],
+    "incluye": [
+     "Transport",
+     "Eintritt ins Reservat",
+     "Getränke und Snack",
+     "Guide",
+     "Souvenir",
+     "Digitale Fotos"
     ]
    },
    "otunquimbaya": {
@@ -5018,7 +5585,16 @@
      "Denken Sie an Insektenschutz und bequeme, wasserdichte, langärmelige Kleidung.",
      "Schwierigkeitsgrad niedrig, mittel oder mittel bis hoch, je nach Kondition der Gruppe.",
      "Ideal für Personen von 12 bis 70 Jahren.",
-     "Nicht geeignet für Personen mit Herz- oder Lungenvorerkrankungen."
+     "Nicht geeignet für Personen mit Herz- oder Lungenvorerkrankungen.",
+     "Täglich; die Tour beginnt zwischen 7:00 und 9:00 Uhr."
+    ],
+    "incluye": [
+     "Transport",
+     "Eintritt ins Reservat",
+     "Getränke und Snack",
+     "Guide",
+     "Souvenir",
+     "Digitale Fotos"
     ]
    },
    "rioblanco": {
@@ -5028,7 +5604,16 @@
      "Denken Sie an Insektenschutz und bequeme, wasserdichte, langärmelige Kleidung.",
      "Schwierigkeitsgrad niedrig, mittel oder mittel bis hoch, je nach Kondition der Gruppe.",
      "Ideal für Personen von 12 bis 70 Jahren.",
-     "Nicht geeignet für Personen mit Herz- oder Lungenvorerkrankungen."
+     "Nicht geeignet für Personen mit Herz- oder Lungenvorerkrankungen.",
+     "Täglich; die Tour beginnt zwischen 7:00 und 9:00 Uhr."
+    ],
+    "incluye": [
+     "Transport",
+     "Eintritt ins Reservat",
+     "Getränke und Snack",
+     "Guide",
+     "Souvenir",
+     "Digitale Fotos"
     ]
    },
    "romelia": {
@@ -5038,6 +5623,14 @@
      "Denken Sie an bequeme Kleidung, geschlossene Schuhe, Kappe, Sonnencreme, Insektenschutz und eine leichte Regenjacke.",
      "Nicht geeignet für Personen mit Blumen- oder Pollenallergie.",
      "Mindestens 4 Personen."
+    ],
+    "incluye": [
+     "Transport",
+     "Geführter Rundgang (ca. 3 Std.) durch die Gärtnereien mit Orchideen, Bonsais und Obstbäumen",
+     "Besuch des Haupthauses",
+     "Verkostung von Früchten der Finca",
+     "Ländliches Mittagessen",
+     "Zweisprachiger Guide (Englisch/Spanisch) nach vorheriger Reservierung"
     ]
    },
    "avesrancho": {
@@ -5047,7 +5640,16 @@
      "Tragen Sie langärmelige, wasserdichte Kleidung in Grün-, Braun- oder Olivtönen (kein Weiß, keine auffälligen Farben) und Wanderstiefel.",
      "Wenn Sie ein Fernglas oder eine Kamera haben, bringen Sie sie mit.",
      "Denken Sie an Insektenschutz, ausreichend Wasser, Kappe und Sonnencreme: Mittags wird es heiß.",
-     "Mindestens 2 Personen; große Gruppen werden aufgeteilt."
+     "Mindestens 2 Personen; große Gruppen werden aufgeteilt.",
+     "Abfahrt am Morgen; die Uhrzeit hängt von der Route und den Arten ab, die Sie sehen möchten."
+    ],
+    "incluye": [
+     "Transport",
+     "Frühstück",
+     "Vogelkundlicher Guide",
+     "Fernglas",
+     "Vogel-Checkliste",
+     "Digitale Fotos"
     ]
    },
    "avescamino": {
@@ -5057,7 +5659,16 @@
      "Tragen Sie langärmelige, wasserdichte Kleidung in Grün-, Braun- oder Olivtönen (kein Weiß, keine auffälligen Farben) und Wanderstiefel.",
      "Wenn Sie ein Fernglas oder eine Kamera haben, bringen Sie sie mit.",
      "Denken Sie an Insektenschutz, ausreichend Wasser, eine warme Jacke und Thermokleidung: Früh am Morgen ist es kalt.",
-     "Mindestens 2 Personen; große Gruppen werden aufgeteilt."
+     "Mindestens 2 Personen; große Gruppen werden aufgeteilt.",
+     "Abfahrt am Morgen; die Uhrzeit hängt von der Route und den Arten ab, die Sie sehen möchten."
+    ],
+    "incluye": [
+     "Transport",
+     "Frühstück",
+     "Vogelkundlicher Guide",
+     "Fernglas",
+     "Vogel-Checkliste",
+     "Digitale Fotos"
     ]
    },
    "avesbremen": {
@@ -5067,7 +5678,16 @@
      "Tragen Sie langärmelige, wasserdichte Kleidung in Grün-, Braun- oder Olivtönen (kein Weiß, keine auffälligen Farben) und Wanderstiefel.",
      "Wenn Sie ein Fernglas oder eine Kamera haben, bringen Sie sie mit.",
      "Denken Sie an Insektenschutz und ausreichend Wasser.",
-     "Mindestens 2 Personen; große Gruppen werden aufgeteilt."
+     "Mindestens 2 Personen; große Gruppen werden aufgeteilt.",
+     "Abfahrt am Morgen; die Uhrzeit hängt von der Route und den Arten ab, die Sie sehen möchten."
+    ],
+    "incluye": [
+     "Transport",
+     "Frühstück",
+     "Vogelkundlicher Guide",
+     "Fernglas",
+     "Vogel-Checkliste",
+     "Digitale Fotos"
     ]
    },
    "avescircasia": {
@@ -5076,7 +5696,16 @@
     "notas": [
      "Tragen Sie bequeme Kleidung in neutralen Farbtönen; wenn Sie eine Kamera oder ein Fernglas haben, bringen Sie sie mit.",
      "Geeignet für Personen mit eingeschränkter Mobilität.",
-     "Mindestens 2 Personen; große Gruppen werden aufgeteilt."
+     "Mindestens 2 Personen; große Gruppen werden aufgeteilt.",
+     "Abfahrt am Morgen; die Uhrzeit hängt von der Route und den Arten ab, die Sie sehen möchten."
+    ],
+    "incluye": [
+     "Transport",
+     "Frühstück",
+     "Vogelkundlicher Guide",
+     "Fernglas",
+     "Vogel-Checkliste",
+     "Digitale Fotos"
     ]
    },
    "avescaicedonia": {
@@ -5086,7 +5715,16 @@
      "Tragen Sie langärmelige, wasserdichte Kleidung in Grün-, Braun- oder Olivtönen (kein Weiß, keine auffälligen Farben) und Wanderstiefel.",
      "Wenn Sie ein Fernglas oder eine Kamera haben, bringen Sie sie mit.",
      "Denken Sie an Insektenschutz und ausreichend Wasser.",
-     "Mindestens 2 Personen; große Gruppen werden aufgeteilt."
+     "Mindestens 2 Personen; große Gruppen werden aufgeteilt.",
+     "Abfahrt am Morgen; die Uhrzeit hängt von der Route und den Arten ab, die Sie sehen möchten."
+    ],
+    "incluye": [
+     "Transport",
+     "Frühstück",
+     "Vogelkundlicher Guide",
+     "Fernglas",
+     "Vogel-Checkliste",
+     "Digitale Fotos"
     ]
    },
    "avescolibri": {
@@ -5097,7 +5735,16 @@
      "Tragen Sie langärmelige, wasserdichte Kleidung in Grün-, Braun- oder Olivtönen (kein Weiß, keine auffälligen Farben) und Wanderstiefel.",
      "Wenn Sie ein Fernglas oder eine Kamera haben, bringen Sie sie mit.",
      "Denken Sie an Insektenschutz und ausreichend Wasser.",
-     "Mindestens 2 Personen; große Gruppen werden aufgeteilt."
+     "Mindestens 2 Personen; große Gruppen werden aufgeteilt.",
+     "Abfahrt am Morgen; die Uhrzeit hängt von der Route und den Arten ab, die Sie sehen möchten."
+    ],
+    "incluye": [
+     "Transport",
+     "Frühstück",
+     "Vogelkundlicher Guide",
+     "Fernglas",
+     "Vogel-Checkliste",
+     "Digitale Fotos"
     ]
    },
    "avescampanario": {
@@ -5108,7 +5755,16 @@
      "Denken Sie an Thermokleidung, Handschuhe, Mütze und ausreichend Wasser.",
      "Wenn Sie ein Fernglas oder eine Kamera haben, bringen Sie sie mit.",
      "Nicht geeignet für Personen mit Herz- oder Lungenvorerkrankungen.",
-     "Mindestens 2 Personen; große Gruppen werden aufgeteilt."
+     "Mindestens 2 Personen; große Gruppen werden aufgeteilt.",
+     "Abfahrt am Morgen; die Uhrzeit hängt von der Route und den Arten ab, die Sie sehen möchten."
+    ],
+    "incluye": [
+     "Transport",
+     "Frühstück",
+     "Vogelkundlicher Guide",
+     "Fernglas",
+     "Vogel-Checkliste",
+     "Digitale Fotos"
     ]
    },
    "canopy": {
@@ -5117,6 +5773,12 @@
     "notas": [
      "Tragen Sie geschlossene Schnürschuhe und bequeme Kleidung (lange Hose), ohne lose Gegenstände in den Taschen.",
      "Wetterabhängig: Bei Regen findet die Aktivität nicht statt."
+    ],
+    "incluye": [
+     "Transport",
+     "Parcours mit 16 Plattformen und über 1.900 m: Ziplines, Hängebrücken, Aufstiege und Aussichtspunkte",
+     "Sicherheitsausrüstung und -protokolle",
+     "Begleitung durch die Canopy-Guides"
     ]
    },
    "cookingclass": {
@@ -5293,13 +5955,18 @@
     "respuesta": "Zur Buchung leisten Sie eine Anzahlung von 50 %. Restbetrag und Fristen stehen in Ihrem Angebot.\n\nZahlungswege, alle lautend auf Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia-Sparkonto: 756-000062-16\n📱 Nequi oder Daviplata: +57 317 645 6723\n💳 Debit- oder Kreditkarte: sicherer Wompi-Zahlungsbutton\n\n💵 Den Restbetrag können Sie in kolumbianischen Pesos, US-Dollar oder Euro bezahlen.\n📩 Senden Sie uns den Beleg per WhatsApp.\n⚠️ Wir nutzen nur diese Zahlungswege. Wenn jemand Sie bittet, auf ein anderes Konto zu zahlen, fragen Sie bitte zuerst bei uns nach."
    },
    "traslados": {
-    "respuesta": "Wir bieten Transfers von den Flughäfen El Edén (Armenia) und Matecaña (Pereira) zu Hotels im Quindío und in Risaralda sowie zwischen Armenia, Pereira und Manizales an. Fahrtzeit ca. 1 Std."
+    "respuesta": "Ja! 🚐 Wir bieten private Transfers von den Flughäfen El Edén (Armenia) und Matecaña (Pereira) zu Ihrem Hotel in Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, der Kordillere (Córdoba, Pijao, Buenavista), Pereira und Cerritos sowie zwischen Armenia, Pereira und Manizales. Sie fahren in einem für Sonderbeförderung zugelassenen Fahrzeug mit professionellem Fahrer.\n\nIhr Transfer umfasst:\n✅ Empfang am Flughafen mit Namensschild\n✅ Hilfe mit dem Gepäck\n✅ Bis zu 1 Stunde Wartezeit bei Flugverspätung\n✅ Getränke (Wasser)\n✅ Ab 9 Passagieren ein Guide oder eine Begleitperson\n✅ Kein Nacht- oder Feiertagszuschlag\n\nVon den Flughäfen Manizales oder Cali erstellen wir Ihnen ein individuelles Angebot. Für ein Angebot nennen Sie mir bitte Ihren Flug (Flughafen, Datum und Uhrzeit), die Zahl der Reisenden und Ihr Hotel.",
+    "pregunta_tipo": [
+     "was ist im Transfer enthalten?",
+     "holen Sie uns am Flughafen ab?",
+     "was ist, wenn mein Flug Verspätung hat?"
+    ]
    },
    "accesibilidad": {
     "respuesta": "Ja! Wir haben angepasste Angebote und Spezialfahrzeuge, damit alle die Region ohne Barrieren genießen können. Außerdem haben wir einen Guide für blinde Menschen. Fragen Sie uns, wir beraten Sie ganz persönlich. ♿"
    },
    "idiomas": {
-    "respuesta": "Guides auf Spanisch, Englisch, Französisch, Italienisch und Portugiesisch; deutschsprachige Guides bieten wir derzeit nicht an (Führungen in einer anderen Sprache als Spanisch kosten extra). Bei den Gruppentouren wird für den englischsprachigen Guide ein Zuschlag pro Service berechnet."
+    "respuesta": "Unsere Guides sprechen Spanisch, Englisch, Französisch, Italienisch, Deutsch und Portugiesisch 🗣️, und wir haben einen Guide für blinde Reisende. Je nach Erlebnis kann eine Führung in einer anderen Sprache als Spanisch einen Aufpreis haben: Er gilt pro Service (nicht pro Person) und richtet sich nach der Dauer der Tour (4 oder 8 Stunden); Sie können sie auch für Ihre Transfers anfragen. Die Gruppentouren finden auf Spanisch statt; ein englischsprachiger Guide ist gegen einen Zuschlag pro Service möglich. Sagen Sie mir, welche Sprache Sie bevorzugen, und wir bestätigen sie Ihnen im Angebot."
    },
    "clima": {
     "respuesta": "Ganzjährig gemäßigtes Klima; Regen ist in jeder Jahreszeit möglich. In Cocora, im Páramo und bei den Wachspalmen ist es kalt."
@@ -5341,7 +6008,7 @@
      "Ist es für Kinder geeignet?",
      "Und für ältere Menschen?"
     ],
-    "respuesta": "Aber sicher! Für Kinder gilt: Einige Wanderungen erfordern Begleitung und eine Grundfitness. Für ältere Menschen empfehlen wir die Angebote, die am besten zu ihrer Mobilität passen. 👨‍👩‍👧‍👦 Kindertarif von 3 bis 10 Jahren; Kinder unter 3 Jahren zahlen einen Mindesttarif ohne Verpflegung. Im Parque del Café gilt der Kindertarif für eine Körpergröße zwischen 91 und 124 cm."
+    "respuesta": "Aber sicher! Für Kinder gilt: Einige Wanderungen erfordern Begleitung und eine Grundfitness. Für ältere Menschen empfehlen wir die Angebote, die am besten zu ihrer Mobilität passen. 👨‍👩‍👧‍👦 Es gibt einen Kindertarif von 3 bis 10 Jahren; für Babys und Kinder unter 3 Jahren bestätigen wir Ihnen die Bedingungen im Angebot (im Fahrzeug reisen sie in einem Babysitz). Wenn Sie mit Minderjährigen unter 18 Jahren reisen, bringen Sie bitte deren Geburtsurkunde mit. Im Parque del Café gilt der Kindertarif für eine Körpergröße zwischen 91 und 124 cm."
    },
    "tour_compartido": {
     "pregunta_tipo": [
@@ -5371,10 +6038,35 @@
      "Das verlängerte Feiertagswochenende der Schulferienwoche im Oktober",
      "25. Dezember",
      "1. bis 6. Januar"
-    ]
+    ],
+    "respuesta": "Wir haben 4 Gruppentouren 🚐 mit täglicher Abfahrt ab 2 Personen: Sie teilen die Tour mit anderen Reisenden, mit spanischsprachigem Guide, und sie ist günstiger als eine Privattour.\n☕ Besuch einer Kaffeefarm (3 Std.)\n🍫 Besuch einer Kakaofarm (4 Std.)\n🌴 Cocora-Tal und Salento (7 Std.)\n⛰️ Bergdörfer der Kordillere: Córdoba, Pijao und Buenavista (6 Std.)\n\nAbfahrt ab 8:00 Uhr von Treffpunkten in Armenia und, je nach Tour, in Quimbaya, Montenegro, Calarcá oder Río Verde. Wohnen Sie in Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida oder in der Kordillere, bringen wir Sie vom Hotel zum Treffpunkt (hin und zurück). Englischsprachiger Guide? Gegen Zuschlag möglich."
    },
    "asesor": {
     "respuesta": "Ich verbinde Sie per WhatsApp mit einem Berater 💬 (Antwort in weniger als 24 Std.)."
+   },
+   "vehiculos": {
+    "respuesta": "Sie reisen in einem privaten, für Sonderbeförderung zugelassenen Fahrzeug mit professionellem Fahrer 🚐. Wir wählen es nach Gruppengröße und Gepäck: ein SUV für 1 oder 2 Personen, Vans für Gruppen von 3 bis 15, ein Minibus für bis zu 19 und ein Midibus für bis zu 30 Personen. Für VIP-Reisende gibt es einen SUV mit gehobenem Komfort (auf Anfrage) und für Cocora, die Kordillere und ländliche Wege den klassischen Jeep Willys (bis zu 6 Personen pro Jeep, gegen Zuschlag). Wenn Sie ein anderes Fahrzeug möchten – zum Beispiel mehr Platz für Gepäck –, sagen Sie es uns bei der Anfrage.",
+    "pregunta_tipo": [
+     "mit welchem Fahrzeug fahren wir?",
+     "wie viele Koffer passen hinein?",
+     "kann ich das Fahrzeug wählen?"
+    ]
+   },
+   "recogida": {
+    "respuesta": "Bei Erlebnissen mit Transport holen wir Sie im Hotel ab und bringen Sie wieder zurück 🏨. Der Tarif gilt für Hotels in Armenia, Pereira oder Manizales oder höchstens 20 Minuten von der Stadt entfernt; wohnen Sie weiter weg (zum Beispiel in Cocora, in der Kordillere oder in der Hacienda Bambusa), kann ein Zuschlag anfallen, den wir Ihnen im Angebot bestätigen. Bei den Gruppentouren treffen wir uns an einem Treffpunkt; wohnen Sie in Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida oder in der Kordillere, bringen wir Sie von Ihrem Hotel dorthin. Nennen Sie mir den Namen Ihres Hotels oder die Gegend, und wir prüfen es.",
+    "pregunta_tipo": [
+     "holen Sie uns im Hotel ab?",
+     "wo ist der Treffpunkt?",
+     "können Sie mich im Hotel abholen?"
+    ]
+   },
+   "combinar": {
+    "respuesta": "Natürlich! 🗓️ Sie können zwei Halbtageserlebnisse am selben Tag kombinieren (eines am Vormittag, eines am Nachmittag), wenn es die Uhrzeiten erlauben; Ganztageserlebnisse (7 Stunden oder mehr) füllen den ganzen Tag. Wir planen jeden Tag so, dass sich die Touren nicht überschneiden und es nicht zu anstrengend wird: Wir berücksichtigen die Fahrzeiten zwischen den Orten und sorgen dafür, dass Sie zu einer vernünftigen Uhrzeit wieder im Hotel sind. Am Anreisetag können Sie, wenn Ihr Flug früh landet, am Nachmittag ein kurzes Erlebnis machen. Sagen Sie mir, welche Sie interessieren, und ich helfe Ihnen bei der Planung.",
+    "pregunta_tipo": [
+     "kann ich zwei Touren am selben Tag machen?",
+     "welche Erlebnisse kann ich kombinieren?",
+     "wie viele Touren pro Tag?"
+    ]
    }
   },
   "planes": {
@@ -5449,6 +6141,52 @@
      "rol": "Ländliche Unterkunft",
      "texto": "Mit unserer Beratung wurde er in das Routenportal der Kaffeekulturlandschaft aufgenommen."
     }
+   }
+  },
+  "vehiculos": {
+   "duster": {
+    "nombre": "SUV vom Typ Duster",
+    "equipaje": "Bis zu 2 große Koffer + Handgepäck",
+    "uso": "Private Transfers, Paare und Reisende mit wenig Gepäck"
+   },
+   "h1": {
+    "nombre": "Van Hyundai H1",
+    "equipaje": "Bis zu 5 mittelgroße Koffer",
+    "uso": "Familien und kleine Gruppen, Transfers und Touren"
+   },
+   "traffic": {
+    "nombre": "Van Renault Traffic",
+    "equipaje": "Bis zu 7 mittelgroße Koffer",
+    "uso": "Kleine Gruppen, Transfers und Touren"
+   },
+   "master": {
+    "nombre": "Van Renault Master",
+    "equipaje": "Bis zu 12 mittelgroße Koffer",
+    "uso": "Mittelgroße Gruppen, Reisen und Touren"
+   },
+   "sprinter": {
+    "nombre": "Van Mercedes Sprinter",
+    "equipaje": "Bis zu 15 mittelgroße Koffer",
+    "uso": "Mittelgroße Gruppen und lange Fahrten"
+   },
+   "micro": {
+    "nombre": "Minibus",
+    "equipaje": "Gepäckraum für das Gepäck der Gruppe",
+    "uso": "Große Gruppen und Ausflüge"
+   },
+   "buseton": {
+    "nombre": "Midibus",
+    "equipaje": "Gepäckraum für Gruppen und Veranstaltungen",
+    "uso": "Große Gruppen, Veranstaltungen und Incentives"
+   },
+   "jetour": {
+    "nombre": "SUV Jetour · Linie Gehobener Komfort",
+    "equipaje": "Bis zu 4 mittelgroße Koffer",
+    "uso": "VIP-Reisende, Geschäftsleute und Flitterwochen (auf Anfrage)"
+   },
+   "willys": {
+    "nombre": "Jeep Willys",
+    "uso": "Cocora, die Kordillere und ländliche Wege"
    }
   }
  },
@@ -6756,7 +7494,17 @@
     "notas": [
      "Leve roupas confortáveis.",
      "Ideal para pessoas de 5 a 80 anos.",
-     "Atividade itinerante: pode ser feita no seu hotel ou onde você estiver."
+     "Atividade itinerante: pode ser feita no seu hotel ou onde você estiver.",
+     "Funciona todos os dias entre 9h e 14h."
+    ],
+    "incluye": [
+     "Artesão instrutor",
+     "Oficina artesanal",
+     "Peça artesanal confeccionada",
+     "Material fotográfico digital"
+    ],
+    "no_incluye": [
+     "Local da oficina"
     ]
    },
    "artesanosaves": {
@@ -6765,7 +7513,17 @@
     "notas": [
      "Leve roupas confortáveis.",
      "Ideal para pessoas de 5 a 80 anos.",
-     "Atividade itinerante: pode ser feita no seu hotel ou onde você estiver."
+     "Atividade itinerante: pode ser feita no seu hotel ou onde você estiver.",
+     "Funciona todos os dias entre 9h e 14h."
+    ],
+    "incluye": [
+     "Artesão instrutor",
+     "Oficina artesanal",
+     "Peça artesanal confeccionada",
+     "Material fotográfico digital"
+    ],
+    "no_incluye": [
+     "Local da oficina"
     ]
    },
    "artesanosbalcones": {
@@ -6774,7 +7532,17 @@
     "notas": [
      "Leve roupas confortáveis.",
      "Ideal para pessoas de 5 a 80 anos.",
-     "Atividade itinerante: pode ser feita no seu hotel ou onde você estiver."
+     "Atividade itinerante: pode ser feita no seu hotel ou onde você estiver.",
+     "Funciona todos os dias entre 9h e 14h."
+    ],
+    "incluye": [
+     "Artesão instrutor",
+     "Oficina artesanal",
+     "Peça artesanal confeccionada",
+     "Material fotográfico digital"
+    ],
+    "no_incluye": [
+     "Local da oficina"
     ]
    },
    "artesanosarcilla": {
@@ -6782,7 +7550,17 @@
     "descripcion": "Artesãos locais ensinam você a trabalhar a argila que retiram dos rios da cordilheira. Modele sua própria peça enquanto ouve histórias do ofício: eles reúnem cerca de mil peças antes de acender o forno, onde elas são queimadas por até 24 horas.",
     "notas": [
      "Leve roupas confortáveis.",
-     "Ideal para pessoas de 5 a 80 anos."
+     "Ideal para pessoas de 5 a 80 anos.",
+     "Funciona todos os dias entre 9h e 14h."
+    ],
+    "incluye": [
+     "Artesão instrutor",
+     "Oficina artesanal",
+     "Peça artesanal confeccionada",
+     "Material fotográfico digital"
+    ],
+    "no_incluye": [
+     "Local da oficina"
     ]
    },
    "artesanoscesteria": {
@@ -6790,7 +7568,17 @@
     "descripcion": "Filandia é reconhecida por sua tradição em cestaria, um ofício que passa de geração em geração com cipós e fibras da região. Teça sua própria peça com um mestre artesão e conheça de perto uma tradição viva da Paisagem Cultural Cafeeira.",
     "notas": [
      "Leve roupas confortáveis.",
-     "Ideal para pessoas de 5 a 80 anos."
+     "Ideal para pessoas de 5 a 80 anos.",
+     "Funciona todos os dias entre 9h e 14h."
+    ],
+    "incluye": [
+     "Artesão instrutor",
+     "Oficina artesanal",
+     "Peça artesanal confeccionada",
+     "Material fotográfico digital"
+    ],
+    "no_incluye": [
+     "Local da oficina"
     ]
    },
    "catacerveza": {
@@ -6800,6 +7588,13 @@
      "Leve sapatos confortáveis, repelente e protetor solar.",
      "Avise com antecedência se tiver restrições alimentares.",
      "Somente para maiores de 18 anos."
+    ],
+    "incluye": [
+     "Transporte",
+     "Visita guiada à fábrica",
+     "Degustação guiada com o mestre cervejeiro",
+     "Harmonização",
+     "Souvenir"
     ]
    },
    "avesconocedores": {
@@ -6809,7 +7604,16 @@
      "Leve roupas em tons de verde, marrom ou oliva (nada de branco nem de cores chamativas), de manga longa e impermeáveis, além de botas de trekking.",
      "Se você tiver binóculos ou câmera, traga-os.",
      "Leve repelente e algo para se hidratar; nas rotas de alta montanha, roupas térmicas.",
-     "Mínimo de 2 pessoas; grupos grandes são divididos."
+     "Mínimo de 2 pessoas; grupos grandes são divididos.",
+     "Rota sob medida conforme as espécies que o grupo quer ver."
+    ],
+    "incluye": [
+     "Transporte",
+     "Café da manhã",
+     "Guia de aves",
+     "Binóculos",
+     "Checklist de aves",
+     "Material fotográfico digital"
     ]
    },
    "barbasbremen": {
@@ -6819,7 +7623,16 @@
      "Leve repelente e roupas confortáveis, impermeáveis e de manga longa.",
      "Dificuldade baixa, média ou média-alta, de acordo com o condicionamento do grupo.",
      "Ideal para pessoas de 12 a 70 anos.",
-     "Não indicado para pessoas com histórico de problemas cardiorrespiratórios."
+     "Não indicado para pessoas com histórico de problemas cardiorrespiratórios.",
+     "Funciona todos os dias; o percurso começa entre 7h e 9h."
+    ],
+    "incluye": [
+     "Transporte",
+     "Entrada na reserva",
+     "Hidratação e snack",
+     "Guia",
+     "Souvenir",
+     "Material fotográfico digital"
     ]
    },
    "otunquimbaya": {
@@ -6829,7 +7642,16 @@
      "Leve repelente e roupas confortáveis, impermeáveis e de manga longa.",
      "Dificuldade baixa, média ou média-alta, de acordo com o condicionamento do grupo.",
      "Ideal para pessoas de 12 a 70 anos.",
-     "Não indicado para pessoas com histórico de problemas cardiorrespiratórios."
+     "Não indicado para pessoas com histórico de problemas cardiorrespiratórios.",
+     "Funciona todos os dias; o percurso começa entre 7h e 9h."
+    ],
+    "incluye": [
+     "Transporte",
+     "Entrada na reserva",
+     "Hidratação e snack",
+     "Guia",
+     "Souvenir",
+     "Material fotográfico digital"
     ]
    },
    "rioblanco": {
@@ -6839,7 +7661,16 @@
      "Leve repelente e roupas confortáveis, impermeáveis e de manga longa.",
      "Dificuldade baixa, média ou média-alta, de acordo com o condicionamento do grupo.",
      "Ideal para pessoas de 12 a 70 anos.",
-     "Não indicado para pessoas com histórico de problemas cardiorrespiratórios."
+     "Não indicado para pessoas com histórico de problemas cardiorrespiratórios.",
+     "Funciona todos os dias; o percurso começa entre 7h e 9h."
+    ],
+    "incluye": [
+     "Transporte",
+     "Entrada na reserva",
+     "Hidratação e snack",
+     "Guia",
+     "Souvenir",
+     "Material fotográfico digital"
     ]
    },
    "romelia": {
@@ -6849,6 +7680,14 @@
      "Leve roupas confortáveis, calçado fechado, boné, protetor solar, repelente e capa de chuva leve.",
      "Não indicado para pessoas com alergia a flores ou a pólen.",
      "Mínimo de 4 pessoas."
+    ],
+    "incluye": [
+     "Transporte",
+     "Visita guiada (cerca de 3 h) pelos viveiros de orquídeas, bonsais e árvores frutíferas",
+     "Visita à casa principal",
+     "Degustação de frutas da fazenda",
+     "Almoço camponês",
+     "Guia bilíngue (inglês/espanhol) mediante reserva prévia"
     ]
    },
    "avesrancho": {
@@ -6858,7 +7697,16 @@
      "Leve roupas em tons de verde, marrom ou oliva (nada de branco nem de cores chamativas), de manga longa e impermeáveis, além de botas de trekking.",
      "Se você tiver binóculos ou câmera, traga-os.",
      "Leve repelente, algo para se hidratar, boné e protetor solar: ao meio-dia faz calor.",
-     "Mínimo de 2 pessoas; grupos grandes são divididos."
+     "Mínimo de 2 pessoas; grupos grandes são divididos.",
+     "Saída pela manhã; o horário depende da rota e das espécies que você quer ver."
+    ],
+    "incluye": [
+     "Transporte",
+     "Café da manhã",
+     "Guia de aves",
+     "Binóculos",
+     "Checklist de aves",
+     "Material fotográfico digital"
     ]
    },
    "avescamino": {
@@ -6868,7 +7716,16 @@
      "Leve roupas em tons de verde, marrom ou oliva (nada de branco nem de cores chamativas), de manga longa e impermeáveis, além de botas de trekking.",
      "Se você tiver binóculos ou câmera, traga-os.",
      "Leve repelente, algo para se hidratar, agasalho e roupas térmicas: de manhã cedo faz frio.",
-     "Mínimo de 2 pessoas; grupos grandes são divididos."
+     "Mínimo de 2 pessoas; grupos grandes são divididos.",
+     "Saída pela manhã; o horário depende da rota e das espécies que você quer ver."
+    ],
+    "incluye": [
+     "Transporte",
+     "Café da manhã",
+     "Guia de aves",
+     "Binóculos",
+     "Checklist de aves",
+     "Material fotográfico digital"
     ]
    },
    "avesbremen": {
@@ -6878,7 +7735,16 @@
      "Leve roupas em tons de verde, marrom ou oliva (nada de branco nem de cores chamativas), de manga longa e impermeáveis, além de botas de trekking.",
      "Se você tiver binóculos ou câmera, traga-os.",
      "Leve repelente e algo para se hidratar.",
-     "Mínimo de 2 pessoas; grupos grandes são divididos."
+     "Mínimo de 2 pessoas; grupos grandes são divididos.",
+     "Saída pela manhã; o horário depende da rota e das espécies que você quer ver."
+    ],
+    "incluye": [
+     "Transporte",
+     "Café da manhã",
+     "Guia de aves",
+     "Binóculos",
+     "Checklist de aves",
+     "Material fotográfico digital"
     ]
    },
    "avescircasia": {
@@ -6887,7 +7753,16 @@
     "notas": [
      "Leve roupas confortáveis em tons neutros; se você tiver câmera ou binóculos, traga-os.",
      "Adequado para pessoas com mobilidade reduzida.",
-     "Mínimo de 2 pessoas; grupos grandes são divididos."
+     "Mínimo de 2 pessoas; grupos grandes são divididos.",
+     "Saída pela manhã; o horário depende da rota e das espécies que você quer ver."
+    ],
+    "incluye": [
+     "Transporte",
+     "Café da manhã",
+     "Guia de aves",
+     "Binóculos",
+     "Checklist de aves",
+     "Material fotográfico digital"
     ]
    },
    "avescaicedonia": {
@@ -6897,7 +7772,16 @@
      "Leve roupas em tons de verde, marrom ou oliva (nada de branco nem de cores chamativas), de manga longa e impermeáveis, além de botas de trekking.",
      "Se você tiver binóculos ou câmera, traga-os.",
      "Leve repelente e algo para se hidratar.",
-     "Mínimo de 2 pessoas; grupos grandes são divididos."
+     "Mínimo de 2 pessoas; grupos grandes são divididos.",
+     "Saída pela manhã; o horário depende da rota e das espécies que você quer ver."
+    ],
+    "incluye": [
+     "Transporte",
+     "Café da manhã",
+     "Guia de aves",
+     "Binóculos",
+     "Checklist de aves",
+     "Material fotográfico digital"
     ]
    },
    "avescolibri": {
@@ -6908,7 +7792,16 @@
      "Leve roupas em tons de verde, marrom ou oliva (nada de branco nem de cores chamativas), de manga longa e impermeáveis, além de botas de trekking.",
      "Se você tiver binóculos ou câmera, traga-os.",
      "Leve repelente e algo para se hidratar.",
-     "Mínimo de 2 pessoas; grupos grandes são divididos."
+     "Mínimo de 2 pessoas; grupos grandes são divididos.",
+     "Saída pela manhã; o horário depende da rota e das espécies que você quer ver."
+    ],
+    "incluye": [
+     "Transporte",
+     "Café da manhã",
+     "Guia de aves",
+     "Binóculos",
+     "Checklist de aves",
+     "Material fotográfico digital"
     ]
    },
    "avescampanario": {
@@ -6919,7 +7812,16 @@
      "Leve roupas térmicas, luvas e gorro, e bastante líquido para se hidratar.",
      "Se você tiver binóculos ou câmera, traga-os.",
      "Não indicado para pessoas com histórico de problemas cardiorrespiratórios.",
-     "Mínimo de 2 pessoas; grupos grandes são divididos."
+     "Mínimo de 2 pessoas; grupos grandes são divididos.",
+     "Saída pela manhã; o horário depende da rota e das espécies que você quer ver."
+    ],
+    "incluye": [
+     "Transporte",
+     "Café da manhã",
+     "Guia de aves",
+     "Binóculos",
+     "Checklist de aves",
+     "Material fotográfico digital"
     ]
    },
    "canopy": {
@@ -6928,6 +7830,12 @@
     "notas": [
      "Leve calçado fechado de amarrar e roupas confortáveis (calça comprida), sem objetos soltos nos bolsos.",
      "Depende do clima: se chover, a atividade não é realizada."
+    ],
+    "incluye": [
+     "Transporte",
+     "Circuito de 16 plataformas e mais de 1.900 m: tirolesas, pontes suspensas, subidas e pontos de observação",
+     "Equipamento e protocolos de segurança",
+     "Acompanhamento dos guias do canopy"
     ]
    },
    "cookingclass": {
@@ -7104,13 +8012,18 @@
     "respuesta": "Para reservar, você paga um sinal de 50%. O saldo e os prazos vêm no seu orçamento.\n\nFormas de pagamento, em nome de Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia, conta poupança: 756-000062-16\n📱 Nequi ou Daviplata: +57 317 645 6723\n💳 Cartão de débito ou crédito: botão de pagamento seguro Wompi\n\n💵 O saldo pode ser pago em pesos colombianos, dólares ou euros.\n📩 Envie o comprovante pelo WhatsApp.\n⚠️ Só usamos esses meios. Se alguém pedir para pagar em outra conta, confirme antes conosco."
    },
    "traslados": {
-    "respuesta": "Fazemos traslados dos aeroportos El Edén (Armenia) e Matecaña (Pereira) para hotéis do Quindío e de Risaralda, e entre Armenia, Pereira e Manizales. Trajeto de aprox. 1 h."
+    "respuesta": "Sim! 🚐 Fazemos traslados privados dos aeroportos El Edén (Armenia) e Matecaña (Pereira) até o seu hotel em Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, na cordilheira (Córdoba, Pijao, Buenavista), em Pereira e Cerritos, e entre Armenia, Pereira e Manizales. Você viaja em veículo habilitado para serviço especial, com motorista profissional.\n\nSeu traslado inclui:\n✅ Recepção no aeroporto com placa\n✅ Ajuda com a bagagem\n✅ Até 1 hora de espera se o voo atrasar\n✅ Hidratação\n✅ A partir de 9 passageiros, guia ou assistente\n✅ Sem acréscimo noturno nem em feriados\n\nDos aeroportos de Manizales ou Cali fazemos uma cotação sob medida. Para cotar, me diga seu voo (aeroporto, data e horário), quantas pessoas viajam e o seu hotel.",
+    "pregunta_tipo": [
+     "o que inclui o traslado?",
+     "vocês buscam no aeroporto?",
+     "e se o meu voo atrasar?"
+    ]
    },
    "accesibilidad": {
     "respuesta": "Sim! Temos opções adaptadas e veículos especiais para que todos aproveitem a região sem barreiras. Também temos guia para pessoas cegas. Fale com a gente e orientamos você de forma personalizada. ♿"
    },
    "idiomas": {
-    "respuesta": "Guias em espanhol, inglês, francês, italiano e português (o serviço de guia em outro idioma tem custo adicional). Nos tours compartilhados, o guia em inglês tem um suplemento por serviço."
+    "respuesta": "Nossos guias falam espanhol, inglês, francês, italiano, alemão e português 🗣️, e temos guia para pessoas cegas. Dependendo da experiência, a guiança em um idioma diferente do espanhol pode ter custo adicional: é por serviço (não por pessoa) e depende da duração do tour (4 ou 8 horas); você também pode pedi-la para seus traslados. Os tours compartilhados são em espanhol; o guia em inglês é solicitado com um suplemento por serviço. Me diga qual idioma você prefere e confirmamos na cotação."
    },
    "clima": {
     "respuesta": "Clima ameno o ano todo; pode chover em qualquer época. Em Cocora, no páramo e na região da palmeira-de-cera faz frio."
@@ -7152,7 +8065,7 @@
      "é indicado para crianças?",
      "e para idosos?"
     ],
-    "respuesta": "Claro que sim! Para as crianças, algumas caminhadas exigem acompanhamento e condicionamento físico básico. Para idosos, recomendamos as opções que melhor se adaptam à sua mobilidade. 👨‍👩‍👧‍👦 Tarifa infantil de 3 a 10 anos; menores de 3 anos pagam tarifa mínima sem alimentação. No Parque del Café, a tarifa infantil vale para crianças com altura entre 91 e 124 cm."
+    "respuesta": "Claro que sim! Para as crianças, algumas caminhadas exigem acompanhamento e condicionamento físico básico. Para idosos, recomendamos as opções que melhor se adaptam à sua mobilidade. 👨‍👩‍👧‍👦 Há tarifa infantil de 3 a 10 anos; para bebês e crianças menores de 3 anos, confirmamos as condições na cotação (no veículo elas viajam em cadeirinha). Se você viaja com menores de 18 anos, leve a certidão de nascimento deles. No Parque del Café, a tarifa infantil vale para crianças com altura entre 91 e 124 cm."
    },
    "tour_compartido": {
     "pregunta_tipo": [
@@ -7182,10 +8095,35 @@
      "Feriado prolongado da semana de recesso escolar de outubro",
      "25 de dezembro",
      "1º a 6 de janeiro"
-    ]
+    ],
+    "respuesta": "Temos 4 tours compartilhados 🚐, com saída diária a partir de 2 passageiros: você divide o passeio com outros viajantes, com guia em espanhol, e sai mais em conta que um tour privado.\n☕ Visita a uma fazenda de café (3 h)\n🍫 Visita a uma fazenda de cacau (4 h)\n🌴 Vale de Cocora e Salento (7 h)\n⛰️ Vilarejos da Cordilheira: Córdoba, Pijao e Buenavista (6 h)\n\nSaem a partir das 8h de pontos de encontro em Armenia e, conforme o tour, em Quimbaya, Montenegro, Calarcá ou Río Verde. Se você se hospeda em Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida ou na cordilheira, levamos você do hotel até o ponto de encontro (ida e volta). Guia em inglês? Disponível com suplemento."
    },
    "asesor": {
     "respuesta": "Vou passar você para um consultor pelo WhatsApp 💬 (resposta em menos de 24 h)."
+   },
+   "vehiculos": {
+    "respuesta": "Você viaja em veículo privado, habilitado para serviço especial e com motorista profissional 🚐. Escolhemos o veículo conforme o tamanho do grupo e a bagagem: SUV para 1 ou 2 pessoas, vans para grupos de 3 a 15, micro-ônibus até 19 e ônibus médio até 30. Para viajantes VIP temos um SUV de conforto superior (sob consulta) e, para Cocora, a cordilheira e as estradas rurais, o clássico Jeep Willys (até 6 pessoas por jipe, com suplemento). Se preferir outro veículo — por exemplo, mais espaço para a bagagem —, peça na cotação.",
+    "pregunta_tipo": [
+     "em que veículo vamos?",
+     "quantas malas cabem?",
+     "posso escolher o veículo?"
+    ]
+   },
+   "recogida": {
+    "respuesta": "Nas experiências que incluem transporte, buscamos você no hotel e levamos de volta 🏨. A tarifa vale para hotéis em Armenia, Pereira ou Manizales, ou a no máximo 20 minutos da cidade; se você se hospeda mais longe (por exemplo, em Cocora, na cordilheira ou na Hacienda Bambusa), pode haver um suplemento, que confirmamos na cotação. Nos tours compartilhados o encontro é em um ponto de encontro, e se você se hospeda em Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida ou na cordilheira, levamos você do hotel até lá. Me diga o nome do seu hotel ou a região e verificamos.",
+    "pregunta_tipo": [
+     "vocês buscam no hotel?",
+     "onde é o ponto de encontro?",
+     "passam no meu hotel?"
+    ]
+   },
+   "combinar": {
+    "respuesta": "Claro! 🗓️ Você pode combinar duas experiências de meio dia no mesmo dia (uma de manhã e outra à tarde) quando os horários permitem; as de dia inteiro (7 horas ou mais) ocupam o dia todo. Organizamos cada dia para que os passeios não se sobreponham e não fique cansativo: consideramos os deslocamentos entre um lugar e outro e que você esteja de volta ao hotel em um horário razoável. No dia da chegada, se o seu voo pousar cedo, você pode fazer uma experiência curta à tarde. Me diga quais te interessam e eu ajudo a montar o plano.",
+    "pregunta_tipo": [
+     "posso fazer dois tours no mesmo dia?",
+     "quais experiências posso combinar?",
+     "quantos tours por dia?"
+    ]
    }
   },
   "planes": {
@@ -7260,6 +8198,52 @@
      "rol": "Hospedagem rural",
      "texto": "Com a nossa consultoria, ele entrou no portal de rotas da Paisagem Cultural Cafeeira."
     }
+   }
+  },
+  "vehiculos": {
+   "duster": {
+    "nombre": "SUV tipo Duster",
+    "equipaje": "Até 2 malas grandes + bagagem de mão",
+    "uso": "Traslados privados, casais e viajantes com pouca bagagem"
+   },
+   "h1": {
+    "nombre": "Van Hyundai H1",
+    "equipaje": "Até 5 malas médias",
+    "uso": "Famílias e grupos pequenos, traslados e tours"
+   },
+   "traffic": {
+    "nombre": "Van Renault Traffic",
+    "equipaje": "Até 7 malas médias",
+    "uso": "Grupos pequenos, traslados e tours"
+   },
+   "master": {
+    "nombre": "Van Renault Master",
+    "equipaje": "Até 12 malas médias",
+    "uso": "Grupos médios, viagens e tours"
+   },
+   "sprinter": {
+    "nombre": "Van Mercedes Sprinter",
+    "equipaje": "Até 15 malas médias",
+    "uso": "Grupos médios e viagens longas"
+   },
+   "micro": {
+    "nombre": "Micro-ônibus",
+    "equipaje": "Bagageiro para a bagagem do grupo",
+    "uso": "Grupos grandes e excursões"
+   },
+   "buseton": {
+    "nombre": "Ônibus médio",
+    "equipaje": "Bagageiro para grupos e eventos",
+    "uso": "Grupos numerosos, eventos e incentivos"
+   },
+   "jetour": {
+    "nombre": "SUV Jetour · Linha Conforto Superior",
+    "equipaje": "Até 4 malas médias",
+    "uso": "Viajantes VIP, executivos e lua de mel (sob consulta)"
+   },
+   "willys": {
+    "nombre": "Jeep Willys",
+    "uso": "Cocora, a cordilheira e estradas rurais"
    }
   }
  },
@@ -8567,7 +9551,17 @@
     "notas": [
      "Indossa abbigliamento comodo.",
      "Ideale per persone tra 5 e 80 anni.",
-     "Attività itinerante: si può fare nel tuo hotel o ovunque ti trovi."
+     "Attività itinerante: si può fare nel tuo hotel o ovunque ti trovi.",
+     "Tutti i giorni tra le 9:00 e le 14:00."
+    ],
+    "incluye": [
+     "Artigiano istruttore",
+     "Laboratorio artigianale",
+     "Manufatto realizzato",
+     "Materiale fotografico in digitale"
+    ],
+    "no_incluye": [
+     "Luogo del laboratorio"
     ]
    },
    "artesanosaves": {
@@ -8576,7 +9570,17 @@
     "notas": [
      "Indossa abbigliamento comodo.",
      "Ideale per persone tra 5 e 80 anni.",
-     "Attività itinerante: si può fare nel tuo hotel o ovunque ti trovi."
+     "Attività itinerante: si può fare nel tuo hotel o ovunque ti trovi.",
+     "Tutti i giorni tra le 9:00 e le 14:00."
+    ],
+    "incluye": [
+     "Artigiano istruttore",
+     "Laboratorio artigianale",
+     "Manufatto realizzato",
+     "Materiale fotografico in digitale"
+    ],
+    "no_incluye": [
+     "Luogo del laboratorio"
     ]
    },
    "artesanosbalcones": {
@@ -8585,7 +9589,17 @@
     "notas": [
      "Indossa abbigliamento comodo.",
      "Ideale per persone tra 5 e 80 anni.",
-     "Attività itinerante: si può fare nel tuo hotel o ovunque ti trovi."
+     "Attività itinerante: si può fare nel tuo hotel o ovunque ti trovi.",
+     "Tutti i giorni tra le 9:00 e le 14:00."
+    ],
+    "incluye": [
+     "Artigiano istruttore",
+     "Laboratorio artigianale",
+     "Manufatto realizzato",
+     "Materiale fotografico in digitale"
+    ],
+    "no_incluye": [
+     "Luogo del laboratorio"
     ]
    },
    "artesanosarcilla": {
@@ -8593,7 +9607,17 @@
     "descripcion": "Artigiani locali ti insegnano a lavorare l'argilla che estraggono dai fiumi della cordigliera. Modella il tuo pezzo mentre ascolti storie del mestiere: raccolgono circa mille pezzi prima di accendere il forno, dove cuociono fino a 24 ore.",
     "notas": [
      "Indossa abbigliamento comodo.",
-     "Ideale per persone tra 5 e 80 anni."
+     "Ideale per persone tra 5 e 80 anni.",
+     "Tutti i giorni tra le 9:00 e le 14:00."
+    ],
+    "incluye": [
+     "Artigiano istruttore",
+     "Laboratorio artigianale",
+     "Manufatto realizzato",
+     "Materiale fotografico in digitale"
+    ],
+    "no_incluye": [
+     "Luogo del laboratorio"
     ]
    },
    "artesanoscesteria": {
@@ -8601,7 +9625,17 @@
     "descripcion": "Filandia è nota per la sua tradizione nella cesteria, un mestiere che si tramanda di generazione in generazione con liane e fibre della regione. Intreccia il tuo pezzo con un maestro artigiano e conosci di persona una tradizione ancora viva del Paesaggio Culturale del Caffè.",
     "notas": [
      "Indossa abbigliamento comodo.",
-     "Ideale per persone tra 5 e 80 anni."
+     "Ideale per persone tra 5 e 80 anni.",
+     "Tutti i giorni tra le 9:00 e le 14:00."
+    ],
+    "incluye": [
+     "Artigiano istruttore",
+     "Laboratorio artigianale",
+     "Manufatto realizzato",
+     "Materiale fotografico in digitale"
+    ],
+    "no_incluye": [
+     "Luogo del laboratorio"
     ]
    },
    "catacerveza": {
@@ -8611,6 +9645,13 @@
      "Porta scarpe comode, repellente e crema solare.",
      "Comunicaci in anticipo eventuali restrizioni alimentari.",
      "Riservato ai maggiori di 18 anni."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Visita guidata all'impianto di produzione",
+     "Degustazione guidata con il mastro birraio",
+     "Abbinamenti",
+     "Souvenir"
     ]
    },
    "avesconocedores": {
@@ -8620,7 +9661,16 @@
      "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
      "Se hai un binocolo o una fotocamera, portali con te.",
      "Porta repellente e acqua; sui percorsi d'alta quota, abbigliamento termico.",
-     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso.",
+     "Percorso su misura in base alle specie che il gruppo vuole vedere."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Colazione",
+     "Guida ornitologica",
+     "Binocoli",
+     "Checklist degli uccelli",
+     "Materiale fotografico in digitale"
     ]
    },
    "barbasbremen": {
@@ -8630,7 +9680,16 @@
      "Porta repellente e abbigliamento comodo, impermeabile e a maniche lunghe.",
      "Difficoltà bassa, media o medio-alta, a seconda della condizione fisica del gruppo.",
      "Ideale per persone tra 12 e 70 anni.",
-     "Non adatto a persone con patologie cardiorespiratorie pregresse."
+     "Non adatto a persone con patologie cardiorespiratorie pregresse.",
+     "Tutti i giorni; il percorso inizia tra le 7:00 e le 9:00."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Ingresso alla riserva",
+     "Idratazione e snack",
+     "Guida",
+     "Souvenir",
+     "Materiale fotografico in digitale"
     ]
    },
    "otunquimbaya": {
@@ -8640,7 +9699,16 @@
      "Porta repellente e abbigliamento comodo, impermeabile e a maniche lunghe.",
      "Difficoltà bassa, media o medio-alta, a seconda della condizione fisica del gruppo.",
      "Ideale per persone tra 12 e 70 anni.",
-     "Non adatto a persone con patologie cardiorespiratorie pregresse."
+     "Non adatto a persone con patologie cardiorespiratorie pregresse.",
+     "Tutti i giorni; il percorso inizia tra le 7:00 e le 9:00."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Ingresso alla riserva",
+     "Idratazione e snack",
+     "Guida",
+     "Souvenir",
+     "Materiale fotografico in digitale"
     ]
    },
    "rioblanco": {
@@ -8650,7 +9718,16 @@
      "Porta repellente e abbigliamento comodo, impermeabile e a maniche lunghe.",
      "Difficoltà bassa, media o medio-alta, a seconda della condizione fisica del gruppo.",
      "Ideale per persone tra 12 e 70 anni.",
-     "Non adatto a persone con patologie cardiorespiratorie pregresse."
+     "Non adatto a persone con patologie cardiorespiratorie pregresse.",
+     "Tutti i giorni; il percorso inizia tra le 7:00 e le 9:00."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Ingresso alla riserva",
+     "Idratazione e snack",
+     "Guida",
+     "Souvenir",
+     "Materiale fotografico in digitale"
     ]
    },
    "romelia": {
@@ -8660,6 +9737,14 @@
      "Porta abbigliamento comodo, scarpe chiuse, cappellino, crema solare, repellente e un impermeabile leggero.",
      "Non adatto a persone allergiche ai fiori o al polline.",
      "Minimo 4 persone."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Visita guidata (circa 3 h) ai vivai di orchidee, bonsai e alberi da frutto",
+     "Visita alla casa padronale",
+     "Degustazione di frutta della tenuta",
+     "Pranzo contadino",
+     "Guida bilingue (inglese/spagnolo) su prenotazione"
     ]
    },
    "avesrancho": {
@@ -8669,7 +9754,16 @@
      "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
      "Se hai un binocolo o una fotocamera, portali con te.",
      "Porta repellente, acqua, cappellino e crema solare: a mezzogiorno fa caldo.",
-     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso.",
+     "Partenza al mattino; l'orario dipende dal percorso e dalle specie che vuoi vedere."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Colazione",
+     "Guida ornitologica",
+     "Binocoli",
+     "Checklist degli uccelli",
+     "Materiale fotografico in digitale"
     ]
    },
    "avescamino": {
@@ -8679,7 +9773,16 @@
      "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
      "Se hai un binocolo o una fotocamera, portali con te.",
      "Porta repellente, acqua, un capo caldo e abbigliamento termico: al mattino presto fa freddo.",
-     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso.",
+     "Partenza al mattino; l'orario dipende dal percorso e dalle specie che vuoi vedere."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Colazione",
+     "Guida ornitologica",
+     "Binocoli",
+     "Checklist degli uccelli",
+     "Materiale fotografico in digitale"
     ]
    },
    "avesbremen": {
@@ -8689,7 +9792,16 @@
      "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
      "Se hai un binocolo o una fotocamera, portali con te.",
      "Porta repellente e acqua.",
-     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso.",
+     "Partenza al mattino; l'orario dipende dal percorso e dalle specie che vuoi vedere."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Colazione",
+     "Guida ornitologica",
+     "Binocoli",
+     "Checklist degli uccelli",
+     "Materiale fotografico in digitale"
     ]
    },
    "avescircasia": {
@@ -8698,7 +9810,16 @@
     "notas": [
      "Indossa abiti comodi in tonalità neutre; se hai una fotocamera o un binocolo, portali con te.",
      "Adatto a persone con mobilità ridotta.",
-     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso.",
+     "Partenza al mattino; l'orario dipende dal percorso e dalle specie che vuoi vedere."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Colazione",
+     "Guida ornitologica",
+     "Binocoli",
+     "Checklist degli uccelli",
+     "Materiale fotografico in digitale"
     ]
    },
    "avescaicedonia": {
@@ -8708,7 +9829,16 @@
      "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
      "Se hai un binocolo o una fotocamera, portali con te.",
      "Porta repellente e acqua.",
-     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso.",
+     "Partenza al mattino; l'orario dipende dal percorso e dalle specie che vuoi vedere."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Colazione",
+     "Guida ornitologica",
+     "Binocoli",
+     "Checklist degli uccelli",
+     "Materiale fotografico in digitale"
     ]
    },
    "avescolibri": {
@@ -8719,7 +9849,16 @@
      "Indossa abiti a maniche lunghe e impermeabili nei toni del verde, del marrone o dell'oliva (niente bianco né colori vivaci) e scarponi da trekking.",
      "Se hai un binocolo o una fotocamera, portali con te.",
      "Porta repellente e acqua.",
-     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso.",
+     "Partenza al mattino; l'orario dipende dal percorso e dalle specie che vuoi vedere."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Colazione",
+     "Guida ornitologica",
+     "Binocoli",
+     "Checklist degli uccelli",
+     "Materiale fotografico in digitale"
     ]
    },
    "avescampanario": {
@@ -8730,7 +9869,16 @@
      "Porta abbigliamento termico, guanti, berretto e acqua in abbondanza.",
      "Se hai un binocolo o una fotocamera, portali con te.",
      "Non adatto a persone con patologie cardiorespiratorie pregresse.",
-     "Minimo 2 persone; se il gruppo è numeroso, viene diviso."
+     "Minimo 2 persone; se il gruppo è numeroso, viene diviso.",
+     "Partenza al mattino; l'orario dipende dal percorso e dalle specie che vuoi vedere."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Colazione",
+     "Guida ornitologica",
+     "Binocoli",
+     "Checklist degli uccelli",
+     "Materiale fotografico in digitale"
     ]
    },
    "canopy": {
@@ -8739,6 +9887,12 @@
     "notas": [
      "Indossa scarpe chiuse con i lacci e abbigliamento comodo (pantaloni lunghi), senza oggetti nelle tasche.",
      "Dipende dal meteo: in caso di pioggia non si effettua."
+    ],
+    "incluye": [
+     "Trasporto",
+     "Percorso di 16 piattaforme e oltre 1.900 m: zipline, ponti sospesi, salite e punti di osservazione",
+     "Attrezzatura e protocolli di sicurezza",
+     "Accompagnamento delle guide del canopy"
     ]
    },
    "cookingclass": {
@@ -8915,13 +10069,18 @@
     "respuesta": "Per prenotare versi un acconto del 50%. Il saldo e le scadenze sono indicati nel tuo preventivo.\n\nMetodi di pagamento, intestati a Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia, conto di risparmio: 756-000062-16\n📱 Nequi o Daviplata: +57 317 645 6723\n💳 Carta di debito o di credito: pulsante di pagamento sicuro Wompi\n\n💵 Il saldo puoi pagarlo in pesos colombiani, dollari o euro.\n📩 Inviaci la ricevuta su WhatsApp.\n⚠️ Usiamo solo questi metodi. Se qualcuno ti chiede di pagare su un altro conto, verifica prima con noi."
    },
    "traslados": {
-    "respuesta": "Facciamo transfer dagli aeroporti El Edén (Armenia) e Matecaña (Pereira) agli hotel del Quindío e del Risaralda, e tra Armenia, Pereira e Manizales. Tragitto di circa 1 h."
+    "respuesta": "Sì! 🚐 Facciamo transfer privati dagli aeroporti El Edén (Armenia) e Matecaña (Pereira) al tuo hotel ad Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, nella cordigliera (Córdoba, Pijao, Buenavista), a Pereira e Cerritos, e tra Armenia, Pereira e Manizales. Viaggi su un veicolo autorizzato al servizio speciale, con autista professionista.\n\nIl transfer include:\n✅ Accoglienza in aeroporto con cartello\n✅ Aiuto con i bagagli\n✅ Fino a 1 ora di attesa se il volo è in ritardo\n✅ Idratazione\n✅ Da 9 passeggeri, una guida o un assistente\n✅ Nessun supplemento notturno né festivo\n\nDagli aeroporti di Manizales o Cali ti facciamo un preventivo su misura. Per il preventivo, dimmi il tuo volo (aeroporto, data e ora), quante persone viaggiano e il tuo hotel.",
+    "pregunta_tipo": [
+     "cosa include il transfer?",
+     "ci venite a prendere in aeroporto?",
+     "e se il mio volo è in ritardo?"
+    ]
    },
    "accesibilidad": {
     "respuesta": "Sì! Abbiamo opzioni adattate e veicoli speciali perché tutti possano godersi la regione senza barriere. Abbiamo anche una guida per persone non vedenti. Chiedici e ti consigliamo in modo personalizzato. ♿"
    },
    "idiomas": {
-    "respuesta": "Guide in spagnolo, inglese, francese, italiano e portoghese (la guida in una lingua diversa dallo spagnolo ha un costo aggiuntivo). Nei tour condivisi, la guida in inglese ha un supplemento per servizio."
+    "respuesta": "Le nostre guide parlano spagnolo, inglese, francese, italiano, tedesco e portoghese 🗣️, e abbiamo una guida per persone non vedenti. A seconda dell'esperienza, la guida in una lingua diversa dallo spagnolo può avere un costo aggiuntivo: è per servizio (non a persona) e dipende dalla durata del tour (4 o 8 ore); puoi richiederla anche per i tuoi transfer. I tour condivisi si svolgono in spagnolo; la guida in inglese si richiede con un supplemento per servizio. Dimmi quale lingua preferisci e te la confermiamo nel preventivo."
    },
    "clima": {
     "respuesta": "Clima temperato tutto l'anno; può piovere in qualsiasi stagione. A Cocora, nel páramo e tra le palme da cera fa freddo."
@@ -8963,7 +10122,7 @@
      "è adatto ai bambini?",
      "e per le persone anziane?"
     ],
-    "respuesta": "Certo! Per i bambini, alcune camminate richiedono l'accompagnamento di un adulto e una condizione fisica di base. Per le persone anziane ti consigliamo le opzioni più adatte alla loro mobilità. 👨‍👩‍👧‍👦 Tariffa bambini dai 3 ai 10 anni; i minori di 3 anni pagano una tariffa minima senza pasti. Al Parque del Café la tariffa bambini si applica per altezze tra 91 e 124 cm."
+    "respuesta": "Certo! Per i bambini, alcune camminate richiedono l'accompagnamento di un adulto e una condizione fisica di base. Per le persone anziane ti consigliamo le opzioni più adatte alla loro mobilità. 👨‍👩‍👧‍👦 C'è una tariffa bambini dai 3 ai 10 anni; per neonati e bambini sotto i 3 anni ti confermiamo le condizioni nel preventivo (nel veicolo viaggiano su un seggiolino). Se viaggi con minori di 18 anni, porta il loro certificato di nascita. Al Parque del Café la tariffa bambini si applica per altezze tra 91 e 124 cm."
    },
    "tour_compartido": {
     "pregunta_tipo": [
@@ -8993,10 +10152,35 @@
      "Il weekend lungo festivo della settimana di vacanze scolastiche di ottobre",
      "25 dicembre",
      "Dall'1 al 6 gennaio"
-    ]
+    ],
+    "respuesta": "Abbiamo 4 tour condivisi 🚐, con partenza giornaliera da 2 passeggeri: condividi il percorso con altri viaggiatori, con guida in spagnolo, ed è più economico di un tour privato.\n☕ Visita a una fattoria del caffè (3 h)\n🍫 Visita a una fattoria del cacao (4 h)\n🌴 Valle de Cocora e Salento (7 h)\n⛰️ Paesi della Cordigliera: Córdoba, Pijao e Buenavista (6 h)\n\nPartono dalle 8:00 da punti d'incontro ad Armenia e, a seconda del tour, a Quimbaya, Montenegro, Calarcá o Río Verde. Se alloggi a Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida o nella cordigliera, ti accompagniamo dal tuo hotel al punto d'incontro (andata e ritorno). Guida in inglese? Disponibile con supplemento."
    },
    "asesor": {
     "respuesta": "Ti metto in contatto con un consulente su WhatsApp 💬 (risposta in meno di 24 h)."
+   },
+   "vehiculos": {
+    "respuesta": "Viaggi su un veicolo privato, autorizzato al servizio speciale e con autista professionista 🚐. Lo scegliamo in base alle dimensioni del gruppo e ai bagagli: un SUV per 1 o 2 persone, van per gruppi da 3 a 15, un minibus fino a 19 e un midibus fino a 30. Per i viaggiatori VIP abbiamo un SUV di comfort superiore (su richiesta) e, per Cocora, la cordigliera e le strade rurali, la classica Jeep Willys (fino a 6 persone per jeep, con supplemento). Se preferisci un altro veicolo — per esempio più spazio per i bagagli — chiedilo nel preventivo.",
+    "pregunta_tipo": [
+     "con quale veicolo viaggiamo?",
+     "quante valigie ci stanno?",
+     "posso scegliere il veicolo?"
+    ]
+   },
+   "recogida": {
+    "respuesta": "Nelle esperienze che includono il trasporto ti prendiamo in hotel e ti riportiamo indietro 🏨. La tariffa vale per gli hotel ad Armenia, Pereira o Manizales, o a massimo 20 minuti dalla città; se alloggi più lontano (per esempio a Cocora, nella cordigliera o all'Hacienda Bambusa) può esserci un supplemento, che ti confermiamo nel preventivo. Nei tour condivisi ci si incontra in un punto d'incontro, e se alloggi a Circasia, Filandia, Quimbaya, Montenegro, Calarcá, La Tebaida o nella cordigliera ti accompagniamo lì dal tuo hotel. Dimmi il nome del tuo hotel o la zona e verifichiamo.",
+    "pregunta_tipo": [
+     "ci venite a prendere in hotel?",
+     "dov'è il punto d'incontro?",
+     "passate dal mio hotel?"
+    ]
+   },
+   "combinar": {
+    "respuesta": "Certo! 🗓️ Puoi combinare due esperienze di mezza giornata nello stesso giorno (una al mattino e una al pomeriggio) quando gli orari lo permettono; quelle di giornata intera (7 ore o più) occupano tutta la giornata. Organizziamo ogni giorno in modo che i percorsi non si sovrappongano e non sia faticoso: teniamo conto degli spostamenti tra un luogo e l'altro e del rientro in hotel a un'ora ragionevole. Il giorno dell'arrivo, se il tuo volo atterra presto, puoi fare un'esperienza breve nel pomeriggio. Dimmi quali ti interessano e ti aiuto a organizzare il programma.",
+    "pregunta_tipo": [
+     "posso fare due tour nello stesso giorno?",
+     "quali esperienze posso combinare?",
+     "quanti tour al giorno?"
+    ]
    }
   },
   "planes": {
@@ -9071,6 +10255,52 @@
      "rol": "Alloggio rurale",
      "texto": "Grazie alla nostra consulenza è entrato nel portale delle rotte del Paesaggio Culturale del Caffè."
     }
+   }
+  },
+  "vehiculos": {
+   "duster": {
+    "nombre": "SUV tipo Duster",
+    "equipaje": "Fino a 2 valigie grandi + bagaglio a mano",
+    "uso": "Transfer privati, coppie e viaggiatori con pochi bagagli"
+   },
+   "h1": {
+    "nombre": "Van Hyundai H1",
+    "equipaje": "Fino a 5 valigie medie",
+    "uso": "Famiglie e piccoli gruppi, transfer e tour"
+   },
+   "traffic": {
+    "nombre": "Van Renault Traffic",
+    "equipaje": "Fino a 7 valigie medie",
+    "uso": "Piccoli gruppi, transfer e tour"
+   },
+   "master": {
+    "nombre": "Van Renault Master",
+    "equipaje": "Fino a 12 valigie medie",
+    "uso": "Gruppi medi, viaggi e tour"
+   },
+   "sprinter": {
+    "nombre": "Van Mercedes Sprinter",
+    "equipaje": "Fino a 15 valigie medie",
+    "uso": "Gruppi medi e viaggi lunghi"
+   },
+   "micro": {
+    "nombre": "Minibus",
+    "equipaje": "Bagagliaio per i bagagli del gruppo",
+    "uso": "Gruppi numerosi ed escursioni"
+   },
+   "buseton": {
+    "nombre": "Midibus",
+    "equipaje": "Bagagliaio per gruppi ed eventi",
+    "uso": "Gruppi numerosi, eventi e incentive"
+   },
+   "jetour": {
+    "nombre": "SUV Jetour · Linea Comfort Superiore",
+    "equipaje": "Fino a 4 valigie medie",
+    "uso": "Viaggiatori VIP, manager e viaggi di nozze (su richiesta)"
+   },
+   "willys": {
+    "nombre": "Jeep Willys",
+    "uso": "Cocora, la cordigliera e le strade rurali"
    }
   }
  }

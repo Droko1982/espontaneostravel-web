@@ -266,7 +266,7 @@ const CUI_EXTRA = {
 
 /* Palabras clave (sin tildes, minúsculas) para entender preguntas escritas libremente */
 const CKB_KW = {
-  schedule:["horario","horarios","itinerario","agenda","programa","plan","schedule","itinerary","time","times","horaire","zeitplan","programacao","orari","programma","i miei orari","prossima attivita","prossima tappa","prossimo tour","prossima escursione"],
+  schedule:["horario","horarios","itinerario","agenda","programa","plan","schedule","itinerary","a que hora","que hora","me recogen","nos recogen","what time","pickup time","pick-up time","a quelle heure","um wie viel uhr","que horas","a che ora","time","times","horaire","zeitplan","programacao","orari","programma","i miei orari","prossima attivita","prossima tappa","prossimo tour","prossima escursione"],
   guide:["guia","guide","guida","fuhrer","idioma del guia","mi guia","quien es mi guia","la mia guida","chi e la mia guida"],
   change:["cambiar","cambio","mover","reprogramar","change","reschedule","modifier","andern","mudar","otra hora","otro dia","spostare","modificare","rinviare","posticipare","un altro orario","un altro giorno"],
   taxi:["taxi","cab","uber","didi","indrive","cabify","transporte","carro","auto","ride","vtc"],
@@ -326,18 +326,18 @@ const CKB_KW = {
   lgbt:["lgbt","gay","lesbiana","queer","homosexual","trans","pareja del mismo sexo","lgbtq","gay friendly","gay-friendly","lesbica","stesso sesso"],
   duration:["cuanto dura","duracion","how long","duration","cuantas horas","medio dia","dia completo","half day","full day","dauer","quanto dura","tiempo del tour","durata","quante ore","mezza giornata","giornata intera","giornata completa"],
   privatetours:["privado","privada","private","tour privado","shared","compartido","solo mi grupo","exclusivo","prive","privat","grupo privado","personalizado","tour privato","gruppo privato","condivis","personalizzat","solo il nostro gruppo"],
-  flightdelay:["vuelo retrasado","retraso","flight delay","delayed","mi vuelo cambio","flight changed","retard vol","flugverspatung","voo atrasado","vuelo se retraso","volo in ritardo","ritardo","volo cancellato","volo cambiato","il mio volo"]
+  flightdelay:["vuelo retrasado","retraso","flight delay","delayed","mi vuelo cambio","flight changed","retard vol","flugverspatung","voo atrasado","vuelo se retraso","volo in ritardo","ritardo","volo cancellato","volo cambiato","il mio volo","retrasa","se retraso","vuelo se retrasa","mi vuelo se retrasa","flight is delayed","flight delayed","delayed flight","my flight is late","retard","verspatung","verspatet","atrasou","atrasado","voo atras"]
 };
 
 /* Temas adicionales (sin botón en el menú; se llegan escribiendo la pregunta) */
 const CKB_EXTRA = [
   { id:"airport", action:"info", a:{
-    es:"Los aeropuertos son *El Edén (AXM, Armenia)* y *Matecaña (PEI, Pereira)*, a 20–40 min de la mayoría de hoteles. Coordinamos tu *traslado*; dinos tu vuelo y hora y te recogemos.",
-    en:"The airports are *El Edén (AXM, Armenia)* and *Matecaña (PEI, Pereira)*, 20–40 min from most hotels. We arrange your *transfer*; send us your flight and time and we'll pick you up.",
-    fr:"Les aéroports sont *El Edén (AXM, Armenia)* et *Matecaña (PEI, Pereira)*, à 20–40 min de la plupart des hôtels. Nous organisons votre *transfert* : indiquez-nous votre vol et votre heure d'arrivée, et nous venons vous chercher.",
-    de:"Die Flughäfen sind *El Edén (AXM, Armenia)* und *Matecaña (PEI, Pereira)*, 20–40 Min. von den meisten Hotels entfernt. Wir organisieren Ihren *Transfer*; nennen Sie uns Flug und Uhrzeit, und wir holen Sie ab.",
-    pt:"Os aeroportos são *El Edén (AXM, Armenia)* e *Matecaña (PEI, Pereira)*, a 20–40 min da maioria dos hotéis. Organizamos seu *traslado*: informe seu voo e horário e buscamos você.",
-    it:"Gli aeroporti sono *El Edén (AXM, Armenia)* e *Matecaña (PEI, Pereira)*, a 20–40 min dalla maggior parte degli hotel. Organizziamo noi il tuo *transfer*: dicci volo e orario e veniamo a prenderti." } },
+    es:"Los aeropuertos son *El Edén (AXM, Armenia)* y *Matecaña (PEI, Pereira)*, a 20–40 min de la mayoría de hoteles. En tu *traslado* te esperamos con un letrero con tu nombre, te ayudamos con el equipaje y, si el vuelo se retrasa, te esperamos hasta 1 hora. Dinos tu vuelo y hora y te recogemos.",
+    en:"The airports are *El Edén (AXM, Armenia)* and *Matecaña (PEI, Pereira)*, 20–40 min from most hotels. For your *transfer* we wait for you with a sign showing your name, help you with your luggage and, if your flight is delayed, wait up to 1 hour. Send us your flight and time and we'll pick you up.",
+    fr:"Les aéroports sont *El Edén (AXM, Armenia)* et *Matecaña (PEI, Pereira)*, à 20–40 min de la plupart des hôtels. Pour votre *transfert*, nous vous attendons avec une pancarte à votre nom, nous vous aidons avec les bagages et, si votre vol est retardé, nous attendons jusqu'à 1 heure. Indiquez-nous votre vol et votre heure d'arrivée, et nous venons vous chercher.",
+    de:"Die Flughäfen sind *El Edén (AXM, Armenia)* und *Matecaña (PEI, Pereira)*, 20–40 Min. von den meisten Hotels entfernt. Bei Ihrem *Transfer* erwarten wir Sie mit einem Namensschild, helfen mit dem Gepäck und warten bei Flugverspätung bis zu 1 Stunde. Nennen Sie uns Flug und Uhrzeit, und wir holen Sie ab.",
+    pt:"Os aeroportos são *El Edén (AXM, Armenia)* e *Matecaña (PEI, Pereira)*, a 20–40 min da maioria dos hotéis. No seu *traslado*, esperamos você com uma placa com seu nome, ajudamos com a bagagem e, se o voo atrasar, esperamos até 1 hora. Informe seu voo e horário e buscamos você.",
+    it:"Gli aeroporti sono *El Edén (AXM, Armenia)* e *Matecaña (PEI, Pereira)*, a 20–40 min dalla maggior parte degli hotel. Per il tuo *transfer* ti aspettiamo con un cartello con il tuo nome, ti aiutiamo con i bagagli e, se il volo è in ritardo, aspettiamo fino a 1 ora. Dicci volo e orario e veniamo a prenderti." } },
   { id:"checkin", action:"info", a:{
     es:"Check-in en hoteles suele ser desde las *15:00* y check-out hasta las *12:00*. Guardamos tu equipaje si llegas antes o sales después. ¿Necesitas late check-out? Avísanos.",
     en:"Hotel check-in is usually from *15:00* and check-out until *12:00*. We can store your luggage if you arrive early or leave late. Need a late check-out? Tell us.",
@@ -626,10 +626,10 @@ const CKB_EXTRA = [
     pt:"Oferecemos tours *privativos* (só seu grupo, seu ritmo) e *compartilhados* (mais baratos). Também *planos sob medida* e para *grupos/empresas*. Toque no botão e enviamos um orçamento no formato que você preferir.",
     it:"Offriamo tour *privati* (solo il tuo gruppo, al tuo ritmo) e *condivisi* (più economici). Prepariamo anche *programmi su misura* e per *gruppi o aziende*. Tocca il pulsante e ti facciamo un preventivo nel formato che preferisci." } },
   { id:"flightdelay", action:"wa:wa_generic", a:{
-    es:"¿Tu vuelo se retrasó o cambió? No te preocupes — avísanos cuanto antes por WhatsApp y *reprogramamos tu recogida* y tu itinerario sin estrés. Toca el botón.",
-    en:"Flight delayed or changed? Don't worry — let us know ASAP on WhatsApp and we'll *reschedule your pickup* and itinerary stress-free. Tap the button.",
-    fr:"Vol retardé ou modifié ? Pas de souci — prévenez-nous vite sur WhatsApp et nous *reprogrammons votre prise en charge* et votre itinéraire. Touchez le bouton.",
-    de:"Flug verspätet/geändert? Keine Sorge — melden Sie sich schnell per WhatsApp und wir *verschieben Ihre Abholung* und das Programm. Tippen Sie den Button.",
-    pt:"Voo atrasou ou mudou? Tranquilo — avise-nos o quanto antes pelo WhatsApp e *reprogramamos o horário em que buscamos você* e o itinerário, sem estresse. Toque no botão.",
-    it:"Il tuo volo è in ritardo o è cambiato? Non preoccuparti — avvisaci il prima possibile su WhatsApp e *riprogrammiamo il tuo ritiro* e l'itinerario senza stress. Tocca il pulsante." } }
+    es:"¿Tu vuelo se retrasó o cambió? Tranquil@: en los traslados te esperamos *hasta 1 hora* si el vuelo se retrasa. Si es más o cambió de hora, avísanos cuanto antes por WhatsApp y *reprogramamos tu recogida* y tu itinerario sin estrés. Toca el botón.",
+    en:"Flight delayed or changed? Don't worry: on transfers we wait *up to 1 hour* if your flight is delayed. If it's longer or the time changed, let us know ASAP on WhatsApp and we'll *reschedule your pickup* and itinerary stress-free. Tap the button.",
+    fr:"Vol retardé ou modifié ? Pas de souci : pour les transferts, nous attendons *jusqu'à 1 heure* en cas de retard. Si c'est plus long ou si l'horaire a changé, prévenez-nous vite sur WhatsApp et nous *reprogrammons votre prise en charge* et votre itinéraire. Touchez le bouton.",
+    de:"Flug verspätet oder geändert? Keine Sorge: Beim Transfer warten wir bei Verspätung *bis zu 1 Stunde*. Dauert es länger oder hat sich die Zeit geändert, melden Sie sich schnell per WhatsApp und wir *verschieben Ihre Abholung* und das Programm. Tippen Sie auf den Button.",
+    pt:"Voo atrasou ou mudou? Tranquilo: nos traslados esperamos *até 1 hora* se o voo atrasar. Se for mais ou o horário mudou, avise-nos o quanto antes pelo WhatsApp e *reprogramamos o horário em que buscamos você* e o itinerário, sem estresse. Toque no botão.",
+    it:"Il tuo volo è in ritardo o è cambiato? Non preoccuparti: per i transfer aspettiamo *fino a 1 ora* se il volo è in ritardo. Se il ritardo è maggiore o l'orario è cambiato, avvisaci il prima possibile su WhatsApp e *riprogrammiamo il tuo ritiro* e l'itinerario senza stress. Tocca il pulsante." } }
 ];

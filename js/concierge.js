@@ -275,7 +275,12 @@
     cancelacion: ["cancel", "reembols", "refund", "annul", "storn", "rimbors", "disdett", "disdire"],
     accesibilidad: ["accesib", "silla de ruedas", "movilidad", "invidente", "wheelchair", "accessib", "barriere", "acessib", "sedia a rotelle", "disabil", "mobilita ridotta", "non vedent"],
     ninos_mayores: ["nino", "bebe", "adulto mayor", "kid", "child", "senior", "enfant", "kinder", "crianca", "bambin", "neonat", "anzian", "figli"],
-    idiomas: ["idioma", "ingles", "language", "english", "langue", "sprache", "lingua", "lingue", "inglese", "parla italiano", "in italiano"],
+    idiomas: ["idioma", "ingles", "language", "english", "langue", "sprache", "lingua", "lingue", "inglese", "parla italiano", "in italiano",
+      "aleman", "german", "deutsch", "allemand", "alemao", "tedesco", "frances", "french", "francais", "francese", "italian", "portugues", "portuguese", "portugais", "portoghese"],
+    // nov-2026: vehículos, punto de encuentro y combinar experiencias (respuestas oficiales de data/jenny.json)
+    vehiculos: ["vehiculo", "vehicle", "vehicule", "fahrzeug", "veiculo", "veicolo", "cuantas maletas", "maletas caben", "how many suitcases", "willys"],
+    recogida: ["recogen en el hotel", "punto de encuentro", "meeting point", "point de rendez", "treffpunkt", "ponto de encontro", "punto d'incontro", "punto di incontro"],
+    combinar: ["dos tours", "mismo dia", "two tours", "same day", "meme jour", "selben tag", "mesmo dia", "stesso giorno", "combinar", "combine", "combiner", "kombinieren", "combinare"],
     traslados: ["traslado", "aeropuerto", "airport", "aeroport", "flughafen", "aeroporto", "transfer", "trasferiment", "navetta"],
     temporadas: ["temporada", "semana santa", "season", "saison", "stagion", "settimana santa", "pasqua"],
     sostenibilidad: ["sostenib", "sustainab", "durabl", "nachhaltig", "sustent"],

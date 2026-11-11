@@ -94,6 +94,15 @@
     const x = (tr(lang) && tr(lang).planes) || {};
     return Y.planes.map(p => Object.assign({}, p, { nombre: pick(p.nombre, x[p.id] && x[p.id].nombre), incluye: pick(p.incluye, x[p.id] && x[p.id].incluye) }));
   }
+  /* Vehículos para el cliente (kit de agencias 2027, sin tarifas): rango recomendado min–max y capacidad máxima.
+     Fuente: data/portafolio.json → vehicles (tools/build-portafolio.js avisa si no coinciden). */
+  function vehiculos(lang) {
+    const x = (tr(lang) && tr(lang).vehiculos) || {};
+    return ((Y && Y.vehiculos) || []).map(v => {
+      const t = x[v.id] || {};
+      return Object.assign({}, v, { nombre: pick(v.nombre, t.nombre), equipaje: v.equipaje ? pick(v.equipaje, t.equipaje) : "", uso: pick(v.uso || "", t.uso) });
+    });
+  }
   function planesNoIncluye(lang) { return Y ? pick(Y.planes_no_incluye, tr(lang) && tr(lang).planes_no_incluye) : ""; }
   function general(key, lang) { return Y ? pick(Y.general[key], tr(lang) && tr(lang).general && tr(lang).general[key]) : ""; }
   function sost(lang) {
@@ -180,6 +189,6 @@
   // Agrupación por duración para filtros: corta (≤2 h), media (3–5 h), día completo (≥6 h)
   function durBucket(n) { if (n == null) return ""; return n <= 2 ? "corta" : n <= 5 ? "media" : "completa"; }
 
-  const api = { load, ensureLang, use, ready, published, tour, tours, node, planes, planesNoIncluye, general, sost, resenas, convenios, aliados, contacto, meta, fmtHorario, fmtDur, hhmm, durBucket };
+  const api = { load, ensureLang, use, ready, published, tour, tours, node, planes, planesNoIncluye, vehiculos, general, sost, resenas, convenios, aliados, contacto, meta, fmtHorario, fmtDur, hhmm, durBucket };
   return api;
 });
