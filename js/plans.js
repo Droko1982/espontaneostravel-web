@@ -477,11 +477,13 @@
   function newLeadId() { return "L" + Date.now().toString(36).toUpperCase() + Math.random().toString(36).slice(2, 5).toUpperCase(); }
   const emailed = {};
   function emailLead(d) {
-    if (!BIZ.leadsEmail || d.stage !== "resumen" || d.src === "formulario" || !d.leadId || emailed[d.leadId]) return;
-    emailed[d.leadId] = 1;
+    // Resumen completo, o los datos básicos que Jenny pide antes de abrir WhatsApp (d.gate: llega aunque el mensaje no se envíe)
+    const key = d.leadId + ":" + (d.gate ? "gate" : d.stage);
+    if (!BIZ.leadsEmail || !(d.stage === "resumen" || d.gate) || d.src === "formulario" || !d.leadId || emailed[key]) return;
+    emailed[key] = 1;
     const que = d.plan || d.tour || "—";
     const body = {
-      _subject: (d.src === "qr" ? "[VIAJERO] " : "[WEB] ") + "🌿 Jenny: nuevo cliente — " + (d.name || "sin nombre") + " · " + que,
+      _subject: (d.src === "qr" ? "[VIAJERO] " : "[WEB] ") + "🌿 Jenny: " + (d.gate ? "quiere escribir por WhatsApp — " : "nuevo cliente — ") + (d.name || "sin nombre") + " · " + que,
       _template: "table",
       "Cliente": d.name || "", "Contacto": d.contact || "(no lo dejó: espera su WhatsApp)", "Plan o experiencia": que,
       "Fecha": d.date || "flexible", "Personas": d.party || "", "Alojamiento": d.hotel || "", "Accesibilidad": d.access ? "Sí" : "No",

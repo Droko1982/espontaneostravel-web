@@ -989,7 +989,9 @@ a.trust__item:hover { text-decoration-color: currentColor; }
 
 /* Jenny: panel compacto que no tapa la página + modo ampliado (botón ⤢ en el encabezado).
    La conversación gana espacio: encabezado y opciones más compactos; las opciones ocupan como máximo ~2 filas. */
-.espo-panel { width: min(360px, calc(100vw - 32px)); height: min(520px, calc(100vh - 110px)); transition: opacity .3s var(--ease), transform .35s var(--ease-out), visibility .3s, width .3s var(--ease), height .3s var(--ease); }
+/* nov-2026 (ET): ventana más amplia y la rueda del mouse desplaza la conversación, no la página (overscroll contenido + js/bot.js) */
+.espo-panel { width: min(400px, calc(100vw - 32px)); height: min(640px, calc(100vh - 100px)); overscroll-behavior: contain; transition: opacity .3s var(--ease), transform .35s var(--ease-out), visibility .3s, width .3s var(--ease), height .3s var(--ease); }
+.espo-body, .espo-quick { overscroll-behavior: contain; }
 .espo-panel--max { width: min(760px, calc(100vw - 40px)); height: calc(100vh - 40px); height: calc(100dvh - 40px); }
 .espo-head { padding: .6rem .7rem .6rem .9rem; gap: .55rem; }
 .espo-head__ava { width: 36px; height: 36px; font-size: 1.05rem; }
@@ -1001,7 +1003,7 @@ a.trust__item:hover { text-decoration-color: currentColor; }
 .espo-body { position: relative; padding: .85rem; }
 .espo-panel--max .espo-body { padding: 1.1rem 1.4rem; }
 .espo-panel--max .espo-msg { max-width: 78%; font-size: .95rem; }
-.espo-quick { padding: .5rem .6rem; gap: .35rem; max-height: 6.6rem; }
+.espo-quick { padding: .5rem .6rem; gap: .35rem; max-height: 7.4rem; }
 .espo-panel--max .espo-quick { max-height: 30%; }
 .espo-quick .espo-chip, .c-chips .espo-chip { padding: .38rem .7rem; font-size: .8rem; }
 .espo-ask { padding: .45rem .55rem; }
@@ -1010,6 +1012,7 @@ a.trust__item:hover { text-decoration-color: currentColor; }
   .espo-panel, .espo-panel--max { right: 8px; bottom: 8px; width: calc(100vw - 16px); height: calc(100vh - 16px); height: calc(100dvh - 16px); }
   .espo-head__max { display: none; }   /* en el celular ya ocupa toda la pantalla */
   .espo-quick { max-height: 7.4rem; }
+  html.espo-open, html.espo-open body { overflow: hidden; }   /* la página de fondo no se mueve con Jenny abierta */
 }
 
 /* Páginas legales: botón "Descargar en PDF" e impresión limpia */

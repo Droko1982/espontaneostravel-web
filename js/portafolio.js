@@ -107,7 +107,9 @@ const UI = {
     k_h: "Kit de venta", k_l: "Descarga un PDF con las experiencias que elijas, en el idioma de tu cliente. Puedes poner el logo de tu agencia, quitar el de Espontáneos y agregar tu markup.",
     k1: "Experiencias", k_route: "Solo los tours de mi ruta", k_all: "Todo el portafolio", k_none: "Quitar todos", k_sel: "{0} seleccionadas", k2: "Idioma y marca", k_lang: "Idioma del PDF", k_logo: "Marca", k_with: "Con logo Espontáneos Travel", k_without: "Sin logo (marca blanca)", k_own: "Con el logo de mi agencia", k_up: "Subir logo", k_up2: "Cambiar logo", k_rm: "Quitar logo", k_nologo: "Aún no has subido el logo de tu agencia.", k_own_alt: "Logo de tu agencia", k_up_l: "PNG, JPG, WebP, SVG o GIF, hasta 5 MB. Se guarda en tu usuario con el nombre de tu agencia y queda listo para tus próximos PDF.", k_saving: "Guardando en tu usuario…", k_saved: "Guardado en tu usuario.", k_nosave: "No se pudo guardar en tu usuario: por ahora se usa solo en esta sesión.", k_big: "La imagen pesa más de 5 MB.", k_badimg: "No pude leer esa imagen. Prueba con PNG o JPG.",
     k_agency: "Nombre de tu agencia en la portada (opcional)", k3: "Precios", k_price: "¿Qué precio mostrar?", k_pn: "Sin precios", k_pnet: "Con tarifa neta", k_psell: "Con precio de venta (neta + mi markup)", k_mk: "Mi markup (%)",
-    k_pnote: "El PDF muestra el precio por persona para 2, 4, 6 y 10 pasajeros, según tu tarifario.", k_go: "Descargar PDF", k_need: "Elige al menos una experiencia.", k_making: "Armando el PDF…", k_done: "Listo: {0}", k_err: "No se pudo crear el PDF. Intenta de nuevo.",
+    k_pnote: "El PDF muestra el precio por persona para los pasajeros de la cotización, según tu tarifario.",
+    k_cur: "Moneda del PDF", k_trm: "TRM: pesos por 1 {0}", k_trm_ph: "p. ej. 4.150", k_trm_need: "Escribe la TRM para convertir los precios a {0}.",
+    k_trm_bad: "Revisa la TRM: es el valor de 1 {0} en pesos colombianos (entre 500 y 20.000).", k_trm_ok: "1 {0} = {1} COP · los precios se convierten desde pesos y se redondean hacia arriba.", k_go: "Descargar PDF", k_need: "Elige al menos una experiencia.", k_making: "Armando el PDF…", k_done: "Listo: {0}", k_err: "No se pudo crear el PDF. Intenta de nuevo.",
     k_open: "Si no se descargó, ábrelo aquí", pdf_client: "PDF para tu cliente", pdf_net: "PDF con tarifa neta", pdf_more: "Más opciones (idioma, marca, markup)", pdf_note: "El PDF para el cliente no lleva tarifas ni datos internos. El de tarifa neta es solo para tu agencia.",
     k_trnote: "Traducción por validar por el equipo de Espontáneos Travel.", k_pax: "Pasajeros de la cotización", k_nolib: "No se pudo cargar el generador de PDF. Revisa tu conexión y vuelve a intentar.",
     c_h: "Condiciones 2027", c_l: "Más sobre nosotros, políticas de reserva y pago, niños y menores, sostenibilidad, casos de impacto comunitario y equipo. Información para agencias, DMCs y mayoristas.", c_about: "Más sobre nosotros", c_cases: "Casos de impacto comunitario", c_book: "Reservas y pagos", c_kids: "Niños y menores", c_sost: "Sostenibilidad", c_team: "Equipo y contacto", c_read: "Cómo leer las fichas",
@@ -120,7 +122,7 @@ const UI = {
     al_cross: "Día {0}: «{1}» se cruza con «{2}» (al terminar «{2}» llegarían hacia las {3} y «{1}» sale a más tardar a las {4}). Pásalo a otro día.",
     al_long: "Día {0}: ≈ {1} entre tours y trayectos. Es una jornada muy larga: reparte los tours en otro día.", al_late: "Día {0}: el regreso al hotel sería hacia las {1}, muy tarde. Revisa si conviene pasar un tour a otro día.",
     al_arr: "Día 1 es el de llegada: el vuelo debe aterrizar en {1} a más tardar a las {2} para hacer «{0}».", al_arr_no: "Día 1 es el de llegada: «{0}» no alcanza ese día (el vuelo tendría que aterrizar en {1} antes de las 5:00 a. m.). Pásalo al Día 2.",
-    sg_hint: "toca para ver u ocultar", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
+    sg_hint: "toca para ver u ocultar", sg_routes: "ficha general + {0} rutas", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
     k_tr: "Agregar la página de traslados (aeropuerto – hotel y entre ciudades)",
     g_lbl: "guía en {0}", g_match: "Tour de {0}: aplica la guianza de {1}.", g_add: "+ Sumar {0} a la ruta", g_in: "✓ {0} en la ruta (quitar)", g_on: "{0} sumada a la ruta · {1} (Día {2})", g_off: "{0} quitada de la ruta · {1}",
     g_route: "Guía en otro idioma", g_none: "Sin suplemento de guianza", g_srv: "por servicio", g_row: "{0} · {1}", g_div: "{0} ÷ {1} pax"
@@ -196,7 +198,9 @@ const UI = {
     k_h: "Sales kit", k_l: "Download a PDF with the experiences you choose, in your client's language. You can use your agency's logo, remove the Espontáneos logo and add your markup.",
     k1: "Experiences", k_route: "Only the tours in my route", k_all: "Whole portfolio", k_none: "Clear all", k_sel: "{0} selected", k2: "Language and brand", k_lang: "PDF language", k_logo: "Brand", k_with: "With Espontáneos Travel logo", k_without: "No logo (white label)", k_own: "With my agency's logo", k_up: "Upload logo", k_up2: "Change logo", k_rm: "Remove logo", k_nologo: "You haven't uploaded your agency's logo yet.", k_own_alt: "Your agency's logo", k_up_l: "PNG, JPG, WebP, SVG or GIF, up to 5 MB. It is saved to your user together with your agency name, ready for your next PDFs.", k_saving: "Saving to your user…", k_saved: "Saved to your user.", k_nosave: "Couldn't save to your user: for now it is used in this session only.", k_big: "The image is larger than 5 MB.", k_badimg: "I couldn't read that image. Try PNG or JPG.",
     k_agency: "Your agency name on the cover (optional)", k3: "Prices", k_price: "Which price to show?", k_pn: "No prices", k_pnet: "With net rate", k_psell: "With selling price (net + my markup)", k_mk: "My markup (%)",
-    k_pnote: "The PDF shows the price per person for 2, 4, 6 and 10 passengers, from your rate sheet.", k_go: "Download PDF", k_need: "Choose at least one experience.", k_making: "Building the PDF…", k_done: "Done: {0}", k_err: "The PDF could not be created. Please try again.",
+    k_pnote: "The PDF shows the price per person for the passengers in the quote, from your rate sheet.",
+    k_cur: "PDF currency", k_trm: "Exchange rate: pesos per 1 {0}", k_trm_ph: "e.g. 4,150", k_trm_need: "Enter the exchange rate to convert the prices to {0}.",
+    k_trm_bad: "Check the exchange rate: it is the value of 1 {0} in Colombian pesos (between 500 and 20,000).", k_trm_ok: "1 {0} = {1} COP · prices are converted from pesos and rounded up.", k_go: "Download PDF", k_need: "Choose at least one experience.", k_making: "Building the PDF…", k_done: "Done: {0}", k_err: "The PDF could not be created. Please try again.",
     k_open: "If it didn't download, open it here", pdf_client: "PDF for your client", pdf_net: "PDF with net rate", pdf_more: "More options (language, brand, markup)", pdf_note: "The client PDF has no rates or internal data. The net-rate PDF is for your agency only.",
     k_trnote: "Translation pending validation by the Espontáneos Travel team.", k_pax: "Passengers in the quote", k_nolib: "The PDF generator could not be loaded. Check your connection and try again.",
     c_h: "Conditions 2027", c_l: "More about us, booking and payment policies, children and minors, sustainability, community impact stories and team. Information for agencies, DMCs and wholesalers.", c_about: "More about us", c_cases: "Community impact stories", c_book: "Bookings and payments", c_kids: "Children and minors", c_sost: "Sustainability", c_team: "Team and contact", c_read: "How to read the sheets",
@@ -209,7 +213,7 @@ const UI = {
     al_cross: "Day {0}: «{1}» overlaps with «{2}» (after «{2}» the group would arrive around {3}, and «{1}» starts {4} at the latest). Move it to another day.",
     al_long: "Day {0}: ≈ {1} of tours and driving. That is a very long day: spread the tours over another day.", al_late: "Day {0}: the group would be back at the hotel around {1}, which is late. Consider moving a tour to another day.",
     al_arr: "Day 1 is the arrival day: the flight must land at {1} by {2} at the latest to do «{0}».", al_arr_no: "Day 1 is the arrival day: «{0}» doesn't fit that day (the flight would have to land at {1} before 5:00 a.m.). Move it to Day 2.",
-    sg_hint: "tap to show or hide", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
+    sg_hint: "tap to show or hide", sg_routes: "overview + {0} routes", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
     k_tr: "Add the transfers page (airport – hotel and between cities)",
     g_lbl: "guide in {0}", g_match: "{0} tour: the {1} guiding rate applies.", g_add: "+ Add {0} to the route", g_in: "✓ {0} in the route (remove)", g_on: "{0} added to the route · {1} (Day {2})", g_off: "{0} removed from the route · {1}",
     g_route: "Guide in another language", g_none: "No guiding supplement", g_srv: "per service", g_row: "{0} · {1}", g_div: "{0} ÷ {1} pax"
@@ -233,14 +237,24 @@ const lineSeal = k => (k === "compartidos" ? `<img class="ico seal-i lseal" src=
 const lineName = k => (LINE[L()] || LINE.es)[k] || catName(k);
 // Familias largas que se pliegan dentro de su línea (índice del Inicio, Experiencias y Kit de venta): Aves y Bicicleta (ET, nov-2026).
 // Se agrupan por «sub» (data/portafolio.json) en el lugar de su primera experiencia; con menos de 3 a la vista no se pliegan.
-const FOLD = { "Aves": ["Aves", "Birds"], "Bicicleta": ["Bicicleta", "Cycling"] };
+// Aves (ET, 17-nov-2026): «Aves para aficionados» va como ficha aparte; «Aves para conocedores» encabeza el grupo con sus 7 rutas.
+const FOLD = { "Aves": ["Aves para conocedores", "Birds for experts"], "Bicicleta": ["Bicicleta", "Cycling"] };
+const FOLD_OUT = new Set(["aves"]);                       // de la familia, pero no se pliegan
+const FOLD_HEAD = { "Aves": "avesconocedores" };          // ficha que encabeza el grupo (va primero)
+const famKey = e => (FOLD[e.sub] && !FOLD_OUT.has(e.id) ? e.sub : null);
 const foldName = s => (FOLD[s] ? FOLD[s][L() === "en" ? 1 : 0] : s);
+function famOf(items, k) {
+  const fam = items.filter(x => famKey(x) === k), h = FOLD_HEAD[k];
+  return h ? fam.filter(x => x.id === h).concat(fam.filter(x => x.id !== h)) : fam;
+}
+// Texto de apoyo del grupo: «ficha general + 7 rutas» cuando lo encabeza una ficha
+const foldSub = (k, fam) => (FOLD_HEAD[k] && fam.some(e => e.id === FOLD_HEAD[k]) ? tx("sg_routes", fam.length - 1) : tx("n_exp", fam.length));
 function foldList(items, one, wrap) {
   const out = [], seen = new Set();
   items.forEach(e => {
-    const fam = FOLD[e.sub] ? items.filter(x => x.sub === e.sub) : null;
+    const k = famKey(e), fam = k ? famOf(items, k) : null;
     if (!fam || fam.length < 3) { out.push(one(e)); return; }
-    if (!seen.has(e.sub)) { seen.add(e.sub); out.push(wrap(e.sub, fam)); }
+    if (!seen.has(k)) { seen.add(k); out.push(wrap(k, fam)); }
   });
   return out.join("");
 }
@@ -1101,7 +1115,7 @@ function renderList() {
         ${icoRow(e, "sm")}${nearLine(e)}<div class="meta tl">${esc(tr(e, "tagline"))}</div>
         <div class="price">${priceLine(e)}</div></div></button>`;
     // Aves y Bicicleta: una sola fila plegable dentro de la línea (se abre con un clic; abierta al buscar o filtrar)
-    const sub = (s, fam) => { const kk = "s:" + s; return `<details class="subgrp" data-sg="${esc(kk)}"${(kk in S.open ? S.open[kk] : auto) ? " open" : ""}><summary><span class="fn">${esc(foldName(s))}</span><span class="gn">${fam.length}</span><span class="sub">${esc(tx("sg_hint"))}</span>${ic("chev", "sm")}</summary><div class="cards">${fam.map(card).join("")}</div></details>`; };
+    const sub = (s, fam) => { const kk = "s:" + s; return `<details class="subgrp" data-sg="${esc(kk)}"${(kk in S.open ? S.open[kk] : auto) ? " open" : ""}><summary><span class="fn">${esc(foldName(s))}</span><span class="gn">${fam.length}</span><span class="sub">${esc(FOLD_HEAD[s] ? foldSub(s, fam) + " · " + tx("sg_hint") : tx("sg_hint"))}</span>${ic("chev", "sm")}</summary><div class="cards">${fam.map(card).join("")}</div></details>`; };
     html += `<details class="group" data-g="${k}"${isComp ? ' id="tours-compartidos"' : ""}${(k in S.open ? S.open[k] : auto) ? " open" : ""}><summary><i style="background:${c.color}"></i><span class="gname">${esc(lineName(k))}</span>${lineSeal(k)}<span class="gn">${items.length}</span><span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span>${ic("chev", "sm")}</summary>${isComp ? `<p class="gintro">${esc(tx("comp_intro"))}</p>` : ""}<div class="cards">` +
       foldList(items, card, sub) + `</div>${isComp ? `<div class="gextra">${compTraslados()}${compImportante()}</div>` : ""}</details>`;
   }
@@ -1904,7 +1918,7 @@ function renderMapPane() {
         <li>${ic("eye", "sm")}<span>${esc(tx("ic_b2b"))}</span></li><li>${ic("tag", "sm")}<span>${esc(tx("ic_code"))}</span></li></ul></div>
     <div class="section"><h3>${ic("grid")}${tx("idx_t")}</h3><p class="note">${tx("idx_l")}</p><div class="pidx">${Object.entries(D.cats).filter(([k]) => ccount[k]).map(([k, c]) => `<div class="pidx-g">
       <button type="button" class="pidx-h" data-idx="${k}"><i style="background:${c.color}"></i>${esc(lineName(k))}${lineSeal(k)} <span class="sub">${ccount[k]}</span></button>
-      <ul>${foldList(EXP.filter(e => e.cat === k), idxLi, (s, fam) => `<li class="fold"><details><summary>${ic("chev", "sm")}<span class="fn">${esc(foldName(s))}</span><span class="sub">${esc(tx("n_exp", fam.length))}</span></summary><ul>${fam.map(idxLi).join("")}</ul></details></li>`)}</ul></div>`).join("")}</div></div>
+      <ul>${foldList(EXP.filter(e => e.cat === k), idxLi, (s, fam) => `<li class="fold"><details><summary>${ic("chev", "sm")}<span class="fn">${esc(foldName(s))}</span><span class="sub">${esc(foldSub(s, fam))}</span></summary><ul>${fam.map(idxLi).join("")}</ul></details></li>`)}</ul></div>`).join("")}</div></div>
     <div class="section"><h3>${ic("star")}${tx("shortcuts")}</h3><div class="zbtns"><button type="button" class="btn ghost" data-go-tab="exp">${ic("grid", "sm")}${tx("sc_exp")}</button><button type="button" class="btn ghost" data-go-tab="ruta">${ic("route", "sm")}${tx("sc_ruta")}</button><button type="button" class="btn ghost" data-go-tab="kit">${ic("file", "sm")}${tx("sc_kit")}</button><button type="button" class="btn ghost" data-go-tab="cond">${ic("info", "sm")}${tx("sc_cond")}</button></div></div>`;
   pane.querySelectorAll("[data-go-tab]").forEach(b => b.addEventListener("click", () => setTab(b.dataset.goTab)));
   pane.querySelectorAll("[data-cond-go]").forEach(b => b.addEventListener("click", () => { setTab("cond"); jumpCond(b.dataset.condGo); }));
@@ -1914,15 +1928,29 @@ function renderMapPane() {
 
 /* ---------- kit de venta (PDF en el navegador con jsPDF, cargado solo al usarlo) ---------- */
 const KL = {
-  ES: { gl: ["Guía en español", "Guía en inglés", "Guía en francés", "Guía en italiano", "Guía en alemán", "Guía en portugués", "Guía para invidentes"], gInc: "Incluye", hours: "horas", trInc: "Los traslados incluyen", trIncL: ["Recibimiento en el aeropuerto con letrero", "Ayuda con el equipaje", "Hasta 1 hora de espera si el vuelo se retrasa", "Hidratación", "Desde 9 pasajeros, la tarifa incluye guía o asistente", "Sin recargo nocturno ni en festivos"], trUrb: "Aplica para hoteles dentro del perímetro urbano e incluye: {0}", trCoc: "Hoteles en Cocora: {0}", tr: "Traslados", trIntro: "Traslados privados en vehículos habilitados para servicio especial, con conductores profesionales.", trAp: "Aeropuerto - hotel", trCity: "Entre ciudades", trComp: "Del hotel al punto de encuentro (Tours Compartidos)", trWay: "por trayecto", trRT: "ida y vuelta", trNote: "Manizales (MZL) y Cali (CLO): cotización a la medida.", trVeh: "Vehículo para {0} pax: {1}", meet: "Puntos de encuentro", oper: "Operación", supl: "Suplementos", title: "Paisaje Cultural Cafetero · Experiencias 2027", incl: "Incluye", noIncl: "No incluye", reco: "Recomendaciones", dur: "Duración", langs: "Idiomas", price: "Precio por persona", pax: "pax", note: "Valores en pesos colombianos (COP) por persona. Sujetos a disponibilidad.", consult: "Consultar", exp: "Experiencias incluidas", mod: "Modalidad", age: "Edad", prepared: "Preparado por" },
-  EN: { gl: ["Spanish-speaking guide", "English-speaking guide", "French-speaking guide", "Italian-speaking guide", "German-speaking guide", "Portuguese-speaking guide", "Guide for blind travellers"], gInc: "Includes", hours: "hours", trInc: "Transfers include", trIncL: ["Airport welcome with a name sign", "Help with luggage", "Up to 1 hour of waiting time if the flight is delayed", "Hydration", "From 9 passengers, the rate includes a guide or assistant", "No night or holiday surcharge"], trUrb: "Applies to hotels within the urban area, and also: {0}", trCoc: "Cocora hotels: {0}", tr: "Transfers", trIntro: "Private transfers in vehicles licensed for special service, with professional drivers.", trAp: "Airport - hotel", trCity: "Between cities", trComp: "Hotel to meeting point (Shared Tours)", trWay: "each way", trRT: "round trip", trNote: "Manizales (MZL) and Cali (CLO): tailor-made quote.", trVeh: "Vehicle for {0} pax: {1}", meet: "Meeting points", oper: "Operation", supl: "Supplements", title: "Coffee Cultural Landscape · 2027 Experiences", incl: "Includes", noIncl: "Not included", reco: "Recommendations", dur: "Duration", langs: "Languages", price: "Price per person", pax: "pax", note: "Prices in Colombian pesos (COP) per person. Subject to availability.", consult: "On request", exp: "Experiences included", mod: "Format", age: "Age", prepared: "Prepared by" },
-  FR: { gl: ["Guide hispanophone", "Guide anglophone", "Guide francophone", "Guide italophone", "Guide germanophone", "Guide lusophone", "Guide pour personnes aveugles"], gInc: "Comprend", hours: "heures", trInc: "Les transferts comprennent", trIncL: ["Accueil à l'aéroport avec pancarte", "Aide avec les bagages", "Jusqu'à 1 heure d'attente en cas de retard du vol", "Hydratation", "À partir de 9 passagers, le tarif comprend un guide ou un assistant", "Aucun supplément de nuit ni les jours fériés"], trUrb: "S'applique aux hôtels du périmètre urbain, ainsi qu'à : {0}", trCoc: "Hôtels à Cocora : {0}", tr: "Transferts", trIntro: "Transferts privés dans des véhicules agréés pour le service spécial, avec chauffeurs professionnels.", trAp: "Aéroport - hôtel", trCity: "Entre villes", trComp: "De l'hôtel au point de rendez-vous (Tours partagés)", trWay: "par trajet", trRT: "aller-retour", trNote: "Manizales (MZL) et Cali (CLO) : devis sur mesure.", trVeh: "Véhicule pour {0} pers. : {1}", meet: "Points de rendez-vous", oper: "Fonctionnement", supl: "Suppléments", title: "Paysage culturel du café · Expériences 2027", incl: "Comprend", noIncl: "Ne comprend pas", reco: "Recommandations", dur: "Durée", langs: "Langues", price: "Prix par personne", pax: "pers.", note: "Prix en pesos colombiens (COP) par personne. Sous réserve de disponibilité.", consult: "Sur demande", exp: "Expériences incluses", mod: "Format", age: "Âge", prepared: "Préparé par" },
-  IT: { gl: ["Guida in spagnolo", "Guida in inglese", "Guida in francese", "Guida in italiano", "Guida in tedesco", "Guida in portoghese", "Guida per non vedenti"], gInc: "Include", hours: "ore", trInc: "I trasferimenti includono", trIncL: ["Accoglienza in aeroporto con cartello", "Aiuto con i bagagli", "Fino a 1 ora di attesa se il volo è in ritardo", "Idratazione", "Da 9 passeggeri, la tariffa include una guida o un assistente", "Nessun supplemento notturno né festivo"], trUrb: "Vale per gli hotel nel perimetro urbano e anche per: {0}", trCoc: "Hotel a Cocora: {0}", tr: "Trasferimenti", trIntro: "Trasferimenti privati con veicoli autorizzati al servizio speciale e autisti professionisti.", trAp: "Aeroporto - hotel", trCity: "Tra città", trComp: "Dall'hotel al punto d'incontro (Tour condivisi)", trWay: "per tratta", trRT: "andata e ritorno", trNote: "Manizales (MZL) e Cali (CLO): preventivo su misura.", trVeh: "Veicolo per {0} pax: {1}", meet: "Punti d'incontro", oper: "Operatività", supl: "Supplementi", title: "Paesaggio Culturale del Caffè · Esperienze 2027", incl: "Include", noIncl: "Non include", reco: "Consigli", dur: "Durata", langs: "Lingue", price: "Prezzo a persona", pax: "pax", note: "Prezzi in pesos colombiani (COP) a persona. Soggetti a disponibilità.", consult: "Su richiesta", exp: "Esperienze incluse", mod: "Modalità", age: "Età", prepared: "A cura di" },
-  PT: { gl: ["Guia em espanhol", "Guia em inglês", "Guia em francês", "Guia em italiano", "Guia em alemão", "Guia em português", "Guia para cegos"], gInc: "Inclui", hours: "horas", trInc: "Os traslados incluem", trIncL: ["Recepção no aeroporto com placa", "Ajuda com a bagagem", "Até 1 hora de espera se o voo atrasar", "Hidratação", "A partir de 9 passageiros, a tarifa inclui guia ou assistente", "Sem acréscimo noturno nem em feriados"], trUrb: "Vale para hotéis dentro do perímetro urbano e também: {0}", trCoc: "Hotéis em Cocora: {0}", tr: "Traslados", trIntro: "Traslados privados em veículos habilitados para serviço especial, com motoristas profissionais.", trAp: "Aeroporto - hotel", trCity: "Entre cidades", trComp: "Do hotel ao ponto de encontro (Tours Compartilhados)", trWay: "por trajeto", trRT: "ida e volta", trNote: "Manizales (MZL) e Cali (CLO): cotação sob medida.", trVeh: "Veículo para {0} pax: {1}", meet: "Pontos de encontro", oper: "Operação", supl: "Suplementos", title: "Paisagem Cultural do Café · Experiências 2027", incl: "Inclui", noIncl: "Não inclui", reco: "Recomendações", dur: "Duração", langs: "Idiomas", price: "Preço por pessoa", pax: "pax", note: "Valores em pesos colombianos (COP) por pessoa. Sujeitos a disponibilidade.", consult: "Sob consulta", exp: "Experiências incluídas", mod: "Modalidade", age: "Idade", prepared: "Preparado por" }
+  ES: { noteFx: "Valores por persona en {0}, convertidos desde pesos colombianos con una tasa de {1} COP por 1 {2}. Sujetos a disponibilidad.", cUSD: "dólares estadounidenses (USD)", cEUR: "euros (EUR)", gl: ["Guía en español", "Guía en inglés", "Guía en francés", "Guía en italiano", "Guía en alemán", "Guía en portugués", "Guía para invidentes"], gInc: "Incluye", hours: "horas", trInc: "Los traslados incluyen", trIncL: ["Recibimiento en el aeropuerto con letrero", "Ayuda con el equipaje", "Hasta 1 hora de espera si el vuelo se retrasa", "Hidratación", "Desde 9 pasajeros, la tarifa incluye guía o asistente", "Sin recargo nocturno ni en festivos"], trUrb: "Aplica para hoteles dentro del perímetro urbano e incluye: {0}", trCoc: "Hoteles en Cocora: {0}", tr: "Traslados", trIntro: "Traslados privados en vehículos habilitados para servicio especial, con conductores profesionales.", trAp: "Aeropuerto - hotel", trCity: "Entre ciudades", trComp: "Del hotel al punto de encuentro (Tours Compartidos)", trWay: "por trayecto", trRT: "ida y vuelta", trNote: "Manizales (MZL) y Cali (CLO): cotización a la medida.", trVeh: "Vehículo para {0} pax: {1}", meet: "Puntos de encuentro", oper: "Operación", supl: "Suplementos", title: "Paisaje Cultural Cafetero · Experiencias 2027", incl: "Incluye", noIncl: "No incluye", reco: "Recomendaciones", dur: "Duración", langs: "Idiomas", price: "Precio por persona", pax: "pax", note: "Valores en pesos colombianos (COP) por persona. Sujetos a disponibilidad.", consult: "Consultar", exp: "Experiencias incluidas", mod: "Modalidad", age: "Edad", prepared: "Preparado por" },
+  EN: { noteFx: "Prices per person in {0}, converted from Colombian pesos at a rate of {1} COP per 1 {2}. Subject to availability.", cUSD: "US dollars (USD)", cEUR: "euros (EUR)", gl: ["Spanish-speaking guide", "English-speaking guide", "French-speaking guide", "Italian-speaking guide", "German-speaking guide", "Portuguese-speaking guide", "Guide for blind travellers"], gInc: "Includes", hours: "hours", trInc: "Transfers include", trIncL: ["Airport welcome with a name sign", "Help with luggage", "Up to 1 hour of waiting time if the flight is delayed", "Hydration", "From 9 passengers, the rate includes a guide or assistant", "No night or holiday surcharge"], trUrb: "Applies to hotels within the urban area, and also: {0}", trCoc: "Cocora hotels: {0}", tr: "Transfers", trIntro: "Private transfers in vehicles licensed for special service, with professional drivers.", trAp: "Airport - hotel", trCity: "Between cities", trComp: "Hotel to meeting point (Shared Tours)", trWay: "each way", trRT: "round trip", trNote: "Manizales (MZL) and Cali (CLO): tailor-made quote.", trVeh: "Vehicle for {0} pax: {1}", meet: "Meeting points", oper: "Operation", supl: "Supplements", title: "Coffee Cultural Landscape · 2027 Experiences", incl: "Includes", noIncl: "Not included", reco: "Recommendations", dur: "Duration", langs: "Languages", price: "Price per person", pax: "pax", note: "Prices in Colombian pesos (COP) per person. Subject to availability.", consult: "On request", exp: "Experiences included", mod: "Format", age: "Age", prepared: "Prepared by" },
+  FR: { noteFx: "Prix par personne en {0}, convertis depuis le peso colombien au taux de {1} COP pour 1 {2}. Sous réserve de disponibilité.", cUSD: "dollars américains (USD)", cEUR: "euros (EUR)", gl: ["Guide hispanophone", "Guide anglophone", "Guide francophone", "Guide italophone", "Guide germanophone", "Guide lusophone", "Guide pour personnes aveugles"], gInc: "Comprend", hours: "heures", trInc: "Les transferts comprennent", trIncL: ["Accueil à l'aéroport avec pancarte", "Aide avec les bagages", "Jusqu'à 1 heure d'attente en cas de retard du vol", "Hydratation", "À partir de 9 passagers, le tarif comprend un guide ou un assistant", "Aucun supplément de nuit ni les jours fériés"], trUrb: "S'applique aux hôtels du périmètre urbain, ainsi qu'à : {0}", trCoc: "Hôtels à Cocora : {0}", tr: "Transferts", trIntro: "Transferts privés dans des véhicules agréés pour le service spécial, avec chauffeurs professionnels.", trAp: "Aéroport - hôtel", trCity: "Entre villes", trComp: "De l'hôtel au point de rendez-vous (Tours partagés)", trWay: "par trajet", trRT: "aller-retour", trNote: "Manizales (MZL) et Cali (CLO) : devis sur mesure.", trVeh: "Véhicule pour {0} pers. : {1}", meet: "Points de rendez-vous", oper: "Fonctionnement", supl: "Suppléments", title: "Paysage culturel du café · Expériences 2027", incl: "Comprend", noIncl: "Ne comprend pas", reco: "Recommandations", dur: "Durée", langs: "Langues", price: "Prix par personne", pax: "pers.", note: "Prix en pesos colombiens (COP) par personne. Sous réserve de disponibilité.", consult: "Sur demande", exp: "Expériences incluses", mod: "Format", age: "Âge", prepared: "Préparé par" },
+  IT: { noteFx: "Prezzi a persona in {0}, convertiti dai pesos colombiani al tasso di {1} COP per 1 {2}. Soggetti a disponibilità.", cUSD: "dollari statunitensi (USD)", cEUR: "euro (EUR)", gl: ["Guida in spagnolo", "Guida in inglese", "Guida in francese", "Guida in italiano", "Guida in tedesco", "Guida in portoghese", "Guida per non vedenti"], gInc: "Include", hours: "ore", trInc: "I trasferimenti includono", trIncL: ["Accoglienza in aeroporto con cartello", "Aiuto con i bagagli", "Fino a 1 ora di attesa se il volo è in ritardo", "Idratazione", "Da 9 passeggeri, la tariffa include una guida o un assistente", "Nessun supplemento notturno né festivo"], trUrb: "Vale per gli hotel nel perimetro urbano e anche per: {0}", trCoc: "Hotel a Cocora: {0}", tr: "Trasferimenti", trIntro: "Trasferimenti privati con veicoli autorizzati al servizio speciale e autisti professionisti.", trAp: "Aeroporto - hotel", trCity: "Tra città", trComp: "Dall'hotel al punto d'incontro (Tour condivisi)", trWay: "per tratta", trRT: "andata e ritorno", trNote: "Manizales (MZL) e Cali (CLO): preventivo su misura.", trVeh: "Veicolo per {0} pax: {1}", meet: "Punti d'incontro", oper: "Operatività", supl: "Supplementi", title: "Paesaggio Culturale del Caffè · Esperienze 2027", incl: "Include", noIncl: "Non include", reco: "Consigli", dur: "Durata", langs: "Lingue", price: "Prezzo a persona", pax: "pax", note: "Prezzi in pesos colombiani (COP) a persona. Soggetti a disponibilità.", consult: "Su richiesta", exp: "Esperienze incluse", mod: "Modalità", age: "Età", prepared: "A cura di" },
+  PT: { noteFx: "Valores por pessoa em {0}, convertidos de pesos colombianos com uma taxa de {1} COP por 1 {2}. Sujeitos a disponibilidade.", cUSD: "dólares americanos (USD)", cEUR: "euros (EUR)", gl: ["Guia em espanhol", "Guia em inglês", "Guia em francês", "Guia em italiano", "Guia em alemão", "Guia em português", "Guia para cegos"], gInc: "Inclui", hours: "horas", trInc: "Os traslados incluem", trIncL: ["Recepção no aeroporto com placa", "Ajuda com a bagagem", "Até 1 hora de espera se o voo atrasar", "Hidratação", "A partir de 9 passageiros, a tarifa inclui guia ou assistente", "Sem acréscimo noturno nem em feriados"], trUrb: "Vale para hotéis dentro do perímetro urbano e também: {0}", trCoc: "Hotéis em Cocora: {0}", tr: "Traslados", trIntro: "Traslados privados em veículos habilitados para serviço especial, com motoristas profissionais.", trAp: "Aeroporto - hotel", trCity: "Entre cidades", trComp: "Do hotel ao ponto de encontro (Tours Compartilhados)", trWay: "por trajeto", trRT: "ida e volta", trNote: "Manizales (MZL) e Cali (CLO): cotação sob medida.", trVeh: "Veículo para {0} pax: {1}", meet: "Pontos de encontro", oper: "Operação", supl: "Suplementos", title: "Paisagem Cultural do Café · Experiências 2027", incl: "Inclui", noIncl: "Não inclui", reco: "Recomendações", dur: "Duração", langs: "Idiomas", price: "Preço por pessoa", pax: "pax", note: "Valores em pesos colombianos (COP) por pessoa. Sujeitos a disponibilidade.", consult: "Sob consulta", exp: "Experiências incluídas", mod: "Modalidade", age: "Idade", prepared: "Preparado por" }
 };
 const KLu = () => (L() === "en" ? KL.EN : KL.ES);   // textos del kit en el idioma del portal
 const LNAME = { ES: "Español", EN: "English", FR: "Français", IT: "Italiano", PT: "Português" };
-const K = { sel: null, lang: "ES", brand: "et", own: null, price: "none", markup: 15, agency: "", pax: 0, tr: true, who: "", loaded: false };
+const K = { sel: null, lang: "ES", brand: "et", own: null, price: "none", markup: 15, agency: "", pax: 0, tr: true, who: "", loaded: false, cur: "COP", trm: {} };
+// Moneda del kit (ET, 17-nov-2026): COP, USD o EUR con la TRM que digita cada agente (se recuerda en este navegador)
+const CURS = ["COP", "USD", "EUR"];
+try { const t = JSON.parse(localStorage.getItem("pf27-kit-fx") || "null"); if (t && CURS.includes(t.cur)) { K.cur = t.cur; K.trm = t.trm && typeof t.trm === "object" ? t.trm : {}; } } catch (e) { /* sin datos guardados */ }
+const saveFx = () => { try { localStorage.setItem("pf27-kit-fx", JSON.stringify({ cur: K.cur, trm: K.trm })); } catch (e) { /* navegador sin almacenamiento */ } };
+// «4.150», «4150», «4,150.50» o «4.150,5» → número (el separador decimal es el último si deja 1 o 2 cifras)
+function parseTrm(v) {
+  let t = String(v || "").trim().replace(/[\s$]/g, ""); if (!t) return 0;
+  const last = Math.max(t.lastIndexOf("."), t.lastIndexOf(","));
+  if (last >= 0 && t.length - last - 1 <= 2) t = t.slice(0, last).replace(/[.,]/g, "") + "." + t.slice(last + 1);
+  else t = t.replace(/[.,]/g, "");
+  const n = parseFloat(t); return isFinite(n) ? n : 0;
+}
+const trmOk = n => n >= 500 && n <= 20000;
+const fmtTrm = (n, loc) => n.toLocaleString(loc || "es-CO", { maximumFractionDigits: 2 });
 const okLogo = v => typeof v === "string" && v.length <= 400000 && /^data:image\/(png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(v);
 // Marca efectiva: en «Marca blanca» nunca va el logo de Espontáneos (sí el de la agencia, si lo subió)
 const kitBrand = () => (S.wl ? (K.brand === "own" && K.own ? "own" : "none") : K.brand);
@@ -1961,18 +1989,31 @@ function renderKit() {
       <label class="field">${tx("k_price")}<select data-r="kprice" ${S.wl ? "disabled" : ""}><option value="none">${tx("k_pn")}</option><option value="net">${tx("k_pnet")}</option><option value="sell">${tx("k_psell")}</option></select></label>
       <label class="field" data-r="kpaxw">${tx("k_pax")}<input data-r="kpax" type="number" min="1" max="30" step="1" value="${K.pax || S.R.pax || 2}" inputmode="numeric"></label>
       <label class="field" data-r="kmkw">${tx("k_mk")}<input data-r="kmk" type="number" min="0" max="100" step="1" value="${K.markup}" inputmode="numeric"></label>
+      <div class="row2" data-r="kfxw"><label class="field">${tx("k_cur")}<select data-r="kcur">${CURS.map(c => `<option value="${c}"${c === K.cur ? " selected" : ""}>${c}</option>`).join("")}</select></label>
+        <label class="field" data-r="ktrmw">${tx("k_trm", K.cur)}<input data-r="ktrm" inputmode="decimal" maxlength="12" placeholder="${esc(tx("k_trm_ph"))}" value="${K.trm[K.cur] ? esc(fmtTrm(K.trm[K.cur])) : ""}"></label></div>
+      <p class="note" data-r="kfxn" aria-live="polite"></p>
       <span class="note">${tx("k_pnote")} (${esc(tarLabel())})</span></div>
     <div class="step"><button type="button" class="btn big" data-r="kgo">${ic("download")}${tx("k_go")}</button><p class="note" data-r="kst" aria-live="polite"></p></div>
    </div>`;
   const count = () => { $r("kcount").textContent = tx("k_sel", K.sel.size); pane.querySelectorAll("[data-kc]").forEach(c => { const ids = EXP.filter(e => e.cat === c.dataset.kc).map(e => e.id); const n = ids.filter(i => K.sel.has(i)).length; c.checked = n === ids.length; c.indeterminate = n > 0 && n < ids.length; });
-    pane.querySelectorAll("[data-kf]").forEach(x => { const fam = EXP.filter(e => e.sub === x.dataset.kf); x.textContent = `${fam.filter(e => K.sel.has(e.id)).length}/${fam.length}`; }); };
+    pane.querySelectorAll("[data-kf]").forEach(x => { const fam = EXP.filter(e => famKey(e) === x.dataset.kf); x.textContent = `${fam.filter(e => K.sel.has(e.id)).length}/${fam.length}`; }); };
   pane.querySelectorAll("[data-k]").forEach(c => c.addEventListener("change", () => { c.checked ? K.sel.add(c.dataset.k) : K.sel.delete(c.dataset.k); count(); }));
   pane.querySelectorAll("[data-kc]").forEach(c => c.addEventListener("change", () => { EXP.filter(e => e.cat === c.dataset.kc).forEach(e => (c.checked ? K.sel.add(e.id) : K.sel.delete(e.id))); pane.querySelectorAll("[data-k]").forEach(x => { x.checked = K.sel.has(x.dataset.k); }); count(); }));
   $r("kroute").addEventListener("click", () => { K.sel = new Set(S.R.tours.map(t => t.id)); renderKit(); });
   $r("kall").addEventListener("click", () => { K.sel = new Set(EXP.map(e => e.id)); renderKit(); });
   $r("knone").addEventListener("click", () => { K.sel = new Set(); renderKit(); });
   const pr = $r("kprice"); pr.value = priceV; $r("kmkw").hidden = priceV !== "sell"; $r("kpaxw").hidden = priceV === "none";
-  pr.addEventListener("change", () => { K.price = pr.value; $r("kmkw").hidden = pr.value !== "sell"; $r("kpaxw").hidden = pr.value === "none"; });
+  // Moneda y TRM: solo con precios; la TRM solo para USD o EUR
+  const fxView = () => {
+    const on = (S.wl ? "none" : K.price) !== "none", fx = K.cur !== "COP", n = K.trm[K.cur] || 0;
+    $r("kfxw").hidden = !on; $r("ktrmw").hidden = !fx;
+    $r("ktrmw").firstChild.textContent = tx("k_trm", K.cur);
+    $r("kfxn").hidden = !on || !fx; $r("kfxn").textContent = !fx ? "" : !n ? tx("k_trm_need", K.cur) : trmOk(n) ? tx("k_trm_ok", K.cur, fmtTrm(n)) : tx("k_trm_bad", K.cur);
+  };
+  pr.addEventListener("change", () => { K.price = pr.value; $r("kmkw").hidden = pr.value !== "sell"; $r("kpaxw").hidden = pr.value === "none"; fxView(); });
+  $r("kcur").addEventListener("change", e => { K.cur = e.target.value; const n = K.trm[K.cur]; $r("ktrm").value = n ? fmtTrm(n) : ""; saveFx(); fxView(); });
+  $r("ktrm").addEventListener("input", e => { const n = parseTrm(e.target.value); if (n) K.trm[K.cur] = n; else delete K.trm[K.cur]; saveFx(); fxView(); });
+  fxView();
   $r("kpax").addEventListener("input", e => { K.pax = Math.min(30, Math.max(1, Math.round(+e.target.value) || 1)); });
   $r("kmk").addEventListener("input", e => { K.markup = Math.max(0, Math.min(100, +e.target.value || 0)); });
   $r("klang").addEventListener("change", e => { K.lang = e.target.value; $r("ktr").hidden = K.lang === "ES"; });
@@ -2059,8 +2100,10 @@ function logoFromFile(f) {
   });
 }
 function makePDF() {
-  const wl = !!(S && S.wl), b = kitBrand();
-  return pdfRun([...K.sel], { lang: K.lang, logo: b === "et", own: b === "own" ? K.own : null, price: wl ? "none" : K.price, markup: K.markup, agency: K.agency, pax: K.pax || S.R.pax, tr: K.tr,
+  const wl = !!(S && S.wl), b = kitBrand(), price = wl ? "none" : K.price, fx = price !== "none" && K.cur !== "COP", trm = fx ? K.trm[K.cur] || 0 : 0;
+  if (fx && !trmOk(trm)) { const st = $r("kst"); if (st) st.textContent = tx(trm ? "k_trm_bad" : "k_trm_need", K.cur); const i = $r("ktrm"); if (i) i.focus(); return Promise.resolve(false); }
+  return pdfRun([...K.sel], { lang: K.lang, logo: b === "et", own: b === "own" ? K.own : null, price, markup: K.markup, agency: K.agency, pax: K.pax || S.R.pax, tr: K.tr,
+    cur: fx ? K.cur : "COP", trm,
     guides: Object.fromEntries(S.R.tours.filter(t => t.g).map(t => [t.id, t.g])) }, $r("kst"), $r("kgo"));
 }
 // o = { lang: ES|EN|FR|IT|PT, logo (Espontáneos), own ({ logo, ratio } de la agencia), price: none|net|sell, markup, agency, pax, tr }. Una sola ficha: sin portada.
@@ -2069,6 +2112,13 @@ function makePDF() {
 // Con precio, cada ficha muestra solo la tarifa por persona de los pasajeros cotizados (o.pax).
 async function buildPdf(ids, o) {
   const lang = o.lang || "ES", LB = KL[lang] || KL.ES, lg = lang.toLowerCase(), logo = !!o.logo, price = o.price || "none", mk = price === "sell" ? (+o.markup || 0) : 0;
+  // Moneda: en COP como siempre (venta redondeada a miles); en USD o EUR se convierte con la TRM del agente y se redondea hacia arriba
+  const cur = CURS.includes(o.cur) && o.cur !== "COP" && trmOk(+o.trm) ? o.cur : "COP", trm = cur === "COP" ? 1 : +o.trm;
+  const LOC = { ES: "es-CO", EN: "en-US", FR: "fr-FR", IT: "it-IT", PT: "pt-BR" }[lang] || "es-CO";
+  const money = v => { if (v == null) return LB.consult; const s = mk ? v * (1 + mk / 100) : v;
+    if (cur === "COP") return "$ " + (mk ? Math.round(s / 1000) * 1000 : Math.round(s)).toLocaleString("es-CO");
+    return (cur === "USD" ? "USD " : "€ ") + Math.ceil(s / trm - 1e-9).toLocaleString(LOC).replace(/\u202f/g, " "); };
+  const fxNote = cur === "COP" ? LB.note : LB.noteFx.replace("{0}", LB["c" + cur]).replace("{1}", fmtTrm(trm, LOC).replace(/\u202f/g, " ")).replace("{2}", cur);
   const qp = Math.min(30, Math.max(1, Math.round(+o.pax) || 2));
   if (lang !== "ES") await loadLang(lang);
   const { jsPDF } = await loadJsPDF().catch(() => { throw Object.assign(new Error("lib"), { code: "lib" }); });
@@ -2143,16 +2193,17 @@ async function buildPdf(ids, o) {
     const reco = [...(tr(e, "reco", lg) || []), ...(tr(e, "noApto", lg) || [])];
     if (reco.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.reco, reco, Mg, CW) + 3; }
     // Suplementos (dato de tarifa): solo con precios y en español (son notas del tarifario)
-    if (price !== "none" && lang === "ES" && e.p.supl.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; } y = list(LB.supl, e.p.supl.map(x => markupMoney(x, mk)), Mg, CW) + 3; }
+    if (price !== "none" && lang === "ES" && e.p.supl.length) { if (y > 250) { foot(); doc.addPage(); y = Mg; }
+      y = list(LB.supl, e.p.supl.map(x => (cur === "COP" ? markupMoney(x, mk) : String(x).replace(/\$\s?([\d.]{4,})/g, (m, n) => money(+n.replace(/\./g, ""))))), Mg, CW) + 3; }
     if (price !== "none") {
       if (y > 262) { foot(); doc.addPage(); y = Mg; }       // el cuadro de precio (≈ 22 mm) cabe hasta antes del pie
       const gv = gc ? guideVal(gc, e) : null, v0 = priceAt(e.id, qp), v = v0 != null && gv != null ? Math.round(v0 + gv / qp) : v0;
-      const cell = v != null ? "$ " + (mk ? Math.round(v * (1 + mk / 100) / 1000) * 1000 : v).toLocaleString("es-CO") : LB.consult;
+      const cell = money(v);
       doc.setFillColor(238, 242, 236); doc.rect(Mg, y, CW, 15, "F"); doc.setFont("helvetica", "bold"); doc.setTextColor(...OL); doc.setFontSize(10.5); doc.text(pdfTxt(`${LB.price} · ${qp} ${LB.pax}`), Mg + 4, y + 9.5);
       doc.setFontSize(14); doc.setTextColor(30); doc.text(pdfTxt(cell), W - Mg - 4, y + 10, { align: "right" });
       y += 19; doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(110);
       if (gTxt) { doc.text(pdfTxt(`${LB.gInc}: ${gTxt}${gv == null ? " (" + LB.consult + ")" : ""}`), Mg, y); y += 4; }
-      doc.text(pdfTxt(LB.note), Mg, y); doc.setFontSize(10);
+      doc.splitTextToSize(pdfTxt(fxNote), CW).forEach(l => { doc.text(l, Mg, y); y += 3.6; }); doc.setFontSize(10);
     }
     foot();
   }
@@ -2173,7 +2224,7 @@ async function buildPdf(ids, o) {
       if (price !== "none") { const v = (S && S.R && S.R.pax === qp && routeVeh()) || vehFor(qp), en = lg !== "es" && I18.en && (I18.en.vehicles || []).find(x => x.id === v.id);
         doc.text(pdfTxt(LB.trVeh.replace("{0}", qp).replace("{1}", (en && en.name) || v.name)), Mg, y); y += 5; }
       y += 3;
-      const cell = v => (v != null ? "$ " + (mk ? Math.round(v * (1 + mk / 100) / 1000) * 1000 : v).toLocaleString("es-CO") : LB.consult);
+      const cell = money;
       for (const [title, unit, list, name] of secs) {
         if (y > 255) { foot(); doc.addPage(); y = Mg; }
         doc.setFillColor(238, 242, 236); doc.rect(Mg, y - 5, CW, 8, "F"); doc.setFont("helvetica", "bold"); doc.setFontSize(10.5); doc.setTextColor(...OL);
@@ -2191,12 +2242,12 @@ async function buildPdf(ids, o) {
         }
         y += 4;
       }
-      doc.setFontSize(8.5); doc.setTextColor(110); [LB.trNote, ...(price !== "none" ? [LB.note] : [])].forEach(t => { doc.splitTextToSize(pdfTxt(t), CW).forEach(l => { doc.text(l, Mg, y); y += 4.2; }); });
+      doc.setFontSize(8.5); doc.setTextColor(110); [LB.trNote, ...(price !== "none" ? [fxNote] : [])].forEach(t => { doc.splitTextToSize(pdfTxt(t), CW).forEach(l => { doc.text(l, Mg, y); y += 4.2; }); });
       foot();
     }
   }
   const base = ids.length === 1 ? `Ficha_${price === "none" ? ids[0] : (byId[ids[0]].code || ids[0])}_2027` : "Portafolio_PCCC_2027";
-  const fname = `${base}_${lang}${logo ? "" : own ? "_agencia" : "_marca-blanca"}${price === "none" ? "" : price === "net" ? "_neto" : "_venta"}.pdf`;
+  const fname = `${base}_${lang}${logo ? "" : own ? "_agencia" : "_marca-blanca"}${price === "none" ? "" : price === "net" ? "_neto" : "_venta"}${price !== "none" && cur !== "COP" ? "_" + cur : ""}.pdf`;
   return { blob: doc.output("blob"), fname };
 }
 // Para la pestaña Tarifas del portal: descarga la ficha (con tarifa neta) aunque el portafolio no esté abierto

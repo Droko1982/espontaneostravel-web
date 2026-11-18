@@ -18,10 +18,10 @@
     pt: { chip: "🌿 Experiências", msg: "Temos *{n} experiências*. Escolha uma categoria 👇 ou veja todas com fotos na página.", web: "🖼️ Ver todas com fotos" },
     it: { chip: "🌿 Esperienze", msg: "Abbiamo *{n} esperienze*. Scegli una categoria 👇 o guardale tutte con le foto sulla pagina.", web: "🖼️ Guardale tutte con le foto" }
   };
-  const CONTACT_LBL = { es: "Tu WhatsApp o correo (opcional, por si no nos llega tu mensaje)", en: "Your WhatsApp or email (optional, in case your message doesn't reach us)",
-    fr: "Votre WhatsApp ou e-mail (facultatif, au cas où votre message ne nous parviendrait pas)", de: "Ihre WhatsApp-Nummer oder E-Mail (optional, falls Ihre Nachricht uns nicht erreicht)",
-    pt: "Seu WhatsApp ou e-mail (opcional, caso sua mensagem não chegue até nós)",
-    it: "Il tuo WhatsApp o la tua email (facoltativo, nel caso il tuo messaggio non ci arrivi)" };
+  // WhatsApp o correo: obligatorio para saber a quién responder (ET, 17-nov-2026)
+  const CONTACT_LBL = { es: "Tu WhatsApp (con indicativo del país) o correo, para responderte", en: "Your WhatsApp (with country code) or email, so we can reply",
+    fr: "Votre WhatsApp (avec l'indicatif du pays) ou e-mail, pour vous répondre", de: "Ihre WhatsApp-Nummer (mit Ländervorwahl) oder E-Mail, damit wir antworten können",
+    pt: "Seu WhatsApp (com o código do país) ou e-mail, para respondermos", it: "Il tuo WhatsApp (con prefisso internazionale) o la tua email, per risponderti" };
   // Autorización de uso de imagen (opcional, sin marcar por defecto). Ver terminos.html#imagenes
   const IMG_OK = {
     es: { chk: "Autorizo que Espontáneos Travel use fotos y videos donde aparezca, tomados en mis experiencias, en su web y redes (opcional; puedo retirarla cuando quiera).", wa: "📸 Uso de fotos donde aparezco:", yes: "Autorizo", no: "No autorizo" },
@@ -219,6 +219,46 @@
       cb_all: "*{tour}* si può abbinare a qualsiasi altra esperienza." }
   };
   Object.keys(JX).forEach(l => { if (UI[l]) Object.assign(UI[l], JX[l]); });
+  // Datos básicos antes de WhatsApp y horario de atención: lunes a sábado, 8:00 a. m. a 6:00 p. m., hora de Colombia (ET, 17-nov-2026)
+  const JX2 = {
+    es: { g_intro: "Antes de pasarte a WhatsApp, déjame tu nombre y un contacto para saber a quién le respondemos 😊", g_send: "Continuar a WhatsApp",
+      g_done: "¡Gracias, {name}! Te abrí WhatsApp con tu mensaje listo para enviar 📲", wa_contact: "📱 Contacto:",
+      c_bad: "Escribe un WhatsApp (con indicativo del país) o un correo válido para poder responderte.",
+      oh_closed: "🕗 Ahora estamos fuera de nuestro horario de atención (lunes a sábado, de 8:00 a. m. a 6:00 p. m., hora de Colombia{local}). Déjanos tu mensaje: te respondemos {next}.",
+      oh_tz: "🕗 Te respondemos de lunes a sábado, de 8:00 a. m. a 6:00 p. m., hora de Colombia{local}.", oh_local: " · en tu hora, de {a} a {b}",
+      oh_today: "hoy a partir de las 8:00 a. m. (hora de Colombia)", oh_tomorrow: "mañana a partir de las 8:00 a. m. (hora de Colombia)", oh_monday: "el lunes a partir de las 8:00 a. m. (hora de Colombia)" },
+    en: { g_intro: "Before I send you to WhatsApp, please leave your name and a contact so we know who we're replying to 😊", g_send: "Continue to WhatsApp",
+      g_done: "Thanks, {name}! I've opened WhatsApp with your message ready to send 📲", wa_contact: "📱 Contact:",
+      c_bad: "Please enter a WhatsApp number (with country code) or a valid email so we can reply.",
+      oh_closed: "🕗 We're currently outside our office hours (Monday to Saturday, 8:00 a.m. to 6:00 p.m., Colombia time{local}). Leave us your message: we'll reply {next}.",
+      oh_tz: "🕗 We reply Monday to Saturday, 8:00 a.m. to 6:00 p.m., Colombia time{local}.", oh_local: " · your time: {a} to {b}",
+      oh_today: "today from 8:00 a.m. (Colombia time)", oh_tomorrow: "tomorrow from 8:00 a.m. (Colombia time)", oh_monday: "on Monday from 8:00 a.m. (Colombia time)" },
+    fr: { g_intro: "Avant de vous envoyer vers WhatsApp, laissez-moi votre nom et un contact pour que nous sachions à qui répondre 😊", g_send: "Continuer vers WhatsApp",
+      g_done: "Merci, {name} ! J'ai ouvert WhatsApp avec votre message prêt à envoyer 📲", wa_contact: "📱 Contact :",
+      c_bad: "Indiquez un numéro WhatsApp (avec l'indicatif du pays) ou un e-mail valide pour que nous puissions vous répondre.",
+      oh_closed: "🕗 Nous sommes actuellement en dehors de nos horaires d'ouverture (du lundi au samedi, de 8 h à 18 h, heure de Colombie{local}). Laissez-nous votre message : nous vous répondrons {next}.",
+      oh_tz: "🕗 Nous répondons du lundi au samedi, de 8 h à 18 h, heure de Colombie{local}.", oh_local: " · chez vous : de {a} à {b}",
+      oh_today: "aujourd'hui à partir de 8 h (heure de Colombie)", oh_tomorrow: "demain à partir de 8 h (heure de Colombie)", oh_monday: "lundi à partir de 8 h (heure de Colombie)" },
+    de: { g_intro: "Bevor ich Sie zu WhatsApp weiterleite, hinterlassen Sie bitte Ihren Namen und einen Kontakt, damit wir wissen, wem wir antworten 😊", g_send: "Weiter zu WhatsApp",
+      g_done: "Danke, {name}! Ich habe WhatsApp mit Ihrer fertigen Nachricht geöffnet 📲", wa_contact: "📱 Kontakt:",
+      c_bad: "Bitte geben Sie eine WhatsApp-Nummer (mit Ländervorwahl) oder eine gültige E-Mail an, damit wir antworten können.",
+      oh_closed: "🕗 Wir sind gerade außerhalb unserer Bürozeiten (Montag bis Samstag, 8:00 bis 18:00 Uhr kolumbianischer Zeit{local}). Hinterlassen Sie uns Ihre Nachricht: Wir antworten {next}.",
+      oh_tz: "🕗 Wir antworten Montag bis Samstag von 8:00 bis 18:00 Uhr kolumbianischer Zeit{local}.", oh_local: " · bei Ihnen: {a} bis {b}",
+      oh_today: "heute ab 8:00 Uhr (kolumbianische Zeit)", oh_tomorrow: "morgen ab 8:00 Uhr (kolumbianische Zeit)", oh_monday: "am Montag ab 8:00 Uhr (kolumbianische Zeit)" },
+    pt: { g_intro: "Antes de te passar para o WhatsApp, deixe seu nome e um contato para sabermos a quem responder 😊", g_send: "Continuar para o WhatsApp",
+      g_done: "Obrigada, {name}! Abri o WhatsApp com sua mensagem pronta para enviar 📲", wa_contact: "📱 Contato:",
+      c_bad: "Informe um WhatsApp (com o código do país) ou um e-mail válido para podermos responder.",
+      oh_closed: "🕗 Agora estamos fora do nosso horário de atendimento (segunda a sábado, das 8h às 18h, horário da Colômbia{local}). Deixe sua mensagem: respondemos {next}.",
+      oh_tz: "🕗 Respondemos de segunda a sábado, das 8h às 18h, horário da Colômbia{local}.", oh_local: " · no seu horário: das {a} às {b}",
+      oh_today: "hoje a partir das 8h (horário da Colômbia)", oh_tomorrow: "amanhã a partir das 8h (horário da Colômbia)", oh_monday: "na segunda-feira a partir das 8h (horário da Colômbia)" },
+    it: { g_intro: "Prima di passarti a WhatsApp, lasciami il tuo nome e un contatto, così sappiamo a chi rispondere 😊", g_send: "Continua su WhatsApp",
+      g_done: "Grazie, {name}! Ho aperto WhatsApp con il tuo messaggio pronto da inviare 📲", wa_contact: "📱 Contatto:",
+      c_bad: "Inserisci un numero WhatsApp (con prefisso internazionale) o un'email valida, così possiamo risponderti.",
+      oh_closed: "🕗 In questo momento siamo fuori dal nostro orario di servizio (dal lunedì al sabato, dalle 8:00 alle 18:00, ora della Colombia{local}). Lasciaci il tuo messaggio: ti risponderemo {next}.",
+      oh_tz: "🕗 Rispondiamo dal lunedì al sabato, dalle 8:00 alle 18:00, ora della Colombia{local}.", oh_local: " · per te: dalle {a} alle {b}",
+      oh_today: "oggi dalle 8:00 (ora della Colombia)", oh_tomorrow: "domani dalle 8:00 (ora della Colombia)", oh_monday: "lunedì dalle 8:00 (ora della Colombia)" }
+  };
+  Object.keys(JX2).forEach(l => { if (UI[l]) Object.assign(UI[l], JX2[l]); });
   const MT = {
     es: { change: "Para cambiar un horario de tu reserva, abre *Mi viaje* con tu código: eliges la actividad y la nueva hora, y tu anfitrión recibe por WhatsApp un mensaje con todos los datos 👇",
       view: "Tu itinerario, horarios, mapa y qué llevar están en *Mi viaje*. Ábrelo con tu código de reserva 👇", open: "🔑 Abrir Mi viaje", nocode: "💬 No tengo el código",
@@ -346,6 +386,17 @@
     headSub = panel.querySelector(".espo-h-sub");
     askForm = panel.querySelector(".espo-ask"); askIn = askForm.querySelector("input");
     launch.addEventListener("click", openPanel);
+    // Con el cursor sobre Jenny, la rueda desplaza la conversación (o las opciones), nunca la página de fondo
+    const canScroll = (n, dy) => n.scrollHeight > n.clientHeight + 1 && (dy < 0 ? n.scrollTop > 0 : n.scrollTop + n.clientHeight < n.scrollHeight - 1);
+    panel.addEventListener("wheel", (e) => {
+      if (e.ctrlKey || !e.deltaY) return;                                   // ctrl + rueda = zoom del navegador
+      const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? body.clientHeight : 1);
+      const inQuick = quick.contains(e.target), inBody = body.contains(e.target);
+      if (inQuick && canScroll(quick, dy)) return;
+      if (inBody && canScroll(body, dy)) return;
+      e.preventDefault();
+      if (!inBody && canScroll(body, dy)) body.scrollBy({ top: dy, behavior: "instant" });
+    }, { passive: false });
     panel.querySelector(".espo-head__close").addEventListener("click", closePanel);
     askForm.addEventListener("submit", (e) => { e.preventDefault(); const q = askIn.value.trim(); if (!q || busy) return; askIn.value = ""; addBubble(esc(q), "user"); freeText(q); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && opened) closePanel(); });
@@ -373,12 +424,14 @@
     askForm.querySelector("button").setAttribute("aria-label", U().send);
     if (maxBtn) setMax(panel.classList.contains("espo-panel--max"), true);
   }
+  // En el celular Jenny ocupa la pantalla: la página de fondo no se mueve mientras está abierta
+  function lockPage(on) { document.documentElement.classList.toggle("espo-open", !!on); }
   function openPanel() {
-    opened = true; panel.classList.add("open"); launch.classList.add("hide");
+    opened = true; panel.classList.add("open"); launch.classList.add("hide"); lockPage(true);
     if (badge) badge.style.display = "none";
     if (!started) { started = true; start(); }
   }
-  function closePanel() { opened = false; panel.classList.remove("open"); launch.classList.remove("hide"); }
+  function closePanel() { opened = false; panel.classList.remove("open"); launch.classList.remove("hide"); lockPage(false); }
 
   function addBubble(html, who) {
     const b = el("div", "espo-msg " + who);
@@ -423,7 +476,9 @@
     ctx.q = ""; ctx.paxNow = 0;
     addBubble(esc(c.userLabel || c.label), "user");
     if (c.scan) { scanQR(); return; }
-    if (c.wa) { EspoApp.openWhatsApp(c.waMsg || composeWA(), "JENNY"); if (HAS_PLANS && ctx.leadId && ctx.consent) EspoPlans.sendLead(leadData("whatsapp")); }
+    if (c.wa && !hasBasics()) { gate(c); return; }        // primero nombre y WhatsApp o correo
+    if (c.wa) { EspoApp.openWhatsApp(waFor(c), "JENNY"); if (HAS_PLANS && ctx.leadId && ctx.consent) EspoPlans.sendLead(leadData("whatsapp"));
+      const oh = officeNoteOnce(); if (oh) { botSay([oh]).then(() => renderChips(c.keep || nextChips())); return; } }
     if (c.open) { EspoApp.openTour(c.open); closePanel(); }
     if (c.nav) { location.href = c.nav; return; }
     if (c.href) { window.open(c.href, "_blank", "noopener"); }
@@ -489,7 +544,7 @@
     if (id.startsWith("n:")) {
       const n = id.slice(2);
       if (n === "plans") return buildNode("plans");
-      if (n === "asesor") return { msgs: [(D().node("asesor", lang) || {}).respuesta], chips: [{ label: U().open_wa, kind: "wa", wa: true }, { label: U().back, to: "menu" }] };
+      if (n === "asesor") return { msgs: [(D().node("asesor", lang) || {}).respuesta, officeNoteOnce()].filter(Boolean), chips: [{ label: U().open_wa, kind: "wa", wa: true }, { label: U().back, to: "menu" }] };
       if (n === "compartido") {
         // Los 4 tours compartidos 2027: resumen y una ficha por tour (puntos de encuentro, qué incluye)
         const node = D().node("tour_compartido", lang) || {}, comp = sharedTours();
@@ -1102,7 +1157,7 @@
   }
   function noMatch(q) {
     const waMsg = U().wa_q + " " + q;
-    botSay([U().no_match]).then(() => renderChips([{ label: U().open_wa, kind: "wa", wa: true, waMsg }, { label: U().back, to: "menu" }]));
+    botSay([U().no_match, officeNoteOnce()].filter(Boolean)).then(() => renderChips([{ label: U().open_wa, kind: "wa", wa: true, waMsg }, { label: U().back, to: "menu" }]));
   }
 
   /* ---------- Escanear QR → itinerario ---------- */
@@ -1118,6 +1173,74 @@
     });
   }
 
+  /* ---------- Horario de atención (lunes a sábado, 8:00 a 18:00 hora de Colombia, UTC−5 sin horario de verano) ---------- */
+  const LOCALE = { es: "es-CO", en: "en-US", fr: "fr-FR", de: "de-DE", pt: "pt-BR", it: "it-IT" };
+  // Fuera de horario: aviso con la próxima atención; en horario, solo a quien está en otra zona horaria (con su hora local)
+  function officeNote() {
+    const now = new Date(), bog = new Date(now.getTime() - 5 * 36e5);
+    const d = bog.getUTCDay(), h = bog.getUTCHours() + bog.getUTCMinutes() / 60;
+    const open = d >= 1 && d <= 6 && h >= 8 && h < 18, sameTz = now.getTimezoneOffset() === 300;
+    let local = "";
+    if (!sameTz) {
+      try {
+        const f = new Intl.DateTimeFormat(LOCALE[lang] || "es-CO", { hour: "numeric", minute: "2-digit" });
+        const y = bog.getUTCFullYear(), m = bog.getUTCMonth(), dd = bog.getUTCDate();
+        local = U().oh_local.replace("{a}", f.format(new Date(Date.UTC(y, m, dd, 13)))).replace("{b}", f.format(new Date(Date.UTC(y, m, dd, 23))));
+      } catch (e) { local = ""; }
+    }
+    const dot = t => t.replace(/\.\.(\s|$)/g, ".$1");
+    if (open) return sameTz ? "" : dot(U().oh_tz.replace("{local}", local));
+    const next = d >= 1 && d <= 6 && h < 8 ? U().oh_today : d === 6 ? U().oh_monday : U().oh_tomorrow;
+    return dot(U().oh_closed.replace("{local}", local).replace("{next}", next));
+  }
+  function officeNoteOnce() { if (ctx.ohShown) return ""; const n = officeNote(); if (n) ctx.ohShown = true; return n; }
+
+  /* ---------- Datos básicos antes de WhatsApp: nombre + WhatsApp o correo (ET, 17-nov-2026) ---------- */
+  const okContact = v => {
+    const s = String(v || "").trim();
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s)) return true;
+    const dg = s.replace(/\D/g, "");
+    return /^[+\d\s().-]+$/.test(s) && dg.length >= 7 && dg.length <= 15;
+  };
+  const hasBasics = () => !!(ctx.name && okContact(ctx.contact) && ctx.consent);
+  // Se recuerdan durante la visita (después de aceptar la política de datos)
+  function rememberWho() { try { sessionStorage.setItem("esp_who", JSON.stringify({ name: ctx.name, contact: ctx.contact })); } catch (e) {} }
+  function recallWho() { try { const w = JSON.parse(sessionStorage.getItem("esp_who") || "null"); if (w && w.name && okContact(w.contact)) Object.assign(ctx, { name: String(w.name).slice(0, 60), contact: String(w.contact).slice(0, 80), consent: true }); } catch (e) {} }
+  // Mensaje a WhatsApp con nombre y contacto (el resumen completo ya los trae)
+  function waFor(c) {
+    const msg = c.waMsg || composeWA();
+    return ctx.formDone || !ctx.name ? msg : msg + "\n\n" + P().wa_name + " " + ctx.name + "\n" + U().wa_contact + " " + ctx.contact;
+  }
+  function gate(c) { botSay([U().g_intro, officeNoteOnce()].filter(Boolean)).then(() => renderGate(c)); }
+  function renderGate(c) {
+    const T = P();
+    quick.innerHTML = "";
+    const f = el("form", "espo-form espo-form--gate");
+    f.setAttribute("autocomplete", "on"); f.noValidate = true;
+    f.innerHTML =
+      `<label>${esc(T.f_name)}<input name="name" maxlength="60" autocomplete="name" value="${esc(ctx.name || "")}"></label>
+       <label>${esc(CONTACT_LBL[lang] || CONTACT_LBL.es)}<input name="contact" maxlength="80" autocomplete="tel" inputmode="email" value="${esc(ctx.contact || "")}"></label>
+       <label class="espo-form__chk espo-form__consent"><input type="checkbox" name="consent"${ctx.consent ? " checked" : ""}> <span>${esc(U().consent).replace("{link}", `<a href="/privacidad.html" target="_blank" rel="noopener">${esc(U().consent_link)}</a>`)}</span></label>
+       <p class="espo-form__err" hidden></p>
+       <button class="btn btn--primary btn--sm" type="submit">${esc(U().g_send)}</button>`;
+    f.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = f.elements.name.value.trim(), contact = f.elements.contact.value.trim(), err = f.querySelector(".espo-form__err");
+      const bad = (m, x) => { err.textContent = m; err.hidden = false; x.focus(); };
+      if (!name) return bad(T.f_req, f.elements.name);
+      if (!okContact(contact)) return bad(U().c_bad, f.elements.contact);
+      if (!f.elements.consent.checked) return bad(U().consent_req, f.elements.consent);
+      Object.assign(ctx, { name, contact, consent: true }); rememberWho();
+      f.remove(); addBubble(esc(name + " · " + contact), "user");
+      // El equipo recibe el contacto aunque el mensaje de WhatsApp no llegue (bandeja de leads del portal y correo)
+      if (HAS_PLANS) { if (!ctx.leadId) ctx.leadId = EspoPlans.newLeadId(); EspoPlans.sendLead(Object.assign(leadData("whatsapp"), { gate: true })); }
+      EspoApp.openWhatsApp(waFor(c), "JENNY");
+      botSay([U().g_done.replace("{name}", esc(name.split(/\s+/)[0]))]).then(() => renderChips(c.keep || nextChips()));
+    });
+    body.appendChild(f); scrollDown();
+    setTimeout(() => { try { f.elements[ctx.name ? "contact" : "name"].focus({ preventScroll: true }); } catch (e) {} }, 50);
+  }
+
   /* ---------- Formulario de datos (dentro del chat) ---------- */
   function renderForm() {
     const T = P();
@@ -1125,7 +1248,7 @@
     const today = EspoPlans.localISO();
     const guide = ctx.guide || lang;   // guías en los 6 idiomas (alemán con suplemento, como los demás distintos al español)
     const f = el("form", "espo-form");
-    f.setAttribute("autocomplete", "on");
+    f.setAttribute("autocomplete", "on"); f.noValidate = true;
     f.innerHTML =
       `<label>${esc(T.f_name)}<input name="name" required maxlength="60" autocomplete="name" value="${esc(ctx.name || "")}"></label>
        <div class="espo-form__row">
@@ -1134,7 +1257,7 @@
        </div>
        <label>${esc(T.f_hotel)}<input name="hotel" maxlength="80" value="${esc(ctx.hotel || "")}"></label>
        <label>${esc(U().f_guide)}<select name="guide">${["es", "en", "fr", "de", "pt", "it"].map(c => `<option value="${c}"${c === guide ? " selected" : ""}>${LANGNAME[c]}</option>`).join("")}</select></label>
-       <label>${esc(CONTACT_LBL[lang] || CONTACT_LBL.es)}<input name="contact" maxlength="80" autocomplete="tel" inputmode="email" value="${esc(ctx.contact || "")}"></label>
+       <label>${esc(CONTACT_LBL[lang] || CONTACT_LBL.es)}<input name="contact" required maxlength="80" autocomplete="tel" inputmode="email" value="${esc(ctx.contact || "")}"></label>
        <label>${esc(T.f_diet)}<input name="diet" maxlength="80" value="${esc(ctx.diet || "")}"></label>
        <label>${esc(T.f_notes)}<input name="notes" maxlength="160" value="${esc(ctx.notes || "")}"></label>
        <label class="espo-form__chk"><input type="checkbox" name="access"${ctx.access ? " checked" : ""}> ${esc(T.f_access)}</label>
@@ -1148,9 +1271,11 @@
       const v = (n) => (f.elements[n].value || "").trim();
       const err = f.querySelector(".espo-form__err");
       if (!v("name")) { err.textContent = T.f_req; err.hidden = false; f.elements.name.focus(); return; }
+      if (!okContact(v("contact"))) { err.textContent = U().c_bad; err.hidden = false; f.elements.contact.focus(); return; }
       if (!f.elements.consent.checked) { err.textContent = U().consent_req; err.hidden = false; f.elements.consent.focus(); return; }
-      Object.assign(ctx, { consent: true, name: v("name"), date: v("date"), party: parseInt(v("people"), 10) || 1, hotel: v("hotel"), guide: v("guide"),
+      Object.assign(ctx, { consent: true, formDone: true, name: v("name"), date: v("date"), party: parseInt(v("people"), 10) || 1, hotel: v("hotel"), guide: v("guide"),
         diet: v("diet"), notes: v("notes"), contact: v("contact"), access: f.elements.access.checked, kit: f.elements.kit.checked, imagen: f.elements.imagen.checked });
+      rememberWho();
       f.remove();
       addBubble(esc(ctx.name + " · " + ctx.party + " · " + (ctx.date ? fmtDate(ctx.date) : T.flexible)), "user");
       go("summary");
@@ -1233,7 +1358,7 @@
       base.push({ label: T.share, share: packText(pack).replace(/\*/g, "") });
       base.push({ label: U().m_pagos, to: "n:pagos" }, { label: U().back, to: "menu" });
       ctx.sumBase = base;
-      return { msgs: [T.sum_ready.replace("{name}", esc(ctx.name)), sum.join("\n")].concat(q.msgs, [packText(pack), weatherText(pack)]).filter(Boolean), chips: withQuote(base, q) };
+      return { msgs: [T.sum_ready.replace("{name}", esc(ctx.name)), sum.join("\n")].concat(q.msgs, [packText(pack), weatherText(pack), officeNoteOnce()]).filter(Boolean), chips: withQuote(base, q) };
     });
   }
 
@@ -1257,7 +1382,7 @@
   }
   // Regla 5: tour + código, personas, fecha, hotel e idioma
   function composeWA() {
-    if (!HAS_PLANS || !ctx.name) {
+    if (!HAS_PLANS || !ctx.formDone) {
       const parts = [U().wa_default];
       if (ctx.tourName) parts.push("", U().wa_tour + " " + ctx.tourName + (ctx.tourCode ? " (" + ctx.tourCode + ")" : ""));
       return parts.join("\n");
@@ -1271,6 +1396,7 @@
     }
     if (!ctx.planId && (ctx.extras || []).length) parts.push(SL().wa_extra + " " + extrasText());
     parts.push(T.wa_name + " " + ctx.name);
+    if (ctx.contact) parts.push(U().wa_contact + " " + ctx.contact);
     parts.push(T.wa_date + " " + (ctx.date ? ctx.date + " (" + fmtDate(ctx.date) + ")" : T.flexible));
     parts.push(T.wa_people + " " + ctx.party);
     if (ctx.hotel) parts.push(T.wa_hotel + " " + ctx.hotel);
@@ -1308,12 +1434,12 @@
     const newLang = e.detail; if (newLang === lang) return;
     lang = newLang; if (!launchTxt) return;      // idioma fijado antes de construir el widget
     refreshStatic();
-    if (opened && started) { for (const k in ctx) delete ctx[k]; start(); } else started = false;
+    if (opened && started) { for (const k in ctx) delete ctx[k]; recallWho(); start(); } else started = false;
   });
 
   /* ---------- Arranque (QR impreso: index.html?plan=ID&src=aliado) ---------- */
   function startAt(id) {
-    opened = true; started = true; panel.classList.add("open"); launch.classList.add("hide");
+    opened = true; started = true; panel.classList.add("open"); launch.classList.add("hide"); lockPage(true);
     if (badge) badge.style.display = "none";
     refreshStatic(); body.innerHTML = "";
     botSay([greeting()]).then(() => go(id));
@@ -1326,7 +1452,7 @@
   };
   function boot() {
     if (window.EspoApp) lang = EspoApp.getLang();
-    build();
+    build(); recallWho();
     const qs = new URLSearchParams(location.search);
     const src = (qs.get("src") || "").slice(0, 40);
     try { if (src) sessionStorage.setItem("esp_src", src); } catch (e) {}     // hotel aliado: se recuerda durante la visita
