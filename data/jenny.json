@@ -1689,41 +1689,6 @@
    "ubicacion_publica": false
   },
   {
-   "id_web": "avescolibri",
-   "codigo": "ETHD059",
-   "cat": "naturaleza",
-   "nombre": "Aves · Retorno del Colibrí (comederos y fotografía)",
-   "duracion_horas": 4,
-   "horario": null,
-   "incluye": [
-    "Transporte",
-    "Desayuno",
-    "Guía de aves",
-    "Binoculares",
-    "Lista de chequeo de aves",
-    "Material fotográfico en digital"
-   ],
-   "notas": [
-    "Sale desde el Quindío.",
-    "Lleva ropa en tonos verdes, cafés u oliva (sin blanco ni colores llamativos), de manga larga, impermeable y botas de trekking.",
-    "Si tienes binoculares o cámara, tráelos.",
-    "Lleva repelente e hidratación.",
-    "Mínimo 2 personas; si el grupo es grande, se divide.",
-    "Sale en la mañana; la hora depende de la ruta y de las especies que quieras ver."
-   ],
-   "descripcion": "Una reserva dedicada a la conservación, con jardines y comederos diseñados para fotografiar colibríes y aves endémicas a corta distancia. La actividad es casi toda estacionaria: el sueño del fotógrafo de naturaleza.",
-   "departamentos": [
-    "Tolima"
-   ],
-   "modalidad": "privado",
-   "almuerzo": true,
-   "combina": [
-    "paramo",
-    "palmacera"
-   ],
-   "ubicacion_publica": false
-  },
-  {
    "id_web": "avescampanario",
    "codigo": "ETHD060",
    "cat": "naturaleza",
@@ -1753,8 +1718,7 @@
    "modalidad": "privado",
    "almuerzo": true,
    "combina": [
-    "paramo",
-    "avescolibri"
+    "paramo"
    ],
    "ubicacion_publica": false
   },

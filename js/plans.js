@@ -163,7 +163,7 @@
     montana: ["cocorasalento", "fulldayfcs", "filandia", "compartidocs", "cocoraacaime", "palmacera", "cocoraacaime2", "cordillera", "barbasbremen", "otunquimbaya", "rioblanco", "canopy",
       "bicicafe", "bicicordillera", "bicirios", "bicifilandia", "bicipalma", "biciconexion", "bicimonos"],
     paramo: ["paramo", "avescampanario"], noche: ["ranas"], termales: ["termales"],
-    aves: ["aves", "avesconocedores", "avesrancho", "avescamino", "avesbremen", "avescircasia", "avescaicedonia", "avescolibri"],
+    aves: ["aves", "avesconocedores", "avesrancho", "avescamino", "avesbremen", "avescircasia", "avescaicedonia"],
     valle: ["finca", "campesino", "cacao", "cana", "abejas", "frutas", "platano", "siembra", "orquideas", "romelia"],
     bienestar: ["conexion", "yoga", "senderovida", "equino", "rituales", "tallerrespiracion"], hielo: ["respiracion"],
     aire: ["parapente", "paratrike"], caballo: ["cabalgatamaria", "cabalgatadeluxe"],

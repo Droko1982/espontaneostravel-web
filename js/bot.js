@@ -1016,7 +1016,9 @@
 
   /* ---------- Texto libre ---------- */
   // Palabras genéricas que no identifican una experiencia (evita "quiero reservar" → "yoga en reserva natural")
-  const STOP = ["tour", "experiencia", "experience", "visita", "parque", "city", "cata", "full", "day", "reserva", "reservas", "natural",
+  // «birds», «oiseaux», «vogel», «uccelli» encabezan los nombres de las rutas de aves («Birds · Rancho California»): son genéricas
+  // y las resuelve la regla de «aves» en freeText (aficionados o, si habla de rutas, conocedores)
+  const STOP = ["birds", "oiseaux", "vogel", "uccelli", "tour", "experiencia", "experience", "visita", "parque", "city", "cata", "full", "day", "reserva", "reservas", "natural",
     "naturales", "colombia", "quindio", "local", "locales", "mundo", "world", "total", "coffee", "cafe", "plato", "sesion", "tradicional",
     "experiencial", "especial", "origen", "bienestar", "conexion", "manjares", "senderismo", "ecosistema", "unico", "aficionados", "trek",
     "esperienza", "esperienze", "parco", "caffe", "degustazione", "riserva", "riserve", "naturale", "naturali", "locale", "locali", "mondo",
@@ -1114,6 +1116,12 @@
     });
     // Nombres que la gente usa y no salen de las palabras del título ("tour del café", "parque del café")
     Object.keys(ALIAS).forEach(id => { if (bestScore < 10 && ALIAS[id].some(a => t.indexOf(a) >= 0)) { bestScore = 10; best = id; strong = true; } });
+    // «aves» es corta y no cuenta como palabra del nombre: «¿tienen tour de aves?» → Aves para aficionados; «rutas de aves» → para conocedores
+    if (bestScore < 5 && ["aves", "pajaros", "birds", "bird", "oiseaux", "oiseau", "vogel", "uccelli"].some(w => hasWord(t, w))) {
+      const r = ["rutas", "ruta", "routes", "route", "rotas", "rota", "parcours", "routen", "itinerari", "percorsi", "conocedor", "conocedores", "conhecedores",
+        "connaisseurs", "kenner", "expertos", "experts", "esperti"].some(w => hasWord(t, w)) ? "avesconocedores" : "aves";
+      if (D().published(r)) { bestScore = 5; best = r; strong = true; }
+    }
     if (bestScore < 5) best = null;
     // «compartido» + una experiencia → su versión compartida (Cacao → Cacao en compartido); el tema ya quedó resuelto
     if (best && sc.compartido) {

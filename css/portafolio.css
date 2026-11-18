@@ -650,6 +650,9 @@
 .pf .subgrp > summary > .ic { margin-left: auto; flex: none; transition: transform .2s; }
 .pf .subgrp[open] > summary > .ic { transform: rotate(180deg); }
 .pf .subgrp > .cards { padding: 0 12px 12px; }
+/* Grupo plegado (Aves, Bicicleta): «Haz clic aquí para ver las rutas» cerrado / «Ocultar rutas» abierto */
+.pf details > summary .sub.sg-act { color: var(--cherry); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.pf details:not([open]) > summary .sg-o, .pf details[open] > summary .sg-c { display: none; }
 .pf .kchk .kfold > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: .9rem; font-weight: 700; min-height: 30px; }
 .pf .kchk .kfold > summary::-webkit-details-marker { display: none; }
 .pf .kchk .kfold > summary .ic { transform: rotate(-90deg); transition: transform .2s; color: var(--muted); }

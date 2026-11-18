@@ -122,7 +122,7 @@ const UI = {
     al_cross: "Día {0}: «{1}» se cruza con «{2}» (al terminar «{2}» llegarían hacia las {3} y «{1}» sale a más tardar a las {4}). Pásalo a otro día.",
     al_long: "Día {0}: ≈ {1} entre tours y trayectos. Es una jornada muy larga: reparte los tours en otro día.", al_late: "Día {0}: el regreso al hotel sería hacia las {1}, muy tarde. Revisa si conviene pasar un tour a otro día.",
     al_arr: "Día 1 es el de llegada: el vuelo debe aterrizar en {1} a más tardar a las {2} para hacer «{0}».", al_arr_no: "Día 1 es el de llegada: «{0}» no alcanza ese día (el vuelo tendría que aterrizar en {1} antes de las 5:00 a. m.). Pásalo al Día 2.",
-    sg_hint: "toca para ver u ocultar", sg_routes: "ficha general + {0} rutas", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
+    sg_see_r: "Haz clic aquí para ver las rutas", sg_hide_r: "Ocultar rutas", sg_see_x: "Haz clic aquí para ver las {0} experiencias", sg_hide_x: "Ocultar experiencias", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
     k_tr: "Agregar la página de traslados (aeropuerto – hotel y entre ciudades)",
     g_lbl: "guía en {0}", g_match: "Tour de {0}: aplica la guianza de {1}.", g_add: "+ Sumar {0} a la ruta", g_in: "✓ {0} en la ruta (quitar)", g_on: "{0} sumada a la ruta · {1} (Día {2})", g_off: "{0} quitada de la ruta · {1}",
     g_route: "Guía en otro idioma", g_none: "Sin suplemento de guianza", g_srv: "por servicio", g_row: "{0} · {1}", g_div: "{0} ÷ {1} pax"
@@ -213,7 +213,7 @@ const UI = {
     al_cross: "Day {0}: «{1}» overlaps with «{2}» (after «{2}» the group would arrive around {3}, and «{1}» starts {4} at the latest). Move it to another day.",
     al_long: "Day {0}: ≈ {1} of tours and driving. That is a very long day: spread the tours over another day.", al_late: "Day {0}: the group would be back at the hotel around {1}, which is late. Consider moving a tour to another day.",
     al_arr: "Day 1 is the arrival day: the flight must land at {1} by {2} at the latest to do «{0}».", al_arr_no: "Day 1 is the arrival day: «{0}» doesn't fit that day (the flight would have to land at {1} before 5:00 a.m.). Move it to Day 2.",
-    sg_hint: "tap to show or hide", sg_routes: "overview + {0} routes", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
+    sg_see_r: "Click here to see the routes", sg_hide_r: "Hide routes", sg_see_x: "Click here to see the {0} experiences", sg_hide_x: "Hide experiences", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
     k_tr: "Add the transfers page (airport – hotel and between cities)",
     g_lbl: "guide in {0}", g_match: "{0} tour: the {1} guiding rate applies.", g_add: "+ Add {0} to the route", g_in: "✓ {0} in the route (remove)", g_on: "{0} added to the route · {1} (Day {2})", g_off: "{0} removed from the route · {1}",
     g_route: "Guide in another language", g_none: "No guiding supplement", g_srv: "per service", g_row: "{0} · {1}", g_div: "{0} ÷ {1} pax"
@@ -237,7 +237,8 @@ const lineSeal = k => (k === "compartidos" ? `<img class="ico seal-i lseal" src=
 const lineName = k => (LINE[L()] || LINE.es)[k] || catName(k);
 // Familias largas que se pliegan dentro de su línea (índice del Inicio, Experiencias y Kit de venta): Aves y Bicicleta (ET, nov-2026).
 // Se agrupan por «sub» (data/portafolio.json) en el lugar de su primera experiencia; con menos de 3 a la vista no se pliegan.
-// Aves (ET, 17-nov-2026): «Aves para aficionados» va como ficha aparte; «Aves para conocedores» encabeza el grupo con sus 7 rutas.
+// Aves (ET, 17-nov-2026): «Aves para aficionados» va como ficha aparte; «Aves para conocedores» encabeza el grupo con sus rutas
+// (6 desde el 18-nov-2026: ETHD059 Retorno del Colibrí salió del portafolio, ver RETIRADAS en tools/build-portafolio.js).
 const FOLD = { "Aves": ["Aves para conocedores", "Birds for experts"], "Bicicleta": ["Bicicleta", "Cycling"] };
 const FOLD_OUT = new Set(["aves"]);                       // de la familia, pero no se pliegan
 const FOLD_HEAD = { "Aves": "avesconocedores" };          // ficha que encabeza el grupo (va primero)
@@ -247,8 +248,10 @@ function famOf(items, k) {
   const fam = items.filter(x => famKey(x) === k), h = FOLD_HEAD[k];
   return h ? fam.filter(x => x.id === h).concat(fam.filter(x => x.id !== h)) : fam;
 }
-// Texto de apoyo del grupo: «ficha general + 7 rutas» cuando lo encabeza una ficha
-const foldSub = (k, fam) => (FOLD_HEAD[k] && fam.some(e => e.id === FOLD_HEAD[k]) ? tx("sg_routes", fam.length - 1) : tx("n_exp", fam.length));
+// Texto del grupo plegado (ET, 18-nov-2026): cerrado invita a abrirlo («Haz clic aquí para ver las rutas»), abierto dice
+// «Ocultar rutas». La CSS muestra uno u otro según details[open].
+const foldHint = (k, fam) => { const r = !!(FOLD_HEAD[k] && fam.some(e => e.id === FOLD_HEAD[k]));
+  return `<span class="sub sg-act sg-c">${esc(r ? tx("sg_see_r") : tx("sg_see_x", fam.length))}</span><span class="sub sg-act sg-o">${esc(r ? tx("sg_hide_r") : tx("sg_hide_x"))}</span>`; };
 function foldList(items, one, wrap) {
   const out = [], seen = new Set();
   items.forEach(e => {
@@ -1115,7 +1118,7 @@ function renderList() {
         ${icoRow(e, "sm")}${nearLine(e)}<div class="meta tl">${esc(tr(e, "tagline"))}</div>
         <div class="price">${priceLine(e)}</div></div></button>`;
     // Aves y Bicicleta: una sola fila plegable dentro de la línea (se abre con un clic; abierta al buscar o filtrar)
-    const sub = (s, fam) => { const kk = "s:" + s; return `<details class="subgrp" data-sg="${esc(kk)}"${(kk in S.open ? S.open[kk] : auto) ? " open" : ""}><summary><span class="fn">${esc(foldName(s))}</span><span class="gn">${fam.length}</span><span class="sub">${esc(FOLD_HEAD[s] ? foldSub(s, fam) + " · " + tx("sg_hint") : tx("sg_hint"))}</span>${ic("chev", "sm")}</summary><div class="cards">${fam.map(card).join("")}</div></details>`; };
+    const sub = (s, fam) => { const kk = "s:" + s; return `<details class="subgrp" data-sg="${esc(kk)}"${(kk in S.open ? S.open[kk] : auto) ? " open" : ""}><summary><span class="fn">${esc(foldName(s))}</span><span class="gn">${fam.length}</span>${foldHint(s, fam)}${ic("chev", "sm")}</summary><div class="cards">${fam.map(card).join("")}</div></details>`; };
     html += `<details class="group" data-g="${k}"${isComp ? ' id="tours-compartidos"' : ""}${(k in S.open ? S.open[k] : auto) ? " open" : ""}><summary><i style="background:${c.color}"></i><span class="gname">${esc(lineName(k))}</span>${lineSeal(k)}<span class="gn">${items.length}</span><span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span>${ic("chev", "sm")}</summary>${isComp ? `<p class="gintro">${esc(tx("comp_intro"))}</p>` : ""}<div class="cards">` +
       foldList(items, card, sub) + `</div>${isComp ? `<div class="gextra">${compTraslados()}${compImportante()}</div>` : ""}</details>`;
   }
@@ -1918,7 +1921,7 @@ function renderMapPane() {
         <li>${ic("eye", "sm")}<span>${esc(tx("ic_b2b"))}</span></li><li>${ic("tag", "sm")}<span>${esc(tx("ic_code"))}</span></li></ul></div>
     <div class="section"><h3>${ic("grid")}${tx("idx_t")}</h3><p class="note">${tx("idx_l")}</p><div class="pidx">${Object.entries(D.cats).filter(([k]) => ccount[k]).map(([k, c]) => `<div class="pidx-g">
       <button type="button" class="pidx-h" data-idx="${k}"><i style="background:${c.color}"></i>${esc(lineName(k))}${lineSeal(k)} <span class="sub">${ccount[k]}</span></button>
-      <ul>${foldList(EXP.filter(e => e.cat === k), idxLi, (s, fam) => `<li class="fold"><details><summary>${ic("chev", "sm")}<span class="fn">${esc(foldName(s))}</span><span class="sub">${esc(foldSub(s, fam))}</span></summary><ul>${fam.map(idxLi).join("")}</ul></details></li>`)}</ul></div>`).join("")}</div></div>
+      <ul>${foldList(EXP.filter(e => e.cat === k), idxLi, (s, fam) => `<li class="fold"><details><summary>${ic("chev", "sm")}<span class="fn">${esc(foldName(s))}</span>${foldHint(s, fam)}</summary><ul>${fam.map(idxLi).join("")}</ul></details></li>`)}</ul></div>`).join("")}</div></div>
     <div class="section"><h3>${ic("star")}${tx("shortcuts")}</h3><div class="zbtns"><button type="button" class="btn ghost" data-go-tab="exp">${ic("grid", "sm")}${tx("sc_exp")}</button><button type="button" class="btn ghost" data-go-tab="ruta">${ic("route", "sm")}${tx("sc_ruta")}</button><button type="button" class="btn ghost" data-go-tab="kit">${ic("file", "sm")}${tx("sc_kit")}</button><button type="button" class="btn ghost" data-go-tab="cond">${ic("info", "sm")}${tx("sc_cond")}</button></div></div>`;
   pane.querySelectorAll("[data-go-tab]").forEach(b => b.addEventListener("click", () => setTab(b.dataset.goTab)));
   pane.querySelectorAll("[data-cond-go]").forEach(b => b.addEventListener("click", () => { setTab("cond"); jumpCond(b.dataset.condGo); }));
