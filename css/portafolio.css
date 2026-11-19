@@ -493,6 +493,9 @@
 .pf .rdet > summary::-webkit-details-marker { display: none; }
 .pf .rdet .note { margin: 10px 0 8px; }
 .pf .rcombo { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+/* Ficha en PDF: idioma y botón */
+.pf .fpdf { display: grid; gap: 6px; }
+.pf .fpdf .field { font-size: .82rem; }
 .pf .combo button { display: flex; gap: 10px; align-items: center; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 6px; text-align: left; font-size: .86rem; }
 .pf .combo button:hover { border-color: var(--olive); }
 .pf .combo .ct { display: inline-block; font-size: .8rem; border-radius: 999px; padding: 4px 10px; background: var(--surface-2); font-weight: 600; justify-self: start; }

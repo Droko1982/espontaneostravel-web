@@ -122,7 +122,7 @@ const UI = {
     al_cross: "Día {0}: «{1}» se cruza con «{2}» (al terminar «{2}» llegarían hacia las {3} y «{1}» sale a más tardar a las {4}). Pásalo a otro día.",
     al_long: "Día {0}: ≈ {1} entre tours y trayectos. Es una jornada muy larga: reparte los tours en otro día.", al_late: "Día {0}: el regreso al hotel sería hacia las {1}, muy tarde. Revisa si conviene pasar un tour a otro día.",
     al_arr: "Día 1 es el de llegada: el vuelo debe aterrizar en {1} a más tardar a las {2} para hacer «{0}».", al_arr_no: "Día 1 es el de llegada: «{0}» no alcanza ese día (el vuelo tendría que aterrizar en {1} antes de las 5:00 a. m.). Pásalo al Día 2.",
-    sg_see_r: "Haz clic aquí para ver las rutas", rt_btn: "Rutas ({0})", rt_hide: "Ocultar rutas", rt_title: "Rutas de {0}", rt_nav: "Rutas", rt_note: "Cada ruta tiene su ficha; la tarifa es la de la ficha principal, la misma para todas.", rt_card: "Tarifa en la ficha principal", rt_sub: "Esta ruta usa la tarifa de «{0}» ({1}), la misma para todas sus rutas.", rt_main: "Ver la ficha principal", fp_btn: "Descargar ficha en PDF", fp_making: "Armando la ficha en PDF…", fp_wm: "Documento confidencial · Espontáneos Travel", sg_hide_r: "Ocultar rutas", sg_see_x: "Haz clic aquí para ver las {0} experiencias", sg_hide_x: "Ocultar experiencias", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
+    sg_see_r: "Haz clic aquí para ver las rutas", rt_btn: "Rutas ({0})", rt_hide: "Ocultar rutas", rt_title: "Rutas de {0}", rt_nav: "Rutas", rt_note: "Cada ruta tiene su ficha; la tarifa es la de la ficha principal, la misma para todas.", rt_card: "Tarifa en la ficha principal", rt_sub: "Esta ruta usa la tarifa de «{0}» ({1}), la misma para todas sus rutas.", rt_main: "Ver la ficha principal", fp_btn: "Descargar ficha en PDF", fp_making: "Armando la ficha en PDF…", fp_wm: "Documento confidencial · Espontáneos Travel", fp_lang: "Idioma de la ficha", full_c: "Día completo", half_c: "Medio día", sg_hide_r: "Ocultar rutas", sg_see_x: "Haz clic aquí para ver las {0} experiencias", sg_hide_x: "Ocultar experiencias", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
     k_fmt: "Formato del PDF", k_fmt_i: "Itinerario de mi ruta, día a día", k_fmt_i0: "(primero arma tu ruta)", k_fmt_c: "Catálogo: una hoja por experiencia",
     k_it: "Itinerario: {0}. La última hoja es el resumen del itinerario con sus valores.", k_it0: "Itinerario: {0}. La última hoja es el resumen del itinerario.",
     k_it_arr: "llegada por {0}", k_it_dep: "salida por {0}", k_it_x: "Las elegidas que no están en tu ruta ({0}) van al final como opcionales.",
@@ -218,7 +218,7 @@ const UI = {
     al_cross: "Day {0}: «{1}» overlaps with «{2}» (after «{2}» the group would arrive around {3}, and «{1}» starts {4} at the latest). Move it to another day.",
     al_long: "Day {0}: ≈ {1} of tours and driving. That is a very long day: spread the tours over another day.", al_late: "Day {0}: the group would be back at the hotel around {1}, which is late. Consider moving a tour to another day.",
     al_arr: "Day 1 is the arrival day: the flight must land at {1} by {2} at the latest to do «{0}».", al_arr_no: "Day 1 is the arrival day: «{0}» doesn't fit that day (the flight would have to land at {1} before 5:00 a.m.). Move it to Day 2.",
-    sg_see_r: "Click here to see the routes", rt_btn: "Routes ({0})", rt_hide: "Hide routes", rt_title: "Routes of {0}", rt_nav: "Routes", rt_note: "Each route has its own sheet; the rate is the main sheet's, the same for all of them.", rt_card: "Rate on the main sheet", rt_sub: "This route uses the rate of «{0}» ({1}), the same for all its routes.", rt_main: "See the main sheet", fp_btn: "Download sheet as PDF", fp_making: "Preparing the PDF sheet…", fp_wm: "Confidential document · Espontáneos Travel", sg_hide_r: "Hide routes", sg_see_x: "Click here to see the {0} experiences", sg_hide_x: "Hide experiences", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
+    sg_see_r: "Click here to see the routes", rt_btn: "Routes ({0})", rt_hide: "Hide routes", rt_title: "Routes of {0}", rt_nav: "Routes", rt_note: "Each route has its own sheet; the rate is the main sheet's, the same for all of them.", rt_card: "Rate on the main sheet", rt_sub: "This route uses the rate of «{0}» ({1}), the same for all its routes.", rt_main: "See the main sheet", fp_btn: "Download sheet as PDF", fp_making: "Preparing the PDF sheet…", fp_wm: "Confidential document · Espontáneos Travel", fp_lang: "Sheet language", full_c: "Full day", half_c: "Half day", sg_hide_r: "Hide routes", sg_see_x: "Click here to see the {0} experiences", sg_hide_x: "Hide experiences", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
     k_fmt: "PDF format", k_fmt_i: "My route's itinerary, day by day", k_fmt_i0: "(build your route first)", k_fmt_c: "Catalogue: one page per experience",
     k_it: "Itinerary: {0}. The last page is the itinerary summary with its prices.", k_it0: "Itinerary: {0}. The last page is the itinerary summary.",
     k_it_arr: "arrival at {0}", k_it_dep: "departure from {0}", k_it_x: "The chosen experiences that are not in your route ({0}) go at the end as optional.",
@@ -231,8 +231,11 @@ const UI = {
 };
 const L = () => (CTX && CTX.lang === "en" ? "en" : "es");
 function tx(k, ...a) { let s = (UI[L()] && UI[L()][k]) || UI.es[k] || k; a.forEach((v, i) => { s = s.split("{" + i + "}").join(String(v)); }); return s; }
-const LANGS = { es: { ES: "Español", EN: "Inglés", IT: "Italiano", PT: "Portugués", FR: "Francés", LSC: "Lengua de señas" }, en: { ES: "Spanish", EN: "English", IT: "Italian", PT: "Portuguese", FR: "French", LSC: "Sign language" } };
-const langName = k => (LANGS[L()] || LANGS.es)[k] || k;
+const LANGS = { es: { ES: "Español", EN: "Inglés", IT: "Italiano", PT: "Portugués", FR: "Francés", LSC: "Lengua de señas" }, en: { ES: "Spanish", EN: "English", IT: "Italian", PT: "Portuguese", FR: "French", LSC: "Sign language" },
+  fr: { ES: "Espagnol", EN: "Anglais", IT: "Italien", PT: "Portugais", FR: "Français", LSC: "Langue des signes" }, it: { ES: "Spagnolo", EN: "Inglese", IT: "Italiano", PT: "Portoghese", FR: "Francese", LSC: "Lingua dei segni" },
+  pt: { ES: "Espanhol", EN: "Inglês", IT: "Italiano", PT: "Português", FR: "Francês", LSC: "Língua de sinais" } };
+// lg: idioma de la ficha en PDF; sin él (o desde un .map, que pasa el índice), el del portal
+const langName = (k, lg) => (LANGS[typeof lg === "string" ? lg : L()] || LANGS.es)[k] || k;
 // Texto de una experiencia en el idioma de la interfaz (o del PDF)
 function tr(e, f, lang) {
   const lg = (lang || L()).toLowerCase();
@@ -1074,7 +1077,7 @@ const TC_ROWS = [["ET-TC-CIRCASIA", "Hoteles en Circasia → punto de encuentro 
   ["ET-TC-CORDILLERA", "Hoteles en Córdoba, Buenavista y Pijao → punto de encuentro en Armenia", "Hotels in Córdoba, Buenavista and Pijao → meeting point in Armenia"],
   ["ET-TC-FILANDIA", "Hoteles en Filandia → punto de encuentro en Armenia", "Hotels in Filandia → meeting point in Armenia"]];
 const hm12 = h => { const [a, b] = String(h).split(":").map(Number); const pm = a >= 12, en = L() === "en"; return `${a % 12 || 12}:${String(b || 0).padStart(2, "0")} ${pm ? (en ? "p.m." : "p. m.") : (en ? "a.m." : "a. m.")}`; };
-const meetOf = e => tr(e, "meet") || [];
+const meetOf = (e, lg) => tr(e, "meet", lg) || [];
 function compTraslados() {
   if (S.wl) return "";
   const rows = TC_ROWS.filter(([c]) => PR.svc.has(c)); if (!rows.length) return "";
@@ -1255,7 +1258,7 @@ function openFicha(id, how) {
         ${p.supl.length || GUIDES().length ? `<div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${p.supl.length ? `<ul>${p.supl.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${guideSup(e)}</div>` : ""}</div>` : ""}
       <div class="btnrow col"><button type="button" class="btn add" data-add="${id}" aria-pressed="${inRoute(id)}">${inRoute(id) ? tx("in_route") : tx("add_route_l")}</button>
         ${CTX.onRequest && !wl ? `<button type="button" class="btn ghost" data-r="freq">${ic("send", "sm")}${tx("request")}</button>` : ""}
-        ${CTX.fichaPdf ? `<button type="button" class="btn ghost" data-r="fpdf">${ic("download", "sm")}${tx("fp_btn")}</button><p class="note" data-r="fpst" aria-live="polite"></p>` : ""}</div>
+        ${CTX.fichaPdf ? `<div class="fpdf"><label class="field">${tx("fp_lang")}<select data-r="fplang">${Object.entries(LNAME).map(([k, v]) => `<option value="${k}"${k === (FPL || (L() === "en" ? "EN" : "ES")) ? " selected" : ""}>${v}</option>`).join("")}</select></label><button type="button" class="btn ghost" data-r="fpdf">${ic("download", "sm")}${tx("fp_btn")}</button><p class="note" data-r="fpst" aria-live="polite"></p></div>` : ""}</div>
       ${(!wl && p.impacto) || e.com || e.cord ? `<div class="box impact"><span class="eyebrow">${tx("impact")}</span><p>${!wl && p.impacto ? `<b>${esc(impName(p.impacto))}</b>` : ""}${e.com ? `<span>${esc(tx("com_txt"))}</span>` : ""}${e.cord ? `<span>${esc(tx("cord_txt"))}</span>` : ""}</p></div>` : ""}
       ${comb ? `<div class="box"><span class="eyebrow">${tx("s_combo")}</span><div class="combo">${comb}</div></div>` : ""}
     </aside></div></article></div>`;
@@ -1265,7 +1268,8 @@ function openFicha(id, how) {
   const pax = $r("paxr"); if (pax) pax.addEventListener("input", () => { $r("paxn").textContent = pax.value; const v = priceAt(id, +pax.value); $r("net").textContent = v != null ? cop(v) : tx("ask"); });
   f.querySelectorAll("[data-g]").forEach(b => b.addEventListener("click", () => lightbox(gal[+b.dataset.g], e)));
   if ($r("phdl")) $r("phdl").addEventListener("click", () => photosZip(e, $r("phst"), $r("phdl")));
-  if ($r("fpdf")) $r("fpdf").addEventListener("click", () => fichaPdf(id, $r("fpst"), $r("fpdf")));
+  if ($r("fplang")) $r("fplang").addEventListener("change", ev => { FPL = ev.target.value; });
+  if ($r("fpdf")) $r("fpdf").addEventListener("click", () => fichaPdf(id, $r("fpst"), $r("fpdf"), $r("fplang").value));
   if ($r("ctrgo")) $r("ctrgo").addEventListener("click", () => goComp(true));
   f.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => openFicha(b.dataset.go, "swap")));
   f.querySelectorAll("[data-jump]").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); const t = f.querySelector("#pf-f-" + a.dataset.jump); if (t) t.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" }); }));
@@ -1335,31 +1339,116 @@ async function photosZip(e, st, btn) {
   } catch (err) { if (st) st.textContent = tx("ph_err"); if (window.console) console.error(err); }
   finally { if (btn) btn.disabled = false; }
 }
-/* ---------- ficha en PDF para la agencia (ET, 18-nov-2026) ----------
-   Una sola hoja carta con lo que la agencia ve en la ficha: encabezado (foto, línea, título y frase), barra de datos (duración, modalidad,
-   almuerzo, edad, idiomas y código), la experiencia, ficha técnica, incluye, operación y horarios, y fotos. No lleva tarifas ni suplementos,
-   «Agregar a la ruta», «Para vender» ni nada «solo agencias» (impacto local), ni los botones de la ficha. Marca de agua muy sutil y pie de
-   Espontáneos Travel. La letra se ajusta para que todo quepa en la hoja. Solo aparece si el perfil del DMC tiene «Descarga de fichas PDF»
-   (CTX.fichaPdf; el equipo siempre). Autor de la plataforma: Dr. Mauricio Rodríguez Herrera. */
-async function fichaPdf(id, st, btn) {
+/* ---------- ficha en PDF para la agencia (ET, 18 y 19-nov-2026) ----------
+   Una sola hoja carta, en ES, EN, FR, IT o PT, con lo que la agencia ve en la ficha: encabezado (fotos, línea, título y frase), barra de
+   datos (duración, modalidad, almuerzo, edad, idiomas y código), la experiencia, ficha técnica, incluye, operación y horarios, y fotos.
+   No lleva tarifas ni suplementos, «Agregar a la ruta», «Para vender» ni nada «solo agencias» (impacto local), ni los botones de la ficha.
+   Marca de agua muy sutil y pie de Espontáneos Travel. La letra se ajusta para que todo quepa en la hoja. Solo aparece si el perfil del DMC
+   tiene «Descarga de fichas PDF» (CTX.fichaPdf; el equipo siempre). Autor de la plataforma: Dr. Mauricio Rodríguez Herrera. */
+// Francés, italiano y portugués de la ficha (español e inglés salen de UI)
+const FPX = {
+  fr: { f_dur_l: "Durée", p_sched: "Horaire recommandé", p_diff: "Niveau de difficulté", p_cap: "Capacité maximale", p_meet: "Point de rendez-vous", p_guide: "Langue du guide",
+    low: "Faible", mid: "Moyen", high: "Élevé", ask: "Sur demande", capB2B: "Tarif publié jusqu'à {0} pers. ; groupes plus grands : sur demande", capB2C: "Jusqu'à {0} personnes",
+    meet_see: "{0} · {1} points, voir « Points de rendez-vous »", meet_and: " et ", atHotel: "À l'hôtel du groupe", pick: "Prise en charge à l'hébergement (zone de couverture selon conditions)",
+    pickC: "Votre hôtel", onsite: "Sur le lieu de l'expérience", dep_from: "Départs à partir de {0}", guide_sup: "autres langues avec supplément de guide", guide_sup_en: "guide anglophone avec supplément",
+    langC: "Espagnol / anglais", am: "Matin", pm: "Après-midi", ampm: "Matin ou après-midi", full_c: "Journée complète", half_c: "Demi-journée",
+    f_mod: "Formule", f_lunch: "Déjeuner", f_age: "Âge", f_langs: "Langues", f_code: "Code", s_exp: "L'expérience", s_tech: "Fiche technique", s_incl: "Comprend", s_noincl: "Ne comprend pas",
+    s_oper: "Fonctionnement et horaires", s_photos: "Photos", fp_wm: "Document confidentiel · Espontáneos Travel",
+    cats: { rur: "Rural", nat: "Nature", bien: "Bien-être", trad: "Circuits traditionnels", compartidos: "Tours partagés 2027", metro: "Métropolitain", aven: "Activités d'aventure", parq: "Parcs à thème", inc: "Incentives et propositions haut de gamme" } },
+  it: { f_dur_l: "Durata", p_sched: "Orario consigliato", p_diff: "Livello di difficoltà", p_cap: "Capacità massima", p_meet: "Punto d'incontro", p_guide: "Lingua della guida",
+    low: "Bassa", mid: "Media", high: "Alta", ask: "Su richiesta", capB2B: "Tariffa pubblicata fino a {0} pax; gruppi più numerosi: su richiesta", capB2C: "Fino a {0} persone",
+    meet_see: "{0} · {1} punti, vedi «Punti d'incontro»", meet_and: " e ", atHotel: "Nell'hotel del gruppo", pick: "Prelievo presso l'alloggio (zona di copertura secondo le condizioni)",
+    pickC: "Il tuo hotel", onsite: "Nel luogo dell'esperienza", dep_from: "Partenze dalle {0}", guide_sup: "altre lingue con supplemento di guida", guide_sup_en: "guida in inglese con supplemento",
+    langC: "Spagnolo / inglese", am: "Mattina", pm: "Pomeriggio", ampm: "Mattina o pomeriggio", full_c: "Giornata intera", half_c: "Mezza giornata",
+    f_mod: "Modalità", f_lunch: "Pranzo", f_age: "Età", f_langs: "Lingue", f_code: "Codice", s_exp: "L'esperienza", s_tech: "Scheda tecnica", s_incl: "Include", s_noincl: "Non include",
+    s_oper: "Operatività e orari", s_photos: "Foto", fp_wm: "Documento riservato · Espontáneos Travel",
+    cats: { rur: "Rurale", nat: "Natura", bien: "Benessere", trad: "Tour tradizionali", compartidos: "Tour condivisi 2027", metro: "Metropolitano", aven: "Attività d'avventura", parq: "Parchi tematici", inc: "Incentive e proposte di alto valore" } },
+  pt: { f_dur_l: "Duração", p_sched: "Horário recomendado", p_diff: "Nível de dificuldade", p_cap: "Capacidade máxima", p_meet: "Ponto de encontro", p_guide: "Idioma do guia",
+    low: "Baixa", mid: "Média", high: "Alta", ask: "Sob consulta", capB2B: "Tarifa publicada até {0} pax; grupos maiores: sob consulta", capB2C: "Até {0} pessoas",
+    meet_see: "{0} · {1} pontos, ver «Pontos de encontro»", meet_and: " e ", atHotel: "No hotel do grupo", pick: "Busca na hospedagem (área de cobertura conforme as condições)",
+    pickC: "Seu hotel", onsite: "No local da experiência", dep_from: "Saídas a partir das {0}", guide_sup: "outros idiomas com suplemento de guia", guide_sup_en: "guia em inglês com suplemento",
+    langC: "Espanhol / inglês", am: "Manhã", pm: "Tarde", ampm: "Manhã ou tarde", full_c: "Dia inteiro", half_c: "Meio dia",
+    f_mod: "Modalidade", f_lunch: "Almoço", f_age: "Idade", f_langs: "Idiomas", f_code: "Código", s_exp: "A experiência", s_tech: "Ficha técnica", s_incl: "Inclui", s_noincl: "Não inclui",
+    s_oper: "Operação e horários", s_photos: "Fotos", fp_wm: "Documento confidencial · Espontáneos Travel",
+    cats: { rur: "Rural", nat: "Natureza", bien: "Bem-estar", trad: "Tours tradicionais", compartidos: "Tours compartilhados 2027", metro: "Metropolitano", aven: "Atividades de aventura", parq: "Parques temáticos", inc: "Incentivos e propostas de alto valor" } }
+};
+const txL = (lg, k, ...a) => { let s = (UI[lg] && UI[lg][k]) || (FPX[lg] && FPX[lg][k]) || (UI.en && UI.en[k]) || UI.es[k] || k; a.forEach((v, i) => { s = s.split("{" + i + "}").join(String(v)); }); return s; };
+const catL = (k, lg) => (lg === "es" ? (D.cats[k] && D.cats[k].name) : lg === "en" ? (I18.en && I18.en.cats && I18.en.cats[k]) : (FPX[lg] && FPX[lg].cats[k])) || catName(k);
+let FPL = "";          // idioma elegido para la ficha en PDF (se recuerda mientras el portal esté abierto)
+// Fotos sin «medias fotos» (ET, 19-nov-2026): cada foto va completa. Si su proporción casi coincide con el espacio se recorta lo mínimo;
+// si no (fotos verticales o 4:3 en una franja ancha), va entera sobre la misma foto ampliada y difuminada.
+const bmOf = async url => createImageBitmap(await (await fetch(url)).blob());
+function nitidez(bm) {          // contraste entre píxeles vecinos en una copia pequeña: para preferir la foto más nítida
+  const w = 240, h = Math.max(2, Math.round(bm.height * w / bm.width)), c = document.createElement("canvas"); c.width = w; c.height = h;
+  const g = c.getContext("2d"); g.drawImage(bm, 0, 0, w, h); const d = g.getImageData(0, 0, w, h).data; let s = 0, n = 0;
+  for (let y = 0; y < h - 1; y += 2) for (let x = 0; x < w - 1; x += 2) { const i = (y * w + x) * 4, v = d[i] + d[i + 1] + d[i + 2];
+    s += Math.abs(v - d[i + 4] - d[i + 5] - d[i + 6]) + Math.abs(v - d[i + w * 4] - d[i + w * 4 + 1] - d[i + w * 4 + 2]); n++; }
+  return n ? s / n : 0;
+}
+function drawFit(g, bm, x, y, w, h, tol) {
+  const r = bm.width / bm.height, R = w / h;
+  g.save(); g.beginPath(); g.rect(x, y, w, h); g.clip();
+  const cover = (pad, scale) => { const k = Math.max((w + 2 * pad) / bm.width, (h + 2 * pad) / bm.height) * (scale || 1), sw = (w + 2 * pad) / k, sh = (h + 2 * pad) / k;
+    g.drawImage(bm, (bm.width - sw) / 2, (bm.height - sh) / 2, sw, sh, x - pad, y - pad, w + 2 * pad, h + 2 * pad); };
+  if (Math.max(r / R, R / r) <= (tol || 1.3)) cover(0);
+  else {
+    g.filter = "blur(26px) brightness(0.82)"; cover(60, 1.05); g.filter = "none";
+    const k = Math.min(w / bm.width, h / bm.height), dw = bm.width * k, dh = bm.height * k; g.drawImage(bm, x + (w - dw) / 2, y + (h - dh) / 2, dw, dh);
+  }
+  g.restore();
+}
+// Huella de una foto (16×16 en gris) para no repetir fotos casi iguales
+function huella(bm) { const c = document.createElement("canvas"); c.width = 16; c.height = 16; const g = c.getContext("2d"); g.drawImage(bm, 0, 0, 16, 16);
+  const d = g.getImageData(0, 0, 16, 16).data, o = []; for (let i = 0; i < d.length; i += 4) o.push((d[i] + d[i + 1] + d[i + 2]) / 3); return o; }
+const casiIgual = (a, b) => a.h.reduce((n, v, i) => n + Math.abs(v - b.h[i]), 0) / a.h.length < 12;
+// Encabezado como galería (ET, 19-nov-2026): la portada (si es horizontal y nítida; si no, la mejor horizontal) y, si caben, una o dos
+// fotos más, todas completas y a la misma altura, centradas sobre la portada ampliada y difuminada. Nunca una foto cortada a la mitad.
+async function heroPdf(e, W, H) {
+  const ims = [];
+  for (const b of (e.fotos || []).slice(0, 8)) { try { const bm = await bmOf(ph1600(b)); ims.push({ b, bm, r: bm.width / bm.height, q: nitidez(bm), h: huella(bm) }); } catch (err) { /* sin foto */ } }
+  if (!ims.length) return { d: null, ims, used: new Set() };
+  const val = x => x.q * Math.min(1, Math.max(x.bm.width, x.bm.height) / 1400), best = a => a.reduce((m, x) => (val(x) > val(m) ? x : m));
+  const land = ims.filter(x => x.r >= 1.25), f0 = ims[0];
+  const main = land.length ? (f0.r >= 1.25 && val(f0) >= val(best(land)) * 0.7 ? f0 : best(land)) : f0;
+  const gap = Math.round(W * 0.008), use = [main]; let tot = H * main.r;
+  for (const x of ims.filter(y => y !== main).sort((m, n) => val(n) - val(m))) {
+    if (use.length >= 3) break;
+    if (use.some(u => casiIgual(u, x))) continue;
+    if (tot + gap + H * x.r <= W) { use.push(x); tot += gap + H * x.r; }
+  }
+  const c = document.createElement("canvas"); c.width = W; c.height = H; const g = c.getContext("2d"); g.fillStyle = "#2a3324"; g.fillRect(0, 0, W, H);
+  if (use.length === 1 && tot >= W * 0.88) drawFit(g, main.bm, 0, 0, W, H, 9);        // casi llena la franja: recorte mínimo
+  else {
+    g.save(); g.filter = "blur(30px) brightness(0.78)"; const k = Math.max((W + 120) / main.bm.width, (H + 120) / main.bm.height), sw = (W + 120) / k, sh = (H + 120) / k;
+    g.drawImage(main.bm, (main.bm.width - sw) / 2, (main.bm.height - sh) / 2, sw, sh, -60, -60, W + 120, H + 120); g.restore(); g.filter = "none";
+    let x = Math.round((W - tot) / 2);
+    use.forEach(u => { const w = Math.round(H * u.r); g.drawImage(u.bm, x, 0, w, H); x += w + gap; });
+  }
+  return { d: c.toDataURL("image/jpeg", 0.88), ims, used: new Set(use.map(x => x.b)), usedIms: use };
+}
+const tileOf = (bm, W, H) => { const c = document.createElement("canvas"); c.width = W; c.height = H; const g = c.getContext("2d"); g.fillStyle = "#2a3324"; g.fillRect(0, 0, W, H); drawFit(g, bm, 0, 0, W, H, 1.3); return c.toDataURL("image/jpeg", 0.85); };
+async function fichaPdf(id, st, btn, LANG) {
   const e = byId[id]; if (!e) return false;
+  const lang = KL[LANG] ? LANG : (L() === "en" ? "EN" : "ES"), lg = lang.toLowerCase(), t = (k, ...a) => txL(lg, k, ...a);
   if (btn) btn.disabled = true; if (st) st.textContent = tx("fp_making");
   try {
+    if (lg !== "es") await loadLang(lg);
     const { jsPDF } = await loadJsPDF().catch(() => { throw Object.assign(new Error("lib"), { code: "lib" }); });
     const doc = new jsPDF({ unit: "mm", format: "letter" }), W = 215.9, H = 279.4, M = 12, CW = W - 2 * M, OL = [74, 92, 58], T = s => pdfTxt(s);
-    const thumbsB = (e.fotos || []).slice(1, 5), thumbs = (await Promise.all(thumbsB.map(b => imgData(ph640(b), 640, 430).catch(() => null)))).filter(Boolean);
+    const HH = 70, hero = await heroPdf(e, 2000, Math.round(2000 * HH / CW));
+    const shown = [...(hero.usedIms || [])], thumbs = [];
+    for (const x of hero.ims) { if (thumbs.length >= 4) break; if (hero.used.has(x.b) || shown.some(u => casiIgual(u, x))) continue; shown.push(x); thumbs.push(tileOf(x.bm, 640, 430)); }
     let y = M;
-    // Encabezado: foto, línea · grupo · departamentos, título y frase (como la ficha abierta)
-    const HH = 56;
-    if (e.fotos[0]) { try { doc.addImage(await imgData(ph1600(e.fotos[0]), 1400, Math.round(1400 * HH / CW)), "JPEG", M, y, CW, HH); y += HH + 6; } catch (err) { /* sin foto */ } }
+    // Encabezado: fotos, línea · grupo · departamentos, título y frase (como la ficha abierta)
+    if (hero.d) { try { doc.addImage(hero.d, "JPEG", M, y, CW, HH); y += HH + 6; } catch (err) { /* sin foto */ } }
     doc.setFont("helvetica", "bold"); doc.setFontSize(7.5); doc.setTextColor(120);
-    doc.text(T(`${catName(e.cat)} · ${e.sub} · ${e.deptos}`.toUpperCase()), M, y); y += 6.5;
-    doc.setTextColor(...OL); doc.setFontSize(17); doc.splitTextToSize(T(tr(e, "name")), CW).slice(0, 2).forEach(l => { doc.text(l, M, y); y += 7; });
+    doc.text(T(`${catL(e.cat, lg)} · ${tr(e, "sub", lg)} · ${e.deptos}`.toUpperCase()), M, y); y += 6.5;
+    doc.setTextColor(...OL); doc.setFontSize(17); doc.splitTextToSize(T(tr(e, "name", lg)), CW).slice(0, 2).forEach(l => { doc.text(l, M, y); y += 7; });
     doc.setFont("helvetica", "italic"); doc.setFontSize(10); doc.setTextColor(45);
-    doc.splitTextToSize(T(tr(e, "tagline")), CW).slice(0, 2).forEach(l => { doc.text(l, M, y); y += 4.8; }); y += 1.5;
+    doc.splitTextToSize(T(tr(e, "tagline", lg)), CW).slice(0, 2).forEach(l => { doc.text(l, M, y); y += 4.8; }); y += 1.5;
     // Barra de datos
-    const facts = [[tx("f_dur_l"), tr(e, "dur")], [tx("f_mod"), tr(e, "modalidad")], [tx("f_lunch"), tr(e, "almuerzo")], [tx("f_age"), tr(e, "edad") || tx("ask")],
-      [tx("f_langs"), (e.langs || []).map(langName).join(", ")], [tx("f_code"), e.code]];
+    const facts = [[t("f_dur_l"), tr(e, "dur", lg)], [t("f_mod"), tr(e, "modalidad", lg)], [t("f_lunch"), tr(e, "almuerzo", lg)], [t("f_age"), tr(e, "edad", lg) || t("ask")],
+      [t("f_langs"), (e.langs || []).map(k => langName(k, lg)).join(", ")], [t("f_code"), e.code]];
     const fw = CW / facts.length;
     doc.setFillColor(238, 242, 236); doc.rect(M, y, CW, 14, "F");
     facts.forEach(([k, v], i) => { const x = M + i * fw + 3;
@@ -1368,34 +1457,34 @@ async function fichaPdf(id, st, btn) {
     y += 19;
     // Cuerpo en dos columnas: a la izquierda la experiencia, incluye y operación; a la derecha la ficha técnica y las fotos
     const LW = 120, GAP = 6, RW = CW - LW - GAP, RX = M + LW + GAP, BOT = H - 15, top = y;
-    const desc0 = tr(e, "desc") || [], incl = tr(e, "incl") || [], noi = tr(e, "noIncl") || [];
-    const operL = [...(tr(e, "oper") || []), ...meetOf(e).map(m => `${hm12(m.h)} · ${m.l}`)];
-    const rows = techRows(e).map(r => [r[0], S.wl ? r[2] : r[1]]);
+    const desc0 = tr(e, "desc", lg) || [], incl = tr(e, "incl", lg) || [], noi = tr(e, "noIncl", lg) || [];
+    const operL = [...(tr(e, "oper", lg) || []), ...meetOf(e, lg).map(m => `${hm12(m.h)} · ${m.l}`)];
+    const rows = techRows(e, t, lg).map(r => [r[0], S.wl ? r[2] : r[1]]);
     const body = (f, draw, desc) => {
       const lh = f * 0.42;
       const put = (txt, x, yy, w, sty) => { doc.setFont("helvetica", sty || "normal"); doc.setFontSize(f); const ls = doc.splitTextToSize(T(txt), w); if (draw) { doc.setTextColor(30); ls.forEach((l, i) => doc.text(l, x, yy + i * lh)); } return ls.length * lh; };
       const head = (txt, x, yy) => { doc.setFont("helvetica", "bold"); doc.setFontSize(f + 1.6); if (draw) { doc.setTextColor(...OL); doc.text(T(txt), x, yy); } return lh + 3; };
       let ly = top, ry = top;
-      ly += head(tx("s_exp"), M, ly);
+      ly += head(t("s_exp"), M, ly);
       desc.forEach(p => { ly += put(p, M, ly, LW) + 1.4; });
       ly += 2;
-      const half = (LW - 5) / 2; let a = ly + head(tx("s_incl"), M, ly), b = ly + head(tx("s_noincl"), M + half + 5, ly);
-      incl.forEach(t => { a += put("- " + t, M, a, half) + .3; }); noi.forEach(t => { b += put("- " + t, M + half + 5, b, half) + .3; });
+      const half = (LW - 5) / 2; let a = ly + head(t("s_incl"), M, ly), b = ly + head(t("s_noincl"), M + half + 5, ly);
+      incl.forEach(x => { a += put("- " + x, M, a, half) + .3; }); noi.forEach(x => { b += put("- " + x, M + half + 5, b, half) + .3; });
       ly = Math.max(a, b) + 2.5;
-      ly += head(tx("s_oper"), M, ly);
-      (operL.length ? operL : [tx("ask")]).forEach(t => { ly += put("- " + t, M, ly, LW) + .3; });
-      ry += head(tx("s_tech"), RX, ry);
+      ly += head(t("s_oper"), M, ly);
+      (operL.length ? operL : [t("ask")]).forEach(x => { ly += put("- " + x, M, ly, LW) + .3; });
+      ry += head(t("s_tech"), RX, ry);
       rows.forEach(([k, v]) => { ry += put(k, RX, ry, RW, "bold"); ry += put(v, RX, ry, RW) + 1.6; });
       if (thumbs.length) {
-        ry += 1.5; ry += head(tx("s_photos"), RX, ry) - lh;
+        ry += 1.5; ry += head(t("s_photos"), RX, ry) - lh;
         const tw = (RW - 3) / 2, th = tw * 430 / 640;
         thumbs.forEach((d, i) => { const x = RX + (i % 2) * (tw + 3), yy = ry + Math.floor(i / 2) * (th + 3); if (draw) { try { doc.addImage(d, "JPEG", x, yy, tw, th); } catch (err) { /* sin foto */ } } });
         ry += Math.ceil(thumbs.length / 2) * (th + 3);
       }
       return Math.max(ly, ry);
     };
-    // La letra baja de 9 a 6,5 hasta que todo quepa; si aún no cabe, se acorta el descriptivo (con «…»)
-    let f = 9, desc = desc0;
+    // La letra baja de 10 a 6,5 hasta que todo quepa; si aún no cabe, se acorta el descriptivo (con «…»)
+    let f = 10, desc = desc0;
     while (f > 6.5 && body(f, false, desc) > BOT) f -= .5;
     if (body(f, false, desc) > BOT) {
       while (desc.length > 1 && body(f, false, desc) > BOT) desc = desc.slice(0, -1);
@@ -1412,10 +1501,10 @@ async function fichaPdf(id, st, btn) {
     let gs = false;
     try { doc.saveGraphicsState(); doc.setGState(new doc.GState({ opacity: 0.07 })); gs = true; } catch (err) { /* sin transparencia: gris muy claro */ }
     doc.setFont("helvetica", "bold"); doc.setFontSize(30); doc.setTextColor(gs ? 90 : 236);
-    const wm = T(tx("fp_wm")), ang = 33, rad = ang * Math.PI / 180, ww = doc.getTextWidth(wm);
+    const wm = T(t("fp_wm")), ang = 33, rad = ang * Math.PI / 180, ww = doc.getTextWidth(wm);
     [H * 0.36, H * 0.74].forEach(cy => doc.text(wm, W / 2 - Math.cos(rad) * ww / 2, cy + Math.sin(rad) * ww / 2, { angle: ang }));
     if (gs) { try { doc.restoreGraphicsState(); } catch (err) { /* nada */ } }
-    savePdf(doc.output("blob"), `Ficha_${e.code || e.id}_${slugTxt(tr(e, "name"))}.pdf`, st);
+    savePdf(doc.output("blob"), `Ficha_${e.code || e.id}_${slugTxt(tr(e, "name", lg))}_${lang}.pdf`, st);
     return true;
   } catch (err) { if (st) st.textContent = err && err.code === "lib" ? tx("k_nolib") : tx("k_err"); if (window.console) console.error(err); return false; }
   finally { if (btn) btn.disabled = false; }
@@ -1430,25 +1519,26 @@ const IMPN = { es: { "Ambiental": "🌿 Ambiental", "Sociocultural": "🤝 Socio
 const impName = x => (IMPN[L()] || IMPN.es)[x] || x;
 // Ficha técnica del documento 2027: Parámetro operativo | Detalle técnico B2B | Especificación comercial (B2C).
 // Todo sale de los datos (duración, operación, idiomas, ficha del Excel, tarifas); lo que falta dice «Consultar».
-function franja(txt) {
+function franja(txt, t = tx) {
   const hs = []; String(txt || "").replace(/(\d{1,2})(?:[:.](\d{2}))?\s*(a\.?\s?m\.?|p\.?\s?m\.?)?/gi, (m, h, mm, ap) => { let x = +h; if (!mm && !ap) return m; if (ap && /p/i.test(ap) && x < 12) x += 12; if (x >= 5 && x <= 22) hs.push(x); return m; });
   if (!hs.length) return "";
-  return hs.every(x => x < 12) ? tx("am") : hs.every(x => x >= 12) ? tx("pm") : tx("ampm");
+  return hs.every(x => x < 12) ? t("am") : hs.every(x => x >= 12) ? t("pm") : t("ampm");
 }
-function techRows(e) {
-  const p = e.p, hrs = Number(e.hrs) || 0, oper = tr(e, "oper") || [];
-  const full = hrs >= 7, durB = `${tr(e, "dur")}${hrs ? (full ? " (Full Day)" : hrs >= 3 ? " (Half Day)" : "") : ""}`;
-  const durC = full ? (L() === "en" ? "Full day" : "Día completo") : hrs >= 3 ? (L() === "en" ? "Half day" : "Medio día") : tr(e, "dur");
-  const d = String(p.diff || "").toLowerCase(), diff = /baja|f[aá]cil/.test(d) ? tx("low") : /media|moderad/.test(d) ? tx("mid") : /alta|exigente/.test(d) ? tx("high") : tx("ask");
+// t y lg: textos e idioma de la ficha en PDF (por defecto, los del portal)
+function techRows(e, t = tx, lg) {
+  const p = e.p, hrs = Number(e.hrs) || 0, oper = tr(e, "oper", lg) || [];
+  const full = hrs >= 7, durB = `${tr(e, "dur", lg)}${hrs ? (full ? " (Full Day)" : hrs >= 3 ? " (Half Day)" : "") : ""}`;
+  const durC = full ? t("full_c") : hrs >= 3 ? t("half_c") : tr(e, "dur", lg);
+  const d = String(p.diff || "").toLowerCase(), diff = /baja|f[aá]cil/.test(d) ? t("low") : /media|moderad/.test(d) ? t("mid") : /alta|exigente/.test(d) ? t("high") : t("ask");
   const capN = parseInt(p.cap, 10) || (seasonRows(PR.tours.get(e.id)).reduce((m, r) => Math.max(m, r.pax_hasta || 0), 0)) || e.maxPax || 0;
   const incl = (e.incl || []).join(" ").toLowerCase();
-  const mt = meetOf(e);
-  const towns = [...new Set(mt.map(m => String(m.l).split(/\s*:\s*/)[0]))], tw = towns.length > 1 ? towns.slice(0, -1).join(", ") + tx("meet_and") + towns[towns.length - 1] : towns[0];
-  const meet = mt.length ? [tx("meet_see", tw, mt.length), tw] : e.athotel ? [tx("atHotel"), tx("atHotel")] : /transporte/.test(incl) ? [tx("pick"), tx("pickC")] : [tx("onsite"), tx("onsite")];
-  const langs = (e.langs || []).map(langName).join(" / ") || tx("langC");
-  const sched = mt.length ? [tx("dep_from", hm12(mt[0].h)), tx("dep_from", hm12(mt[0].h))] : [oper[0] || tx("ask"), franja(oper.join(" ")) || oper[0] || tx("ask")];
-  const rows = [[tx("f_dur_l"), durB, durC], [tx("p_sched"), sched[0], sched[1]], [tx("p_diff"), diff, diff],
-    [tx("p_cap"), capN ? tx("capB2B", capN) : tx("ask"), capN ? tx("capB2C", capN) : tx("ask")], [tx("p_meet"), meet[0], meet[1]], [tx("p_guide"), `${langs} (${tx(e.compartido ? "guide_sup_en" : "guide_sup")})`, langs]];
+  const mt = meetOf(e, lg);
+  const towns = [...new Set(mt.map(m => String(m.l).split(/\s*:\s*/)[0]))], tw = towns.length > 1 ? towns.slice(0, -1).join(", ") + t("meet_and") + towns[towns.length - 1] : towns[0];
+  const meet = mt.length ? [t("meet_see", tw, mt.length), tw] : e.athotel ? [t("atHotel"), t("atHotel")] : /transporte/.test(incl) ? [t("pick"), t("pickC")] : [t("onsite"), t("onsite")];
+  const langs = (e.langs || []).map(k => langName(k, lg)).join(" / ") || t("langC");
+  const sched = mt.length ? [t("dep_from", hm12(mt[0].h)), t("dep_from", hm12(mt[0].h))] : [oper[0] || t("ask"), franja(oper.join(" "), t) || oper[0] || t("ask")];
+  const rows = [[t("f_dur_l"), durB, durC], [t("p_sched"), sched[0], sched[1]], [t("p_diff"), diff, diff],
+    [t("p_cap"), capN ? t("capB2B", capN) : t("ask"), capN ? t("capB2C", capN) : t("ask")], [t("p_meet"), meet[0], meet[1]], [t("p_guide"), `${langs} (${t(e.compartido ? "guide_sup_en" : "guide_sup")})`, langs]];
   return rows;
 }
 function techTable(e) {
