@@ -477,6 +477,22 @@
 .pf .impact { border-left: 3px solid var(--leaf); }
 .pf .impact p { display: grid; gap: 4px; font-size: .88rem; }
 .pf .combo { display: grid; gap: 8px; }
+/* Ficha principal con sus rutas (Aves para conocedores): botón «Rutas» bajo la tarjeta y cajón con las rutas */
+.pf .cardw { display: flex; flex-direction: column; min-width: 0; }
+.pf .cardw > .card { flex: 1; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.pf .rbtn { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 var(--r) var(--r); background: var(--surface-2); color: var(--cherry); font-weight: 700; font-size: .9rem; cursor: pointer; }
+.pf .rbtn:hover { background: var(--surface); border-color: var(--olive); }
+.pf .rbtn:focus-visible, .pf .rdet > summary:focus-visible { outline: 2px solid var(--cherry); outline-offset: 2px; }
+.pf .rbtn[aria-expanded="true"] .rb-o, .pf .rbtn[aria-expanded="false"] .rb-c, .pf .rdet:not([open]) .rb-c, .pf .rdet[open] .rb-o { display: none; }
+.pf .rbtn .ic:last-child, .pf .rdet > summary .ic:last-child { transition: transform .2s; }
+.pf .rbtn[aria-expanded="true"] .ic:last-child, .pf .rdet[open] > summary .ic:last-child { transform: rotate(180deg); }
+.pf .rdrawer { grid-column: 1 / -1; border: 1px dashed var(--line); border-radius: var(--r); background: var(--bg); padding: 10px 12px 12px; }
+.pf .rdrawer[hidden] { display: none; }
+.pf .rdrawer .rd-h { margin: 0 0 10px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.pf .rdet > summary { list-style: none; display: inline-flex; gap: 8px; align-items: center; cursor: pointer; }
+.pf .rdet > summary::-webkit-details-marker { display: none; }
+.pf .rdet .note { margin: 10px 0 8px; }
+.pf .rcombo { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
 .pf .combo button { display: flex; gap: 10px; align-items: center; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 6px; text-align: left; font-size: .86rem; }
 .pf .combo button:hover { border-color: var(--olive); }
 .pf .combo .ct { display: inline-block; font-size: .8rem; border-radius: 999px; padding: 4px 10px; background: var(--surface-2); font-weight: 600; justify-self: start; }

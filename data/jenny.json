@@ -236,8 +236,8 @@
     "hotel_o_zona",
     "idioma_guia"
    ],
-   "respuesta": "¡Es muy sencillo! Para confirmar tu reserva necesitamos los nombres completos y documentos de identidad de los pasajeros, junto con el soporte de pago del anticipo. Al recibirlo te enviamos la confirmación formal de tu viaje. 🎒",
-   "anticipo": "50% para garantizar disponibilidad; saldo y fechas límite se informan en la cotización",
+   "respuesta": "¡Es muy sencillo! La reserva se confirma con el soporte de pago del anticipo (50%). Envíanos los nombres completos y documentos de identidad de los pasajeros junto con el comprobante, y te mandamos la confirmación formal de tu viaje. 🎒\n\nLas tarifas están sujetas a disponibilidad y vigencia; en temporada alta, eventos o servicios especiales aplican condiciones especiales.",
+   "anticipo": "50% para reservar; saldo hasta 3 días antes de la fecha reservada; con menos de 24 horas, el 100% de inmediato",
    "accion": "Arma resumen y abre wa.me"
   },
   {
@@ -246,7 +246,7 @@
     "¿debo pagar todo por adelantado?",
     "¿qué medios de pago aceptan?"
    ],
-   "respuesta": "Para reservar pagas un anticipo del 50%. El saldo y las fechas límite van en tu cotización.\n\nMedios de pago, a nombre de Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia ahorros: 756-000062-16\n📱 Nequi o Daviplata: 317 645 6723\n💳 Tarjeta débito o crédito: botón de pago seguro Wompi\n\n💵 El saldo lo puedes pagar en pesos, dólares o euros.\n📩 Envíanos el comprobante por WhatsApp.\n⚠️ Solo usamos estos medios. Si alguien te pide pagar en otra cuenta, confírmalo antes con nosotros."
+   "respuesta": "La reserva se confirma con el soporte de pago.\n\n💳 Pagos:\n• Anticipo del 50% para reservar y el saldo hasta 3 días antes de la fecha reservada.\n• Si reservas con menos de 24 horas de anticipación: pago inmediato del 100%.\n• Los cambios están sujetos a disponibilidad y pueden tener diferencias de tarifa.\n\nMedios de pago, a nombre de Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia, cuenta de ahorros: 756-000062-16\n💳 Tarjeta débito o crédito: botón de pago seguro Wompi\n⚡ Transferencia Bre-B, llave: 902056513\n\n📩 Envíanos el comprobante por WhatsApp.\n⚠️ Solo usamos estos medios. Si alguien te pide pagar en otra cuenta, confírmalo antes con nosotros."
   },
   {
    "id": "traslados",
@@ -284,9 +284,8 @@
     "¿qué pasa si cancelo?",
     "políticas de cancelación"
    ],
-   "respuesta": "Entendemos que los planes cambian. Las cancelaciones dependen de la anticipación con que nos avises. Cuéntame qué tour reservaste y revisamos tu caso con un asesor.",
-   "salida": "asesor",
-   "pendiente": "Publicar política de cancelación con plazos y % (VALIDAR)"
+   "respuesta": "Así funcionan las cancelaciones:\n• Más de 5 días antes: sin penalidad (excepto gastos no reembolsables).\n• De 4 días a 24 horas antes: hasta el 10% de penalidad.\n• Menos de 24 horas antes o si no te presentas (no show): hasta el 100% de penalidad.\n\nLos cambios de fecha están sujetos a disponibilidad y pueden tener diferencias de tarifa. Cuéntame qué tour reservaste y un asesor revisa tu caso.",
+   "salida": "asesor"
   },
   {
    "id": "sostenibilidad",
@@ -1521,7 +1520,7 @@
   },
   {
    "id_web": "avesrancho",
-   "codigo": "ETHD054",
+   "codigo": "ETHD042A",
    "cat": "naturaleza",
    "nombre": "Aves · Rancho California (aves acuáticas)",
    "duracion_horas": 4,
@@ -1555,7 +1554,7 @@
   },
   {
    "id_web": "avescamino",
-   "codigo": "ETHD055",
+   "codigo": "ETHD042B",
    "cat": "naturaleza",
    "nombre": "Aves · Camino Nacional (ruta de Humboldt)",
    "duracion_horas": 4,
@@ -1589,7 +1588,7 @@
   },
   {
    "id_web": "avesbremen",
-   "codigo": "ETHD056",
+   "codigo": "ETHD042C",
    "cat": "naturaleza",
    "nombre": "Aves · Bremen–La Popa (AICA Barbas-Bremen)",
    "duracion_horas": 4,
@@ -1623,7 +1622,7 @@
   },
   {
    "id_web": "avescircasia",
-   "codigo": "ETHD057",
+   "codigo": "ETHD042D",
    "cat": "naturaleza",
    "nombre": "Aves · Jardín de aves en Circasia",
    "duracion_horas": 4,
@@ -1656,7 +1655,7 @@
   },
   {
    "id_web": "avescaicedonia",
-   "codigo": "ETHD058",
+   "codigo": "ETHD042E",
    "cat": "naturaleza",
    "nombre": "Aves · Caicedonia y Sevilla (Valle del Cauca)",
    "duracion_horas": 4,
@@ -1690,7 +1689,7 @@
   },
   {
    "id_web": "avescampanario",
-   "codigo": "ETHD060",
+   "codigo": "ETHD042F",
    "cat": "naturaleza",
    "nombre": "Aves · Alto del Campanario (páramo)",
    "duracion_horas": 4,

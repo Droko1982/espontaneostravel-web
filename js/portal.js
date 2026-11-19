@@ -1570,6 +1570,8 @@ async function dmcPortafolio(view) {
   const staff = S.view === "staff";
   await mountPortafolio(host, {
     lang: L(), tier: tierOf(), staff,
+    // Ficha en PDF (sin tarifas): el equipo siempre; un DMC solo si su perfil tiene «Descarga de fichas PDF» (ET, 18-nov-2026)
+    fichaPdf: staff || !!(S.dmc && S.dmc.fichasPdf),
     agency: staff ? "Vista previa del equipo" : ((S.dmc && S.dmc.nombre) || ""),
     rates: data.rates, cond: data.cond, priv, splitNotes, empresa: EMPRESA, loadVideo, pagos: pagosOficiales(),
     // Kit de venta: logo y nombre de la agencia guardados en kits/{uid} (solo el dueño los lee y los cambia)
@@ -3418,7 +3420,7 @@ async function adminAgencias(view) {
       add(out, h("article", { class: "p-item" + (d.activo === false ? " is-done" : "") },
         h("header", { class: "p-item__head" }, h("h3", { class: "p-h3" }, d.nombre), badge(d.activo === false ? "Inactiva" : "Activa", d.activo === false ? "bad" : "ok"), badge(tipoLabel(d.tipo), d.tipo === "nac" ? "warn" : ""), h("span", { class: "p-mono p-muted" }, d.id)),
         kvList(kv("Tipo de cliente (tarifario que ve)", tipoLabel(d.tipo)), kv("NIT / Tax ID", d.nit), kv("Ubicación", [d.ciudad, d.pais].filter(Boolean).join(", ")), kv("Contacto", d.contacto),
-          kv("Correo", d.email), kv("Teléfono", d.telefono), kv("Usuarios", users.map(u => u.email).join(", ") || "Ninguno"), kv("Notas internas (la agencia no las ve)", privNotas.get(d.id))),
+          kv("Correo", d.email), kv("Teléfono", d.telefono), kv("Descarga de fichas PDF", d.fichasPdf ? "Sí" : "No"), kv("Usuarios", users.map(u => u.email).join(", ") || "Ninguno"), kv("Notas internas (la agencia no las ve)", privNotas.get(d.id))),
         h("div", { class: "p-actions" },
           btn("Editar", () => dmcForm(formHost, Object.assign({}, d, { _notas: privNotas.get(d.id) || "" }), reload), "btn--brand"),
           btn("Crear acceso", () => accountForm(formHost, "dmc", reload, { dmcId: d.id, nombre: d.contacto || "", email: d.email || "", whatsapp: d.telefono || "" })),
@@ -3460,13 +3462,15 @@ function dmcForm(host, existing, onDone) {
     { name: "telefono", label: "Teléfono", type: "tel", max: 40 },
     { name: "tipo", label: "Tipo de cliente (define el tarifario que ve)", type: "select", options: TIPOS_DMC },
     { name: "notas", label: "Notas internas (solo el equipo; la agencia NO las ve)", type: "textarea", max: 2000, full: true },
-    { name: "activo", label: "Agencia activa (sus usuarios pueden entrar)", type: "checkbox" }
+    { name: "activo", label: "Agencia activa (sus usuarios pueden entrar)", type: "checkbox" },
+    { name: "fichasPdf", label: "Descarga de fichas PDF (botón «Descargar ficha en PDF» en cada ficha, sin tarifas)", type: "checkbox" }
   ], Object.assign({}, d, { notas: d._notas || "", tipo: d.tipo === "nac" ? "nac" : "dmc" }));
   if (!existing) f.inputs.nombre.addEventListener("input", () => { if (!idTouched) idIn.value = slugify(f.inputs.nombre.value); });
   const form = mkForm(async () => {
     const v = f.get();
     const data = { nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: v.activo, actualizado: ts() };
     if (v.tipo === "nac" || (existing && existing.tipo)) data.tipo = v.tipo === "nac" ? "nac" : "dmc";
+    if (v.fichasPdf || (existing && "fichasPdf" in existing)) data.fichasPdf = !!v.fichasPdf;      // por defecto, desactivado (sin el campo)
     const priv = { notas: v.notas, actualizado: ts() };
     if (existing) {
       await commit([bt => bt.update(dref("dmcs", existing.id), data), bt => bt.set(dref("dmcs_privado", existing.id), priv)]);
@@ -3499,6 +3503,7 @@ function agencyAccessForm(host, onDone) {
     { name: "telefono", label: "WhatsApp", type: "tel", max: 40 },
     { name: "clave", label: "Clave temporal (puedes cambiarla)", required: true, max: 40 },
     { name: "tipo", label: "Tipo de cliente (define el tarifario que ve)", type: "select", options: TIPOS_DMC },
+    { name: "fichasPdf", label: "Descarga de fichas PDF (botón «Descargar ficha en PDF» en cada ficha, sin tarifas)", type: "checkbox" },
     { name: "notas", label: "Notas internas (solo el equipo)", type: "textarea", max: 2000, full: true }
   ], { clave: tempPass(), pais: "Colombia", tipo: "dmc" });
   const form = mkForm(async () => {
@@ -3508,7 +3513,7 @@ function agencyAccessForm(host, onDone) {
     if (!/^[a-z0-9-]{2,60}$/.test(id)) throw userErr("Escribe un nombre de agencia válido.");
     const ya = S.dmcs.find(d => d.id === id || (v.nit && digits(d.nit) && digits(d.nit) === digits(v.nit)));
     if (ya) id = ya.id;
-    else await commit([bt => bt.set(dref("dmcs", id), Object.assign({ nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: true, creado: ts(), actualizado: ts() }, v.tipo === "nac" ? { tipo: "nac" } : {})),
+    else await commit([bt => bt.set(dref("dmcs", id), Object.assign({ nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: true, creado: ts(), actualizado: ts() }, v.tipo === "nac" ? { tipo: "nac" } : {}, v.fichasPdf ? { fichasPdf: true } : {})),
       bt => bt.set(dref("dmcs_privado", id), { notas: v.notas, actualizado: ts() })]);
     const acc = { nombre: v.contacto, email: v.email, whatsapp: v.telefono, rol: "dmc", dmcId: id, modo: "temporal", clave: v.clave, idiomas: "es" };
     const res = await createAccount(acc);

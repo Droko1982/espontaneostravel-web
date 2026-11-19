@@ -85,8 +85,8 @@ const UI = {
     low: "Baja", mid: "Media", high: "Alta", pick: "Recogida en el alojamiento (zona de cobertura según condiciones)", pickC: "Su hotel", onsite: "En el lugar de la experiencia", atHotel: "En el hotel del grupo",
     capB2B: "Tarifa publicada hasta {0} pax; grupos mayores: consultar", capB2C: "Hasta {0} personas", langB2B: "Español / inglés (otros idiomas con suplemento de guianza)", langC: "Español / inglés",
     r_h: "Arma tu ruta", r_l: "Elige aeropuerto, hotel y tours. La ruta se dibuja en el mapa con distancias por carretera, tiempos estimados y el vehículo según el número de pasajeros.",
-    r1: "Grupo", r_pax: "Pasajeros", r_start: "Primer día de tours", r_d1: "Día 1 (el de llegada)", r_pick: "Elige…", r_pax_ph: "Número de pasajeros", ap_pick: "Elige el aeropuerto…", veh_need: "Escribe el número de pasajeros y te sugerimos el vehículo.", tot_need: "Escribe el número de pasajeros para calcular el total.", day: "Día {0}", veh_sug: "Vehículo sugerido", see_fleet: "ver flota",
-    r2: "Llegada y salida", r_arr: "Aeropuerto de llegada", r_dep: "Aeropuerto de salida", no_tr: "Sin traslado",
+    r1: "Grupo", r_pax: "Pasajeros", r_start: "Primer día de tours", r_d1: "Día 1 (el de llegada)", r_pick: "Elige…", r_pax_ph: "Número de pasajeros", ap_pick: "Elige una opción…", ap_air: "Aeropuertos", ap_land: "Por carretera", land_from: "Terrestre desde {0}", land_to: "Terrestre a {0}", veh_need: "Escribe el número de pasajeros y te sugerimos el vehículo.", tot_need: "Escribe el número de pasajeros para calcular el total.", day: "Día {0}", veh_sug: "Vehículo sugerido", see_fleet: "ver flota",
+    r2: "Llegada y salida", r_arr: "Llegada (aeropuerto o terrestre)", r_dep: "Salida (aeropuerto o terrestre)", no_tr: "Sin traslado",
     r3: "Hotel", h_ph: "Escribe el nombre del hotel…", h_note: "Primero salen los hoteles aliados de ET y los del tarifario de traslados; mientras escribes también se busca en el mapa abierto. Si no aparece, búscalo como dirección o ubícalo con su enlace de Google Maps, sus coordenadas, su Plus Code o tocándolo en el mapa.",
     h_ally: "Aliado ET", h_recent: "Usado antes", h_osm: "Buscar «{0}» en el mapa abierto", h_new: "Ubicar «{0}» con un enlace, coordenadas, Plus Code o en el mapa", h_change: "Cambiar", h_searching: "Buscando…", h_none: "No encontré ese hotel en el mapa abierto. Pega su enlace de Google Maps o tócalo en el mapa.",
     h_place: "Ubicar «{0}»", h_link: "Enlace de Google Maps, coordenadas, Plus Code o dirección", h_link_ph: "Enlace, «4.8312, -75.7612», «6R2F+5V Pereira» o la dirección", h_locate: "Ubicar", h_link_note: "Sirve el enlace largo de Google Maps (el de la barra del navegador), las coordenadas en cualquier formato (4.8312, -75.7612 · 4°49'52\"N 75°45'40\"W), el Plus Code que muestra Google en la ficha del lugar (6R2F+5V Pereira) o la dirección. Los enlaces cortos (maps.app.goo.gl) no traen la ubicación.",
@@ -96,7 +96,7 @@ const UI = {
     h_coord: "Usar estas coordenadas: {1} ({0})", h_pin_name: "Alojamiento en {0}", h_addr_c: "ubicado por dirección", h_near_c: "ubicación aproximada (cerca de {0})", h_fix: "Ajustar en el mapa",
     h_near_t: "{0}: ubicado cerca de «{1}» (aproximado). Si quieres el punto exacto, usa «Ajustar en el mapa».", h_short: "Ese es un enlace corto de Google Maps y no trae la ubicación. Ábrelo y copia la dirección completa de la barra del navegador, o el Plus Code del lugar, y pégalo aquí.",
     r4: "Tours por día", r_add: "Agregar tour", r_choose: "Elige un tour…", r_empty: "Agrega tours desde esta lista, desde el mapa o desde cada ficha.", remove: "Quitar", which_finca: "¿En qué finca?", where_q: "¿Dónde?", z_auto: "La más cercana al hotel{0}", z_munis: "Municipios donde opera", z_fincas: "Fincas aliadas", z_hint: "También puedes tocar su punto en el mapa.", z_pick: "toca para elegir", z_set: "{0}: {1}", op_in: "En {0}", fl_pick: "toca un punto para elegir dónde", finca_auto: "La más cercana al hotel (asignada por ET)",
-    r5: "Recorrido", r_none: "Elige hotel y tours para ver el recorrido.", arr_leg: "Llegada {0} → {1}", arr_sub: "Traslado de llegada", dep_leg: "{0} → {1}", dep_sub: "Traslado de salida", go_back: "ida y regreso al hotel", per_leg: "c/trayecto",
+    r5: "Recorrido", r_none: "Elige hotel y tours para ver el recorrido.", arr_leg: "Llegada {0} → {1}", arr_leg_t: "Llegada terrestre desde {0} → {1}", dep_leg_t: "{0} → {1} (terrestre)", arr_sub_t: "Traslado de llegada por carretera", dep_sub_t: "Traslado de salida por carretera", arr_sub: "Traslado de llegada", dep_leg: "{0} → {1}", dep_sub: "Traslado de salida", go_back: "ida y regreso al hotel", per_leg: "c/trayecto",
     choose_hotel: "elige un hotel para calcular el trayecto", in_hotel: "En el hotel", finca_in: "Finca en {0}",
     tot_arr: "Traslado de llegada", tot_dep: "Traslado de salida", quote: "Cotizar", sup_of: "Suplemento {0}", tot: "Total neto por pasajero", tot_q: " (sin lo que está por cotizar)", tot_note: "{0} pax en {1}. No incluye hotel. {2}.",
     fit: "Ver ruta completa en el mapa", fl_t: "Tu ruta", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Mapa grande", fl_show: "Ver mi ruta en el mapa", fl_exp: "Ver la ruta en el mapa grande", copy_it: "Copiar itinerario", send_req: "Enviar como solicitud de reserva", kit_route: "Kit de venta con estos tours", reset: "Empezar de nuevo", it_copied: "Itinerario copiado", program: "Programa Paisaje Cultural Cafetero · {0} pasajeros", program0: "Programa Paisaje Cultural Cafetero", vehicle: "Vehículo",
@@ -122,7 +122,7 @@ const UI = {
     al_cross: "Día {0}: «{1}» se cruza con «{2}» (al terminar «{2}» llegarían hacia las {3} y «{1}» sale a más tardar a las {4}). Pásalo a otro día.",
     al_long: "Día {0}: ≈ {1} entre tours y trayectos. Es una jornada muy larga: reparte los tours en otro día.", al_late: "Día {0}: el regreso al hotel sería hacia las {1}, muy tarde. Revisa si conviene pasar un tour a otro día.",
     al_arr: "Día 1 es el de llegada: el vuelo debe aterrizar en {1} a más tardar a las {2} para hacer «{0}».", al_arr_no: "Día 1 es el de llegada: «{0}» no alcanza ese día (el vuelo tendría que aterrizar en {1} antes de las 5:00 a. m.). Pásalo al Día 2.",
-    sg_see_r: "Haz clic aquí para ver las rutas", sg_hide_r: "Ocultar rutas", sg_see_x: "Haz clic aquí para ver las {0} experiencias", sg_hide_x: "Ocultar experiencias", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
+    sg_see_r: "Haz clic aquí para ver las rutas", rt_btn: "Rutas ({0})", rt_hide: "Ocultar rutas", rt_title: "Rutas de {0}", rt_nav: "Rutas", rt_note: "Cada ruta tiene su ficha; la tarifa es la de la ficha principal, la misma para todas.", rt_card: "Tarifa en la ficha principal", rt_sub: "Esta ruta usa la tarifa de «{0}» ({1}), la misma para todas sus rutas.", rt_main: "Ver la ficha principal", fp_btn: "Descargar ficha en PDF", fp_making: "Armando la ficha en PDF…", fp_wm: "Documento confidencial · Espontáneos Travel", sg_hide_r: "Ocultar rutas", sg_see_x: "Haz clic aquí para ver las {0} experiencias", sg_hide_x: "Ocultar experiencias", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
     k_fmt: "Formato del PDF", k_fmt_i: "Itinerario de mi ruta, día a día", k_fmt_i0: "(primero arma tu ruta)", k_fmt_c: "Catálogo: una hoja por experiencia",
     k_it: "Itinerario: {0}. La última hoja es el resumen del itinerario con sus valores.", k_it0: "Itinerario: {0}. La última hoja es el resumen del itinerario.",
     k_it_arr: "llegada por {0}", k_it_dep: "salida por {0}", k_it_x: "Las elegidas que no están en tu ruta ({0}) van al final como opcionales.",
@@ -181,8 +181,8 @@ const UI = {
     low: "Low", mid: "Medium", high: "High", pick: "Pick-up at the accommodation (coverage area as per conditions)", pickC: "Your hotel", onsite: "At the experience site", atHotel: "At the group's hotel",
     capB2B: "Rate published up to {0} pax; larger groups: ask us", capB2C: "Up to {0} people", langB2B: "Spanish / English (other languages with guiding supplement)", langC: "Spanish / English",
     r_h: "Build a route", r_l: "Choose airport, hotel and tours. The route is drawn on the map with road distances, estimated times and the vehicle for your group size.",
-    r1: "Group", r_pax: "Passengers", r_start: "First tour day", r_d1: "Day 1 (arrival day)", r_pick: "Choose…", r_pax_ph: "Number of passengers", ap_pick: "Choose the airport…", veh_need: "Enter the number of passengers to get a vehicle suggestion.", tot_need: "Enter the number of passengers to calculate the total.", day: "Day {0}", veh_sug: "Suggested vehicle", see_fleet: "see fleet",
-    r2: "Arrival and departure", r_arr: "Arrival airport", r_dep: "Departure airport", no_tr: "No transfer",
+    r1: "Group", r_pax: "Passengers", r_start: "First tour day", r_d1: "Day 1 (arrival day)", r_pick: "Choose…", r_pax_ph: "Number of passengers", ap_pick: "Choose an option…", ap_air: "Airports", ap_land: "By road", land_from: "By road from {0}", land_to: "By road to {0}", veh_need: "Enter the number of passengers to get a vehicle suggestion.", tot_need: "Enter the number of passengers to calculate the total.", day: "Day {0}", veh_sug: "Suggested vehicle", see_fleet: "see fleet",
+    r2: "Arrival and departure", r_arr: "Arrival (airport or by road)", r_dep: "Departure (airport or by road)", no_tr: "No transfer",
     r3: "Hotel", h_ph: "Type the hotel name…", h_note: "ET partner hotels and hotels from the transfer rate sheet come first; the open map is also searched as you type. If it isn't there, search it as an address or locate it with its Google Maps link, its coordinates, its Plus Code or by tapping the map.",
     h_ally: "ET partner", h_recent: "Used before", h_osm: "Search «{0}» on the open map", h_new: "Locate «{0}» with a link, coordinates, Plus Code or on the map", h_change: "Change", h_searching: "Searching…", h_none: "I couldn't find that hotel on the open map. Paste its Google Maps link or tap it on the map.",
     h_place: "Locate «{0}»", h_link: "Google Maps link, coordinates, Plus Code or address", h_link_ph: "Link, «4.8312, -75.7612», «6R2F+5V Pereira» or the address", h_locate: "Locate", h_link_note: "Use the long Google Maps link (from the browser bar), coordinates in any format (4.8312, -75.7612 · 4°49'52\"N 75°45'40\"W), the Plus Code Google shows on the place card (6R2F+5V Pereira) or the address. Short links (maps.app.goo.gl) carry no location.",
@@ -192,7 +192,7 @@ const UI = {
     h_coord: "Use these coordinates: {1} ({0})", h_pin_name: "Accommodation in {0}", h_addr_c: "located by address", h_near_c: "approximate location (near {0})", h_fix: "Adjust on the map",
     h_near_t: "{0}: located near «{1}» (approximate). For the exact spot, use «Adjust on the map».", h_short: "That is a short Google Maps link and carries no location. Open it and copy the full address from the browser bar, or the place's Plus Code, and paste it here.",
     r4: "Tours per day", r_add: "Add tour", r_choose: "Choose a tour…", r_empty: "Add tours from this list, from the map or from each sheet.", remove: "Remove", which_finca: "Which farm?", where_q: "Where?", z_auto: "Closest to the hotel{0}", z_munis: "Municipalities where it operates", z_fincas: "Partner farms", z_hint: "You can also tap its point on the map.", z_pick: "tap to choose", z_set: "{0}: {1}", op_in: "In {0}", fl_pick: "tap a point to choose where", finca_auto: "The closest to the hotel (assigned by ET)",
-    r5: "Itinerary", r_none: "Choose a hotel and tours to see the itinerary.", arr_leg: "Arrival {0} → {1}", arr_sub: "Arrival transfer", dep_leg: "{0} → {1}", dep_sub: "Departure transfer", go_back: "return trip from the hotel", per_leg: "each way",
+    r5: "Itinerary", r_none: "Choose a hotel and tours to see the itinerary.", arr_leg: "Arrival {0} → {1}", arr_leg_t: "Arrival by road from {0} → {1}", dep_leg_t: "{0} → {1} (by road)", arr_sub_t: "Arrival transfer by road", dep_sub_t: "Departure transfer by road", arr_sub: "Arrival transfer", dep_leg: "{0} → {1}", dep_sub: "Departure transfer", go_back: "return trip from the hotel", per_leg: "each way",
     choose_hotel: "choose a hotel to calculate the trip", in_hotel: "At the hotel", finca_in: "Farm in {0}",
     tot_arr: "Arrival transfer", tot_dep: "Departure transfer", quote: "Quote", sup_of: "Supplement {0}", tot: "Net total per passenger", tot_q: " (excluding items to quote)", tot_note: "{0} pax in {1}. Hotel not included. {2}.",
     fit: "See full route on the map", fl_t: "Your route", fl_n: "{0} tours", fl_n1: "1 tour", fl_big: "Full map", fl_show: "See my route on the map", fl_exp: "Open the route on the full map", copy_it: "Copy itinerary", send_req: "Send as booking request", kit_route: "Sales kit with these tours", reset: "Start over", it_copied: "Itinerary copied", program: "Coffee Cultural Landscape programme · {0} passengers", program0: "Coffee Cultural Landscape programme", vehicle: "Vehicle",
@@ -218,7 +218,7 @@ const UI = {
     al_cross: "Day {0}: «{1}» overlaps with «{2}» (after «{2}» the group would arrive around {3}, and «{1}» starts {4} at the latest). Move it to another day.",
     al_long: "Day {0}: ≈ {1} of tours and driving. That is a very long day: spread the tours over another day.", al_late: "Day {0}: the group would be back at the hotel around {1}, which is late. Consider moving a tour to another day.",
     al_arr: "Day 1 is the arrival day: the flight must land at {1} by {2} at the latest to do «{0}».", al_arr_no: "Day 1 is the arrival day: «{0}» doesn't fit that day (the flight would have to land at {1} before 5:00 a.m.). Move it to Day 2.",
-    sg_see_r: "Click here to see the routes", sg_hide_r: "Hide routes", sg_see_x: "Click here to see the {0} experiences", sg_hide_x: "Hide experiences", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
+    sg_see_r: "Click here to see the routes", rt_btn: "Routes ({0})", rt_hide: "Hide routes", rt_title: "Routes of {0}", rt_nav: "Routes", rt_note: "Each route has its own sheet; the rate is the main sheet's, the same for all of them.", rt_card: "Rate on the main sheet", rt_sub: "This route uses the rate of «{0}» ({1}), the same for all its routes.", rt_main: "See the main sheet", fp_btn: "Download sheet as PDF", fp_making: "Preparing the PDF sheet…", fp_wm: "Confidential document · Espontáneos Travel", sg_hide_r: "Hide routes", sg_see_x: "Click here to see the {0} experiences", sg_hide_x: "Hide experiences", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
     k_fmt: "PDF format", k_fmt_i: "My route's itinerary, day by day", k_fmt_i0: "(build your route first)", k_fmt_c: "Catalogue: one page per experience",
     k_it: "Itinerary: {0}. The last page is the itinerary summary with its prices.", k_it0: "Itinerary: {0}. The last page is the itinerary summary.",
     k_it_arr: "arrival at {0}", k_it_dep: "departure from {0}", k_it_x: "The chosen experiences that are not in your route ({0}) go at the end as optional.",
@@ -258,6 +258,10 @@ function famOf(items, k) {
   const fam = items.filter(x => famKey(x) === k), h = FOLD_HEAD[k];
   return h ? fam.filter(x => x.id === h).concat(fam.filter(x => x.id !== h)) : fam;
 }
+// Ficha principal y sus rutas (Aves para conocedores, ET 18-nov-2026): la ficha principal lleva la tarifa y el botón «Rutas»;
+// cada ruta abre su ficha sin tarifa (usa la de la principal).
+const headOf = id => { const e = byId[id], k = e && famKey(e), h = k && FOLD_HEAD[k]; return h && h !== id && byId[h] ? h : null; };
+const routesOf = id => { const e = byId[id]; return e && FOLD_HEAD[famKey(e)] === id ? famOf(EXP, famKey(e)).filter(x => x.id !== id) : []; };
 // Texto del grupo plegado (ET, 18-nov-2026): cerrado invita a abrirlo («Haz clic aquí para ver las rutas»), abierto dice
 // «Ocultar rutas». La CSS muestra uno u otro según details[open].
 const foldHint = (k, fam) => { const r = !!(FOLD_HEAD[k] && fam.some(e => e.id === FOLD_HEAD[k]));
@@ -421,8 +425,10 @@ function pickAt(rows, p) {
   const r = ok.find(x => x.especial || x.dmcId) || ok[0];
   return r;
 }
-function priceAt(id, p) { const r = pickAt(PR.tours.get(id), p); return r ? r.tarifa_neta : null; }
-function rateRow(id, p) { return pickAt(PR.tours.get(id), p); }
+// Las rutas sin tarifa propia usan la de su ficha principal (Aves para conocedores: la misma para cada ruta, ET 18-nov-2026)
+const rowsOf = id => PR.tours.get(id) || (headOf(id) && PR.tours.get(headOf(id)));
+function priceAt(id, p) { const r = pickAt(rowsOf(id), p); return r ? r.tarifa_neta : null; }
+function rateRow(id, p) { return pickAt(rowsOf(id), p); }
 function hasPrice(id) { return PR.tours.has(id); }
 function fromPrice(id) {
   const v = priceAt(id, 10); if (v != null) return { v, pax: 10 };
@@ -581,7 +587,7 @@ const okTr = tr => (tr && typeof tr === "object" ? Object.fromEntries(["AXM", "P
 function sanitizeR(R) {
   R.pax = Math.round(+R.pax) >= 1 ? Math.min(30, Math.round(+R.pax)) : 0;
   R.start = +R.start === 1 || +R.start === 2 ? +R.start : 0;
-  const apOk = a => a === "" || D.airports.some(x => x.id === a);
+  const apOk = a => a === "" || !!apById(a);
   if (!apOk(R.arr)) R.arr = null; if (!apOk(R.dep)) R.dep = null;
   R.tours = (Array.isArray(R.tours) ? R.tours : []).filter(t => t && byId[t.id]).map(t => ({ id: t.id, day: Math.min(12, Math.max(1, Math.round(+t.day) || 2)), z: typeof t.z === "string" && (byId[t.id].zones || []).includes(t.z) ? t.z : "",
     g: typeof t.g === "string" && (GUIDE_RE.test(t.g) || t.g === GUIDE_TC) && PR.svc.has(t.g) ? t.g : "" }));
@@ -1107,7 +1113,7 @@ function badges(e) {
 // Distancia por carretera desde el hotel de «Arma tu ruta» (la finca, al municipio con finca más cercano)
 function distKm(e) { const h = S.R && S.R.hotel; if (!h) return null; const tp = tourPoint(e, h); return Math.max(1, legInfo([h.lat, h.lon], [tp.lat, tp.lon], 1).km); }
 const nearLine = e => { const k = distKm(e); return k == null ? "" : `<div class="near">${ic("pin", "sm")}${tx("near", k)}</div>`; };
-const priceLine = e => { const u = e.tarifa_unica && rateRow(e.id, 2); if (u) return `<b>${cop(u.tarifa_neta)}</b> <span class="pu">${tx("tu_card")}</span>`; const f = fromPrice(e.id); return f ? `${tx("from_net")} <b>${cop(f.v)}</b> <span class="code">· ${f.pax} pax</span>` : tx("ask_rate"); };
+const priceLine = e => { if (headOf(e.id)) return `<span class="pu">${esc(tx("rt_card"))}</span>`; const u = e.tarifa_unica && rateRow(e.id, 2); if (u) return `<b>${cop(u.tarifa_neta)}</b> <span class="pu">${tx("tu_card")}</span>`; const f = fromPrice(e.id); return f ? `${tx("from_net")} <b>${cop(f.v)}</b> <span class="code">· ${f.pax} pax</span>` : tx("ask_rate"); };
 
 /* ---------- lista de experiencias ---------- */
 function renderList() {
@@ -1128,7 +1134,10 @@ function renderList() {
         ${icoRow(e, "sm")}${nearLine(e)}<div class="meta tl">${esc(tr(e, "tagline"))}</div>
         <div class="price">${priceLine(e)}</div></div></button>`;
     // Aves y Bicicleta: una sola fila plegable dentro de la línea (se abre con un clic; abierta al buscar o filtrar)
-    const sub = (s, fam) => { const kk = "s:" + s; return `<details class="subgrp" data-sg="${esc(kk)}"${(kk in S.open ? S.open[kk] : auto) ? " open" : ""}><summary><span class="fn">${esc(foldName(s))}</span><span class="gn">${fam.length}</span>${foldHint(s, fam)}${ic("chev", "sm")}</summary><div class="cards">${fam.map(card).join("")}</div></details>`; };
+    const rutas = (s, fam) => { const hd = fam[0], rs = fam.slice(1), kk = "r:" + hd.id, op = kk in S.open ? S.open[kk] : auto;
+      return `<div class="cardw">${card(hd)}<button type="button" class="rbtn" data-rutas="${hd.id}" aria-expanded="${op}" aria-controls="pf-rd-${hd.id}">${ic("route", "sm")}<span class="rb-o">${esc(tx("rt_btn", rs.length))}</span><span class="rb-c">${esc(tx("rt_hide"))}</span>${ic("chev", "sm")}</button></div>
+        <div class="rdrawer" id="pf-rd-${hd.id}" data-rd="${hd.id}"${op ? "" : " hidden"}><p class="rd-h">${ic("route", "sm")}<b>${esc(tx("rt_title", tr(hd, "name")))}</b> <span class="note">${esc(tx("rt_note"))}</span></p><div class="cards">${rs.map(card).join("")}</div></div>`; };
+    const sub = (s, fam) => { if (FOLD_HEAD[s] && fam[0] && fam[0].id === FOLD_HEAD[s]) return rutas(s, fam); const kk = "s:" + s; return `<details class="subgrp" data-sg="${esc(kk)}"${(kk in S.open ? S.open[kk] : auto) ? " open" : ""}><summary><span class="fn">${esc(foldName(s))}</span><span class="gn">${fam.length}</span>${foldHint(s, fam)}${ic("chev", "sm")}</summary><div class="cards">${fam.map(card).join("")}</div></details>`; };
     html += `<details class="group" data-g="${k}"${isComp ? ' id="tours-compartidos"' : ""}${(k in S.open ? S.open[k] : auto) ? " open" : ""}><summary><i style="background:${c.color}"></i><span class="gname">${esc(lineName(k))}</span>${lineSeal(k)}<span class="gn">${items.length}</span><span class="sub">${[...new Set(items.map(e => e.sub))].map(esc).join(" · ")}</span>${ic("chev", "sm")}</summary>${isComp ? `<p class="gintro">${esc(tx("comp_intro"))}</p>` : ""}<div class="cards">` +
       foldList(items, card, sub) + `</div>${isComp ? `<div class="gextra">${compTraslados()}${compImportante()}</div>` : ""}</details>`;
   }
@@ -1137,6 +1146,10 @@ function renderList() {
   $r("groups").querySelectorAll("[data-card]").forEach(c => c.addEventListener("click", () => openFicha(c.dataset.card)));
   $r("groups").querySelectorAll("details.group").forEach(d => d.addEventListener("toggle", () => { if (d.isConnected) { S.open[d.dataset.g] = d.open; syncGall(); } }));
   $r("groups").querySelectorAll("details.subgrp").forEach(d => d.addEventListener("toggle", () => { if (d.isConnected) S.open[d.dataset.sg] = d.open; }));
+  $r("groups").querySelectorAll("[data-rutas]").forEach(b => b.addEventListener("click", () => {
+    const d = $r("groups").querySelector(`[data-rd="${b.dataset.rutas}"]`); if (!d) return; const op = d.hidden;
+    d.hidden = !op; b.setAttribute("aria-expanded", String(op)); S.open["r:" + b.dataset.rutas] = op;
+    if (op) d.scrollIntoView({ block: "nearest", behavior: reduced() ? "auto" : "smooth" }); }));
   syncGall();
 }
 function syncGall() {
@@ -1207,8 +1220,9 @@ function openFicha(id, how) {
   const sell = !wl && (p.why || p.interesa || p.where || p.menu || p.impacto || p.team);
   const notes = !wl && p.notes && p.notes.length;
   const paxRows = seasonRows(PR.tours.get(id)), pax0 = rateRow(id, 2) ? 2 : (paxRows.length ? Math.min(...paxRows.map(r => r.pax_desde)) : 2);
-  const rate = rateRow(id, pax0);
-  const nav = [["exp", tx("s_exp")], ["tech", tx("s_tech")], ["incl", tx("s_incl")], ["oper", tx("s_oper")], ...(meetOf(e).length ? [["meet", tx("s_meet")]] : []), ...(sell ? [["sell", tx("s_sell")]] : []), ...(!wl ? [["rate", tx("s_rate").split(" ")[0] === "Tarifa" ? "Tarifa" : "Rate"]] : [])];
+  const rate = rateRow(id, pax0), head = headOf(id), rts = routesOf(id);
+  const goBtn = x => `<button type="button" data-go="${x.id}"><span class="th">${x.fotos[0] ? `<img src="${ph640(x.fotos[0])}" alt="" loading="lazy">` : `<span class="ph sm"></span>`}</span><span><b>${esc(tr(x, "name"))}</b><br><span class="sub"><span class="code">${esc(x.code)} · </span>${esc(tr(x, "dur"))}</span></span></button>`;
+  const nav = [["exp", tx("s_exp")], ...(rts.length ? [["rutas", tx("rt_nav")]] : []), ["tech", tx("s_tech")], ["incl", tx("s_incl")], ["oper", tx("s_oper")], ...(meetOf(e).length ? [["meet", tx("s_meet")]] : []), ...(sell ? [["sell", tx("s_sell")]] : []), ...(!wl ? [["rate", tx("s_rate").split(" ")[0] === "Tarifa" ? "Tarifa" : "Rate"]] : [])];
   $r("ficha").innerHTML = `<div class="ficha" role="dialog" aria-modal="true" aria-label="${esc(tr(e, "name"))}" data-fid="${id}"><article class="sheet">
     <div class="hero"><div class="media">${mediaBlock(e, { label: false, big: true })}</div>${badges(e)}${seal(e, "xl")}<button type="button" class="close" data-r="fx">${ic("x", "sm")}${tx("close")}</button>
       <div class="hero-txt"><span class="eyebrow">${esc(catName(e.cat))} · ${esc(e.sub)} · ${esc(e.deptos)}</span><h2>${esc(tr(e, "name"))}</h2><p>${esc(tr(e, "tagline"))}</p></div></div>
@@ -1217,6 +1231,7 @@ function openFicha(id, how) {
     <nav class="fnav" aria-label="${esc(tr(e, "name"))}">${nav.map(([k, l]) => `<a href="#pf-f-${k}" data-jump="${k}">${esc(l)}</a>`).join("")}</nav>
     <div class="f-body"><div class="f-main">
       <section id="pf-f-exp"><h3>${tx("s_exp")}</h3>${(tr(e, "desc") || []).map(x => `<p>${esc(x)}</p>`).join("")}</section>
+      ${rts.length ? `<section id="pf-f-rutas"><details class="rdet"><summary class="btn ghost">${ic("route", "sm")}<span class="rb-o">${esc(tx("rt_btn", rts.length))}</span><span class="rb-c">${esc(tx("rt_hide"))}</span>${ic("chev", "sm")}</summary><p class="note">${esc(tx("rt_note"))}</p><div class="combo rcombo">${rts.map(goBtn).join("")}</div></details></section>` : ""}
       <section id="pf-f-tech"><h3>${tx("s_tech")}</h3>${techTable(e)}</section>
       ${(e.fotos || []).length || gal.length > 1 ? `<section id="pf-f-photos"><h3>${tx("s_photos")}</h3>${gal.length > 1 ? `<div class="gallery">${gal.map((g, i) => `<button type="button" data-g="${i}" aria-label="${esc(tx("s_photos"))} ${i + 1}">${g.v ? `${g.p ? `<img src="${esc(g.p)}" alt="" loading="lazy">` : ""}<span class="play">▶ Video</span>` : `<img src="${ph640(g.i)}" alt="${esc(tr(e, "name"))} ${i + 1}" loading="lazy">`}</button>`).join("")}</div>` : ""}
         <div class="btnrow phdl">${(e.fotos || []).length ? `<button type="button" class="btn ghost sm" data-r="phdl">${ic("download", "sm")}${tx("ph_dl", e.fotos.length)}</button>` : ""}${!wl && BANK ? `<a class="btn ghost sm" href="${BANK}" target="_blank" rel="noopener" title="${esc(tx("ph_bank_s"))}">${ic("grid", "sm")}${tx("ph_bank")} ↗</a>` : ""}</div>
@@ -1233,12 +1248,14 @@ function openFicha(id, how) {
       ${notes ? `<section><h3>${tx("s_notes")}</h3><ul class="fnotes">${p.notes.map(x => `<li>${esc(x)}</li>`).join("")}</ul></section>` : ""}
       <section class="f-foot"><p class="note">${ic("child", "sm")}${esc(tx("kids"))}</p><div class="btnrow"><button type="button" class="btn ghost sm" data-cond="book">${ic("shield", "sm")}${tx("see_cond")}</button><button type="button" class="btn ghost sm" data-cond="about">${ic("info", "sm")}${tx("see_about")}</button></div></section>
     </div><aside class="aside">
-      ${!wl && e.tarifa_unica && rate ? uniBox(e, rate) : ""}${!wl && !(e.tarifa_unica && rate) ? `<div class="box netbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><div class="big" data-r="net">${rate ? cop(rate.tarifa_neta) : tx("ask")}</div>
+      ${!wl && head ? `<div class="box netbox rbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><p>${esc(tx("rt_sub", tr(byId[head], "name"), byId[head].code))}</p><button type="button" class="btn ghost sm" data-go="${head}">${tx("rt_main")}</button></div>` : ""}
+      ${!wl && !head && e.tarifa_unica && rate ? uniBox(e, rate) : ""}${!wl && !head && !(e.tarifa_unica && rate) ? `<div class="box netbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><div class="big" data-r="net">${rate ? cop(rate.tarifa_neta) : tx("ask")}</div>
         <label>${tx("pax")} <input type="range" data-r="paxr" min="1" max="30" value="${pax0}"> <b data-r="paxn">${pax0}</b></label>
         <small>${esc(tarLabel())}. ${tx("per_pax")}.${rate && rate.temporada ? " " + esc(rate.temporada) + "." : ""}</small>${rate && rate._de ? `<span class="pill">${esc(tx("carry", rate._de, VIG))}</span>` : ""}
         ${p.supl.length || GUIDES().length ? `<div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${p.supl.length ? `<ul>${p.supl.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${guideSup(e)}</div>` : ""}</div>` : ""}
       <div class="btnrow col"><button type="button" class="btn add" data-add="${id}" aria-pressed="${inRoute(id)}">${inRoute(id) ? tx("in_route") : tx("add_route_l")}</button>
-        ${CTX.onRequest && !wl ? `<button type="button" class="btn ghost" data-r="freq">${ic("send", "sm")}${tx("request")}</button>` : ""}</div>
+        ${CTX.onRequest && !wl ? `<button type="button" class="btn ghost" data-r="freq">${ic("send", "sm")}${tx("request")}</button>` : ""}
+        ${CTX.fichaPdf ? `<button type="button" class="btn ghost" data-r="fpdf">${ic("download", "sm")}${tx("fp_btn")}</button><p class="note" data-r="fpst" aria-live="polite"></p>` : ""}</div>
       ${(!wl && p.impacto) || e.com || e.cord ? `<div class="box impact"><span class="eyebrow">${tx("impact")}</span><p>${!wl && p.impacto ? `<b>${esc(impName(p.impacto))}</b>` : ""}${e.com ? `<span>${esc(tx("com_txt"))}</span>` : ""}${e.cord ? `<span>${esc(tx("cord_txt"))}</span>` : ""}</p></div>` : ""}
       ${comb ? `<div class="box"><span class="eyebrow">${tx("s_combo")}</span><div class="combo">${comb}</div></div>` : ""}
     </aside></div></article></div>`;
@@ -1248,6 +1265,7 @@ function openFicha(id, how) {
   const pax = $r("paxr"); if (pax) pax.addEventListener("input", () => { $r("paxn").textContent = pax.value; const v = priceAt(id, +pax.value); $r("net").textContent = v != null ? cop(v) : tx("ask"); });
   f.querySelectorAll("[data-g]").forEach(b => b.addEventListener("click", () => lightbox(gal[+b.dataset.g], e)));
   if ($r("phdl")) $r("phdl").addEventListener("click", () => photosZip(e, $r("phst"), $r("phdl")));
+  if ($r("fpdf")) $r("fpdf").addEventListener("click", () => fichaPdf(id, $r("fpst"), $r("fpdf")));
   if ($r("ctrgo")) $r("ctrgo").addEventListener("click", () => goComp(true));
   f.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => openFicha(b.dataset.go, "swap")));
   f.querySelectorAll("[data-jump]").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); const t = f.querySelector("#pf-f-" + a.dataset.jump); if (t) t.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" }); }));
@@ -1317,6 +1335,91 @@ async function photosZip(e, st, btn) {
   } catch (err) { if (st) st.textContent = tx("ph_err"); if (window.console) console.error(err); }
   finally { if (btn) btn.disabled = false; }
 }
+/* ---------- ficha en PDF para la agencia (ET, 18-nov-2026) ----------
+   Una sola hoja carta con lo que la agencia ve en la ficha: encabezado (foto, línea, título y frase), barra de datos (duración, modalidad,
+   almuerzo, edad, idiomas y código), la experiencia, ficha técnica, incluye, operación y horarios, y fotos. No lleva tarifas ni suplementos,
+   «Agregar a la ruta», «Para vender» ni nada «solo agencias» (impacto local), ni los botones de la ficha. Marca de agua muy sutil y pie de
+   Espontáneos Travel. La letra se ajusta para que todo quepa en la hoja. Solo aparece si el perfil del DMC tiene «Descarga de fichas PDF»
+   (CTX.fichaPdf; el equipo siempre). Autor de la plataforma: Dr. Mauricio Rodríguez Herrera. */
+async function fichaPdf(id, st, btn) {
+  const e = byId[id]; if (!e) return false;
+  if (btn) btn.disabled = true; if (st) st.textContent = tx("fp_making");
+  try {
+    const { jsPDF } = await loadJsPDF().catch(() => { throw Object.assign(new Error("lib"), { code: "lib" }); });
+    const doc = new jsPDF({ unit: "mm", format: "letter" }), W = 215.9, H = 279.4, M = 12, CW = W - 2 * M, OL = [74, 92, 58], T = s => pdfTxt(s);
+    const thumbsB = (e.fotos || []).slice(1, 5), thumbs = (await Promise.all(thumbsB.map(b => imgData(ph640(b), 640, 430).catch(() => null)))).filter(Boolean);
+    let y = M;
+    // Encabezado: foto, línea · grupo · departamentos, título y frase (como la ficha abierta)
+    const HH = 56;
+    if (e.fotos[0]) { try { doc.addImage(await imgData(ph1600(e.fotos[0]), 1400, Math.round(1400 * HH / CW)), "JPEG", M, y, CW, HH); y += HH + 6; } catch (err) { /* sin foto */ } }
+    doc.setFont("helvetica", "bold"); doc.setFontSize(7.5); doc.setTextColor(120);
+    doc.text(T(`${catName(e.cat)} · ${e.sub} · ${e.deptos}`.toUpperCase()), M, y); y += 6.5;
+    doc.setTextColor(...OL); doc.setFontSize(17); doc.splitTextToSize(T(tr(e, "name")), CW).slice(0, 2).forEach(l => { doc.text(l, M, y); y += 7; });
+    doc.setFont("helvetica", "italic"); doc.setFontSize(10); doc.setTextColor(45);
+    doc.splitTextToSize(T(tr(e, "tagline")), CW).slice(0, 2).forEach(l => { doc.text(l, M, y); y += 4.8; }); y += 1.5;
+    // Barra de datos
+    const facts = [[tx("f_dur_l"), tr(e, "dur")], [tx("f_mod"), tr(e, "modalidad")], [tx("f_lunch"), tr(e, "almuerzo")], [tx("f_age"), tr(e, "edad") || tx("ask")],
+      [tx("f_langs"), (e.langs || []).map(langName).join(", ")], [tx("f_code"), e.code]];
+    const fw = CW / facts.length;
+    doc.setFillColor(238, 242, 236); doc.rect(M, y, CW, 14, "F");
+    facts.forEach(([k, v], i) => { const x = M + i * fw + 3;
+      doc.setFont("helvetica", "bold"); doc.setFontSize(6.5); doc.setTextColor(110); doc.text(T(String(k).toUpperCase()), x, y + 4.6);
+      doc.setFontSize(8.5); doc.setTextColor(30); doc.splitTextToSize(T(v || "—"), fw - 5).slice(0, 2).forEach((l, j) => doc.text(l, x, y + 8.8 + j * 3.4)); });
+    y += 19;
+    // Cuerpo en dos columnas: a la izquierda la experiencia, incluye y operación; a la derecha la ficha técnica y las fotos
+    const LW = 120, GAP = 6, RW = CW - LW - GAP, RX = M + LW + GAP, BOT = H - 15, top = y;
+    const desc0 = tr(e, "desc") || [], incl = tr(e, "incl") || [], noi = tr(e, "noIncl") || [];
+    const operL = [...(tr(e, "oper") || []), ...meetOf(e).map(m => `${hm12(m.h)} · ${m.l}`)];
+    const rows = techRows(e).map(r => [r[0], S.wl ? r[2] : r[1]]);
+    const body = (f, draw, desc) => {
+      const lh = f * 0.42;
+      const put = (txt, x, yy, w, sty) => { doc.setFont("helvetica", sty || "normal"); doc.setFontSize(f); const ls = doc.splitTextToSize(T(txt), w); if (draw) { doc.setTextColor(30); ls.forEach((l, i) => doc.text(l, x, yy + i * lh)); } return ls.length * lh; };
+      const head = (txt, x, yy) => { doc.setFont("helvetica", "bold"); doc.setFontSize(f + 1.6); if (draw) { doc.setTextColor(...OL); doc.text(T(txt), x, yy); } return lh + 3; };
+      let ly = top, ry = top;
+      ly += head(tx("s_exp"), M, ly);
+      desc.forEach(p => { ly += put(p, M, ly, LW) + 1.4; });
+      ly += 2;
+      const half = (LW - 5) / 2; let a = ly + head(tx("s_incl"), M, ly), b = ly + head(tx("s_noincl"), M + half + 5, ly);
+      incl.forEach(t => { a += put("- " + t, M, a, half) + .3; }); noi.forEach(t => { b += put("- " + t, M + half + 5, b, half) + .3; });
+      ly = Math.max(a, b) + 2.5;
+      ly += head(tx("s_oper"), M, ly);
+      (operL.length ? operL : [tx("ask")]).forEach(t => { ly += put("- " + t, M, ly, LW) + .3; });
+      ry += head(tx("s_tech"), RX, ry);
+      rows.forEach(([k, v]) => { ry += put(k, RX, ry, RW, "bold"); ry += put(v, RX, ry, RW) + 1.6; });
+      if (thumbs.length) {
+        ry += 1.5; ry += head(tx("s_photos"), RX, ry) - lh;
+        const tw = (RW - 3) / 2, th = tw * 430 / 640;
+        thumbs.forEach((d, i) => { const x = RX + (i % 2) * (tw + 3), yy = ry + Math.floor(i / 2) * (th + 3); if (draw) { try { doc.addImage(d, "JPEG", x, yy, tw, th); } catch (err) { /* sin foto */ } } });
+        ry += Math.ceil(thumbs.length / 2) * (th + 3);
+      }
+      return Math.max(ly, ry);
+    };
+    // La letra baja de 9 a 6,5 hasta que todo quepa; si aún no cabe, se acorta el descriptivo (con «…»)
+    let f = 9, desc = desc0;
+    while (f > 6.5 && body(f, false, desc) > BOT) f -= .5;
+    if (body(f, false, desc) > BOT) {
+      while (desc.length > 1 && body(f, false, desc) > BOT) desc = desc.slice(0, -1);
+      let last = desc[desc.length - 1] || "";
+      while (last.length > 80 && body(f, false, [...desc.slice(0, -1), last + "…"]) > BOT) last = last.slice(0, Math.floor(last.length * .85)).replace(/\s+\S*$/, "");
+      if (last !== desc[desc.length - 1]) desc = [...desc.slice(0, -1), last + "…"];
+    }
+    body(f, true, desc);
+    // Pie
+    doc.setDrawColor(215, 220, 208); doc.setLineWidth(.3); doc.line(M, H - 11, W - M, H - 11);
+    doc.setFont("helvetica", "normal"); doc.setFontSize(7.5); doc.setTextColor(115);
+    doc.text(T("Espontáneos Travel SAS · RNT 91795 · info@espontaneostravel.com"), W / 2, H - 6.5, { align: "center" });
+    // Marca de agua muy sutil, en diagonal (encima de todo, casi transparente)
+    let gs = false;
+    try { doc.saveGraphicsState(); doc.setGState(new doc.GState({ opacity: 0.07 })); gs = true; } catch (err) { /* sin transparencia: gris muy claro */ }
+    doc.setFont("helvetica", "bold"); doc.setFontSize(30); doc.setTextColor(gs ? 90 : 236);
+    const wm = T(tx("fp_wm")), ang = 33, rad = ang * Math.PI / 180, ww = doc.getTextWidth(wm);
+    [H * 0.36, H * 0.74].forEach(cy => doc.text(wm, W / 2 - Math.cos(rad) * ww / 2, cy + Math.sin(rad) * ww / 2, { angle: ang }));
+    if (gs) { try { doc.restoreGraphicsState(); } catch (err) { /* nada */ } }
+    savePdf(doc.output("blob"), `Ficha_${e.code || e.id}_${slugTxt(tr(e, "name"))}.pdf`, st);
+    return true;
+  } catch (err) { if (st) st.textContent = err && err.code === "lib" ? tx("k_nolib") : tx("k_err"); if (window.console) console.error(err); return false; }
+  finally { if (btn) btn.disabled = false; }
+}
 // Menú del Excel («Opción 1. * Trucha … * Cerdo …»): una línea por plato, agrupado por opción
 function menuHtml(m) {
   const parts = String(m).split(/(?=Opci[oó]n\s*\d)/i).map(x => x.trim()).filter(Boolean);
@@ -1332,7 +1435,7 @@ function franja(txt) {
   if (!hs.length) return "";
   return hs.every(x => x < 12) ? tx("am") : hs.every(x => x >= 12) ? tx("pm") : tx("ampm");
 }
-function techTable(e) {
+function techRows(e) {
   const p = e.p, hrs = Number(e.hrs) || 0, oper = tr(e, "oper") || [];
   const full = hrs >= 7, durB = `${tr(e, "dur")}${hrs ? (full ? " (Full Day)" : hrs >= 3 ? " (Half Day)" : "") : ""}`;
   const durC = full ? (L() === "en" ? "Full day" : "Día completo") : hrs >= 3 ? (L() === "en" ? "Half day" : "Medio día") : tr(e, "dur");
@@ -1346,6 +1449,10 @@ function techTable(e) {
   const sched = mt.length ? [tx("dep_from", hm12(mt[0].h)), tx("dep_from", hm12(mt[0].h))] : [oper[0] || tx("ask"), franja(oper.join(" ")) || oper[0] || tx("ask")];
   const rows = [[tx("f_dur_l"), durB, durC], [tx("p_sched"), sched[0], sched[1]], [tx("p_diff"), diff, diff],
     [tx("p_cap"), capN ? tx("capB2B", capN) : tx("ask"), capN ? tx("capB2C", capN) : tx("ask")], [tx("p_meet"), meet[0], meet[1]], [tx("p_guide"), `${langs} (${tx(e.compartido ? "guide_sup_en" : "guide_sup")})`, langs]];
+  return rows;
+}
+function techTable(e) {
+  const rows = techRows(e);
   // Portal de agencias: solo el detalle B2B (sin columna B2C, pedido de ET 29-oct-2026); en Marca blanca, una columna con la versión para el viajero
   return `<div class="tbl-wrap tech"><table><thead><tr><th>${tx("p_param")}</th><th>${S.wl ? tx("p_det") : tx("p_b2b")}</th></tr></thead><tbody>
     ${rows.map(r => `<tr><th scope="row">${esc(r[0])}</th><td>${esc(S.wl ? r[2] : r[1])}</td></tr>`).join("")}</tbody></table></div>`;
@@ -1450,17 +1557,27 @@ function tourPoint(e, h, z) {
     if (pick) { const c = M.mc[norm(pick)]; return { lat: c[0], lon: c[1], label: tx(e.id === "finca" ? "finca_in" : "op_in", MUNI_LABEL(pick)), z: pick }; } }
   const [la, lo] = llOf(e); return { lat: la, lon: lo, label: e.deptos };
 }
-const apById = id => D.airports.find(a => a.id === id);
+// Llegadas y salidas por carretera (ET, 18-nov-2026; tarifas pendientes: el traslado queda «por cotizar»). El trayecto se estima desde la
+// entrada a la región (via), sumando el tramo por carretera desde la ciudad de origen (vkm, vmin: aproximados). Nido del Cóndor: en Manizales.
+const LAND = [
+  { id: "T-MDE", land: true, city: "Medellín", lat: 6.2442, lon: -75.5812, via: [4.8133, -75.6961], vkm: 215, vmin: 285 },
+  { id: "T-CLO", land: true, city: "Cali", lat: 3.4516, lon: -76.532, via: [4.4524, -75.7877], vkm: 170, vmin: 195 },
+  { id: "T-NDC", land: true, city: "Nido del Cóndor (Manizales)", lat: 5.068, lon: -75.517, via: null, vkm: 0, vmin: 0 }
+];
+const apById = id => D.airports.find(a => a.id === id) || LAND.find(a => a.id === id);
+const apPt = a => a.via || [a.lat, a.lon];               // punto del mapa donde empieza o termina el traslado
+const apName = a => (a.land ? a.city : a.id);
+function apLeg(a, h, back) { const p = apPt(a), i = back ? legInfo([h.lat, h.lon], p) : legInfo(p, [h.lat, h.lon]); return a.via ? { km: i.km + a.vkm, min: i.min + a.vmin } : i; }
 function buildRoute() {
   const R = S.R, h = R.hotel, legs = []; let n = 0;
-  if (h && apById(R.arr)) { const a = apById(R.arr), i = legInfo([a.lat, a.lon], [h.lat, h.lon]); legs.push({ type: "t", day: 1, n: ++n, from: [a.lat, a.lon], to: [h.lat, h.lon], title: tx("arr_leg", a.id, h.name), sub: tx("arr_sub"), ...i }); }
+  if (h && apById(R.arr)) { const a = apById(R.arr), i = apLeg(a, h); legs.push({ type: "t", day: 1, n: ++n, from: apPt(a), to: [h.lat, h.lon], title: a.land ? tx("arr_leg_t", a.city, h.name) : tx("arr_leg", a.id, h.name), sub: tx(a.land ? "arr_sub_t" : "arr_sub"), ...i }); }
   const tours = R.tours.slice().sort((x, y) => x.day - y.day);
   tours.forEach(t => { const e = byId[t.id]; if (!h) { const p0 = tourPoint(e, null, t.z); legs.push({ type: "x", day: t.day, n: ++n, title: tr(e, "name"), sub: e.deptos + " · " + tx("choose_hotel") + (t.g ? " · " + gLabel(t.g) : ""), nohotel: true, to: [p0.lat, p0.lon] }); return; }
     const tp = tourPoint(e, h, t.z); const pts = [[h.lat, h.lon], ...(e.stops || []).map(s => [s[0], s[1]]), [tp.lat, tp.lon]];
     let km = 0, min = 0; for (let i = 1; i < pts.length; i++) { const li = legInfo(pts[i - 1], pts[i]); km += li.km; min += li.min; }
     legs.push({ type: "x", day: t.day, n: ++n, pts, to: [tp.lat, tp.lon], title: tr(e, "name"), sub: `${tp.label} · ${String(tr(e, "dur")).toLowerCase()} · ${tx("go_back")}${t.g ? " · " + gLabel(t.g) : ""}`, km, min, id: e.id }); });
-  if (h && apById(R.dep)) { const a = apById(R.dep), i = legInfo([h.lat, h.lon], [a.lat, a.lon]); const lastDay = Math.max(R.start, ...tours.map(t => t.day)) + 1;
-    legs.push({ type: "t", day: lastDay, n: ++n, from: [h.lat, h.lon], to: [a.lat, a.lon], title: tx("dep_leg", h.name, a.id), sub: tx("dep_sub"), ...i }); }
+  if (h && apById(R.dep)) { const a = apById(R.dep), i = apLeg(a, h, true); const lastDay = Math.max(R.start, ...tours.map(t => t.day)) + 1;
+    legs.push({ type: "t", day: lastDay, n: ++n, from: [h.lat, h.lon], to: apPt(a), title: a.land ? tx("dep_leg_t", h.name, a.city) : tx("dep_leg", h.name, a.id), sub: tx(a.land ? "dep_sub_t" : "dep_sub"), ...i }); }
   return legs;
 }
 /* ---------- horarios: que los tours de un mismo día no se crucen ni pasen de una jornada razonable ----------
@@ -1511,7 +1628,7 @@ function daySchedule(day) {
   else if (best.back > BACK_MAX) al.push({ day, lv: "warn", txt: tx("al_late", day, fmtT(best.back)) });
   // Día de llegada: hora límite de aterrizaje para alcanzar el primer tour (aeropuerto → hotel → tour, más 30 min de equipaje)
   const ap = day === 1 && apById(R.arr);
-  if (ap && H && !best.fail) {
+  if (ap && !ap.land && H && !best.fail) {        // llegada por carretera: sin hora de aterrizaje
     const o = best.sch.map(x => x.x), ls = o.map(x => x.w.b);
     for (let i = o.length - 2; i >= 0; i--) ls[i] = Math.min(ls[i], ls[i + 1] - tv(o[i].p, o[i + 1].p) - o[i].d);
     const land = ls[0] - tv(H, o[0].p) - legInfo([ap.lat, ap.lon], H).min - BAGS;
@@ -1544,7 +1661,7 @@ function transferCode(h, ap) {
 function routeTotals() {
   const R = S.R, h = R.hotel, p = R.pax, rows = []; let total = 0, quote = false;
   [[tx("tot_arr"), R.arr], [tx("tot_dep"), R.dep]].forEach(([lbl, a]) => { if (!h || !a) return; const c = transferCode(h, a); const v = c ? svcAt(c, p) : null;
-    if (v != null) { total += v; rows.push({ t: lbl, c, v: cop(v) }); } else { quote = true; rows.push({ t: `${lbl} (${a})`, v: tx("quote") }); } });
+    if (v != null) { total += v; rows.push({ t: lbl, c, v: cop(v) }); } else { quote = true; rows.push({ t: `${lbl} (${apById(a) ? apName(apById(a)) : a})`, v: tx("quote") }); } });
   R.tours.slice().sort((a, b) => a.day - b.day).forEach(t => { const e = byId[t.id]; const v = priceAt(e.id, p);
     if (v == null) { quote = true; rows.push({ t: tr(e, "name"), v: tx("ask") }); } else { total += v; rows.push({ t: tr(e, "name"), v: cop(v) }); }
     if (e.id === "finca" && R.finca && finById[R.finca] && finById[R.finca].sup) { const f = finById[R.finca]; total += f.sup; rows.push({ t: tx("sup_of", f.name), v: cop(f.sup) }); }
@@ -1558,8 +1675,9 @@ function renderRoute() {
   $r("rn").textContent = R.tours.length;
   $r("rpax").value = R.pax || ""; $r("rstart").value = R.start ? String(R.start) : "";
   renderVehPick();
-  const ap = `<option value="?">${tx("ap_pick")}</option>` + D.airports.map(a => `<option value="${a.id}">${a.id} · ${esc(a.name)} (${esc(a.city)})</option>`).join("") + `<option value="">${tx("no_tr")}</option>`;
-  $r("rarr").innerHTML = ap; $r("rdep").innerHTML = ap; $r("rarr").value = R.arr == null ? "?" : R.arr; $r("rdep").value = R.dep == null ? "?" : R.dep;
+  const apO = D.airports.map(a => `<option value="${a.id}">${a.id} · ${esc(a.name)} (${esc(a.city)})</option>`).join("");
+  const apSel = k => `<option value="?">${tx("ap_pick")}</option><optgroup label="${esc(tx("ap_air"))}">${apO}</optgroup><optgroup label="${esc(tx("ap_land"))}">${LAND.map(a => `<option value="${a.id}">${esc(tx(k, a.city))}</option>`).join("")}</optgroup><option value="">${tx("no_tr")}</option>`;
+  $r("rarr").innerHTML = apSel("land_from"); $r("rdep").innerHTML = apSel("land_to"); $r("rarr").value = R.arr == null ? "?" : R.arr; $r("rdep").value = R.dep == null ? "?" : R.dep;
   renderHotelBox();
   const list = R.tours.slice().sort((a, b) => a.day - b.day);
   $r("rtours").innerHTML = list.length ? list.map(t => { const e = byId[t.id], v = priceAt(e.id, R.pax); return `<div class="ti"><span class="th">${e.fotos[0] ? `<img src="${ph640(e.fotos[0])}" alt="">` : `<span class="ph sm"></span>`}</span>
@@ -1941,11 +2059,11 @@ function renderMapPane() {
 
 /* ---------- kit de venta (PDF en el navegador con jsPDF, cargado solo al usarlo) ---------- */
 const KL = {
-  ES: { noteFx: "Valores por persona en {0}, convertidos desde pesos colombianos con una tasa de {1} COP por 1 {2}. Sujetos a disponibilidad.", cUSD: "dólares estadounidenses (USD)", cEUR: "euros (EUR)", gl: ["Guía en español", "Guía en inglés", "Guía en francés", "Guía en italiano", "Guía en alemán", "Guía en portugués", "Guía para invidentes"], gInc: "Incluye", hours: "horas", trInc: "Los traslados incluyen", trIncL: ["Recibimiento en el aeropuerto con letrero", "Ayuda con el equipaje", "Hasta 1 hora de espera si el vuelo se retrasa", "Hidratación", "Desde 9 pasajeros, la tarifa incluye guía o asistente", "Sin recargo nocturno ni en festivos"], trUrb: "Aplica para hoteles dentro del perímetro urbano e incluye: {0}", trCoc: "Hoteles en Cocora: {0}", meet: "Puntos de encuentro", oper: "Operación", supl: "Suplementos", title: "Paisaje Cultural Cafetero · Experiencias 2027", incl: "Incluye", noIncl: "No incluye", reco: "Recomendaciones", dur: "Duración", langs: "Idiomas", price: "Precio por persona", pax: "pax", note: "Valores en pesos colombianos (COP) por persona. Sujetos a disponibilidad.", consult: "Consultar", exp: "Experiencias incluidas", mod: "Modalidad", age: "Edad", prepared: "Preparado por", day: "Día {0}", dayCol: "Día", itin: "Itinerario día a día", trArr: "Traslado aeropuerto {0} - {1}", trDep: "Traslado {0} - aeropuerto {1}", trWhat: "Traslado privado en {0}, con conductor profesional.", dist: "Recorrido aproximado: {0} km · {1}", veh: "Vehículo", hotel: "Alojamiento", sum: "Resumen del itinerario", svc: "Servicio", totPP: "Total por persona", totG: "Total para {0} pasajeros", supF: "Suplemento: {0}", vehQ: "Vehículo elegido: {0} (se cotiza aparte)", opt: "Experiencias opcionales", optOne: "Opcional", optNote: "Las experiencias opcionales no suman al total.", qNote: "Los servicios en «Consultar» se cotizan aparte y no suman al total." },
-  EN: { noteFx: "Prices per person in {0}, converted from Colombian pesos at a rate of {1} COP per 1 {2}. Subject to availability.", cUSD: "US dollars (USD)", cEUR: "euros (EUR)", gl: ["Spanish-speaking guide", "English-speaking guide", "French-speaking guide", "Italian-speaking guide", "German-speaking guide", "Portuguese-speaking guide", "Guide for blind travellers"], gInc: "Includes", hours: "hours", trInc: "Transfers include", trIncL: ["Airport welcome with a name sign", "Help with luggage", "Up to 1 hour of waiting time if the flight is delayed", "Hydration", "From 9 passengers, the rate includes a guide or assistant", "No night or holiday surcharge"], trUrb: "Applies to hotels within the urban area, and also: {0}", trCoc: "Cocora hotels: {0}", meet: "Meeting points", oper: "Operation", supl: "Supplements", title: "Coffee Cultural Landscape · 2027 Experiences", incl: "Includes", noIncl: "Not included", reco: "Recommendations", dur: "Duration", langs: "Languages", price: "Price per person", pax: "pax", note: "Prices in Colombian pesos (COP) per person. Subject to availability.", consult: "On request", exp: "Experiences included", mod: "Format", age: "Age", prepared: "Prepared by", day: "Day {0}", dayCol: "Day", itin: "Day-by-day itinerary", trArr: "Transfer: airport {0} - {1}", trDep: "Transfer: {0} - airport {1}", trWhat: "Private transfer in a {0}, with a professional driver.", dist: "Approximate distance: {0} km · {1}", veh: "Vehicle", hotel: "Accommodation", sum: "Itinerary summary", svc: "Service", totPP: "Total per person", totG: "Total for {0} passengers", supF: "Supplement: {0}", vehQ: "Chosen vehicle: {0} (quoted separately)", opt: "Optional experiences", optOne: "Optional", optNote: "Optional experiences are not included in the total.", qNote: "Services marked «On request» are quoted separately and are not included in the total." },
-  FR: { noteFx: "Prix par personne en {0}, convertis depuis le peso colombien au taux de {1} COP pour 1 {2}. Sous réserve de disponibilité.", cUSD: "dollars américains (USD)", cEUR: "euros (EUR)", gl: ["Guide hispanophone", "Guide anglophone", "Guide francophone", "Guide italophone", "Guide germanophone", "Guide lusophone", "Guide pour personnes aveugles"], gInc: "Comprend", hours: "heures", trInc: "Les transferts comprennent", trIncL: ["Accueil à l'aéroport avec pancarte", "Aide avec les bagages", "Jusqu'à 1 heure d'attente en cas de retard du vol", "Hydratation", "À partir de 9 passagers, le tarif comprend un guide ou un assistant", "Aucun supplément de nuit ni les jours fériés"], trUrb: "S'applique aux hôtels du périmètre urbain, ainsi qu'à : {0}", trCoc: "Hôtels à Cocora : {0}", meet: "Points de rendez-vous", oper: "Fonctionnement", supl: "Suppléments", title: "Paysage culturel du café · Expériences 2027", incl: "Comprend", noIncl: "Ne comprend pas", reco: "Recommandations", dur: "Durée", langs: "Langues", price: "Prix par personne", pax: "pers.", note: "Prix en pesos colombiens (COP) par personne. Sous réserve de disponibilité.", consult: "Sur demande", exp: "Expériences incluses", mod: "Format", age: "Âge", prepared: "Préparé par", day: "Jour {0}", dayCol: "Jour", itin: "Itinéraire jour par jour", trArr: "Transfert aéroport {0} - {1}", trDep: "Transfert {0} - aéroport {1}", trWhat: "Transfert privé en {0}, avec chauffeur professionnel.", dist: "Trajet approximatif : {0} km · {1}", veh: "Véhicule", hotel: "Hébergement", sum: "Récapitulatif de l'itinéraire", svc: "Prestation", totPP: "Total par personne", totG: "Total pour {0} passagers", supF: "Supplément : {0}", vehQ: "Véhicule choisi : {0} (devis à part)", opt: "Expériences optionnelles", optOne: "Optionnel", optNote: "Les expériences optionnelles ne sont pas comprises dans le total.", qNote: "Les prestations « Sur demande » font l'objet d'un devis à part et ne sont pas comprises dans le total." },
-  IT: { noteFx: "Prezzi a persona in {0}, convertiti dai pesos colombiani al tasso di {1} COP per 1 {2}. Soggetti a disponibilità.", cUSD: "dollari statunitensi (USD)", cEUR: "euro (EUR)", gl: ["Guida in spagnolo", "Guida in inglese", "Guida in francese", "Guida in italiano", "Guida in tedesco", "Guida in portoghese", "Guida per non vedenti"], gInc: "Include", hours: "ore", trInc: "I trasferimenti includono", trIncL: ["Accoglienza in aeroporto con cartello", "Aiuto con i bagagli", "Fino a 1 ora di attesa se il volo è in ritardo", "Idratazione", "Da 9 passeggeri, la tariffa include una guida o un assistente", "Nessun supplemento notturno né festivo"], trUrb: "Vale per gli hotel nel perimetro urbano e anche per: {0}", trCoc: "Hotel a Cocora: {0}", meet: "Punti d'incontro", oper: "Operatività", supl: "Supplementi", title: "Paesaggio Culturale del Caffè · Esperienze 2027", incl: "Include", noIncl: "Non include", reco: "Consigli", dur: "Durata", langs: "Lingue", price: "Prezzo a persona", pax: "pax", note: "Prezzi in pesos colombiani (COP) a persona. Soggetti a disponibilità.", consult: "Su richiesta", exp: "Esperienze incluse", mod: "Modalità", age: "Età", prepared: "A cura di", day: "Giorno {0}", dayCol: "Giorno", itin: "Itinerario giorno per giorno", trArr: "Trasferimento aeroporto {0} - {1}", trDep: "Trasferimento {0} - aeroporto {1}", trWhat: "Trasferimento privato in {0}, con autista professionista.", dist: "Percorso indicativo: {0} km · {1}", veh: "Veicolo", hotel: "Alloggio", sum: "Riepilogo dell'itinerario", svc: "Servizio", totPP: "Totale a persona", totG: "Totale per {0} passeggeri", supF: "Supplemento: {0}", vehQ: "Veicolo scelto: {0} (preventivo a parte)", opt: "Esperienze facoltative", optOne: "Facoltativa", optNote: "Le esperienze facoltative non sono incluse nel totale.", qNote: "I servizi «Su richiesta» hanno un preventivo a parte e non sono inclusi nel totale." },
-  PT: { noteFx: "Valores por pessoa em {0}, convertidos de pesos colombianos com uma taxa de {1} COP por 1 {2}. Sujeitos a disponibilidade.", cUSD: "dólares americanos (USD)", cEUR: "euros (EUR)", gl: ["Guia em espanhol", "Guia em inglês", "Guia em francês", "Guia em italiano", "Guia em alemão", "Guia em português", "Guia para cegos"], gInc: "Inclui", hours: "horas", trInc: "Os traslados incluem", trIncL: ["Recepção no aeroporto com placa", "Ajuda com a bagagem", "Até 1 hora de espera se o voo atrasar", "Hidratação", "A partir de 9 passageiros, a tarifa inclui guia ou assistente", "Sem acréscimo noturno nem em feriados"], trUrb: "Vale para hotéis dentro do perímetro urbano e também: {0}", trCoc: "Hotéis em Cocora: {0}", meet: "Pontos de encontro", oper: "Operação", supl: "Suplementos", title: "Paisagem Cultural do Café · Experiências 2027", incl: "Inclui", noIncl: "Não inclui", reco: "Recomendações", dur: "Duração", langs: "Idiomas", price: "Preço por pessoa", pax: "pax", note: "Valores em pesos colombianos (COP) por pessoa. Sujeitos a disponibilidade.", consult: "Sob consulta", exp: "Experiências incluídas", mod: "Modalidade", age: "Idade", prepared: "Preparado por", day: "Dia {0}", dayCol: "Dia", itin: "Roteiro dia a dia", trArr: "Traslado aeroporto {0} - {1}", trDep: "Traslado {0} - aeroporto {1}", trWhat: "Traslado privativo em {0}, com motorista profissional.", dist: "Percurso aproximado: {0} km · {1}", veh: "Veículo", hotel: "Hospedagem", sum: "Resumo do roteiro", svc: "Serviço", totPP: "Total por pessoa", totG: "Total para {0} passageiros", supF: "Suplemento: {0}", vehQ: "Veículo escolhido: {0} (cotação à parte)", opt: "Experiências opcionais", optOne: "Opcional", optNote: "As experiências opcionais não somam ao total.", qNote: "Os serviços «Sob consulta» são cotados à parte e não somam ao total." }
+  ES: { noteFx: "Valores por persona en {0}, convertidos desde pesos colombianos con una tasa de {1} COP por 1 {2}. Sujetos a disponibilidad.", cUSD: "dólares estadounidenses (USD)", cEUR: "euros (EUR)", gl: ["Guía en español", "Guía en inglés", "Guía en francés", "Guía en italiano", "Guía en alemán", "Guía en portugués", "Guía para invidentes"], gInc: "Incluye", hours: "horas", trInc: "Los traslados incluyen", trIncL: ["Recibimiento en el aeropuerto con letrero", "Ayuda con el equipaje", "Hasta 1 hora de espera si el vuelo se retrasa", "Hidratación", "Desde 9 pasajeros, la tarifa incluye guía o asistente", "Sin recargo nocturno ni en festivos"], trUrb: "Aplica para hoteles dentro del perímetro urbano e incluye: {0}", trCoc: "Hoteles en Cocora: {0}", meet: "Puntos de encuentro", oper: "Operación", supl: "Suplementos", title: "Paisaje Cultural Cafetero · Experiencias 2027", incl: "Incluye", noIncl: "No incluye", reco: "Recomendaciones", dur: "Duración", langs: "Idiomas", price: "Precio por persona", pax: "pax", note: "Valores en pesos colombianos (COP) por persona. Sujetos a disponibilidad.", consult: "Consultar", exp: "Experiencias incluidas", mod: "Modalidad", age: "Edad", prepared: "Preparado por", day: "Día {0}", dayCol: "Día", itin: "Itinerario día a día", trArr: "Traslado aeropuerto {0} - {1}", trDep: "Traslado {0} - aeropuerto {1}", trArrT: "Traslado terrestre desde {0} - {1}", trDepT: "Traslado terrestre {0} - {1}", trWhat: "Traslado privado en {0}, con conductor profesional.", dist: "Recorrido aproximado: {0} km · {1}", veh: "Vehículo", hotel: "Alojamiento", sum: "Resumen del itinerario", svc: "Servicio", totPP: "Total por persona", totG: "Total para {0} pasajeros", supF: "Suplemento: {0}", vehQ: "Vehículo elegido: {0} (se cotiza aparte)", opt: "Experiencias opcionales", optOne: "Opcional", optNote: "Las experiencias opcionales no suman al total.", qNote: "Los servicios en «Consultar» se cotizan aparte y no suman al total." },
+  EN: { noteFx: "Prices per person in {0}, converted from Colombian pesos at a rate of {1} COP per 1 {2}. Subject to availability.", cUSD: "US dollars (USD)", cEUR: "euros (EUR)", gl: ["Spanish-speaking guide", "English-speaking guide", "French-speaking guide", "Italian-speaking guide", "German-speaking guide", "Portuguese-speaking guide", "Guide for blind travellers"], gInc: "Includes", hours: "hours", trInc: "Transfers include", trIncL: ["Airport welcome with a name sign", "Help with luggage", "Up to 1 hour of waiting time if the flight is delayed", "Hydration", "From 9 passengers, the rate includes a guide or assistant", "No night or holiday surcharge"], trUrb: "Applies to hotels within the urban area, and also: {0}", trCoc: "Cocora hotels: {0}", meet: "Meeting points", oper: "Operation", supl: "Supplements", title: "Coffee Cultural Landscape · 2027 Experiences", incl: "Includes", noIncl: "Not included", reco: "Recommendations", dur: "Duration", langs: "Languages", price: "Price per person", pax: "pax", note: "Prices in Colombian pesos (COP) per person. Subject to availability.", consult: "On request", exp: "Experiences included", mod: "Format", age: "Age", prepared: "Prepared by", day: "Day {0}", dayCol: "Day", itin: "Day-by-day itinerary", trArr: "Transfer: airport {0} - {1}", trDep: "Transfer: {0} - airport {1}", trArrT: "Transfer by road: {0} - {1}", trDepT: "Transfer by road: {0} - {1}", trWhat: "Private transfer in a {0}, with a professional driver.", dist: "Approximate distance: {0} km · {1}", veh: "Vehicle", hotel: "Accommodation", sum: "Itinerary summary", svc: "Service", totPP: "Total per person", totG: "Total for {0} passengers", supF: "Supplement: {0}", vehQ: "Chosen vehicle: {0} (quoted separately)", opt: "Optional experiences", optOne: "Optional", optNote: "Optional experiences are not included in the total.", qNote: "Services marked «On request» are quoted separately and are not included in the total." },
+  FR: { noteFx: "Prix par personne en {0}, convertis depuis le peso colombien au taux de {1} COP pour 1 {2}. Sous réserve de disponibilité.", cUSD: "dollars américains (USD)", cEUR: "euros (EUR)", gl: ["Guide hispanophone", "Guide anglophone", "Guide francophone", "Guide italophone", "Guide germanophone", "Guide lusophone", "Guide pour personnes aveugles"], gInc: "Comprend", hours: "heures", trInc: "Les transferts comprennent", trIncL: ["Accueil à l'aéroport avec pancarte", "Aide avec les bagages", "Jusqu'à 1 heure d'attente en cas de retard du vol", "Hydratation", "À partir de 9 passagers, le tarif comprend un guide ou un assistant", "Aucun supplément de nuit ni les jours fériés"], trUrb: "S'applique aux hôtels du périmètre urbain, ainsi qu'à : {0}", trCoc: "Hôtels à Cocora : {0}", meet: "Points de rendez-vous", oper: "Fonctionnement", supl: "Suppléments", title: "Paysage culturel du café · Expériences 2027", incl: "Comprend", noIncl: "Ne comprend pas", reco: "Recommandations", dur: "Durée", langs: "Langues", price: "Prix par personne", pax: "pers.", note: "Prix en pesos colombiens (COP) par personne. Sous réserve de disponibilité.", consult: "Sur demande", exp: "Expériences incluses", mod: "Format", age: "Âge", prepared: "Préparé par", day: "Jour {0}", dayCol: "Jour", itin: "Itinéraire jour par jour", trArr: "Transfert aéroport {0} - {1}", trDep: "Transfert {0} - aéroport {1}", trArrT: "Transfert par la route : {0} - {1}", trDepT: "Transfert par la route : {0} - {1}", trWhat: "Transfert privé en {0}, avec chauffeur professionnel.", dist: "Trajet approximatif : {0} km · {1}", veh: "Véhicule", hotel: "Hébergement", sum: "Récapitulatif de l'itinéraire", svc: "Prestation", totPP: "Total par personne", totG: "Total pour {0} passagers", supF: "Supplément : {0}", vehQ: "Véhicule choisi : {0} (devis à part)", opt: "Expériences optionnelles", optOne: "Optionnel", optNote: "Les expériences optionnelles ne sont pas comprises dans le total.", qNote: "Les prestations « Sur demande » font l'objet d'un devis à part et ne sont pas comprises dans le total." },
+  IT: { noteFx: "Prezzi a persona in {0}, convertiti dai pesos colombiani al tasso di {1} COP per 1 {2}. Soggetti a disponibilità.", cUSD: "dollari statunitensi (USD)", cEUR: "euro (EUR)", gl: ["Guida in spagnolo", "Guida in inglese", "Guida in francese", "Guida in italiano", "Guida in tedesco", "Guida in portoghese", "Guida per non vedenti"], gInc: "Include", hours: "ore", trInc: "I trasferimenti includono", trIncL: ["Accoglienza in aeroporto con cartello", "Aiuto con i bagagli", "Fino a 1 ora di attesa se il volo è in ritardo", "Idratazione", "Da 9 passeggeri, la tariffa include una guida o un assistente", "Nessun supplemento notturno né festivo"], trUrb: "Vale per gli hotel nel perimetro urbano e anche per: {0}", trCoc: "Hotel a Cocora: {0}", meet: "Punti d'incontro", oper: "Operatività", supl: "Supplementi", title: "Paesaggio Culturale del Caffè · Esperienze 2027", incl: "Include", noIncl: "Non include", reco: "Consigli", dur: "Durata", langs: "Lingue", price: "Prezzo a persona", pax: "pax", note: "Prezzi in pesos colombiani (COP) a persona. Soggetti a disponibilità.", consult: "Su richiesta", exp: "Esperienze incluse", mod: "Modalità", age: "Età", prepared: "A cura di", day: "Giorno {0}", dayCol: "Giorno", itin: "Itinerario giorno per giorno", trArr: "Trasferimento aeroporto {0} - {1}", trDep: "Trasferimento {0} - aeroporto {1}", trArrT: "Trasferimento su strada: {0} - {1}", trDepT: "Trasferimento su strada: {0} - {1}", trWhat: "Trasferimento privato in {0}, con autista professionista.", dist: "Percorso indicativo: {0} km · {1}", veh: "Veicolo", hotel: "Alloggio", sum: "Riepilogo dell'itinerario", svc: "Servizio", totPP: "Totale a persona", totG: "Totale per {0} passeggeri", supF: "Supplemento: {0}", vehQ: "Veicolo scelto: {0} (preventivo a parte)", opt: "Esperienze facoltative", optOne: "Facoltativa", optNote: "Le esperienze facoltative non sono incluse nel totale.", qNote: "I servizi «Su richiesta» hanno un preventivo a parte e non sono inclusi nel totale." },
+  PT: { noteFx: "Valores por pessoa em {0}, convertidos de pesos colombianos com uma taxa de {1} COP por 1 {2}. Sujeitos a disponibilidade.", cUSD: "dólares americanos (USD)", cEUR: "euros (EUR)", gl: ["Guia em espanhol", "Guia em inglês", "Guia em francês", "Guia em italiano", "Guia em alemão", "Guia em português", "Guia para cegos"], gInc: "Inclui", hours: "horas", trInc: "Os traslados incluem", trIncL: ["Recepção no aeroporto com placa", "Ajuda com a bagagem", "Até 1 hora de espera se o voo atrasar", "Hidratação", "A partir de 9 passageiros, a tarifa inclui guia ou assistente", "Sem acréscimo noturno nem em feriados"], trUrb: "Vale para hotéis dentro do perímetro urbano e também: {0}", trCoc: "Hotéis em Cocora: {0}", meet: "Pontos de encontro", oper: "Operação", supl: "Suplementos", title: "Paisagem Cultural do Café · Experiências 2027", incl: "Inclui", noIncl: "Não inclui", reco: "Recomendações", dur: "Duração", langs: "Idiomas", price: "Preço por pessoa", pax: "pax", note: "Valores em pesos colombianos (COP) por pessoa. Sujeitos a disponibilidade.", consult: "Sob consulta", exp: "Experiências incluídas", mod: "Modalidade", age: "Idade", prepared: "Preparado por", day: "Dia {0}", dayCol: "Dia", itin: "Roteiro dia a dia", trArr: "Traslado aeroporto {0} - {1}", trDep: "Traslado {0} - aeroporto {1}", trArrT: "Traslado terrestre: {0} - {1}", trDepT: "Traslado terrestre: {0} - {1}", trWhat: "Traslado privativo em {0}, com motorista profissional.", dist: "Percurso aproximado: {0} km · {1}", veh: "Veículo", hotel: "Hospedagem", sum: "Resumo do roteiro", svc: "Serviço", totPP: "Total por pessoa", totG: "Total para {0} passageiros", supF: "Suplemento: {0}", vehQ: "Veículo escolhido: {0} (cotação à parte)", opt: "Experiências opcionais", optOne: "Opcional", optNote: "As experiências opcionais não somam ao total.", qNote: "Os serviços «Sob consulta» são cotados à parte e não somam ao total." }
 };
 const KLu = () => (L() === "en" ? KL.EN : KL.ES);   // textos del kit en el idioma del portal
 const LNAME = { ES: "Español", EN: "English", FR: "Français", IT: "Italiano", PT: "Português" };
@@ -2021,7 +2139,7 @@ function renderKit() {
     else if (!it) t = tx("k_it_none");
     else {
       const nT = it.items.filter(x => x.k === "tour").length, a = it.items.find(x => x.k === "arr"), d = it.items.find(x => x.k === "dep");
-      const parts = [a ? tx("day", a.day) + ": " + tx("k_it_arr", a.ap.id) : "", nT === 1 ? tx("n_exp1") : tx("n_exp", nT), d ? tx("day", d.day) + ": " + tx("k_it_dep", d.ap.id) : ""].filter(Boolean).join(" · ");
+      const parts = [a ? tx("day", a.day) + ": " + tx("k_it_arr", apName(a.ap)) : "", nT === 1 ? tx("n_exp1") : tx("n_exp", nT), d ? tx("day", d.day) + ": " + tx("k_it_dep", apName(d.ap)) : ""].filter(Boolean).join(" · ");
       t = tx((S.wl ? "none" : K.price) === "none" ? "k_it0" : "k_it", parts) + (it.extras.length ? " " + tx("k_it_x", it.extras.length) : "") + (it.noTr ? " " + tx("k_it_notr") : "");
     }
     el.innerHTML = `${ic(K.fmt === "itin" ? "route" : "file", "sm")}<span>${esc(t)}</span>`;
@@ -2137,10 +2255,10 @@ function kitItin(sel) {
   const R = S.R, h = R.hotel, tours = R.tours.filter(t => sel.has(t.id) && byId[t.id]).sort((a, b) => a.day - b.day);
   if (!tours.length) return null;
   const A = h && apById(R.arr), Dp = h && apById(R.dep), items = [];
-  if (A) items.push(Object.assign({ k: "arr", day: 1, ap: A, code: transferCode(h, A.id) }, legInfo([A.lat, A.lon], [h.lat, h.lon])));
+  if (A) items.push(Object.assign({ k: "arr", day: 1, ap: A, code: transferCode(h, A.id) }, apLeg(A, h)));
   tours.forEach(t => { const f = t.id === "finca" && R.finca && finById[R.finca];
     items.push({ k: "tour", day: t.day, id: t.id, fin: f && f.sup ? { name: f.name, sup: f.sup } : null }); });
-  if (Dp) items.push(Object.assign({ k: "dep", day: Math.max(+R.start || 0, ...tours.map(t => t.day)) + 1, ap: Dp, code: transferCode(h, Dp.id) }, legInfo([h.lat, h.lon], [Dp.lat, Dp.lon])));
+  if (Dp) items.push(Object.assign({ k: "dep", day: Math.max(+R.start || 0, ...tours.map(t => t.day)) + 1, ap: Dp, code: transferCode(h, Dp.id) }, apLeg(Dp, h, true)));
   const inR = new Set(tours.map(t => t.id));
   return { items, extras: [...sel].filter(id => !inR.has(id) && byId[id]), hotel: h ? { name: h.name, muni: h.muni } : null, vehQ: vehChosen(),
     noTr: (!A && R.arr !== "") || (!Dp && R.dep !== "") };
@@ -2195,9 +2313,9 @@ async function buildPdf(ids, o) {
   const dayTxt = d => LB.day.replace("{0}", d);
   const VEH = IT ? ((S && S.R && S.R.pax === qp && routeVeh()) || vehFor(qp)) : null, vehQ = !!(IT && IT.vehQ && S && S.R && S.R.pax === qp);
   const vName = v => { const en = lg !== "es" && I18.en && (I18.en.vehicles || []).find(x => x.id === v.id); return (en && en.name) || v.name; };
-  const apTxt = a => `${a.id} (${a.name}, ${a.city})`, hotelName = IT && IT.hotel ? IT.hotel.name : "";
+  const apTxt = a => (a.land ? a.city : `${a.id} (${a.name}, ${a.city})`), hotelName = IT && IT.hotel ? IT.hotel.name : "";
   const hotelTxt = IT && IT.hotel ? `${IT.hotel.name}${IT.hotel.muni ? " (" + MUNI_LABEL(IT.hotel.muni) + ")" : ""}` : "";
-  const trTitle = t => (t.k === "arr" ? LB.trArr.replace("{0}", apTxt(t.ap)).replace("{1}", hotelName) : LB.trDep.replace("{0}", hotelName).replace("{1}", apTxt(t.ap)));
+  const trTitle = t => (t.k === "arr" ? (t.ap.land ? LB.trArrT : LB.trArr).replace("{0}", apTxt(t.ap)).replace("{1}", hotelName) : (t.ap.land ? LB.trDepT : LB.trDep).replace("{0}", hotelName).replace("{1}", apTxt(t.ap)));
   const gInfo = (id, e) => { const gc = (o.guides || {})[id] && PR.svc.has(o.guides[id]) ? o.guides[id] : "", gcol = gc && !e.tarifa_unica ? guideColFor(e) : null;
     return { gc, gTxt: gc ? `${(LB.gl || KL.ES.gl)[gc === GUIDE_TC ? 1 : +gc.slice(-3) - 6] || ""}${gcol ? ` (${parseInt(gcol, 10)} ${LB.hours})` : ""}` : "" }; };
   const tourVal = (e, gc) => { const gv = gc ? guideVal(gc, e) : null, v0 = priceAt(e.id, qp); return { gv, v: v0 != null && gv != null ? Math.round(v0 + gv / qp) : v0 }; };
@@ -2295,7 +2413,7 @@ async function buildPdf(ids, o) {
     const meta = [t.km ? LB.dist.replace("{0}", t.km).replace("{1}", fmtMin(t.min)) : "", VEH ? `${LB.veh}: ${vName(VEH)} · ${qp} ${LB.pax}` : ""].filter(Boolean).join(" · ");
     if (meta) { doc.splitTextToSize(pdfTxt(meta), CW).forEach(l => { doc.text(l, Mg, y + 2); y += 4.6; }); y += 3; }
     if (VEH) { doc.setTextColor(30); doc.setFont("helvetica", "italic"); doc.setFontSize(11); doc.splitTextToSize(pdfTxt(LB.trWhat.replace("{0}", vName(VEH))), CW).forEach(l => { doc.text(l, Mg, y); y += 5.5; }); y += 2; }
-    doc.setFont("helvetica", "normal"); doc.setFontSize(10); y = list(LB.trInc, LB.trIncL, Mg, CW) + 3;
+    doc.setFont("helvetica", "normal"); doc.setFontSize(10); y = list(LB.trInc, t.ap.land ? LB.trIncL.filter((x, i) => i !== 0 && i !== 2) : LB.trIncL, Mg, CW) + 3;
     if (P) priceBox(t.code ? svcAt(t.code, qp) : null, "");
     foot();
   };

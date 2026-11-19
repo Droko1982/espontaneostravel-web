@@ -1811,14 +1811,14 @@
      "how do I book?",
      "what do I need to book?"
     ],
-    "respuesta": "It's very easy! To confirm your booking we need the full names and ID documents of the passengers, along with proof of payment of the deposit. Once we receive them, we'll send you the formal confirmation of your trip. 🎒"
+    "respuesta": "It's very easy! Your booking is confirmed with proof of payment of the deposit (50%). Send us the full names and ID documents of the passengers together with the receipt, and we'll send you the formal confirmation of your trip. 🎒\n\nRates are subject to availability and validity; special conditions apply in high season, during events or for special services."
    },
    "pagos": {
     "pregunta_tipo": [
      "do I have to pay everything in advance?",
      "what payment methods do you accept?"
     ],
-    "respuesta": "To book, you pay a 50% deposit. Your quote shows the balance due and the payment deadlines.\n\nPayment methods, in the name of Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia savings: 756-000062-16\n📱 Nequi or Daviplata: +57 317 645 6723\n💳 Debit or credit card: secure Wompi payment button\n\n💵 You can pay the balance in Colombian pesos, US dollars or euros.\n📩 Send us the receipt on WhatsApp.\n⚠️ We only use these methods. If anyone asks you to pay into another account, check with us first."
+    "respuesta": "Your booking is confirmed with proof of payment.\n\n💳 Payments:\n• 50% deposit to book, and the balance up to 3 days before the booked date.\n• If you book less than 24 hours ahead: 100% immediate payment.\n• Changes are subject to availability and may involve rate differences.\n\nPayment methods, in the name of Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia savings account: 756-000062-16\n💳 Debit or credit card: secure Wompi payment button\n⚡ Bre-B transfer, key: 902056513\n\n📩 Send us the receipt on WhatsApp.\n⚠️ We only use these methods. If anyone asks you to pay into another account, check with us first."
    },
    "traslados": {
     "respuesta": "Yes! 🚐 We provide private transfers from El Edén (Armenia) and Matecaña (Pereira) airports to your hotel in Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, the cordillera (Córdoba, Pijao, Buenavista), Pereira and Cerritos, and between Armenia, Pereira and Manizales. You travel in a vehicle licensed for special transport, with a professional driver.\n\nYour transfer includes:\n✅ Airport welcome with a name sign\n✅ Help with your luggage\n✅ Up to 1 hour of waiting time if your flight is delayed\n✅ Hydration\n✅ From 9 passengers, a guide or assistant\n✅ No night or holiday surcharge\n\nFrom Manizales or Cali airports we prepare a tailor-made quote. For a quote, tell me your flight (airport, date and time), how many people are travelling and your hotel.",
@@ -1845,7 +1845,7 @@
      "what happens if I cancel?",
      "cancellation policy"
     ],
-    "respuesta": "We understand that plans change. Cancellation terms depend on how far in advance you let us know. Tell me which tour you booked and we'll review your case with an advisor."
+    "respuesta": "This is how cancellations work:\n• More than 5 days before: no penalty (except non-refundable costs).\n• From 4 days to 24 hours before: up to a 10% penalty.\n• Less than 24 hours before, or if you don't show up (no-show): up to a 100% penalty.\n\nDate changes are subject to availability and may involve rate differences. Tell me which tour you booked and an advisor will review your case."
    },
    "sostenibilidad": {
     "pregunta_tipo": [
@@ -3848,14 +3848,14 @@
      "comment réserver ?",
      "de quoi ai-je besoin pour réserver ?"
     ],
-    "respuesta": "C'est très simple ! Pour confirmer votre réservation, nous avons besoin des noms complets et des pièces d'identité des voyageurs, ainsi que du justificatif de paiement de l'acompte. Dès réception, nous vous envoyons la confirmation officielle de votre voyage. 🎒"
+    "respuesta": "C'est très simple ! La réservation est confirmée avec le justificatif de paiement de l'acompte (50 %). Envoyez-nous les noms complets et les pièces d'identité des passagers avec le justificatif, et nous vous enverrons la confirmation officielle de votre voyage. 🎒\n\nLes tarifs dépendent des disponibilités et de leur période de validité ; des conditions particulières s'appliquent en haute saison, lors d'événements ou pour des services spéciaux."
    },
    "pagos": {
     "pregunta_tipo": [
      "dois-je tout payer à l'avance ?",
      "quels moyens de paiement acceptez-vous ?"
     ],
-    "respuesta": "Pour réserver, vous versez un acompte de 50 %. Le solde et les dates limites figurent dans votre devis.\n\nMoyens de paiement, au nom d'Espontáneos Travel SAS (NIT 902.056.513) :\n🏦 Bancolombia, compte d'épargne : 756-000062-16\n📱 Nequi ou Daviplata : +57 317 645 6723\n💳 Carte de débit ou de crédit : bouton de paiement sécurisé Wompi\n\n💵 Le solde peut être réglé en pesos colombiens, en dollars ou en euros.\n📩 Envoyez-nous le justificatif sur WhatsApp.\n⚠️ Nous n'utilisons que ces moyens. Si quelqu'un vous demande de payer sur un autre compte, vérifiez d'abord auprès de nous."
+    "respuesta": "La réservation est confirmée sur présentation du justificatif de paiement.\n\n💳 Paiements :\n• Acompte de 50 % pour réserver et solde jusqu'à 3 jours avant la date réservée.\n• Réservation moins de 24 heures à l'avance : paiement immédiat de 100 %.\n• Les modifications dépendent des disponibilités et peuvent entraîner des différences de tarif.\n\nMoyens de paiement, au nom d'Espontáneos Travel SAS (NIT 902.056.513) :\n🏦 Bancolombia, compte d'épargne : 756-000062-16\n💳 Carte de débit ou de crédit : bouton de paiement sécurisé Wompi\n⚡ Virement Bre-B, clé : 902056513\n\n📩 Envoyez-nous le justificatif sur WhatsApp.\n⚠️ Nous n'utilisons que ces moyens. Si quelqu'un vous demande de payer sur un autre compte, vérifiez d'abord auprès de nous."
    },
    "traslados": {
     "respuesta": "Oui ! 🚐 Nous assurons des transferts privés depuis les aéroports El Edén (Armenia) et Matecaña (Pereira) jusqu'à votre hôtel à Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, dans la cordillère (Córdoba, Pijao, Buenavista), à Pereira et Cerritos, ainsi qu'entre Armenia, Pereira et Manizales. Vous voyagez dans un véhicule agréé pour le transport spécial, avec un chauffeur professionnel.\n\nVotre transfert comprend :\n✅ Accueil à l'aéroport avec une pancarte\n✅ Aide avec les bagages\n✅ Jusqu'à 1 heure d'attente si votre vol est retardé\n✅ Hydratation\n✅ À partir de 9 passagers, un guide ou un assistant\n✅ Aucun supplément de nuit ni les jours fériés\n\nDepuis les aéroports de Manizales ou de Cali, nous vous faisons un devis sur mesure. Pour un devis, indiquez-moi votre vol (aéroport, date et heure), le nombre de voyageurs et votre hôtel.",
@@ -3882,7 +3882,7 @@
      "que se passe-t-il si j'annule ?",
      "conditions d'annulation"
     ],
-    "respuesta": "Nous comprenons que les projets changent. Les conditions d'annulation dépendent du délai avec lequel vous nous prévenez. Dites-moi quel tour vous avez réservé et nous étudierons votre cas avec un conseiller."
+    "respuesta": "Voici comment fonctionnent les annulations :\n• Plus de 5 jours avant : sans pénalité (sauf frais non remboursables).\n• De 4 jours à 24 heures avant : jusqu'à 10 % de pénalité.\n• Moins de 24 heures avant ou en cas d'absence (no-show) : jusqu'à 100 % de pénalité.\n\nLes changements de date dépendent des disponibilités et peuvent entraîner des différences de tarif. Dites-moi quel tour vous avez réservé et un conseiller étudiera votre cas."
    },
    "sostenibilidad": {
     "pregunta_tipo": [
@@ -5885,14 +5885,14 @@
      "Wie buche ich?",
      "Was brauche ich für eine Buchung?"
     ],
-    "respuesta": "Ganz einfach! Um Ihre Buchung zu bestätigen, benötigen wir die vollständigen Namen und Ausweisdokumente der Reisenden sowie den Zahlungsnachweis für die Anzahlung. Sobald wir diese erhalten, senden wir Ihnen die offizielle Bestätigung Ihrer Reise. 🎒"
+    "respuesta": "Ganz einfach! Ihre Buchung wird mit dem Zahlungsnachweis der Anzahlung (50 %) bestätigt. Senden Sie uns die vollständigen Namen und Ausweisdokumente der Reisenden zusammen mit dem Beleg, und wir schicken Ihnen die offizielle Bestätigung Ihrer Reise. 🎒\n\nDie Preise gelten je nach Verfügbarkeit und Gültigkeit; in der Hochsaison, bei Veranstaltungen oder für Sonderleistungen gelten besondere Bedingungen."
    },
    "pagos": {
     "pregunta_tipo": [
      "Muss ich alles im Voraus bezahlen?",
      "Welche Zahlungsmethoden akzeptieren Sie?"
     ],
-    "respuesta": "Zur Buchung leisten Sie eine Anzahlung von 50 %. Restbetrag und Fristen stehen in Ihrem Angebot.\n\nZahlungswege, alle lautend auf Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia-Sparkonto: 756-000062-16\n📱 Nequi oder Daviplata: +57 317 645 6723\n💳 Debit- oder Kreditkarte: sicherer Wompi-Zahlungsbutton\n\n💵 Den Restbetrag können Sie in kolumbianischen Pesos, US-Dollar oder Euro bezahlen.\n📩 Senden Sie uns den Beleg per WhatsApp.\n⚠️ Wir nutzen nur diese Zahlungswege. Wenn jemand Sie bittet, auf ein anderes Konto zu zahlen, fragen Sie bitte zuerst bei uns nach."
+    "respuesta": "Ihre Buchung wird mit dem Zahlungsnachweis bestätigt.\n\n💳 Zahlungen:\n• 50 % Anzahlung bei der Buchung, Restbetrag bis 3 Tage vor dem gebuchten Datum.\n• Bei Buchung weniger als 24 Stunden im Voraus: sofortige Zahlung von 100 %.\n• Änderungen hängen von der Verfügbarkeit ab und können Preisunterschiede mit sich bringen.\n\nZahlungswege, alle auf Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia-Sparkonto: 756-000062-16\n💳 Debit- oder Kreditkarte: sicherer Wompi-Zahlungsbutton\n⚡ Bre-B-Überweisung, Schlüssel: 902056513\n\n📩 Senden Sie uns den Beleg per WhatsApp.\n⚠️ Wir nutzen nur diese Zahlungswege. Wenn jemand Sie bittet, auf ein anderes Konto zu zahlen, fragen Sie bitte zuerst bei uns nach."
    },
    "traslados": {
     "respuesta": "Ja! 🚐 Wir bieten private Transfers von den Flughäfen El Edén (Armenia) und Matecaña (Pereira) zu Ihrem Hotel in Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, der Kordillere (Córdoba, Pijao, Buenavista), Pereira und Cerritos sowie zwischen Armenia, Pereira und Manizales. Sie fahren in einem für Sonderbeförderung zugelassenen Fahrzeug mit professionellem Fahrer.\n\nIhr Transfer umfasst:\n✅ Empfang am Flughafen mit Namensschild\n✅ Hilfe mit dem Gepäck\n✅ Bis zu 1 Stunde Wartezeit bei Flugverspätung\n✅ Getränke (Wasser)\n✅ Ab 9 Passagieren ein Guide oder eine Begleitperson\n✅ Kein Nacht- oder Feiertagszuschlag\n\nVon den Flughäfen Manizales oder Cali erstellen wir Ihnen ein individuelles Angebot. Für ein Angebot nennen Sie mir bitte Ihren Flug (Flughafen, Datum und Uhrzeit), die Zahl der Reisenden und Ihr Hotel.",
@@ -5919,7 +5919,7 @@
      "Was passiert, wenn ich storniere?",
      "Stornobedingungen"
     ],
-    "respuesta": "Wir verstehen, dass sich Pläne ändern. Stornierungen hängen davon ab, wie früh Sie uns Bescheid geben. Sagen Sie mir, welche Tour Sie gebucht haben, und wir prüfen Ihren Fall mit einem Berater."
+    "respuesta": "So funktionieren Stornierungen:\n• Mehr als 5 Tage vorher: ohne Stornogebühr (außer nicht erstattbaren Kosten).\n• 4 Tage bis 24 Stunden vorher: bis zu 10 % Stornogebühr.\n• Weniger als 24 Stunden vorher oder bei Nichterscheinen (No-Show): bis zu 100 % Stornogebühr.\n\nTerminänderungen hängen von der Verfügbarkeit ab und können Preisunterschiede mit sich bringen. Sagen Sie mir, welche Tour Sie gebucht haben, und ein Berater prüft Ihren Fall."
    },
    "sostenibilidad": {
     "pregunta_tipo": [
@@ -7922,14 +7922,14 @@
      "como faço a reserva?",
      "do que preciso para reservar?"
     ],
-    "respuesta": "É muito simples! Para confirmar sua reserva, precisamos dos nomes completos e documentos de identidade dos passageiros, junto com o comprovante de pagamento do sinal. Assim que recebermos, enviamos a confirmação oficial da sua viagem. 🎒"
+    "respuesta": "É muito simples! A reserva é confirmada com o comprovante de pagamento do sinal (50%). Envie os nomes completos e documentos de identidade dos passageiros junto com o comprovante, e mandamos a confirmação formal da sua viagem. 🎒\n\nAs tarifas estão sujeitas à disponibilidade e à vigência; na alta temporada, em eventos ou serviços especiais aplicam-se condições especiais."
    },
    "pagos": {
     "pregunta_tipo": [
      "preciso pagar tudo adiantado?",
      "quais formas de pagamento vocês aceitam?"
     ],
-    "respuesta": "Para reservar, você paga um sinal de 50%. O saldo e os prazos vêm no seu orçamento.\n\nFormas de pagamento, em nome de Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia, conta poupança: 756-000062-16\n📱 Nequi ou Daviplata: +57 317 645 6723\n💳 Cartão de débito ou crédito: botão de pagamento seguro Wompi\n\n💵 O saldo pode ser pago em pesos colombianos, dólares ou euros.\n📩 Envie o comprovante pelo WhatsApp.\n⚠️ Só usamos esses meios. Se alguém pedir para pagar em outra conta, confirme antes conosco."
+    "respuesta": "A reserva é confirmada com o comprovante de pagamento.\n\n💳 Pagamentos:\n• Sinal de 50% para reservar e saldo até 3 dias antes da data reservada.\n• Reservas com menos de 24 horas de antecedência: pagamento imediato de 100%.\n• Alterações estão sujeitas à disponibilidade e podem ter diferenças de tarifa.\n\nFormas de pagamento, em nome de Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia, conta poupança: 756-000062-16\n💳 Cartão de débito ou crédito: botão de pagamento seguro Wompi\n⚡ Transferência Bre-B, chave: 902056513\n\n📩 Envie o comprovante pelo WhatsApp.\n⚠️ Só usamos esses meios. Se alguém pedir para pagar em outra conta, confirme antes conosco."
    },
    "traslados": {
     "respuesta": "Sim! 🚐 Fazemos traslados privados dos aeroportos El Edén (Armenia) e Matecaña (Pereira) até o seu hotel em Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, na cordilheira (Córdoba, Pijao, Buenavista), em Pereira e Cerritos, e entre Armenia, Pereira e Manizales. Você viaja em veículo habilitado para serviço especial, com motorista profissional.\n\nSeu traslado inclui:\n✅ Recepção no aeroporto com placa\n✅ Ajuda com a bagagem\n✅ Até 1 hora de espera se o voo atrasar\n✅ Hidratação\n✅ A partir de 9 passageiros, guia ou assistente\n✅ Sem acréscimo noturno nem em feriados\n\nDos aeroportos de Manizales ou Cali fazemos uma cotação sob medida. Para cotar, me diga seu voo (aeroporto, data e horário), quantas pessoas viajam e o seu hotel.",
@@ -7956,7 +7956,7 @@
      "o que acontece se eu cancelar?",
      "políticas de cancelamento"
     ],
-    "respuesta": "Entendemos que os planos mudam. Os cancelamentos dependem da antecedência com que você nos avisar. Me conte qual tour você reservou e analisamos seu caso com um consultor."
+    "respuesta": "Assim funcionam os cancelamentos:\n• Mais de 5 dias antes: sem multa (exceto despesas não reembolsáveis).\n• De 4 dias a 24 horas antes: até 10% de multa.\n• Menos de 24 horas antes ou se você não comparecer (no-show): até 100% de multa.\n\nMudanças de data estão sujeitas à disponibilidade e podem ter diferenças de tarifa. Conte qual passeio você reservou e um consultor analisa o seu caso."
    },
    "sostenibilidad": {
     "pregunta_tipo": [
@@ -9959,14 +9959,14 @@
      "come prenoto?",
      "cosa mi serve per prenotare?"
     ],
-    "respuesta": "È semplicissimo! Per confermare la tua prenotazione ci servono i nomi completi e i documenti d'identità dei passeggeri, insieme alla ricevuta di pagamento dell'acconto. Appena la riceviamo, ti inviamo la conferma ufficiale del tuo viaggio. 🎒"
+    "respuesta": "È semplicissimo! La prenotazione si conferma con la ricevuta di pagamento dell'acconto (50%). Inviaci i nomi completi e i documenti d'identità dei passeggeri insieme alla ricevuta, e ti mandiamo la conferma ufficiale del viaggio. 🎒\n\nLe tariffe sono soggette a disponibilità e validità; in alta stagione, durante eventi o per servizi speciali si applicano condizioni particolari."
    },
    "pagos": {
     "pregunta_tipo": [
      "devo pagare tutto in anticipo?",
      "quali metodi di pagamento accettate?"
     ],
-    "respuesta": "Per prenotare versi un acconto del 50%. Il saldo e le scadenze sono indicati nel tuo preventivo.\n\nMetodi di pagamento, intestati a Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia, conto di risparmio: 756-000062-16\n📱 Nequi o Daviplata: +57 317 645 6723\n💳 Carta di debito o di credito: pulsante di pagamento sicuro Wompi\n\n💵 Il saldo puoi pagarlo in pesos colombiani, dollari o euro.\n📩 Inviaci la ricevuta su WhatsApp.\n⚠️ Usiamo solo questi metodi. Se qualcuno ti chiede di pagare su un altro conto, verifica prima con noi."
+    "respuesta": "La prenotazione si conferma con la ricevuta di pagamento.\n\n💳 Pagamenti:\n• Acconto del 50% per prenotare e saldo fino a 3 giorni prima della data prenotata.\n• Prenotazioni con meno di 24 ore di anticipo: pagamento immediato del 100%.\n• Le modifiche sono soggette a disponibilità e possono comportare differenze di tariffa.\n\nMetodi di pagamento, intestati a Espontáneos Travel SAS (NIT 902.056.513):\n🏦 Bancolombia, conto di risparmio: 756-000062-16\n💳 Carta di debito o di credito: pulsante di pagamento sicuro Wompi\n⚡ Bonifico Bre-B, chiave: 902056513\n\n📩 Inviaci la ricevuta su WhatsApp.\n⚠️ Usiamo solo questi metodi. Se qualcuno ti chiede di pagare su un altro conto, verifica prima con noi."
    },
    "traslados": {
     "respuesta": "Sì! 🚐 Facciamo transfer privati dagli aeroporti El Edén (Armenia) e Matecaña (Pereira) al tuo hotel ad Armenia, Calarcá, La Tebaida, Montenegro, Filandia, Salento, Circasia, Quimbaya, Alcalá, Cocora, nella cordigliera (Córdoba, Pijao, Buenavista), a Pereira e Cerritos, e tra Armenia, Pereira e Manizales. Viaggi su un veicolo autorizzato al servizio speciale, con autista professionista.\n\nIl transfer include:\n✅ Accoglienza in aeroporto con cartello\n✅ Aiuto con i bagagli\n✅ Fino a 1 ora di attesa se il volo è in ritardo\n✅ Idratazione\n✅ Da 9 passeggeri, una guida o un assistente\n✅ Nessun supplemento notturno né festivo\n\nDagli aeroporti di Manizales o Cali ti facciamo un preventivo su misura. Per il preventivo, dimmi il tuo volo (aeroporto, data e ora), quante persone viaggiano e il tuo hotel.",
@@ -9993,7 +9993,7 @@
      "cosa succede se cancello?",
      "politica di cancellazione"
     ],
-    "respuesta": "Capiamo che i programmi possono cambiare. Le condizioni di cancellazione dipendono da quanto preavviso ci dai. Dimmi quale tour hai prenotato e valutiamo il tuo caso con un consulente."
+    "respuesta": "Ecco come funzionano le cancellazioni:\n• Più di 5 giorni prima: nessuna penale (salvo spese non rimborsabili).\n• Da 4 giorni a 24 ore prima: penale fino al 10%.\n• Meno di 24 ore prima o in caso di mancata presentazione (no-show): penale fino al 100%.\n\nI cambi di data sono soggetti a disponibilità e possono comportare differenze di tariffa. Dimmi quale tour hai prenotato e un consulente esaminerà il tuo caso."
    },
    "sostenibilidad": {
     "pregunta_tipo": [
