@@ -37,8 +37,8 @@ const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 /* ---------- textos de la interfaz (es / en) ---------- */
 const UI = {
   es: {
-    banner_dmc: "Portafolio PCCC Espontáneos Travel 2027 · DMCs", banner_nac: "Portafolio PCCC Espontáneos Travel 2027 · Mayoristas y Mercado Nacional",
-    tar_dmc: "Tarifario DMC", tar_nac: "Tarifario Mercado Nacional y Mayoristas", tar_prev: "tarifas {0} vigentes hasta el 31 de marzo de {1} mientras ET publica las nuevas", tar_none: "aún sin tarifas cargadas",
+    banner_dmc: "Portafolio PCCC Espontáneos Travel 2027 · DMCs", banner_nac: "Portafolio PCCC Espontáneos Travel 2027 · Mayoristas y Mercado Nacional", banner_per: "Portafolio PCCC Espontáneos Travel 2027 · Tarifario personalizado",
+    tar_dmc: "Tarifario DMC", tar_nac: "Tarifario Mercado Nacional y Mayoristas", tar_per: "Tarifario personalizado", tar_prev: "tarifas {0} vigentes hasta el 31 de marzo de {1} mientras ET publica las nuevas", tar_none: "aún sin tarifas cargadas",
     two_fingers: "Usa dos dedos para mover el mapa", mode: "Vista", m_agency: "Vista agencia", m_wl: "Marca blanca", wl_on: "Marca blanca: sin logo, precios, códigos ni datos solo agencias. Puedes mostrar esta pantalla a tu cliente.",
     t_mapa: "Inicio", map_open: "Ver el mapa del Eje Cafetero", map_close: "Ocultar el mapa", map_tg_s: "{0} experiencias, aeropuertos, capitales y fincas · clic para abrir",
     inst_sost: "Nuestro impacto sostenible", ico_t: "Iconografía", ico_l: "En este portafolio encontrarás información con las siguientes características:",
@@ -133,8 +133,8 @@ const UI = {
     g_route: "Guía en otro idioma", g_none: "Sin suplemento de guianza", g_srv: "por servicio", g_row: "{0} · {1}", g_div: "{0} ÷ {1} pax"
   },
   en: {
-    banner_dmc: "Espontáneos Travel PCCC Portfolio 2027 · DMCs", banner_nac: "Espontáneos Travel PCCC Portfolio 2027 · Wholesalers & Domestic Market",
-    tar_dmc: "DMC rate sheet", tar_nac: "Domestic Market & Wholesalers rate sheet", tar_prev: "{0} rates valid until March 31, {1}, while ET publishes the new ones", tar_none: "no rates loaded yet",
+    banner_dmc: "Espontáneos Travel PCCC Portfolio 2027 · DMCs", banner_nac: "Espontáneos Travel PCCC Portfolio 2027 · Wholesalers & Domestic Market", banner_per: "Espontáneos Travel PCCC Portfolio 2027 · Custom rate sheet",
+    tar_dmc: "DMC rate sheet", tar_nac: "Domestic Market & Wholesalers rate sheet", tar_per: "Custom rate sheet", tar_prev: "{0} rates valid until March 31, {1}, while ET publishes the new ones", tar_none: "no rates loaded yet",
     two_fingers: "Use two fingers to move the map", mode: "View", m_agency: "Agency view", m_wl: "White label", wl_on: "White label: no logo, prices, codes or agency-only data. You can show this screen to your client.",
     t_mapa: "Home", map_open: "Show the Coffee Region map", map_close: "Hide the map", map_tg_s: "{0} experiences, airports, capitals and farms · click to open",
     inst_sost: "Our sustainable impact", ico_t: "Icons", ico_l: "In this portfolio you will find information with the following features:",
@@ -501,8 +501,10 @@ function guideSel(e, t) {
   return `<div class="fsel gsel"><label class="field">${tx("g_route")}${col ? ` · ${esc(guideCol(col))}` : ""}<select data-gsel="${e.id}"><option value="">${tx("g_none")}</option>${guideOpts(e).map(c => { const v = guideVal(c, e);
     return `<option value="${c}"${t.g === c ? " selected" : ""}>${esc(capFirst(gLabel(c)))}${v != null && !S.wl ? ` · +${cop(v)} ${tx("g_srv")}` : ""}</option>`; }).join("")}</select></label></div>`;
 }
+// Tarifario con el que se abrió el portafolio: dmc, nac o per (personalizado: solo las tarifas cargadas para esa agencia)
+const tierK = () => (CTX.tier === "nac" || CTX.tier === "per" ? CTX.tier : "dmc");
 function tarLabel() {
-  const base = CTX.tier === "nac" ? tx("tar_nac") : tx("tar_dmc");
+  const base = tx("tar_" + tierK());
   if (!PR.tours.size && !PR.svc.size) return base + " · " + tx("tar_none");
   return PR.carried ? `${base} · ${tx("tar_prev", PR.carried, VIG)}` : `${base} ${[...PR.years].sort().join("/")}`;
 }
@@ -638,7 +640,7 @@ export async function mountPortafolio(host, ctx) {
 }
 
 function skeleton() {
-  const tierB = CTX.tier === "nac" ? tx("banner_nac") : tx("banner_dmc");
+  const tierB = tx("banner_" + tierK());
   const tab = (k, icon, extra) => `<button role="tab" type="button" data-tab="${k}" id="pf-tab-${k}" aria-controls="pf-pane-${k}" aria-selected="false">${ic(icon)}<span>${tx("t_" + k)}</span>${extra || ""}</button>`;
   return `<div class="pf" data-tier="${esc(CTX.tier)}">
   <div class="pf-bar"><div class="pf-bar__t"><b data-r="bart">${esc(tierB)}</b><span class="sub money">${esc(CTX.agency || "")}${CTX.agency ? " · " : ""}<span class="money">${esc(tarLabel())}</span></span></div>
@@ -847,7 +849,7 @@ function setMode(wl) {
   S.wl = wl; ROOT.classList.toggle("wl", wl);
   $$("[data-mode]").forEach(b => b.setAttribute("aria-pressed", String((b.dataset.mode === "1") === wl)));
   $r("wlnote").hidden = !wl;
-  $r("bart").textContent = wl ? (L() === "en" ? "Coffee Cultural Landscape · 2027 Experiences" : "Paisaje Cultural Cafetero · Experiencias 2027") : (CTX.tier === "nac" ? tx("banner_nac") : tx("banner_dmc"));
+  $r("bart").textContent = wl ? (L() === "en" ? "Coffee Cultural Landscape · 2027 Experiences" : "Paisaje Cultural Cafetero · Experiencias 2027") : tx("banner_" + tierK());
   if (S.active && /^fin:/.test(S.active)) closePop();
   S.listDirty = true;
   const t = S.tab;

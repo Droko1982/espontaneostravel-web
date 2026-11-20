@@ -74,6 +74,8 @@ const I18N = {
     blocked_title: "Tu acceso está bloqueado", blocked_body: "Si crees que es un error, escríbenos y lo revisamos.",
     noagency_title: "Tu cuenta aún no tiene una agencia activa", noagency_body: "Tu usuario está aprobado, pero no está vinculado a una agencia activa. Escríbenos para revisarlo.",
     hello: "Hola, {0}", agency: "Agencia",
+    tar_label: "Tarifario", tar_dmc: "Tarifario DMC", tar_nac: "Tarifario Mercado Nacional y Mayoristas", tar_per: "Tarifario personalizado",
+    no_rates_per: "Aún no hay tarifas personalizadas cargadas para {0}. Escríbenos y te cotizamos.",
     tab_rates: "Tarifas", tab_request: "Reservar", tab_mine: "Mis reservas", tab_clients: "Clientes", tab_account: "Cuenta",
     tab_company: "Nosotros", tab_portfolio: "Portafolio", ficha_t: "Ficha técnica", pdf_btn: "Descargar ficha (PDF)", cat_label: "Categoría", all_cats: "Todas", pending_badge: "Tarifa en preparación",
     print_title: "Ficha técnica para agencias", imp_label: "Impacto", excludes: "No incluye", operation: "Operación",
@@ -145,6 +147,8 @@ const I18N = {
     blocked_title: "Your access is blocked", blocked_body: "If you think this is a mistake, message us and we'll look into it.",
     noagency_title: "Your account has no active agency yet", noagency_body: "Your user is approved but not linked to an active agency. Please contact us.",
     hello: "Hi, {0}", agency: "Agency",
+    tar_label: "Rate sheet", tar_dmc: "DMC rate sheet", tar_nac: "Domestic Market & Wholesalers rate sheet", tar_per: "Custom rate sheet",
+    no_rates_per: "No custom rates loaded for {0} yet. Write to us and we'll quote you.",
     tab_rates: "Rates", tab_request: "Book", tab_mine: "My bookings", tab_clients: "Clients", tab_account: "Account",
     tab_company: "About us", tab_portfolio: "Portfolio", ficha_t: "Technical sheet", pdf_btn: "Download sheet (PDF)", cat_label: "Category", all_cats: "All", pending_badge: "Rate coming soon",
     print_title: "Technical sheet for agencies", imp_label: "Impact", excludes: "Not included", operation: "Operations",
@@ -903,8 +907,42 @@ async function loadRefs(force) {
   S.refsLoaded = true;
 }
 const dmcName = id => (id === "_nac" ? "Mercado Nacional" : id ? ((S.dmcs.find(d => d.id === id) || {}).nombre || id) : "Venta directa");
-const TIPOS_DMC = [["dmc", "DMC · tarifario DMC"], ["nac", "Mercado Nacional y Mayoristas · tarifario nacional"]];
-const tipoLabel = x => (x === "nac" ? "Mercado Nacional y Mayoristas" : "DMC");
+// Tarifarios que el equipo le permite ver a cada cliente (DMC → «Tarifarios que ve este cliente»): hasta los tres.
+//   dmc = tarifario DMC (dmcId null) · nac = Mercado Nacional y Mayoristas (dmcId «_nac») · per = personalizado (las tarifas con el dmc_id del cliente)
+// Sin el campo «tarifarios» vale el tipo de cliente de siempre. Con varios, el cliente elige cuál ver en Tarifas y en Portafolio.
+// Si «per» NO es una opción aparte, las tarifas especiales del cliente (si tiene) reemplazan a las generales, como siempre.
+const TARIFARIOS = [["dmc", "Tarifario DMC"], ["nac", "Tarifario Mercado Nacional y Mayoristas"], ["per", "Tarifario personalizado"]];
+const tarNombre = k => (TARIFARIOS.find(x => x[0] === k) || TARIFARIOS[0])[1];
+export function tarifariosOf(d) {
+  const l = d && Array.isArray(d.tarifarios) ? TARIFARIOS.map(x => x[0]).filter(k => d.tarifarios.includes(k)) : [];
+  return l.length ? l : [d && d.tipo === "nac" ? "nac" : "dmc"];
+}
+// Del formulario del DMC (casillas tar_dmc / tar_nac / tar_per) a los campos que se guardan
+export function tarifariosData(v, existing) {
+  const l = TARIFARIOS.map(x => x[0]).filter(k => v["tar_" + k]);
+  if (!l.length) throw userErr("Elige al menos un tarifario para este cliente.");
+  const tipo = l.includes("dmc") ? "dmc" : l.includes("nac") ? "nac" : (existing && existing.tipo === "nac" ? "nac" : "dmc");
+  const out = {};
+  if (tipo === "nac" || (existing && existing.tipo)) out.tipo = tipo;
+  // Un solo tarifario general es lo de siempre (basta el tipo); el campo se guarda cuando hay varios, el personalizado o ya existía
+  if (l.length > 1 || l[0] === "per" || (existing && Array.isArray(existing.tarifarios))) out.tarifarios = l;
+  return out;
+}
+const TAR_FIELDS = [
+  { name: "tar_dmc", label: "Ve el Tarifario DMC", type: "checkbox" },
+  { name: "tar_nac", label: "Ve el Tarifario Mercado Nacional y Mayoristas", type: "checkbox" },
+  { name: "tar_per", label: "Ve su Tarifario personalizado", type: "checkbox",
+    hint: "Las tarifas que importes en «Tarifas» con el dmc_id de este cliente. Con más de un tarifario marcado, el cliente elige cuál ver en Tarifas y en Portafolio. Sin esta casilla, sus tarifas especiales (si tiene) siguen reemplazando a las generales." }
+];
+const tarValues = d => Object.fromEntries(TARIFARIOS.map(([k]) => ["tar_" + k, tarifariosOf(d).includes(k)]));
+// Guardar un DMC con «tarifarios» falla con permiso denegado mientras las reglas nuevas no estén publicadas: se dice claro
+async function commitDmc(ops, data) {
+  try { await commit(ops); }
+  catch (e) {
+    if (data.tarifarios && e && e.code === "permission-denied") throw userErr("No se pudo guardar la selección de tarifarios: falta publicar las reglas nuevas (firestore.rules) en la consola de Firebase → Firestore → Reglas. Mientras tanto, deja marcado solo el Tarifario DMC o solo el de Mercado Nacional.");
+    throw e;
+  }
+}
 const scopeLabel = id => (id === "_nac" ? "Mercado Nacional (todas sus cuentas)" : id ? "Especial: " + dmcName(id) : "General DMC");
 const userName = id => { const u = S.users.find(x => x.id === id); return u ? (u.nombre || u.email) : (id || "—"); };
 const advisors = () => S.users.filter(u => (u.rol === "asesor" || u.rol === "admin") && u.estado === "activo");
@@ -1357,7 +1395,17 @@ const ROOMS = { es: ["", "Sencilla", "Doble", "Triple", "Cuádruple"], en: ["", 
 // Tipo de cliente: «dmc» (tarifario DMC) o «nac» (Mercado Nacional y Mayoristas). Lo define el equipo en el DMC.
 // El equipo, en la vista previa, elige cuál ver (S.pfTier). Las reglas de Firestore impiden leer el tarifario del otro tipo.
 const NAC = "_nac";
-const tierOf = () => (S.view === "staff" ? (S.pfTier === "nac" ? "nac" : "dmc") : (S.dmc && S.dmc.tipo === "nac" ? "nac" : "dmc"));
+// Una agencia con varios tarifarios elige cuál ver (S.tar; dura la sesión). «per» = solo sus tarifas personalizadas.
+const tierOf = () => {
+  if (S.view === "staff") return S.pfTier === "nac" ? "nac" : "dmc";
+  const l = tarifariosOf(S.dmc);
+  return l.includes(S.tar) ? S.tar : l[0];
+};
+function setTar(k) {
+  S.tar = k;
+  try { sessionStorage.setItem("esp_tar", k); } catch (e) { /* sin almacenamiento */ }
+}
+try { S.tar = sessionStorage.getItem("esp_tar") || ""; } catch (e) { /* sin almacenamiento */ }
 async function loadDmcRates(year) {
   // Una sola lectura por año y sesión (plan gratis de Firebase: cada consulta completa lee ~1.500 documentos)
   const key = "rates_" + year + "_" + (S.profile && S.profile.dmcId) + "_" + tierOf();
@@ -1367,19 +1415,27 @@ async function loadDmcRates(year) {
   return res;
 }
 async function loadDmcRatesFresh(year) {
-  const mine = S.profile && S.profile.dmcId;      // el equipo no tiene DMC: sin tarifas especiales
+  const mine = S.view === "staff" ? null : (S.profile && S.profile.dmcId);      // el equipo no tiene DMC: sin tarifas especiales
+  const tier = tierOf(), mias = tarifariosOf(S.dmc);
+  const solo = tier === "per";                     // tarifario personalizado: solo las tarifas del cliente
+  const junto = !!mine && !mias.includes("per");   // sin «personalizado» aparte, sus especiales reemplazan a las generales (como siempre)
+  const own = y => (mine ? list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", mine))) : Promise.resolve([]));
+  const condQ = y => list(fs.query(col("condiciones"), fs.where("vigencia", "==", y)));
+  // Condiciones para el personalizado: del paquete de un tarifario general que el cliente también vea (1 lectura); si no, la consulta
+  const condOf = async y => {
+    for (const k of mias) if (k !== "per") { const pk = await loadPack(y, k); if (pk) return pk.cond; }
+    return condQ(y);
+  };
   const one = async y => {
-    const pk = await loadPack(y);
-    if (pk) {
-      const spe = mine ? await list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", mine))) : [];
-      return { rates: mergeTarifas(pk.rates, spe), cond: pk.cond };
-    }
+    if (solo) { const [spe, cond] = await Promise.all([own(y), condOf(y)]); return { rates: mergeTarifas([], spe), cond }; }
+    const pk = await loadPack(y, tier);
+    if (pk) return { rates: mergeTarifas(pk.rates, junto ? await own(y) : []), cond: pk.cond };
     return oneQuery(y);
   };
   const oneQuery = y => Promise.all([
-    list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", tierOf() === "nac" ? NAC : null))),
-    mine ? list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", mine))) : Promise.resolve([]),
-    list(fs.query(col("condiciones"), fs.where("vigencia", "==", y)))
+    list(fs.query(col("tarifas"), fs.where("vigencia", "==", y), fs.where("dmcId", "==", tier === "nac" ? NAC : null))),
+    junto ? own(y) : Promise.resolve([]),
+    condQ(y)
   ]).then(([gen, spe, cond]) => ({ rates: mergeTarifas(gen, spe), cond }));
   const cur = await one(year);
   let pending = [];
@@ -1397,9 +1453,10 @@ async function loadDmcRatesFresh(year) {
       const hc = new Set(cur.cond.map(c => c.tour_id));
       old.cond.filter(c => !hc.has(c.tour_id)).forEach(c => cur.cond.push(Object.assign({}, c, { _de: prev })));
     }
-    // Lo que no tiene tarifa en ningún año: fichas nuevas (tarifa en preparación)
+    // Lo que no tiene tarifa en ningún año: fichas nuevas (tarifa en preparación). En el personalizado no aplica:
+    // ahí solo va lo que ET cargó para ese cliente.
     const con = new Set(cur.rates.map(r => (tourOf(r) || {}).id_web).filter(Boolean));
-    pending = S.tours.list.filter(x => !con.has(x.id_web));
+    pending = solo ? [] : S.tours.list.filter(x => !con.has(x.id_web));
   }
   return { rates: cur.rates, cond: new Map(cur.cond.map(c => [c.tour_id, c])), pending };
 }
@@ -1421,6 +1478,9 @@ async function dmcTarifas(view) {
   const exportBtn = btn(t("export_csv"), null);
   const count = h("p", { class: "p-count", role: "status" });
   const out = h("div", { class: "p-tours" });
+  // Tarifario: solo si el equipo le asignó más de uno a esta agencia
+  const tars = S.view === "staff" ? [] : tarifariosOf(S.dmc);
+  const tarSel = tars.length > 1 ? selectEl(tars.map(k => [k, t("tar_" + k)]), tierOf(), { id: uid("tar") }) : null;
   const gIn = h("input", { type: "search", id: uid("geo"), autocomplete: "off", placeholder: t("geo_ph"), value: (S.hotelGeo && S.hotelGeo.name) || "" });
   const gSort = h("input", { type: "checkbox", id: uid("gs"), checked: !!S.geoSort });
   const gMsg = h("p", { class: "p-muted p-geo__msg", role: "status" }, t("geo_note"));
@@ -1434,7 +1494,7 @@ async function dmcTarifas(view) {
   add(view, 
     h("p", { class: "p-note" }, t("rates_note")),
     L() !== "es" && S.i18n ? h("p", { class: "p-muted" }, t("tr_note")) : null,
-    h("div", { class: "p-toolbar" }, labeled(t("year"), ySel), labeled(t("season"), tSel), labeled(t("cat_label"), cSel), labeled(t("search"), q, "p-grow"), labeled(t("sep"), sep), h("div", { class: "p-toolbar__end" }, exportBtn)),
+    h("div", { class: "p-toolbar" }, tarSel ? labeled(t("tar_label"), tarSel) : null, labeled(t("year"), ySel), labeled(t("season"), tSel), labeled(t("cat_label"), cSel), labeled(t("search"), q, "p-grow"), labeled(t("sep"), sep), h("div", { class: "p-toolbar__end" }, exportBtn)),
     h("div", { class: "p-card p-geo__bar" }, h("h3", { class: "p-h3" }, t("geo_t")),
       h("div", { class: "p-toolbar" }, labeled(t("geo_ph").split(" (")[0], gIn, "p-grow"), h("div", { class: "p-toolbar__end" }, gBtn)),
       checkField(t("geo_sort"), gSort), gMsg),
@@ -1460,7 +1520,7 @@ async function dmcTarifas(view) {
     const pendBox = pend.length ? h("section", { class: "p-pending" },
       h("h3", { class: "p-h3" }, t("pending_t", ySel.value, pend.length)), h("p", { class: "p-muted" }, t("pending_note", ySel.value)),
       h("div", { class: "p-tours" }, (S.geoSort && S.hotelGeo ? pend.slice().sort((a, b) => ((geoNearest(a, splitNotes((data.cond.get(a.id_web) || {}).notas_agencia)) || { km: 1e9 }).km) - ((geoNearest(b, splitNotes((data.cond.get(b.id_web) || {}).notas_agencia)) || { km: 1e9 }).km)) : pend.slice().sort((a, b) => pfPos(a) - pfPos(b))).map(x => pendingCard(x, data.cond)))) : null;
-    if (!data.rates.length) { count.textContent = ""; add(out, data.pending.length ? null : emptyBox(t("no_rates", ySel.value)), pendBox); return; }
+    if (!data.rates.length) { count.textContent = ""; add(out, data.pending.length ? null : emptyBox(t(tars.length && tierOf() === "per" ? "no_rates_per" : "no_rates", ySel.value)), pendBox); return; }
     if (!shown.length) { count.textContent = ""; add(out, pendBox || emptyBox(t("no_match"))); return; }
     const groups = new Map();
     shown.forEach(r => { const k = rateKey(r); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(r); });
@@ -1474,6 +1534,7 @@ async function dmcTarifas(view) {
     if (pendBox) add(out, pendBox);
   }
   ySel.addEventListener("change", load);
+  if (tarSel) tarSel.addEventListener("change", () => { setTar(tarSel.value); load(); });
   tSel.addEventListener("change", draw);
   cSel.addEventListener("change", draw);
   q.addEventListener("input", debounce(draw, 150));
@@ -1485,13 +1546,13 @@ async function dmcTarifas(view) {
    Una cuenta lee UN documento (tarifas_pack/{año}_{dmc|nac}) en vez de ~1.900 (plan gratis de Firebase: 50.000 lecturas al día).
    Lo arma administración al importar tarifas o condiciones (o con «Actualizar carga rápida» en Tarifas). */
 const packId = (y, tipo) => `${y}_${tipo}`;
-async function loadPack(y) {
+async function loadPack(y, tier) {
   try {
-    const snap = await fs.getDoc(dref("tarifas_pack", packId(y, tierOf())));
+    const snap = await fs.getDoc(dref("tarifas_pack", packId(y, tier)));
     if (!snap.exists()) return null;
     const P = JSON.parse(snap.data().datos || "null");
     if (!P || P.v !== 1) return null;
-    const dmcId = tierOf() === "nac" ? NAC : null, rates = [];
+    const dmcId = tier === "nac" ? NAC : null, rates = [];
     for (const [codigo, tour_id, nombre, filas] of P.g) for (const [temporada, pax_desde, pax_hasta, moneda, tarifa_neta, notas] of filas)
       rates.push({ vigencia: y, codigo, tour_id, nombre, temporada, pax_desde, pax_hasta, moneda, tarifa_neta, dmcId, notas: notas || "" });
     const cond = P.c.map(([tour_id, codigo, nombre, notas_agencia]) => ({ vigencia: y, tour_id, codigo, nombre, notas_agencia }));
@@ -1563,11 +1624,16 @@ async function dmcPortafolio(view) {
   catch (e) { clear(view); add(view, errorBox(e, () => { clear(view); dmcPortafolio(view); })); return; }
   const pm = $("#p-main"); if (pm) pm.classList.add("p-main--wide");
   clear(view);
+  const staff = S.view === "staff";
+  // Agencia con más de un tarifario asignado: elige con cuál ver el portafolio (precios, «Arma tu ruta» y kit de venta)
+  const tars = staff ? [] : tarifariosOf(S.dmc);
+  if (tars.length > 1) add(view, h("div", { class: "p-actions p-tarsel", role: "group", "aria-label": t("tar_label") },
+    h("span", { class: "p-muted" }, t("tar_label") + ":"),
+    tars.map(k => btn(t("tar_" + k), () => { if (k === tierOf()) return; setTar(k); clear(view); dmcPortafolio(view); }, k === tierOf() ? "btn--brand" : "btn--ghost", { "aria-pressed": String(k === tierOf()) }))));
   const host = h("div", { class: "p-pf" });
   add(view, host);
   const { mountPortafolio } = mod;
   S.pfMod = mod;
-  const staff = S.view === "staff";
   await mountPortafolio(host, {
     lang: L(), tier: tierOf(), staff,
     // Ficha en PDF (sin tarifas): el equipo siempre; un DMC solo si su perfil tiene «Descarga de fichas PDF» (ET, 18-nov-2026)
@@ -2144,7 +2210,7 @@ function exportDmcCsv(rows, cond, year, sep) {
     };
   });
   const cols = ["vigencia", "codigo", "tour_id", "tour", "temporada", "pax_desde", "pax_hasta", "moneda", "tarifa_neta", "tipo", "notas", "duracion_horas", "horario", "incluye", "condiciones_agencia"];
-  download(`tarifas-${slugify(S.dmc.nombre) || "agencia"}-${year}.csv`, toCSV(out, cols, sep), "text/csv;charset=utf-8");
+  download(`tarifas-${slugify((S.dmc && S.dmc.nombre) || "") || "agencia"}-${year}${S.view !== "staff" && tarifariosOf(S.dmc).length > 1 ? "-" + tierOf() : ""}.csv`, toCSV(out, cols, sep), "text/csv;charset=utf-8");
 }
 
 async function loadMyClients() {
@@ -3097,7 +3163,7 @@ async function staffSolicitudes(view) {
     count.textContent = `${shown.length} de ${rows.length} solicitudes`;
     clear(out);
     if (!shown.length) add(out, emptyBox("No hay solicitudes con esos filtros."));
-    shown.forEach(s => add(out, solicitudCard(s, draw)));
+    shown.forEach(s => add(out, solicitudCard(s, draw, () => { rows = rows.filter(x => x.id !== s.id); draw(); })));
   }
   est.addEventListener("change", draw);
   q.addEventListener("input", debounce(draw, 150));
@@ -3105,7 +3171,19 @@ async function staffSolicitudes(view) {
   await load();
 }
 
-function solicitudCard(s, redraw) {
+function solicitudCard(s, redraw, remove) {
+  // Eliminar (solo administración; las reglas de Firestore no se lo permiten a un asesor): pruebas, duplicadas o pedidos ya sin uso.
+  // La reserva creada desde la solicitud no se toca.
+  const del = S.profile && S.profile.rol === "admin" ? btn("Eliminar", e => {
+    const tours = (s.tours || []).map(x => x.nombre || x.codigo || x.tour_id).filter(Boolean).join(" · ");
+    const res = s.reservaId ? `\n\nLa reserva ${s.reservaId} creada desde esta solicitud NO se borra: sigue en «Reservas».` : "";
+    if (!window.confirm(`¿Eliminar la solicitud de ${s.viajero} (${dmcName(s.dmcId)})${tours ? " · " + tours : ""}?\n\nLa agencia dejará de verla en «Mis solicitudes». No se puede deshacer.${res}`)) return;
+    busy(e.currentTarget, async () => {
+      await fs.deleteDoc(dref("solicitudes", s.id));
+      notify(`Solicitud de ${s.viajero} eliminada.`);
+      remove();
+    });
+  }, "btn--danger") : null;
   const est = selectEl(ESTADOS_SOLICITUD.map(e => [e, I18N.es["st_" + e]]), s.estado, { id: uid("se") });
   const resp = h("textarea", { id: uid("resp"), rows: 2, maxlength: 2000, value: s.respuesta || "" });
   const ase = selectEl([["", "— Sin asignar —"]].concat(advisors().map(u => [u.id, u.nombre || u.email])), s.asesorId || "", { id: uid("as") });
@@ -3131,7 +3209,7 @@ function solicitudCard(s, redraw) {
       kv("Fechas", s.fecha_fin ? `${s.fecha_inicio} → ${s.fecha_fin}` : s.fecha_inicio), kv("Pasajeros", s.pax), kv("Hotel", s.hotel),
       kv("Idioma del guía", s.idioma), kv("Necesidades", s.necesidades), kv("Notas", s.notas)),
     h("div", { class: "p-grid" }, labeled("Estado", est), labeled("Asesor", ase), labeled("Respuesta para la agencia", resp, "p-field--full")),
-    h("div", { class: "p-actions" }, save, mkRes));
+    h("div", { class: "p-actions" }, save, mkRes, del));
 }
 
 /* ==========================================================================
@@ -3418,8 +3496,8 @@ async function adminAgencias(view) {
     shown.forEach(d => {
       const users = S.users.filter(u => u.dmcId === d.id);
       add(out, h("article", { class: "p-item" + (d.activo === false ? " is-done" : "") },
-        h("header", { class: "p-item__head" }, h("h3", { class: "p-h3" }, d.nombre), badge(d.activo === false ? "Inactiva" : "Activa", d.activo === false ? "bad" : "ok"), badge(tipoLabel(d.tipo), d.tipo === "nac" ? "warn" : ""), h("span", { class: "p-mono p-muted" }, d.id)),
-        kvList(kv("Tipo de cliente (tarifario que ve)", tipoLabel(d.tipo)), kv("NIT / Tax ID", d.nit), kv("Ubicación", [d.ciudad, d.pais].filter(Boolean).join(", ")), kv("Contacto", d.contacto),
+        h("header", { class: "p-item__head" }, h("h3", { class: "p-h3" }, d.nombre), badge(d.activo === false ? "Inactiva" : "Activa", d.activo === false ? "bad" : "ok"), tarifariosOf(d).map(k => badge(tarNombre(k), k === "nac" ? "warn" : k === "per" ? "ok" : "")), h("span", { class: "p-mono p-muted" }, d.id)),
+        kvList(kv("Tarifarios que ve", tarifariosOf(d).map(tarNombre).join(" · ")), kv("NIT / Tax ID", d.nit), kv("Ubicación", [d.ciudad, d.pais].filter(Boolean).join(", ")), kv("Contacto", d.contacto),
           kv("Correo", d.email), kv("Teléfono", d.telefono), kv("Descarga de fichas PDF", d.fichasPdf ? "Sí" : "No"), kv("Usuarios", users.map(u => u.email).join(", ") || "Ninguno"), kv("Notas internas (la agencia no las ve)", privNotas.get(d.id))),
         h("div", { class: "p-actions" },
           btn("Editar", () => dmcForm(formHost, Object.assign({}, d, { _notas: privNotas.get(d.id) || "" }), reload), "btn--brand"),
@@ -3460,25 +3538,25 @@ function dmcForm(host, existing, onDone) {
     { name: "nit", label: "NIT / Tax ID", max: 40 }, { name: "pais", label: "País", max: 60 }, { name: "ciudad", label: "Ciudad", max: 80 },
     { name: "contacto", label: "Persona de contacto", max: 120 }, { name: "email", label: "Correo", type: "email", max: 200 },
     { name: "telefono", label: "Teléfono", type: "tel", max: 40 },
-    { name: "tipo", label: "Tipo de cliente (define el tarifario que ve)", type: "select", options: TIPOS_DMC },
+    ...TAR_FIELDS,
     { name: "notas", label: "Notas internas (solo el equipo; la agencia NO las ve)", type: "textarea", max: 2000, full: true },
     { name: "activo", label: "Agencia activa (sus usuarios pueden entrar)", type: "checkbox" },
     { name: "fichasPdf", label: "Descarga de fichas PDF (botón «Descargar ficha en PDF» en cada ficha, sin tarifas)", type: "checkbox" }
-  ], Object.assign({}, d, { notas: d._notas || "", tipo: d.tipo === "nac" ? "nac" : "dmc" }));
+  ], Object.assign({}, d, { notas: d._notas || "" }, tarValues(d)));
   if (!existing) f.inputs.nombre.addEventListener("input", () => { if (!idTouched) idIn.value = slugify(f.inputs.nombre.value); });
   const form = mkForm(async () => {
     const v = f.get();
     const data = { nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: v.activo, actualizado: ts() };
-    if (v.tipo === "nac" || (existing && existing.tipo)) data.tipo = v.tipo === "nac" ? "nac" : "dmc";
+    Object.assign(data, tarifariosData(v, existing));
     if (v.fichasPdf || (existing && "fichasPdf" in existing)) data.fichasPdf = !!v.fichasPdf;      // por defecto, desactivado (sin el campo)
     const priv = { notas: v.notas, actualizado: ts() };
     if (existing) {
-      await commit([bt => bt.update(dref("dmcs", existing.id), data), bt => bt.set(dref("dmcs_privado", existing.id), priv)]);
+      await commitDmc([bt => bt.update(dref("dmcs", existing.id), data), bt => bt.set(dref("dmcs_privado", existing.id), priv)], data);
     } else {
       const id = slugify(idIn.value);
       if (!/^[a-z0-9-]{2,60}$/.test(id)) throw userErr("El identificador debe tener al menos 2 caracteres: letras minúsculas, números y guiones.");
       if ((await fs.getDoc(dref("dmcs", id))).exists()) throw userErr("Ya existe una agencia con ese identificador.");
-      await commit([bt => bt.set(dref("dmcs", id), Object.assign(data, { creado: ts() })), bt => bt.set(dref("dmcs_privado", id), priv)]);
+      await commitDmc([bt => bt.set(dref("dmcs", id), Object.assign(data, { creado: ts() })), bt => bt.set(dref("dmcs_privado", id), priv)], data);
     }
     notify("Agencia guardada.");
     clear(host);
@@ -3502,19 +3580,20 @@ function agencyAccessForm(host, onDone) {
     { name: "email", label: "Su correo (será el usuario)", type: "email", required: true, max: 200 },
     { name: "telefono", label: "WhatsApp", type: "tel", max: 40 },
     { name: "clave", label: "Clave temporal (puedes cambiarla)", required: true, max: 40 },
-    { name: "tipo", label: "Tipo de cliente (define el tarifario que ve)", type: "select", options: TIPOS_DMC },
+    ...TAR_FIELDS,
     { name: "fichasPdf", label: "Descarga de fichas PDF (botón «Descargar ficha en PDF» en cada ficha, sin tarifas)", type: "checkbox" },
     { name: "notas", label: "Notas internas (solo el equipo)", type: "textarea", max: 2000, full: true }
-  ], { clave: tempPass(), pais: "Colombia", tipo: "dmc" });
+  ], { clave: tempPass(), pais: "Colombia", tar_dmc: true });
   const form = mkForm(async () => {
     const v = f.get();
+    const tar = tarifariosData(v, null);
     if (String(v.clave).length < 8) throw userErr("La clave temporal debe tener al menos 8 caracteres.");
     let id = slugify(v.nombre).slice(0, 60);
     if (!/^[a-z0-9-]{2,60}$/.test(id)) throw userErr("Escribe un nombre de agencia válido.");
     const ya = S.dmcs.find(d => d.id === id || (v.nit && digits(d.nit) && digits(d.nit) === digits(v.nit)));
     if (ya) id = ya.id;
-    else await commit([bt => bt.set(dref("dmcs", id), Object.assign({ nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: true, creado: ts(), actualizado: ts() }, v.tipo === "nac" ? { tipo: "nac" } : {}, v.fichasPdf ? { fichasPdf: true } : {})),
-      bt => bt.set(dref("dmcs_privado", id), { notas: v.notas, actualizado: ts() })]);
+    else await commitDmc([bt => bt.set(dref("dmcs", id), Object.assign({ nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: true, creado: ts(), actualizado: ts() }, tar, v.fichasPdf ? { fichasPdf: true } : {})),
+      bt => bt.set(dref("dmcs_privado", id), { notas: v.notas, actualizado: ts() })], tar);
     const acc = { nombre: v.contacto, email: v.email, whatsapp: v.telefono, rol: "dmc", dmcId: id, modo: "temporal", clave: v.clave, idiomas: "es" };
     const res = await createAccount(acc);
     await loadRefs(true);

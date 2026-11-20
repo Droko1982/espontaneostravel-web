@@ -340,5 +340,7 @@
 @media (min-width: 900px) { .p-tabs { flex-wrap: wrap; overflow-x: visible; } }
 
 /* Eliminar (cuentas, solicitudes, DMC) */
+/* Agencia con varios tarifarios asignados: botones para elegir con cuál ver el portafolio */
+.p-tarsel { margin: 0 0 .75rem; }
 .btn--danger { color: var(--p-danger); border: 1px solid var(--p-danger); background: transparent; }
 .btn--danger:hover { background: var(--p-danger); color: #fff; }
