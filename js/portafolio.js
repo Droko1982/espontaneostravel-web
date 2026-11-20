@@ -71,7 +71,7 @@ const UI = {
     imp_2: "Los guías llevan uniforme (camisa, chaleco o gorra) con el logo de Tour Compartido.", imp_3: "Recomendaciones: ropa y zapatos cómodos, gorra, gafas de sol, chaqueta impermeable y repelente. No usar perfumes ni cremas con olores dulces.",
     imp_4: "Informar si el pasajero tiene alguna condición física o de salud que debamos tener en cuenta para la operación.", imp_5: "Dudas sobre la dinámica del tour: Operaciones y Reservas, +57 318 720 0023.", imp_wa: "Escribir por WhatsApp",
     s_exp: "La experiencia", s_photos: "Fotos", s_incl: "Incluye", s_noincl: "No incluye", s_oper: "Operación y horarios", s_tech: "Ficha técnica", s_reco: "Recomendaciones", s_noapto: "No apto para",
-    s_sell: "Para vender", why: "Por qué venderla", interesa: "Te interesa saber", where: "Dónde la operamos", menu: "Menú", impact: "Impacto local", s_notes: "Notas de tarifa y operación",
+    map_link: "Ver el punto en Google Maps", s_sell: "Para vender", why: "Por qué venderla", interesa: "Te interesa saber", where: "Dónde la operamos", menu: "Menú", impact: "Impacto local", s_notes: "Notas de tarifa y operación",
     s_supl: "Suplementos", g_sup: "Suplemento de guianza en otros idiomas", g_lang: "Idioma del guía", g_note: "valor por servicio de guía (no por persona)", s_combo: "Combínalo con", s_rate: "Tarifa neta por pasajero", pax: "Pasajeros", per_pax: "COP por pasajero", s_kit: "Kit de venta", pdf: "Descargar PDF", copy_txt: "Copiar texto", copy_link: "Copiar enlace de la ficha",
     kit_note: "PDF para tu cliente final (sin datos internos), con o sin logo, con o sin precios y en ES, EN, FR, IT o PT.", request: "Solicitar este tour", see_zones: "Ver municipios en el mapa", zones_note: "En «Arma tu ruta» se sugiere el municipio más cercano al hotel; puedes cambiarlo en la lista o tocando su punto en el mapa.",
     kids: "Niños de 0 a 2 años no pagan, pero ocupan silla de bebé en el vehículo; desde los 3 años pagan tarifa.", see_cond: "Políticas de reserva y pago", see_about: "Quiénes somos",
@@ -167,7 +167,7 @@ const UI = {
     imp_2: "Guides wear a uniform (shirt, vest or cap) with the Shared Tour logo.", imp_3: "Recommendations: comfortable clothes and shoes, a cap, sunglasses, a waterproof jacket and insect repellent. Do not wear perfumes or creams with sweet scents.",
     imp_4: "Let us know if the passenger has any physical or health condition we should take into account for the operation.", imp_5: "Questions about how the tour works: Operations and Reservations, +57 318 720 0023.", imp_wa: "Message on WhatsApp",
     s_exp: "The experience", s_photos: "Photos", s_incl: "Includes", s_noincl: "Not included", s_oper: "Operation and schedules", s_tech: "Technical sheet", s_reco: "Recommendations", s_noapto: "Not suitable for",
-    s_sell: "To sell it", why: "Why sell it", interesa: "Good to know", where: "Where we operate it", menu: "Menu", impact: "Local impact", s_notes: "Rate and operation notes",
+    map_link: "See the spot on Google Maps", s_sell: "To sell it", why: "Why sell it", interesa: "Good to know", where: "Where we operate it", menu: "Menu", impact: "Local impact", s_notes: "Rate and operation notes",
     s_supl: "Supplements", g_sup: "Guiding supplement in other languages", g_lang: "Guide language", g_note: "rate per guide service (not per person)", s_combo: "Pair it with", s_rate: "Net rate per passenger", pax: "Passengers", per_pax: "COP per passenger", s_kit: "Sales kit", pdf: "Download PDF", copy_txt: "Copy text", copy_link: "Copy sheet link",
     kit_note: "PDF for your final client (no internal data), with or without logo, with or without prices, in ES, EN, FR, IT or PT.", request: "Request this tour", see_zones: "See municipalities on the map", zones_note: "In «Build a route» the municipality closest to the hotel is suggested; you can change it in the list or by tapping its point on the map.",
     kids: "Children aged 0–2 travel free but occupy a baby seat in the vehicle; from age 3 they pay the rate.", see_cond: "Booking and payment policies", see_about: "About us",
@@ -1247,7 +1247,7 @@ function openFicha(id, how) {
       ${(tr(e, "reco") || []).length || (tr(e, "noApto") || []).length ? `<section><h3>${tx("s_reco")}</h3>${L1("", tr(e, "reco"))}${(tr(e, "noApto") || []).length ? `<p class="fnote">${ic("info", "sm")}${esc(tx("s_noapto"))}: ${tr(e, "noApto").map(esc).join(" ")}</p>` : ""}</section>` : ""}
       ${sell ? `<section id="pf-f-sell" class="sellbox"><h3>${tx("s_sell")}</h3>
         ${p.why ? `<div><h4>${tx("why")}</h4><p>${esc(p.why)}</p></div>` : ""}${p.interesa ? `<div><h4>${tx("interesa")}</h4><p>${esc(p.interesa)}</p></div>` : ""}
-        ${p.where ? `<div><h4>${tx("where")}</h4><p>${esc(p.where)}</p>${e.zones ? `<div class="tags">${e.zones.map(z => `<span class="tag z">${esc(MUNI_LABEL(z))}</span>`).join("")}</div><p class="note">${tx("zones_note")}</p><div><button type="button" class="btn ghost sm" data-r="seez">${ic("map", "sm")}${tx("see_zones")}</button></div>` : ""}</div>` : ""}
+        ${p.where ? `<div><h4>${tx("where")}</h4><p>${linkify(p.where)}</p>${e.zones ? `<div class="tags">${e.zones.map(z => `<span class="tag z">${esc(MUNI_LABEL(z))}</span>`).join("")}</div><p class="note">${tx("zones_note")}</p><div><button type="button" class="btn ghost sm" data-r="seez">${ic("map", "sm")}${tx("see_zones")}</button></div>` : ""}</div>` : ""}
         ${p.menu ? `<div><h4>${tx("menu")}</h4>${menuHtml(p.menu)}</div>` : ""}
         ${p.team ? `<div><h4>${L() === "en" ? "Team note" : "Nota del equipo"}</h4><p>${esc(p.team)}</p></div>` : ""}</section>` : ""}
       ${notes ? `<section><h3>${tx("s_notes")}</h3><ul class="fnotes">${p.notes.map(x => `<li>${esc(x)}</li>`).join("")}</ul></section>` : ""}
@@ -1512,6 +1512,14 @@ async function fichaPdf(id, st, btn, LANG) {
   finally { if (btn) btn.disabled = false; }
 }
 // Menú del Excel («Opción 1. * Trucha … * Cerdo …»): una línea por plato, agrupado por opción
+// Texto con direcciones web pegadas (p. ej. un punto de Google Maps): cada una sale como enlace corto, no como la dirección completa
+function linkify(s) {
+  return String(s == null ? "" : s).split(/(https?:\/\/[^\s<>"]+)/).map((part, i) => {
+    if (i % 2 === 0) return esc(part);
+    const maps = /google\.[a-z.]+\/maps|maps\.app\.goo\.gl|goo\.gl\/maps/i.test(part);
+    return `<a class="maplink" href="${esc(part)}" target="_blank" rel="noopener noreferrer">${maps ? "📍 " + tx("map_link") : esc(part.replace(/^https?:\/\/(www\.)?/, "").split(/[/?#]/)[0])}</a>`;
+  }).join("");
+}
 function menuHtml(m) {
   const parts = String(m).split(/(?=Opci[oó]n\s*\d)/i).map(x => x.trim()).filter(Boolean);
   return parts.map(op => { const [head, ...items] = op.split(/\s*\*\s*/).map(x => x.trim()).filter(Boolean);

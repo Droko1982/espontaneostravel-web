@@ -422,8 +422,10 @@
 .pf .fnav a { text-decoration: none; font-size: .82rem; font-weight: 700; border-radius: 999px; padding: 5px 12px; background: var(--surface-2); min-height: 32px; display: inline-flex; align-items: center; }
 .pf .fnav a:hover { background: var(--olive); color: var(--surface); }
 .pf .f-body { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 32px; padding: 26px clamp(16px, 4vw, 40px) 40px; }
-@media (max-width: 820px) { .pf .f-body { grid-template-columns: 1fr; } }
-.pf .f-main > section { display: grid; gap: 10px; margin-bottom: 26px; scroll-margin-top: 64px; }
+@media (max-width: 820px) { .pf .f-body { grid-template-columns: minmax(0, 1fr); } }
+.pf .f-body { overflow-wrap: break-word; }   /* textos con enlaces o palabras muy largas: se parten, no se salen */
+.pf .f-body ul, .pf .f-body ol, .pf .lists > div { grid-auto-columns: minmax(0, 1fr); }
+.pf .f-main > section { display: grid; grid-auto-columns: minmax(0, 1fr); gap: 10px; margin-bottom: 26px; scroll-margin-top: 64px; }
 .pf .f-body h3 { font-size: 1.15rem; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .pf .f-body p { max-width: 66ch; }
 .pf .lists { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -443,7 +445,10 @@
 .pf .tech .tbl-wrap { border: 0; margin-top: 8px; }
 .pf .tech th[scope="row"] { white-space: nowrap; }
 .pf .sellbox { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--cherry); border-radius: var(--r); padding: 16px 18px; }
-.pf .sellbox > div { display: grid; gap: 4px; }
+.pf .sellbox > div { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
+/* Un enlace o una palabra muy larga (p. ej. una dirección de Google Maps pegada en el texto) nunca ensancha ni se sale de la casilla */
+.pf .sellbox { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.pf .sellbox .maplink { display: inline-flex; gap: 4px; align-items: center; font-weight: 600; white-space: nowrap; }
 .pf .sellbox > div + div { border-top: 1px dashed var(--line); padding-top: 10px; }
 .pf .sellbox h4 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-family: var(--f-body); }
 .pf .menu { white-space: pre-line; font-size: .9rem; }
