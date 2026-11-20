@@ -105,7 +105,7 @@ const UI = {
     tr_tab: "Traslados aeropuerto – hotel", tr_pp: "{0} pax · por persona", tr_code: "Código", tr_route: "Trayecto", tr_note: "Tarifa neta por persona y por trayecto, según tu tarifario. Manizales (MZL) y Cali (CLO): cotización a la medida.",
     sup_tab: "Suplementos", sup_t: "Suplemento", value: "Valor", guide_tab: "Guianza en otros idiomas", none_rates: "Tu tarifario aún no tiene estos valores: consulta a tu asesor.",
     k_h: "Kit de venta", k_l: "Descarga un PDF en el idioma de tu cliente: el itinerario de tu ruta día a día (traslados, experiencias y resumen de valores) o un catálogo con las experiencias que elijas. Puedes poner el logo de tu agencia, quitar el de Espontáneos y agregar tu markup.",
-    k1: "Experiencias", k_route: "Solo los tours de mi ruta", k_all: "Todo el portafolio", k_none: "Quitar todos", k_sel: "{0} seleccionadas", k2: "Idioma y marca", k_lang: "Idioma del PDF", k_logo: "Marca", k_with: "Con logo Espontáneos Travel", k_without: "Sin logo (marca blanca)", k_own: "Con el logo de mi agencia", k_up: "Subir logo", k_up2: "Cambiar logo", k_rm: "Quitar logo", k_nologo: "Aún no has subido el logo de tu agencia.", k_own_alt: "Logo de tu agencia", k_up_l: "PNG, JPG, WebP, SVG o GIF, hasta 5 MB. Se guarda en tu usuario con el nombre de tu agencia y queda listo para tus próximos PDF.", k_saving: "Guardando en tu usuario…", k_saved: "Guardado en tu usuario.", k_nosave: "No se pudo guardar en tu usuario: por ahora se usa solo en esta sesión.", k_big: "La imagen pesa más de 5 MB.", k_badimg: "No pude leer esa imagen. Prueba con PNG o JPG.",
+    k1: "Experiencias", k_route: "Solo los tours de mi ruta", k_all: "Todo el portafolio", k_none: "Quitar todos", k_sel: "{0} seleccionadas", k_max: "máximo {0} por PDF", k_max_hit: "Cada PDF lleva máximo {0} experiencias. Quita alguna para agregar otra, o arma otro PDF con las demás.", k2: "Idioma y marca", k_lang: "Idioma del PDF", k_logo: "Marca", k_with: "Con logo Espontáneos Travel", k_without: "Sin logo (marca blanca)", k_own: "Con el logo de mi agencia", k_up: "Subir logo", k_up2: "Cambiar logo", k_rm: "Quitar logo", k_nologo: "Aún no has subido el logo de tu agencia.", k_own_alt: "Logo de tu agencia", k_up_l: "PNG, JPG, WebP, SVG o GIF, hasta 5 MB. Se guarda en tu usuario con el nombre de tu agencia y queda listo para tus próximos PDF.", k_saving: "Guardando en tu usuario…", k_saved: "Guardado en tu usuario.", k_nosave: "No se pudo guardar en tu usuario: por ahora se usa solo en esta sesión.", k_big: "La imagen pesa más de 5 MB.", k_badimg: "No pude leer esa imagen. Prueba con PNG o JPG.",
     k_agency: "Nombre de tu agencia en la portada (opcional)", k3: "Precios", k_price: "¿Qué precio mostrar?", k_pn: "Sin precios", k_pnet: "Con tarifa neta", k_psell: "Con precio de venta (neta + mi markup)", k_mk: "Mi markup (%)",
     k_pnote: "El PDF muestra el precio por persona para los pasajeros de la cotización, según tu tarifario.",
     k_cur: "Moneda del PDF", k_trm: "TRM: pesos por 1 {0}", k_trm_ph: "p. ej. 4.150", k_trm_need: "Escribe la TRM para convertir los precios a {0}.",
@@ -201,7 +201,7 @@ const UI = {
     tr_tab: "Airport – hotel transfers", tr_pp: "{0} pax · per person", tr_code: "Code", tr_route: "Route", tr_note: "Net rate per person, each way, from your rate sheet. Manizales (MZL) and Cali (CLO): tailor-made quote.",
     sup_tab: "Supplements", sup_t: "Supplement", value: "Value", guide_tab: "Guiding in other languages", none_rates: "Your rate sheet doesn't have these values yet: ask your advisor.",
     k_h: "Sales kit", k_l: "Download a PDF in your client's language: your route's day-by-day itinerary (transfers, experiences and price summary) or a catalogue of the experiences you choose. You can use your agency's logo, remove the Espontáneos logo and add your markup.",
-    k1: "Experiences", k_route: "Only the tours in my route", k_all: "Whole portfolio", k_none: "Clear all", k_sel: "{0} selected", k2: "Language and brand", k_lang: "PDF language", k_logo: "Brand", k_with: "With Espontáneos Travel logo", k_without: "No logo (white label)", k_own: "With my agency's logo", k_up: "Upload logo", k_up2: "Change logo", k_rm: "Remove logo", k_nologo: "You haven't uploaded your agency's logo yet.", k_own_alt: "Your agency's logo", k_up_l: "PNG, JPG, WebP, SVG or GIF, up to 5 MB. It is saved to your user together with your agency name, ready for your next PDFs.", k_saving: "Saving to your user…", k_saved: "Saved to your user.", k_nosave: "Couldn't save to your user: for now it is used in this session only.", k_big: "The image is larger than 5 MB.", k_badimg: "I couldn't read that image. Try PNG or JPG.",
+    k1: "Experiences", k_route: "Only the tours in my route", k_all: "Whole portfolio", k_none: "Clear all", k_sel: "{0} selected", k_max: "up to {0} per PDF", k_max_hit: "Each PDF holds up to {0} experiences. Remove one to add another, or build a second PDF with the rest.", k2: "Language and brand", k_lang: "PDF language", k_logo: "Brand", k_with: "With Espontáneos Travel logo", k_without: "No logo (white label)", k_own: "With my agency's logo", k_up: "Upload logo", k_up2: "Change logo", k_rm: "Remove logo", k_nologo: "You haven't uploaded your agency's logo yet.", k_own_alt: "Your agency's logo", k_up_l: "PNG, JPG, WebP, SVG or GIF, up to 5 MB. It is saved to your user together with your agency name, ready for your next PDFs.", k_saving: "Saving to your user…", k_saved: "Saved to your user.", k_nosave: "Couldn't save to your user: for now it is used in this session only.", k_big: "The image is larger than 5 MB.", k_badimg: "I couldn't read that image. Try PNG or JPG.",
     k_agency: "Your agency name on the cover (optional)", k3: "Prices", k_price: "Which price to show?", k_pn: "No prices", k_pnet: "With net rate", k_psell: "With selling price (net + my markup)", k_mk: "My markup (%)",
     k_pnote: "The PDF shows the price per person for the passengers in the quote, from your rate sheet.",
     k_cur: "PDF currency", k_trm: "Exchange rate: pesos per 1 {0}", k_trm_ph: "e.g. 4,150", k_trm_need: "Enter the exchange rate to convert the prices to {0}.",
@@ -697,7 +697,7 @@ function skeleton() {
           <div class="step"><h3><span class="k">4</span>${tx("r4")}</h3><div class="titems" data-r="rtours"></div><div class="ralerts" data-r="ralerts" aria-live="polite"></div>
             <label class="field">${tx("r_add")}<select data-r="radd"></select></label></div>
           <div class="step"><h3><span class="k">5</span>${tx("r5")}</h3><div class="legs" data-r="rlegs"></div><div class="tot money" data-r="rtot"></div>
-            <div class="btnrow"><button type="button" class="btn" data-r="rfit">${ic("map")}${tx("fit")}</button><button type="button" class="btn ghost" data-r="rcopy">${ic("copy")}${tx("copy_it")}</button>
+            <div class="btnrow"><button type="button" class="btn" data-r="rfit">${ic("map")}${tx("fit")}</button>
               ${CTX.onRequest ? `<button type="button" class="btn ghost" data-r="rreq">${ic("send")}${tx("send_req")}</button>` : ""}<button type="button" class="btn ghost" data-r="rkit">${ic("file")}${tx("kit_route")}</button><button type="button" class="btn ghost" data-r="rclear">${tx("reset")}</button></div></div>
         </div>
         </div>
@@ -808,7 +808,6 @@ function bindStatic() {
   $r("flmap").addEventListener("click", ev => { if (!ev.target.closest(".zopt")) bigMap(); });
   $r("rshow").addEventListener("click", () => floatRoute(true));
   $r("rclear").addEventListener("click", () => { S.newName = ""; stopPlacing(); closeFloat(); S.R = EMPTY_R(); saveR(); renderRoute(); animateTo(boxToVB(...VIEWS.eje)); });
-  $r("rcopy").addEventListener("click", () => copy(itineraryText(), tx("it_copied")));
   $r("rkit").addEventListener("click", () => { K.sel = new Set(S.R.tours.map(t => t.id)); setTab("kit"); });
   if ($r("rreq")) $r("rreq").addEventListener("click", () => {
     if (!S.R.tours.length) { toast(tx("r_empty")); return; }
@@ -2186,9 +2185,15 @@ const fmtTrm = (n, loc) => n.toLocaleString(loc || "es-CO", { maximumFractionDig
 const okLogo = v => typeof v === "string" && v.length <= 400000 && /^data:image\/(png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(v);
 // Marca efectiva: en «Marca blanca» nunca va el logo de Espontáneos (sí el de la agencia, si lo subió)
 const kitBrand = () => (S.wl ? (K.brand === "own" && K.own ? "own" : "none") : K.brand);
+// Kit de venta: «Todo el portafolio» en un PDF es solo para administración (CTX.admin). Las agencias (y los asesores)
+// arman PDF de máximo KIT_MAX experiencias (ET, 20-nov-2026).
+const KIT_MAX = 10;
+const kitFree = () => !!CTX.admin;
+const kitCap = ids => (kitFree() ? ids : ids.slice(0, KIT_MAX));
 function renderKit() {
   // La selección sigue a la ruta hasta que la agencia la cambie; el formato es itinerario si hay ruta (o el que elija)
   if (!K.sel || !K.selUser) K.sel = new Set(S.R.tours.map(t => t.id));
+  K.sel = new Set(kitCap([...K.sel]));
   if (!K.fmtUser || !S.R.tours.length) K.fmt = S.R.tours.length ? "itin" : "cat";
   // Logo y nombre guardados en el usuario: se leen una vez por sesión
   if (!K.loaded && CTX.kitLoad) {
@@ -2208,7 +2213,7 @@ function renderKit() {
     <div class="step"><h3><span class="k">1</span>${tx("k1")} <span class="sub" data-r="kcount"></span></h3>
       <label class="field">${tx("k_fmt")}<select data-r="kfmt"><option value="itin"${S.R.tours.length ? "" : " disabled"}>${tx("k_fmt_i")}${S.R.tours.length ? "" : " " + tx("k_fmt_i0")}</option><option value="cat">${tx("k_fmt_c")}</option></select></label>
       <div class="kchk">${Object.entries(D.cats).map(([k, c]) => { const its = EXP.filter(e => e.cat === k); return its.length ? `<fieldset><legend><label><input type="checkbox" data-kc="${k}"> <i style="background:${c.color}"></i>${esc(catName(k))}</label></legend>${foldList(its, kLab, (s, fam) => `<details class="kfold"${fam.some(e => K.sel.has(e.id)) ? " open" : ""}><summary>${ic("chev", "sm")}<span>${esc(foldName(s))}</span><span class="sub" data-kf="${esc(s)}"></span></summary>${fam.map(kLab).join("")}</details>`)}</fieldset>` : ""; }).join("")}</div>
-      <div class="btnrow"><button type="button" class="btn ghost sm" data-r="kroute">${ic("route", "sm")}${tx("k_route")}</button><button type="button" class="btn ghost sm" data-r="kall">${tx("k_all")}</button><button type="button" class="btn ghost sm" data-r="knone">${tx("k_none")}</button></div>
+      <div class="btnrow"><button type="button" class="btn ghost sm" data-r="kroute">${ic("route", "sm")}${tx("k_route")}</button>${kitFree() ? `<button type="button" class="btn ghost sm" data-r="kall">${tx("k_all")}</button>` : ""}<button type="button" class="btn ghost sm" data-r="knone">${tx("k_none")}</button></div>
       <p class="fnote info" data-r="kmode" aria-live="polite"></p></div>
     <div class="step"><h3><span class="k">2</span>${tx("k2")}</h3><div class="row2">
       <label class="field">${tx("k_lang")}<select data-r="klang">${Object.entries(LNAME).map(([k, v]) => `<option value="${k}" ${k === K.lang ? "selected" : ""}>${v}</option>`).join("")}</select></label>
@@ -2244,12 +2249,18 @@ function renderKit() {
     }
     el.innerHTML = `${ic(K.fmt === "itin" ? "route" : "file", "sm")}<span>${esc(t)}</span>`;
   };
-  const count = () => { $r("kcount").textContent = tx("k_sel", K.sel.size); pane.querySelectorAll("[data-kc]").forEach(c => { const ids = EXP.filter(e => e.cat === c.dataset.kc).map(e => e.id); const n = ids.filter(i => K.sel.has(i)).length; c.checked = n === ids.length; c.indeterminate = n > 0 && n < ids.length; });
+  const full = () => !kitFree() && K.sel.size >= KIT_MAX;
+  const maxMsg = () => { const st = $r("kst"); if (st) st.textContent = tx("k_max_hit", KIT_MAX); };
+  const count = () => { $r("kcount").textContent = tx("k_sel", K.sel.size) + (kitFree() ? "" : " · " + tx("k_max", KIT_MAX)); pane.querySelectorAll("[data-kc]").forEach(c => { const ids = EXP.filter(e => e.cat === c.dataset.kc).map(e => e.id); const n = ids.filter(i => K.sel.has(i)).length; c.checked = n === ids.length; c.indeterminate = n > 0 && n < ids.length; });
     pane.querySelectorAll("[data-kf]").forEach(x => { const fam = EXP.filter(e => famKey(e) === x.dataset.kf); x.textContent = `${fam.filter(e => K.sel.has(e.id)).length}/${fam.length}`; }); modeNote(); };
-  pane.querySelectorAll("[data-k]").forEach(c => c.addEventListener("change", () => { c.checked ? K.sel.add(c.dataset.k) : K.sel.delete(c.dataset.k); K.selUser = true; count(); }));
-  pane.querySelectorAll("[data-kc]").forEach(c => c.addEventListener("change", () => { K.selUser = true; EXP.filter(e => e.cat === c.dataset.kc).forEach(e => (c.checked ? K.sel.add(e.id) : K.sel.delete(e.id))); pane.querySelectorAll("[data-k]").forEach(x => { x.checked = K.sel.has(x.dataset.k); }); count(); }));
+  pane.querySelectorAll("[data-k]").forEach(c => c.addEventListener("change", () => {
+    if (c.checked && full()) { c.checked = false; maxMsg(); return; }      // tope de experiencias por PDF
+    c.checked ? K.sel.add(c.dataset.k) : K.sel.delete(c.dataset.k); K.selUser = true; count(); }));
+  pane.querySelectorAll("[data-kc]").forEach(c => c.addEventListener("change", () => { K.selUser = true; let cut = false;
+    EXP.filter(e => e.cat === c.dataset.kc).forEach(e => { if (!c.checked) K.sel.delete(e.id); else if (K.sel.has(e.id)) return; else if (full()) cut = true; else K.sel.add(e.id); });
+    if (cut) maxMsg(); pane.querySelectorAll("[data-k]").forEach(x => { x.checked = K.sel.has(x.dataset.k); }); count(); }));
   $r("kroute").addEventListener("click", () => { K.selUser = false; K.fmtUser = false; renderKit(); });      // vuelve a seguir la ruta, como itinerario
-  $r("kall").addEventListener("click", () => { K.sel = new Set(EXP.map(e => e.id)); K.selUser = true; K.fmt = "cat"; K.fmtUser = true; renderKit(); });
+  if ($r("kall")) $r("kall").addEventListener("click", () => { K.sel = new Set(EXP.map(e => e.id)); K.selUser = true; K.fmt = "cat"; K.fmtUser = true; renderKit(); });
   $r("knone").addEventListener("click", () => { K.sel = new Set(); K.selUser = true; renderKit(); });
   const pr = $r("kprice"); pr.value = priceV; $r("kmkw").hidden = priceV !== "sell"; $r("kpaxw").hidden = priceV === "none";
   // Moneda y TRM: solo con precios; la TRM solo para USD o EUR
@@ -2369,6 +2380,7 @@ function makePDF() {
   const it = K.fmt === "itin" ? kitItin(K.sel) : null;
   if (K.fmt === "itin" && !it) { if (st) st.textContent = tx("k_it_none"); return Promise.resolve(false); }
   const ids = it ? [...it.items.filter(x => x.k === "tour").map(x => x.id), ...it.extras] : [...K.sel];
+  if (!kitFree() && new Set(ids).size > KIT_MAX) { if (st) st.textContent = tx("k_max_hit", KIT_MAX); return Promise.resolve(false); }
   return pdfRun(ids, { lang: K.lang, logo: b === "et", own: b === "own" ? K.own : null, price, markup: K.markup, agency: K.agency, pax: K.pax || S.R.pax,
     cur: fx ? K.cur : "COP", trm, itin: it,
     guides: Object.fromEntries(S.R.tours.filter(t => t.g).map(t => [t.id, t.g])) }, st, $r("kgo"));

@@ -96,7 +96,7 @@ const I18N = {
     tr_note: "Descripciones de tours: traducción automática pendiente de revisión. Las condiciones para agencias están en español.",
     request_this: "Solicitar este tour", trip_details: "Datos del viaje",
     req_title: "Solicitar una reserva", req_sub: "Envíanos los datos y un asesor te confirma disponibilidad y tarifa final.",
-    traveller: "Nombre del viajero o grupo", client_opt: "Cliente guardado (opcional)", tours: "Tours", add_tour: "Añadir tour",
+    traveller: "Nombre del viajero o grupo", client_opt: "Cliente guardado (opcional)", tours: "Tours", add_tour: "Añadir tour", tours_chosen: "Tours elegidos", add_tour_route: "Agregar tour a la ruta", tour_added: "Agregado a «Tours elegidos»: {0}", tour_dup: "Ese tour ya está en «Tours elegidos».",
     choose_tour: "Elige un tour", tour_ph: "Escribe el nombre, el código o la línea del tour…", no_tours_yet: "Aún no has añadido tours.", start_date: "Fecha de inicio", end_date: "Fecha de fin (opcional)",
     pax: "Número de pasajeros", hotel: "Hotel o alojamiento", guide_lang: "Idioma del guía",
     needs: "Necesidades especiales (accesibilidad, alimentación…)", notes: "Notas", send_request: "Enviar solicitud",
@@ -169,7 +169,7 @@ const I18N = {
     tr_note: "Tour descriptions: machine translation pending review. Agency conditions are shown in Spanish.",
     request_this: "Request this tour", trip_details: "Trip details",
     req_title: "Request a booking", req_sub: "Send us the details and an advisor will confirm availability and the final rate.",
-    traveller: "Traveller or group name", client_opt: "Saved client (optional)", tours: "Tours", add_tour: "Add tour",
+    traveller: "Traveller or group name", client_opt: "Saved client (optional)", tours: "Tours", add_tour: "Add tour", tours_chosen: "Chosen tours", add_tour_route: "Add a tour to the route", tour_added: "Added to “Chosen tours”: {0}", tour_dup: "That tour is already in “Chosen tours”.",
     choose_tour: "Choose a tour", tour_ph: "Type the tour name, code or line…", no_tours_yet: "No tours added yet.", start_date: "Start date", end_date: "End date (optional)",
     pax: "Number of passengers", hotel: "Hotel or lodging", guide_lang: "Guide language",
     needs: "Special needs (accessibility, diet…)", notes: "Notes", send_request: "Send request",
@@ -1636,6 +1636,7 @@ async function dmcPortafolio(view) {
   S.pfMod = mod;
   await mountPortafolio(host, {
     lang: L(), tier: tierOf(), staff,
+    admin: staff && !!S.profile && S.profile.rol === "admin",      // kit de venta: «Todo el portafolio» solo administración; el resto, máximo 10 por PDF
     // Ficha en PDF (sin tarifas): el equipo siempre; un DMC solo si su perfil tiene «Descarga de fichas PDF» (ET, 18-nov-2026)
     fichaPdf: staff || !!(S.dmc && S.dmc.fichasPdf),
     agency: staff ? "Vista previa del equipo" : ((S.dmc && S.dmc.nombre) || ""),
@@ -2218,11 +2219,11 @@ async function loadMyClients() {
 }
 
 // Buscador de tours: se escribe parte del nombre, el código o la línea y se elige de la lista (orden del índice del portafolio)
-function tourPicker(onPick) {
+function tourPicker(onPick, label) {
   const lid = uid("tl");
   const input = h("input", { type: "search", autocomplete: "off", role: "combobox", "aria-expanded": "false", "aria-controls": lid, "aria-autocomplete": "list", placeholder: t("tour_ph") });
   const list = h("ul", { class: "p-combo__list", id: lid, role: "listbox", hidden: true });
-  const field = labeled(t("choose_tour"), input, "p-grow p-combo"); add(field, list);
+  const field = labeled(label || t("choose_tour"), input, "p-grow p-combo"); add(field, list);
   const name = x => tourText(x, "nombre") || x.nombre;
   let items = [], act = -1;
   const open = on => { list.hidden = !on; input.setAttribute("aria-expanded", String(on)); if (!on) input.removeAttribute("aria-activedescendant"); };
@@ -2256,8 +2257,7 @@ function tourPicker(onPick) {
 async function dmcSolicitar(view) {
   add(view, loadingBox());
   await S.jennyP;
-  const myClients = (await loadMyClients().catch(() => [])).sort((a, b) => collate(a.nombre, b.nombre));
-  await loadPfOrder();
+  await loadPfOrder();      // «Cliente guardado» salió del formulario (ET, 20-nov-2026), igual que la pestaña Clientes de las agencias
   clear(view);
   const chosen = [];
   const pre = S.preset && (S.preset.tour || S.preset.tours) ? S.preset : null;
@@ -2266,18 +2266,19 @@ async function dmcSolicitar(view) {
   if (pre && pre.tours) pre.tours.slice(0, MAX_TOURS).forEach(x => chosen.push({ tour_id: String(x.tour_id || "").slice(0, 40), codigo: String(x.codigo || "").slice(0, 20), nombre: String(x.nombre || "").slice(0, 200) }));
   const picker = tourPicker(x => {
     if (chosen.length >= MAX_TOURS) return notify(t("max_tours"), "error");
-    if (!chosen.some(c => c.tour_id === x.id_web)) chosen.push({ tour_id: String(x.id_web || "").slice(0, 40), codigo: String(x.codigo || "").slice(0, 20), nombre: String(x.nombre || "").slice(0, 200) });
+    if (chosen.some(c => c.tour_id === x.id_web)) return notify(t("tour_dup"), "error");
+    chosen.push({ tour_id: String(x.id_web || "").slice(0, 40), codigo: String(x.codigo || "").slice(0, 20), nombre: String(x.nombre || "").slice(0, 200) });
     drawChips();
+    notify(t("tour_added", chosen[chosen.length - 1].nombre));      // el buscador está al final: se avisa que quedó arriba, en «Tours elegidos»
   });
   const chips = h("ul", { class: "p-chips", "aria-live": "polite" });
   function drawChips() {
     clear(chips);
-    if (!chosen.length) add(chips, h("li", { class: "p-muted" }, t("no_tours_yet")));
+    if (!chosen.length) add(chips, h("li", { class: "p-muted" }, t("no_tours_yet"), " ", linkBtn(t("add_tour_route"), () => { picker.el.scrollIntoView({ block: "center" }); picker.input.focus(); })));
     chosen.forEach((c, i) => add(chips, h("li", { class: "p-chip" }, h("span", null, c.nombre),
-      h("button", { type: "button", class: "p-chip__x", "aria-label": `${t("remove")}: ${c.nombre}`, onclick: () => { chosen.splice(i, 1); drawChips(); picker.input.focus(); } }, "×"))));
+      h("button", { type: "button", class: "p-chip__x", "aria-label": `${t("remove")}: ${c.nombre}`, onclick: () => { chosen.splice(i, 1); drawChips(); } }, "×"))));
   }
   drawChips();
-  const clientSel = selectEl([["", t("none")]].concat(myClients.map(c => [c.id, c.nombre])), "", { id: uid("cl") });
   const f = formFields([
     { name: "viajero", label: t("traveller"), required: true, max: 120 },
     { name: "fecha_inicio", label: t("start_date"), type: "date", required: true, attrs: { min: isoDay(new Date()) } },
@@ -2291,11 +2292,6 @@ async function dmcSolicitar(view) {
   if (pre && pre.pax >= 1) f.inputs.pax.value = String(Math.min(500, pre.pax));
   if (pre && pre.hotel) f.inputs.hotel.value = String(pre.hotel).slice(0, 120);
   if (pre && pre.notas) f.inputs.notas.value = String(pre.notas).slice(0, 2000);
-  clientSel.addEventListener("change", () => {
-    const c = myClients.find(x => x.id === clientSel.value);
-    if (c && !f.inputs.viajero.value.trim()) f.inputs.viajero.value = c.nombre;
-    if (c && c.idioma && TRAVEL_LANGS.some(l => l[0] === c.idioma)) f.inputs.idioma.value = c.idioma;
-  });
   const form = mkForm(async () => {
     const v = f.get();
     if (!chosen.length) { picker.input.focus(); throw userErr(t("need_tour")); }
@@ -2303,7 +2299,7 @@ async function dmcSolicitar(view) {
     if (!(pax >= 1 && pax <= 500)) throw userErr(t("pax_invalid"));
     if (v.fecha_fin && v.fecha_fin < v.fecha_inicio) throw userErr(t("end_before"));
     const d = {
-      dmcId: S.profile.dmcId, creadoPor: S.user.uid, creadoPorEmail: S.user.email || "", clienteId: clientSel.value || null,
+      dmcId: S.profile.dmcId, creadoPor: S.user.uid, creadoPorEmail: S.user.email || "", clienteId: null,
       viajero: v.viajero, tours: chosen.slice(0, MAX_TOURS), fecha_inicio: v.fecha_inicio, fecha_fin: v.fecha_fin, pax,
       hotel: v.hotel, idioma: v.idioma, necesidades: v.necesidades, notas: v.notas, estado: "nueva", creado: ts(), actualizado: ts()
     };
@@ -2313,8 +2309,9 @@ async function dmcSolicitar(view) {
     S.tabsApi.select("mis", true);
   },
   h("p", { class: "p-muted" }, t("required_note")),
-  group(t("tours"), h("div", { class: "p-inline" }, picker.el), chips),
-  group(t("trip_details"), h("div", { class: "p-grid p-grid--first" }, labeled(t("client_opt"), clientSel)), f.el),
+  group(t("tours_chosen"), chips),
+  group(t("trip_details"), f.el),
+  group(t("add_tour_route"), h("div", { class: "p-inline" }, picker.el)),
   h("div", { class: "p-form-actions" }, h("button", { type: "submit", class: "btn btn--primary" }, t("send_request"))));
   add(view, h("div", { class: "p-card" }, h("h2", { class: "p-h2" }, t("req_title")), h("p", { class: "p-sub" }, t("req_sub")), form));
 }
