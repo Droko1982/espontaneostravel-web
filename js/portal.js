@@ -4005,7 +4005,11 @@ async function adminRespaldo(view) {
   const cSel = selectEl(COLECCIONES.map(c => [c, c]), "clientes", { id: uid("c") });
   const sep = sepSelect();
   const status = h("p", { class: "p-progress", role: "status" });
-  const fetchAll = async name => (await list(col(name))).map(plain);
+  // config no se puede listar (las reglas solo permiten leer sus documentos por nombre): se leen vigencias y pagos uno a uno
+  const CONFIG_DOCS = ["vigencias", "pagos"];
+  const fetchAll = async name => (name === "config"
+    ? (await Promise.all(CONFIG_DOCS.map(id => fs.getDoc(dref("config", id))))).filter(s => s.exists()).map(s => Object.assign({ id: s.id }, s.data()))
+    : await list(col(name))).map(plain);
   const csvOf = (rows, sepV) => {
     const keys = new Set(["id"]); rows.forEach(r => Object.keys(r).forEach(k => keys.add(k)));
     return toCSV(rows, [...keys], sepV);
