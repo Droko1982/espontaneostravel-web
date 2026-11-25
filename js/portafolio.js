@@ -23,7 +23,7 @@ let VB = { x: 0, y: 0, w: 100, h: 100 }, svg = null, base = null, ov = null, ani
 /* ---------- utilidades ---------- */
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const norm = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toUpperCase().trim();
-const cop = n => "$ " + Math.round(n).toLocaleString("es-CO");
+const cop = n => "$" + Math.round(n).toLocaleString("es-CO");     // $249.300 (miles con punto, sin decimales)
 const store = st => ({ get(k, d) { try { const v = st().getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set(k, v) { try { st().setItem(k, JSON.stringify(v)); } catch (e) { /* sin almacenamiento */ } } });
 const ls = store(() => localStorage);
 // Ruta y pestaña duran solo la sesión: cada ingreso abre en Inicio con «Arma tu ruta» limpio (portal.js borra pf27-* al cerrar sesión)
@@ -75,6 +75,14 @@ const UI = {
     s_supl: "Suplementos", g_sup: "Suplemento de guianza en otros idiomas", g_lang: "Idioma del guía", g_note: "valor por servicio de guía (no por persona)", s_combo: "Combínalo con", s_rate: "Tarifa neta por pasajero", pax: "Pasajeros", per_pax: "COP por pasajero", s_kit: "Kit de venta", pdf: "Descargar PDF", copy_txt: "Copiar texto", copy_link: "Copiar enlace de la ficha",
     kit_note: "PDF para tu cliente final (sin datos internos), con o sin logo, con o sin precios y en ES, EN, FR, IT o PT.", request: "Solicitar este tour", see_zones: "Ver municipios en el mapa", zones_note: "En «Arma tu ruta» se sugiere el municipio más cercano al hotel; puedes cambiarlo en la lista o tocando su punto en el mapa.",
     kids: "Niños de 0 a 2 años no pagan, pero ocupan silla de bebé en el vehículo; desde los 3 años pagan tarifa.", see_cond: "Políticas de reserva y pago", see_about: "Quiénes somos",
+    no_op: "No opera para este número de pasajeros", gt30: "Grupos mayores a 30 pasajeros: consultar.", tu_1: "1 pasajero", tu_2: "Desde 2 pasajeros", tu_1n: "aplica cuando no hay más pasajeros confirmados en la salida", tu_card2: "por persona · desde 2 pax",
+    g_inv: "Guía invidente: consultar.", guide_nac: "guía en español según las condiciones de cada tour", gs_t: "Guías y suplementos", gs_tab: "Tarifa de guía por idioma", gs_sup: "Suplemento de guianza en otros idiomas",
+    gs_lang: "Idioma", gs_srv: "Suplementos de servicios", gs_pp: "Suplementos de transporte por persona", gs_unit: "Unidad", gs_tc: "Traslados al punto de encuentro de los tours compartidos", tr_gen: "Condiciones de los traslados",
+    tr_asist: "Asistencia en aeropuerto", tr_larga: "Largas distancias", tr_paradas: "Paradas en el camino", tr_horas: "Horas adicionales en tours",
+    c_2027: "Condiciones generales del tarifario 2027", c_2027n: "Del {0}. Las políticas de reserva, pago y cancelación de abajo son las del portafolio vigente.",
+    t_paq: "Paquetes", paq_h: "Paquetes · Mercado Nacional 2027", paq_l: "Planes del catálogo nacional. Valores netos por persona en COP, por temporada y acomodación.", paq_hotel: "Hotel", paq_plan: "Plan", paq_na: "Noche adicional",
+    paq_notes: "Notas", paq_opt: "Tours opcionales", paq_type: "Tipo", paq_3: "3 pax o más", paq_net: "Valores netos por persona en COP. SGL: sencilla · DBL: doble · TPL: triple · CHD: niño.",
+    fp_b2b: "Incluir tarifa y datos para agencias", fp_b2b_t: "Información para agencias", fp_rates: "Tarifa neta por pasajero (COP)", fp_why: "Por qué venderla", fp_int: "Te interesa saber", fp_where: "Dónde la operamos",
     com_txt: "Experiencia con la comunidad local (campesinos, artesanos, productores).", cord_txt: "Hace parte del proyecto Paisaje Cordillerano.", carry: "Tarifas {0}: aplican hasta el 31 de marzo de {1}", copied: "Copiado", link_copied: "Enlace copiado", txt_copied: "Texto copiado",
     meet_see: "{0} · {1} puntos, ver «Puntos de encuentro»", meet_and: " y ", guide_sup_en: "guía en inglés con suplemento", p_param: "Parámetro operativo", p_det: "Detalle", p_b2b: "Detalle técnico B2B", p_b2c: "Especificación comercial (B2C)", p_sched: "Horario recomendado", am: "Mañana", pm: "Tarde", ampm: "Mañana o tarde", guide_sup: "otros idiomas con suplemento de guianza",
     conv_t: "Convenciones e iconografía", inst_t: "Presentación institucional", idx_t: "Índice de experiencias", idx_l: "Toca una experiencia para abrir su ficha, o el nombre de la línea para verlas todas.", g_open: "Abrir todas", g_close: "Cerrar todas", see_more: "Más sobre nosotros", how_t: "Cómo usar el portafolio",
@@ -122,7 +130,7 @@ const UI = {
     al_cross: "Día {0}: «{1}» se cruza con «{2}» (al terminar «{2}» llegarían hacia las {3} y «{1}» sale a más tardar a las {4}). Pásalo a otro día.",
     al_long: "Día {0}: ≈ {1} entre tours y trayectos. Es una jornada muy larga: reparte los tours en otro día.", al_late: "Día {0}: el regreso al hotel sería hacia las {1}, muy tarde. Revisa si conviene pasar un tour a otro día.",
     al_arr: "Día 1 es el de llegada: el vuelo debe aterrizar en {1} a más tardar a las {2} para hacer «{0}».", al_arr_no: "Día 1 es el de llegada: «{0}» no alcanza ese día (el vuelo tendría que aterrizar en {1} antes de las 5:00 a. m.). Pásalo al Día 2.",
-    sg_see_r: "Haz clic aquí para ver las rutas", rt_btn: "Rutas ({0})", rt_hide: "Ocultar rutas", rt_title: "Rutas de {0}", rt_nav: "Rutas", rt_note: "Cada ruta tiene su ficha; la tarifa es la de la ficha principal, la misma para todas.", rt_card: "Tarifa en la ficha principal", rt_sub: "Esta ruta usa la tarifa de «{0}» ({1}), la misma para todas sus rutas.", rt_main: "Ver la ficha principal", fp_btn: "Descargar ficha en PDF", fp_making: "Armando la ficha en PDF…", fp_wm: "Documento confidencial · Espontáneos Travel", fp_lang: "Idioma de la ficha", full_c: "Día completo", half_c: "Medio día", sg_hide_r: "Ocultar rutas", sg_see_x: "Haz clic aquí para ver las {0} experiencias", sg_hide_x: "Ocultar experiencias", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
+    sg_see_r: "Haz clic aquí para ver las rutas", rt_btn: "Rutas ({0})", rt_hide: "Ocultar rutas", rt_title: "Rutas de {0}", rt_nav: "Rutas", rt_note: "Cada ruta tiene su propia ficha y su tarifa 2027.", rt_card: "Tarifa en la ficha principal", rt_sub: "Esta ruta usa la tarifa de «{0}» ({1}), la misma para todas sus rutas.", rt_main: "Ver la ficha principal", fp_btn: "Descargar ficha en PDF", fp_making: "Armando la ficha en PDF…", fp_wm: "Documento confidencial · Espontáneos Travel", fp_lang: "Idioma de la ficha", full_c: "Día completo", half_c: "Medio día", sg_hide_r: "Ocultar rutas", sg_see_x: "Haz clic aquí para ver las {0} experiencias", sg_hide_x: "Ocultar experiencias", al_tag: "revisa horarios", al_note: "Cálculo estimado con el horario de operación de cada ficha y los tiempos por carretera; ET confirma la programación.",
     k_fmt: "Formato del PDF", k_fmt_i: "Itinerario de mi ruta, día a día", k_fmt_i0: "(primero arma tu ruta)", k_fmt_c: "Catálogo: una hoja por experiencia",
     k_it: "Itinerario: {0}. La última hoja es el resumen del itinerario con sus valores.", k_it0: "Itinerario: {0}. La última hoja es el resumen del itinerario.",
     k_it_arr: "llegada por {0}", k_it_dep: "salida por {0}", k_it_x: "Las elegidas que no están en tu ruta ({0}) van al final como opcionales.",
@@ -171,6 +179,14 @@ const UI = {
     s_supl: "Supplements", g_sup: "Guiding supplement in other languages", g_lang: "Guide language", g_note: "rate per guide service (not per person)", s_combo: "Pair it with", s_rate: "Net rate per passenger", pax: "Passengers", per_pax: "COP per passenger", s_kit: "Sales kit", pdf: "Download PDF", copy_txt: "Copy text", copy_link: "Copy sheet link",
     kit_note: "PDF for your final client (no internal data), with or without logo, with or without prices, in ES, EN, FR, IT or PT.", request: "Request this tour", see_zones: "See municipalities on the map", zones_note: "In «Build a route» the municipality closest to the hotel is suggested; you can change it in the list or by tapping its point on the map.",
     kids: "Children aged 0–2 travel free but occupy a baby seat in the vehicle; from age 3 they pay the rate.", see_cond: "Booking and payment policies", see_about: "About us",
+    no_op: "Does not operate for this number of passengers", gt30: "Groups of more than 30 passengers: ask us.", tu_1: "1 passenger", tu_2: "From 2 passengers", tu_1n: "applies when no other passengers are confirmed on the departure", tu_card2: "per person · from 2 pax",
+    g_inv: "Guide for blind travelers: ask us.", guide_nac: "Spanish-speaking guide according to each tour's conditions", gs_t: "Guides and supplements", gs_tab: "Guide rate by language", gs_sup: "Guiding supplement in other languages",
+    gs_lang: "Language", gs_srv: "Service supplements", gs_pp: "Transport supplements per person", gs_unit: "Unit", gs_tc: "Transfers to the meeting point of the shared tours", tr_gen: "Transfer conditions",
+    tr_asist: "Airport assistance", tr_larga: "Long distances", tr_paradas: "Stops on the way", tr_horas: "Extra hours on tours",
+    c_2027: "2027 rate sheet general conditions", c_2027n: "From the {0}. The booking, payment and cancellation policies below are those of the current portfolio.",
+    t_paq: "Packages", paq_h: "Packages · Colombian market 2027", paq_l: "Plans of the national catalog. Net values per person in COP, by season and room type.", paq_hotel: "Hotel", paq_plan: "Plan", paq_na: "Extra night",
+    paq_notes: "Notes", paq_opt: "Optional tours", paq_type: "Type", paq_3: "3+ pax", paq_net: "Net values per person in COP. SGL: single · DBL: double · TPL: triple · CHD: child.",
+    fp_b2b: "Include rate and agency data", fp_b2b_t: "Agency information", fp_rates: "Net rate per passenger (COP)", fp_why: "Why sell it", fp_int: "Good to know", fp_where: "Where we operate",
     com_txt: "Experience with the local community (farmers, artisans, producers).", cord_txt: "Part of the Paisaje Cordillerano project.", carry: "{0} rates: valid until March 31, {1}", copied: "Copied", link_copied: "Link copied", txt_copied: "Text copied",
     meet_see: "{0} · {1} points, see “Meeting points”", meet_and: " and ", guide_sup_en: "English-speaking guide with supplement", p_param: "Operating parameter", p_det: "Detail", p_b2b: "B2B technical detail", p_b2c: "Commercial specification (B2C)", p_sched: "Recommended schedule", am: "Morning", pm: "Afternoon", ampm: "Morning or afternoon", guide_sup: "other languages with guiding supplement",
     conv_t: "Conventions and icons", inst_t: "Who we are", idx_t: "Experience index", idx_l: "Tap an experience to open its sheet, or a line name to see them all.", g_open: "Open all", g_close: "Close all", see_more: "More about us", how_t: "How to use the portfolio",
@@ -218,7 +234,7 @@ const UI = {
     al_cross: "Day {0}: «{1}» overlaps with «{2}» (after «{2}» the group would arrive around {3}, and «{1}» starts {4} at the latest). Move it to another day.",
     al_long: "Day {0}: ≈ {1} of tours and driving. That is a very long day: spread the tours over another day.", al_late: "Day {0}: the group would be back at the hotel around {1}, which is late. Consider moving a tour to another day.",
     al_arr: "Day 1 is the arrival day: the flight must land at {1} by {2} at the latest to do «{0}».", al_arr_no: "Day 1 is the arrival day: «{0}» doesn't fit that day (the flight would have to land at {1} before 5:00 a.m.). Move it to Day 2.",
-    sg_see_r: "Click here to see the routes", rt_btn: "Routes ({0})", rt_hide: "Hide routes", rt_title: "Routes of {0}", rt_nav: "Routes", rt_note: "Each route has its own sheet; the rate is the main sheet's, the same for all of them.", rt_card: "Rate on the main sheet", rt_sub: "This route uses the rate of «{0}» ({1}), the same for all its routes.", rt_main: "See the main sheet", fp_btn: "Download sheet as PDF", fp_making: "Preparing the PDF sheet…", fp_wm: "Confidential document · Espontáneos Travel", fp_lang: "Sheet language", full_c: "Full day", half_c: "Half day", sg_hide_r: "Hide routes", sg_see_x: "Click here to see the {0} experiences", sg_hide_x: "Hide experiences", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
+    sg_see_r: "Click here to see the routes", rt_btn: "Routes ({0})", rt_hide: "Hide routes", rt_title: "Routes of {0}", rt_nav: "Routes", rt_note: "Each route has its own sheet and its own 2027 rate.", rt_card: "Rate on the main sheet", rt_sub: "This route uses the rate of «{0}» ({1}), the same for all its routes.", rt_main: "See the main sheet", fp_btn: "Download sheet as PDF", fp_making: "Preparing the PDF sheet…", fp_wm: "Confidential document · Espontáneos Travel", fp_lang: "Sheet language", full_c: "Full day", half_c: "Half day", sg_hide_r: "Hide routes", sg_see_x: "Click here to see the {0} experiences", sg_hide_x: "Hide experiences", al_tag: "check timing", al_note: "Estimate based on each sheet's operating hours and road times; ET confirms the schedule.",
     k_fmt: "PDF format", k_fmt_i: "My route's itinerary, day by day", k_fmt_i0: "(build your route first)", k_fmt_c: "Catalogue: one page per experience",
     k_it: "Itinerary: {0}. The last page is the itinerary summary with its prices.", k_it0: "Itinerary: {0}. The last page is the itinerary summary.",
     k_it_arr: "arrival at {0}", k_it_dep: "departure from {0}", k_it_x: "The chosen experiences that are not in your route ({0}) go at the end as optional.",
@@ -244,7 +260,7 @@ function tr(e, f, lang) {
 }
 const catName = k => (L() === "en" && I18.en && I18.en.cats && I18.en.cats[k]) || (D.cats[k] && D.cats[k].name) || k;
 // Nombre de la línea como en el índice del portafolio en PDF que ya conocen las agencias («Experiencias rurales»…)
-const LINE = { es: { rur: "Experiencias rurales", nat: "Experiencias de naturaleza", bien: "Experiencias de bienestar", compartidos: "Tours Compartidos 2027" }, en: { rur: "Rural experiences", nat: "Nature experiences", bien: "Wellness experiences", compartidos: "Shared Tours 2027" } };
+const LINE = { es: { rur: "Experiencias rurales", nat: "Turismo de naturaleza", bien: "Turismo de bienestar", compartidos: "Tours compartidos" }, en: { rur: "Rural experiences", nat: "Nature tourism", bien: "Wellness tourism", compartidos: "Shared tours" } };   // líneas del Portafolio 2027
 // El capítulo «Tours Compartidos 2027» lleva su sello junto al título
 const lineSeal = k => (k === "compartidos" ? `<img class="ico seal-i lseal" src="${SEAL}" alt="${esc(tx("b_shared"))}" width="22" height="22" decoding="async">` : "");
 const lineName = k => (LINE[L()] || LINE.es)[k] || catName(k);
@@ -385,11 +401,16 @@ function buildModel() {
     e.plat = e.lat; e.plon = e.lon;          // ubicación pública (municipio): la que se usa en Marca blanca
     if (P.coords && P.coords[e.id]) { e.lat = P.coords[e.id][0]; e.lon = P.coords[e.id][1]; }
     if (e.id === "finca" && P.fincaZonas && P.fincaZonas.length) e.zones = P.fincaZonas.slice();
-    e.acc = /\bapto\b[^.]{0,40}(movilidad reducida|silla de ruedas)/i.test((e.reco || []).join(" "));   // accesible según su ficha
+    e.acc = !!e.acc || /\bapto\b[^.]{0,40}(movilidad reducida|silla de ruedas)/i.test((e.reco || []).join(" "));   // accesible según su ficha (acc: lo guarda el generador)
     e.shared = !!e.compartido || e.modalidad === "Compartido";      // el sello sale solo con «compartido» (data/portafolio.json)
     const sp = privFicha(e.id);
     e.p = { why: fv(sp, "Por qué venderla"), interesa: fv(sp, "Te interesa"), where: fv(sp, "Punto de operación"), menu: fv(sp, "Menú"),
       supl: e.tarifa_unica ? [] : bullets(fv(sp, "Suplementos")), notes: sp.cond, impacto: sp.imp, team: fv(sp, "Nota del equipo"), diff: fv(sp, "Dificultad"), cap: fv(sp, "Capacidad máxima") };
+    // Portafolio 2027: suplementos y notas de tarifa del mercado de la cuenta (DMC o Mercado Nacional). Orden de las notas:
+    // las del tour, la guianza del catálogo y las que dicen dónde aplica la tarifa (las de cobro desde otra ciudad van en Suplementos)
+    const mk = mkT(e);
+    if (mk) { e.p.supl = (mk.s || []).slice(); e.p.notes = uniqTxt([...(mk.n || []), MKT().gen && MKT().gen.guianza, ...sp.cond]); }
+    if (isNac()) e.langs = ["ES"];        // Mercado Nacional: guía en español (en los compartidos el inglés es un suplemento)
     if (!e.zones && ZONE_CATS.has(e.cat)) { const z = zonesOf(e.p.where); if (z.length > 1) e.zones = z; }
     return e;
   });
@@ -462,11 +483,12 @@ const capFirst = x => String(x).charAt(0).toUpperCase() + String(x).slice(1);
 const routeGuide = id => { const t = S.R.tours.find(x => x.id === id); return (t && t.g) || ""; };
 // En la ficha: «Suplemento de guianza en otros idiomas» se abre, se elige el idioma y sale solo el valor de la duración del tour
 function guideSup(e) {
+  if (isNac()) return "";             // Mercado Nacional: sin «Suplemento de guianza en otros idiomas» (guía en español)
   const g = GUIDES(); if (!g.length) return "";
   const cur = routeGuide(e.id), def = g.includes(cur) ? cur : g.includes("SU-ET007") ? "SU-ET007" : g[0];
-  return `<details class="gsup"${cur ? " open" : ""}><summary>${tx("g_sup")}</summary>
+  return `<details class="gsup"${cur ? " open" : ""}><summary>${tx("g_sup")}</summary>${MKT() && MKT().gsnota ? `<p class="note gsn">${esc(MKT().gsnota)}</p>` : ""}
     <label class="field">${tx("g_lang")}<select data-r="gsel">${g.map(c => `<option value="${c}"${c === def ? " selected" : ""}>${esc(guideName(c))}</option>`).join("")}</select></label>
-    <div data-r="gvals" aria-live="polite">${guideVals(def, e)}</div><div class="gaddw">${gAddBtn(e, def)}</div></details>`;
+    <div data-r="gvals" aria-live="polite">${guideVals(def, e)}</div>${MKT() ? `<p class="note gsn">${tx("g_inv")}</p>` : ""}<div class="gaddw">${gAddBtn(e, def)}</div></details>`;
 }
 function guideVals(c, e) {
   const rows = PR.svc.get(c) || [], col = guideColFor(e);
@@ -503,7 +525,18 @@ function guideSel(e, t) {
 }
 // Tarifario con el que se abrió el portafolio: dmc, nac o per (personalizado: solo las tarifas cargadas para esa agencia)
 const tierK = () => (CTX.tier === "nac" || CTX.tier === "per" ? CTX.tier : "dmc");
+// Portafolio 2027: datos del mercado de la cuenta (portal.js → ctx.mkt, de Firestore mercado/{año}_{dmc|nac}). null mientras no se importen.
+const MKT = () => (CTX && CTX.mkt && CTX.mkt.v === 1 ? CTX.mkt : null);
+const isNac = () => (MKT() ? MKT().tipo === "nac" : tierK() === "nac");
+const mkT = e => (MKT() && e && MKT().tours ? MKT().tours[e.code] || null : null);
+const noOp = (e, p) => { const x = mkT(e); return !!(x && (x.x || []).includes(+p)); };
+// Valor de la tarjeta de tarifa: el de esa columna exacta (sin interpolar); null = «No opera…» si el archivo lo dice, si no «Consultar»
+const netTxt = (e, p) => { const v = priceAt(e.id, p); return v != null ? cop(v) : noOp(e, p) ? tx("no_op") : tx("ask"); };
+const mkCode = c => (MKT() && MKT().tras && MKT().tras[c] ? MKT().tras[c].c : c);      // «ET-PEI 001» como en el tarifario
+const uniqTxt = a => { const seen = new Set(); return (a || []).map(x => String(x || "").trim()).filter(x => x && !seen.has(x.toLowerCase()) && seen.add(x.toLowerCase())); };
+const hasPaq = () => !!(MKT() && (MKT().paquetes || []).length);
 function tarLabel() {
+  if (MKT()) return `${MKT().nombre} · ${tx("per_pax")}`;       // «Tarifario DMC 2027 · COP por pasajero»
   const base = tx("tar_" + tierK());
   if (!PR.tours.size && !PR.svc.size) return base + " · " + tx("tar_none");
   return PR.carried ? `${base} · ${tx("tar_prev", PR.carried, VIG)}` : `${base} ${[...PR.years].sort().join("/")}`;
@@ -622,7 +655,7 @@ export async function mountPortafolio(host, ctx) {
     tab: ss.get("pf27-tab", "mapa"), placing: false, editing: false, newName: "", newFor: "", near: false, open: {},
     R: Object.assign(EMPTY_R(), saved || {}) };
   sanitizeR(S.R);
-  if (!TABS.includes(S.tab)) S.tab = "mapa";
+  if (!TABS.includes(S.tab) || (S.tab === "paq" && !hasPaq())) S.tab = "mapa";
   K.sel = null;
   host.innerHTML = skeleton();
   ROOT = host.querySelector(".pf");
@@ -664,7 +697,7 @@ function skeleton() {
     <div class="mapfoot">${mapFoot()}</div>
    </div>
     <div class="panel">
-      <div class="tabs" role="tablist">${tab("mapa", "home")}${tab("exp", "grid")}${tab("ruta", "route", `<span class="n" data-r="rn">0</span>`)}${tab("trans", "bus")}${tab("kit", "file")}${tab("cond", "info")}</div>
+      <div class="tabs" role="tablist">${tab("mapa", "home")}${tab("exp", "grid")}${tab("ruta", "route", `<span class="n" data-r="rn">0</span>`)}${tab("trans", "bus")}${hasPaq() ? tab("paq", "hotel") : ""}${tab("kit", "file")}${tab("cond", "info")}</div>
       <section class="pane" id="pf-pane-mapa" data-pane="mapa" role="tabpanel" aria-labelledby="pf-tab-mapa" hidden></section>
       <section class="pane" id="pf-pane-exp" data-pane="exp" role="tabpanel" aria-labelledby="pf-tab-exp" hidden>
         <h2>${tx("exp_h")}</h2>
@@ -703,6 +736,7 @@ function skeleton() {
         </div>
       </section>
       <section class="pane" id="pf-pane-trans" data-pane="trans" role="tabpanel" aria-labelledby="pf-tab-trans" hidden></section>
+      ${hasPaq() ? `<section class="pane" id="pf-pane-paq" data-pane="paq" role="tabpanel" aria-labelledby="pf-tab-paq" hidden></section>` : ""}
       <section class="pane" id="pf-pane-kit" data-pane="kit" role="tabpanel" aria-labelledby="pf-tab-kit" hidden></section>
       <section class="pane" id="pf-pane-cond" data-pane="cond" role="tabpanel" aria-labelledby="pf-tab-cond" hidden></section>
     </div>
@@ -820,14 +854,14 @@ function bindStatic() {
 /* Historial: cada pestaña y cada ficha abierta es un paso del botón Atrás del navegador (y de «‹ Atrás» del encabezado del portal).
    portal.js guarda el paso (CTX.nav) y, al volver, llama a navTo(). first: al montar; hist: viene del historial (no se guarda de nuevo);
    swap: reemplaza el paso actual (p. ej. de la ficha a Condiciones), para que Atrás no pase por una vista repetida. */
-const TABS = ["mapa", "exp", "ruta", "trans", "kit", "cond"];
+const TABS = ["mapa", "exp", "ruta", "trans", "kit", "cond", "paq"];     // «paq»: solo con los paquetes del Mercado Nacional
 function navMark(st, push, hash) { if (CTX && CTX.nav) (push ? CTX.nav.push : CTX.nav.replace)(st, hash); }
 export function navTo(st) {
   if (!(ROOT && ROOT.isConnected) || !st) return;
   const fe = $r("ficha").querySelector("[data-fid]"), open = fe ? fe.dataset.fid : null;
   if ($r("lb").firstChild) $r("lb").innerHTML = "";
   if (open && open !== st.ficha) closeFicha("hist");
-  if (TABS.includes(st.pf) && st.pf !== S.tab) setTab(st.pf, false, true);
+  if (TABS.includes(st.pf) && st.pf !== S.tab && (st.pf !== "paq" || hasPaq())) setTab(st.pf, false, true);
   if (st.ficha && byId[st.ficha] && open !== st.ficha) openFicha(st.ficha, "hist");
 }
 function setTab(t, first, hist, swap) {
@@ -842,6 +876,7 @@ function setTab(t, first, hist, swap) {
   if (t === "kit") renderKit();
   if (t === "cond") renderCond();
   if (t === "trans") renderTrans();
+  if (t === "paq") renderPaq();
   if (!hist) navMark({ pf: t, ficha: null, lb: tx("t_" + t) }, !(first || swap || prev === t), first ? undefined : "");
 }
 function setMode(wl) {
@@ -852,7 +887,7 @@ function setMode(wl) {
   if (S.active && /^fin:/.test(S.active)) closePop();
   S.listDirty = true;
   const t = S.tab;
-  if (t === "exp") renderList(); else if (t === "ruta") renderRoute(); else if (t === "kit") renderKit(); else if (t === "cond") renderCond(); else if (t === "trans") renderTrans();
+  if (t === "exp") renderList(); else if (t === "ruta") renderRoute(); else if (t === "kit") renderKit(); else if (t === "cond") renderCond(); else if (t === "trans") renderTrans(); else if (t === "paq") renderPaq();
   if (S.active) { const id = S.active; openPop(id); } else drawOverlay();
   if ($r("ficha").firstChild) { const id = $r("ficha").querySelector("[data-fid]").dataset.fid; openFicha(id, "redraw"); }
 }
@@ -1095,6 +1130,15 @@ function compImportante() {
 }
 // Tarifa única: valor por persona igual de 1 a 30 pax; debajo, la comisión y la nota de 1 pasajero (de «notas» de la fila)
 function uniBox(e, r) {
+  // 2027: tarifa neta; la de 1 pax aplica cuando no hay más pasajeros confirmados y desde 2 pax el valor es el mismo
+  if (MKT()) {
+    const v1 = priceAt(e.id, 1), v2 = priceAt(e.id, 2), sup = (mkT(e) || {}).s || [], gEn = svcAt(GUIDE_TC, 1);
+    return `<div class="box netbox uni" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><div class="big" data-r="net">${v2 != null ? cop(v2) : tx("ask")}</div>
+      <small>${tx("tu_2")} · ${tx("per_pax")}</small><ul class="rnotes">${v1 != null ? `<li><b>${tx("tu_1")}:</b> ${cop(v1)} <span class="sub">(${esc(tx("tu_1n"))})</span></li>` : ""}${v2 != null ? `<li><b>${tx("tu_2")}:</b> ${cop(v2)}</li>` : ""}</ul>
+      <small>${esc(tarLabel())}</small><span class="pill">${esc(MKT().vig)}</span><small class="sub">${tx("gt30")}</small>
+      <div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${sup.length ? `<ul>${sup.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${gEn != null ? `<div class="gaddw">${gAddBtn(e, GUIDE_TC)}</div>` : ""}
+        <button type="button" class="btn ghost sm" data-r="ctrgo">${ic("bus", "sm")}${tx("ctr_go")}</button></div></div>`;
+  }
   const notes = String(r.notas || "").split(/\s*\|\s*/).filter(Boolean).map(x => { const m = /^([^:]{2,30}):\s*(.+)$/.exec(x); return `<li>${m ? `<b>${esc(m[1])}:</b> ${esc(m[2])}` : esc(x)}</li>`; }).join("");
   const g = svcAt("SU-TC-GUIAEN", 1);
   return `<div class="box netbox uni" id="pf-f-rate"><span class="eyebrow">${tx("tu_rate")}</span><div class="big" data-r="net">${cop(r.tarifa_neta)}</div>
@@ -1117,7 +1161,7 @@ function badges(e) {
 // Distancia por carretera desde el hotel de «Arma tu ruta» (la finca, al municipio con finca más cercano)
 function distKm(e) { const h = S.R && S.R.hotel; if (!h) return null; const tp = tourPoint(e, h); return Math.max(1, legInfo([h.lat, h.lon], [tp.lat, tp.lon], 1).km); }
 const nearLine = e => { const k = distKm(e); return k == null ? "" : `<div class="near">${ic("pin", "sm")}${tx("near", k)}</div>`; };
-const priceLine = e => { if (headOf(e.id)) return `<span class="pu">${esc(tx("rt_card"))}</span>`; const u = e.tarifa_unica && rateRow(e.id, 2); if (u) return `<b>${cop(u.tarifa_neta)}</b> <span class="pu">${tx("tu_card")}</span>`; const f = fromPrice(e.id); return f ? `${tx("from_net")} <b>${cop(f.v)}</b> <span class="code">· ${f.pax} pax</span>` : tx("ask_rate"); };
+const priceLine = e => { if (headOf(e.id) && !hasPrice(e.id)) return `<span class="pu">${esc(tx("rt_card"))}</span>`; const u = e.tarifa_unica && rateRow(e.id, 2); if (u) return `<b>${cop(u.tarifa_neta)}</b> <span class="pu">${tx(MKT() ? "tu_card2" : "tu_card")}</span>`; const f = fromPrice(e.id); return f ? `${tx("from_net")} <b>${cop(f.v)}</b> <span class="code">· ${f.pax} pax</span>` : tx("ask_rate"); };
 
 /* ---------- lista de experiencias ---------- */
 function renderList() {
@@ -1224,7 +1268,7 @@ function openFicha(id, how) {
   const sell = !wl && (p.why || p.interesa || p.where || p.menu || p.impacto || p.team);
   const notes = !wl && p.notes && p.notes.length;
   const paxRows = seasonRows(PR.tours.get(id)), pax0 = rateRow(id, 2) ? 2 : (paxRows.length ? Math.min(...paxRows.map(r => r.pax_desde)) : 2);
-  const rate = rateRow(id, pax0), head = headOf(id), rts = routesOf(id);
+  const rate = rateRow(id, pax0), head = hasPrice(id) ? null : headOf(id), rts = routesOf(id);      // 2027: cada ruta de aves con su tarifa
   const goBtn = x => `<button type="button" data-go="${x.id}"><span class="th">${x.fotos[0] ? `<img src="${ph640(x.fotos[0])}" alt="" loading="lazy">` : `<span class="ph sm"></span>`}</span><span><b>${esc(tr(x, "name"))}</b><br><span class="sub"><span class="code">${esc(x.code)} · </span>${esc(tr(x, "dur"))}</span></span></button>`;
   const nav = [["exp", tx("s_exp")], ...(rts.length ? [["rutas", tx("rt_nav")]] : []), ["tech", tx("s_tech")], ["incl", tx("s_incl")], ["oper", tx("s_oper")], ...(meetOf(e).length ? [["meet", tx("s_meet")]] : []), ...(sell ? [["sell", tx("s_sell")]] : []), ...(!wl ? [["rate", tx("s_rate").split(" ")[0] === "Tarifa" ? "Tarifa" : "Rate"]] : [])];
   $r("ficha").innerHTML = `<div class="ficha" role="dialog" aria-modal="true" aria-label="${esc(tr(e, "name"))}" data-fid="${id}"><article class="sheet">
@@ -1250,27 +1294,28 @@ function openFicha(id, how) {
         ${p.menu ? `<div><h4>${tx("menu")}</h4>${menuHtml(p.menu)}</div>` : ""}
         ${p.team ? `<div><h4>${L() === "en" ? "Team note" : "Nota del equipo"}</h4><p>${esc(p.team)}</p></div>` : ""}</section>` : ""}
       ${notes ? `<section><h3>${tx("s_notes")}</h3><ul class="fnotes">${p.notes.map(x => `<li>${esc(x)}</li>`).join("")}</ul></section>` : ""}
-      <section class="f-foot"><p class="note">${ic("child", "sm")}${esc(tx("kids"))}</p><div class="btnrow"><button type="button" class="btn ghost sm" data-cond="book">${ic("shield", "sm")}${tx("see_cond")}</button><button type="button" class="btn ghost sm" data-cond="about">${ic("info", "sm")}${tx("see_about")}</button></div></section>
+      <section class="f-foot"><p class="note">${ic("child", "sm")}${esc(MKT() && MKT().gen && MKT().gen.ninos ? MKT().gen.ninos : tx("kids"))}</p><div class="btnrow"><button type="button" class="btn ghost sm" data-cond="book">${ic("shield", "sm")}${tx("see_cond")}</button><button type="button" class="btn ghost sm" data-cond="about">${ic("info", "sm")}${tx("see_about")}</button></div></section>
     </div><aside class="aside">
       ${!wl && head ? `<div class="box netbox rbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><p>${esc(tx("rt_sub", tr(byId[head], "name"), byId[head].code))}</p><button type="button" class="btn ghost sm" data-go="${head}">${tx("rt_main")}</button></div>` : ""}
-      ${!wl && !head && e.tarifa_unica && rate ? uniBox(e, rate) : ""}${!wl && !head && !(e.tarifa_unica && rate) ? `<div class="box netbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><div class="big" data-r="net">${rate ? cop(rate.tarifa_neta) : tx("ask")}</div>
+      ${!wl && !head && e.tarifa_unica && rate ? uniBox(e, rate) : ""}${!wl && !head && !(e.tarifa_unica && rate) ? `<div class="box netbox" id="pf-f-rate"><span class="eyebrow">${tx("s_rate")}</span><div class="big${!rate && noOp(e, pax0) ? " nop" : ""}" data-r="net">${netTxt(e, pax0)}</div>
         <label>${tx("pax")} <input type="range" data-r="paxr" min="1" max="30" value="${pax0}"> <b data-r="paxn">${pax0}</b></label>
-        <small>${esc(tarLabel())}. ${tx("per_pax")}.${rate && rate.temporada ? " " + esc(rate.temporada) + "." : ""}</small>${rate && rate._de ? `<span class="pill">${esc(tx("carry", rate._de, VIG))}</span>` : ""}
-        ${p.supl.length || GUIDES().length ? `<div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${p.supl.length ? `<ul>${p.supl.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${guideSup(e)}</div>` : ""}</div>` : ""}
+        ${MKT() ? `<small>${esc(tarLabel())}${rate && rate.temporada ? " · " + esc(rate.temporada) : ""}</small><span class="pill">${esc(MKT().vig)}</span><small class="sub">${tx("gt30")}</small>`
+          : `<small>${esc(tarLabel())}. ${tx("per_pax")}.${rate && rate.temporada ? " " + esc(rate.temporada) + "." : ""}</small>${rate && rate._de ? `<span class="pill">${esc(tx("carry", rate._de, VIG))}</span>` : ""}`}
+        ${p.supl.length || guideSup(e) ? `<div class="supl"><span class="eyebrow">${tx("s_supl")}</span>${p.supl.length ? `<ul>${p.supl.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${guideSup(e)}</div>` : ""}</div>` : ""}
       <div class="btnrow col"><button type="button" class="btn add" data-add="${id}" aria-pressed="${inRoute(id)}">${inRoute(id) ? tx("in_route") : tx("add_route_l")}</button>
         ${CTX.onRequest && !wl ? `<button type="button" class="btn ghost" data-r="freq">${ic("send", "sm")}${tx("request")}</button>` : ""}
-        ${CTX.fichaPdf ? `<div class="fpdf"><label class="field">${tx("fp_lang")}<select data-r="fplang">${Object.entries(LNAME).map(([k, v]) => `<option value="${k}"${k === (FPL || (L() === "en" ? "EN" : "ES")) ? " selected" : ""}>${v}</option>`).join("")}</select></label><button type="button" class="btn ghost" data-r="fpdf">${ic("download", "sm")}${tx("fp_btn")}</button><p class="note" data-r="fpst" aria-live="polite"></p></div>` : ""}</div>
+        ${CTX.fichaPdf ? `<div class="fpdf"><label class="field">${tx("fp_lang")}<select data-r="fplang">${Object.entries(LNAME).map(([k, v]) => `<option value="${k}"${k === (FPL || (L() === "en" ? "EN" : "ES")) ? " selected" : ""}>${v}</option>`).join("")}</select></label>${!wl ? `<label class="chk"><input type="checkbox" data-r="fpb2b" checked> ${tx("fp_b2b")}</label>` : ""}<button type="button" class="btn ghost" data-r="fpdf">${ic("download", "sm")}${tx("fp_btn")}</button><p class="note" data-r="fpst" aria-live="polite"></p></div>` : ""}</div>
       ${(!wl && p.impacto) || e.com || e.cord ? `<div class="box impact"><span class="eyebrow">${tx("impact")}</span><p>${!wl && p.impacto ? `<b>${esc(impName(p.impacto))}</b>` : ""}${e.com ? `<span>${esc(tx("com_txt"))}</span>` : ""}${e.cord ? `<span>${esc(tx("cord_txt"))}</span>` : ""}</p></div>` : ""}
       ${comb ? `<div class="box"><span class="eyebrow">${tx("s_combo")}</span><div class="combo">${comb}</div></div>` : ""}
     </aside></div></article></div>`;
   document.body.style.overflow = "hidden";
   const f = $r("ficha").firstChild; startSlides(f); hydrate(f);
   $r("fx").addEventListener("click", () => closeFicha()); f.addEventListener("click", ev => { if (ev.target === f) closeFicha(); });
-  const pax = $r("paxr"); if (pax) pax.addEventListener("input", () => { $r("paxn").textContent = pax.value; const v = priceAt(id, +pax.value); $r("net").textContent = v != null ? cop(v) : tx("ask"); });
+  const pax = $r("paxr"); if (pax) pax.addEventListener("input", () => { $r("paxn").textContent = pax.value; const n = $r("net"); n.textContent = netTxt(e, +pax.value); n.classList.toggle("nop", priceAt(id, +pax.value) == null && noOp(e, +pax.value)); });
   f.querySelectorAll("[data-g]").forEach(b => b.addEventListener("click", () => lightbox(gal[+b.dataset.g], e)));
   if ($r("phdl")) $r("phdl").addEventListener("click", () => photosZip(e, $r("phst"), $r("phdl")));
   if ($r("fplang")) $r("fplang").addEventListener("change", ev => { FPL = ev.target.value; });
-  if ($r("fpdf")) $r("fpdf").addEventListener("click", () => fichaPdf(id, $r("fpst"), $r("fpdf"), $r("fplang").value));
+  if ($r("fpdf")) $r("fpdf").addEventListener("click", () => fichaPdf(id, $r("fpst"), $r("fpdf"), $r("fplang").value, !wl && !!($r("fpb2b") && $r("fpb2b").checked)));
   if ($r("ctrgo")) $r("ctrgo").addEventListener("click", () => goComp(true));
   f.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => openFicha(b.dataset.go, "swap")));
   f.querySelectorAll("[data-jump]").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); const t = f.querySelector("#pf-f-" + a.dataset.jump); if (t) t.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" }); }));
@@ -1428,7 +1473,7 @@ async function heroPdf(e, W, H) {
   return { d: c.toDataURL("image/jpeg", 0.88), ims, used: new Set(use.map(x => x.b)), usedIms: use };
 }
 const tileOf = (bm, W, H) => { const c = document.createElement("canvas"); c.width = W; c.height = H; const g = c.getContext("2d"); g.fillStyle = "#2a3324"; g.fillRect(0, 0, W, H); drawFit(g, bm, 0, 0, W, H, 1.3); return c.toDataURL("image/jpeg", 0.85); };
-async function fichaPdf(id, st, btn, LANG) {
+async function fichaPdf(id, st, btn, LANG, B2B) {
   const e = byId[id]; if (!e) return false;
   const lang = KL[LANG] ? LANG : (L() === "en" ? "EN" : "ES"), lg = lang.toLowerCase(), t = (k, ...a) => txL(lg, k, ...a);
   if (btn) btn.disabled = true; if (st) st.textContent = tx("fp_making");
@@ -1494,21 +1539,70 @@ async function fichaPdf(id, st, btn, LANG) {
       if (last !== desc[desc.length - 1]) desc = [...desc.slice(0, -1), last + "…"];
     }
     body(f, true, desc);
-    // Pie
-    doc.setDrawColor(215, 220, 208); doc.setLineWidth(.3); doc.line(M, H - 11, W - M, H - 11);
-    doc.setFont("helvetica", "normal"); doc.setFontSize(7.5); doc.setTextColor(115);
-    doc.text(T("Espontáneos Travel SAS · RNT 91795 · info@espontaneostravel.com"), W / 2, H - 6.5, { align: "center" });
-    // Marca de agua muy sutil, en diagonal (encima de todo, casi transparente)
-    let gs = false;
-    try { doc.saveGraphicsState(); doc.setGState(new doc.GState({ opacity: 0.07 })); gs = true; } catch (err) { /* sin transparencia: gris muy claro */ }
-    doc.setFont("helvetica", "bold"); doc.setFontSize(30); doc.setTextColor(gs ? 90 : 236);
-    const wm = T(t("fp_wm")), ang = 33, rad = ang * Math.PI / 180, ww = doc.getTextWidth(wm);
-    [H * 0.36, H * 0.74].forEach(cy => doc.text(wm, W / 2 - Math.cos(rad) * ww / 2, cy + Math.sin(rad) * ww / 2, { angle: ang }));
-    if (gs) { try { doc.restoreGraphicsState(); } catch (err) { /* nada */ } }
-    savePdf(doc.output("blob"), `Ficha_${e.code || e.id}_${slugTxt(tr(e, "name", lg))}_${lang}.pdf`, st);
+    // Pie y marca de agua de cada hoja
+    const pie = () => {
+      doc.setDrawColor(215, 220, 208); doc.setLineWidth(.3); doc.line(M, H - 11, W - M, H - 11);
+      doc.setFont("helvetica", "normal"); doc.setFontSize(7.5); doc.setTextColor(115);
+      doc.text(T("Espontáneos Travel SAS · RNT 91795 · info@espontaneostravel.com"), W / 2, H - 6.5, { align: "center" });
+      // Marca de agua muy sutil, en diagonal (encima de todo, casi transparente)
+      let gs = false;
+      try { doc.saveGraphicsState(); doc.setGState(new doc.GState({ opacity: 0.07 })); gs = true; } catch (err) { /* sin transparencia: gris muy claro */ }
+      doc.setFont("helvetica", "bold"); doc.setFontSize(30); doc.setTextColor(gs ? 90 : 236);
+      const wm = T(t("fp_wm")), ang = 33, rad = ang * Math.PI / 180, ww = doc.getTextWidth(wm);
+      [H * 0.36, H * 0.74].forEach(cy => doc.text(wm, W / 2 - Math.cos(rad) * ww / 2, cy + Math.sin(rad) * ww / 2, { angle: ang }));
+      if (gs) { try { doc.restoreGraphicsState(); } catch (err) { /* nada */ } }
+    };
+    pie();
+    // Hoja para la agencia (Portafolio 2027): código, tarifa neta de 1 a 30 pax del catálogo de la cuenta, suplementos, guianza
+    // en otros idiomas (solo DMC), notas de tarifa y operación, Para vender y la política de niños. Nunca en Marca blanca.
+    if (B2B && !S.wl) { doc.addPage(); fichaB2B(doc, e, t, T, { W, H, M, CW, OL, BOT }); pie(); }
+    savePdf(doc.output("blob"), `Ficha_${e.code || e.id}_${slugTxt(tr(e, "name", lg))}_${lang}${B2B && !S.wl ? "_" + (isNac() ? "NAC" : "DMC") : ""}.pdf`, st);
     return true;
   } catch (err) { if (st) st.textContent = err && err.code === "lib" ? tx("k_nolib") : tx("k_err"); if (window.console) console.error(err); return false; }
   finally { if (btn) btn.disabled = false; }
+}
+function fichaB2B(doc, e, t, T, G) {
+  const { W, M, CW, OL, BOT } = G, p = e.p || {}, lh = 3.9;
+  let y = M + 2;
+  const brk = need => { if (y + need > BOT) { doc.addPage(); y = M + 2; } };
+  const head = txt => { brk(10); doc.setFont("helvetica", "bold"); doc.setFontSize(10.5); doc.setTextColor(...OL); doc.text(T(txt), M, y); y += 5.2; };
+  const para = (txt, bullet) => { doc.setFont("helvetica", "normal"); doc.setFontSize(8.6); doc.setTextColor(35);
+    doc.splitTextToSize(T((bullet ? "- " : "") + txt), CW - (bullet ? 2 : 0)).forEach(l => { brk(lh); doc.text(l, M + (bullet ? 1 : 0), y); y += lh; }); y += .8; };
+  doc.setFont("helvetica", "bold"); doc.setFontSize(7.5); doc.setTextColor(120);
+  doc.text(T(`${t("fp_b2b_t")} · ${e.code}`.toUpperCase()), M, y); y += 6;
+  doc.setTextColor(...OL); doc.setFontSize(15); doc.splitTextToSize(T(tr(e, "name")), CW).slice(0, 2).forEach(l => { doc.text(l, M, y); y += 6.4; });
+  doc.setFont("helvetica", "normal"); doc.setFontSize(8.6); doc.setTextColor(60);
+  doc.text(T(MKT() ? `${MKT().nombre} · ${MKT().vig}` : tarLabel()), M, y); y += 6;
+  // Tarifa: 3 filas de 10 columnas (1 a 30 pax), el valor exacto de cada columna
+  head(t("fp_rates"));
+  const cw = CW / 10, rh = 5.4;
+  for (let row = 0; row < 3; row++) {
+    brk(rh * 2 + 2);
+    for (let k = 0; k < 10; k++) {
+      const pax = row * 10 + k + 1, x = M + k * cw, v = priceAt(e.id, pax);
+      doc.setFillColor(238, 242, 236); doc.rect(x, y, cw, rh, "F"); doc.setDrawColor(215, 220, 208); doc.rect(x, y, cw, rh * 2);
+      doc.setFont("helvetica", "bold"); doc.setFontSize(7); doc.setTextColor(90); doc.text(T(`${pax} pax`), x + cw / 2, y + 3.7, { align: "center" });
+      doc.setFont("helvetica", v != null ? "bold" : "normal"); doc.setFontSize(v != null ? 7.6 : 6.2); doc.setTextColor(v != null ? 25 : 120);
+      doc.text(T(v != null ? cop(v) : noOp(e, pax) ? "No opera" : t("ask")), x + cw / 2, y + rh + 3.7, { align: "center" });
+    }
+    y += rh * 2 + 1.6;
+  }
+  const xs = (mkT(e) || {}).x || [];
+  if (xs.length) para(`${t("no_op")}: ${xs.join(", ")} pax.`);
+  para(t("gt30"));
+  y += 1;
+  if ((p.supl || []).length) { head(t("s_supl")); p.supl.forEach(x => para(x, true)); }
+  if (!isNac() && MKT() && MKT().gsupl) {
+    head(t("gs_sup")); if (MKT().gsnota) para(MKT().gsnota);
+    const col = (+e.hrs || 0) > 4 ? 2 : 1;      // hasta 4 h: columna «4 horas»; más de 4 h: «8 horas»
+    MKT().gsupl.forEach(([c, n, ...vals]) => para(`${n} (${c}): ${typeof vals[col] === "number" ? cop(vals[col]) : vals[col]} · ${MKT().gcols[col]}`, true));
+  }
+  if ((p.notes || []).length) { head(t("s_notes")); p.notes.forEach(x => para(x, true)); }
+  if (p.why || p.interesa || p.where) {
+    head(t("s_sell"));
+    [["fp_why", p.why], ["fp_int", p.interesa], ["fp_where", p.where]].forEach(([k, v]) => { if (!v) return; brk(lh * 2); doc.setFont("helvetica", "bold"); doc.setFontSize(8.6); doc.setTextColor(...OL); doc.text(T(t(k)), M, y); y += lh; para(String(v).replace(/https?:\/\/\S+/g, "").trim()); });
+  }
+  if (MKT() && MKT().gen && MKT().gen.ninos) { head(t("c_kids") || "Niños"); para(MKT().gen.ninos); }
 }
 // Menú del Excel («Opción 1. * Trucha … * Cerdo …»): una línea por plato, agrupado por opción
 // Texto con direcciones web pegadas (p. ej. un punto de Google Maps): cada una sale como enlace corto, no como la dirección completa
@@ -1536,7 +1630,7 @@ function franja(txt, t = tx) {
 // t y lg: textos e idioma de la ficha en PDF (por defecto, los del portal)
 function techRows(e, t = tx, lg) {
   const p = e.p, hrs = Number(e.hrs) || 0, oper = tr(e, "oper", lg) || [];
-  const full = hrs >= 7, durB = `${tr(e, "dur", lg)}${hrs ? (full ? " (Full Day)" : hrs >= 3 ? " (Half Day)" : "") : ""}`;
+  const full = hrs >= 7, durB = `${tr(e, "dur", lg)}${hrs && !/full ?day|d[ií]a completo/i.test(tr(e, "dur", lg)) ? (full ? " (Full Day)" : hrs >= 3 ? " (Half Day)" : "") : ""}`;
   const durC = full ? t("full_c") : hrs >= 3 ? t("half_c") : tr(e, "dur", lg);
   const d = String(p.diff || "").toLowerCase(), diff = /baja|f[aá]cil/.test(d) ? t("low") : /media|moderad/.test(d) ? t("mid") : /alta|exigente/.test(d) ? t("high") : t("ask");
   const capN = parseInt(p.cap, 10) || (seasonRows(PR.tours.get(e.id)).reduce((m, r) => Math.max(m, r.pax_hasta || 0), 0)) || e.maxPax || 0;
@@ -1547,7 +1641,7 @@ function techRows(e, t = tx, lg) {
   const langs = (e.langs || []).map(k => langName(k, lg)).join(" / ") || t("langC");
   const sched = mt.length ? [t("dep_from", hm12(mt[0].h)), t("dep_from", hm12(mt[0].h))] : [oper[0] || t("ask"), franja(oper.join(" "), t) || oper[0] || t("ask")];
   const rows = [[t("f_dur_l"), durB, durC], [t("p_sched"), sched[0], sched[1]], [t("p_diff"), diff, diff],
-    [t("p_cap"), capN ? t("capB2B", capN) : t("ask"), capN ? t("capB2C", capN) : t("ask")], [t("p_meet"), meet[0], meet[1]], [t("p_guide"), `${langs} (${t(e.compartido ? "guide_sup_en" : "guide_sup")})`, langs]];
+    [t("p_cap"), capN ? t("capB2B", capN) : t("ask"), capN ? t("capB2C", capN) : t("ask")], [t("p_meet"), meet[0], meet[1]], [t("p_guide"), `${langs} (${t(e.compartido ? "guide_sup_en" : isNac() ? "guide_nac" : "guide_sup")})`, langs]];
   return rows;
 }
 function techTable(e) {
@@ -2057,7 +2151,12 @@ function renderTrans(hl) {
     ${v.vip ? `<span class="sub"><b>${tx("vip")}</b></span>` : ""}${v.suplemento ? `<span class="sub code money">${esc(v.suplemento)}</span>` : ""}
     <div class="vact">${v.id === sugP ? `<span class="vsug">${tx("veh_sug_b", p)}</span>` : ""}<button type="button" class="btn ghost sm" data-vuse="${esc(v.id)}" aria-pressed="${!!(rv && rv.id === v.id)}"${fitsV(v, S.R.pax) ? "" : ` disabled title="${esc(tx("veh_nofit", S.R.pax))}"`}>${rv && rv.id === v.id ? tx("veh_in") : tx("veh_use")}</button></div></div></div>`;
   const svcRows = pre => [...PR.svc.keys()].filter(c => c.startsWith(pre)).sort();
-  const trs = svcRows("ET-"), sups = svcRows("SU-").filter(c => !GUIDE_RE.test(c)), guides = GUIDES();
+  // 2027: en esta tabla solo los traslados (los ET-TC-… de los compartidos tienen su tabla en «Tours compartidos»); los suplementos
+  // de servicios van con su unidad en «Guías y suplementos»
+  const K = MKT(), srvK = new Set(((K && K.servicios) || []).map(x => x.codigo));
+  const trs = svcRows("ET-").filter(c => !K || /^ET-(AXM|PEI|TR)/.test(c)), sups = svcRows("SU-").filter(c => !GUIDE_RE.test(c) && !srvK.has(c)), guides = GUIDES();
+  const trN = c => { const x = K && K.tras && K.tras[c]; if (!x) { const n = trNote(c, L()); return n ? [n] : []; } return uniqTxt([...(x.n || []), ...(x.s || [])]); };
+  const rowNote = c => String(((PR.svc.get(c) || [])[0] || {}).notas || "");
   const nm = c => (/^ET-(AXM|PEI|TR)\d/.test(c) ? trayName(c) : String((PR.svc.get(c)[0] || {}).nombre || c));
   const cond = (L() === "en" && CTX.empresa && CTX.empresa.en && CTX.empresa.en.fleet_cond) || (CTX.empresa && CTX.empresa.es && CTX.empresa.es.fleet_cond) || [];
   pane.innerHTML = `<h2>${tx("tr_h")}</h2><p class="lead">${tx("tr_l")}</p>
@@ -2067,12 +2166,14 @@ function renderTrans(hl) {
     <div class="ccard"><h4>${ic("check", "sm")}${esc(KLu().trInc)}</h4><ul>${KLu().trIncL.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>
     <div class="section money"><h3>${tx("tr_tab")}</h3>
       <div class="filters"><label class="field inline">${tx("pax")} <input data-r="tpax" type="number" min="1" max="30" value="${p}" inputmode="numeric"></label></div>
-      ${trs.length ? `<div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("tr_route")}</th><th class="r">${tx("tr_pp", p)}</th></tr></thead><tbody>${trs.map(c => { const v = svcAt(c, p), n = trNote(c, L()); return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c))}${n ? `<br><span class="sub trn">${esc(n)}</span>` : ""}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div>` : `<p class="empty">${tx("none_rates")}</p>`}
-      <p class="note">${tx("tr_note")}</p></div>
-    ${sups.length ? `<div class="section money"><h3>${tx("sup_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th><th class="r">${tx("value")}</th></tr></thead><tbody>${sups.map(c => { const v = svcAt(c, p) ?? svcAt(c, 1); return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c))}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div></div>` : ""}
-    ${guides.length ? `<div class="section money"><h3>${tx("guide_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th>${guideCols().map(t => `<th class="r">${esc(guideCol(t))}</th>`).join("")}</tr></thead><tbody>
+      ${trs.length ? `<div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("tr_route")}</th><th class="r">${tx("tr_pp", p)}</th></tr></thead><tbody>${trs.map(c => { const v = svcAt(c, p), ns = trN(c), nw = K && K.tras && K.tras[c] && K.tras[c].nuevo; return `<tr><td class="code">${esc(mkCode(c))}${nw ? ` <span class="nw">${tx("b_new")}</span>` : ""}</td><td>${esc(nm(c))}${ns.map(n => `<br><span class="sub trn">${esc(n)}</span>`).join("")}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div>` : `<p class="empty">${tx("none_rates")}</p>`}
+      <p class="note">${tx("tr_note")}</p>
+      ${K && K.gen ? `<div class="ccard"><h4>${ic("info", "sm")}${tx("tr_gen")}</h4><ul>${[["tr_asist", K.gen.asistencia], ["tr_larga", K.gen.larga], ["tr_paradas", K.gen.paradas], ["tr_horas", K.gen.horas]].filter(x => x[1]).map(([k, v]) => `<li><b>${tx(k)}:</b> ${esc(v)}</li>`).join("")}</ul></div>` : ""}</div>
+    ${sups.length ? `<div class="section money"><h3>${tx("sup_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th><th class="r">${tx("value")}</th></tr></thead><tbody>${sups.map(c => { const v = svcAt(c, p) ?? svcAt(c, 1), n = rowNote(c); return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c))}${n ? `<br><span class="sub">${esc(n)}</span>` : ""}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div></div>` : ""}
+    ${K ? guidesHtml(K) : guides.length ? `<div class="section money"><h3>${tx("guide_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th>${guideCols().map(t => `<th class="r">${esc(guideCol(t))}</th>`).join("")}</tr></thead><tbody>
       ${guides.map(c => { const rows = PR.svc.get(c), cols = guideCols(); return `<tr><td class="code">${esc(c)}</td><td>${esc(guideName(c))}</td>${cols.map(s => { const r = rows.find(x => x.temporada === s); return `<td class="r">${r ? cop(r.tarifa_neta) : "—"}</td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div></div>` : ""}`;
   const tp = pane.querySelector("[data-r=tpax]"); tp.addEventListener("change", () => { S.tpax = Math.min(30, Math.max(1, Math.round(+tp.value) || 1)); renderTrans(); });
+  const tcb = pane.querySelector("[data-r=trcomp]"); if (tcb) tcb.addEventListener("click", () => goComp(true));
   startSlides(pane);
   pane.querySelectorAll("[data-vf]").forEach(b => b.addEventListener("click", () => { const v = D.vehicles.find(x => x.id === b.dataset.vf); if (v) lightbox({ i: v.fotos[+b.dataset.k || 0] }); }));
   const fl = pane.querySelector("[data-fleet]"); if (fl) fl.addEventListener("click", () => lightbox({ i: D.flota[0] }));
@@ -2080,6 +2181,44 @@ function renderTrans(hl) {
     const v = D.vehicles.find(x => x.id === b.dataset.vuse); if (!v || !fitsV(v, S.R.pax)) return;
     S.R.veh = S.R.pax && vehFor(S.R.pax).id === v.id ? "" : v.id; saveR(); renderTrans(v.id); toast(tx("veh_set", vehName(v)));
   }));
+}
+
+// «Guías y suplementos» del tarifario de la cuenta (Portafolio 2027). DMC: tarifa de guía por idioma y suplemento de guianza en otros
+// idiomas; Mercado Nacional: solo la guía en español. Los dos: suplementos de servicios (SU-ET004, 005, 013, 014 y 015).
+function guidesHtml(K) {
+  const v = x => (typeof x === "number" ? cop(x) : esc(x == null ? tx("ask") : x));
+  const tbl = (rows, cap) => `<div class="tbl-wrap" tabindex="0" role="region" aria-label="${esc(cap)}"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("gs_lang")}</th>${(K.gcols || []).map(c => `<th class="r">${esc(guideCol(c))}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(([c, n, ...vals]) => `<tr><td class="code">${esc(c)}</td><td>${esc(n)}</td>${vals.map(x => `<td class="r">${v(x)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+  return `<div class="section money" id="pf-guias"><h3>${tx("gs_t")}</h3>
+    <h4>${tx("gs_tab")}</h4>${tbl(K.guias || [], tx("gs_tab"))}<p class="note">${esc(K.gnota || "")}</p>
+    ${K.gsupl ? `<h4>${tx("gs_sup")}</h4>${tbl(K.gsupl, tx("gs_sup"))}<p class="note">${esc(K.gsnota || "")}</p>` : ""}
+    ${(K.servicios || []).length ? `<h4>${tx("gs_srv")}</h4><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th><th class="r">${tx("value")}</th><th>${tx("gs_unit")}</th></tr></thead>
+      <tbody>${K.servicios.map(x => `<tr><td class="code">${esc(x.codigo)}</td><td>${esc(x.servicio)}</td><td class="r">${v(x.tarifa)}</td><td>${esc(x.unidad)}</td></tr>`).join("")}</tbody></table></div>` : ""}
+    <div class="btnrow"><button type="button" class="btn ghost sm" data-r="trcomp">${ic("bus", "sm")}${tx("gs_tc")}</button></div></div>`;
+}
+
+/* ---------- Paquetes (solo Mercado Nacional, Portafolio 2027): un bloque por plan con incluye, no incluye, importante,
+   tablas por temporada (hotel · plan · SGL/DBL/TPL/CHD con noche adicional), notas, suplementos y tours opcionales.
+   Los hoteles solo aparecen dentro de los paquetes. En Marca blanca se ocultan los valores (clase money). ---------- */
+function renderPaq() {
+  const pane = ROOT.querySelector('[data-pane="paq"]'); if (!pane) return;
+  const P = (MKT() && MKT().paquetes) || [], ACC = ["SGL", "DBL", "TPL", "CHD"];
+  const val = x => (typeof x === "number" ? cop(x) : "—"), li = a => (a || []).map(x => `<li>${esc(x)}</li>`).join("");
+  pane.innerHTML = `<h2>${tx("paq_h")}</h2><p class="lead">${tx("paq_l")}</p>
+    <nav class="cnav" aria-label="${esc(tx("t_paq"))}">${P.map((p, i) => `<a href="#pf-paq-${i}" data-pj="${i}">${ic("hotel", "sm")}${esc(p.nombre)}</a>`).join("")}</nav>
+    ${P.map((p, i) => `<section class="section paq" id="pf-paq-${i}"><h3>${ic("hotel")}${esc(p.nombre)}</h3>
+      <div class="lists"><div><h4>${ic("check", "sm")}${tx("s_incl")}</h4><ul class="ul yes">${li(p.incluye)}</ul></div><div><h4>${ic("x", "sm")}${tx("s_noincl")}</h4><ul class="ul no">${li(p.no_incluye)}</ul></div></div>
+      ${p.importante ? `<div class="ccard hl"><h4>${ic("info", "sm")}${tx("imp_t")}</h4><p>${esc(p.importante)}</p></div>` : ""}
+      <div class="money">${(p.temporadas || []).map(T => `<h4>${esc(T.t)}</h4><div class="tbl-wrap paqt" tabindex="0" role="region" aria-label="${esc(p.nombre + " · " + T.t)}"><table>
+        <thead><tr><th scope="col">${tx("paq_hotel")}</th><th scope="col">${tx("paq_plan")}</th>${ACC.map(a => `<th scope="col" class="r">${a}</th><th scope="col" class="r na">${tx("paq_na")}</th>`).join("")}</tr></thead>
+        <tbody>${T.filas.map(f => `<tr><th scope="row">${esc(f.hotel)}</th><td>${esc(f.plan)}</td>${(f.v || []).map(([a, b]) => `<td class="r">${val(a)}</td><td class="r na">${val(b)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`).join("")}
+        <p class="note">${tx("paq_net")}</p>
+        ${(p.notas || []).length ? `<div class="ccard"><h4>${tx("paq_notes")}</h4><ul>${li(p.notas)}</ul></div>` : ""}
+        ${(p.suplementos || []).length ? `<div class="ccard"><h4>${tx("s_supl")}</h4><ul>${p.suplementos.map(x => `<li>${esc(x.concepto)}: <b>${val(x.tarifa)}</b> · ${esc(x.unidad)}</li>`).join("")}</ul></div>` : ""}
+        ${(p.opcionales || []).length ? `<h4>${tx("paq_opt")}</h4><div class="tbl-wrap" tabindex="0" role="region" aria-label="${esc(tx("paq_opt"))}"><table><thead><tr><th>${tx("paq_type")}</th><th>Tour</th><th class="r">1 pax</th><th class="r">2 pax</th><th class="r">${tx("paq_3")}</th></tr></thead>
+          <tbody>${p.opcionales.map(o => `<tr><td>${esc(o.tipo)}</td><td><b>${esc(o.tour)}</b><br><span class="sub">${esc(o.condiciones)}</span></td><td class="r">${val(o.p1)}</td><td class="r">${val(o.p2)}</td><td class="r">${val(o.p3)}</td></tr>`).join("")}</tbody></table></div>` : ""}</div>
+    </section>`).join("")}`;
+  pane.querySelectorAll("[data-pj]").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); const t = ROOT.querySelector("#pf-paq-" + a.dataset.pj); if (t) t.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" }); }));
 }
 
 /* ---------- condiciones: más sobre nosotros, reservas y pagos, menores, sostenibilidad, casos de impacto, equipo ----------
@@ -2098,7 +2237,8 @@ function renderCond() {
     <section class="section" id="pf-c-about"><h3>${ic("info")}${tx("c_about")}</h3>
       ${C.about && C.about.length ? `<div class="ccard">${C.about.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : ""}
       <div class="ccard hl"><h4>${ic("heart", "sm")}${tx("c_access")}</h4><p>${esc(C.accesible)}</p></div></section>
-    <section class="section" id="pf-c-book"><h3>${ic("shield")}${tx("c_book")}</h3><p class="note">${tx("c_2026")}</p>
+    <section class="section" id="pf-c-book"><h3>${ic("shield")}${tx("c_book")}</h3><p class="note">${MKT() ? esc(tx("c_2027n", MKT().nombre)) : tx("c_2026")}</p>
+      ${MKT() && MKT().gen ? `<div class="ccard hl money"><h4>${ic("info", "sm")}${tx("c_2027")}</h4>${ul([MKT().gen.moneda, MKT().gen.ninos, MKT().gen.guianza, MKT().gen.asistencia, MKT().gen.horas, MKT().gen.paradas, MKT().gen.larga, MKT().gen.cancel].filter(Boolean))}</div>` : ""}
       <div class="cgrid two">${pol("fit")}${pol("grp")}</div>
       <div class="ccard"><h4>${tx("c_gen")}</h4>${ul(C.gen)}</div>
       <div class="ccard"><h4>${tx("c_paym")}</h4>${pagos.length && !S.wl ? ul(pagos) : `<p>${tx("c_paym_ask")}</p>`}</div></section>

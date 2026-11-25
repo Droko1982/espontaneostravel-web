@@ -41,7 +41,9 @@ const ETAPA_KIND = { nuevo: "warn", contactado: "", cotizado: "warn", reservado:
 const MEDIOS_CONTACTO = [["whatsapp", "WhatsApp"], ["llamada", "Llamada"], ["correo", "Correo"], ["presencial", "En persona"], ["otro", "Otro"]];
 const MAX_BITACORA = 60;
 const MONEDAS = [["COP", "COP — peso colombiano"], ["USD", "USD — dólar"], ["EUR", "EUR — euro"]];
-const COLECCIONES = ["users", "dmcs", "dmcs_privado", "tarifas", "condiciones", "clientes", "clientes_privado", "reservas", "reservas_publicas", "solicitudes", "leads", "config"];
+// Colecciones del respaldo. reservas_publicas no va: las reglas prohíben listarla (cada viajero lee solo su código)
+// y es una copia de reservas, que sí se respalda (antes «Todo en un JSON» fallaba con «No tienes permiso»).
+const COLECCIONES = ["users", "dmcs", "dmcs_privado", "tarifas", "condiciones", "mercado", "clientes", "clientes_privado", "reservas", "solicitudes", "leads", "config"];
 const TARIFA_COLS = ["vigencia", "codigo", "tour_id", "nombre", "temporada", "pax_desde", "pax_hasta", "moneda", "tarifa_neta", "dmc_id", "notas"];
 
 /* ---------- Textos (ES/EN) para pantallas de acceso y de agencias ---------- */
@@ -217,7 +219,7 @@ const ERRORS = {
 const S = {
   lang: "es", view: "boot", authMode: location.hash === "#solicitar" ? "signup" : "login", tab: null, tabsApi: null,
   fb: null, user: null, profile: null, dmc: null, signingUp: false,
-  jenny: null, jennyP: null, i18n: null, tours: { list: [], byId: new Map(), byCode: new Map() },
+  jenny: null, jennyP: null, i18n: null, tours: { list: [], byId: new Map(), byCode: new Map() }, pfData: undefined,
   dmcs: [], users: [], refsLoaded: false, vigencias: [], cache: {}, preset: null, pagos: null,
   approval: null, approvalDone: null // aprobación pedida desde el correo de aviso / resultado para mostrar
 };
@@ -846,9 +848,31 @@ async function loadJenny() {
     const y = await r.json();
     S.jenny = y;
     const tours = Array.isArray(y.tours) ? y.tours : [];
-    S.tours.list = tours.slice().sort((a, b) => collate(a.nombre, b.nombre));
-    for (const x of tours) { if (x.id_web) S.tours.byId.set(x.id_web, x); if (x.codigo) S.tours.byCode.set(x.codigo, x); }
+    // Catálogo del portal = el del Portafolio 2027 (data/portafolio.json, solo lo usa el portal): sin las fichas retiradas y con
+    // el nombre y el código 2027 de cada experiencia. data/jenny.json es de la web pública y conserva sus textos y códigos.
+    const P = await loadPfData();
+    const pf = P && Array.isArray(P.tours) ? new Map(P.tours.map(x => [x.id, x])) : null;
+    const old = new Map();
+    const lista = tours.filter(x => !pf || pf.has(x.id_web)).map(x => {
+      const p = pf && pf.get(x.id_web); if (!p) return x;
+      if (x.codigo && x.codigo !== p.code) old.set(x.codigo, x.id_web);
+      return Object.assign({}, x, { nombre: p.name || x.nombre, codigo: p.code || x.codigo });
+    });
+    S.tours.list = lista.sort((a, b) => collate(a.nombre, b.nombre));
+    for (const x of lista) { if (x.id_web) S.tours.byId.set(x.id_web, x); if (x.codigo) S.tours.byCode.set(x.codigo, x); }
+    for (const [c, id] of old) if (!S.tours.byCode.has(c) && !RETIRADOS.has(c)) S.tours.byCode.set(c, S.tours.byId.get(id));   // filas con el código anterior
   } catch (e) { console.warn("No se pudo leer data/jenny.json", e); }
+}
+// Códigos que ET retiró del portal (Portafolio 2027, 01_cambios_de_codigos_2027.json): no salen en tarifas, listados ni solicitudes
+// de ningún año. ETHD014 se dividió en ETHD014A/B/C; ETHD042D era el jardín de aves de Circasia (ETHD057).
+const RETIRADOS = new Set(["ETHD005", "ETHD006", "ETHD014", "ETHD048", "ETHD051", "ETHD057", "ETHD059", "ETHD042D", "ET-TR001"]);
+// Los hoteles sueltos (HT-) del tarifario 2026 tampoco: en 2027 los hoteles solo van dentro de los paquetes del Mercado Nacional
+const visibleRate = r => !isHotel(r) && !RETIRADOS.has(r.codigo) && (isService(r) || !r.tour_id || S.tours.byId.has(r.tour_id) || !!S.tours.byCode.get(r.codigo));
+async function loadPfData() {
+  if (S.pfData !== undefined) return S.pfData;
+  S.pfData = null;
+  try { const r = await fetch("data/portafolio.json", { cache: "no-cache" }); if (r.ok) S.pfData = await r.json(); } catch (e) { /* sin portafolio: catálogo de jenny.json */ }
+  return S.pfData;
 }
 async function loadI18nTours() {
   if (S.i18n !== null) return;
@@ -860,11 +884,9 @@ const tourOf = r => S.tours.byId.get(r.tour_id) || S.tours.byCode.get(r.codigo) 
 async function loadPfOrder() {
   if (S.pfOrder) return;
   S.pfOrder = new Map();
-  try {
-    const r = await fetch("data/portafolio.json", { cache: "no-cache" }); if (!r.ok) return;
-    const P = await r.json(); let i = 0;
-    Object.keys(P.cats || {}).forEach(c => (P.tours || []).filter(x => x.cat === c).forEach(x => S.pfOrder.set(x.id, i++)));
-  } catch (e) { /* sin ese orden: por línea y nombre */ }
+  const P = await loadPfData(); if (!P) return;     // sin ese orden: por línea y nombre
+  let i = 0;
+  Object.keys(P.cats || {}).forEach(c => (P.tours || []).filter(x => x.cat === c).forEach(x => S.pfOrder.set(x.id, i++)));
 }
 const CAT_POS = k => { const i = Object.keys(CATS).indexOf(k); return i < 0 ? 99 : i; };
 const pfPos = tour => (tour && S.pfOrder && S.pfOrder.has(tour.id_web) ? S.pfOrder.get(tour.id_web) : 1e4 + CAT_POS(tour && tour.cat) * 100);
@@ -1437,19 +1459,23 @@ async function loadDmcRatesFresh(year) {
     junto ? own(y) : Promise.resolve([]),
     condQ(y)
   ]).then(([gen, spe, cond]) => ({ rates: mergeTarifas(gen, spe), cond }));
-  const cur = await one(year);
+  const [cur, mkt] = await Promise.all([one(year), loadMercado(year)]);
+  cur.rates = cur.rates.filter(visibleRate);
   let pending = [];
   if (year === catalogYear()) {
     // Las tarifas y condiciones del año anterior rigen para los tours del catálogo que aún no tienen las del año
     const prev = S.vigencias.filter(y => y < year)[0];
     if (prev != null) {
       const old = await one(prev);
+      old.rates = old.rates.filter(visibleRate);
       // Por experiencia (tour_id); el código solo si la fila no trae tour_id (un retirado nunca se confunde con uno nuevo)
       const tid = r => (r.tour_id ? (S.tours.byId.get(r.tour_id) || {}).id_web : (tourOf(r) || {}).id_web);
       const have = new Set(cur.rates.map(tid).filter(Boolean));
       old.rates.filter(r => tid(r) && !have.has(tid(r))).forEach(r => cur.rates.push(Object.assign({}, r, { _de: prev })));
+      // Traslados y servicios del año anterior solo si el año aún no trae los suyos (con el tarifario 2027 cargado no se mezclan:
+      // la guianza 2026, por ejemplo, era la tarifa completa del guía y en 2027 es un suplemento)
       const haveSrv = new Set(cur.rates.filter(isService).map(r => r.codigo));
-      old.rates.filter(r => isService(r) && !haveSrv.has(r.codigo)).forEach(r => cur.rates.push(Object.assign({}, r, { _de: prev })));
+      if (!haveSrv.size || !mkt) old.rates.filter(r => isService(r) && !haveSrv.has(r.codigo)).forEach(r => cur.rates.push(Object.assign({}, r, { _de: prev })));
       const hc = new Set(cur.cond.map(c => c.tour_id));
       old.cond.filter(c => !hc.has(c.tour_id)).forEach(c => cur.cond.push(Object.assign({}, c, { _de: prev })));
     }
@@ -1458,8 +1484,31 @@ async function loadDmcRatesFresh(year) {
     const con = new Set(cur.rates.map(r => (tourOf(r) || {}).id_web).filter(Boolean));
     pending = solo ? [] : S.tours.list.filter(x => !con.has(x.id_web));
   }
-  return { rates: cur.rates, cond: new Map(cur.cond.map(c => [c.tour_id, c])), pending };
+  return { rates: cur.rates, cond: new Map(cur.cond.map(c => [c.tour_id, c])), pending, mkt };
 }
+/* ---------- Datos por mercado (Portafolio 2027): mercado/{año}_{dmc|nac} ----------
+   Notas de tarifa y operación, suplementos y pax sin operación de cada tour y traslado, guías y suplementos, condiciones
+   generales y (solo Mercado Nacional) paquetes. Un documento por año y mercado; las reglas solo dejan leer el del tarifario
+   de la cuenta. Lo escribe administración en Condiciones → Importar (condiciones-y-portafolio-<año>.json → «mercado»).
+   El personalizado usa el de su tipo de cliente. Sin el documento (aún no importado): null y el portal funciona como antes. */
+const mktTipo = () => { const k = tierOf(); return k === "per" ? (S.dmc && S.dmc.tipo === "nac" ? "nac" : "dmc") : k; };
+async function loadMercado(year) {
+  const key = "mk_" + year + "_" + mktTipo();
+  if (key in S.cache) return S.cache[key];
+  let v = null;
+  try { const s = await fs.getDoc(dref("mercado", `${year}_${mktTipo()}`)); if (s.exists()) { v = JSON.parse(s.data().datos || "null"); if (!v || v.v !== 1) v = null; } }
+  catch (e) { v = null; }      // reglas sin publicar o sin importar
+  S.cache[key] = v;
+  return v;
+}
+// Notas y suplementos del mercado para las tarjetas de «Tarifas» (mismo orden que la ficha del portafolio)
+function mktNotes(mkt, codigo) {
+  const x = mkt && ((mkt.tours || {})[codigo] || (mkt.tras || {})[codigo]); if (!x) return null;
+  const paxTxt = (x.x || []).length ? (L() === "en" ? "Does not operate for: " : "No opera para: ") + rangoPax(x.x) + " pax" : "";
+  return { n: [...(x.n || []), paxTxt, (mkt.tours || {})[codigo] ? (mkt.gen || {}).guianza : ""].filter(Boolean), s: x.s || [] };
+}
+const rangoPax = arr => { const s = [...new Set(arr)].sort((a, b) => a - b), out = []; s.forEach(p => { const l = out[out.length - 1]; if (l && l[1] === p - 1) l[1] = p; else out.push([p, p]); });
+  return out.map(([a, b]) => (a === b ? String(a) : a + "–" + b)).join(", "); };
 const paxText = r => (r.pax_desde === r.pax_hasta ? t("pax_one", r.pax_desde) : t("pax_range", r.pax_desde, r.pax_hasta));
 const rateKey = r => r.tour_id || r.codigo;
 
@@ -1530,7 +1579,7 @@ async function dmcTarifas(view) {
     const kind = r => (isHotel(r) ? 2 : isService(r) ? 1 : 0);   // experiencias, luego traslados y servicios, luego hoteles
     const near = rows => { if (!S.geoSort || !S.hotelGeo) return 0; const tr = tourOf(rows[0]); const g = tr && geoNearest(tr, splitNotes((data.cond.get(tr.id_web) || {}).notas_agencia)); return g ? g.km : 1e9; };
     [...groups.values()].sort((a, b) => (kind(a[0]) - kind(b[0])) || (near(a) - near(b)) || (kind(a[0]) === 1 ? collate(a[0].codigo, b[0].codigo) : kind(a[0]) === 0 ? (pfPos(tourOf(a[0])) - pfPos(tourOf(b[0]))) || collate(nameOf(a), nameOf(b)) : collate(nameOf(a), nameOf(b))))
-      .forEach(rows => add(out, tourCard(rows, data.cond)));
+      .forEach(rows => add(out, tourCard(rows, data.cond, data.mkt)));
     if (pendBox) add(out, pendBox);
   }
   ySel.addEventListener("change", load);
@@ -1640,7 +1689,7 @@ async function dmcPortafolio(view) {
     // Ficha en PDF (sin tarifas): el equipo siempre; un DMC solo si su perfil tiene «Descarga de fichas PDF» (ET, 18-nov-2026)
     fichaPdf: staff || !!(S.dmc && S.dmc.fichasPdf),
     agency: staff ? "Vista previa del equipo" : ((S.dmc && S.dmc.nombre) || ""),
-    rates: data.rates, cond: data.cond, priv, splitNotes, empresa: EMPRESA, loadVideo, pagos: pagosOficiales(),
+    rates: data.rates, cond: data.cond, mkt: data.mkt, priv, splitNotes, empresa: EMPRESA, loadVideo, pagos: pagosOficiales(),
     // Kit de venta: logo y nombre de la agencia guardados en kits/{uid} (solo el dueño los lee y los cambia)
     who: S.user.uid,
     kitLoad: () => fs.getDoc(dref("kits", S.user.uid)).then(s => (s.exists() ? s.data() : null)),
@@ -2066,7 +2115,7 @@ function paramTable(tour, sp, rows) {
 // los de las condiciones de agencia anteriores (p. ej. ETFD014: Montenegro y Calarcá, otros horarios) ya no aplican
 const COMP_SKIP = new Set(["Suplementos", "Recomendaciones", "Modalidad"]);
 function tourInfo(tour, sp, openCond, rows) {
-  if (tour && tour.modalidad === "compartido") sp = Object.assign({}, sp, { ficha: sp.ficha.filter(([k]) => !COMP_SKIP.has(k)) });
+  if (tour && tour.modalidad === "compartido" && !sp.mkt) sp = Object.assign({}, sp, { ficha: sp.ficha.filter(([k]) => !COMP_SKIP.has(k)) });
   const list = (k) => tourText(tour, k) || [];
   const incl = list("incluye"), excl = list("no_incluye"), ops = list("notas");
   return [
@@ -2089,7 +2138,7 @@ async function pdfFicha(tourId, card, btnEl) {
   try {
     const year = catalogYear() || S.vigencias[0] || new Date().getFullYear();
     const [m, data, priv] = await Promise.all([import("./portafolio.js"), loadDmcRates(year), loadPortafolioPriv(year)]);
-    const ok = tourId && await m.downloadFichaPdf(tourId, { lang: L(), tier: tierOf(), rates: data.rates, cond: data.cond, priv, splitNotes, empresa: EMPRESA, pagos: pagosOficiales() }, { price: "net" }, st);
+    const ok = tourId && await m.downloadFichaPdf(tourId, { lang: L(), tier: tierOf(), rates: data.rates, cond: data.cond, mkt: data.mkt, priv, splitNotes, empresa: EMPRESA, pagos: pagosOficiales() }, { price: "net" }, st);
     if (!ok) { st.textContent = ""; printFicha(card); }
   } catch (e) { st.textContent = ""; printFicha(card); }
   finally { if (btnEl) btnEl.disabled = false; }
@@ -2175,11 +2224,14 @@ function pendingCard(x, cond) {
   return card;
 }
 
-function tourCard(rows, cond) {
+function tourCard(rows, cond, mkt) {
   const r0 = rows[0], tour = tourOf(r0);
   const c = cond.get(r0.tour_id) || (tour && cond.get(tour.id_web));
   const name = tourText(tour, "nombre") || r0.nombre || rateKey(r0);
-  const sp = splitNotes(c && c.notas_agencia);
+  let sp = splitNotes(c && c.notas_agencia);
+  // Portafolio 2027: notas de tarifa y suplementos del mercado de la cuenta (DMC o Mercado Nacional)
+  const mk = mktNotes(mkt, (tour && tour.codigo) || r0.codigo);
+  if (mk) sp = Object.assign({}, sp, { mkt: true, cond: [...mk.n, ...sp.cond], ficha: [...sp.ficha.filter(([k]) => k !== "Suplementos"), ...(mk.s.length ? [["Suplementos", mk.s.join(" · ")]] : [])] });
   rows.sort((a, b) => (b.especial - a.especial) || collate(a.temporada, b.temporada) || a.pax_desde - b.pax_desde);
   const cols = [
     { label: t("th_season"), get: r => r.temporada || "—" },
@@ -3777,12 +3829,26 @@ async function adminCondiciones(view) {
     result = soloPf ? { vigencia: Number(json.vigencia) || Number(ySel.value), items: [], errors: [] } : validateCondiciones(json, Number(ySel.value));
     result.portafolio = pfData && typeof pfData === "object" ? pfData : null;
     result.medios = json.medios && typeof json.medios === "object" ? json.medios : null;
+    // Portafolio 2027: datos por mercado (notas, suplementos, guías, traslados y paquetes) → mercado/{año}_{dmc|nac}
+    result.mercado = null;
+    if (json.mercado && typeof json.mercado === "object") {
+      result.mercado = {};
+      for (const tipo of ["dmc", "nac"]) {
+        const m = json.mercado[tipo]; if (!m) continue;
+        const datos = JSON.stringify(m);
+        if (m.v !== 1 || m.tipo !== tipo || !m.tours) result.errors.push(`Datos del mercado «${tipo}» con formato no válido.`);
+        else if (datos.length > 1000000) result.errors.push(`Los datos del mercado «${tipo}» pesan más de 1 MB.`);
+        else result.mercado[tipo] = datos;
+      }
+    }
     clear(preview);
     if (result.medios) {
       const ids = Object.keys(result.medios), bad = ids.filter(k => !/^[a-z0-9-]{1,60}$/.test(k) || typeof result.medios[k].b64 !== "string");
       if (bad.length) result.errors.push("Videos con datos no válidos: " + bad.join(", "));
       add(preview, h("p", { class: "p-note", role: "status" }, `Videos privados (solo los ven los DMC con sesión): ${ids.length} · ${(ids.reduce((n, k) => n + (result.medios[k].b64 || "").length, 0) * 0.75 / 1048576).toFixed(1)} MB.`));
     }
+    if (result.mercado) for (const [tipo, d] of Object.entries(result.mercado)) { const m = JSON.parse(d);
+      add(preview, h("p", { class: "p-note", role: "status" }, `${m.nombre || tipo}: notas y suplementos de ${Object.keys(m.tours).length} tours y ${Object.keys(m.tras || {}).length} traslados, ${(m.guias || []).length} tarifa(s) de guía${m.paquetes ? `, ${m.paquetes.length} paquetes` : ""}. Solo lo ven las cuentas de ese tarifario.`)); }
     if (result.portafolio) {
       const P = result.portafolio, size = JSON.stringify(P).length;
       if (size > 450000) result.errors.push("Los datos del portafolio pesan más de 450 KB.");
@@ -3824,6 +3890,14 @@ async function adminCondiciones(view) {
         // De a uno (cada parte pesa casi 1 MB; un lote de Firestore admite máx. 10 MB)
         for (let k = 0; k < ops.length; k++) { progress.textContent = `Subiendo videos privados ${k + 1}/${ops.length}…`; await fs.setDoc(dref("medios", ops[k].id), ops[k].d); }
       }
+      if (result.mercado) {
+        for (const [tipo, datos] of Object.entries(result.mercado)) {
+          progress.textContent = `Guardando los datos del mercado ${tipo === "nac" ? "Mercado Nacional" : "DMC"} ${y}…`;
+          try { await fs.setDoc(dref("mercado", `${y}_${tipo}`), { vigencia: y, tipo, datos, actualizado: ts() }); }
+          catch (e) { throw userErr(`No se pudieron guardar los datos del mercado (${errMsg(e)}). ¿Ya publicaste las reglas de Firestore con la colección «mercado»?`); }
+        }
+        Object.keys(S.cache).forEach(k => { if (/^(mk_|rates_)/.test(k)) delete S.cache[k]; });
+      }
       if (result.portafolio) {
         await fs.setDoc(dref("portafolio", String(y)), { vigencia: y, datos: JSON.stringify(result.portafolio), actualizado: ts() });
         delete S.cache["pf_" + y];
@@ -3837,7 +3911,7 @@ async function adminCondiciones(view) {
       await batchRun(result.items.map(x => bt => bt.set(dref("condiciones", x.id), Object.assign({}, x.data, { actualizado: ts() }))), m => { progress.textContent = m; }, "Guardando");
       if (!S.vigencias.length) await loadVigencias();
       const aviso = await rebuildPacksSafe([...new Set(S.vigencias.concat([y]))], progress);
-      progress.textContent = `Listo: condiciones de ${result.items.length} tours guardadas en ${y}${result.portafolio ? ", datos privados del portafolio" : ""}${result.medios ? " y videos" : ""}. Carga rápida actualizada.${aviso}`;
+      progress.textContent = `Listo: condiciones de ${result.items.length} tours guardadas en ${y}${result.mercado ? ", datos por mercado (DMC y Mercado Nacional)" : ""}${result.portafolio ? ", datos privados del portafolio" : ""}${result.medios ? " y videos" : ""}. Carga rápida actualizada.${aviso}`;
       notify(progress.textContent);
       json = null; result = null; file.value = ""; importBtn.disabled = true;
       vSel.value = String(y); loadExisting();
@@ -3860,7 +3934,7 @@ async function adminCondiciones(view) {
   add(view, 
     h("div", { class: "p-card" },
       h("h2", { class: "p-h2" }, "Importar condiciones de agencia y fichas técnicas"),
-      h("p", null, "Carga el archivo privado de condiciones (por ejemplo privado/condiciones-agencia-2026.json). Formato: { \"vigencia\": 2026, \"condiciones\": { \"tour_id\": { \"codigo\", \"nombre\", \"notas_agencia\": [ … ] } } }. Si el archivo trae «portafolio» (fincas, hoteles aliados, ubicaciones exactas y formas de pago del Portafolio 2027), también se guarda."),
+      h("p", null, "Carga el archivo privado de condiciones (para 2027: privado/condiciones-y-portafolio-2027.json, generado con node tools/build-portafolio.js). Formato: { \"vigencia\": 2027, \"condiciones\": { \"tour_id\": { \"codigo\", \"nombre\", \"notas_agencia\": [ … ] } } }. Si el archivo trae «mercado» (notas, suplementos, guías, traslados y paquetes del Tarifario DMC y del Mercado Nacional) o «portafolio» (fincas, hoteles aliados, ubicaciones exactas y formas de pago), también se guardan."),
       h("p", { class: "p-note" }, "Este archivo es privado: no lo subas al repositorio. Importar de nuevo reemplaza las notas de cada tour."),
       h("div", { class: "p-toolbar" }, labeled("Vigencia (si el archivo no la trae)", ySel), labeled("Archivo JSON", file, "p-grow")),
       checkField("Borrar las condiciones de esa vigencia que no estén en el archivo", prune),
