@@ -125,7 +125,9 @@ const UI = {
     c_paym_ask: "Tu asesor te envía las cuentas y el enlace de pago con cada confirmación.", c_2026: "Políticas del portafolio 2026: el equipo de ET confirma las de 2027.", c_access: "Turismo accesible", c_more: "Más sobre nosotros", c_actions: "Nuestras acciones", c_stories: "Historias de comunidad",
     c_drivers: "Conductores", c_contact: "Contacto", c_imp_conv: "Convenciones de impacto",
     veh_l: "Vehículo de la ruta", veh_auto: "Sugerido: {0} ({1})", veh_auto0: "Sugerido según el número de pasajeros", veh_cap: "{0} a {1} pax", veh_capx: "{0} a {1} pax, máx. {2}", veh_nofit: "no alcanza para {0} pax",
-    veh_vip: "confort superior", veh_supl: "con suplemento", veh_diff: "Elegiste un vehículo distinto al sugerido: la tarifa puede cambiar y ET la confirma al reservar.", veh_sup: "Suplemento {0}: {1} por vehículo, según tu tarifario.",
+    veh_vip: "confort superior", veh_supl: "con suplemento", veh_diff: "Elegiste un vehículo distinto al sugerido: la tarifa puede cambiar y ET la confirma al reservar.", veh_diff27: "Elegiste un vehículo más grande que el asignado: el total suma el suplemento por cambio de vehículo de cada tour y traslado (ver Transporte).", veh_sup: "Suplemento {0}: {1} por vehículo, según tu tarifario.",
+    cv_row: "Cambio de vehículo · {0}: {1} ({2})", cv_t: "Suplemento por cambio de vehículo", cv_s: "Si el grupo elige un vehículo más grande que el asignado por número de pasajeros, se cobra la diferencia como suplemento: valor total del servicio por vehículo (no por persona). En traslados, por trayecto (llegada + salida = dos trayectos). Solo se cobra al subir a un vehículo mayor; de 20 a 30 pax (Busetón + apoyo) no hay cambio. «Arma tu ruta» lo suma solo cuando eliges otro vehículo.",
+    cv_tours: "Tours: {0}", cv_tras: "Traslados: {0}", cv_asg: "Asignado ↓ / elegido →", cv_note: "Tours de hasta 4 h: tabla de 4 horas; de más de 4 h: tabla de 8 horas.",
     veh_row: "Vehículo elegido: {0}", veh_use: "Usar en mi ruta", veh_in: "✓ En mi ruta", veh_set: "Vehículo de tu ruta: {0}", veh_reset: "{0} no alcanza para {1} pasajeros: volvimos al vehículo sugerido.", veh_pick: "elegido por la agencia; sugerido: {0}", veh_sug_b: "Sugerido para {0} pax",
     al_cross: "Día {0}: «{1}» se cruza con «{2}» (al terminar «{2}» llegarían hacia las {3} y «{1}» sale a más tardar a las {4}). Pásalo a otro día.",
     al_long: "Día {0}: ≈ {1} entre tours y trayectos. Es una jornada muy larga: reparte los tours en otro día.", al_late: "Día {0}: el regreso al hotel sería hacia las {1}, muy tarde. Revisa si conviene pasar un tour a otro día.",
@@ -229,7 +231,9 @@ const UI = {
     c_paym_ask: "Your advisor sends you the accounts and the payment link with each confirmation.", c_2026: "Policies from the 2026 portfolio: the ET team confirms the 2027 ones.", c_access: "Accessible tourism", c_more: "More about us", c_actions: "Our actions", c_stories: "Community stories",
     c_drivers: "Drivers", c_contact: "Contact", c_imp_conv: "Impact conventions",
     veh_l: "Route vehicle", veh_auto: "Suggested: {0} ({1})", veh_auto0: "Suggested by number of passengers", veh_cap: "{0} to {1} pax", veh_capx: "{0} to {1} pax, max. {2}", veh_nofit: "too small for {0} pax",
-    veh_vip: "superior comfort", veh_supl: "with supplement", veh_diff: "You chose a vehicle other than the suggested one: the rate may change and ET confirms it when booking.", veh_sup: "Supplement {0}: {1} per vehicle, from your rate sheet.",
+    veh_vip: "superior comfort", veh_supl: "with supplement", veh_diff: "You chose a vehicle other than the suggested one: the rate may change and ET confirms it when booking.", veh_diff27: "You chose a larger vehicle than the assigned one: the total adds the vehicle upgrade supplement for each tour and transfer (see Transport).", veh_sup: "Supplement {0}: {1} per vehicle, from your rate sheet.",
+    cv_row: "Vehicle upgrade · {0}: {1} ({2})", cv_t: "Vehicle upgrade supplement", cv_s: "If the group chooses a larger vehicle than the one assigned by number of passengers, the difference is charged as a supplement: total value of the service per vehicle (not per person). Transfers: per leg (arrival + departure = two legs). Only charged when moving up to a larger vehicle; from 20 to 30 pax (minibus + support) there is no change. «Build a route» adds it only when you choose another vehicle.",
+    cv_tours: "Tours: {0}", cv_tras: "Transfers: {0}", cv_asg: "Assigned ↓ / chosen →", cv_note: "Tours up to 4 h: 4-hour table; longer than 4 h: 8-hour table.",
     veh_row: "Chosen vehicle: {0}", veh_use: "Use in my route", veh_in: "✓ In my route", veh_set: "Route vehicle: {0}", veh_reset: "{0} is too small for {1} passengers: back to the suggested vehicle.", veh_pick: "chosen by the agency; suggested: {0}", veh_sug_b: "Suggested for {0} pax",
     al_cross: "Day {0}: «{1}» overlaps with «{2}» (after «{2}» the group would arrive around {3}, and «{1}» starts {4} at the latest). Move it to another day.",
     al_long: "Day {0}: ≈ {1} of tours and driving. That is a very long day: spread the tours over another day.", al_late: "Day {0}: the group would be back at the hotel around {1}, which is late. Consider moving a tour to another day.",
@@ -1400,7 +1404,7 @@ const FPX = {
     langC: "Espagnol / anglais", am: "Matin", pm: "Après-midi", ampm: "Matin ou après-midi", full_c: "Journée complète", half_c: "Demi-journée",
     f_mod: "Formule", f_lunch: "Déjeuner", f_age: "Âge", f_langs: "Langues", f_code: "Code", s_exp: "L'expérience", s_tech: "Fiche technique", s_incl: "Comprend", s_noincl: "Ne comprend pas",
     s_oper: "Fonctionnement et horaires", s_photos: "Photos", fp_wm: "Document confidentiel · Espontáneos Travel",
-    cats: { rur: "Rural", nat: "Nature", bien: "Bien-être", trad: "Circuits traditionnels", compartidos: "Tours partagés 2027", metro: "Métropolitain", aven: "Activités d'aventure", parq: "Parcs à thème", inc: "Incentives et propositions haut de gamme" } },
+    cats: { rur: "Expériences rurales", nat: "Tourisme de nature", bien: "Tourisme de bien-être", trad: "Circuits traditionnels", compartidos: "Tours partagés", metro: "Tourisme métropolitain", aven: "Activités d'aventure", parq: "Parcs à thème", inc: "Incentives et propositions haut de gamme" } },
   it: { f_dur_l: "Durata", p_sched: "Orario consigliato", p_diff: "Livello di difficoltà", p_cap: "Capacità massima", p_meet: "Punto d'incontro", p_guide: "Lingua della guida",
     low: "Bassa", mid: "Media", high: "Alta", ask: "Su richiesta", capB2B: "Tariffa pubblicata fino a {0} pax; gruppi più numerosi: su richiesta", capB2C: "Fino a {0} persone",
     meet_see: "{0} · {1} punti, vedi «Punti d'incontro»", meet_and: " e ", atHotel: "Nell'hotel del gruppo", pick: "Prelievo presso l'alloggio (zona di copertura secondo le condizioni)",
@@ -1408,7 +1412,7 @@ const FPX = {
     langC: "Spagnolo / inglese", am: "Mattina", pm: "Pomeriggio", ampm: "Mattina o pomeriggio", full_c: "Giornata intera", half_c: "Mezza giornata",
     f_mod: "Modalità", f_lunch: "Pranzo", f_age: "Età", f_langs: "Lingue", f_code: "Codice", s_exp: "L'esperienza", s_tech: "Scheda tecnica", s_incl: "Include", s_noincl: "Non include",
     s_oper: "Operatività e orari", s_photos: "Foto", fp_wm: "Documento riservato · Espontáneos Travel",
-    cats: { rur: "Rurale", nat: "Natura", bien: "Benessere", trad: "Tour tradizionali", compartidos: "Tour condivisi 2027", metro: "Metropolitano", aven: "Attività d'avventura", parq: "Parchi tematici", inc: "Incentive e proposte di alto valore" } },
+    cats: { rur: "Esperienze rurali", nat: "Turismo naturalistico", bien: "Turismo del benessere", trad: "Tour tradizionali", compartidos: "Tour condivisi", metro: "Turismo metropolitano", aven: "Attività d'avventura", parq: "Parchi tematici", inc: "Incentive e proposte di alto valore" } },
   pt: { f_dur_l: "Duração", p_sched: "Horário recomendado", p_diff: "Nível de dificuldade", p_cap: "Capacidade máxima", p_meet: "Ponto de encontro", p_guide: "Idioma do guia",
     low: "Baixa", mid: "Média", high: "Alta", ask: "Sob consulta", capB2B: "Tarifa publicada até {0} pax; grupos maiores: sob consulta", capB2C: "Até {0} pessoas",
     meet_see: "{0} · {1} pontos, ver «Pontos de encontro»", meet_and: " e ", atHotel: "No hotel do grupo", pick: "Busca na hospedagem (área de cobertura conforme as condições)",
@@ -1416,7 +1420,7 @@ const FPX = {
     langC: "Espanhol / inglês", am: "Manhã", pm: "Tarde", ampm: "Manhã ou tarde", full_c: "Dia inteiro", half_c: "Meio dia",
     f_mod: "Modalidade", f_lunch: "Almoço", f_age: "Idade", f_langs: "Idiomas", f_code: "Código", s_exp: "A experiência", s_tech: "Ficha técnica", s_incl: "Inclui", s_noincl: "Não inclui",
     s_oper: "Operação e horários", s_photos: "Fotos", fp_wm: "Documento confidencial · Espontáneos Travel",
-    cats: { rur: "Rural", nat: "Natureza", bien: "Bem-estar", trad: "Tours tradicionais", compartidos: "Tours compartilhados 2027", metro: "Metropolitano", aven: "Atividades de aventura", parq: "Parques temáticos", inc: "Incentivos e propostas de alto valor" } }
+    cats: { rur: "Experiências rurais", nat: "Turismo de natureza", bien: "Turismo de bem-estar", trad: "Tours tradicionais", compartidos: "Tours compartilhados", metro: "Turismo metropolitano", aven: "Atividades de aventura", parq: "Parques temáticos", inc: "Incentivos e propostas de alto valor" } }
 };
 const txL = (lg, k, ...a) => { let s = (UI[lg] && UI[lg][k]) || (FPX[lg] && FPX[lg][k]) || (UI.en && UI.en[k]) || UI.es[k] || k; a.forEach((v, i) => { s = s.split("{" + i + "}").join(String(v)); }); return s; };
 const catL = (k, lg) => (lg === "es" ? (D.cats[k] && D.cats[k].name) : lg === "en" ? (I18.en && I18.en.cats && I18.en.cats[k]) : (FPX[lg] && FPX[lg].cats[k])) || catName(k);
@@ -1680,7 +1684,7 @@ function legInfo(a, b, lo = 3) {
   return { km: Math.round(km), min: Math.round((V.min[k] * 1.2 + acc / 30 * 60 + 5) / 5) * 5 };
 }
 const fmtMin = m => (m >= 60 ? `${Math.floor(m / 60)} h ${m % 60 ? String(m % 60).padStart(2, "0") : ""}`.trim() : `${m} min`);
-const vehFor = p => D.vehicles.filter(v => !v.vip && !v.suplemento).find(v => p >= v.min && p <= v.max) || D.vehicles.filter(v => !v.vip && !v.suplemento).slice(-1)[0];
+const vehFor = p => D.vehicles.filter(v => !v.vip && !v.suplemento && !v.acc).find(v => p >= v.min && p <= v.max) || D.vehicles.filter(v => !v.vip && !v.suplemento && !v.acc).slice(-1)[0];
 const vehName = v => { const x = L() === "en" && I18.en && I18.en.vehicles && I18.en.vehicles.find(y => y.id === v.id); return (x && x.name) || v.name; };
 // Vehículo de la ruta: el que eligió la agencia (si alcanza para el grupo, hasta la capacidad máxima autorizada) o el sugerido
 const capOf = v => v.capacidad_max || v.max;
@@ -1851,16 +1855,42 @@ function transferCode(h, ap) {
   const rule = Z.reglas[ap];
   return rule && typeof rule === "object" && g ? rule[g] || null : null;
 }
+/* ---------- Suplemento por cambio de vehículo (Carolina, 25-nov-2026; mercado.cveh) ----------
+   Valor total del servicio por vehículo según el vehículo asignado por pasajeros (reglas de tours y de traslados) y el elegido.
+   Vehículos del portal → categoría del tarifario; el accesible usa la tarifa de la Duster. Sin categoría (VIP, Willys): por cotizar. */
+const VEH_CLASE = { duster: "Duster", accesible: "Duster", h1: "Van H1", traffic: "Traffic", master: "Master", sprinter: "Busetón 20", micro: "Busetón 20", buseton: "Busetón 20 + apoyo" };
+const CV_SRV = { AXM: "traslado_aeropuerto_eden_por_trayecto", PEI: "traslado_aeropuerto_matecana_por_trayecto" };
+function vehAsignado(p, tipo) {
+  const R = (MKT().cveh.reglas || {})[tipo] || {};
+  for (const [veh, txt] of Object.entries(R)) { const n = String(txt).match(/\d+/g).map(Number); if (p >= n[0] && p <= n[1]) return veh; }
+  return null;
+}
+// 0 = sin suplemento · número = total por vehículo · undefined = por cotizar
+function cvSup(srv, tipo, p) {
+  const K = MKT() && MKT().cveh, v = routeVeh();
+  if (!K || !vehChosen() || !v) return 0;
+  const el = VEH_CLASE[v.id], as = vehAsignado(p, tipo);
+  if (!el || !as || !srv || !K.servicios[srv]) return undefined;
+  if (K.vehiculos.indexOf(el) <= K.vehiculos.indexOf(as)) return 0;            // solo al subir a un vehículo mayor
+  const val = ((K.servicios[srv].total_por_vehiculo || {})[as] || {})[el];
+  return typeof val === "number" ? val : undefined;
+}
 function routeTotals() {
   const R = S.R, h = R.hotel, p = R.pax, rows = []; let total = 0, quote = false;
+  const cvK = !!(MKT() && MKT().cveh), cvQ = [];
+  const cvRow = (srv, tipo, lbl) => { const s = cvSup(srv, tipo, p); if (s === 0) return; if (s === undefined) { cvQ.push(lbl); return; }
+    const pp = Math.round(s / Math.max(1, p)); total += pp; rows.push({ t: tx("cv_row", lbl, vehName(routeVeh()), tx("g_div", cop(s), Math.max(1, p))), v: cop(pp) }); };
   [[tx("tot_arr"), R.arr], [tx("tot_dep"), R.dep]].forEach(([lbl, a]) => { if (!h || !a) return; const c = transferCode(h, a); const v = c ? svcAt(c, p) : null;
-    if (v != null) { total += v; rows.push({ t: lbl, c, v: cop(v) }); } else { quote = true; rows.push({ t: `${lbl} (${apById(a) ? apName(apById(a)) : a})`, v: tx("quote") }); } });
+    if (v != null) { total += v; rows.push({ t: lbl, c, v: cop(v) }); } else { quote = true; rows.push({ t: `${lbl} (${apById(a) ? apName(apById(a)) : a})`, v: tx("quote") }); }
+    if (cvK) cvRow(CV_SRV[a], "traslados", lbl); });
   R.tours.slice().sort((a, b) => a.day - b.day).forEach(t => { const e = byId[t.id]; const v = priceAt(e.id, p);
     if (v == null) { quote = true; rows.push({ t: tr(e, "name"), v: tx("ask") }); } else { total += v; rows.push({ t: tr(e, "name"), v: cop(v) }); }
     if (e.id === "finca" && R.finca && finById[R.finca] && finById[R.finca].sup) { const f = finById[R.finca]; total += f.sup; rows.push({ t: tx("sup_of", f.name), v: cop(f.sup) }); }
     if (t.g) { const gv = guideVal(t.g, e), gl = tx("g_row", capFirst(gLabel(t.g)), tr(e, "name"));
-      if (gv == null) { quote = true; rows.push({ t: gl, v: tx("ask") }); } else { const pp = Math.round(gv / Math.max(1, p)); total += pp; rows.push({ t: `${gl} (${tx("g_div", cop(gv), Math.max(1, p))})`, v: cop(pp) }); } } });
-  if (vehChosen()) { quote = true; rows.push({ t: tx("veh_row", vehName(routeVeh())), v: tx("quote") }); }
+      if (gv == null) { quote = true; rows.push({ t: gl, v: tx("ask") }); } else { const pp = Math.round(gv / Math.max(1, p)); total += pp; rows.push({ t: `${gl} (${tx("g_div", cop(gv), Math.max(1, p))})`, v: cop(pp) }); } }
+    if (cvK && !e.tarifa_unica) cvRow((+e.hrs || 4) <= 4 ? "tour_4_horas" : "tour_8_horas", "tours", tr(e, "name")); });
+  // Sin la tabla 2027 (o con un vehículo sin categoría, como el VIP o el Willys): el cambio de vehículo se cotiza aparte, como antes
+  if (vehChosen() && (!cvK || cvQ.length)) { quote = true; rows.push({ t: tx("veh_row", vehName(routeVeh())) + (cvQ.length ? " · " + cvQ.join(", ") : ""), v: tx("quote") }); }
   return { rows, total, quote };
 }
 function renderRoute() {
@@ -1911,7 +1941,7 @@ function renderVehPick() {
   box.className = "veh vehpick";
   box.innerHTML = `<label class="field">${tx("veh_l")}<select data-r="rvsel"><option value="">${sug ? esc(tx("veh_auto", vehName(sug), vehCap(sug))) : tx("veh_auto0")}</option>${D.vehicles.map(opt).join("")}</select></label>
     <div class="vinfo">${ic("bus")}<span><b>${esc(vehName(cur))}</b>${cur.equipaje ? " · " + esc(cur.equipaje) : ""} · <a href="#" data-r="seeveh">${tx("see_fleet")}</a></span></div>
-    ${vehChosen() ? `<p class="fnote">${ic("info", "sm")}<span>${esc(tx("veh_diff"))}${sup != null ? `<span class="money"> ${esc(tx("veh_sup", cur.suplemento, cop(sup)))}</span>` : ""}</span></p>` : ""}`;
+    ${vehChosen() ? `<p class="fnote">${ic("info", "sm")}<span>${esc(tx(MKT() && MKT().cveh ? "veh_diff27" : "veh_diff"))}${sup != null ? `<span class="money"> ${esc(tx("veh_sup", cur.suplemento, cop(sup)))}</span>` : ""}</span></p>` : ""}`;
   const sel = $r("rvsel"); sel.value = vehChosen() ? cur.id : "";
   sel.addEventListener("change", () => { const v = D.vehicles.find(x => x.id === sel.value); S.R.veh = v && !(R.pax && vehFor(R.pax).id === v.id) ? v.id : ""; saveR(); renderRoute(); toast(tx("veh_set", vehName(routeVeh()))); });
   $r("seeveh").addEventListener("click", ev => { ev.preventDefault(); setTab("trans"); renderTrans(cur.id); });
@@ -2170,6 +2200,7 @@ function renderTrans(hl) {
       <p class="note">${tx("tr_note")}</p>
       ${K && K.gen ? `<div class="ccard"><h4>${ic("info", "sm")}${tx("tr_gen")}</h4><ul>${[["tr_asist", K.gen.asistencia], ["tr_larga", K.gen.larga], ["tr_paradas", K.gen.paradas], ["tr_horas", K.gen.horas]].filter(x => x[1]).map(([k, v]) => `<li><b>${tx(k)}:</b> ${esc(v)}</li>`).join("")}</ul></div>` : ""}</div>
     ${sups.length ? `<div class="section money"><h3>${tx("sup_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th><th class="r">${tx("value")}</th></tr></thead><tbody>${sups.map(c => { const v = svcAt(c, p) ?? svcAt(c, 1), n = rowNote(c); return `<tr><td class="code">${esc(c)}</td><td>${esc(nm(c))}${n ? `<br><span class="sub">${esc(n)}</span>` : ""}</td><td class="r">${v == null ? tx("quote") : cop(v)}</td></tr>`; }).join("")}</tbody></table></div></div>` : ""}
+    ${K && K.cveh ? cvHtml(K.cveh) : ""}
     ${K ? guidesHtml(K) : guides.length ? `<div class="section money"><h3>${tx("guide_tab")}</h3><div class="tbl-wrap"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("sup_t")}</th>${guideCols().map(t => `<th class="r">${esc(guideCol(t))}</th>`).join("")}</tr></thead><tbody>
       ${guides.map(c => { const rows = PR.svc.get(c), cols = guideCols(); return `<tr><td class="code">${esc(c)}</td><td>${esc(guideName(c))}</td>${cols.map(s => { const r = rows.find(x => x.temporada === s); return `<td class="r">${r ? cop(r.tarifa_neta) : "—"}</td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div></div>` : ""}`;
   const tp = pane.querySelector("[data-r=tpax]"); tp.addEventListener("change", () => { S.tpax = Math.min(30, Math.max(1, Math.round(+tp.value) || 1)); renderTrans(); });
@@ -2185,6 +2216,15 @@ function renderTrans(hl) {
 
 // «Guías y suplementos» del tarifario de la cuenta (Portafolio 2027). DMC: tarifa de guía por idioma y suplemento de guianza en otros
 // idiomas; Mercado Nacional: solo la guía en español. Los dos: suplementos de servicios (SU-ET004, 005, 013, 014 y 015).
+function cvHtml(C) {
+  const cols = C.vehiculos.slice(1, 5), rows = C.vehiculos.slice(0, 4), R = C.reglas || {};
+  const tbl = k => { const S = C.servicios[k]; if (!S) return ""; return `<h4>${esc(S.nombre)}</h4><div class="tbl-wrap" tabindex="0" role="region" aria-label="${esc(S.nombre)}"><table><thead><tr><th>${tx("cv_asg")}</th>${cols.map(c => `<th class="r">${esc(c)}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(a => `<tr><th scope="row">${esc(a)}</th>${cols.map(c => { const v = ((S.total_por_vehiculo || {})[a] || {})[c]; return `<td class="r">${typeof v === "number" ? cop(v) : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div>`; };
+  const reg = o => Object.entries(o || {}).map(([v, t]) => `${v} ${t}`).join(" · ");
+  return `<div class="section money" id="pf-cveh"><h3>${tx("cv_t")}</h3><p class="note">${tx("cv_s")}</p>
+    <ul class="ul"><li>${esc(tx("cv_tours", reg(R.tours)))}</li><li>${esc(tx("cv_tras", reg(R.traslados)))}</li></ul>
+    ${["tour_4_horas", "tour_8_horas", "traslado_aeropuerto_eden_por_trayecto", "traslado_aeropuerto_matecana_por_trayecto"].map(tbl).join("")}<p class="note">${tx("cv_note")}</p></div>`;
+}
 function guidesHtml(K) {
   const v = x => (typeof x === "number" ? cop(x) : esc(x == null ? tx("ask") : x));
   const tbl = (rows, cap) => `<div class="tbl-wrap" tabindex="0" role="region" aria-label="${esc(cap)}"><table><thead><tr><th>${tx("tr_code")}</th><th>${tx("gs_lang")}</th>${(K.gcols || []).map(c => `<th class="r">${esc(guideCol(c))}</th>`).join("")}</tr></thead>
