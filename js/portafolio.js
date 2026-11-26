@@ -128,6 +128,11 @@ const UI = {
     veh_vip: "confort superior", veh_supl: "con suplemento", veh_diff: "Elegiste un vehículo distinto al sugerido: la tarifa puede cambiar y ET la confirma al reservar.", veh_diff27: "Elegiste un vehículo más grande que el asignado: el total suma el suplemento por cambio de vehículo de cada tour y traslado (ver Transporte).", veh_sup: "Suplemento {0}: {1} por vehículo, según tu tarifario.",
     cv_row: "Cambio de vehículo · {0}: {1} ({2})", cv_t: "Suplemento por cambio de vehículo", cv_s: "Si el grupo elige un vehículo más grande que el asignado por número de pasajeros, se cobra la diferencia como suplemento: valor total del servicio por vehículo (no por persona). En traslados, por trayecto (llegada + salida = dos trayectos). Solo se cobra al subir a un vehículo mayor; de 20 a 30 pax (Busetón + apoyo) no hay cambio. «Arma tu ruta» lo suma solo cuando eliges otro vehículo.",
     cv_tours: "Tours: {0}", cv_tras: "Traslados: {0}", cv_asg: "Asignado ↓ / elegido →", cv_note: "Tours de hasta 4 h: tabla de 4 horas; de más de 4 h: tabla de 8 horas.",
+    cv_extra: "Otros vehículos: SUV Jetour, tarifa de la Duster + 7 % en cada tour y traslado · Jeep Willys, {0} por vehículo en cada tour (traslados por cotizar) · Vehículo accesible, tarifa de la Duster (sin suplemento).",
+    cv_need: "Indica el número de pasajeros para ver el suplemento por cambio de vehículo.", cv_vals: "Suplemento por cambio de vehículo para {0} pax (valor total por vehículo): {1}.",
+    cv_none: "Sin suplemento: es el vehículo asignado (o uno menor) para {0} pax.", cv_jetour: "SUV Jetour: tarifa de la Duster + 7 % en cada tour y traslado de la ruta.",
+    cv_willys: "Jeep Willys: {0} por vehículo en cada tour; los traslados se cotizan aparte.", cv_acc: "Vehículo accesible: misma tarifa de la Duster, sin suplemento.",
+    cv_route: "En tu ruta suma {0} por pasajero.", cv_t4: "tour de 4 h {0}", cv_t8: "tour de 8 h {0}", cv_eden: "traslado El Edén {0} por trayecto", cv_mate: "traslado Matecaña {0} por trayecto", cv_pct: "{0} (+7 % de la tarifa)",
     veh_row: "Vehículo elegido: {0}", veh_use: "Usar en mi ruta", veh_in: "✓ En mi ruta", veh_set: "Vehículo de tu ruta: {0}", veh_reset: "{0} no alcanza para {1} pasajeros: volvimos al vehículo sugerido.", veh_pick: "elegido por la agencia; sugerido: {0}", veh_sug_b: "Sugerido para {0} pax",
     al_cross: "Día {0}: «{1}» se cruza con «{2}» (al terminar «{2}» llegarían hacia las {3} y «{1}» sale a más tardar a las {4}). Pásalo a otro día.",
     al_long: "Día {0}: ≈ {1} entre tours y trayectos. Es una jornada muy larga: reparte los tours en otro día.", al_late: "Día {0}: el regreso al hotel sería hacia las {1}, muy tarde. Revisa si conviene pasar un tour a otro día.",
@@ -234,6 +239,11 @@ const UI = {
     veh_vip: "superior comfort", veh_supl: "with supplement", veh_diff: "You chose a vehicle other than the suggested one: the rate may change and ET confirms it when booking.", veh_diff27: "You chose a larger vehicle than the assigned one: the total adds the vehicle upgrade supplement for each tour and transfer (see Transport).", veh_sup: "Supplement {0}: {1} per vehicle, from your rate sheet.",
     cv_row: "Vehicle upgrade · {0}: {1} ({2})", cv_t: "Vehicle upgrade supplement", cv_s: "If the group chooses a larger vehicle than the one assigned by number of passengers, the difference is charged as a supplement: total value of the service per vehicle (not per person). Transfers: per leg (arrival + departure = two legs). Only charged when moving up to a larger vehicle; from 20 to 30 pax (minibus + support) there is no change. «Build a route» adds it only when you choose another vehicle.",
     cv_tours: "Tours: {0}", cv_tras: "Transfers: {0}", cv_asg: "Assigned ↓ / chosen →", cv_note: "Tours up to 4 h: 4-hour table; longer than 4 h: 8-hour table.",
+    cv_extra: "Other vehicles: Jetour SUV, Duster rate + 7% on each tour and transfer · Jeep Willys, {0} per vehicle on each tour (transfers on request) · Accessible vehicle, Duster rate (no supplement).",
+    cv_need: "Enter the number of passengers to see the vehicle upgrade supplement.", cv_vals: "Vehicle upgrade supplement for {0} pax (total per vehicle): {1}.",
+    cv_none: "No supplement: this is the assigned vehicle (or a smaller one) for {0} pax.", cv_jetour: "Jetour SUV: Duster rate + 7% on each tour and transfer of the route.",
+    cv_willys: "Jeep Willys: {0} per vehicle on each tour; transfers are quoted separately.", cv_acc: "Accessible vehicle: same rate as the Duster, no supplement.",
+    cv_route: "In your route it adds {0} per passenger.", cv_t4: "4-hour tour {0}", cv_t8: "8-hour tour {0}", cv_eden: "El Edén transfer {0} per leg", cv_mate: "Matecaña transfer {0} per leg", cv_pct: "{0} (+7% of the rate)",
     veh_row: "Chosen vehicle: {0}", veh_use: "Use in my route", veh_in: "✓ In my route", veh_set: "Route vehicle: {0}", veh_reset: "{0} is too small for {1} passengers: back to the suggested vehicle.", veh_pick: "chosen by the agency; suggested: {0}", veh_sug_b: "Suggested for {0} pax",
     al_cross: "Day {0}: «{1}» overlaps with «{2}» (after «{2}» the group would arrive around {3}, and «{1}» starts {4} at the latest). Move it to another day.",
     al_long: "Day {0}: ≈ {1} of tours and driving. That is a very long day: spread the tours over another day.", al_late: "Day {0}: the group would be back at the hotel around {1}, which is late. Consider moving a tour to another day.",
@@ -1865,33 +1875,53 @@ function vehAsignado(p, tipo) {
   for (const [veh, txt] of Object.entries(R)) { const n = String(txt).match(/\d+/g).map(Number); if (p >= n[0] && p <= n[1]) return veh; }
   return null;
 }
-// 0 = sin suplemento · número = total por vehículo · undefined = por cotizar
-function cvSup(srv, tipo, p) {
+// Otros vehículos (Carolina, 25-nov-2026): SUV Jetour = tarifa de la Duster + 7 %; Jeep Willys = $450.000 por vehículo en cada tour
+const JETOUR_PCT = 0.07, WILLYS_TOUR = 450000;
+const cvVal = (srv, as, el) => { const K = MKT().cveh, v = (((K.servicios[srv] || {}).total_por_vehiculo || {})[as] || {})[el]; return typeof v === "number" ? v : null; };
+// 0 = sin suplemento · { t } = total por vehículo · { pp } = por persona · undefined = por cotizar. base = tarifa por persona del servicio
+function cvSup(srv, tipo, p, base) {
   const K = MKT() && MKT().cveh, v = routeVeh();
   if (!K || !vehChosen() || !v) return 0;
+  if (v.id === "jetour") return base == null ? undefined : { pp: Math.round(base * JETOUR_PCT / 1000) * 1000, pct: true };
+  if (v.id === "willys") return tipo === "tours" ? { t: WILLYS_TOUR } : undefined;
   const el = VEH_CLASE[v.id], as = vehAsignado(p, tipo);
-  if (!el || !as || !srv || !K.servicios[srv]) return undefined;
+  if (!el || !as) return undefined;
   if (K.vehiculos.indexOf(el) <= K.vehiculos.indexOf(as)) return 0;            // solo al subir a un vehículo mayor
-  const val = ((K.servicios[srv].total_por_vehiculo || {})[as] || {})[el];
-  return typeof val === "number" ? val : undefined;
+  if (!srv || !K.servicios[srv]) return undefined;
+  const val = cvVal(srv, as, el);
+  return val == null ? undefined : { t: val };
+}
+// Nota bajo el vehículo elegido: el valor del suplemento según los pasajeros de la ruta
+function cvInfo(v, p) {
+  if (!p) return tx("cv_need");
+  if (v.id === "jetour") return tx("cv_jetour");
+  if (v.id === "willys") return tx("cv_willys", cop(WILLYS_TOUR));
+  if (v.id === "accesible") return tx("cv_acc");
+  const el = VEH_CLASE[v.id], K = MKT().cveh; if (!el) return tx("veh_diff");
+  const up = tipo => { const as = vehAsignado(p, tipo); return as && K.vehiculos.indexOf(el) > K.vehiculos.indexOf(as) ? as : null; };
+  const aT = up("tours"), aX = up("traslados"), parts = [];
+  if (aT) [["tour_4_horas", "cv_t4"], ["tour_8_horas", "cv_t8"]].forEach(([k, l]) => { const x = cvVal(k, aT, el); if (x != null) parts.push(tx(l, cop(x))); });
+  if (aX) [["traslado_aeropuerto_eden_por_trayecto", "cv_eden"], ["traslado_aeropuerto_matecana_por_trayecto", "cv_mate"]].forEach(([k, l]) => { const x = cvVal(k, aX, el); if (x != null) parts.push(tx(l, cop(x))); });
+  return parts.length ? tx("cv_vals", p, parts.join(" · ")) : (aT || aX ? tx("veh_diff") : tx("cv_none", p));
 }
 function routeTotals() {
   const R = S.R, h = R.hotel, p = R.pax, rows = []; let total = 0, quote = false;
-  const cvK = !!(MKT() && MKT().cveh), cvQ = [];
-  const cvRow = (srv, tipo, lbl) => { const s = cvSup(srv, tipo, p); if (s === 0) return; if (s === undefined) { cvQ.push(lbl); return; }
-    const pp = Math.round(s / Math.max(1, p)); total += pp; rows.push({ t: tx("cv_row", lbl, vehName(routeVeh()), tx("g_div", cop(s), Math.max(1, p))), v: cop(pp) }); };
+  const cvK = !!(MKT() && MKT().cveh), cvQ = []; let cvTot = 0;
+  const cvRow = (srv, tipo, lbl, base) => { const s = cvSup(srv, tipo, p, base); if (s === 0) return; if (s === undefined) { cvQ.push(lbl); return; }
+    const pp = s.pp != null ? s.pp : Math.round(s.t / Math.max(1, p)); total += pp; cvTot += pp;
+    rows.push({ t: tx("cv_row", lbl, vehName(routeVeh()), s.pct ? tx("cv_pct", cop(base)) : tx("g_div", cop(s.t), Math.max(1, p))), v: cop(pp) }); };
   [[tx("tot_arr"), R.arr], [tx("tot_dep"), R.dep]].forEach(([lbl, a]) => { if (!h || !a) return; const c = transferCode(h, a); const v = c ? svcAt(c, p) : null;
     if (v != null) { total += v; rows.push({ t: lbl, c, v: cop(v) }); } else { quote = true; rows.push({ t: `${lbl} (${apById(a) ? apName(apById(a)) : a})`, v: tx("quote") }); }
-    if (cvK) cvRow(CV_SRV[a], "traslados", lbl); });
+    if (cvK) cvRow(CV_SRV[a], "traslados", lbl, v); });
   R.tours.slice().sort((a, b) => a.day - b.day).forEach(t => { const e = byId[t.id]; const v = priceAt(e.id, p);
     if (v == null) { quote = true; rows.push({ t: tr(e, "name"), v: tx("ask") }); } else { total += v; rows.push({ t: tr(e, "name"), v: cop(v) }); }
     if (e.id === "finca" && R.finca && finById[R.finca] && finById[R.finca].sup) { const f = finById[R.finca]; total += f.sup; rows.push({ t: tx("sup_of", f.name), v: cop(f.sup) }); }
     if (t.g) { const gv = guideVal(t.g, e), gl = tx("g_row", capFirst(gLabel(t.g)), tr(e, "name"));
       if (gv == null) { quote = true; rows.push({ t: gl, v: tx("ask") }); } else { const pp = Math.round(gv / Math.max(1, p)); total += pp; rows.push({ t: `${gl} (${tx("g_div", cop(gv), Math.max(1, p))})`, v: cop(pp) }); } }
-    if (cvK && !e.tarifa_unica) cvRow((+e.hrs || 4) <= 4 ? "tour_4_horas" : "tour_8_horas", "tours", tr(e, "name")); });
+    if (cvK && !e.tarifa_unica) cvRow((+e.hrs || 4) <= 4 ? "tour_4_horas" : "tour_8_horas", "tours", tr(e, "name"), v); });
   // Sin la tabla 2027 (o con un vehículo sin categoría, como el VIP o el Willys): el cambio de vehículo se cotiza aparte, como antes
   if (vehChosen() && (!cvK || cvQ.length)) { quote = true; rows.push({ t: tx("veh_row", vehName(routeVeh())) + (cvQ.length ? " · " + cvQ.join(", ") : ""), v: tx("quote") }); }
-  return { rows, total, quote };
+  return { rows, total, quote, cvTot };
 }
 function renderRoute() {
   const R = S.R;
@@ -1937,11 +1967,14 @@ function renderVehPick() {
   const R = S.R, box = $r("rveh"), sug = R.pax ? vehFor(R.pax) : null, cur = routeVeh();
   if (!cur) { box.className = "veh"; box.innerHTML = `${ic("bus")}<span>${tx("veh_need")}</span>`; return; }
   const opt = v => `<option value="${esc(v.id)}"${fitsV(v, R.pax) ? "" : " disabled"}>${esc(vehName(v))} · ${esc(vehCap(v))}${v.vip ? " · " + tx("veh_vip") : ""}${v.suplemento ? " · " + tx("veh_supl") : ""}${fitsV(v, R.pax) ? "" : " · " + tx("veh_nofit", R.pax)}</option>`;
-  const sup = vehChosen() && cur.suplemento && !S.wl ? svcAt(cur.suplemento, Math.min(R.pax || 1, capOf(cur))) ?? svcAt(cur.suplemento, 1) : null;
+  const cvK = !!(MKT() && MKT().cveh);
+  const sup = !cvK && vehChosen() && cur.suplemento && !S.wl ? svcAt(cur.suplemento, Math.min(R.pax || 1, capOf(cur))) ?? svcAt(cur.suplemento, 1) : null;
+  const cvT = cvK && vehChosen() && R.pax ? routeTotals().cvTot : 0;
   box.className = "veh vehpick";
   box.innerHTML = `<label class="field">${tx("veh_l")}<select data-r="rvsel"><option value="">${sug ? esc(tx("veh_auto", vehName(sug), vehCap(sug))) : tx("veh_auto0")}</option>${D.vehicles.map(opt).join("")}</select></label>
     <div class="vinfo">${ic("bus")}<span><b>${esc(vehName(cur))}</b>${cur.equipaje ? " · " + esc(cur.equipaje) : ""} · <a href="#" data-r="seeveh">${tx("see_fleet")}</a></span></div>
-    ${vehChosen() ? `<p class="fnote">${ic("info", "sm")}<span>${esc(tx(MKT() && MKT().cveh ? "veh_diff27" : "veh_diff"))}${sup != null ? `<span class="money"> ${esc(tx("veh_sup", cur.suplemento, cop(sup)))}</span>` : ""}</span></p>` : ""}`;
+    ${vehChosen() && cvK ? `<p class="fnote money">${ic("info", "sm")}<span>${esc(cvInfo(cur, R.pax))}${cvT ? ` <b>${esc(tx("cv_route", cop(cvT)))}</b>` : ""}</span></p>` : ""}
+    ${vehChosen() && !cvK ? `<p class="fnote">${ic("info", "sm")}<span>${esc(tx("veh_diff"))}${sup != null ? `<span class="money"> ${esc(tx("veh_sup", cur.suplemento, cop(sup)))}</span>` : ""}</span></p>` : ""}`;
   const sel = $r("rvsel"); sel.value = vehChosen() ? cur.id : "";
   sel.addEventListener("change", () => { const v = D.vehicles.find(x => x.id === sel.value); S.R.veh = v && !(R.pax && vehFor(R.pax).id === v.id) ? v.id : ""; saveR(); renderRoute(); toast(tx("veh_set", vehName(routeVeh()))); });
   $r("seeveh").addEventListener("click", ev => { ev.preventDefault(); setTab("trans"); renderTrans(cur.id); });
@@ -2223,7 +2256,7 @@ function cvHtml(C) {
   const reg = o => Object.entries(o || {}).map(([v, t]) => `${v} ${t}`).join(" · ");
   return `<div class="section money" id="pf-cveh"><h3>${tx("cv_t")}</h3><p class="note">${tx("cv_s")}</p>
     <ul class="ul"><li>${esc(tx("cv_tours", reg(R.tours)))}</li><li>${esc(tx("cv_tras", reg(R.traslados)))}</li></ul>
-    ${["tour_4_horas", "tour_8_horas", "traslado_aeropuerto_eden_por_trayecto", "traslado_aeropuerto_matecana_por_trayecto"].map(tbl).join("")}<p class="note">${tx("cv_note")}</p></div>`;
+    ${["tour_4_horas", "tour_8_horas", "traslado_aeropuerto_eden_por_trayecto", "traslado_aeropuerto_matecana_por_trayecto"].map(tbl).join("")}<p class="note">${tx("cv_note")}</p><p class="note">${esc(tx("cv_extra", cop(WILLYS_TOUR)))}</p></div>`;
 }
 function guidesHtml(K) {
   const v = x => (typeof x === "number" ? cop(x) : esc(x == null ? tx("ask") : x));
