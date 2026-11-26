@@ -3336,26 +3336,50 @@ function approvalCard(host) {
       btn("Ahora no", close)));
 }
 // Resultado + aviso a la persona (en su idioma) por WhatsApp o correo
+/* ---------- Mensaje de acceso (bienvenida) para enviar por WhatsApp, correo o copiarlo (26-nov-2026) ----------
+   Con clave temporal (cuenta creada por administración) va la clave. Si la persona pidió el acceso ella misma, su clave es la
+   que creó al registrarse: nadie más la conoce (Firebase la guarda cifrada), así que el mensaje se lo recuerda y le explica cómo
+   crear una nueva; además administración puede hacer que Firebase le envíe ese enlace. El mensaje se ve en pantalla para copiarlo. */
+function welcomeMsg(u, clave, correo) {
+  const en = (u.solicitud || {}).idioma === "en", n = first(u.nombre);
+  if (en) return `Hello${n ? " " + n : ""}, your access to the Espontáneos Travel agency portal is active 🌿\n\nSign in at: ${PORTAL_URL}\nUser: ${u.email}\n` +
+    (clave ? `Temporary password: ${clave}\n\nThe first time, confirm your email with the link we sent you (check spam too). You can change the password with «Forgot your password?».`
+      : correo ? `We sent you an email to create your password (check spam too).`
+        : `Password: the one you created when you requested access. If you don't remember it, click «Forgot your password?» on the sign-in page and you will receive a link to create a new one (check spam too).`);
+  return `Hola${n ? " " + n : ""}, ya está activo tu acceso al portal de agencias de Espontáneos Travel 🌿\n\nEntra en: ${PORTAL_URL}\nUsuario: ${u.email}\n` +
+    (clave ? `Clave temporal: ${clave}\n\nAl entrar por primera vez, confirma tu correo con el enlace que te enviamos (revisa también spam). Puedes cambiar la clave con «¿Olvidaste tu contraseña?».`
+      : correo ? `Te enviamos un correo para que crees tu clave (revisa también spam).`
+        : `Clave: la que creaste al solicitar el acceso. Si no la recuerdas, en la página de ingreso pulsa «¿Olvidaste tu contraseña?» y te llega un enlace para crear una nueva (revisa también spam).`);
+}
+function welcomeCard(host, u, o) {
+  o = o || {};
+  const msg = welcomeMsg(u, o.clave, o.correo), en = (u.solicitud || {}).idioma === "en";
+  const wa = waDigits(u.whatsapp || (u.solicitud || {}).telefono);
+  const subject = en ? "Your Espontáneos Travel agency portal access" : "Tu acceso al portal de agencias · Espontáneos Travel";
+  const resetBtn = !o.clave && !o.correo ? btn("Enviarle un enlace para crear una clave nueva", e => {
+    if (!window.confirm(`Firebase le enviará a ${u.email} un correo con un enlace para crear una clave nueva (no usa tu correo). ¿Enviarlo?`)) return;
+    busy(e.currentTarget, async () => { await au.sendPasswordResetEmail(S.fb.auth, u.email); notify(`Enlace enviado a ${u.email}. Que revise también spam.`); });
+  }) : null;
+  add(host, h("section", { class: "p-card p-approve", role: "status" },
+    h("h2", { class: "p-h2" }, o.title || `✅ Acceso activo: ${u.nombre || u.email}`),
+    kvList(kv("Usuario (correo)", u.email), o.clave ? kv("Clave temporal", h("strong", { class: "p-mono" }, o.clave)) : kv("Clave", o.correo ? "La crea la persona con el enlace que le llegó por correo." : "La que la persona creó al pedir el acceso (nadie más la conoce, ni siquiera administración)."),
+      u.dmcId ? kv("Agencia", dmcName(u.dmcId) || u.dmcId) : null),
+    h("p", { class: "p-muted" }, "Mensaje para enviarle" + (en ? " (en inglés, como pidió el portal)" : "") + (o.clave ? ". Por seguridad la clave no se guarda en ningún lado: envíala ahora." : "") + ":"),
+    h("pre", { class: "p-msg", style: "white-space:pre-wrap;font:inherit;background:var(--surface,#f4f4ef);border:1px solid var(--line,#ddd);border-radius:8px;padding:12px;margin:8px 0;user-select:all" }, msg),
+    h("div", { class: "p-actions" },
+      wa ? h("a", { class: "btn btn--wa btn--sm", href: waLink(wa, msg), target: "_blank", rel: "noopener noreferrer" }, "Enviar por WhatsApp") : null,
+      h("a", { class: "btn btn--ghost btn--sm", href: `mailto:${encodeURIComponent(u.email).replace("%40", "@")}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}` }, "Enviar por correo"),
+      btn("Copiar mensaje", () => { try { navigator.clipboard.writeText(msg).then(() => notify("Mensaje copiado: pégalo en WhatsApp, correo o donde quieras."), () => window.prompt("Copia el mensaje:", msg)); } catch (e) { window.prompt("Copia el mensaje:", msg); } }, "btn--brand"),
+      resetBtn, btn("Cerrar", () => clear(host)))));
+  focusHeading(host);
+  try { host.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) { /* sin desplazamiento */ }
+}
 function approvalDoneCard(host, done) {
   const { u, r } = done;
-  const s = u.solicitud || {};
-  const en = s.idioma === "en";
   const name = u.nombre || u.email;
   const ok = h("div", { class: "p-actions" }, btn("Listo", () => clear(host)));
   if (r === "no") return add(host, h("section", { class: "p-card p-approve", role: "status" }, h("h2", { class: "p-h2" }, `Solicitud rechazada: ${name}`), ok));
-  const msg = en
-    ? `Hello ${first(u.nombre)}, your access to the Espontáneos Travel agency portal is now active. Sign in with ${u.email} here: ${PORTAL_URL}`
-    : `Hola ${first(u.nombre)}, ya está activo tu acceso al portal de agencias de Espontáneos Travel. Entra con ${u.email} aquí: ${PORTAL_URL}`;
-  const subject = en ? "Your Espontáneos Travel portal access is active" : "Ya está activo tu acceso al portal de Espontáneos Travel";
-  const wa = waDigits(u.whatsapp || s.telefono);
-  add(host, h("section", { class: "p-card p-approve", role: "status" },
-    h("h2", { class: "p-h2" }, `✅ Acceso activo: ${name}`),
-    h("p", null, roleLabel(r) + (u.dmcId ? " · " + dmcName(u.dmcId) : "")),
-    h("p", { class: "p-muted" }, "Avísale que ya puede entrar (el mensaje ya va escrito" + (en ? ", en inglés" : "") + "):"),
-    h("div", { class: "p-actions" },
-      wa ? h("a", { class: "btn btn--wa btn--sm", href: waLink(wa, msg), target: "_blank", rel: "noopener noreferrer" }, "Avisar por WhatsApp") : null,
-      h("a", { class: "btn btn--ghost btn--sm", href: `mailto:${encodeURIComponent(u.email).replace("%40", "@")}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}` }, "Avisar por correo"),
-      btn("Listo", () => clear(host)))));
+  welcomeCard(host, Object.assign({}, u, { rol: r }), { title: `✅ Acceso activo: ${name} · ${roleLabel(r)}${u.dmcId ? " · " + dmcName(u.dmcId) : ""}` });
 }
 
 async function adminUsuarios(view) {
@@ -3376,7 +3400,7 @@ async function adminUsuarios(view) {
     count.textContent = `${shown.length} de ${S.users.length} usuarios`;
     clear(out);
     if (!shown.length) add(out, emptyBox("Ningún usuario con esos filtros."));
-    shown.forEach(u => add(out, userCard(u, draw)));
+    shown.forEach(u => add(out, userCard(u, draw, x => { clear(formHost); welcomeCard(formHost, x); })));
   }
   [est, rol].forEach(el => el.addEventListener("change", draw));
   q.addEventListener("input", debounce(draw, 150));
@@ -3388,7 +3412,7 @@ async function adminUsuarios(view) {
   draw();
 }
 
-function userCard(u, redraw) {
+function userCard(u, redraw, onWelcome) {
   const self = u.id === S.user.uid;
   const s = u.solicitud;
   const rolSel = selectEl([["dmc", "DMC"], ["asesor", "Asesor"], ["admin", "Administrador"]], u.rol, { id: uid("rol"), disabled: self });
@@ -3413,7 +3437,9 @@ function userCard(u, redraw) {
     if (!d && s) d = await createDmcFromSolicitud(u);
     if (!d) throw userErr("Elige el DMC al que pertenece este usuario.");
     await save({ rol: "dmc", estado: "activo", dmcId: d });
+    if (onWelcome) onWelcome(u);            // el mensaje de acceso listo para enviar
   }), "btn--brand"));
+  if (!self && u.estado === "activo" && onWelcome) acts.push(btn("Mensaje de acceso", () => onWelcome(u)));
   if (s && !u.dmcId && u.rol === "dmc") acts.push(btn("Solo crear el DMC", e => busy(e.currentTarget, async () => {
     const id = await createDmcFromSolicitud(u);
     clear(dmcSel); dmcOpts().forEach(([v, l]) => add(dmcSel, h("option", { value: v }, l)));
@@ -3464,7 +3490,7 @@ async function createAccount(v) {
     await authM.signOut(auth2).catch(() => {});
   } catch (e) {
     if (uidNew) throw userErr(`La cuenta se creó (UID ${uidNew}) pero no se pudo guardar su perfil: ${errMsg(e)} Créalo en la consola (ver docs/BACKEND.md).`);
-    if (/email-already-in-use/.test(String(e && (e.code || e.message)))) throw userErr("Ese correo ya tiene una cuenta. Búscalo en Usuarios y asígnale la agencia.");
+    if (/email-already-in-use/.test(String(e && (e.code || e.message)))) { const er = userErr("Ese correo ya tiene una cuenta. Búscalo en Usuarios y asígnale la agencia."); er.exists = true; throw er; }
     throw e;
   } finally {
     await appM.deleteApp(app2).catch(() => {});
@@ -3474,18 +3500,24 @@ async function createAccount(v) {
 }
 // Tarjeta con el acceso listo para enviar (WhatsApp o correo)
 function accessCard(host, v, res) {
-  const msg = `Hola ${v.nombre.split(" ")[0]}, ya tienes acceso al portal de agencias de Espontáneos Travel 🌿\n\nEntra en: https://www.espontaneostravel.com/portal.html\nUsuario: ${v.email}\n` +
-    (res.clave ? `Clave temporal: ${res.clave}\n\nAl entrar por primera vez, confirma tu correo con el enlace que te enviamos (revisa también spam). Puedes cambiar la clave con «¿Olvidaste tu contraseña?».`
-      : `Te enviamos un correo para que crees tu clave (revisa también spam).`);
-  const wa = waDigits(v.whatsapp);
-  add(host, h("div", { class: "p-card p-approve" },
-    h("h2", { class: "p-h2" }, "✅ Acceso creado"),
-    kvList(kv("Nombre", v.nombre), kv("Usuario (correo)", v.email), res.clave ? kv("Clave temporal", h("strong", { class: "p-mono" }, res.clave)) : null, v.dmcId ? kv("Agencia", dmcName(v.dmcId) || v.dmcId) : null),
-    h("p", { class: "p-muted" }, "Envíale el acceso (el mensaje ya va escrito). Por seguridad, la clave no se guarda en ningún lado: cópiala ahora."),
+  return welcomeCard(host, { nombre: v.nombre, email: v.email, whatsapp: v.whatsapp, dmcId: v.rol === "dmc" ? v.dmcId : null }, { clave: res.clave, correo: !res.clave, title: "✅ Acceso creado" });
+}
+// «Crear acceso» con un correo que ya tiene cuenta (p. ej. la persona pidió el acceso ella misma): se vincula y se activa,
+// y queda el mensaje de acceso para enviarle (su clave es la que creó al registrarse)
+function existingAccountCard(host, ex, v, onDone) {
+  const need = ex.estado !== "activo" || ex.rol !== v.rol || (v.rol === "dmc" && ex.dmcId !== v.dmcId);
+  add(host, h("section", { class: "p-card p-approve", role: "status" },
+    h("h2", { class: "p-h2" }, "Ese correo ya tiene cuenta en el portal"),
+    kvList(kv("Usuario", `${ex.nombre || ""} · ${ex.email}`), kv("Rol", roleLabel(ex.rol)), kv("Estado", ex.estado), kv("Agencia", ex.dmcId ? dmcName(ex.dmcId) : "Sin agencia")),
+    h("p", { class: "p-muted" }, "No hace falta crearla de nuevo. Su clave es la que creó al registrarse (nadie más la conoce)" + (need ? ": vincúlala y actívala, y te muestro el mensaje de acceso para enviarle." : ". Ya está activa: envíale el mensaje de acceso.")),
     h("div", { class: "p-actions" },
-      wa ? h("a", { class: "btn btn--brand btn--sm", href: "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg), target: "_blank", rel: "noopener" }, "Enviar por WhatsApp") : null,
-      h("a", { class: "btn btn--ghost btn--sm", href: "mailto:" + encodeURIComponent(v.email) + "?subject=" + encodeURIComponent("Tu acceso al portal de agencias · Espontáneos Travel") + "&body=" + encodeURIComponent(msg) }, "Enviar por correo"),
-      btn("Copiar mensaje", () => { try { navigator.clipboard.writeText(msg); notify("Mensaje copiado."); } catch (e) { window.prompt("Copia el mensaje:", msg); } }),
+      need ? btn(`Vincular${v.rol === "dmc" && v.dmcId ? " a " + (dmcName(v.dmcId) || v.dmcId) : ""} y activar`, e => busy(e.currentTarget, async () => {
+        const upd = { rol: v.rol, estado: "activo", dmcId: v.rol === "dmc" ? v.dmcId : null, actualizado: ts() };
+        await fs.updateDoc(dref("users", ex.id), upd); Object.assign(ex, upd);
+        notify(`${ex.email} quedó activo.`);
+        if (onDone) await onDone();
+        clear(host); welcomeCard(host, ex);
+      }), "btn--brand") : btn("Ver mensaje de acceso", () => { clear(host); welcomeCard(host, ex); }, "btn--brand"),
       btn("Cerrar", () => clear(host)))));
   focusHeading(host);
 }
@@ -3505,7 +3537,15 @@ function accountForm(host, presetRol, onDone, preset) {
     const v = f.get();
     if (v.rol === "dmc" && !v.dmcId) throw userErr("Elige el DMC para una cuenta de rol DMC.");
     if (v.modo === "temporal" && String(v.clave || "").length < 8) throw userErr("La clave temporal debe tener al menos 8 caracteres.");
-    const res = await createAccount(v);
+    let res;
+    try { res = await createAccount(v); }
+    catch (e) {
+      if (!e || !e.exists) throw e;
+      await loadRefs(true);
+      const ex = S.users.find(x => String(x.email || "").toLowerCase() === String(v.email).trim().toLowerCase());
+      if (!ex) throw userErr("Ese correo ya tiene una cuenta de acceso, pero sin perfil en el portal. Pídele que entre en portal.html con su correo y su clave (o «¿Olvidaste tu contraseña?») y luego apruébalo en Usuarios.");
+      clear(host); existingAccountCard(host, ex, v, onDone); return;
+    }
     notify(res.clave ? `Acceso creado para ${v.email}.` : `Cuenta creada para ${v.email}. Le enviamos un correo para que cree su contraseña.`);
     clear(host);
     accessCard(host, v, res);
@@ -3537,7 +3577,7 @@ async function adminAgencias(view) {
     if (pend.length) add(pendHost, h("section", { class: "p-card p-pending" },
       h("h2", { class: "p-h2" }, `Solicitudes de acceso por aprobar (${pend.length})`),
       h("p", { class: "p-muted" }, "«Aprobar DMC» crea el DMC con los datos de la solicitud (o lo vincula si ya existe) y activa el acceso."),
-      h("div", { class: "p-cards" }, pend.map(u => userCard(u, reload)))));
+      h("div", { class: "p-cards" }, pend.map(u => userCard(u, reload, x => { clear(formHost); welcomeCard(formHost, x); })))));
     const term = norm(q.value);
     const shown = S.dmcs.filter(d => !term || norm([d.id, d.nombre, d.pais, d.ciudad, d.nit, d.contacto].join(" ")).includes(term));
     clear(out);
@@ -3644,7 +3684,16 @@ function agencyAccessForm(host, onDone) {
     else await commitDmc([bt => bt.set(dref("dmcs", id), Object.assign({ nombre: v.nombre, nit: v.nit, pais: v.pais, ciudad: v.ciudad, contacto: v.contacto, email: v.email, telefono: v.telefono, activo: true, creado: ts(), actualizado: ts() }, tar, v.fichasPdf ? { fichasPdf: true } : {})),
       bt => bt.set(dref("dmcs_privado", id), { notas: v.notas, actualizado: ts() })], tar);
     const acc = { nombre: v.contacto, email: v.email, whatsapp: v.telefono, rol: "dmc", dmcId: id, modo: "temporal", clave: v.clave, idiomas: "es" };
-    const res = await createAccount(acc);
+    let res;
+    try { res = await createAccount(acc); }
+    catch (e) {
+      if (!e || !e.exists) throw e;
+      // El correo ya tiene cuenta (p. ej. pidió el acceso él mismo): el DMC ya quedó creado; se vincula y se activa
+      await loadRefs(true);
+      const ex = S.users.find(x => String(x.email || "").toLowerCase() === String(v.email).trim().toLowerCase());
+      if (!ex) throw userErr("El DMC quedó creado, pero ese correo ya tiene una cuenta de acceso sin perfil en el portal. Pídele que entre en portal.html con su correo y su clave (o «¿Olvidaste tu contraseña?») y luego apruébalo en Usuarios.");
+      clear(host); existingAccountCard(host, ex, acc, onDone); if (onDone) await onDone(); return;
+    }
     await loadRefs(true);
     clear(host);
     accessCard(host, acc, res);
